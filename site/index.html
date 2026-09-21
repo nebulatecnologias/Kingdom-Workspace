@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Conselheiro — Advising Estratégico | Shelton Douglas</title>
+<meta name="description" content="Advising estratégico para empreendedores e líderes que precisam de clareza, estrutura e um plano de ação prático. Conduzido por Shelton Douglas — O Conselheiro, Kingdom Company.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-cream-100 text-brown-900 antialiased">
+
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50 bg-brown-900/90 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3 group" aria-label="O Conselheiro — início">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 2 L23 18 L38 20 L23 22 L20 38 L17 22 L2 20 L17 18 Z" fill="#c39872"/>
+      </svg>
+      <span class="text-cream-50 font-serif font-semibold tracking-wide text-lg leading-none">O Conselheiro</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-cream-100/80">
+      <a href="#metodologia" class="hover:text-cream-50 transition-colors">Metodologia</a>
+      <a href="#para-quem" class="hover:text-cream-50 transition-colors">Para Quem É</a>
+      <a href="#conselheiro" class="hover:text-cream-50 transition-colors">O Conselheiro</a>
+      <a href="#como-funciona" class="hover:text-cream-50 transition-colors">Como Funciona</a>
+    </nav>
+
+    <a href="#contacto" class="hidden sm:inline-flex items-center gap-2 bg-copper-500 hover:bg-copper-400 text-brown-950 font-semibold text-sm px-5 py-2.5 rounded-full transition-colors">
+      Agendar Sessão
+    </a>
+
+    <button id="menu-btn" class="md:hidden text-cream-50 p-2" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-brown-900 border-t border-white/10 px-6 py-6 flex flex-col gap-5 text-cream-100">
+    <a href="#metodologia">Metodologia</a>
+    <a href="#para-quem">Para Quem É</a>
+    <a href="#conselheiro">O Conselheiro</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#contacto" class="inline-flex items-center justify-center gap-2 bg-copper-500 text-brown-950 font-semibold text-sm px-5 py-3 rounded-full">Agendar Sessão</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative bg-brown-900 pt-40 pb-28 md:pt-48 md:pb-36 overflow-hidden">
+  <div class="absolute inset-0 compass-glow"></div>
+  <div class="absolute -right-24 -top-24 w-[520px] h-[520px] opacity-[0.07]" aria-hidden="true">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2 L23 18 L38 20 L23 22 L20 38 L17 22 L2 20 L17 18 Z" fill="#fff"/></svg>
+  </div>
+
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-cream-100/90 text-xs font-medium tracking-wide uppercase px-4 py-2 rounded-full mb-8">
+      <span class="w-1.5 h-1.5 rounded-full bg-copper-400"></span>
+      Advising Estratégico · Kingdom Company
+    </span>
+
+    <h1 class="font-serif font-semibold text-cream-50 text-4xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight">
+      Menos informação.<br class="hidden sm:block"> Mais clareza.
+    </h1>
+
+    <p class="mt-6 text-cream-100/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+      Advising estratégico e personalizado para empreendedores e líderes que se sentem
+      estagnados, sobrecarregados ou sem clareza sobre o próximo passo — no negócio, na
+      carreira ou nos seus projetos.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#contacto" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-copper-500 hover:bg-copper-400 text-brown-950 font-semibold px-7 py-3.5 rounded-full transition-colors">
+        <span aria-hidden="true">→</span> Agendar uma Sessão
+      </a>
+      <a href="#metodologia" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-cream-50 hover:bg-white text-brown-900 font-semibold px-7 py-3.5 rounded-full transition-colors">
+        Conhecer a Metodologia
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OBJETIVO ============ -->
+<section class="bg-cream-50 py-20 md:py-28">
+  <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+    <h2 class="font-serif font-semibold text-2xl md:text-3xl text-brown-900 mb-6">
+      Qual é o nosso maior objetivo com o Advising
+    </h2>
+    <p class="text-brown-800/80 text-base md:text-lg leading-relaxed">
+      Através de uma abordagem estratégica e personalizada, identificamos os gargalos pessoais
+      e empresariais que estão a limitar o crescimento — de vendas estagnadas e equipas com
+      baixa performance a processos desestruturados, falta de motivação e dependência
+      excessiva do dono.
+    </p>
+    <p class="mt-4 text-brown-800/80 text-base md:text-lg leading-relaxed">
+      O papel do Advisor é trazer clareza sobre o que está a acontecer, definir o que precisa
+      de ser resolvido primeiro e construir um caminho prático para avançar — com maior
+      autonomia, performance e sustentabilidade.
+    </p>
+  </div>
+</section>
+
+<!-- ============ METODOLOGIA (bento) ============ -->
+<section id="metodologia" class="bg-brown-900 py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl mb-16">
+      <span class="inline-block bg-copper-500/15 text-copper-400 text-xs font-semibold uppercase tracking-wide px-3 py-1.5 rounded-full mb-5">Nossa Metodologia</span>
+      <h2 class="font-serif font-semibold text-3xl md:text-4xl text-cream-50 leading-tight">
+        A Tríade da Clareza
+      </h2>
+      <p class="mt-4 text-cream-100/70 text-lg leading-relaxed">
+        Todo empreendedor, para alcançar qualquer resultado consistente, precisa de três
+        clarezas essenciais.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <article class="bg-brown-800/60 border border-white/10 rounded-3xl p-8 flex flex-col">
+        <span class="w-11 h-11 rounded-full bg-copper-500 text-brown-950 flex items-center justify-center font-serif font-bold text-lg mb-6">1</span>
+        <h3 class="font-serif font-semibold text-xl text-cream-50 mb-3">Raio-X</h3>
+        <p class="text-cream-100/60 text-sm leading-relaxed">
+          Enxergar com precisão onde está. Levantamento da situação atual e identificação de
+          dores, gargalos e oportunidades.
+        </p>
+      </article>
+
+      <article class="bg-brown-800/60 border border-white/10 rounded-3xl p-8 flex flex-col">
+        <span class="w-11 h-11 rounded-full bg-copper-500 text-brown-950 flex items-center justify-center font-serif font-bold text-lg mb-6">2</span>
+        <h3 class="font-serif font-semibold text-xl text-cream-50 mb-3">Advising</h3>
+        <p class="text-cream-100/60 text-sm leading-relaxed">
+          Compreender qual é o caminho certo a seguir. Desenho da solução recomendada e
+          definição de objetivos a partir das dores identificadas.
+        </p>
+      </article>
+
+      <article class="bg-copper-500 rounded-3xl p-8 flex flex-col">
+        <span class="w-11 h-11 rounded-full bg-brown-900 text-copper-400 flex items-center justify-center font-serif font-bold text-lg mb-6">3</span>
+        <h3 class="font-serif font-semibold text-xl text-brown-950 mb-3">Plano</h3>
+        <p class="text-brown-950 text-sm leading-relaxed">
+          Saber com exatidão o que fazer. Transformação da solução num roteiro executável,
+          com sequenciamento lógico do que precisa ser resolvido primeiro.
+        </p>
+      </article>
+    </div>
+
+    <p class="mt-8 text-cream-100/50 text-sm max-w-3xl">
+      O diferencial do método está em ir além das técnicas convencionais de gestão: promove o
+      desenvolvimento integrado do Empreendedor e do Empreendimento, entendendo que
+      resultados sustentáveis nascem quando ambos crescem juntos.
+    </p>
+  </div>
+</section>
+
+<!-- ============ PARA QUEM É / NÃO É ============ -->
+<section id="para-quem" class="bg-cream-50 py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl mb-16">
+      <h2 class="font-serif font-semibold text-3xl md:text-4xl text-brown-900 leading-tight">Para quem é o programa?</h2>
+      <p class="mt-4 text-brown-800/70 text-lg leading-relaxed">
+        O Advising é para quem reconhece que precisa de clareza, estrutura e direção — e está
+        disposto a fazer o necessário para avançar.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="bg-cream-100 border border-brown-900/10 rounded-3xl p-8 md:p-10">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-9 h-9 rounded-full bg-copper-500 flex items-center justify-center text-brown-950 font-bold">✓</span>
+          <h3 class="font-serif font-semibold text-lg text-brown-900">Para quem é</h3>
+        </div>
+        <ul class="space-y-3.5 text-brown-800/80 text-sm md:text-base leading-relaxed">
+          <li class="flex gap-3"><span class="text-copper-600 mt-0.5">—</span>Tem um negócio, mas sente que está estagnado</li>
+          <li class="flex gap-3"><span class="text-copper-600 mt-0.5">—</span>As vendas deixaram de crescer ou estão abaixo do esperado</li>
+          <li class="flex gap-3"><span class="text-copper-600 mt-0.5">—</span>A sua equipa não mantém uma boa performance</li>
+          <li class="flex gap-3"><span class="text-copper-600 mt-0.5">—</span>A empresa depende demasiado de si</li>
+          <li class="flex gap-3"><span class="text-copper-600 mt-0.5">—</span>É especialista e quer entender como monetizar o conhecimento</li>
+          <li class="flex gap-3"><span class="text-copper-600 mt-0.5">—</span>Está disposto a rever decisões, comportamentos e estruturas</li>
+        </ul>
+      </div>
+
+      <div class="bg-brown-900 rounded-3xl p-8 md:p-10">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-cream-100 font-bold">✕</span>
+          <h3 class="font-serif font-semibold text-lg text-cream-50">Para quem não é</h3>
+        </div>
+        <ul class="space-y-3.5 text-cream-100/60 text-sm md:text-base leading-relaxed">
+          <li class="flex gap-3"><span class="text-cream-100/30 mt-0.5">—</span>Não está disposto a implementar o que for definido</li>
+          <li class="flex gap-3"><span class="text-cream-100/30 mt-0.5">—</span>Não aceita rever os próprios comportamentos e decisões</li>
+          <li class="flex gap-3"><span class="text-cream-100/30 mt-0.5">—</span>Procura apenas motivação momentânea</li>
+          <li class="flex gap-3"><span class="text-cream-100/30 mt-0.5">—</span>Quer crescimento sem mudar processos, equipa ou forma de trabalhar</li>
+          <li class="flex gap-3"><span class="text-cream-100/30 mt-0.5">—</span>Não tem abertura para receber feedback direto</li>
+          <li class="flex gap-3"><span class="text-cream-100/30 mt-0.5">—</span>Quer terceirizar completamente a responsabilidade pelo negócio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE O CONSELHEIRO ============ -->
+<section id="conselheiro" class="bg-brown-900 py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-5 gap-14 items-center">
+    <div class="md:col-span-2">
+      <div class="aspect-[4/5] rounded-3xl bg-gradient-to-br from-brown-800 to-brown-950 border border-white/10 flex items-center justify-center">
+        <svg width="90" height="90" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-30" aria-hidden="true">
+          <path d="M20 2 L23 18 L38 20 L23 22 L20 38 L17 22 L2 20 L17 18 Z" fill="#c39872"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="md:col-span-3">
+      <span class="inline-block bg-copper-500/15 text-copper-400 text-xs font-semibold uppercase tracking-wide px-3 py-1.5 rounded-full mb-5">Quem conduz o Advising</span>
+      <h2 class="font-serif font-semibold text-3xl md:text-4xl text-cream-50 leading-tight mb-6">
+        Shelton Douglas<br><span class="text-copper-400">— O Conselheiro</span>
+      </h2>
+      <p class="text-cream-100/70 leading-relaxed mb-4">
+        Profissional com ampla experiência no desenvolvimento de pequenas e médias empresas e
+        na orientação de empreendedores. A sua abordagem combina mentalidade orientada para
+        resultados, visão estratégica e uma elevada capacidade de identificar pontos cegos em
+        estruturas empresariais.
+      </p>
+      <p class="text-cream-100/70 leading-relaxed mb-8">
+        Mais do que oferecer respostas prontas, Shelton atua como conselheiro: faz as
+        perguntas certas, identifica o que muitas vezes não é evidente e ajuda o empreendedor
+        a encontrar clareza para decidir e avançar.
+      </p>
+
+      <div class="flex flex-wrap gap-2.5">
+        <span class="bg-white/5 border border-white/10 text-cream-100/80 text-xs font-medium px-3.5 py-2 rounded-full">Google Display Ads — Google Skills, USA</span>
+        <span class="bg-white/5 border border-white/10 text-cream-100/80 text-xs font-medium px-3.5 py-2 rounded-full">Inteligência Artificial — Atrophic, USA</span>
+        <span class="bg-white/5 border border-white/10 text-cream-100/80 text-xs font-medium px-3.5 py-2 rounded-full">Inbound Marketing — Rock Content University, Brasil</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA (cards estilo pricing) ============ -->
+<section id="como-funciona" class="bg-cream-50 py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl mb-4">
+      <h2 class="font-serif font-semibold text-3xl md:text-4xl text-brown-900 leading-tight">Como funciona o Advising?</h2>
+      <p class="mt-4 text-brown-800/70 text-lg leading-relaxed">
+        Sessões de 1 a 2 horas, online via Google Meet ou presencial em Maputo, conduzidas de
+        forma personalizada com foco no seu contexto específico.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 mt-14">
+      <div class="bg-white border border-brown-900/10 rounded-3xl p-8">
+        <span class="text-copper-600 text-sm font-semibold uppercase tracking-wide">01 · Diagnóstico</span>
+        <h3 class="font-serif font-semibold text-xl text-brown-900 mt-3 mb-5">Raio-X</h3>
+        <ul class="space-y-2.5 text-sm text-brown-800/75">
+          <li class="flex gap-2"><span class="text-copper-600">✓</span>Levantamento da situação atual</li>
+          <li class="flex gap-2"><span class="text-copper-600">✓</span>Identificação de pontos cegos</li>
+          <li class="flex gap-2"><span class="text-copper-600">✓</span>Análise de dados existentes</li>
+          <li class="flex gap-2"><span class="text-copper-600">✓</span>Definição clara do ponto de partida</li>
+        </ul>
+      </div>
+
+      <div class="bg-white border border-brown-900/10 rounded-3xl p-8">
+        <span class="text-copper-600 text-sm font-semibold uppercase tracking-wide">02 · Aconselhamento</span>
+        <h3 class="font-serif font-semibold text-xl text-brown-900 mt-3 mb-5">Advising</h3>
+        <ul class="space-y-2.5 text-sm text-brown-800/75">
+          <li class="flex gap-2"><span class="text-copper-600">✓</span>Solução(ões) recomendada(s)</li>
+          <li class="flex gap-2"><span class="text-copper-600">✓</span>Objetivos e metas a partir das dores</li>
+          <li class="flex gap-2"><span class="text-copper-600">✓</span>KPIs de desempenho da solução</li>
+          <li class="flex gap-2"><span class="text-copper-600">✓</span>Alinhamento de expectativas e prazos</li>
+        </ul>
+      </div>
+
+      <div class="bg-brown-900 rounded-3xl p-8 relative">
+        <span class="absolute -top-3 right-6 bg-copper-500 text-brown-950 text-[11px] font-bold uppercase tracking-wide px-3 py-1 rounded-full">Resultado final</span>
+        <span class="text-copper-400 text-sm font-semibold uppercase tracking-wide">03 · Roadmap</span>
+        <h3 class="font-serif font-semibold text-xl text-cream-50 mt-3 mb-5">Plano</h3>
+        <ul class="space-y-2.5 text-sm text-cream-100/70">
+          <li class="flex gap-2"><span class="text-copper-400">✓</span>Roteiro executável e sequenciado</li>
+          <li class="flex gap-2"><span class="text-copper-400">✓</span>Etapas, prioridades e responsáveis</li>
+          <li class="flex gap-2"><span class="text-copper-400">✓</span>Documento final claro e acionável</li>
+          <li class="flex gap-2"><span class="text-copper-400">✓</span>Pronto para o cliente executar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section id="contacto" class="bg-copper-500 py-20 md:py-28">
+  <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-brown-950 leading-tight">
+      Pronto para ganhar clareza sobre o seu próximo passo?
+    </h2>
+    <p class="mt-4 text-brown-950 text-lg">
+      Fale com a equipa da Kingdom Company e agende a sua sessão de Advising.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="mailto:comercial@kingdomcompany.co.za" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brown-900 hover:bg-brown-950 text-cream-50 font-semibold px-7 py-3.5 rounded-full transition-colors">
+        comercial@kingdomcompany.co.za
+      </a>
+      <a href="tel:+258851800920" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-cream-50 text-brown-900 font-semibold px-7 py-3.5 rounded-full transition-colors">
+        +258 85 1800 920
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-brown-950 py-14">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center gap-6">
+    <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M20 2 L23 18 L38 20 L23 22 L20 38 L17 22 L2 20 L17 18 Z" fill="#a67c52"/>
+    </svg>
+    <p class="font-serif text-cream-100/80 text-lg">Para quem precisa de menos informação e mais clareza.</p>
+    <p class="text-cream-100/40 text-sm max-w-xl leading-relaxed">
+      Kingdom Company PYT — Av. de Moçambique, Prédio do Talho, Flat No. 9, Maputo, Moçambique
+    </p>
+    <p class="text-cream-100/30 text-xs max-w-2xl leading-relaxed">
+      Ao concluir a inscrição no Advising, o cliente declara ter aceite integralmente os
+      Termos, celebrando com a Kingdom Company um contrato de prestação de serviços de
+      consultoria, nos termos dos artigos 405.º e 406.º do Código Civil.
+    </p>
+    <p class="text-cream-100/25 text-xs">&copy; 2026 Kingdom Company · O Conselheiro</p>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!isHidden));
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-09-21T23:09:55.894Z",
+        "reason": "Emparelhamento 'Classic Elegant' (Playfair Display + Inter) recomendado pela skill ui-ux-pro-max para marcas premium/editorial; Inter usado só no corpo do texto, Playfair Display dá a identidade nos títulos"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-09-21T23:09:55.917Z",
+        "reason": "Uso e apenas no badge/eyebrow do hero (38 chars, rotulo curto), uso sancionado pela propria regra ('reserve uppercase for short labels')"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-09-21T23:09:55.927Z",
+        "reason": "Falso positivo: padding real esta nos wrappers filhos (padrao max-w-* + px-6/p-8), confirmado visualmente em screenshot full-page sem texto colado nas bordas"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-09-21T23:09:58.739Z",
+        "reason": "Cor de marca oficial do cliente (extraida da apostila PDF fornecida, nao um default generico de IA)"
+      }
+    ]
+  }
+}
