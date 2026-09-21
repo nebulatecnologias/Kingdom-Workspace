@@ -4,12 +4,6 @@
     "ignoreFiles": [],
     "ignoreValues": [
       {
-        "rule": "overused-font",
-        "value": "inter",
-        "createdAt": "2026-09-21T23:09:55.894Z",
-        "reason": "Emparelhamento 'Classic Elegant' (Playfair Display + Inter) recomendado pela skill ui-ux-pro-max para marcas premium/editorial; Inter usado só no corpo do texto, Playfair Display dá a identidade nos títulos"
-      },
-      {
         "rule": "all-caps-body",
         "value": "*",
         "files": [
@@ -35,6 +29,33 @@
         ],
         "createdAt": "2026-09-21T23:09:58.739Z",
         "reason": "Cor de marca oficial do cliente (extraida da apostila PDF fornecida, nao um default generico de IA)"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-09-21T23:26:47.155Z",
+        "reason": "user confirmed: pediu explicitamente efeitos especiais e a paleta/estetica do template Setrex, que usa halo luminoso lime sobre fundo preto"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-09-21T23:26:47.166Z",
+        "reason": "user confirmed: pediu elementos em movimento no estilo Setrex, que tem linha auto-scroll; pausa no hover e desativado em prefers-reduced-motion; conteudo duplicado na seccao Para Quem E"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-09-21T23:26:47.177Z",
+        "reason": "user confirmed: mock de janela de browser dentro do card bento, replicando o padrao da referencia Setrex; e uma metafora de UI distinta, nao um card redundante"
       }
     ]
   }
