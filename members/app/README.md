@@ -10,7 +10,7 @@ Plano completo em `docs/kingdom-members/plano-desenvolvimento.md`. O protótipo 
 |---|---|
 | `src/app/(member)` | Área do membro: biblioteca, produto, perfil |
 | `src/app/(admin)` | Administração: visão geral, convites, membros, vitrine, integrações |
-| `src/app/(auth)` | Entrar, convite, links expirados |
+| `src/app/(auth)` | Entrar (link ou palavra-passe), convite, confirmar link, repor palavra-passe, pedir novo link |
 | `src/components/shell` | `AppShell` (menu lateral + barra inferior no telemóvel) e `AuthShell` |
 | `src/components/ui` | Botões, pills, logótipo, seletor de idioma |
 | `src/styles/kingdom-ui.css` | Estilos do design system. Mantenha este ficheiro igual a `skills/kingdom-design-system/assets/kingdom-ui.css` |
@@ -41,6 +41,17 @@ npm run db:test     # schema + seed + regras de acesso num PostgreSQL temporári
 ```
 
 O GitHub Actions (`.github/workflows/members.yml`) corre tudo isto em cada push que mexa em `members/`.
+
+## Convites e entrada (fase 1)
+
+- **Criar um convite à mão** (até o painel de administração existir):
+  ```bash
+  npm run invite:create -- --email ana@exemplo.co.za --name "Ana" --products noah,money --locale en
+  ```
+  O link é enviado por email e também aparece no terminal. `--ttl-days N` muda a validade (por omissão `INVITE_TTL_DAYS`, 7 dias).
+- **Emails sem Resend:** sem `RESEND_API_KEY` (ou com `KM_DEV_MAILBOX=true`) os emails não saem. Ficam guardados na tabela `email_log` e aparecem em http://localhost:3000/dev/mailbox. Em produção, defina `RESEND_API_KEY` e `EMAIL_FROM` com um domínio verificado no Resend.
+- **Links de uso único:** abrir o link não o gasta (os antivírus de email abrem os links antes da pessoa). O convite só é consumido quando a conta é criada. Os links de entrada por email pedem um clique num botão pelo mesmo motivo.
+- **Testes de ponta a ponta:** `npm run e2e` precisa de um Supabase local (`npx supabase start` em `members/`) e das chaves dele em `.env.local`. O GitHub Actions corre-os em cada push.
 
 ## Base de dados (Supabase)
 
