@@ -12,7 +12,8 @@
     "db:test": "../supabase/tests/run.sh",
     "db:seed:generate": "node ../supabase/scripts/generate-seed.mjs",
     "invite:create": "tsx --conditions=react-server --env-file-if-exists=.env.local scripts/create-invite.ts",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "webhook:simulate": "tsx --env-file-if-exists=.env.local scripts/simulate-webhook.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

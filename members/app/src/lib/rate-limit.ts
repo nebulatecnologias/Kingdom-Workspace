@@ -5,6 +5,8 @@ export const LIMITS = {
   login: { limit: 10, windowSeconds: 15 * 60 },
   link: { limit: 5, windowSeconds: 15 * 60 },
   invite: { limit: 10, windowSeconds: 15 * 60 },
+  // Only limits how many rejected webhook deliveries get logged, so a flood cannot fill the table.
+  webhookRejected: { limit: 30, windowSeconds: 15 * 60 },
 } as const;
 
 /** Registers a hit and returns true while the caller is within the limit. Fails open if the check itself errors. */

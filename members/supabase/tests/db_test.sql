@@ -173,6 +173,135 @@ do $$ begin
 end $$;
 rollback;
 
+-- ---------------------------------------------------------------------------
+-- Gateway webhooks (phase 2)
+-- ---------------------------------------------------------------------------
+create function pg_temp.ev(p_order text, p_email text, p_items text[] default '{}', p_extra jsonb default '{}')
+returns jsonb language sql as $$
+  select jsonb_build_object(
+    'order', jsonb_build_object('id', p_order, 'reference', 'KG-' || p_order, 'amount', 14900, 'currency', 'ZAR', 'refunded_amount', 0),
+    'customer', jsonb_build_object('email', p_email, 'name', 'Test Buyer'),
+    'locale', 'pt',
+    'items', coalesce((select jsonb_agg(jsonb_build_object('product_id', i, 'quantity', 1)) from unnest(p_items) i), '[]'::jsonb),
+    'metadata', jsonb_build_object('member_user_id', null)
+  ) || p_extra;
+$$;
+
+do $$
+declare r jsonb; n int;
+begin
+  -- claim_webhook_event: new, duplicate, retry after an error, retry after a stale attempt
+  assert public.claim_webhook_event('evt_1', 'order.paid', '{}') = 'new', 'first delivery is new';
+  assert public.claim_webhook_event('evt_1', 'order.paid', '{}') = 'duplicate', 'second delivery is a duplicate while processing';
+  update public.webhook_events set result = 'processed' where event_id = 'evt_1';
+  assert public.claim_webhook_event('evt_1', 'order.paid', '{}') = 'duplicate', 'processed event is a duplicate';
+  update public.webhook_events set result = 'error' where event_id = 'evt_1';
+  assert public.claim_webhook_event('evt_1', 'order.paid', '{}') = 'retry', 'failed event can be retried';
+  update public.webhook_events set received_at = now() - interval '10 minutes' where event_id = 'evt_1';
+  assert public.claim_webhook_event('evt_1', 'order.paid', '{}') = 'retry', 'stale processing can be retried';
+
+  -- order.paid for someone without an account: grant by email, report unknown products
+  r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_a', 'Buyer@Example.co.za', array['prod_jonah', 'prod_unknown']));
+  assert r ->> 'status' = 'paid', 'order paid';
+  assert r ->> 'user_id' is null, 'no account yet';
+  assert r ->> 'email' = 'buyer@example.co.za', 'email lowercased';
+  assert r ->> 'locale' = 'pt', 'checkout locale kept';
+  assert jsonb_array_length(r -> 'granted') = 1, 'one product granted';
+  assert r -> 'unmapped' = '["prod_unknown"]'::jsonb, 'unknown gateway product reported';
+  assert (select count(*) from public.entitlements e join public.orders o on o.id = e.order_id
+          where o.gateway_order_id = 'ord_a' and e.revoked_at is null) = 1, 'entitlement tied to the order';
+
+  -- same order again: nothing new
+  r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_a', 'buyer@example.co.za', array['prod_jonah']));
+  assert jsonb_array_length(r -> 'granted') = 0, 'replayed order grants nothing';
+  assert (select count(*) from public.orders where gateway_order_id = 'ord_a') = 1, 'one order row';
+  assert (select count(*) from public.entitlements where email = 'buyer@example.co.za' and revoked_at is null) = 1, 'still one entitlement';
+
+  -- padlock purchase: member_user_id wins over a different checkout email
+  r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_b', 'other@example.co.za', array['prod_jonah'],
+         '{"metadata":{"member_user_id":"00000000-0000-0000-0000-00000000000b"}}'));
+  assert r ->> 'user_id' = '00000000-0000-0000-0000-00000000000b', 'granted to the member who clicked the padlock';
+  assert r ->> 'email' = 'sipho@example.co.za', 'uses the member email';
+  assert exists (select 1 from public.entitlements e join public.products p on p.id = e.product_id
+                 where e.user_id = '00000000-0000-0000-0000-00000000000b' and p.slug = 'jonah' and e.revoked_at is null), 'sipho has jonah';
+
+  -- full refund removes that order's access; a late order.paid does not bring it back
+  r := public.gateway_apply_event('order.refunded', pg_temp.ev('ord_a', 'buyer@example.co.za', '{}',
+         '{"order":{"id":"ord_a","amount":14900,"refunded_amount":14900,"full_refund":true}}'));
+  assert r ->> 'status' = 'refunded', 'order refunded';
+  assert (r ->> 'revoked')::int = 1, 'access revoked';
+  assert (select revoked_reason from public.entitlements where email = 'buyer@example.co.za') = 'refund', 'reason recorded';
+  r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_a', 'buyer@example.co.za', array['prod_jonah']));
+  assert r ->> 'status' = 'refunded' and jsonb_array_length(r -> 'granted') = 0, 'late order.paid ignored after refund';
+
+  -- partial refund keeps access
+  r := public.gateway_apply_event('order.refunded', pg_temp.ev('ord_b', 'other@example.co.za', '{}',
+         '{"order":{"id":"ord_b","amount":14900,"refunded_amount":5000,"full_refund":false}}'));
+  assert r ->> 'status' = 'partially_refunded' and (r ->> 'revoked')::int = 0, 'partial refund keeps access';
+
+  -- dispute suspends; won restores; a second dispute lost revokes for good
+  r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_c', 'dispute@example.co.za', array['prod_creation']));
+  r := public.gateway_apply_event('order.disputed', pg_temp.ev('ord_c', 'dispute@example.co.za'));
+  assert r ->> 'status' = 'disputed' and (r ->> 'revoked')::int = 1, 'dispute suspends access';
+  r := public.gateway_apply_event('order.dispute_resolved', pg_temp.ev('ord_c', 'dispute@example.co.za', '{}', '{"outcome":"won"}'));
+  assert r ->> 'status' = 'paid' and (r ->> 'restored')::int = 1, 'won dispute restores access';
+  r := public.gateway_apply_event('order.disputed', pg_temp.ev('ord_c', 'dispute@example.co.za'));
+  r := public.gateway_apply_event('order.dispute_resolved', pg_temp.ev('ord_c', 'dispute@example.co.za', '{}', '{"outcome":"lost"}'));
+  assert r ->> 'status' = 'dispute_lost', 'lost dispute';
+  assert (select count(*) from public.entitlements where email = 'dispute@example.co.za' and revoked_at is null) = 0, 'no access after a lost dispute';
+  assert (select revoked_reason from public.entitlements where email = 'dispute@example.co.za') = 'dispute_lost', 'lost reason recorded';
+
+  -- dispute with suspension switched off keeps access
+  r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_d', 'keep@example.co.za', array['prod_creation']));
+  r := public.gateway_apply_event('order.disputed', pg_temp.ev('ord_d', 'keep@example.co.za'), false);
+  assert (r ->> 'revoked')::int = 0, 'no suspension when the policy is off';
+
+  -- refund that arrives before the payment: the late payment never unlocks
+  r := public.gateway_apply_event('order.refunded', pg_temp.ev('ord_e', 'early@example.co.za', '{}',
+         '{"order":{"id":"ord_e","amount":14900,"refunded_amount":14900}}'));
+  assert r ->> 'status' = 'refunded', 'refund inferred as full from the amounts';
+  r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_e', 'early@example.co.za', array['prod_creation']));
+  assert jsonb_array_length(r -> 'granted') = 0, 'payment after refund grants nothing';
+
+  -- every change is in the audit log
+  assert (select count(*) from public.audit_log where action like 'gateway.order.%') >= 12, 'gateway events audited';
+
+  -- bad input is rejected
+  begin
+    perform public.gateway_apply_event('order.paid', '{"order":{"id":"x"},"customer":{}}');
+    raise exception 'missing email accepted';
+  exception when invalid_parameter_value then null;
+  end;
+  begin
+    perform public.gateway_apply_event('order.dispute_resolved', pg_temp.ev('ord_c', 'dispute@example.co.za'));
+    raise exception 'dispute without outcome accepted';
+  exception when invalid_parameter_value then null;
+  end;
+
+  -- expire_invites marks pending invites that ran out of time
+  insert into public.invites (email, token_hash, expires_at, source) values ('late@example.co.za', sha256('tok-late'::bytea), now() - interval '1 hour', 'gateway');
+  n := public.expire_invites();
+  assert n >= 1, 'expired invites marked';
+  assert (select status from public.invites where email = 'late@example.co.za') = 'expired', 'status is expired';
+end $$;
+
+-- Members cannot call the gateway functions.
+begin;
+set local role authenticated;
+do $$ begin
+  begin
+    perform public.gateway_apply_event('order.paid', '{}');
+    raise exception 'member executed gateway_apply_event';
+  exception when insufficient_privilege then null;
+  end;
+  begin
+    perform public.claim_webhook_event('x', 'y', '{}');
+    raise exception 'member executed claim_webhook_event';
+  exception when insufficient_privilege then null;
+  end;
+end $$;
+rollback;
+
 -- Grants: visitors cannot call the policy helpers; members can (RLS needs them); nobody calls the trigger function.
 do $$ begin
   assert not has_function_privilege('anon', 'public.is_admin()', 'execute'), 'anon cannot call is_admin';

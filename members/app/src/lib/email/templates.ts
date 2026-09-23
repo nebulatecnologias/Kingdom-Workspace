@@ -1,4 +1,5 @@
 import { intlLocale, type Locale } from "@/i18n/config";
+import { formatZar } from "@/lib/format";
 import { translatorFor } from "./translator";
 
 export type RenderedEmail = { subject: string; preview: string; html: string; text: string };
@@ -38,7 +39,7 @@ function layout(opts: {
   ${opts.body.map(p).join("")}
   ${opts.extraHtml ?? ""}
   <p style="margin:8px 0 20px"><a href="${esc(opts.cta.url)}" style="display:inline-block;background:#f2570f;background-image:linear-gradient(180deg,#ff7f37,#f2570f);color:#ffffff;text-decoration:none;font-weight:500;padding:14px 26px;border-radius:999px">${esc(opts.cta.label)}</a></p>
-  <p style="margin:0 0 16px;font-size:13px;color:#6f6962">${esc(opts.smallPrint)}</p>
+  ${opts.smallPrint ? `<p style="margin:0 0 16px;font-size:13px;color:#6f6962">${esc(opts.smallPrint)}</p>` : ""}
   <p style="margin:0 0 16px;font-size:12.5px;color:#6f6962">${esc(t("mail_link_fallback"))}<br><a href="${esc(opts.cta.url)}" style="color:#b8400a;word-break:break-all">${esc(opts.cta.url)}</a></p>
   <p style="margin:0 0 16px;padding-top:16px;border-top:1px solid #efe9e2;font-size:14.5px;color:#6f6962">${esc(t("mail_verse"))}</p>
   <p style="margin:0">${esc(t("mail_signoff"))}<br>${esc(t("mail_team"))}</p>
@@ -122,5 +123,38 @@ export function renderResetEmail(opts: { locale: Locale; siteUrl: string; name: 
       smallPrint: t("mail_reset_note"),
     }),
     text: textVersion([greeting, t("mail_reset_p"), `${t("mail_reset_cta")}: ${opts.url}`, t("mail_reset_note")]),
+  };
+}
+
+/** "New in your library": sent when a purchase unlocks products on an account that already exists. */
+export function renderUnlockedEmail(opts: {
+  locale: Locale;
+  siteUrl: string;
+  name: string;
+  productTitles: string[];
+  orderRef?: string | null;
+  amountCents?: number | null;
+}): RenderedEmail {
+  const t = translatorFor(opts.locale);
+  const pack = new Intl.ListFormat(intlLocale[opts.locale], { style: "long", type: "conjunction" }).format(opts.productTitles);
+  const greeting = t("mail_hi", { name: opts.name || "" }).replace(/\s+,/, ",");
+  const url = `${opts.siteUrl}/library?lang=${opts.locale}`;
+  const order = opts.orderRef
+    ? t("mail_order", { ref: opts.orderRef, amount: formatZar(opts.amountCents ?? 0, intlLocale[opts.locale]) })
+    : "";
+  return {
+    subject: t("mail_subject_unlocked", { pack }),
+    preview: t("mail_preview_unlocked"),
+    html: layout({
+      locale: opts.locale,
+      siteUrl: opts.siteUrl,
+      preview: t("mail_preview_unlocked"),
+      heading: t("mail_unlocked_title", { pack }),
+      greeting,
+      body: [t("mail_unlocked_p", { pack })],
+      cta: { label: t("mail_unlocked_cta"), url },
+      smallPrint: order,
+    }),
+    text: textVersion([greeting, t("mail_unlocked_p", { pack }), `${t("mail_unlocked_cta")}: ${url}`, order]),
   };
 }

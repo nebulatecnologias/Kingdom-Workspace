@@ -75,7 +75,8 @@ export async function grantByEmail(opts: { email: string; productIds: string[]; 
   }
 }
 
-async function productTitles(productIds: string[], locale: Locale) {
+/** Product titles in the given language (English when a translation is missing), in the order given. */
+export async function productTitles(productIds: string[], locale: Locale) {
   if (!productIds.length) return [];
   const { data } = await createAdminClient()
     .from("product_translations")
@@ -101,6 +102,8 @@ export async function issueInvite(opts: {
   createdBy?: string;
   /** Defaults to INVITE_TTL_DAYS (7). Negative values are only for tests (already-expired invites). */
   expiresInDays?: number;
+  /** Set by the email retry job so the backoff schedule ends. */
+  emailAttempt?: number;
 }): Promise<{ inviteId: string; url: string; expiresAt: Date; emailed: boolean }> {
   const admin = createAdminClient();
   const email = opts.email.trim().toLowerCase();
@@ -162,6 +165,7 @@ export async function issueInvite(opts: {
     template: "invite",
     locale: opts.locale,
     link: url,
+    attempt: opts.emailAttempt,
     email: renderInviteEmail({
       locale: opts.locale,
       siteUrl: siteUrl(),

@@ -61,7 +61,35 @@ O GitHub Actions (`.github/workflows/members.yml`) corre tudo isto em cada push 
 | Base de dados e contas | Supabase, projeto `inaxsnghgzfaarjsbljh` (região `eu-west-2`, Londres) |
 | Emails | Resend, domínio `kingdomcompny.com`, remetente `members@kingdomcompny.com`. O domínio é partilhado com outras apps: esta app usa uma chave própria só de envio (`Kingdom Members (Vercel)`) e não altera o domínio |
 
-Variáveis no Vercel: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (chave publicável), `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `EMAIL_FROM` e `INVITE_TTL_DAYS`. Depois de mudar uma variável, é preciso publicar de novo.
+Variáveis no Vercel: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (chave publicável), `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_REPLY_TO`, `INVITE_TTL_DAYS`, `SUPPORT_EMAIL`, `SUPPORT_WHATSAPP`, `CRON_SECRET`, `GATEWAY_WEBHOOK_SECRET`, `GATEWAY_ACCEPT_TEST_EVENTS` e `DISPUTE_SUSPENDS_ACCESS`. Depois de mudar uma variável, é preciso publicar de novo.
+
+## Gateway de pagamento (fase 2)
+
+- **Endpoint:** `POST /api/webhooks/gateway`. Em produção, registe `https://kingdom-members.vercel.app/api/webhooks/gateway` na aba "Integrações" do gateway e copie o segredo de assinatura (`whsec_…`) para a variável `GATEWAY_WEBHOOK_SECRET` no Vercel.
+- **O que faz com cada evento:**
+
+  | Evento | Efeito |
+  |---|---|
+  | `order.paid` | Dá acesso aos produtos, identificados pelo campo "ID do produto no gateway". Quem ainda não tem conta recebe o convite; quem já tem recebe o email "novo na sua biblioteca". Uma compra feita pelo cadeado (`metadata.member_user_id`) vai para a conta desse membro, mesmo com outro email no checkout |
+  | `order.refunded` | Reembolso total: retira o acesso dessa compra. Reembolso parcial: mantém o acesso e fica registado |
+  | `order.disputed` | Suspende o acesso dessa compra. Com `DISPUTE_SUSPENDS_ACCESS=false`, só o retira se a disputa for perdida |
+  | `order.dispute_resolved` | `won`: devolve o acesso; `lost`: retira-o de vez |
+  | `integration.test` | Só confirma a receção |
+
+- **Garantias:**
+  - assinatura HMAC-SHA256 verificada, com tolerância de 5 minutos;
+  - o mesmo evento entregue duas vezes não repete nada;
+  - uma compra reembolsada nunca volta a ser desbloqueada por um evento atrasado;
+  - tudo fica registado em `webhook_events` e `audit_log`.
+- **Testar sem pagar:**
+  ```bash
+  npm run webhook:simulate -- --type paid --email ana@exemplo.co.za --products prod_noah_ark --locale pt
+  npm run webhook:simulate -- --type refunded --order <id devolvido acima> --email ana@exemplo.co.za
+  ```
+  O script assina o evento com `GATEWAY_WEBHOOK_SECRET`. Com `--url` envia para outro endereço, por exemplo o de produção.
+- **Tarefas diárias** (Vercel Cron, protegidas por `CRON_SECRET`):
+  - `/api/cron/expire-invites` marca os convites expirados e limpa os limites de tentativas;
+  - `/api/cron/email-retry` volta a enviar os emails que falharam. Isto também acontece depois de cada webhook.
 
 ## Base de dados (Supabase)
 

@@ -23,6 +23,6 @@ export default defineConfig({
     url: "http://localhost:3000/login",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-    env: { KM_DEV_MAILBOX: "true", PORT: "3000" },
+    env: { KM_DEV_MAILBOX: "true", PORT: "3000", GATEWAY_WEBHOOK_SECRET: "whsec_e2e_test_secret", GATEWAY_ACCEPT_TEST_EVENTS: "true" },
   },
 });
