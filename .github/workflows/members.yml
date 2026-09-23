@@ -1,0 +1,49 @@
+name: Kingdom Members
+
+on:
+  push:
+    paths: ["members/**", ".github/workflows/members.yml"]
+  pull_request:
+    paths: ["members/**", ".github/workflows/members.yml"]
+
+jobs:
+  app:
+    name: App (lint, types, tests, build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: members/app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: members/app/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  database:
+    name: Database (schema, seed, security tests)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the seed is up to date with the prototype data
+        run: |
+          node members/supabase/scripts/generate-seed.mjs
+          git diff --exit-code members/supabase/seed.sql
+      - name: Run database tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+        run: members/supabase/tests/run.sh

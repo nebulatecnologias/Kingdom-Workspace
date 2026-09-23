@@ -177,10 +177,10 @@ img, svg { max-width: 100%; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .split { display: flex; align-items: stretch; border-radius: 999px; background: var(--cta); box-shadow: var(--cta-shadow); position: relative; }
-.split > button { background: transparent; border: 0; color: #fff; font-weight: 500; }
+.split > button, .split > a { background: transparent; border: 0; color: #fff; font-weight: 500; text-decoration: none; }
 .split .split-main { display: flex; align-items: center; gap: 10px; padding: 0 18px 0 20px; min-height: 50px; font-size: 15px; flex: 1; border-radius: 999px 0 0 999px; }
 .split .split-more { width: 46px; border-left: 1px solid rgba(255, 255, 255, .28); display: grid; place-items: center; border-radius: 0 999px 999px 0; }
-.split > button:hover { background: rgba(255, 255, 255, .08); }
+.split > button:hover, .split > a:hover { background: rgba(255, 255, 255, .08); }
 
 .icon-btn { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); }
 .icon-btn:hover { background: var(--surface-2); border-color: var(--line-strong); }
