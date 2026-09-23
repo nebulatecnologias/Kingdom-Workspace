@@ -151,4 +151,26 @@ do $$ begin
 end $$;
 rollback;
 
+-- Rate limiting: 3 hits allowed per window, the 4th is refused; other keys are independent.
+do $$
+begin
+  assert public.hit_rate_limit('login:1.2.3.4', 3, 600), 'hit 1';
+  assert public.hit_rate_limit('login:1.2.3.4', 3, 600), 'hit 2';
+  assert public.hit_rate_limit('login:1.2.3.4', 3, 600), 'hit 3';
+  assert not public.hit_rate_limit('login:1.2.3.4', 3, 600), 'hit 4 refused';
+  assert public.hit_rate_limit('login:5.6.7.8', 3, 600), 'other key allowed';
+  update public.rate_limits set window_start = now() - interval '11 minutes' where key = 'login:1.2.3.4';
+  assert public.hit_rate_limit('login:1.2.3.4', 3, 600), 'new window allowed';
+end $$;
+begin;
+set local role authenticated;
+do $$ begin
+  begin
+    perform public.hit_rate_limit('x', 1, 60);
+    raise exception 'member executed hit_rate_limit';
+  exception when insufficient_privilege then null;
+  end;
+end $$;
+rollback;
+
 \echo 'All database tests passed'

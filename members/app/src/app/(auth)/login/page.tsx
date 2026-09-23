@@ -1,25 +1,34 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { AuthShell } from "@/components/shell/auth-shell";
-import { ButtonLink } from "@/components/ui/button";
+import { LoginForm } from "@/components/auth/login-form";
+import { Notice } from "@/components/ui/notice";
+import { getProfile } from "@/lib/auth";
+import { safeNext } from "@/lib/request";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return { title: t("login_title") };
 }
 
-// Phase 0: layout only. Email-link and password sign-in arrive in Phase 1.
-export default async function LoginPage() {
+export default async function LoginPage({ searchParams }: PageProps<"/login">) {
+  const sp = await searchParams;
+  const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
+  const next = safeNext(one(sp.next));
+  const profile = await getProfile();
+  if (profile?.status === "active") redirect(next);
   const t = await getTranslations();
   return (
     <AuthShell>
-      <div>
-        <h1>{t("login_title")}</h1>
-        <p className="lead">{t("login_lead")}</p>
-      </div>
-      <ButtonLink href="/library" variant="ghost" block>
-        {t("pack_backLib")}
-      </ButtonLink>
+      {one(sp.error) === "link" ? <Notice tone="warn">{t("err_link")}</Notice> : null}
+      {one(sp.notice) === "account_exists" ? <Notice tone="info">{t("account_exists")}</Notice> : null}
+      <LoginForm next={next} defaultEmail={one(sp.email) ?? ""} />
+      <div className="or" />
+      <p style={{ textAlign: "center", fontSize: 14 }} className="muted">
+        {t("login_noAccount")} <Link href="/access">{t("login_getLink")}</Link>
+      </p>
     </AuthShell>
   );
 }

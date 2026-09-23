@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import {
+  LogOut,
   Bell,
   BookOpen,
   CircleHelp,
@@ -19,6 +20,7 @@ import {
 import { Brand } from "@/components/ui/brand";
 import { LanguageSelect } from "@/components/ui/language-select";
 import { NavLink } from "./nav-link";
+import { signOut } from "@/app/(auth)/actions";
 
 export type ShellUser = { name: string; email: string } | null;
 
@@ -107,6 +109,11 @@ export async function AppShell({
                 <b>{user.name}</b>
                 <span>{user.email}</span>
               </div>
+              <form action={signOut}>
+                <button className="icon-btn" type="submit" title={t("signOut")} aria-label={t("signOut")}>
+                  <LogOut className="icon icon-sm" aria-hidden="true" />
+                </button>
+              </form>
             </div>
           ) : (
             <Link className="btn btn-ghost btn-block" href="/login">
