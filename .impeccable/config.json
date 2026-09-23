@@ -56,6 +56,12 @@
         ],
         "createdAt": "2026-09-21T23:26:47.177Z",
         "reason": "user confirmed: mock de janela de browser dentro do card bento, replicando o padrao da referencia Setrex; e uma metafora de UI distinta, nao um card redundante"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "sf mono",
+        "createdAt": "2026-09-23T17:29:55.431Z",
+        "reason": "assistant judgement: monospace stack is used only in .code-field for the webhook URL and signing secret (literal code/data), not as UI type"
       }
     ]
   }
