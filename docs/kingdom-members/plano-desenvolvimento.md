@@ -253,8 +253,8 @@ Em cada fase: mensagens de commit claras, testes a passar e revisão antes de av
 3. Reembolso parcial: retirar ou manter o acesso?
 4. Disputa aberta: suspender já ou só se a disputa for perdida?
 5. Validade do convite: 7 dias?
-6. Formato das artes para colorir online: SVG ou PNG.
-6b. Formato dos livros: capítulos em texto (Word/Google Docs → leitor online + PDF/EPUB gerados) ou só PDF pronto (mais simples, sem leitor com progresso).
+6. ~~Formato das artes para colorir online: SVG ou PNG.~~ **Resolvido na fase 3:** o estúdio aceita os dois. As ilustrações SVG com zonas pintam-se zona a zona; qualquer imagem (PNG, JPG ou SVG) pinta-se com um balde de tinta que pára nas linhas.
+6b. Formato dos livros: capítulos em texto (Word/Google Docs → leitor online + PDF/EPUB gerados) ou só PDF pronto (mais simples, sem leitor com progresso). **Resolvido na fase 3:** a app suporta os dois. Um produto pode ter capítulos para o leitor online (com progresso e amostra) e/ou ficheiros PDF/EPUB para descarregar.
 7. Contraste do laranja dos botões: manter fiel à referência ou escurecer para AA.
 8. Número de WhatsApp de suporte e email de ajuda.
 9. Mais do que um administrador? Exigir 2FA no admin?

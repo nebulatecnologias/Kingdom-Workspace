@@ -407,5 +407,11 @@
   "mail_reset_note": "O link funciona uma vez e expira em 15 minutos. Não pediu este email? Pode ignorá-lo; a sua palavra-passe mantém-se.",
   "mail_link_fallback": "Se o botão não funcionar, copie este link para o navegador:",
   "back_to_login": "Voltar a entrar",
-  "legal_en_only": "Este documento está disponível apenas em inglês."
+  "legal_en_only": "Este documento está disponível apenas em inglês.",
+  "checkout_unavailable": "O pagamento online deste produto ainda não está disponível. Fale connosco por WhatsApp ou email e resolvemos isso.",
+  "err_pw_short": "Use pelo menos 8 caracteres.",
+  "err_pw_same": "Essa é a sua palavra-passe atual. Escolha outra.",
+  "prof_pwSaved": "A sua nova palavra-passe foi guardada.",
+  "prof_pwNew": "Nova palavra-passe",
+  "account_deleted": "A sua conta e os seus dados pessoais foram apagados. Obrigado por ter estado connosco."
 }

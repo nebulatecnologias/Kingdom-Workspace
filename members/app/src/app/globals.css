@@ -36,3 +36,8 @@
 @utility bg-cta-aa { background-image: var(--cta-aa); }
 @utility bg-card { background-image: var(--card-bg); }
 @utility bg-brand { background-image: var(--brand-panel); }
+
+/* Tailwind's preflight removes link underlines; links inside running text need one to be told apart from it (WCAG 1.4.1). */
+@layer components {
+  p a:not(.btn), .hint a:not(.btn), address a, .reader a { text-decoration: underline; }
+}

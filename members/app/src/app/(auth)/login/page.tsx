@@ -24,6 +24,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
     <AuthShell>
       {one(sp.error) === "link" ? <Notice tone="warn">{t("err_link")}</Notice> : null}
       {one(sp.notice) === "account_exists" ? <Notice tone="info">{t("account_exists")}</Notice> : null}
+      {one(sp.notice) === "deleted" ? <Notice tone="ok">{t("account_deleted")}</Notice> : null}
       <LoginForm next={next} defaultEmail={one(sp.email) ?? ""} />
       <div className="or" />
       <p style={{ textAlign: "center", fontSize: 14 }} className="muted">

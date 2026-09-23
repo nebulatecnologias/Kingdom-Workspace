@@ -74,6 +74,22 @@ begin
   assert (select count(*) from public.webhook_events) = 0, 'webhook log hidden from members';
   assert (select count(*) from public.integration_secrets) = 0, 'secrets never readable';
 end $$;
+-- Library and outlines: listed products with ownership, outlines without content.
+do $$
+declare jonah uuid := (select id from public.products where slug = 'jonah');
+begin
+  assert (select count(*) from public.library_items('en')) = 10, 'library lists every product except hidden ones';
+  assert (select owned from public.library_items('en') where slug = 'noah'), 'owned pack is owned';
+  assert (select owned from public.library_items('en') where slug = 'verses'), 'free pack counts as owned';
+  assert not (select owned from public.library_items('en') where slug = 'jonah'), 'locked pack is not owned';
+  assert not (select owned from public.library_items('en') where slug = 'daniel'), 'coming-soon pack is not owned';
+  assert (select title from public.library_items('pt') where slug = 'noah') <> (select title from public.library_items('en') where slug = 'noah'), 'titles translated';
+  assert (select chapter_count from public.library_items('pt') where slug = 'money') = 9, 'chapter count per language';
+  assert (select count(*) from public.product_outline((select id from public.products where slug = 'sermon'), 'en') where kind = 'chapter') = 7, 'locked guide shows its full contents list';
+  assert (select count(*) from public.product_outline(jonah, 'pt') where kind = 'page') = 2, 'locked pack shows page titles';
+  assert (select title from public.product_outline(jonah, 'pt') where "position" = 1) <> (select title from public.product_outline(jonah, 'en') where "position" = 1), 'page titles translated';
+  assert (select count(*) from public.product_outline((select id from public.products where slug = 'easter'), 'en')) = 0, 'hidden product has no outline';
+end $$;
 -- Member can save progress on owned content only.
 insert into public.reading_progress (user_id, product_id, chapter_position)
 select '00000000-0000-0000-0000-00000000000a', id, 3 from public.products where slug = 'money';
@@ -297,6 +313,18 @@ do $$ begin
   begin
     perform public.claim_webhook_event('x', 'y', '{}');
     raise exception 'member executed claim_webhook_event';
+  exception when insufficient_privilege then null;
+  end;
+end $$;
+rollback;
+
+-- Visitors get nothing from the library functions.
+begin;
+set local role anon;
+do $$ begin
+  begin
+    perform public.library_items('en');
+    raise exception 'anon called library_items';
   exception when insufficient_privilege then null;
   end;
 end $$;

@@ -1,6 +1,6 @@
 import { expect, test, type APIRequestContext } from "@playwright/test";
 import { signatureHeader } from "../src/lib/gateway/signature";
-import { admin, latestLink, uniqueEmail } from "./helpers";
+import { admin, latestLink, resetRateLimits, uniqueEmail } from "./helpers";
 
 // Must match GATEWAY_WEBHOOK_SECRET in playwright.config.ts.
 const SECRET = "whsec_e2e_test_secret";
@@ -59,6 +59,7 @@ test("order.paid for a new buyer grants access and emails an invite", async ({ r
   expect(await res.json()).toMatchObject({ received: true, result: "processed" });
   expect(await activeEntitlements(buyer.email)).toBe(2);
 
+  await resetRateLimits();
   const link = await latestLink(buyer.email, "invite");
   await page.goto(link);
   await expect(page.getByRole("heading", { name: "Create your account" })).toBeVisible();

@@ -4,3 +4,7 @@ __pycache__/
 members/.impeccable/review/
 members/prototype/dist/
 skills/kingdom-design-system-workspace/
+
+# Lite local Supabase (members/supabase/lite)
+members/supabase/lite/.cache/
+members/app/.env.lite

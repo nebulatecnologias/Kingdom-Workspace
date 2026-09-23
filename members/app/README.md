@@ -63,6 +63,32 @@ O GitHub Actions (`.github/workflows/members.yml`) corre tudo isto em cada push 
 
 Variáveis no Vercel: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (chave publicável), `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_REPLY_TO`, `INVITE_TTL_DAYS`, `SUPPORT_EMAIL`, `SUPPORT_WHATSAPP`, `CRON_SECRET`, `GATEWAY_WEBHOOK_SECRET`, `GATEWAY_ACCEPT_TEST_EVENTS` e `DISPUTE_SUSPENDS_ACCESS`. Depois de mudar uma variável, é preciso publicar de novo.
 
+## Área do membro (fase 3)
+
+- **Biblioteca** (`/library`): vitrine por secções, com filtros "Tudo", "A minha biblioteca" e "Desbloquear mais", pesquisa na barra de cima e "Continuar a ler". Os produtos aparecem comprados, grátis, bloqueados (com o preço) ou "em breve"; os escondidos nunca aparecem.
+- **Produto** (`/products/[slug]`):
+  - **Colorir:** páginas A4, download de cada página, download completo (quando há PDF) e colorir online.
+  - **eBook, guia e apostila:** índice com o progresso, leitor online (`/read/[n]`), amostra grátis para quem não comprou, e download PDF/EPUB (quando há ficheiros).
+- **Colorir online** (`/colour/[n]`): toque numa zona para a pintar; as cores ficam guardadas no dispositivo e o desenho pode ser descarregado em PNG. Funciona com as ilustrações de exemplo (SVG) e com qualquer imagem carregada (PNG, JPG ou SVG), pintada com um balde de tinta que pára nas linhas.
+- **Downloads** (`/api/products/[id]/download`): o acesso é verificado com a sessão do membro antes de gerar um link do Supabase Storage válido por 60 segundos. Sem acesso, a resposta é 403, mesmo com o URL direto; sem sessão, é 401.
+- **Cadeado** (`/api/checkout/[id]`): leva ao `checkout_url` do produto com o email, o nome, o idioma e o ID do membro, para o pagamento desbloquear esta conta. Sem `checkout_url`, mostra um aviso na página do produto.
+- **Perfil** (`/profile`): nome, idioma (guardado no perfil e usado nos emails), palavra-passe, descarregar os dados (JSON) e apagar a conta (POPIA: apaga o perfil, o acesso, o progresso, os convites e o histórico de emails; os pedidos ficam, sem ligação à conta, por obrigação fiscal).
+- **Ilustrações de exemplo:** `src/lib/art.ts` tem as ilustrações do protótipo. Um produto ou página usa-as com `builtin:<nome>` em `cover_path` / `lineart_path`; os produtos reais usam caminhos do bucket privado `products`.
+
+## Supabase local sem Docker
+
+Para correr a app e os testes de ponta a ponta numa máquina sem Docker (como os ambientes do Claude Code na web):
+
+```bash
+members/supabase/lite/start.sh          # Postgres + auth (GoTrue) + API (PostgREST) em http://127.0.0.1:54321
+cd members/app
+set -a; . ./.env.lite; set +a
+npm run build && npm run e2e            # ou npm run dev
+members/supabase/lite/stop.sh
+```
+
+Não inclui o Storage: o teste dos downloads de ficheiros guardados é saltado aqui e corre no CI, que usa o Supabase completo.
+
 ## Gateway de pagamento (fase 2)
 
 - **Endpoint:** `POST /api/webhooks/gateway`. Em produção, registe `https://kingdom-members.vercel.app/api/webhooks/gateway` na aba "Integrações" do gateway e copie o segredo de assinatura (`whsec_…`) para a variável `GATEWAY_WEBHOOK_SECRET` no Vercel.

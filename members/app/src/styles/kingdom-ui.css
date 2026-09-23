@@ -205,8 +205,8 @@ img, svg { max-width: 100%; }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; }
 .filter { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; font-weight: 500; color: var(--ink-2); }
 .filter .count { min-width: 22px; height: 22px; padding: 0 6px; display: grid; place-items: center; border-radius: 999px; background: var(--sunken); font-size: 12px; color: var(--muted); }
-.filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--canvas); }
-.filter[aria-pressed="true"] .count { background: rgba(255, 255, 255, .16); color: inherit; }
+.filter[aria-pressed="true"], .filter[aria-current="page"] { background: var(--ink); border-color: var(--ink); color: var(--canvas); }
+.filter[aria-pressed="true"] .count, .filter[aria-current="page"] .count { background: rgba(255, 255, 255, .16); color: inherit; }
 
 /* ---------- cards ---------- */
 .card { background: var(--card-bg); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-1); }
@@ -351,7 +351,7 @@ img, svg { max-width: 100%; }
 .page-card { padding: 10px; display: grid; gap: 10px; min-width: 0; }
 .page-card .sheet { aspect-ratio: 210 / 297; border-radius: 12px; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; box-shadow: inset 0 0 0 6px #fff, inset 0 0 0 7px #eee8e1; position: relative; overflow: hidden; }
 .page-card .sheet svg { width: 84%; }
-.page-card .sheet .num { position: absolute; left: 10px; bottom: 8px; font-size: 11px; color: #9a938b; }
+.page-card .sheet .num { position: absolute; left: 10px; bottom: 8px; font-size: 11px; color: #6f6962; }
 .page-card h4 { font-size: 14.5px; font-weight: 500; padding: 0 4px; }
 .page-card .row { display: flex; flex-wrap: wrap; gap: 6px; }
 .page-card .row .btn { flex: 1 1 auto; }

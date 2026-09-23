@@ -13,18 +13,24 @@ insert into public.section_translations (section_id, locale, name) select id, 'e
 insert into public.section_translations (section_id, locale, name) select id, 'pt', 'Vida cristã' from public.sections where slug = 'life';
 insert into public.section_translations (section_id, locale, name) select id, 'es', 'Vida cristiana' from public.sections where slug = 'life';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'noah', 'colouring', s.id, 'prod_noah_ark', 8900, 'paid', 'visible', 1, '#d6ebf8', 12, false
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'noah', 'colouring', s.id, 'prod_noah_ark', 8900, 'paid', 'visible', 1, 'builtin:ark', '#d6ebf8', 12, false
   from public.sections s where s.slug = 'kids';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'Noah’s Ark & the Rainbow', 'Build the ark, march the animals in two by two and paint God’s promise across the sky.', 'I have set my rainbow in the clouds.', 'Genesis 9:13' from public.products where slug = 'noah';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'A Arca de Noé e o Arco-íris', 'Construa a arca, faça entrar os animais dois a dois e pinte a promessa de Deus no céu.', 'O meu arco tenho posto nas nuvens.', 'Génesis 9:13' from public.products where slug = 'noah';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'es', 'El Arca de Noé y el Arcoíris', 'Construye el arca, haz entrar a los animales de dos en dos y pinta la promesa de Dios en el cielo.', 'Mi arco he puesto en las nubes.', 'Génesis 9:13' from public.products where slug = 'noah';
-insert into public.product_pages (product_id, position, title) select id, 1, 'Noah builds the ark' from public.products where slug = 'noah';
-insert into public.product_pages (product_id, position, title) select id, 2, 'The dove comes back' from public.products where slug = 'noah';
-insert into public.product_pages (product_id, position, title) select id, 3, 'God’s promise' from public.products where slug = 'noah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 1, 'Noah builds the ark', 'builtin:ark' from public.products where slug = 'noah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 2, 'The dove comes back', 'builtin:dove' from public.products where slug = 'noah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 3, 'God’s promise', 'builtin:rainbow' from public.products where slug = 'noah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 1, 'Noé constrói a arca', 'builtin:ark' from public.products where slug = 'noah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 2, 'A pomba regressa', 'builtin:dove' from public.products where slug = 'noah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 3, 'A promessa de Deus', 'builtin:rainbow' from public.products where slug = 'noah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 1, 'Noé construye el arca', 'builtin:ark' from public.products where slug = 'noah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 2, 'La paloma regresa', 'builtin:dove' from public.products where slug = 'noah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 3, 'La promesa de Dios', 'builtin:rainbow' from public.products where slug = 'noah';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'money', 'book', s.id, 'prod_money_gods_way', 12900, 'paid', 'visible', 2, '#dff0d6', 86, true
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'money', 'book', s.id, 'prod_money_gods_way', 12900, 'paid', 'visible', 2, 'builtin:coins', '#dff0d6', 86, true
   from public.sections s where s.slug = 'life';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'Money God’s Way', 'What the Bible says about earning, spending, saving, debt and generosity, with practical steps for South African households.', 'The earth is the Lord’s, and everything in it.', 'Psalm 24:1' from public.products where slug = 'money';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'O Dinheiro à Maneira de Deus', 'O que a Bíblia diz sobre ganhar, gastar, poupar, dívidas e generosidade, com passos práticos para as famílias.', 'Do Senhor é a terra e a sua plenitude.', 'Salmo 24:1' from public.products where slug = 'money';
@@ -57,8 +63,8 @@ insert into public.product_chapters (product_id, locale, position, title, body_h
 insert into public.product_chapters (product_id, locale, position, title, body_html, minutes, is_sample) select id, 'es', 8, 'Enseñar a los niños sobre el dinero', '<p>Antes de hablar de presupuestos, debemos responder una pregunta mayor: ¿de quién es el dinero? La Escritura responde con claridad. Todo lo que tenemos es prestado por Dios; somos mayordomos, no dueños.</p><p>Eso cambia cómo ganamos, gastamos y damos. Un mayordomo pregunta: «¿Qué quiere el Dueño que haga con esto?». El resto de este libro ayuda a responder esa pregunta en el día a día.</p>', 11, false from public.products where slug = 'money';
 insert into public.product_chapters (product_id, locale, position, title, body_html, minutes, is_sample) select id, 'es', 9, 'Una vida generosa', '<p>Antes de hablar de presupuestos, debemos responder una pregunta mayor: ¿de quién es el dinero? La Escritura responde con claridad. Todo lo que tenemos es prestado por Dios; somos mayordomos, no dueños.</p><p>Eso cambia cómo ganamos, gastamos y damos. Un mayordomo pregunta: «¿Qué quiere el Dueño que haga con esto?». El resto de este libro ayuda a responder esa pregunta en el día a día.</p>', 9, false from public.products where slug = 'money';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'sermon', 'guide', s.id, 'prod_sermon_builder', 14900, 'paid', 'visible', 3, '#e6e0f8', 48, true
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'sermon', 'guide', s.id, 'prod_sermon_builder', 14900, 'paid', 'visible', 3, 'builtin:pulpit', '#e6e0f8', 48, true
   from public.sections s where s.slug = 'preach';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'Build a Sermon in 7 Steps', 'A practical guide from choosing the passage to delivering with confidence, with worked examples and outline templates.', 'Preach the word; be ready in season and out of season.', '2 Timothy 4:2' from public.products where slug = 'sermon';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'Monte um Sermão em 7 Passos', 'Um guia prático, da escolha do texto à entrega com confiança, com exemplos resolvidos e modelos de esboço.', 'Prega a palavra, insta a tempo e fora de tempo.', '2 Timóteo 4:2' from public.products where slug = 'sermon';
@@ -85,8 +91,8 @@ insert into public.product_chapters (product_id, locale, position, title, body_h
 insert into public.product_chapters (product_id, locale, position, title, body_html, minutes, is_sample) select id, 'es', 6, 'Escribir la introducción y la conclusión', '<p>Todo buen sermón empieza de rodillas, no en el escritorio. Antes de abrir un comentario, pregúntale a Dios qué quiere que su pueblo escuche este domingo.</p><p>Luego elige un pasaje y quédate con él. Un texto claro, leído despacio y en oración, te dará más que diez pasajes leídos con prisa.</p>', 10, false from public.products where slug = 'sermon';
 insert into public.product_chapters (product_id, locale, position, title, body_html, minutes, is_sample) select id, 'es', 7, 'Predicar con confianza', '<p>Todo buen sermón empieza de rodillas, no en el escritorio. Antes de abrir un comentario, pregúntale a Dios qué quiere que su pueblo escuche este domingo.</p><p>Luego elige un pasaje y quédate con él. Un texto claro, leído despacio y en oración, te dará más que diez pasajes leídos con prisa.</p>', 9, false from public.products where slug = 'sermon';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'workbook', 'workbook', s.id, 'prod_preacher_workbook', 19900, 'paid', 'visible', 4, '#d6e7f6', 64, true
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'workbook', 'workbook', s.id, 'prod_preacher_workbook', 19900, 'paid', 'visible', 4, 'builtin:notebook', '#d6e7f6', 64, true
   from public.sections s where s.slug = 'preach';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'The Preacher’s Workbook', 'A printable workbook for lay preachers and small-group leaders: planning calendar, outline worksheets and an illustration bank.', 'Do your best to present yourself to God as one approved.', '2 Timothy 2:15' from public.products where slug = 'workbook';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'Apostila do Pregador', 'Uma apostila para imprimir, para pregadores leigos e líderes de pequenos grupos: calendário, fichas de esboço e banco de ilustrações.', 'Procura apresentar-te a Deus aprovado.', '2 Timóteo 2:15' from public.products where slug = 'workbook';
@@ -110,66 +116,94 @@ insert into public.product_chapters (product_id, locale, position, title, body_h
 insert into public.product_chapters (product_id, locale, position, title, body_html, minutes, is_sample) select id, 'es', 5, 'Banco de ilustraciones', '<p>Usa esta página para escribir por qué predicas. Sé sincero: ¿quién te llamó, dónde y qué sentiste que Dios te pedía?</p><p>Vuelve a esta página antes de cada sermón que planifiques en este cuaderno. Tu llamado es el ancla que mantiene firme tu predicación.</p>', 10, false from public.products where slug = 'workbook';
 insert into public.product_chapters (product_id, locale, position, title, body_html, minutes, is_sample) select id, 'es', 6, 'Evaluación y crecimiento', '<p>Usa esta página para escribir por qué predicas. Sé sincero: ¿quién te llamó, dónde y qué sentiste que Dios te pedía?</p><p>Vuelve a esta página antes de cada sermón que planifiques en este cuaderno. Tu llamado es el ancla que mantiene firme tu predicación.</p>', 8, false from public.products where slug = 'workbook';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'creation', 'colouring', s.id, 'prod_creation', 8900, 'paid', 'visible', 5, '#ffe6b3', 10, false
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'creation', 'colouring', s.id, 'prod_creation', 8900, 'paid', 'visible', 5, 'builtin:sky', '#ffe6b3', 10, false
   from public.sections s where s.slug = 'kids';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'In the Beginning', 'Sun, moon, stars, trees and sea creatures: seven days of creation to colour, one page at a time.', 'In the beginning God created the heavens and the earth.', 'Genesis 1:1' from public.products where slug = 'creation';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'No Princípio', 'Sol, lua, estrelas, árvores e criaturas do mar: os sete dias da criação para pintar, uma página de cada vez.', 'No princípio criou Deus os céus e a terra.', 'Génesis 1:1' from public.products where slug = 'creation';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'es', 'En el Principio', 'Sol, luna, estrellas, árboles y criaturas del mar: los siete días de la creación para colorear, página a página.', 'En el principio creó Dios los cielos y la tierra.', 'Génesis 1:1' from public.products where slug = 'creation';
-insert into public.product_pages (product_id, position, title) select id, 1, 'Sun, moon and stars' from public.products where slug = 'creation';
-insert into public.product_pages (product_id, position, title) select id, 2, 'Trees full of fruit' from public.products where slug = 'creation';
-insert into public.product_pages (product_id, position, title) select id, 3, 'Fish in the sea' from public.products where slug = 'creation';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 1, 'Sun, moon and stars', 'builtin:sky' from public.products where slug = 'creation';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 2, 'Trees full of fruit', 'builtin:tree' from public.products where slug = 'creation';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 3, 'Fish in the sea', 'builtin:fish' from public.products where slug = 'creation';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 1, 'Sol, lua e estrelas', 'builtin:sky' from public.products where slug = 'creation';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 2, 'Árvores cheias de fruto', 'builtin:tree' from public.products where slug = 'creation';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 3, 'Peixes no mar', 'builtin:fish' from public.products where slug = 'creation';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 1, 'Sol, luna y estrellas', 'builtin:sky' from public.products where slug = 'creation';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 2, 'Árboles llenos de fruto', 'builtin:tree' from public.products where slug = 'creation';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 3, 'Peces en el mar', 'builtin:fish' from public.products where slug = 'creation';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'shepherd', 'colouring', s.id, 'prod_good_shepherd', 6900, 'paid', 'visible', 6, '#d9eed0', 8, false
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'shepherd', 'colouring', s.id, 'prod_good_shepherd', 6900, 'paid', 'visible', 6, 'builtin:lamb', '#d9eed0', 8, false
   from public.sections s where s.slug = 'kids';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'The Good Shepherd', 'Lambs, green pastures and still waters from Psalm 23, drawn for little hands.', 'The Lord is my shepherd; I shall not want.', 'Psalm 23:1' from public.products where slug = 'shepherd';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'O Bom Pastor', 'Cordeiros, pastos verdes e águas tranquilas do Salmo 23, desenhados para mãos pequeninas.', 'O Senhor é o meu pastor; nada me faltará.', 'Salmo 23:1' from public.products where slug = 'shepherd';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'es', 'El Buen Pastor', 'Corderitos, pastos verdes y aguas tranquilas del Salmo 23, dibujados para manos pequeñas.', 'El Señor es mi pastor; nada me faltará.', 'Salmo 23:1' from public.products where slug = 'shepherd';
-insert into public.product_pages (product_id, position, title) select id, 1, 'The little lamb' from public.products where slug = 'shepherd';
-insert into public.product_pages (product_id, position, title) select id, 2, 'Green pastures' from public.products where slug = 'shepherd';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 1, 'The little lamb', 'builtin:lamb' from public.products where slug = 'shepherd';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 2, 'Green pastures', 'builtin:shepherd' from public.products where slug = 'shepherd';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 1, 'O cordeirinho', 'builtin:lamb' from public.products where slug = 'shepherd';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 2, 'Pastos verdes', 'builtin:shepherd' from public.products where slug = 'shepherd';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 1, 'El corderito', 'builtin:lamb' from public.products where slug = 'shepherd';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 2, 'Pastos verdes', 'builtin:shepherd' from public.products where slug = 'shepherd';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'christmas', 'colouring', s.id, 'prod_first_christmas', 9900, 'paid', 'visible', 7, '#f8d5cf', 12, false
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'christmas', 'colouring', s.id, 'prod_first_christmas', 9900, 'paid', 'visible', 7, 'builtin:stable', '#f8d5cf', 12, false
   from public.sections s where s.slug = 'kids';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'The First Christmas', 'The star over Bethlehem, the manger and gifts for the newborn King.', 'Today a Saviour has been born to you.', 'Luke 2:11' from public.products where slug = 'christmas';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'O Primeiro Natal', 'A estrela sobre Belém, a manjedoura e os presentes para o Rei recém-nascido.', 'Hoje vos nasceu o Salvador.', 'Lucas 2:11' from public.products where slug = 'christmas';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'es', 'La Primera Navidad', 'La estrella sobre Belén, el pesebre y los regalos para el Rey recién nacido.', 'Hoy os ha nacido un Salvador.', 'Lucas 2:11' from public.products where slug = 'christmas';
-insert into public.product_pages (product_id, position, title) select id, 1, 'The star over Bethlehem' from public.products where slug = 'christmas';
-insert into public.product_pages (product_id, position, title) select id, 2, 'Jesus is born' from public.products where slug = 'christmas';
-insert into public.product_pages (product_id, position, title) select id, 3, 'Gifts for the King' from public.products where slug = 'christmas';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 1, 'The star over Bethlehem', 'builtin:stable' from public.products where slug = 'christmas';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 2, 'Jesus is born', 'builtin:manger' from public.products where slug = 'christmas';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 3, 'Gifts for the King', 'builtin:gifts' from public.products where slug = 'christmas';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 1, 'A estrela sobre Belém', 'builtin:stable' from public.products where slug = 'christmas';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 2, 'Jesus nasceu', 'builtin:manger' from public.products where slug = 'christmas';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 3, 'Presentes para o Rei', 'builtin:gifts' from public.products where slug = 'christmas';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 1, 'La estrella sobre Belén', 'builtin:stable' from public.products where slug = 'christmas';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 2, 'Ha nacido Jesús', 'builtin:manger' from public.products where slug = 'christmas';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 3, 'Regalos para el Rey', 'builtin:gifts' from public.products where slug = 'christmas';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'jonah', 'colouring', s.id, 'prod_jonah', 6900, 'paid', 'visible', 8, '#cbedee', 8, false
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'jonah', 'colouring', s.id, 'prod_jonah', 6900, 'paid', 'visible', 8, 'builtin:whale', '#cbedee', 8, false
   from public.sections s where s.slug = 'kids';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'Jonah and the Big Fish', 'A stormy sea, a very big fish and a second chance. Perfect for Sunday school.', 'Salvation comes from the Lord.', 'Jonah 2:9' from public.products where slug = 'jonah';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'Jonas e o Grande Peixe', 'Um mar agitado, um peixe enorme e uma segunda oportunidade. Ideal para a escola dominical.', 'Do Senhor vem a salvação.', 'Jonas 2:9' from public.products where slug = 'jonah';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'es', 'Jonás y el Gran Pez', 'Un mar revuelto, un pez enorme y una segunda oportunidad. Ideal para la escuela dominical.', 'La salvación viene del Señor.', 'Jonás 2:9' from public.products where slug = 'jonah';
-insert into public.product_pages (product_id, position, title) select id, 1, 'Jonah and the big fish' from public.products where slug = 'jonah';
-insert into public.product_pages (product_id, position, title) select id, 2, 'The storm at sea' from public.products where slug = 'jonah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 1, 'Jonah and the big fish', 'builtin:whale' from public.products where slug = 'jonah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 2, 'The storm at sea', 'builtin:boat' from public.products where slug = 'jonah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 1, 'Jonas e o grande peixe', 'builtin:whale' from public.products where slug = 'jonah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 2, 'A tempestade no mar', 'builtin:boat' from public.products where slug = 'jonah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 1, 'Jonás y el gran pez', 'builtin:whale' from public.products where slug = 'jonah';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 2, 'La tormenta en el mar', 'builtin:boat' from public.products where slug = 'jonah';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'verses', 'colouring', s.id, 'prod_verse_cards', 0, 'free', 'visible', 9, '#e8e2fb', 6, false
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'verses', 'colouring', s.id, 'prod_verse_cards', 0, 'free', 'visible', 9, 'builtin:heart', '#e8e2fb', 6, false
   from public.sections s where s.slug = 'kids';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'Memory Verse Cards', 'Bright little cards with short verses to colour, cut out and stick on the fridge.', 'Your word is a lamp to my feet.', 'Psalm 119:105' from public.products where slug = 'verses';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'Cartões de Versículos', 'Cartões coloridos com versículos curtos para pintar, recortar e colar no frigorífico.', 'Lâmpada para os meus pés é a tua palavra.', 'Salmo 119:105' from public.products where slug = 'verses';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'es', 'Tarjetas de Versículos', 'Tarjetas alegres con versículos cortos para colorear, recortar y pegar en la nevera.', 'Lámpara es a mis pies tu palabra.', 'Salmo 119:105' from public.products where slug = 'verses';
-insert into public.product_pages (product_id, position, title) select id, 1, 'God is love' from public.products where slug = 'verses';
-insert into public.product_pages (product_id, position, title) select id, 2, 'A lamp to my feet' from public.products where slug = 'verses';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 1, 'God is love', 'builtin:heart' from public.products where slug = 'verses';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 2, 'A lamp to my feet', 'builtin:bible' from public.products where slug = 'verses';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 1, 'Deus é amor', 'builtin:heart' from public.products where slug = 'verses';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 2, 'Lâmpada para os meus pés', 'builtin:bible' from public.products where slug = 'verses';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 1, 'Dios es amor', 'builtin:heart' from public.products where slug = 'verses';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 2, 'Lámpara a mis pies', 'builtin:bible' from public.products where slug = 'verses';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'daniel', 'colouring', s.id, 'prod_daniel', 6900, 'paid', 'soon', 10, '#f3e0c3', 8, false
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'daniel', 'colouring', s.id, 'prod_daniel', 6900, 'paid', 'soon', 10, 'builtin:lion', '#f3e0c3', 8, false
   from public.sections s where s.slug = 'kids';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'Daniel and the Lions', 'Brave Daniel and some very friendly lions.', 'My God sent his angel and shut the lions’ mouths.', 'Daniel 6:22' from public.products where slug = 'daniel';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'Daniel e os Leões', 'O corajoso Daniel e uns leões muito simpáticos.', 'O meu Deus enviou o seu anjo e fechou a boca dos leões.', 'Daniel 6:22' from public.products where slug = 'daniel';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'es', 'Daniel y los Leones', 'El valiente Daniel y unos leones muy simpáticos.', 'Mi Dios envió su ángel y cerró la boca de los leones.', 'Daniel 6:22' from public.products where slug = 'daniel';
-insert into public.product_pages (product_id, position, title) select id, 1, 'Daniel’s lions' from public.products where slug = 'daniel';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 1, 'Daniel’s lions', 'builtin:lion' from public.products where slug = 'daniel';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 1, 'Os leões de Daniel', 'builtin:lion' from public.products where slug = 'daniel';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 1, 'Los leones de Daniel', 'builtin:lion' from public.products where slug = 'daniel';
 
-insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select 'easter', 'colouring', s.id, 'prod_easter', 8900, 'paid', 'hidden', 11, '#fde0c6', 10, false
+insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select 'easter', 'colouring', s.id, 'prod_easter', 8900, 'paid', 'hidden', 11, 'builtin:heart', '#fde0c6', 10, false
   from public.sections s where s.slug = 'kids';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'en', 'The Easter Story', 'From Palm Sunday to the empty tomb.', 'He is not here; he has risen!', 'Luke 24:6' from public.products where slug = 'easter';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'pt', 'A História da Páscoa', 'Do Domingo de Ramos ao túmulo vazio.', 'Não está aqui, porque ressuscitou!', 'Lucas 24:6' from public.products where slug = 'easter';
 insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, 'es', 'La Historia de la Pascua', 'Del Domingo de Ramos a la tumba vacía.', '¡No está aquí, ha resucitado!', 'Lucas 24:6' from public.products where slug = 'easter';
-insert into public.product_pages (product_id, position, title) select id, 1, 'God is love' from public.products where slug = 'easter';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'en', 1, 'God is love', 'builtin:heart' from public.products where slug = 'easter';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'pt', 1, 'Deus é amor', 'builtin:heart' from public.products where slug = 'easter';
+insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, 'es', 1, 'Dios es amor', 'builtin:heart' from public.products where slug = 'easter';
 

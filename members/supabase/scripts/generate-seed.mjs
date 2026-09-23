@@ -25,17 +25,20 @@ for (const [slug, order, names] of sections) {
 }
 sql += '\n';
 packs.forEach((p, i) => {
-  sql += `insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, field_colour, page_count, free_sample)
-  select ${q(p.id)}, '${p.type}', s.id, ${q(p.gid)}, ${p.price * 100}, '${p.access}', '${p.vis}', ${i + 1}, ${q(p.field)}, ${p.pages}, ${p.type !== 'colouring'}
+  sql += `insert into public.products (slug, type, section_id, gateway_product_id, price_cents, access, visibility, sort_order, cover_path, field_colour, page_count, free_sample)
+  select ${q(p.id)}, '${p.type}', s.id, ${q(p.gid)}, ${p.price * 100}, '${p.access}', '${p.vis}', ${i + 1}, ${q('builtin:' + p.art[0])}, ${q(p.field)}, ${p.pages}, ${p.type !== 'colouring'}
   from public.sections s where s.slug = ${q(p.sec)};\n`;
   for (const l of locales) {
     const t = ctx.PACK_TEXT[l][p.id];
     sql += `insert into public.product_translations (product_id, locale, title, description, verse, verse_ref) select id, '${l}', ${q(t.t)}, ${q(t.d)}, ${q(t.v)}, ${q(t.r)} from public.products where slug = ${q(p.id)};\n`;
   }
   if (p.type === 'colouring') {
-    p.art.forEach((a, n) => {
-      sql += `insert into public.product_pages (product_id, position, title) select id, ${n + 1}, ${q(ctx.ART_TITLE.en[a])} from public.products where slug = ${q(p.id)};\n`;
-    });
+    // One row per language so page titles are translated; the built-in line art is the same in every language.
+    for (const l of locales) {
+      p.art.forEach((a, n) => {
+        sql += `insert into public.product_pages (product_id, locale, position, title, lineart_path) select id, '${l}', ${n + 1}, ${q(ctx.ART_TITLE[l][a])}, ${q('builtin:' + a)} from public.products where slug = ${q(p.id)};\n`;
+      });
+    }
   } else {
     for (const l of locales) {
       const chs = ctx.CHAPTERS[l][p.id], body = ctx.EXCERPT[l][p.id].map((x) => `<p>${x}</p>`).join('');

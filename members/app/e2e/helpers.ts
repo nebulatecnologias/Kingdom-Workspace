@@ -8,6 +8,14 @@ export const admin = () =>
 
 export const uniqueEmail = (tag: string) => `e2e+${tag}-${Date.now()}-${Math.floor(Math.random() * 1e4)}@example.co.za`;
 
+/**
+ * All tests come from one IP, so a long run would trip the real rate limits (10 invite acceptances per 15 minutes).
+ * Tests that sign up call this first; the limits themselves stay on.
+ */
+export async function resetRateLimits() {
+  await admin().from("rate_limits").delete().neq("key", "");
+}
+
 /** Creates an invite through the real code path (scripts/create-invite.ts) and returns its link. */
 export function createInvite(opts: { email: string; name?: string; products?: string[]; locale?: string; ttlDays?: number }) {
   const args = ["run", "-s", "invite:create", "--", "--email", opts.email, "--name", opts.name ?? "Thandi Test", "--products", (opts.products ?? ["noah", "money"]).join(","), "--locale", opts.locale ?? "en", "--json"];

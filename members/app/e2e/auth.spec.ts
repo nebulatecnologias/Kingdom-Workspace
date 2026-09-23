@@ -1,9 +1,10 @@
 import { expect, test, type Page } from "@playwright/test";
-import { admin, createInvite, latestLink, uniqueEmail } from "./helpers";
+import { admin, createInvite, latestLink, resetRateLimits, uniqueEmail } from "./helpers";
 
 const PASSWORD = "Str0ng-pass!23";
 
 async function acceptInvite(page: Page, url: string, opts: { password?: string } = {}) {
+  await resetRateLimits();
   await page.goto(url);
   await expect(page.getByRole("heading", { name: "Create your account" })).toBeVisible();
   if (opts.password) await page.getByLabel("Password", { exact: true }).fill(opts.password);

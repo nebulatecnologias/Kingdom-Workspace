@@ -407,5 +407,11 @@
   "mail_reset_note": "The link works once and expires in 15 minutes. Didn’t ask for this? You can ignore this email; your password stays the same.",
   "mail_link_fallback": "If the button doesn’t work, copy this link into your browser:",
   "back_to_login": "Back to sign in",
-  "legal_en_only": "This document is available in English only."
+  "legal_en_only": "This document is available in English only.",
+  "checkout_unavailable": "Online checkout for this product isn’t open yet. Contact us on WhatsApp or by email and we’ll sort it out.",
+  "err_pw_short": "Use at least 8 characters.",
+  "err_pw_same": "That’s your current password. Choose a different one.",
+  "prof_pwSaved": "Your new password is saved.",
+  "prof_pwNew": "New password",
+  "account_deleted": "Your account and personal data have been deleted. Thank you for having been with us."
 }

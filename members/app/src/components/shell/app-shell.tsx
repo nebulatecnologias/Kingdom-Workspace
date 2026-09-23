@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import {
@@ -20,6 +20,7 @@ import {
 import { Brand } from "@/components/ui/brand";
 import { LanguageSelect } from "@/components/ui/language-select";
 import { NavLink } from "./nav-link";
+import { SearchBox } from "./search-box";
 import { signOut } from "@/app/(auth)/actions";
 
 export type ShellUser = { name: string; email: string } | null;
@@ -28,11 +29,11 @@ type NavItem = { href: string; label: string; icon: ReactNode; badge?: number; e
 
 const AVATAR_COLOURS = ["#f4621d", "#564cc9", "#15803d", "#1f5f9a", "#b8400a", "#8a5b00", "#b4202d", "#0f7a6c"];
 
-export function Avatar({ name, size = 36 }: { name: string; size?: number }) {
+export function Avatar({ name, size = 36, decorative = true }: { name: string; size?: number; decorative?: boolean }) {
   const initials = name.split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase() || "?";
   const colour = AVATAR_COLOURS[[...name].reduce((a, c) => a + c.charCodeAt(0), 0) % AVATAR_COLOURS.length];
   return (
-    <span className="avatar" style={{ background: colour, width: size, height: size }} aria-hidden="true">
+    <span className="avatar" style={{ background: colour, width: size, height: size }} aria-hidden={decorative || undefined}>
       {initials}
     </span>
   );
@@ -89,10 +90,10 @@ export async function AppShell({
             </NavLink>
           ))}
           {variant === "member" ? (
-            <Link href="/help">
+            <NavLink href="/help">
               {icon(MessageCircle)}
               {t("nav_help")}
-            </Link>
+            </NavLink>
           ) : null}
         </nav>
         <div className="sidebar-foot">
@@ -129,19 +130,27 @@ export async function AppShell({
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
             <LanguageSelect id="lang-m" />
             {user ? (
-              <Link href="/profile" aria-label={t("nav_profile")}>
-                <Avatar name={user.name} />
+              <Link href="/profile" title={t("nav_profile")}>
+                {/* The visible initials are part of the link's name, so voice control users can say what they see. */}
+                <Avatar name={user.name} decorative={false} />
+                <span className="sr">{t("nav_profile")}</span>
               </Link>
             ) : null}
           </div>
         </header>
         <main className="main" id="main">
           <div className="topbar">
-            <label className="search">
-              {icon(Search)}
-              <span className="sr">{variant === "admin" ? t("searchAdmin") : t("searchPacks")}</span>
-              <input type="search" placeholder={variant === "admin" ? t("searchAdmin") : t("searchPacks")} autoComplete="off" />
-            </label>
+            {variant === "admin" ? (
+              <label className="search">
+                {icon(Search)}
+                <span className="sr">{t("searchAdmin")}</span>
+                <input type="search" placeholder={t("searchAdmin")} autoComplete="off" />
+              </label>
+            ) : (
+              <Suspense fallback={<div className="search" />}>
+                <SearchBox label={t("searchPacks")} action="/library" />
+              </Suspense>
+            )}
             <span className="spacer" />
             <LanguageSelect />
             {variant === "admin" ? (
@@ -164,6 +173,12 @@ export async function AppShell({
             {item.label}
           </NavLink>
         ))}
+        {variant === "member" ? (
+          <NavLink href="/help">
+            {icon(MessageCircle)}
+            {t("nav_help")}
+          </NavLink>
+        ) : null}
       </nav>
     </div>
   );

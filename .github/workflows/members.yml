@@ -62,6 +62,8 @@ jobs:
       NEXT_PUBLIC_SITE_URL: http://localhost:3000
       KM_DEV_MAILBOX: "true"
       CI: "true"
+      # Storage runs here, so the signed-download test must not be skipped.
+      E2E_REQUIRE_STORAGE: "1"
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -85,7 +87,7 @@ jobs:
         run: |
           export SUPABASE_INTERNAL_IMAGE_REGISTRY=public.ecr.aws
           for attempt in 1 2 3 4; do
-            if supabase start -x studio,imgproxy,edge-runtime,logflare,vector,realtime,supavisor,postgres-meta,mailpit,storage-api; then
+            if supabase start -x studio,imgproxy,edge-runtime,logflare,vector,realtime,supavisor,postgres-meta,mailpit; then
               exit 0
             fi
             echo "supabase start failed (attempt $attempt); retrying in $((attempt * 30))s"
