@@ -406,6 +406,6 @@
   "mail_reset_cta": "Elegir contraseña nueva",
   "mail_reset_note": "El enlace funciona una vez y caduca en 15 minutos. ¿No lo pediste? Puedes ignorar este correo; tu contraseña no cambia.",
   "mail_link_fallback": "Si el botón no funciona, copia este enlace en tu navegador:",
-  "help_page_lead": "Toca para copiar. Solemos responder en pocas horas los días laborables.",
-  "back_to_login": "Volver a iniciar sesión"
+  "back_to_login": "Volver a iniciar sesión",
+  "legal_en_only": "Este documento solo está disponible en inglés."
 }

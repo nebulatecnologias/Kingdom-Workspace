@@ -38,7 +38,7 @@ export function InviteForm({ token, email, defaultName, expiresLabel }: {
       </label>
       <div className={fe.terms ? "field has-error" : undefined}>
         <label className="check">
-          <input type="checkbox" name="terms" defaultChecked />
+          <input type="checkbox" name="terms" aria-invalid={!!fe.terms || undefined} />
           <span>
             {t.rich("inv_terms", {
               terms: (c) => <a href="/legal/terms" target="_blank" rel="noopener">{c}</a>,

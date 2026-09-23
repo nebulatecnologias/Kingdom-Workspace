@@ -406,6 +406,6 @@
   "mail_reset_cta": "Choose a new password",
   "mail_reset_note": "The link works once and expires in 15 minutes. Didn’t ask for this? You can ignore this email; your password stays the same.",
   "mail_link_fallback": "If the button doesn’t work, copy this link into your browser:",
-  "help_page_lead": "Tap to copy. We usually reply within a few hours on weekdays.",
-  "back_to_login": "Back to sign in"
+  "back_to_login": "Back to sign in",
+  "legal_en_only": "This document is available in English only."
 }

@@ -9,14 +9,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HelpPage() {
   const t = await getTranslations();
-  const whatsapp = process.env.SUPPORT_WHATSAPP || t("help_placeholder");
-  const email = process.env.SUPPORT_EMAIL || t("help_placeholder");
+  const whatsapp = process.env.SUPPORT_WHATSAPP;
+  const email = process.env.SUPPORT_EMAIL;
+  const whatsappDigits = whatsapp?.replace(/\D/g, "");
   return (
     <>
       <div className="page-head">
         <div>
           <h1>{t("help_title")}</h1>
-          <p>{t("help_page_lead")}</p>
+          <p>{t("help_lead")}</p>
         </div>
       </div>
       <div className="stack" style={{ maxWidth: 560 }}>
@@ -26,7 +27,9 @@ export default async function HelpPage() {
           </span>
           <div>
             <span className="hint">{t("help_whatsapp")}</span>
-            <b style={{ display: "block", fontWeight: 500, userSelect: "all" }}>{whatsapp}</b>
+            <b style={{ display: "block", fontWeight: 500 }}>
+              {whatsappDigits ? <a href={`https://wa.me/${whatsappDigits}`}>{whatsapp}</a> : t("help_placeholder")}
+            </b>
           </div>
         </div>
         <div className="bought">
@@ -35,7 +38,9 @@ export default async function HelpPage() {
           </span>
           <div>
             <span className="hint">{t("help_email")}</span>
-            <b style={{ display: "block", fontWeight: 500, userSelect: "all" }}>{email}</b>
+            <b style={{ display: "block", fontWeight: 500 }}>
+              {email ? <a href={`mailto:${email}`}>{email}</a> : t("help_placeholder")}
+            </b>
           </div>
         </div>
       </div>

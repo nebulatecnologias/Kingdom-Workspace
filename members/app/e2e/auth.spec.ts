@@ -8,6 +8,7 @@ async function acceptInvite(page: Page, url: string, opts: { password?: string }
   await expect(page.getByRole("heading", { name: "Create your account" })).toBeVisible();
   if (opts.password) await page.getByLabel("Password", { exact: true }).fill(opts.password);
   else await page.getByLabel("Skip the password").check();
+  await page.locator('input[name="terms"]').check();
   await page.getByRole("button", { name: "Create account and open my library" }).click();
   await page.waitForURL(/\/library\?welcome=1$/);
 }
@@ -45,6 +46,7 @@ test("validation explains what to fix", async ({ page }) => {
   await page.getByRole("button", { name: "Create account and open my library" }).click();
   await expect(page.getByText("Please tell us your name.")).toBeVisible();
   await expect(page.getByText("Use at least 8 characters")).toBeVisible();
+  await expect(page.getByText("Please accept the terms to continue.")).toBeVisible();
 });
 
 test("an expired invite offers a fresh link that works", async ({ page }) => {
@@ -130,4 +132,12 @@ test("a Portuguese invite opens in Portuguese", async ({ page }) => {
   const { url } = createInvite({ email: uniqueEmail("pt"), locale: "pt", name: "Ana Sitoe" });
   await page.goto(url);
   await expect(page.getByRole("heading", { name: "Crie a sua conta" })).toBeVisible();
+});
+
+test("the terms and privacy pages open from the invite", async ({ page }) => {
+  for (const [path, heading] of [["/legal/terms", "Terms of Use"], ["/legal/privacy", "Privacy Policy"]]) {
+    await page.goto(path);
+    await expect(page.getByRole("heading", { level: 1, name: heading })).toBeVisible();
+    await expect(page.getByRole("link", { name: "contact@sheltondouglas.co.za" })).toBeVisible();
+  }
 });
