@@ -55,7 +55,7 @@ O GitHub Actions (`.github/workflows/members.yml`) corre tudo isto em cada push 
 
 ## Base de dados (Supabase)
 
-- **Migrações:** `members/supabase/migrations/`. Aplicar com `npx supabase db push`, depois de `npx supabase link --project-ref <ref>`.
+- **Migrações:** `members/supabase/migrations/`. O workflow `.github/workflows/members-supabase-deploy.yml` aplica-as no projeto Supabase alojado sempre que mudam, e também desliga o registo público, fixa a validade dos links em 15 minutos e exige palavras-passe de 8 ou mais caracteres. Precisa de 3 segredos do repositório: `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF` e `SUPABASE_DB_PASSWORD`. A variável opcional `KM_SITE_URL` define o endereço do site e os redirecionamentos permitidos. À mão: `npx supabase link --project-ref <ref>` e depois `npx supabase db push`.
 - **Dados de exemplo:** `members/supabase/seed.sql` é gerado a partir do protótipo com `npm run db:seed:generate`. Substituir pelos produtos reais antes do lançamento.
 - **Contas:** só são criadas a partir de convites; o registo público está desligado em `config.toml`.
 - **Primeiro administrador:** depois de criar a sua conta, corra no editor SQL:
