@@ -444,7 +444,10 @@ img, svg { max-width: 100%; }
 .team { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding: 16px 20px 20px; }
 .person { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line); }
 .person .who { flex: 1; min-width: 0; }
-.person b { display: block; font-weight: 500; font-size: 14.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.person b { display: block; font-weight: 500; font-size: 14.5px; line-height: 1.3; }
+.person .pk { display: flex; gap: 6px; min-width: 0; font-size: 13px; color: var(--muted); }
+.person .pk-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.person .pk-n { flex: none; font-weight: 500; color: var(--ink-2); }
 .person .who span { font-size: 13px; color: var(--muted); }
 .table-wrap { overflow-x: auto; }
 table.table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
@@ -508,8 +511,12 @@ table.table { width: 100%; border-collapse: collapse; font-size: 14px; min-width
 .status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-soft); flex: none; }
 
 /* ---------- prototype map ---------- */
-.proto-fab { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 80; display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px 0 12px; border-radius: 999px; background: var(--ink); color: var(--canvas); border: 0; box-shadow: var(--shadow-pop); font-weight: 500; font-size: 14px; }
-.proto-panel { position: fixed; right: 16px; bottom: calc(70px + env(safe-area-inset-bottom, 0px)); z-index: 81; width: min(340px, calc(100% - 32px)); max-height: min(640px, calc(100vh - 100px)); overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-pop); padding: 16px; animation: rise .22s var(--ease); }
+.proto-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px dashed var(--line-strong); background: transparent; color: var(--muted); font-size: 13.5px; font-weight: 500; white-space: nowrap; }
+.proto-btn:hover, .proto-btn[aria-expanded="true"] { color: var(--ink); border-color: var(--ink-2); background: var(--surface); }
+.proto-btn.icon-only { width: 40px; padding: 0; }
+.proto-btn.icon-only span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.auth-art .proto-btn { color: #fff; }
+.proto-panel { position: fixed; right: 16px; top: calc(72px + env(safe-area-inset-top, 0px)); z-index: 81; width: min(340px, calc(100% - 32px)); max-height: min(640px, calc(100vh - 100px)); overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-pop); padding: 16px; animation: rise .22s var(--ease); }
 .proto-panel h3 { font-size: 15px; margin-bottom: 4px; }
 .proto-group { margin-top: 12px; }
 .proto-group p { font-size: 12px; color: var(--faint); font-weight: 500; margin: 0 4px 4px; }
@@ -536,12 +543,8 @@ table.table { width: 100%; border-collapse: collapse; font-size: 14px; min-width
   .tabbar a { display: grid; justify-items: center; gap: 3px; padding: 6px 4px; text-decoration: none; color: var(--muted); font-size: 11.5px; font-weight: 500; border-radius: 12px; }
   .tabbar a[aria-current="page"] { color: var(--orange-ink); }
   .tabbar a[aria-current="page"] .icon { color: var(--orange-500); }
-  body:has(.tabbar) .proto-fab { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
-  .proto-fab { width: 44px; padding: 0; justify-content: center; }
-  .proto-fab span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .mobile-bar .brand b { font-size: 15px; }
   .mobile-bar .brand small { display: none; }
-  .proto-panel { bottom: calc(138px + env(safe-area-inset-bottom, 0px)); }
   .auth { grid-template-columns: minmax(0, 1fr); }
   .auth-art { min-height: 0; padding: 24px; }
   .collage { height: 200px; }

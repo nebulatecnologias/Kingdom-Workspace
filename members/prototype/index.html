@@ -453,7 +453,10 @@ img, svg { max-width: 100%; }
 .team { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding: 16px 20px 20px; }
 .person { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line); }
 .person .who { flex: 1; min-width: 0; }
-.person b { display: block; font-weight: 500; font-size: 14.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.person b { display: block; font-weight: 500; font-size: 14.5px; line-height: 1.3; }
+.person .pk { display: flex; gap: 6px; min-width: 0; font-size: 13px; color: var(--muted); }
+.person .pk-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.person .pk-n { flex: none; font-weight: 500; color: var(--ink-2); }
 .person .who span { font-size: 13px; color: var(--muted); }
 .table-wrap { overflow-x: auto; }
 table.table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
@@ -517,8 +520,12 @@ table.table { width: 100%; border-collapse: collapse; font-size: 14px; min-width
 .status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-soft); flex: none; }
 
 /* ---------- prototype map ---------- */
-.proto-fab { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 80; display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px 0 12px; border-radius: 999px; background: var(--ink); color: var(--canvas); border: 0; box-shadow: var(--shadow-pop); font-weight: 500; font-size: 14px; }
-.proto-panel { position: fixed; right: 16px; bottom: calc(70px + env(safe-area-inset-bottom, 0px)); z-index: 81; width: min(340px, calc(100% - 32px)); max-height: min(640px, calc(100vh - 100px)); overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-pop); padding: 16px; animation: rise .22s var(--ease); }
+.proto-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px dashed var(--line-strong); background: transparent; color: var(--muted); font-size: 13.5px; font-weight: 500; white-space: nowrap; }
+.proto-btn:hover, .proto-btn[aria-expanded="true"] { color: var(--ink); border-color: var(--ink-2); background: var(--surface); }
+.proto-btn.icon-only { width: 40px; padding: 0; }
+.proto-btn.icon-only span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.auth-art .proto-btn { color: #fff; }
+.proto-panel { position: fixed; right: 16px; top: calc(72px + env(safe-area-inset-top, 0px)); z-index: 81; width: min(340px, calc(100% - 32px)); max-height: min(640px, calc(100vh - 100px)); overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-pop); padding: 16px; animation: rise .22s var(--ease); }
 .proto-panel h3 { font-size: 15px; margin-bottom: 4px; }
 .proto-group { margin-top: 12px; }
 .proto-group p { font-size: 12px; color: var(--faint); font-weight: 500; margin: 0 4px 4px; }
@@ -545,12 +552,8 @@ table.table { width: 100%; border-collapse: collapse; font-size: 14px; min-width
   .tabbar a { display: grid; justify-items: center; gap: 3px; padding: 6px 4px; text-decoration: none; color: var(--muted); font-size: 11.5px; font-weight: 500; border-radius: 12px; }
   .tabbar a[aria-current="page"] { color: var(--orange-ink); }
   .tabbar a[aria-current="page"] .icon { color: var(--orange-500); }
-  body:has(.tabbar) .proto-fab { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
-  .proto-fab { width: 44px; padding: 0; justify-content: center; }
-  .proto-fab span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .mobile-bar .brand b { font-size: 15px; }
   .mobile-bar .brand small { display: none; }
-  .proto-panel { bottom: calc(138px + env(safe-area-inset-bottom, 0px)); }
   .auth { grid-template-columns: minmax(0, 1fr); }
   .auth-art { min-height: 0; padding: 24px; }
   .collage { height: 200px; }
@@ -941,7 +944,7 @@ const I18N = {
     ad_title: "Overview", ad_lead: "Members, invites and sales from your gateway, as they happen.",
     kpi_members: "Members", kpi_invites: "Pending invites", kpi_unlocks: "Unlocks this month",
     kpi_delta: "+{n} this month", kpi_deltaWeek: "{n} expire this week", kpi_deltaUnlock: "{amount} in sales",
-    cd_title: "Next invite expires", cd_title2: "{name}’s invite expires in", cd_expiring: "Expiring", cd_resend: "Resend now",
+    cd_title: "Next invite expires", cd_title2: "{name}’s invite", cd_expiring: "Expiring", cd_resend: "Resend now",
     ad_pending: "Invites waiting", viewAll: "View all",
     feed_title: "Activity", feed_unread: "Unread",
     feed_created: "{who} created an account", feed_paid: "{ref} paid · invite sent to {who}",
@@ -1115,7 +1118,7 @@ const I18N = {
     ad_title: "Visão geral", ad_lead: "Membros, convites e vendas do seu gateway, em tempo real.",
     kpi_members: "Membros", kpi_invites: "Convites pendentes", kpi_unlocks: "Desbloqueios este mês",
     kpi_delta: "+{n} este mês", kpi_deltaWeek: "{n} expiram esta semana", kpi_deltaUnlock: "{amount} em vendas",
-    cd_title: "Próximo convite a expirar", cd_title2: "O convite de {name} expira em", cd_expiring: "A expirar", cd_resend: "Reenviar agora",
+    cd_title: "Próximo convite a expirar", cd_title2: "Convite de {name}", cd_expiring: "A expirar", cd_resend: "Reenviar agora",
     ad_pending: "Convites à espera", viewAll: "Ver todos",
     feed_title: "Atividade", feed_unread: "Não lidas",
     feed_created: "{who} criou uma conta", feed_paid: "{ref} pago · convite enviado a {who}",
@@ -1289,7 +1292,7 @@ const I18N = {
     ad_title: "Resumen", ad_lead: "Miembros, invitaciones y ventas de tu pasarela, en tiempo real.",
     kpi_members: "Miembros", kpi_invites: "Invitaciones pendientes", kpi_unlocks: "Desbloqueos este mes",
     kpi_delta: "+{n} este mes", kpi_deltaWeek: "{n} caducan esta semana", kpi_deltaUnlock: "{amount} en ventas",
-    cd_title: "Próxima invitación en caducar", cd_title2: "La invitación de {name} caduca en", cd_expiring: "Caduca pronto", cd_resend: "Reenviar ahora",
+    cd_title: "Próxima invitación en caducar", cd_title2: "Invitación de {name}", cd_expiring: "Caduca pronto", cd_resend: "Reenviar ahora",
     ad_pending: "Invitaciones en espera", viewAll: "Ver todas",
     feed_title: "Actividad", feed_unread: "Sin leer",
     feed_created: "{who} creó una cuenta", feed_paid: "{ref} pagado · invitación enviada a {who}",
@@ -1528,6 +1531,7 @@ let logoN = 0;
 const logo = () => { const g = 'km-g' + (++logoN); return `<svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="${g}" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#ff8a4a"/><stop offset=".55" stop-color="#f7662a"/><stop offset="1" stop-color="#e8480c"/></linearGradient></defs><rect width="64" height="64" rx="15" fill="#f4621d"/><rect width="64" height="64" rx="15" fill="url(#${g})"/><path d="M12.5 27.1 23.9 30.7 31.9 17.9 39.9 30.7 49.7 27.1 46.5 44.8H17.7Z" fill="#fff" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg>`; };
 const brand = (sub) => `<a class="brand" href="#library" aria-label="Kingdom Members">${logo()}<span><b>Kingdom Members</b>${sub ? `<small>${sub}</small>` : ''}</span></a>`;
 const langSelect = (id = 'lang') => `<label class="sr" for="${id}">${t('language')}</label><select class="select lang-select" id="${id}" data-act="lang">${['en', 'pt', 'es'].map(l => `<option value="${l}" ${l === state.lang ? 'selected' : ''}>${t('lang_' + l)}</option>`).join('')}</select>`;
+const protoBtn = (cls = '') => `<button class="proto-btn ${cls}" data-act="proto" aria-expanded="${state.proto}" title="${t('protoMap')}">${icon('map', 'icon-sm')}<span>${t('protoMap')}</span></button>`;
 const bars = (hs) => `<div class="bars" aria-hidden="true">${hs.map(h => `<i style="height:${h}%"></i>`).join('')}</div>`;
 
 /* ---------- toasts ---------- */
@@ -1578,12 +1582,13 @@ function memberShell(active, content) {
       <nav class="nav">${nav.map(([r, ic, label, badge]) => `<a href="#${r}" ${active === r ? 'aria-current="page"' : ''}>${icon(ic)}${label}${badge ? `<span class="badge">${badge}</span>` : ''}</a>`).join('')}
         <a href="#${route()}" data-act="help">${icon('message')}${t('nav_help')}</a></nav>
       <div class="sidebar-foot">
+        ${protoBtn()}
         <div class="user-chip">${avatar(state.user.name)}<div class="who"><b>${esc(state.user.name)}</b><span>${esc(state.user.email)}</span></div>
           <a class="icon-btn" href="#login" title="${t('signOut')}" aria-label="${t('signOut')}">${icon('logout', 'icon-sm')}</a></div>
       </div>
     </aside>
     <div>
-      <header class="mobile-bar">${brand()}<div style="display:flex;gap:8px;align-items:center">${langSelect('lang-m')}<a href="#profile" aria-label="${t('nav_profile')}">${avatar(state.user.name, 36)}</a></div></header>
+      <header class="mobile-bar">${brand()}<div style="display:flex;gap:8px;align-items:center">${protoBtn('icon-only')}${langSelect('lang-m')}<a href="#profile" aria-label="${t('nav_profile')}">${avatar(state.user.name, 36)}</a></div></header>
       <main class="main" id="main">
         <div class="topbar">
           <label class="search">${icon('search')}<span class="sr">${t('searchPacks')}</span><input id="lib-search" type="search" placeholder="${t('searchPacks')}" value="${esc(state.q)}" autocomplete="off"></label>
@@ -1712,7 +1717,7 @@ function authShell(card) {
       <div><h2>${t('inv_art_title')}</h2><p>${t('inv_art_p')}</p></div>
     </section>
     <section class="auth-side"><div class="auth-card">
-      <div class="auth-top"><span></span>${langSelect()}</div>
+      <div class="auth-top">${protoBtn()}${langSelect()}</div>
       ${card}
     </div></section>
   </div>`;
@@ -1810,7 +1815,7 @@ function emailView(kind) {
       <p>${t('mail_unlocked_p', { pack: esc(pt('shepherd').t), pages: P.shepherd.pages })}</p><a class="email-cta" href="#pack-shepherd">${t('mail_unlocked_cta')}</a>
       <p class="email-small">${t('mail_order', { ref: 'KG-20260923-5TR8D', amount: money(P.shepherd.price) })}</p>`;
   return `<div class="main" style="max-width:1180px;margin:0 auto">
-    <div class="topbar" style="display:flex">${brand(t('mail_inbox'))}<span class="spacer"></span>${langSelect()}</div>
+    <div class="topbar" style="display:flex">${brand(t('mail_inbox'))}<span class="spacer"></span>${protoBtn()}${langSelect()}</div>
     <div class="mail-shell">
       <nav class="card mail-list" aria-label="${t('mail_inbox')}">${tabs.map(([k, s, pv]) => `<a class="mail-item" style="text-decoration:none;color:inherit" href="#email-${k}" aria-current="${k === kind}"><b>${esc(s)}</b><span>${esc(pv)}</span></a>`).join('')}</nav>
       <article class="card mail-view">
@@ -1849,12 +1854,13 @@ function adminShell(active, content) {
       </div>
       <nav class="nav">${nav.map(([r, ic, label, badge]) => `<a href="#${r}" ${active === r ? 'aria-current="page"' : ''}>${icon(ic)}${label}${badge ? `<span class="badge">${badge}</span>` : ''}</a>`).join('')}</nav>
       <div class="sidebar-foot">
+        ${protoBtn()}
         <a class="btn btn-ghost btn-block" href="#library">${icon('library', 'icon-sm')}${t('nav_viewMember')}</a>
         <div class="user-chip">${avatar('Kingdom Admin')}<div class="who"><b>Kingdom Admin</b><span>admin@yourdomain.co.za</span></div></div>
       </div>
     </aside>
     <div>
-      <header class="mobile-bar">${brand(t('nav_admin'))}<div style="display:flex;gap:8px">${langSelect('lang-m')}<button class="icon-btn" data-act="new-invite" aria-label="${t('newInvite')}" style="background:var(--cta);color:#fff;border:0">${icon('plus')}</button></div></header>
+      <header class="mobile-bar">${brand(t('nav_admin'))}<div style="display:flex;gap:8px">${protoBtn('icon-only')}${langSelect('lang-m')}<button class="icon-btn" data-act="new-invite" aria-label="${t('newInvite')}" style="background:var(--cta);color:#fff;border:0">${icon('plus')}</button></div></header>
       <main class="main" id="main">
         <div class="topbar">
           <label class="search">${icon('search')}<span class="sr">${t('searchAdmin')}</span><input type="search" placeholder="${t('searchAdmin')}" autocomplete="off"></label>
@@ -1891,15 +1897,15 @@ function adminOverview() {
       <div class="card kpi"><span class="kpi-label">${icon('mail', 'icon-sm')}${t('kpi_invites')}</span><div class="kpi-row"><span class="kpi-value">${pending.length}</span>${bars([80, 50, 95, 60, 40])}</div><span class="kpi-delta" style="color:var(--amber-ink)">${t('kpi_deltaWeek', { n: 2 })}</span></div>
       <div class="card kpi"><span class="kpi-label">${icon('lock', 'icon-sm')}${t('kpi_unlocks')}</span><div class="kpi-row"><span class="kpi-value">37</span>${bars([35, 60, 50, 85, 100])}</div><span class="kpi-delta">${t('kpi_deltaUnlock', { amount: money(2913) })}</span></div>
       ${nx ? `<div class="card countdown">
-        <div class="countdown-top"><div><b style="font-size:18px">${t('cd_title2', { name: esc(nx.name.split(' ')[0]) })}</b></div><span class="pill pill-red">${t('cd_expiring')}</span></div>
+        <div class="countdown-top"><div><b style="font-size:18px">${t('cd_title2', { name: esc(nx.name.split(' ')[0]) })}</b><span class="muted" style="display:block;font-size:13px">${esc(nx.email)}</span></div><span class="pill pill-red">${t('cd_expiring')}</span></div>
         <div class="clock" id="clock" aria-live="off">--<span>:</span>--<span>:</span>--</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="muted" style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">${esc(nx.name)}</span><button class="btn btn-ghost btn-sm" data-act="resend" data-id="${nx.id}">${icon('refresh', 'icon-sm')}${t('cd_resend')}</button></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="muted tnum" style="font-size:13px;white-space:nowrap">${t('expiresIn', { t: durH(nx.exp) })}</span><button class="btn btn-ghost btn-sm" data-act="resend" data-id="${nx.id}">${icon('refresh', 'icon-sm')}${t('cd_resend')}</button></div>
       </div>` : ''}
     </div>
     <div class="admin-grid">
       <section class="card">
         <div class="card-head"><h2 class="card-title"><span class="status-dot" style="background:var(--orange-500);box-shadow:0 0 0 4px var(--orange-soft)"></span>${t('ad_pending')}<span class="pill pill-grey tnum">${pending.length}</span></h2><a class="btn btn-ghost btn-sm" href="#admin-invites">${t('viewAll')}</a></div>
-        <div class="team">${pending.slice(0, 6).map(i => `<div class="person">${avatar(i.name, 44)}<div class="who"><b>${esc(i.name)}</b><span style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(pt(i.packs[0]).t)}${i.packs.length > 1 ? ' +' + (i.packs.length - 1) : ''}</span></div>${statusPill(i.status)}</div>`).join('')}</div>
+        <div class="team">${pending.slice(0, 6).map(i => `<div class="person">${avatar(i.name, 44)}<div class="who"><b>${esc(i.name)}</b><span class="pk"><span class="pk-t">${esc(pt(i.packs[0]).t)}</span>${i.packs.length > 1 ? `<span class="pk-n">+${i.packs.length - 1}</span>` : ''}</span></div>${statusPill(i.status)}</div>`).join('')}</div>
       </section>
       <section class="card">
         <div class="card-head"><h2 class="card-title">${icon('bell')}${t('feed_title')}</h2><span class="muted" style="font-size:13.5px">${t('feed_unread')}</span></div>
@@ -2176,8 +2182,7 @@ function protoView() {
     ['grp_member', [['library', 'r_library'], ['pack-noah', 'r_pack'], ['profile', 'r_profile']]],
     ['grp_admin', [['admin', 'r_admin'], ['admin-invites', 'r_admin_invites'], ['admin-members', 'r_admin_members'], ['admin-showcase', 'r_admin_showcase'], ['admin-pack-noah', 'r_admin_pack'], ['admin-integrations', 'r_admin_integrations']]],
   ];
-  return `<button class="proto-fab" data-act="proto" aria-expanded="${state.proto}">${icon('map')}<span>${t('protoMap')}</span></button>
-    ${state.proto ? `<div class="proto-panel" role="dialog" aria-label="${t('protoMap')}"><h3>${t('protoMap')}</h3><p class="hint">${t('protoNote')}</p>
+  return `${state.proto ? `<div class="proto-panel" role="dialog" aria-label="${t('protoMap')}"><h3>${t('protoMap')}</h3><p class="hint">${t('protoNote')}</p>
       ${groups.map(([g, items]) => `<div class="proto-group"><p>${t(g)}</p>${items.map(([id, k]) => `<a href="#${id}" ${r === id ? 'aria-current="page"' : ''}>${t(k)}${icon('chevronRight', 'icon-sm')}</a>`).join('')}</div>`).join('')}
     </div>` : ''}`;
 }
@@ -2276,7 +2281,7 @@ document.addEventListener('click', (e) => {
   const el = e.target.closest('[data-act]');
   if (!el) {
     if (state.menu && !e.target.closest('.split')) { state.menu = false; render(); }
-    if (state.proto && !e.target.closest('.proto-panel')) { state.proto = false; $('#proto').innerHTML = protoView(); }
+    if (state.proto && !e.target.closest('.proto-panel, .proto-btn')) { state.proto = false; $('#proto').innerHTML = protoView(); }
     return;
   }
   const a = el.dataset.act, id = el.dataset.id, v = el.dataset.v;
@@ -2284,7 +2289,7 @@ document.addEventListener('click', (e) => {
   switch (a) {
     case 'scrim': if (e.target === el) closeDialog(); return;
     case 'close': e.preventDefault(); closeDialog(); return;
-    case 'proto': state.proto = !state.proto; $('#proto').innerHTML = protoView(); return;
+    case 'proto': state.proto = !state.proto; $('#proto').innerHTML = protoView(); document.querySelectorAll('.proto-btn').forEach(b => b.setAttribute('aria-expanded', state.proto)); return;
     case 'help': e.preventDefault(); openDialog({ type: 'help' }); return;
     case 'filter': state.filter = v; render(); return;
     case 'dismiss-welcome': state.justJoined = false; render(); return;

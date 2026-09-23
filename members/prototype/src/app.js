@@ -141,6 +141,7 @@ let logoN = 0;
 const logo = () => { const g = 'km-g' + (++logoN); return `<svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="${g}" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#ff8a4a"/><stop offset=".55" stop-color="#f7662a"/><stop offset="1" stop-color="#e8480c"/></linearGradient></defs><rect width="64" height="64" rx="15" fill="#f4621d"/><rect width="64" height="64" rx="15" fill="url(#${g})"/><path d="M12.5 27.1 23.9 30.7 31.9 17.9 39.9 30.7 49.7 27.1 46.5 44.8H17.7Z" fill="#fff" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg>`; };
 const brand = (sub) => `<a class="brand" href="#library" aria-label="Kingdom Members">${logo()}<span><b>Kingdom Members</b>${sub ? `<small>${sub}</small>` : ''}</span></a>`;
 const langSelect = (id = 'lang') => `<label class="sr" for="${id}">${t('language')}</label><select class="select lang-select" id="${id}" data-act="lang">${['en', 'pt', 'es'].map(l => `<option value="${l}" ${l === state.lang ? 'selected' : ''}>${t('lang_' + l)}</option>`).join('')}</select>`;
+const protoBtn = (cls = '') => `<button class="proto-btn ${cls}" data-act="proto" aria-expanded="${state.proto}" title="${t('protoMap')}">${icon('map', 'icon-sm')}<span>${t('protoMap')}</span></button>`;
 const bars = (hs) => `<div class="bars" aria-hidden="true">${hs.map(h => `<i style="height:${h}%"></i>`).join('')}</div>`;
 
 /* ---------- toasts ---------- */
@@ -191,12 +192,13 @@ function memberShell(active, content) {
       <nav class="nav">${nav.map(([r, ic, label, badge]) => `<a href="#${r}" ${active === r ? 'aria-current="page"' : ''}>${icon(ic)}${label}${badge ? `<span class="badge">${badge}</span>` : ''}</a>`).join('')}
         <a href="#${route()}" data-act="help">${icon('message')}${t('nav_help')}</a></nav>
       <div class="sidebar-foot">
+        ${protoBtn()}
         <div class="user-chip">${avatar(state.user.name)}<div class="who"><b>${esc(state.user.name)}</b><span>${esc(state.user.email)}</span></div>
           <a class="icon-btn" href="#login" title="${t('signOut')}" aria-label="${t('signOut')}">${icon('logout', 'icon-sm')}</a></div>
       </div>
     </aside>
     <div>
-      <header class="mobile-bar">${brand()}<div style="display:flex;gap:8px;align-items:center">${langSelect('lang-m')}<a href="#profile" aria-label="${t('nav_profile')}">${avatar(state.user.name, 36)}</a></div></header>
+      <header class="mobile-bar">${brand()}<div style="display:flex;gap:8px;align-items:center">${protoBtn('icon-only')}${langSelect('lang-m')}<a href="#profile" aria-label="${t('nav_profile')}">${avatar(state.user.name, 36)}</a></div></header>
       <main class="main" id="main">
         <div class="topbar">
           <label class="search">${icon('search')}<span class="sr">${t('searchPacks')}</span><input id="lib-search" type="search" placeholder="${t('searchPacks')}" value="${esc(state.q)}" autocomplete="off"></label>
@@ -325,7 +327,7 @@ function authShell(card) {
       <div><h2>${t('inv_art_title')}</h2><p>${t('inv_art_p')}</p></div>
     </section>
     <section class="auth-side"><div class="auth-card">
-      <div class="auth-top"><span></span>${langSelect()}</div>
+      <div class="auth-top">${protoBtn()}${langSelect()}</div>
       ${card}
     </div></section>
   </div>`;
@@ -423,7 +425,7 @@ function emailView(kind) {
       <p>${t('mail_unlocked_p', { pack: esc(pt('shepherd').t), pages: P.shepherd.pages })}</p><a class="email-cta" href="#pack-shepherd">${t('mail_unlocked_cta')}</a>
       <p class="email-small">${t('mail_order', { ref: 'KG-20260923-5TR8D', amount: money(P.shepherd.price) })}</p>`;
   return `<div class="main" style="max-width:1180px;margin:0 auto">
-    <div class="topbar" style="display:flex">${brand(t('mail_inbox'))}<span class="spacer"></span>${langSelect()}</div>
+    <div class="topbar" style="display:flex">${brand(t('mail_inbox'))}<span class="spacer"></span>${protoBtn()}${langSelect()}</div>
     <div class="mail-shell">
       <nav class="card mail-list" aria-label="${t('mail_inbox')}">${tabs.map(([k, s, pv]) => `<a class="mail-item" style="text-decoration:none;color:inherit" href="#email-${k}" aria-current="${k === kind}"><b>${esc(s)}</b><span>${esc(pv)}</span></a>`).join('')}</nav>
       <article class="card mail-view">
@@ -462,12 +464,13 @@ function adminShell(active, content) {
       </div>
       <nav class="nav">${nav.map(([r, ic, label, badge]) => `<a href="#${r}" ${active === r ? 'aria-current="page"' : ''}>${icon(ic)}${label}${badge ? `<span class="badge">${badge}</span>` : ''}</a>`).join('')}</nav>
       <div class="sidebar-foot">
+        ${protoBtn()}
         <a class="btn btn-ghost btn-block" href="#library">${icon('library', 'icon-sm')}${t('nav_viewMember')}</a>
         <div class="user-chip">${avatar('Kingdom Admin')}<div class="who"><b>Kingdom Admin</b><span>admin@yourdomain.co.za</span></div></div>
       </div>
     </aside>
     <div>
-      <header class="mobile-bar">${brand(t('nav_admin'))}<div style="display:flex;gap:8px">${langSelect('lang-m')}<button class="icon-btn" data-act="new-invite" aria-label="${t('newInvite')}" style="background:var(--cta);color:#fff;border:0">${icon('plus')}</button></div></header>
+      <header class="mobile-bar">${brand(t('nav_admin'))}<div style="display:flex;gap:8px">${protoBtn('icon-only')}${langSelect('lang-m')}<button class="icon-btn" data-act="new-invite" aria-label="${t('newInvite')}" style="background:var(--cta);color:#fff;border:0">${icon('plus')}</button></div></header>
       <main class="main" id="main">
         <div class="topbar">
           <label class="search">${icon('search')}<span class="sr">${t('searchAdmin')}</span><input type="search" placeholder="${t('searchAdmin')}" autocomplete="off"></label>
@@ -504,15 +507,15 @@ function adminOverview() {
       <div class="card kpi"><span class="kpi-label">${icon('mail', 'icon-sm')}${t('kpi_invites')}</span><div class="kpi-row"><span class="kpi-value">${pending.length}</span>${bars([80, 50, 95, 60, 40])}</div><span class="kpi-delta" style="color:var(--amber-ink)">${t('kpi_deltaWeek', { n: 2 })}</span></div>
       <div class="card kpi"><span class="kpi-label">${icon('lock', 'icon-sm')}${t('kpi_unlocks')}</span><div class="kpi-row"><span class="kpi-value">37</span>${bars([35, 60, 50, 85, 100])}</div><span class="kpi-delta">${t('kpi_deltaUnlock', { amount: money(2913) })}</span></div>
       ${nx ? `<div class="card countdown">
-        <div class="countdown-top"><div><b style="font-size:18px">${t('cd_title2', { name: esc(nx.name.split(' ')[0]) })}</b></div><span class="pill pill-red">${t('cd_expiring')}</span></div>
+        <div class="countdown-top"><div><b style="font-size:18px">${t('cd_title2', { name: esc(nx.name.split(' ')[0]) })}</b><span class="muted" style="display:block;font-size:13px">${esc(nx.email)}</span></div><span class="pill pill-red">${t('cd_expiring')}</span></div>
         <div class="clock" id="clock" aria-live="off">--<span>:</span>--<span>:</span>--</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="muted" style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">${esc(nx.name)}</span><button class="btn btn-ghost btn-sm" data-act="resend" data-id="${nx.id}">${icon('refresh', 'icon-sm')}${t('cd_resend')}</button></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="muted tnum" style="font-size:13px;white-space:nowrap">${t('expiresIn', { t: durH(nx.exp) })}</span><button class="btn btn-ghost btn-sm" data-act="resend" data-id="${nx.id}">${icon('refresh', 'icon-sm')}${t('cd_resend')}</button></div>
       </div>` : ''}
     </div>
     <div class="admin-grid">
       <section class="card">
         <div class="card-head"><h2 class="card-title"><span class="status-dot" style="background:var(--orange-500);box-shadow:0 0 0 4px var(--orange-soft)"></span>${t('ad_pending')}<span class="pill pill-grey tnum">${pending.length}</span></h2><a class="btn btn-ghost btn-sm" href="#admin-invites">${t('viewAll')}</a></div>
-        <div class="team">${pending.slice(0, 6).map(i => `<div class="person">${avatar(i.name, 44)}<div class="who"><b>${esc(i.name)}</b><span style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(pt(i.packs[0]).t)}${i.packs.length > 1 ? ' +' + (i.packs.length - 1) : ''}</span></div>${statusPill(i.status)}</div>`).join('')}</div>
+        <div class="team">${pending.slice(0, 6).map(i => `<div class="person">${avatar(i.name, 44)}<div class="who"><b>${esc(i.name)}</b><span class="pk"><span class="pk-t">${esc(pt(i.packs[0]).t)}</span>${i.packs.length > 1 ? `<span class="pk-n">+${i.packs.length - 1}</span>` : ''}</span></div>${statusPill(i.status)}</div>`).join('')}</div>
       </section>
       <section class="card">
         <div class="card-head"><h2 class="card-title">${icon('bell')}${t('feed_title')}</h2><span class="muted" style="font-size:13.5px">${t('feed_unread')}</span></div>
@@ -789,8 +792,7 @@ function protoView() {
     ['grp_member', [['library', 'r_library'], ['pack-noah', 'r_pack'], ['profile', 'r_profile']]],
     ['grp_admin', [['admin', 'r_admin'], ['admin-invites', 'r_admin_invites'], ['admin-members', 'r_admin_members'], ['admin-showcase', 'r_admin_showcase'], ['admin-pack-noah', 'r_admin_pack'], ['admin-integrations', 'r_admin_integrations']]],
   ];
-  return `<button class="proto-fab" data-act="proto" aria-expanded="${state.proto}">${icon('map')}<span>${t('protoMap')}</span></button>
-    ${state.proto ? `<div class="proto-panel" role="dialog" aria-label="${t('protoMap')}"><h3>${t('protoMap')}</h3><p class="hint">${t('protoNote')}</p>
+  return `${state.proto ? `<div class="proto-panel" role="dialog" aria-label="${t('protoMap')}"><h3>${t('protoMap')}</h3><p class="hint">${t('protoNote')}</p>
       ${groups.map(([g, items]) => `<div class="proto-group"><p>${t(g)}</p>${items.map(([id, k]) => `<a href="#${id}" ${r === id ? 'aria-current="page"' : ''}>${t(k)}${icon('chevronRight', 'icon-sm')}</a>`).join('')}</div>`).join('')}
     </div>` : ''}`;
 }
@@ -889,7 +891,7 @@ document.addEventListener('click', (e) => {
   const el = e.target.closest('[data-act]');
   if (!el) {
     if (state.menu && !e.target.closest('.split')) { state.menu = false; render(); }
-    if (state.proto && !e.target.closest('.proto-panel')) { state.proto = false; $('#proto').innerHTML = protoView(); }
+    if (state.proto && !e.target.closest('.proto-panel, .proto-btn')) { state.proto = false; $('#proto').innerHTML = protoView(); }
     return;
   }
   const a = el.dataset.act, id = el.dataset.id, v = el.dataset.v;
@@ -897,7 +899,7 @@ document.addEventListener('click', (e) => {
   switch (a) {
     case 'scrim': if (e.target === el) closeDialog(); return;
     case 'close': e.preventDefault(); closeDialog(); return;
-    case 'proto': state.proto = !state.proto; $('#proto').innerHTML = protoView(); return;
+    case 'proto': state.proto = !state.proto; $('#proto').innerHTML = protoView(); document.querySelectorAll('.proto-btn').forEach(b => b.setAttribute('aria-expanded', state.proto)); return;
     case 'help': e.preventDefault(); openDialog({ type: 'help' }); return;
     case 'filter': state.filter = v; render(); return;
     case 'dismiss-welcome': state.justJoined = false; render(); return;
