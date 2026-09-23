@@ -173,4 +173,13 @@ do $$ begin
 end $$;
 rollback;
 
+-- Grants: visitors cannot call the policy helpers; members can (RLS needs them); nobody calls the trigger function.
+do $$ begin
+  assert not has_function_privilege('anon', 'public.is_admin()', 'execute'), 'anon cannot call is_admin';
+  assert not has_function_privilege('anon', 'public.has_access(uuid)', 'execute'), 'anon cannot call has_access';
+  assert not has_function_privilege('anon', 'public.product_is_listed(uuid)', 'execute'), 'anon cannot call product_is_listed';
+  assert has_function_privilege('authenticated', 'public.has_access(uuid)', 'execute'), 'members can call has_access';
+  assert not has_function_privilege('authenticated', 'public.handle_new_user()', 'execute'), 'members cannot call handle_new_user';
+end $$;
+
 \echo 'All database tests passed'
