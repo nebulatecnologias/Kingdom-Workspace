@@ -9,7 +9,7 @@ Copiar tudo abaixo da linha e colar na sessão do Claude que desenvolve o gatewa
 Estás a trabalhar no meu gateway de pagamentos (este repositório). Tenho acesso às APIs do Paystack (chaves test e live), mas a integração ainda não existe. Hoje quero duas entregas:
 
 1. **Integração completa de pagamentos com o Paystack.** O mercado principal é a África do Sul, com moeda ZAR.
-2. **Uma aba "Integrações" com webhooks de saída.** Serve para que outras aplicações minhas recebam eventos de venda. A primeira é a **Kingdom Members**, uma área de membros de desenhos cristãos para colorir. Ela usa estes eventos para:
+2. **Uma aba "Integrações" com webhooks de saída.** Serve para que outras aplicações minhas recebam eventos de venda. A primeira é a **Kingdom Members**, a área de membros com conteúdo cristão digital (packs de colorir, eBooks, guias e apostilas). Ela usa estes eventos para:
    - enviar o convite de criação de conta;
    - libertar produtos;
    - retirar acesso em reembolsos e disputas.

@@ -3,21 +3,28 @@ const TODAY = new Date('2026-09-23T10:00:00');
 const DAY = 864e5;
 
 const PACKS = [
-  { id: 'noah', art: ['ark', 'dove', 'rainbow'], field: '#d6ebf8', pages: 12, price: 89, vis: 'visible', access: 'paid', gid: 'prod_noah_ark', size: '8,4 MB' },
-  { id: 'creation', art: ['sky', 'tree', 'fish'], field: '#ffe6b3', pages: 10, price: 89, vis: 'visible', access: 'paid', gid: 'prod_creation', size: '7,1 MB' },
-  { id: 'shepherd', art: ['lamb', 'shepherd'], field: '#d9eed0', pages: 8, price: 69, vis: 'visible', access: 'paid', gid: 'prod_good_shepherd', size: '5,6 MB' },
-  { id: 'christmas', art: ['stable', 'manger', 'gifts'], field: '#f8d5cf', pages: 12, price: 99, vis: 'visible', access: 'paid', gid: 'prod_first_christmas', size: '9,2 MB' },
-  { id: 'jonah', art: ['whale', 'boat'], field: '#cbedee', pages: 8, price: 69, vis: 'visible', access: 'paid', gid: 'prod_jonah', size: '5,9 MB' },
-  { id: 'verses', art: ['heart', 'bible'], field: '#e8e2fb', pages: 6, price: 0, vis: 'visible', access: 'free', gid: 'prod_verse_cards', size: '2,3 MB' },
-  { id: 'daniel', art: ['lion'], field: '#f3e0c3', pages: 8, price: 69, vis: 'soon', access: 'paid', gid: 'prod_daniel', size: '—' },
-  { id: 'easter', art: ['heart'], field: '#fde0c6', pages: 10, price: 89, vis: 'hidden', access: 'paid', gid: 'prod_easter', size: '—' },
+  { id: 'noah', type: 'colouring', sec: 'kids', art: ['ark', 'dove', 'rainbow'], field: '#d6ebf8', pages: 12, price: 89, vis: 'visible', access: 'paid', gid: 'prod_noah_ark', size: '8,4 MB' },
+  { id: 'money', type: 'book', sec: 'life', art: ['coins'], field: '#dff0d6', pages: 86, price: 129, vis: 'visible', access: 'paid', gid: 'prod_money_gods_way', size: '3,1 MB', mins: [12, 15, 18, 20, 14, 16, 15, 11, 9] },
+  { id: 'sermon', type: 'guide', sec: 'preach', art: ['pulpit'], field: '#e6e0f8', pages: 48, price: 149, vis: 'visible', access: 'paid', gid: 'prod_sermon_builder', size: '4,6 MB', mins: [8, 14, 10, 16, 12, 10, 9] },
+  { id: 'workbook', type: 'workbook', sec: 'preach', art: ['notebook'], field: '#d6e7f6', pages: 64, price: 199, vis: 'visible', access: 'paid', gid: 'prod_preacher_workbook', size: '11,2 MB', mins: [10, 12, 8, 15, 10, 8] },
+  { id: 'creation', type: 'colouring', sec: 'kids', art: ['sky', 'tree', 'fish'], field: '#ffe6b3', pages: 10, price: 89, vis: 'visible', access: 'paid', gid: 'prod_creation', size: '7,1 MB' },
+  { id: 'shepherd', type: 'colouring', sec: 'kids', art: ['lamb', 'shepherd'], field: '#d9eed0', pages: 8, price: 69, vis: 'visible', access: 'paid', gid: 'prod_good_shepherd', size: '5,6 MB' },
+  { id: 'christmas', type: 'colouring', sec: 'kids', art: ['stable', 'manger', 'gifts'], field: '#f8d5cf', pages: 12, price: 99, vis: 'visible', access: 'paid', gid: 'prod_first_christmas', size: '9,2 MB' },
+  { id: 'jonah', type: 'colouring', sec: 'kids', art: ['whale', 'boat'], field: '#cbedee', pages: 8, price: 69, vis: 'visible', access: 'paid', gid: 'prod_jonah', size: '5,9 MB' },
+  { id: 'verses', type: 'colouring', sec: 'kids', art: ['heart', 'bible'], field: '#e8e2fb', pages: 6, price: 0, vis: 'visible', access: 'free', gid: 'prod_verse_cards', size: '2,3 MB' },
+  { id: 'daniel', type: 'colouring', sec: 'kids', art: ['lion'], field: '#f3e0c3', pages: 8, price: 69, vis: 'soon', access: 'paid', gid: 'prod_daniel', size: '—' },
+  { id: 'easter', type: 'colouring', sec: 'kids', art: ['heart'], field: '#fde0c6', pages: 10, price: 89, vis: 'hidden', access: 'paid', gid: 'prod_easter', size: '—' },
 ];
+const TYPES = ['colouring', 'book', 'guide', 'workbook'];
+const reading = (p) => p.type !== 'colouring';
 const P = Object.fromEntries(PACKS.map(p => [p.id, p]));
 
 const state = {
   lang: 'en',
   user: { name: 'Thandi Mokoena', first: 'Thandi', email: 'thandi.mokoena@example.co.za', hasPw: true },
-  owned: new Set(['noah', 'creation']),
+  owned: new Set(['noah', 'money']),
+  sections: ['kids', 'preach', 'life'],
+  progress: { money: 3 }, readerSize: 17,
   order: PACKS.map(p => p.id),
   filter: 'all', q: '', justJoined: false,
   dialog: null, menu: false, proto: false,
@@ -27,30 +34,30 @@ const state = {
   memQ: '', edTab: 'details', edLang: 'en', edPreview: 'locked', secretShown: false,
   profDelete: false, mailTab: 'invite',
   invites: [
-    { id: 1, name: 'Pieter van der Merwe', email: 'pieter.vdm@example.co.za', packs: ['shepherd'], lang: 'en', sent: -6.8, exp: 5.705, status: 'opened', src: 'gateway' },
+    { id: 1, name: 'Pieter van der Merwe', email: 'pieter.vdm@example.co.za', packs: ['sermon'], lang: 'en', sent: -6.8, exp: 5.705, status: 'opened', src: 'gateway' },
     { id: 2, name: 'Ana Sitoe', email: 'ana.sitoe@example.co.mz', packs: ['christmas'], lang: 'pt', sent: -4, exp: 72, status: 'sent', src: 'gateway' },
     { id: 3, name: 'Lerato Dlamini', email: 'lerato.dlamini@example.co.za', packs: ['noah', 'creation'], lang: 'en', sent: -1, exp: 144, status: 'sent', src: 'gateway' },
-    { id: 4, name: 'Carmen Ruiz', email: 'carmen.ruiz@example.es', packs: ['noah'], lang: 'es', sent: -0.2, exp: 163, status: 'opened', src: 'gateway' },
-    { id: 5, name: 'Grace Mahlangu', email: 'grace.m@example.co.za', packs: ['jonah', 'shepherd'], lang: 'en', sent: -2, exp: 120, status: 'sent', src: 'manual' },
+    { id: 4, name: 'Carmen Ruiz', email: 'carmen.ruiz@example.es', packs: ['money'], lang: 'es', sent: -0.2, exp: 163, status: 'opened', src: 'gateway' },
+    { id: 5, name: 'Grace Mahlangu', email: 'grace.m@example.co.za', packs: ['workbook', 'sermon'], lang: 'en', sent: -2, exp: 120, status: 'sent', src: 'manual' },
     { id: 6, name: 'Sipho Nkosi', email: 'sipho.nkosi@example.co.za', packs: ['jonah'], lang: 'en', sent: -3, exp: 0, status: 'accepted', src: 'gateway' },
     { id: 7, name: 'Chantelle Adams', email: 'chantelle.a@example.co.za', packs: ['creation'], lang: 'en', sent: -9, exp: -48, status: 'expired', src: 'gateway' },
     { id: 8, name: 'Johan Botha', email: 'johan.botha@example.co.za', packs: ['noah'], lang: 'en', sent: -5, exp: 0, status: 'revoked', src: 'manual' },
-    { id: 9, name: 'Ayesha Patel', email: 'ayesha.patel@example.co.za', packs: ['christmas', 'shepherd'], lang: 'en', sent: -12, exp: 0, status: 'accepted', src: 'gateway' },
+    { id: 9, name: 'Ayesha Patel', email: 'ayesha.patel@example.co.za', packs: ['money', 'christmas'], lang: 'en', sent: -12, exp: 0, status: 'accepted', src: 'gateway' },
   ],
   members: [
-    { id: 'm1', name: 'Thandi Mokoena', email: 'thandi.mokoena@example.co.za', packs: ['noah', 'creation'], lang: 'en', joined: 0, seen: 0, active: true },
-    { id: 'm2', name: 'Sipho Nkosi', email: 'sipho.nkosi@example.co.za', packs: ['jonah', 'noah'], lang: 'en', joined: 3, seen: 0, active: true },
-    { id: 'm3', name: 'Ayesha Patel', email: 'ayesha.patel@example.co.za', packs: ['christmas', 'shepherd', 'noah'], lang: 'en', joined: 12, seen: 1, active: true },
+    { id: 'm1', name: 'Thandi Mokoena', email: 'thandi.mokoena@example.co.za', packs: ['noah', 'money'], lang: 'en', joined: 0, seen: 0, active: true },
+    { id: 'm2', name: 'Sipho Nkosi', email: 'sipho.nkosi@example.co.za', packs: ['sermon', 'workbook'], lang: 'en', joined: 3, seen: 0, active: true },
+    { id: 'm3', name: 'Ayesha Patel', email: 'ayesha.patel@example.co.za', packs: ['money', 'christmas', 'noah'], lang: 'en', joined: 12, seen: 1, active: true },
     { id: 'm4', name: 'Mariana Cossa', email: 'mariana.cossa@example.co.mz', packs: ['noah'], lang: 'pt', joined: 8, seen: 1, active: true },
     { id: 'm5', name: 'Naledi Khumalo', email: 'naledi.k@example.co.za', packs: ['creation'], lang: 'en', joined: 20, seen: 2, active: true },
-    { id: 'm6', name: 'Lucía Fernández', email: 'lucia.fernandez@example.es', packs: ['creation', 'jonah'], lang: 'es', joined: 15, seen: 3, active: true },
+    { id: 'm6', name: 'Lucía Fernández', email: 'lucia.fernandez@example.es', packs: ['sermon', 'money'], lang: 'es', joined: 15, seen: 3, active: true },
     { id: 'm7', name: 'Ruth Petersen', email: 'ruth.petersen@example.co.za', packs: ['noah', 'creation', 'shepherd', 'jonah'], lang: 'en', joined: 41, seen: 5, active: true },
     { id: 'm8', name: 'Kagiso Molefe', email: 'kagiso.molefe@example.co.za', packs: ['shepherd'], lang: 'en', joined: 30, seen: 19, active: false },
   ],
   feed: [
     { k: 'created', who: 'Thandi Mokoena', time: '11:48' },
     { k: 'paid', who: 'Pieter van der Merwe', ref: 'KG-8F3K2', time: '11:42' },
-    { k: 'unlocked', who: 'Ayesha Patel', pack: 'christmas', time: '10:15' },
+    { k: 'unlocked', who: 'Ayesha Patel', pack: 'money', time: '10:15' },
     { k: 'opened', who: 'Carmen Ruiz', time: '09:58' },
     { k: 'refund', ref: 'KG-2LQ9A', time: '08:31' },
     { k: 'paid', who: 'Ana Sitoe', ref: 'KG-7HX4M', time: '07:12' },
@@ -78,6 +85,12 @@ const fmtDate = (d) => new Intl.DateTimeFormat(loc(), { day: 'numeric', month: '
 const fmtShort = (d) => new Intl.DateTimeFormat(loc(), { day: 'numeric', month: 'short' }).format(d);
 const pt = (id) => (PACK_TEXT[state.lang] || PACK_TEXT.en)[id];
 const artT = (a) => (ART_TITLE[state.lang] || ART_TITLE.en)[a];
+const chapters = (id) => (CHAPTERS[state.lang] || CHAPTERS.en)[id] || [];
+function countLabel(p) {
+  if (p.type === 'book') return t('n_chapters', { n: chapters(p.id).length });
+  if (p.type === 'guide') return t('n_steps', { n: chapters(p.id).length });
+  return t('n_pages', { n: p.pages });
+}
 const owns = (p) => p.access === 'free' || state.owned.has(p.id);
 const initials = (n) => n.split(' ').filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
 const AV = ['#f4621d', '#564cc9', '#17a34a', '#1f5f9a', '#b8400a', '#8a5b00', '#b4202d', '#0f7a6c'];
@@ -175,7 +188,7 @@ function packCard(p, opts = {}) {
     <div class="pack-cover" style="background:${p.field}">${artSVG(p.art[0], own ? 'color' : 'line')}
       ${!own && !soon ? `<span class="pack-lock">${icon('lock')}</span>` : ''}</div>
     <div class="pack-body"><h3>${esc(tx.t)}</h3>
-      <div class="pack-foot"><span class="pack-meta">${t('pages', { n: p.pages })}</span>${foot}</div></div>
+      <div class="pack-foot"><span class="pack-meta">${t('type_' + p.type)} · ${countLabel(p)}</span>${foot}</div></div>
   </${tag}>`;
 }
 
@@ -220,18 +233,19 @@ function libraryView() {
   const list = state.order.map(id => P[id]).filter(p => p.vis !== 'hidden');
   const mine = list.filter(p => p.vis === 'visible' && owns(p));
   const lockd = list.filter(p => p.vis === 'visible' && !owns(p));
-  const cont = P.noah;
-  const done = state.owned.has('noah') ? 5 : 0;
+  const cont = P.money;
+  const total = chapters('money').length;
+  const done = state.owned.has('money') ? state.progress.money : 0;
   return memberShell('library', `
     ${state.justJoined ? `<div class="notice notice-ok" style="margin-bottom:18px">${icon('check')}<span>${t('lib_welcome')}</span><button class="btn-quiet btn btn-sm" style="margin-left:auto" data-act="dismiss-welcome" aria-label="${t('close')}">${icon('x', 'icon-sm')}</button></div>` : ''}
     <div class="page-head"><div><h1>${t('lib_hello', { name: esc(state.user.first) })}</h1><p>${t('lib_lead')}</p></div></div>
     ${done ? `<div class="card continue">
-      <div class="thumb" style="background:${cont.field}">${artSVG('ark')}</div>
+      <div class="thumb" style="background:${cont.field}">${artSVG(cont.art[0])}</div>
       <div style="display:grid;gap:10px;min-width:0">
-        <h2>${t('continue_h', { pack: esc(pt('noah').t) })}</h2>
-        <div class="progress" role="progressbar" aria-label="${t('continue_p', { done, total: cont.pages })}" aria-valuemin="0" aria-valuemax="${cont.pages}" aria-valuenow="${done}"><i style="width:${(done / cont.pages) * 100}%"></i></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span class="muted tnum progress-meta" style="font-size:13.5px">${t('continue_p', { done, total: cont.pages })}</span>
-        <a class="btn btn-primary btn-sm" href="#pack-noah">${t('open')}${icon('arrowRight', 'icon-sm')}</a></div>
+        <h2>${t('continue_read', { pack: esc(pt(cont.id).t) })}</h2>
+        <div class="progress" role="progressbar" aria-label="${t('continue_chapter', { done, total })}" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${done}"><i style="width:${(done / total) * 100}%"></i></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span class="muted tnum progress-meta" style="font-size:13.5px">${t('continue_chapter', { done, total })}</span>
+        <button class="btn btn-primary btn-sm" data-act="reader" data-id="${cont.id}" data-ch="${done}">${t('read_continue')}${icon('arrowRight', 'icon-sm')}</button></div>
       </div>
     </div>` : ''}
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px">
@@ -239,7 +253,7 @@ function libraryView() {
         ${[['all', t('filter_all'), list.length], ['mine', t('filter_mine'), mine.length], ['locked', t('filter_locked'), lockd.length]].map(([v, l, n]) => `<button class="filter" data-act="filter" data-v="${v}" aria-pressed="${state.filter === v}">${l}<span class="count">${n}</span></button>`).join('')}
       </div>
     </div>
-    <div class="lib-grid" id="lib-grid">${libGrid()}</div>
+    <div id="lib-grid">${libGrid()}</div>
     <p class="lib-verse"><q>${t('verse_text')}</q> ${t('verse_ref')}</p>`);
 }
 function libGrid() {
@@ -248,13 +262,59 @@ function libGrid() {
   if (state.filter === 'locked') list = list.filter(p => p.vis === 'visible' && !owns(p));
   const q = state.q.trim().toLowerCase();
   if (q) list = list.filter(p => pt(p.id).t.toLowerCase().includes(q));
-  if (!list.length) return `<div class="empty" style="grid-column:1/-1">${icon('library')}<p>${q ? t('empty_search', { q: esc(state.q) }) : t('empty_mine')}</p></div>`;
-  return list.map(p => packCard(p)).join('');
+  if (!list.length) return `<div class="empty">${icon('library')}<p>${q ? t('empty_search', { q: esc(state.q) }) : t('empty_mine')}</p></div>`;
+  return state.sections.map(sec => {
+    const items = list.filter(p => p.sec === sec);
+    return items.length ? `<section class="lib-sec" aria-labelledby="sec-${sec}"><h2 id="sec-${sec}">${t('sec_' + sec)}</h2><div class="lib-grid">${items.map(p => packCard(p)).join('')}</div></section>` : '';
+  }).join('');
+}
+
+function readingFacts(p) {
+  const f = [countLabel(p)];
+  if (p.type === 'book') f.push(t('fact_formats'), t('fact_devices'));
+  if (p.type === 'guide') f.push(t('n_pages', { n: p.pages }), t('fact_templates'));
+  if (p.type === 'workbook') f.push(t('fact_a4'), t('fact_worksheets'));
+  f.push(t('fact_lang'));
+  return f.map(x => `<span class="pill pill-grey">${x}</span>`).join('');
+}
+function readingView(p) {
+  const tx = pt(p.id), own = owns(p), chs = chapters(p.id);
+  const cur = state.progress[p.id] || 0;
+  return memberShell('library', `
+    <a class="back" href="#library">${icon('chevronLeft', 'icon-sm')}${t('pack_backLib')}</a>
+    <section class="pack-hero">
+      <div class="cover-lg" style="background:${p.field}">${artSVG(p.art[0], own ? 'color' : 'line')}</div>
+      <div>
+        <div class="filters">${own ? `<span class="pill pill-green"><span class="dot"></span>${t('unlocked')}</span>` : `<span class="pill pill-orange">${icon('lock', 'icon-sm')}${t('locked')}</span>`}<span class="pill pill-grey">${t('type_' + p.type)}</span></div>
+        <h1 style="margin-top:14px">${esc(tx.t)}</h1>
+        <p class="desc">${esc(tx.d)}</p>
+        <p class="muted" style="margin-top:12px">“${esc(tx.v)}” · ${esc(tx.r)}</p>
+        <div class="facts">${readingFacts(p)}</div>
+        <div class="actions">
+          ${own ? `<button class="btn btn-primary btn-lg" data-act="reader" data-id="${p.id}" data-ch="${Math.max(1, cur)}">${icon('library')}${t(cur ? 'read_continue' : 'read_online')}</button>
+            <button class="btn btn-ghost btn-lg" data-act="download">${icon('download')}${t('dl_pdf')}</button>
+            ${p.type === 'book' ? `<button class="btn btn-quiet btn-lg" data-act="download">${icon('download')}${t('dl_epub')}</button>` : ''}`
+          : `<button class="btn btn-primary btn-lg" data-act="checkout" data-id="${p.id}">${icon('lock')}${t('unlockFor', { price: money(p.price) })}</button>
+            <button class="btn btn-ghost btn-lg" data-act="reader" data-id="${p.id}" data-ch="1">${t('read_sample')}</button>
+            <p class="muted" style="flex-basis:100%;font-size:14px">${t('pack_lockedLead')}</p>`}
+        </div>
+      </div>
+    </section>
+    <div class="page-head" style="margin-bottom:16px"><h2 style="font-size:21px">${t('contents')}</h2></div>
+    <ol class="card toc">${chs.map((c, i) => {
+      const n = i + 1, open = own || n === 1;
+      const status = own ? (n < cur ? `<span class="pill pill-soft-green">${icon('check', 'icon-sm')}${t('st_done')}</span>` : n === cur ? `<span class="pill pill-orange">${t('st_reading')}</span>` : '')
+        : n === 1 ? `<span class="pill pill-violet">${t('sample_badge')}</span>` : '';
+      return `<li><button class="toc-row" ${open ? `data-act="reader" data-id="${p.id}" data-ch="${n}"` : `data-act="checkout" data-id="${p.id}"`}>
+        <span class="toc-n tnum">${n}</span><span class="toc-t"><b>${esc(c)}</b><span class="muted tnum">${t('min_read', { n: p.mins[i] })}</span></span>
+        ${status}<span class="toc-go">${icon(open ? 'chevronRight' : 'lock', 'icon-sm')}</span></button></li>`;
+    }).join('')}</ol>`);
 }
 
 function packView(id) {
   const p = P[id];
   if (!p) return libraryView();
+  if (reading(p)) return readingView(p);
   const tx = pt(id);
   const own = owns(p);
   const extra = p.pages - p.art.length;
@@ -319,7 +379,7 @@ function profileView() {
 
 /* ---------- auth ---------- */
 function authShell(card) {
-  const sheets = ['ark', 'lamb', 'stable'].map(a => `<div class="sheet">${artSVG(a)}</div>`).join('');
+  const sheets = ['ark', 'coins', 'pulpit'].map(a => `<div class="sheet">${artSVG(a)}</div>`).join('');
   return `<div class="auth">
     <section class="auth-art" aria-hidden="false">
       ${brand()}
@@ -335,7 +395,7 @@ function authShell(card) {
 const exp7 = () => fmtDate(new Date(TODAY.getTime() + 7 * DAY));
 
 function inviteView() {
-  const packs = ['noah', 'creation'];
+  const packs = ['noah', 'money'];
   return authShell(`
     <div><h1>${t('inv_title')}</h1><p class="lead">${t('inv_lead')}</p></div>
     <div class="bought">
@@ -410,20 +470,20 @@ function emailView(kind) {
   const tabs = [
     ['invite', t('mail_subject_invite'), t('mail_preview_invite')],
     ['link', t('mail_subject_link'), t('mail_preview_link')],
-    ['unlocked', t('mail_subject_unlocked', { pack: pt('shepherd').t }), t('mail_preview_unlocked')],
+    ['unlocked', t('mail_subject_unlocked', { pack: pt('sermon').t }), t('mail_preview_unlocked')],
   ];
   const cur = tabs.find(x => x[0] === kind) || tabs[0];
   let body = '';
   const hi = `<p>${t('mail_hi', { name: esc(u.first) })}</p>`;
   if (kind === 'invite') body = `<h1>${t('inv_art_title')}</h1>${hi}<p>${t('mail_invite_p1')}</p>
-      <div style="display:grid;gap:10px"><span class="email-small">${t('mail_youGot')}</span><div class="email-packs">${['noah', 'creation'].map(id => `<div style="background:${P[id].field}" title="${esc(pt(id).t)}">${artSVG(P[id].art[0])}</div>`).join('')}</div></div>
+      <div style="display:grid;gap:10px"><span class="email-small">${t('mail_youGot')}</span><div class="email-packs">${['noah', 'money'].map(id => `<div style="background:${P[id].field}" title="${esc(pt(id).t)}">${artSVG(P[id].art[0])}</div>`).join('')}</div></div>
       <p>${t('mail_invite_p2')}</p><a class="email-cta" href="#invite">${t('mail_invite_cta')}</a>
       <p class="email-small">${t('mail_invite_expiry', { date: exp7() })}</p>`;
   if (kind === 'link') body = `<h1>${t('mail_link_title')}</h1>${hi}<p>${t('mail_link_p')}</p><a class="email-cta" href="#library">${t('mail_link_cta')}</a><p class="email-small">${t('mail_link_note')}</p>`;
-  if (kind === 'unlocked') body = `<h1>${t('mail_unlocked_title', { pack: esc(pt('shepherd').t) })}</h1>${hi}
-      <div class="email-packs"><div style="background:${P.shepherd.field};width:96px;height:96px">${artSVG('lamb')}</div></div>
-      <p>${t('mail_unlocked_p', { pack: esc(pt('shepherd').t), pages: P.shepherd.pages })}</p><a class="email-cta" href="#pack-shepherd">${t('mail_unlocked_cta')}</a>
-      <p class="email-small">${t('mail_order', { ref: 'KG-20260923-5TR8D', amount: money(P.shepherd.price) })}</p>`;
+  if (kind === 'unlocked') body = `<h1>${t('mail_unlocked_title', { pack: esc(pt('sermon').t) })}</h1>${hi}
+      <div class="email-packs"><div style="background:${P.sermon.field};width:96px;height:96px">${artSVG('pulpit')}</div></div>
+      <p>${t('mail_unlocked_p', { pack: esc(pt('sermon').t) })}</p><a class="email-cta" href="#pack-sermon">${t('mail_unlocked_cta')}</a>
+      <p class="email-small">${t('mail_order', { ref: 'KG-20260923-5TR8D', amount: money(P.sermon.price) })}</p>`;
   return `<div class="main" style="max-width:1180px;margin:0 auto">
     <div class="topbar" style="display:flex">${brand(t('mail_inbox'))}<span class="spacer"></span>${protoBtn()}${langSelect()}</div>
     <div class="mail-shell">
@@ -585,7 +645,7 @@ function membersView() {
 
 function showcaseView() {
   const list = state.order.map(id => P[id]);
-  const previewOwned = new Set(['noah', 'creation']);
+  const previewOwned = new Set(['noah', 'money']);
   return adminShell('admin-showcase', `
     <div class="page-head"><div><h1>${t('sc_title')}</h1><p>${t('sc_lead')}</p></div><button class="btn btn-primary" data-go="admin-pack-daniel">${icon('plus')}${t('newPack')}</button></div>
     <div class="showcase">
@@ -594,16 +654,23 @@ function showcaseView() {
         <div id="sc-list">${list.map(p => `<div class="sc-row" draggable="true" data-id="${p.id}">
           <button class="handle" data-act="sc-key" data-id="${p.id}" aria-label="${t('sc_drag')}: ${esc(pt(p.id).t)}">${icon('grip')}</button>
           <span class="sc-thumb" style="background:${p.field}">${artSVG(p.art[0])}</span>
-          <div class="sc-info" style="min-width:0"><b>${esc(pt(p.id).t)}</b><span class="tnum">${t('pages', { n: p.pages })} · ${p.access === 'free' ? t('free') : money(p.price)} · ${p.gid}</span></div>
+          <div class="sc-info" style="min-width:0"><b>${esc(pt(p.id).t)}</b><span class="tnum">${t('type_' + p.type)} · ${p.access === 'free' ? t('free') : money(p.price)} · ${p.gid}</span></div>
           <div class="sc-controls">
+            <label class="sr" for="sec-${p.id}">${t('ed_section')}</label><select class="select sc-sec" id="sec-${p.id}" data-act="sec" data-id="${p.id}">${state.sections.map(s => `<option value="${s}" ${p.sec === s ? 'selected' : ''}>${t('sec_' + s)}</option>`).join('')}</select>
             <div class="seg seg-sm" role="group">${['visible', 'soon', 'hidden'].map(v => `<button data-act="vis" data-id="${p.id}" data-v="${v}" aria-pressed="${p.vis === v}">${t('vis_' + v)}</button>`).join('')}</div>
             <a class="btn btn-ghost btn-sm" href="#admin-pack-${p.id}">${icon('edit', 'icon-sm')}${t('edit')}</a>
           </div></div>`).join('')}</div>
       </section>
-      <aside>
-        <h2 style="font-size:17px">${t('sc_preview')}</h2><p class="muted" style="font-size:13.5px;margin:4px 0 12px">${t('sc_previewP')}</p>
-        <div class="preview-phone"><div class="preview-screen"><div class="preview-grid">
-          ${list.filter(p => p.vis !== 'hidden').map(p => { const own = p.access === 'free' || previewOwned.has(p.id); return `<div class="p" style="${p.vis === 'soon' ? 'opacity:.55' : ''}"><div class="c" style="background:${p.field}">${artSVG(p.art[0], own ? 'color' : 'line')}</div>${!own && p.vis === 'visible' ? `<span class="lk">${icon('lock')}</span>` : ''}<small>${esc(pt(p.id).t)}</small></div>`; }).join('')}
+      <aside class="stack">
+        <section class="card card-pad stack" style="gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><h2 style="font-size:17px">${t('sc_sections')}</h2><button class="btn btn-ghost btn-sm" data-act="add-section">${icon('plus', 'icon-sm')}${t('sc_addSection')}</button></div>
+          ${state.sections.map((s, i) => `<div class="bought" style="padding:8px 8px 8px 14px"><span style="flex:1;min-width:0"><b style="font-weight:500;display:block">${t('sec_' + s)}</b><span class="hint">${t('sc_sectionItems', { n: PACKS.filter(p => p.sec === s && p.vis !== 'hidden').length })}</span></span>
+            <button class="icon-btn" style="width:34px;height:34px" data-act="sec-move" data-i="${i}" data-d="-1" aria-label="↑ ${t('sec_' + s)}" ${i === 0 ? 'disabled' : ''}>${icon('arrowUp', 'icon-sm')}</button>
+            <button class="icon-btn" style="width:34px;height:34px" data-act="sec-move" data-i="${i}" data-d="1" aria-label="↓ ${t('sec_' + s)}" ${i === state.sections.length - 1 ? 'disabled' : ''}>${icon('arrowDown', 'icon-sm')}</button></div>`).join('')}
+        </section>
+        <div><h2 style="font-size:17px">${t('sc_preview')}</h2><p class="muted" style="font-size:13.5px;margin:4px 0 12px">${t('sc_previewP')}</p>
+        <div class="preview-phone"><div class="preview-screen">
+          ${state.sections.map(sec => { const items = list.filter(p => p.sec === sec && p.vis !== 'hidden'); return items.length ? `<p class="preview-sec">${t('sec_' + sec)}</p><div class="preview-grid">${items.map(p => { const own = p.access === 'free' || previewOwned.has(p.id); return `<div class="p" style="${p.vis === 'soon' ? 'opacity:.55' : ''}"><div class="c" style="background:${p.field}">${artSVG(p.art[0], own ? 'color' : 'line')}</div>${!own && p.vis === 'visible' ? `<span class="lk">${icon('lock')}</span>` : ''}<small>${esc(pt(p.id).t)}</small></div>`; }).join('')}</div>` : ''; }).join('')}
         </div></div></div>
       </aside>
     </div>`);
@@ -619,11 +686,27 @@ function editorView(id) {
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
       <div class="seg" role="group" aria-label="${t('language')}">${['en', 'pt', 'es'].map(l => `<button data-act="ed-lang" data-v="${l}" aria-pressed="${state.edLang === l}">${l.toUpperCase()}</button>`).join('')}</div>
       <span class="hint">${t('ed_translating', { lang: t('lang_' + state.edLang) })}</span></div>
+    <div class="grid-2">
+      <div class="field"><label for="ed-type">${t('ed_type')}</label><select class="select" id="ed-type" data-act="ed-type" data-id="${p.id}">${TYPES.map(ty => `<option value="${ty}" ${p.type === ty ? 'selected' : ''}>${t('type_' + ty)}</option>`).join('')}</select></div>
+      <div class="field"><label for="ed-sec">${t('ed_section')}</label><select class="select" id="ed-sec" data-act="sec" data-id="${p.id}">${state.sections.map(s => `<option value="${s}" ${p.sec === s ? 'selected' : ''}>${t('sec_' + s)}</option>`).join('')}</select></div>
+    </div>
     <div class="field"><label for="ed-title">${t('ed_title')}</label><input class="input" id="ed-title" value="${esc(tx.t)}"></div>
     <div class="field"><label for="ed-desc">${t('ed_desc')}</label><textarea class="textarea" id="ed-desc">${esc(tx.d)}</textarea></div>
     <div class="grid-2"><div class="field"><label for="ed-verse">${t('ed_verse')}</label><input class="input" id="ed-verse" value="${esc(tx.v)}"></div>
       <div class="field"><label for="ed-ref">Ref.</label><input class="input" id="ed-ref" value="${esc(tx.r)}"></div></div>`;
-  if (tab === 'pages') body = `
+  if (tab === 'pages' && reading(p)) {
+    const chs = (CHAPTERS[state.edLang] || CHAPTERS.en)[p.id] || [];
+    body = `
+    <div class="field"><span class="label">${t('ed_files')}</span>
+      ${['PDF', ...(p.type === 'book' ? ['EPUB'] : [])].map((fmt, i) => `<div class="bought" style="padding:10px 12px"><span class="mini" style="width:40px;height:40px;background:var(--orange-soft);color:var(--orange-ink)">${icon('file')}</span><span style="flex:1;min-width:0"><b style="font-weight:500;display:block">${p.gid}_${state.edLang}.${fmt.toLowerCase()}</b><span class="hint">${fmt} · ${i ? '1,4 MB' : p.size}</span></span><button class="btn btn-ghost btn-sm" data-act="upload-pages">${icon('upload', 'icon-sm')}${t('ed_browse')}</button></div>`).join('')}
+    </div>
+    <div class="dropzone" id="dropzone" data-act="upload-pages" role="button" tabindex="0">${icon('upload')}<b style="color:var(--ink);font-weight:500">${t('ed_filesDrop')}</b><span style="font-size:13.5px">${t('ed_translating', { lang: t('lang_' + state.edLang) })}</span></div>
+    <div class="field"><span class="label">${t('ed_chapters')}</span>
+      <div class="stack" style="gap:8px">${chs.map((c, i) => `<div style="display:flex;gap:8px;align-items:center"><span class="toc-n tnum">${i + 1}</span><label class="sr" for="ch-${i}">${t('chapter', { n: i + 1 })}</label><input class="input" id="ch-${i}" value="${esc(c)}"></div>`).join('')}</div>
+    </div>
+    <label class="check"><span class="toggle"><input type="checkbox" checked><span></span></span>${t('ed_sample')}</label>`;
+  }
+  if (tab === 'pages' && !reading(p)) body = `
     <div class="dropzone" id="dropzone" data-act="upload-pages" role="button" tabindex="0">${icon('upload')}<b style="color:var(--ink);font-weight:500">${t('ed_drop')}</b><span style="font-size:13.5px">${t('ed_dropP')}</span><span class="btn btn-ghost btn-sm" style="margin-top:6px">${t('ed_browse')}</span></div>
     <p class="hint">${t('ed_pagesCount', { n: p.pages })}</p>
     <div class="page-list">${p.art.map((a, i) => `<div class="pl">${artSVG(a, 'line')}<span>${t('page', { n: i + 1 })}</span></div>`).join('')}
@@ -652,7 +735,9 @@ function editorView(id) {
           ${packCard(p, { static: true, forceOwned: prevOwn })}
         </div>
         <div class="card card-pad"><dl class="kv" style="margin:0">
-          <div><dt>${t('ed_pages')}</dt><dd class="tnum">${p.pages}</dd></div>
+          <div><dt>${t('ed_type')}</dt><dd>${t('type_' + p.type)}</dd></div>
+          <div><dt>${t('ed_pages')}</dt><dd class="tnum">${countLabel(p)}</dd></div>
+          <div><dt>${t('ed_section')}</dt><dd>${t('sec_' + p.sec)}</dd></div>
           <div><dt>${t('ed_price')}</dt><dd class="tnum">${p.access === 'free' ? t('free') : money(p.price)}</dd></div>
           <div><dt>${t('ed_visibility')}</dt><dd>${t('vis_' + p.vis)}</dd></div>
           <div><dt>${t('ed_access')}</dt><dd>${t(p.access === 'free' ? 'acc_free' : 'acc_paid')}</dd></div>
@@ -702,6 +787,13 @@ function integrationsView() {
 }
 
 /* ---------- dialogs ---------- */
+function checkoutIncludes(p) {
+  const n = reading(p) ? chapters(p.id).length : p.pages;
+  if (p.type === 'book') return [t('co_inc_book1', { n }), t('co_inc_book2'), t('co_inc_book3')];
+  if (p.type === 'guide') return [t('co_inc_guide1', { n }), t('co_inc_guide2'), t('co_inc_guide3')];
+  if (p.type === 'workbook') return [t('co_inc_work1', { n: p.pages }), t('co_inc_work2'), t('co_inc_work3')];
+  return [t('co_inc1', { n: p.pages }), t('co_inc2'), t('co_inc3')];
+}
 const CRAYONS = ['#f2594b', '#ff9f43', '#ffd54a', '#6cc56a', '#5ab0e6', '#5e8fd6', '#b69cff', '#ff8fb1', '#a8743f', '#8a8f98', '#2e2a26'];
 function dialogView() {
   const d = state.dialog;
@@ -721,6 +813,21 @@ function dialogView() {
         </div>
       </div></div></div>`;
   }
+  if (d.type === 'reader') {
+    const p = P[d.id], chs = chapters(d.id), own = owns(p);
+    const blocked = !own && d.ch > 1;
+    const paras = (EXCERPT[state.lang] || EXCERPT.en)[d.id] || [];
+    return `<div class="scrim" data-act="scrim"><div class="dialog dialog-wide reader-dlg" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+      <div class="dialog-head"><div style="min-width:0"><p class="muted" style="font-size:13.5px">${esc(pt(d.id).t)} · ${t('chapter', { n: d.ch })}</p><h2 id="dlg-title">${esc(chs[d.ch - 1])}</h2></div>
+        <div style="display:flex;gap:6px"><button class="icon-btn" data-act="reader-size" data-d="-1" aria-label="${t('reader_smaller')}" style="font-size:13px;font-weight:500">A−</button><button class="icon-btn" data-act="reader-size" data-d="1" aria-label="${t('reader_bigger')}" style="font-size:16px;font-weight:500">A+</button>${close}</div></div>
+      ${blocked ? `<div class="notice notice-info" style="margin-bottom:16px">${icon('lock')}<div style="display:grid;gap:12px"><span>${t('reader_locked')}</span><div><button class="btn btn-primary btn-sm" data-act="checkout" data-id="${d.id}">${t('unlockFor', { price: money(p.price) })}</button></div></div></div>`
+        : `<article class="reader" style="font-size:${state.readerSize}px">${paras.map(x => `<p>${esc(x)}</p>`).join('')}<p class="hint">${t('reader_note')}</p></article>`}
+      <div class="reader-nav">
+        <button class="btn btn-ghost" data-act="reader-go" data-d="-1" ${d.ch <= 1 ? 'disabled' : ''}>${icon('chevronLeft', 'icon-sm')}${t('reader_prev')}</button>
+        <span class="muted tnum" style="font-size:13.5px">${d.ch} / ${chs.length}</span>
+        <button class="btn btn-primary" data-act="reader-go" data-d="1" ${d.ch >= chs.length || blocked ? 'disabled' : ''}>${t('reader_next')}${icon('chevronRight', 'icon-sm')}</button>
+      </div></div></div>`;
+  }
   if (d.type === 'checkout') {
     const p = P[d.id], tx = pt(d.id);
     let inner;
@@ -728,7 +835,7 @@ function dialogView() {
       <div class="dialog-head"><div style="display:flex;gap:14px;align-items:center"><span class="sc-thumb" style="width:64px;height:64px;border-radius:16px;background:${p.field}">${artSVG(p.art[0])}</span><div><h2 id="dlg-title">${t('co_title', { pack: esc(tx.t) })}</h2><p class="muted" style="font-size:14px">${t('co_lead')}</p></div></div>${close}</div>
       <div class="stack" style="gap:14px">
         <span class="label">${t('co_includes')}</span>
-        ${[t('co_inc1', { n: p.pages }), t('co_inc2'), t('co_inc3')].map(x => `<div style="display:flex;gap:10px;align-items:center;font-size:14.5px"><span style="width:24px;height:24px;border-radius:50%;background:var(--green-soft);color:var(--green-ink);display:grid;place-items:center">${icon('check', 'icon-sm')}</span>${x}</div>`).join('')}
+        ${checkoutIncludes(p).map(x => `<div style="display:flex;gap:10px;align-items:center;font-size:14.5px"><span style="width:24px;height:24px;border-radius:50%;background:var(--green-soft);color:var(--green-ink);display:grid;place-items:center">${icon('check', 'icon-sm')}</span>${x}</div>`).join('')}
         <div style="display:flex;justify-content:space-between;align-items:baseline;padding-top:14px;border-top:1px solid var(--line)"><span class="muted">${t('co_total')}</span><b class="tnum" style="font-size:26px;font-weight:500">${money(p.price)}</b></div>
         <button class="btn btn-primary btn-lg btn-block" data-act="co-next">${icon('lock', 'icon-sm')}${t('co_continue')}</button>
         <p class="hint" style="display:flex;gap:8px">${icon('shield', 'icon-sm')}${t('co_secure')}</p>
@@ -789,11 +896,11 @@ function protoView() {
   const groups = [
     ['grp_emails', [['email-invite', 'r_email_invite'], ['email-link', 'r_email_link'], ['email-unlocked', 'r_email_unlocked']]],
     ['grp_access', [['invite', 'r_invite'], ['link-expired', 'r_link_expired'], ['link-used', 'r_link_used'], ['login', 'r_login'], ['login-sent', 'r_login_sent'], ['access', 'r_access']]],
-    ['grp_member', [['library', 'r_library'], ['pack-noah', 'r_pack'], ['profile', 'r_profile']]],
-    ['grp_admin', [['admin', 'r_admin'], ['admin-invites', 'r_admin_invites'], ['admin-members', 'r_admin_members'], ['admin-showcase', 'r_admin_showcase'], ['admin-pack-noah', 'r_admin_pack'], ['admin-integrations', 'r_admin_integrations']]],
+    ['grp_member', [['library', 'r_library'], ['pack-money', 'r_pack', 'type_book'], ['pack-sermon', 'r_pack', 'type_guide'], ['pack-noah', 'r_pack', 'type_colouring'], ['profile', 'r_profile']]],
+    ['grp_admin', [['admin', 'r_admin'], ['admin-invites', 'r_admin_invites'], ['admin-members', 'r_admin_members'], ['admin-showcase', 'r_admin_showcase'], ['admin-pack-money', 'r_admin_pack'], ['admin-integrations', 'r_admin_integrations']]],
   ];
   return `${state.proto ? `<div class="proto-panel" role="dialog" aria-label="${t('protoMap')}"><h3>${t('protoMap')}</h3><p class="hint">${t('protoNote')}</p>
-      ${groups.map(([g, items]) => `<div class="proto-group"><p>${t(g)}</p>${items.map(([id, k]) => `<a href="#${id}" ${r === id ? 'aria-current="page"' : ''}>${t(k)}${icon('chevronRight', 'icon-sm')}</a>`).join('')}</div>`).join('')}
+      ${groups.map(([g, items]) => `<div class="proto-group"><p>${t(g)}</p>${items.map(([id, k, sub]) => `<a href="#${id}" ${r === id ? 'aria-current="page"' : ''}>${t(k)}${sub ? ' · ' + t(sub) : ''}${icon('chevronRight', 'icon-sm')}</a>`).join('')}</div>`).join('')}
     </div>` : ''}`;
 }
 
@@ -903,7 +1010,7 @@ document.addEventListener('click', (e) => {
     case 'help': e.preventDefault(); openDialog({ type: 'help' }); return;
     case 'filter': state.filter = v; render(); return;
     case 'dismiss-welcome': state.justJoined = false; render(); return;
-    case 'checkout': openDialog({ type: 'checkout', id, step: 'summary' }); return;
+    case 'checkout': state.dialog = null; openDialog({ type: 'checkout', id, step: 'summary' }); return;
     case 'co-next': state.dialog.step = 'gateway'; renderOverlay(); $('#co-card')?.focus(); return;
     case 'co-pay': {
       const pid = state.dialog.id;
@@ -923,6 +1030,11 @@ document.addEventListener('click', (e) => {
       return;
     }
     case 'studio': openDialog({ type: 'studio', art: el.dataset.art }); return;
+    case 'reader': { const ch = +el.dataset.ch || 1; if (owns(P[id])) state.progress[id] = Math.max(state.progress[id] || 0, ch); state.dialog = null; openDialog({ type: 'reader', id, ch }); return; }
+    case 'reader-go': { const d = state.dialog; d.ch += +el.dataset.d; if (owns(P[d.id])) state.progress[d.id] = Math.max(state.progress[d.id] || 0, d.ch); renderOverlay(); $('#overlay .reader-nav .btn-primary:not([disabled]), #overlay .reader-nav .btn')?.focus(); return; }
+    case 'reader-size': state.readerSize = Math.min(22, Math.max(15, state.readerSize + (+el.dataset.d))); renderOverlay(); return;
+    case 'sec-move': { const i = +el.dataset.i, j = i + (+el.dataset.d); [state.sections[i], state.sections[j]] = [state.sections[j], state.sections[i]]; render(); toast(t('sc_moved')); return; }
+    case 'add-section': toast(t('ed_uploadToast').split(':')[0] + ': ' + t('sc_addSection')); return;
     case 'crayon': state.crayon = el.dataset.c; document.querySelectorAll('.crayon').forEach(c => c.setAttribute('aria-pressed', c.dataset.c === state.crayon)); return;
     case 'studio-reset': state.fills[state.dialog.art] = {}; renderOverlay(); return;
     case 'download': toast(t('pack_dlToast')); return;
@@ -996,6 +1108,8 @@ document.addEventListener('change', (e) => {
     return;
   }
   if (a === 'ed-access') { P[el.dataset.id].access = el.value; render(); }
+  if (a === 'sec') { P[el.dataset.id].sec = el.value; render(); toast(t('saved')); }
+  if (a === 'ed-type') { P[el.dataset.id].type = el.value; render(); }
 });
 
 document.addEventListener('input', (e) => {

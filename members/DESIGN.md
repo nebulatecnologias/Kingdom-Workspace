@@ -416,3 +416,12 @@ One easing, `cubic-bezier(.22,1,.36,1)`, is used everywhere. Controls transition
 - **Don't** use zero-blur offset shadows or cool grey shadows. Shadows stay warm, diffuse and negatively spread.
 - **Don't** use `faint` for any readable text (labels, timestamps, captions). It is below AA contrast and is for placeholders and chevrons only. Use `muted` instead.
 - **Don't** drift toward the cream-and-serif "kids' faith" look or a generic LMS course grid.
+
+
+## Product types
+
+The library is general Christian content, not only colouring. Every product shares one card (cover on a pastel field, title, `type · count` line, then the status pill) and is grouped under a section heading in the admin-defined section order.
+
+- **Colouring pack** — pages grid of A4 sheets, "Colour online" studio, download all pages.
+- **eBook / Guide / Workbook** — reading product: hero with type pill, facts, primary "Read online / Continue reading", secondary download (PDF, plus EPUB for eBooks); numbered table of contents (numbering is real sequence) with read / reading states; online reader dialog (text size, previous / next chapter). Locked reading products offer "Read a free sample" (chapter 1) and end the sample with the unlock action.
+- Covers for reading products use the same thick-line illustration language as the colouring art (jar of coins, pulpit, notebook) so the whole shelf reads as one world.

@@ -201,6 +201,42 @@ const ART = {
     <path ${f('#f2594b')} d="M130 70 H138 V82 H150 V90 H138 V120 H130 V90 H118 V82 H130 Z"/>
     <path ${f('#f2594b')} d="M100 150 V184 L108 176 L116 184 V152 Z"/>
     <polygon ${f('#ffe066')} points="${star(100, 26, 11, 5)}"/>`,
+  coins: () => `
+    ${line('M100 58 V30', 3)}
+    <ellipse ${f('#7cc36a')} cx="86" cy="32" rx="14" ry="7" transform="rotate(-25 86 32)"/>
+    <ellipse ${f('#7cc36a')} cx="114" cy="26" rx="14" ry="7" transform="rotate(25 114 26)"/>
+    <path ${f('#dff1f7')} d="M58 72 H142 V80 C156 88 160 102 160 118 V166 C160 178 152 186 140 186 H60 C48 186 40 178 40 166 V118 C40 102 44 88 58 80 Z"/>
+    <rect ${f('#b7743f')} x="52" y="56" width="96" height="18" rx="6"/>
+    <circle ${f('#ffc94a')} cx="80" cy="160" r="15"/><circle ${f('#ffc94a')} cx="114" cy="164" r="15"/>
+    <circle ${f('#ffd54a')} cx="97" cy="134" r="15"/><circle ${f('#ffd54a')} cx="130" cy="136" r="13"/>
+    ${line('M74 160 h12 M108 164 h12 M91 134 h12', 2.4)}
+    ${line('M52 108 C54 98 58 92 64 88', 2.4)}
+    <circle ${f('#ffd54a')} cx="166" cy="40" r="11"/>
+    ${line('M166 58 v8 M176 56 l4 7 M156 56 l-4 7', 2.4)}`,
+  pulpit: () => `
+    ${line('M20 186 H180', 3)}
+    <rect ${f('#8a5a33')} x="58" y="176" width="84" height="10" rx="3"/>
+    <path ${f('#b7743f')} d="M64 98 H136 L126 176 H74 Z"/>
+    <path ${f('#ffd54a')} d="M95 116 H105 V126 H115 V136 H105 V160 H95 V136 H85 V126 H95 Z"/>
+    <path ${f('#c98b4f')} d="M46 98 L154 98 L146 82 L54 82 Z"/>
+    <path ${f('#fbfaf7')} d="M62 82 Q80 62 99 72 V82 Z"/>
+    <path ${f('#fbfaf7')} d="M138 82 Q120 62 101 72 V82 Z"/>
+    ${line('M70 76 Q82 68 94 74 M130 76 Q118 68 106 74', 2)}
+    ${line('M148 84 C152 66 156 54 162 44', 3)}
+    <ellipse ${f('#8a8f98')} cx="165" cy="36" rx="8" ry="11" transform="rotate(20 165 36)"/>
+    ${line('M22 30 L34 40 M26 58 L40 60 M40 16 L46 30', 2.6)}`,
+  notebook: () => `
+    <rect ${f('#8fd3f4')} x="44" y="24" width="112" height="156" rx="10"/>
+    <rect ${f('#fbfaf7')} x="56" y="34" width="92" height="136" rx="6"/>
+    ${[44, 64, 84, 104, 124, 144, 164].map(y => `<circle cx="56" cy="${y}" r="4" fill="#fff"/>`).join('')}
+    <rect ${f('#ffd54a')} x="72" y="46" width="56" height="10" rx="3"/>
+    <rect ${f('#6cc56a')} x="72" y="72" width="12" height="12" rx="3"/><rect ${f('#6cc56a')} x="72" y="96" width="12" height="12" rx="3"/>
+    <rect ${f('#fbfaf7')} x="72" y="120" width="12" height="12" rx="3"/>
+    ${line('M74 78 l3 3 l6 -6 M74 102 l3 3 l6 -6', 2.2)}
+    ${line('M92 78 H132 M92 102 H128 M92 126 H124 M72 150 H132', 2.4)}
+    <g transform="rotate(38 160 132)"><rect ${f('#ffc94a')} x="152" y="92" width="16" height="64" rx="2"/>
+    <rect ${f('#ff8fb1')} x="152" y="84" width="16" height="10" rx="3"/>
+    <path ${f('#f6d7c3')} d="M152 156 L168 156 L160 172 Z"/></g>`,
 };
 
 function artSVG(id, mode = 'color', extra = '') {
