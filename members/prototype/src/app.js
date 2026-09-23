@@ -223,25 +223,22 @@ function libraryView() {
   return memberShell('library', `
     ${state.justJoined ? `<div class="notice notice-ok" style="margin-bottom:18px">${icon('check')}<span>${t('lib_welcome')}</span><button class="btn-quiet btn btn-sm" style="margin-left:auto" data-act="dismiss-welcome" aria-label="${t('close')}">${icon('x', 'icon-sm')}</button></div>` : ''}
     <div class="page-head"><div><h1>${t('lib_hello', { name: esc(state.user.first) })}</h1><p>${t('lib_lead')}</p></div></div>
-    <div class="lib-top">
-      <div class="card continue">
-        <div class="thumb" style="background:${cont.field}">${artSVG('ark')}</div>
-        <div style="display:grid;gap:12px">
-          <span class="muted" style="font-size:13.5px">${t('continue_title')}</span>
-          <h2>${esc(pt('noah').t)}</h2>
-          <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${cont.pages}" aria-valuenow="${done}"><i style="width:${(done / cont.pages) * 100}%"></i></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><span class="muted tnum" style="font-size:13.5px">${t('continue_p', { done, total: cont.pages })}</span>
-          <a class="btn btn-primary btn-sm" href="#pack-noah">${t('open')}${icon('arrowRight', 'icon-sm')}</a></div>
-        </div>
+    ${done ? `<div class="card continue">
+      <div class="thumb" style="background:${cont.field}">${artSVG('ark')}</div>
+      <div style="display:grid;gap:10px;min-width:0">
+        <h2>${t('continue_h', { pack: esc(pt('noah').t) })}</h2>
+        <div class="progress" role="progressbar" aria-label="${t('continue_p', { done, total: cont.pages })}" aria-valuemin="0" aria-valuemax="${cont.pages}" aria-valuenow="${done}"><i style="width:${(done / cont.pages) * 100}%"></i></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span class="muted tnum progress-meta" style="font-size:13.5px">${t('continue_p', { done, total: cont.pages })}</span>
+        <a class="btn btn-primary btn-sm" href="#pack-noah">${t('open')}${icon('arrowRight', 'icon-sm')}</a></div>
       </div>
-      <div class="card verse-card"><span class="muted" style="font-size:13.5px">${t('verse_title')}</span><q>${t('verse_text')}</q><cite>${t('verse_ref')}</cite></div>
-    </div>
+    </div>` : ''}
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px">
-      <div class="filters" role="group">
+      <div class="filters scroll" role="group">
         ${[['all', t('filter_all'), list.length], ['mine', t('filter_mine'), mine.length], ['locked', t('filter_locked'), lockd.length]].map(([v, l, n]) => `<button class="filter" data-act="filter" data-v="${v}" aria-pressed="${state.filter === v}">${l}<span class="count">${n}</span></button>`).join('')}
       </div>
     </div>
-    <div class="lib-grid" id="lib-grid">${libGrid()}</div>`);
+    <div class="lib-grid" id="lib-grid">${libGrid()}</div>
+    <p class="lib-verse"><q>${t('verse_text')}</q> ${t('verse_ref')}</p>`);
 }
 function libGrid() {
   let list = state.order.map(id => P[id]).filter(p => p.vis !== 'hidden');
@@ -341,7 +338,7 @@ function inviteView() {
     <div><h1>${t('inv_title')}</h1><p class="lead">${t('inv_lead')}</p></div>
     <div class="bought">
       <div style="display:flex">${packs.map((id, i) => `<span class="mini" style="background:${P[id].field};${i ? 'margin-left:-14px;box-shadow:0 0 0 3px var(--surface)' : ''}">${artSVG(P[id].art[0])}</span>`).join('')}</div>
-      <div style="min-width:0"><span class="hint">${t('inv_purchased')}</span><b style="display:block;font-weight:500;font-size:14.5px">${packs.map(id => esc(pt(id).t)).join(' + ')}</b></div>
+      <div style="min-width:0"><b style="display:block;font-weight:500;font-size:14.5px">${packs.map(id => esc(pt(id).t)).join(' + ')}</b></div>
     </div>
     <form class="stack" id="invite-form" novalidate>
       <div class="field"><label for="iv-email">${t('email')}</label><input class="input" id="iv-email" value="${esc(state.user.email)}" readonly><span class="hint">${t('inv_emailHint')}</span></div>
@@ -501,21 +498,21 @@ function adminOverview() {
     return t('feed_' + f.k, { who, ref, pack });
   };
   return adminShell('admin', `
-    <div class="page-head"><div><h1>${t('ad_title')}</h1><p>${t('ad_lead')}</p></div><button class="btn btn-primary" data-act="new-invite">${icon('plus')}${t('newInvite')}</button></div>
+    <div class="page-head"><div><h1>${t('ad_title')}</h1><p>${t('ad_lead')}</p></div></div>
     <div class="kpis">
       <div class="card kpi"><span class="kpi-label">${icon('users', 'icon-sm')}${t('kpi_members')}</span><div class="kpi-row"><span class="kpi-value">214</span>${bars([45, 70, 55, 90, 75])}</div><span class="kpi-delta">${t('kpi_delta', { n: 18 })}</span></div>
       <div class="card kpi"><span class="kpi-label">${icon('mail', 'icon-sm')}${t('kpi_invites')}</span><div class="kpi-row"><span class="kpi-value">${pending.length}</span>${bars([80, 50, 95, 60, 40])}</div><span class="kpi-delta" style="color:var(--amber-ink)">${t('kpi_deltaWeek', { n: 2 })}</span></div>
       <div class="card kpi"><span class="kpi-label">${icon('lock', 'icon-sm')}${t('kpi_unlocks')}</span><div class="kpi-row"><span class="kpi-value">37</span>${bars([35, 60, 50, 85, 100])}</div><span class="kpi-delta">${t('kpi_deltaUnlock', { amount: money(2913) })}</span></div>
       ${nx ? `<div class="card countdown">
-        <div class="countdown-top"><div><span class="muted" style="font-size:14px">${t('cd_title')}</span><b>${esc(nx.name)}</b></div><span class="pill pill-red">${t('cd_expiring')}</span></div>
+        <div class="countdown-top"><div><b style="font-size:18px">${t('cd_title2', { name: esc(nx.name.split(' ')[0]) })}</b></div><span class="pill pill-red">${t('cd_expiring')}</span></div>
         <div class="clock" id="clock" aria-live="off">--<span>:</span>--<span>:</span>--</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="muted" style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(nx.email)}</span><button class="btn btn-ghost btn-sm" data-act="resend" data-id="${nx.id}">${icon('refresh', 'icon-sm')}${t('cd_resend')}</button></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="muted" style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">${esc(nx.name)}</span><button class="btn btn-ghost btn-sm" data-act="resend" data-id="${nx.id}">${icon('refresh', 'icon-sm')}${t('cd_resend')}</button></div>
       </div>` : ''}
     </div>
     <div class="admin-grid">
       <section class="card">
         <div class="card-head"><h2 class="card-title"><span class="status-dot" style="background:var(--orange-500);box-shadow:0 0 0 4px var(--orange-soft)"></span>${t('ad_pending')}<span class="pill pill-grey tnum">${pending.length}</span></h2><a class="btn btn-ghost btn-sm" href="#admin-invites">${t('viewAll')}</a></div>
-        <div class="team">${pending.slice(0, 6).map(i => `<div class="person">${avatar(i.name, 44)}<div class="who"><b>${esc(i.name)}</b><span>${i.packs.map(id => esc(pt(id).t)).join(', ')}</span></div>${statusPill(i.status)}</div>`).join('')}</div>
+        <div class="team">${pending.slice(0, 6).map(i => `<div class="person">${avatar(i.name, 44)}<div class="who"><b>${esc(i.name)}</b><span style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(pt(i.packs[0]).t)}${i.packs.length > 1 ? ' +' + (i.packs.length - 1) : ''}</span></div>${statusPill(i.status)}</div>`).join('')}</div>
       </section>
       <section class="card">
         <div class="card-head"><h2 class="card-title">${icon('bell')}${t('feed_title')}</h2><span class="muted" style="font-size:13.5px">${t('feed_unread')}</span></div>
@@ -532,7 +529,7 @@ function invitesView() {
   let rows = state.invites.filter(i => f === 'all' || i.status === f);
   if (q) rows = rows.filter(i => (i.name + i.email).toLowerCase().includes(q));
   return adminShell('admin-invites', `
-    <div class="page-head"><div><h1>${t('inv_ad_title')}</h1><p>${t('inv_ad_lead')}</p></div><button class="btn btn-primary" data-act="new-invite">${icon('plus')}${t('newInvite')}</button></div>
+    <div class="page-head"><div><h1>${t('inv_ad_title')}</h1><p>${t('inv_ad_lead')}</p></div></div>
     <section class="card">
       <div class="toolbar">
         <div class="filters">${['all', 'sent', 'opened', 'accepted', 'expired', 'revoked'].map(s => `<button class="filter" data-act="inv-filter" data-v="${s}" aria-pressed="${f === s}">${s === 'all' ? t('all') : t('st_' + s)}<span class="count">${counts[s] || 0}</span></button>`).join('')}</div>
