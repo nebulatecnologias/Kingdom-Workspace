@@ -53,6 +53,16 @@ O GitHub Actions (`.github/workflows/members.yml`) corre tudo isto em cada push 
 - **Links de uso único:** abrir o link não o gasta (os antivírus de email abrem os links antes da pessoa). O convite só é consumido quando a conta é criada. Os links de entrada por email pedem um clique num botão pelo mesmo motivo.
 - **Testes de ponta a ponta:** `npm run e2e` precisa de um Supabase local (`npx supabase start` em `members/`) e das chaves dele em `.env.local`. O GitHub Actions corre-os em cada push.
 
+## Produção
+
+| Serviço | Onde |
+|---|---|
+| Site | Vercel, projeto `kingdom-members` (equipa Nebula Tecnologias): https://kingdom-members.vercel.app. Pasta `members/app`, funções em Londres (`lhr1`) |
+| Base de dados e contas | Supabase, projeto `inaxsnghgzfaarjsbljh` (região `eu-west-2`, Londres) |
+| Emails | Resend, domínio `kingdomcompny.com`, remetente `members@kingdomcompny.com`. O domínio é partilhado com outras apps: esta app usa uma chave própria só de envio (`Kingdom Members (Vercel)`) e não altera o domínio |
+
+Variáveis no Vercel: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (chave publicável), `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `EMAIL_FROM` e `INVITE_TTL_DAYS`. Depois de mudar uma variável, é preciso publicar de novo.
+
 ## Base de dados (Supabase)
 
 - **Migrações:** `members/supabase/migrations/`. O workflow `.github/workflows/members-supabase-deploy.yml` aplica-as no projeto Supabase alojado sempre que mudam, e também desliga o registo público, fixa a validade dos links em 15 minutos e exige palavras-passe de 8 ou mais caracteres. Precisa de 3 segredos do repositório: `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF` e `SUPABASE_DB_PASSWORD`. A variável opcional `KM_SITE_URL` define o endereço do site e os redirecionamentos permitidos. À mão: `npx supabase link --project-ref <ref>` e depois `npx supabase db push`.
