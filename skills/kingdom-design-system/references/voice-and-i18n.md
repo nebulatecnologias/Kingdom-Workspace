@@ -13,6 +13,7 @@
 - British spelling: colour, favourite, organise, programme, enrol, centre, licence (noun), cheque.
 - Local words are fine where natural: "no stress", "sort it out".
 - Money: ZAR through `Intl.NumberFormat('en-ZA', { style: 'currency', currency: 'ZAR' })`, which gives "R 149,00". Never hand-format prices.
+  Browsers ship different ICU data, so `en-ZA` can come out as "R 438 800,00" or "R 438,800.00". When the output must be identical everywhere (emails, PDFs, server and client), format on the server, or use one shared helper with `useGrouping` and explicit separators, and test it.
 - Dates: `Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric' })`, which gives "30 September 2026". Use the short form "23 Sep" in tables.
 - Paper size A4. Phone numbers +27.
 
