@@ -71,7 +71,17 @@ jobs:
           version: latest
       - name: Start Supabase (auth, database, API)
         working-directory: members
-        run: supabase start -x studio,imgproxy,edge-runtime,logflare,vector,realtime,supavisor,postgres-meta,mailpit,storage-api
+        # Image pulls are occasionally rate-limited by the registry: retry with a pause before giving up.
+        run: |
+          for attempt in 1 2 3 4; do
+            if supabase start -x studio,imgproxy,edge-runtime,logflare,vector,realtime,supavisor,postgres-meta,mailpit,storage-api; then
+              exit 0
+            fi
+            echo "supabase start failed (attempt $attempt); retrying in $((attempt * 30))s"
+            supabase stop --no-backup || true
+            sleep $((attempt * 30))
+          done
+          exit 1
       - name: Export Supabase keys
         working-directory: members
         run: |
