@@ -80,8 +80,10 @@ jobs:
           version: latest
       - name: Start Supabase (auth, database, API)
         working-directory: members
-        # Image pulls are occasionally rate-limited by the registry: retry with a pause before giving up.
+        # ghcr.io rate-limits the Supabase images on shared runners, even when logged in.
+        # Pull from the AWS public mirror instead, and retry with a pause before giving up.
         run: |
+          export SUPABASE_INTERNAL_IMAGE_REGISTRY=public.ecr.aws
           for attempt in 1 2 3 4; do
             if supabase start -x studio,imgproxy,edge-runtime,logflare,vector,realtime,supavisor,postgres-meta,mailpit,storage-api; then
               exit 0
