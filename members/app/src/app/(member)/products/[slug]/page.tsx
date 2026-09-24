@@ -47,19 +47,22 @@ function facts(t: T, p: ProductDetail) {
 export default async function ProductPage({ params, searchParams }: PageProps<"/products/[slug]">) {
   const { slug } = await params;
   const sp = await searchParams;
-  const profile = await requireMember(`/products/${slug}`);
   const intlTag = await getLocale();
   const locale = toLocale(intlTag);
   const t = await getTranslations();
-  const p = await getProduct(slug, locale);
+  // Independent reads run together: every sequential database call adds a round trip to each tap.
+  const [profile, p] = await Promise.all([requireMember(`/products/${slug}`), getProduct(slug, locale)]);
   if (!p) notFound();
 
   const own = p.owned;
   const reading = isReading(p.type);
   const pages = p.outline.filter((o) => o.kind === "page");
   const chapters = p.outline.filter((o) => o.kind === "chapter");
-  const urls = await signedImageUrls([p.coverPath, ...pages.map((o) => o.previewPath)]);
-  const progress = reading ? (await getProgress(profile.id)).find((r) => r.product_id === p.id)?.chapter_position ?? 0 : 0;
+  const [urls, rows] = await Promise.all([
+    signedImageUrls([p.coverPath, ...pages.map((o) => o.previewPath)]),
+    reading ? getProgress(profile.id) : Promise.resolve([]),
+  ]);
+  const progress = rows.find((r) => r.product_id === p.id)?.chapter_position ?? 0;
   // The hero offers the main downloads; every other material is listed below it.
   const pdf = p.type === "kit" ? undefined : p.assets.find((a) => a.kind === "pdf");
   const epub = reading ? p.assets.find((a) => a.kind === "epub") : undefined;

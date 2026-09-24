@@ -69,9 +69,12 @@ export async function proxy(request: NextRequest) {
     },
   });
 
-  const { data } = await supabase.auth.getUser();
+  // getClaims refreshes the session cookies like getUser, but checks the token locally when the project
+  // signs with asymmetric keys, saving a round trip to the auth server on every navigation. This only
+  // decides the redirect to sign in: pages and actions still check the user with the auth server.
+  const { data } = await supabase.auth.getClaims();
   const path = request.nextUrl.pathname;
-  if (!data.user && PROTECTED.some((p) => path === p || path.startsWith(p + "/"))) {
+  if (!data?.claims && PROTECTED.some((p) => path === p || path.startsWith(p + "/"))) {
     const login = request.nextUrl.clone();
     login.pathname = "/login";
     login.search = `?next=${encodeURIComponent(path + request.nextUrl.search)}`;

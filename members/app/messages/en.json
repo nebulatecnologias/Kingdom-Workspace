@@ -499,6 +499,7 @@
   "ed_coverHint": "Square PNG, JPG or WebP, up to 5 MB. Shown in colour to owners and as line art when locked.",
   "ed_uploading": "Uploading…",
   "ed_uploadingN": "Uploading {n} of {total}…",
+  "loading_page": "Loading…",
   "vis_visible_hint": "In the library for every member.",
   "vis_soon_hint": "Shown greyed out as “Coming soon”. Nobody can open it yet.",
   "vis_hidden_hint": "Not in the library. Payments still unlock it, and people who own it keep access.",
