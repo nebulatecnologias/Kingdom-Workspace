@@ -108,6 +108,15 @@ jobs:
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run e2e
+      # The report artifact can't always be downloaded: print each failed test's page snapshot into the log.
+      - name: Show page snapshots of failed tests
+        if: failure()
+        run: |
+          find test-results -name error-context.md 2>/dev/null | while read -r f; do
+            echo "::group::$f"
+            sed -n '/# Page snapshot/,/# Test source/p' "$f"
+            echo "::endgroup::"
+          done
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

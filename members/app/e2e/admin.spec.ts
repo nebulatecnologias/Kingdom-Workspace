@@ -409,7 +409,10 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
     { name: "worship-song.m4a", mimeType: "audio/x-m4a", buffer: Buffer.from("not really audio") },
     { name: "everything.zip", mimeType: "application/x-zip-compressed", buffer: Buffer.from("PK\u0003\u0004") },
   ]);
-  await expect(page.getByText("3 materials added")).toBeVisible();
+  // Reading the notices area (not one text) means a failure shows what the page actually said.
+  const started = Date.now();
+  await expect(page.locator(".toasts")).toContainText("3 materials added", { timeout: 15_000 });
+  console.log(`materials upload took ${Date.now() - started} ms`);
   const { data: assets } = await admin().from("product_assets").select("id, kind, title, locale, size_bytes").eq("product_id", id).order("position");
   expect(assets!.map((a) => a.kind)).toEqual(["pdf", "audio", "zip"]);
   expect(assets![0]).toMatchObject({ title: "Family guide", locale: null, size_bytes: pdf.length });
