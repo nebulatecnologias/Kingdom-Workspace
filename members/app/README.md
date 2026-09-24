@@ -63,6 +63,19 @@ O GitHub Actions (`.github/workflows/members.yml`) corre tudo isto em cada push 
 
 Variáveis no Vercel: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (chave publicável), `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_REPLY_TO`, `INVITE_TTL_DAYS`, `SUPPORT_EMAIL`, `SUPPORT_WHATSAPP`, `CRON_SECRET`, `GATEWAY_WEBHOOK_SECRET`, `GATEWAY_ACCEPT_TEST_EVENTS` e `DISPUTE_SUSPENDS_ACCESS`. Depois de mudar uma variável, é preciso publicar de novo.
 
+## Idioma dos emails
+
+Cada email sai no idioma definido para a pessoa. **Sem idioma definido, sai em inglês:** nunca se adivinha pelo browser.
+
+- **Convite após compra:** o `locale` do evento do gateway (o idioma do checkout).
+- **Membros:** o idioma do perfil (vem do convite; o membro muda-o em Perfil).
+- **Convite reenviado ou link copiado:** o idioma do convite original.
+- **Convite criado à mão:** o escolhido no formulário (inglês por defeito).
+- **Pedido de link sem conta nem convite:** o idioma que a pessoa escolheu no seletor, ou que veio num link nosso (`?lang=`); caso contrário, inglês.
+- **Alertas:** o idioma do perfil de cada administrador.
+
+A interface, antes de entrar, continua a seguir o browser para mostrar a página; isso não muda o idioma dos emails.
+
 ## Área do membro (fase 3)
 
 - **Biblioteca** (`/library`): vitrine por secções, com filtros "Tudo", "A minha biblioteca" e "Desbloquear mais", pesquisa na barra de cima e "Continuar a ler". Os produtos aparecem comprados, grátis, bloqueados (com o preço) ou "em breve"; os escondidos nunca aparecem.

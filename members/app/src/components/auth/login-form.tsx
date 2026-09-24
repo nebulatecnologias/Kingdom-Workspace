@@ -2,9 +2,8 @@
 
 import { useActionState, useEffect, useState } from "react";
 import { Info, Mail, Send } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { forgotPassword, requestLink, signInWithPassword, type FormState } from "@/app/(auth)/actions";
-import { toLocale } from "@/i18n/config";
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
 import { Notice } from "@/components/ui/notice";
@@ -30,7 +29,6 @@ function ResendButton({ onResend }: { onResend: () => void }) {
 
 export function LoginForm({ next, defaultEmail = "" }: { next: string; defaultEmail?: string }) {
   const t = useTranslations();
-  const locale = toLocale(useLocale());
   const [mode, setMode] = useState<"link" | "pw">("link");
   const [email, setEmail] = useState(defaultEmail);
   const [linkState, linkAction] = useActionState(requestLink, idle);
@@ -50,7 +48,6 @@ export function LoginForm({ next, defaultEmail = "" }: { next: string; defaultEm
         </div>
         <form action={linkAction} className="actions" style={{ justifyContent: "space-between" }}>
           <input type="hidden" name="email" value={linkState.email ?? email} />
-          <input type="hidden" name="locale" value={locale} />
           <ResendButton onResend={() => {}} />
           <Button type="button" variant="quiet" onClick={() => setDismissedSent(true)}>
             {t("sent_other")}
@@ -76,7 +73,6 @@ export function LoginForm({ next, defaultEmail = "" }: { next: string; defaultEm
         ))}
       </div>
       <form className="stack" action={mode === "link" ? linkAction : pwAction} noValidate>
-        <input type="hidden" name="locale" value={locale} />
         <input type="hidden" name="next" value={next} />
         <Field id="lg-email" label={t("email")} error={emailError ? t(emailError) : undefined}>
           <input className="input" id="lg-email" name="email" type="email" autoComplete="email" placeholder={t("emailPh")} value={email} onChange={(e) => setEmail(e.target.value)} />

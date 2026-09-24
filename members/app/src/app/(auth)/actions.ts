@@ -1,8 +1,9 @@
 "use server";
 
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { isLocale, type Locale } from "@/i18n/config";
+import { isLocale, LOCALE_COOKIE, type Locale } from "@/i18n/config";
 import { setLocale } from "@/i18n/actions";
 import { emailSignInLink } from "@/lib/access";
 import { renderResetEmail } from "@/lib/email/templates";
@@ -24,7 +25,14 @@ export type FormState = {
 
 const emailSchema = z.email().max(254);
 const normaliseEmail = (v: FormDataEntryValue | null) => String(v ?? "").trim().toLowerCase();
-const pageLocale = (v: FormDataEntryValue | null): Locale => (isLocale(v) ? v : "en");
+/**
+ * Language for an email to someone we have no profile or invite for: the one they picked (language selector,
+ * or a link from one of our emails, both stored in the cookie). Never guessed from the browser: English otherwise.
+ */
+async function chosenLocale(): Promise<Locale> {
+  const v = (await cookies()).get(LOCALE_COOKIE)?.value;
+  return isLocale(v) ? v : "en";
+}
 
 async function audit(action: string, targetType: string, targetId: string, meta?: Record<string, unknown>, actorId?: string) {
   await createAdminClient().from("audit_log").insert({ action, target_type: targetType, target_id: targetId, meta: meta ?? null, actor_id: actorId ?? null });
@@ -138,7 +146,7 @@ export async function requestLink(_prev: FormState, formData: FormData): Promise
   const ip = await clientIp();
   if (!(await allow("link", ip)) || !(await allow("link", email))) return { status: "error", message: "err_rate" };
   try {
-    await sendAccessLink(email, pageLocale(formData.get("locale")));
+    await sendAccessLink(email, await chosenLocale());
   } catch (e) {
     console.error("sendAccessLink failed", e);
   }
@@ -181,7 +189,7 @@ export async function forgotPassword(_prev: FormState, formData: FormData): Prom
   if (profile?.status === "active") {
     const { data, error } = await admin.auth.admin.generateLink({ type: "recovery", email });
     if (!error && data.properties?.hashed_token) {
-      const locale: Locale = isLocale(profile.locale) ? profile.locale : pageLocale(formData.get("locale"));
+      const locale: Locale = isLocale(profile.locale) ? profile.locale : await chosenLocale();
       const url = `${siteUrl()}/auth/confirm?token_hash=${data.properties.hashed_token}&type=recovery&lang=${locale}`;
       await sendEmail({
         to: email,

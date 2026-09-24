@@ -157,7 +157,7 @@ export default async function InvitesPage({ searchParams }: PageProps<"/admin/in
       {creating ? (
         <NewInviteDrawer
           closeHref={href({ status: filter, q })}
-          defaultLocale={locale}
+          defaultLocale="en"
           products={invitable.map((p) => ({ id: p.id, title: p.title, coverPath: p.coverPath, coverUrl: covers.get(p.coverPath ?? ""), fieldColour: p.fieldColour, visibility: p.visibility }))}
         />
       ) : null}

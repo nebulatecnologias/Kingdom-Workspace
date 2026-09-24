@@ -142,3 +142,21 @@ test("the terms and privacy pages open from the invite", async ({ page }) => {
     await expect(page.getByRole("link", { name: "contact@sheltondouglas.co.za" })).toBeVisible();
   }
 });
+
+test("emails never follow the browser's language: without a chosen language they go in English", async ({ browser }) => {
+  await resetRateLimits();
+  // A buyer with a purchase by email but no account and no invite, on a Portuguese browser.
+  const email = uniqueEmail("browser-pt");
+  const { data: noah } = await admin().from("products").select("id").eq("slug", "noah").single();
+  await admin().from("entitlements").insert({ email, product_id: noah!.id, source: "manual" });
+  const context = await browser.newContext({ locale: "pt-PT" });
+  const page = await context.newPage();
+  await page.goto("/access");
+  await page.getByLabel("Email").fill(email);
+  await page.getByRole("button", { name: "Enviar-me um novo link" }).click();
+  await expect(page.getByText(/Se encontrarmos uma compra/)).toBeVisible();
+  await expect
+    .poll(async () => (await admin().from("email_log").select("locale").eq("to_email", email).eq("template", "invite").maybeSingle()).data?.locale)
+    .toBe("en");
+  await context.close();
+});
