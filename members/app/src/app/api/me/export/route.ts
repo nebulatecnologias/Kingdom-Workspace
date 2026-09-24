@@ -18,7 +18,7 @@ export async function GET() {
   ]);
   const body = {
     exported_at: new Date().toISOString(),
-    controller: "Shelton Douglas Group (Pty) Ltd (Kingdom Members)",
+    controller: "Shelton Douglas Group (Pty) Ltd (Kingdom Library)",
     profile: me,
     library: entitlements ?? [],
     orders: orders ?? [],

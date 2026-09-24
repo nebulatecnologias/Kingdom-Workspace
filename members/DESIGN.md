@@ -1,5 +1,5 @@
 ---
-name: Kingdom Members
+name: Kingdom Library
 description: A warm dashboard members area where the colouring-pack artwork is the only loud thing.
 colors:
   canvas: "#f5f3f0"
@@ -218,13 +218,13 @@ components:
     rounded: "{rounded.md}"
 ---
 
-# Design System: Kingdom Members
+# Design System: Kingdom Library
 
 ## Overview
 
 **Creative North Star: "The Warm Dashboard, Loud Art"**
 
-Kingdom Members wears a pinned SaaS dashboard world (the user's "Ware Sync" reference) and lets one thing shout: the colouring-pack artwork. Everything around it is a quiet, warm grey-white canvas, soft white cards with generous 22px corners, and one orange gradient that marks the way forward. The chrome is calm on purpose, so pastel pack fields with thick-line art carry the colour.
+Kingdom Library wears a pinned SaaS dashboard world (the user's "Ware Sync" reference) and lets one thing shout: the colouring-pack artwork. Everything around it is a quiet, warm grey-white canvas, soft white cards with generous 22px corners, and one orange gradient that marks the way forward. The chrome is calm on purpose, so pastel pack fields with thick-line art carry the colour.
 
 Density is moderate and dashboard-like: a 264px sidebar, a greeting headline, filter chips, then a grid of cards. Every interactive shape is a full pill, and every container is a large rounded card lifted by warm, diffuse shadows. Type is Google Sans only, set at weight 500 for everything that names something and 400 for running text. Owned and locked are shown by colour. Owned covers are fully coloured. Locked covers show desaturated line art with a dark padlock disc and an orange price pill.
 
@@ -296,7 +296,7 @@ The prototype loads Google Sans from Google Fonts (400/500/700, `display=swap`).
 - **Caption** (400, 12.5px): hints, errors, deltas and timestamps.
 
 ### Named Rules
-**The Medium Weight Rule.** Headings, labels, buttons and numerals are 500. Weight 700 appears only in the Kingdom Members wordmark and the email band title.
+**The Medium Weight Rule.** Headings, labels, buttons and numerals are 500. Weight 700 appears only in the Kingdom Library wordmark and the email band title.
 
 **The No Eyebrow Rule.** Page and card headings stand alone, with no small label line above them (removed in review). Sidebar group labels and KPI metric labels are navigation and data labels, not kickers, and stay.
 

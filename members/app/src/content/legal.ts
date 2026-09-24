@@ -24,13 +24,13 @@ const terms: LegalDoc = {
   title: "Terms of Use",
   updated: "23 September 2026",
   intro: [
-    `Welcome to Kingdom Members. Kingdom Members is a brand of ${COMPANY.name} ("we", "our" or "us"). These Terms of Use govern your use of this website and the digital resources available through Kingdom Members. By using this website or purchasing our products, you agree to these Terms. If you do not agree, please do not use our website or products.`,
+    `Welcome to Kingdom Library. Kingdom Library is a brand of ${COMPANY.name} ("we", "our" or "us"). These Terms of Use govern your use of this website and the digital resources available through Kingdom Library. By using this website or purchasing our products, you agree to these Terms. If you do not agree, please do not use our website or products.`,
   ],
   sections: [
     {
       heading: "1. About us",
       blocks: [
-        `${COMPANY.name} is a South African company, registration number ${COMPANY.registration}, with its head office at 2 Mushroom Road, Plooysville AH, Midrand. Kingdom Members offers Christian digital resources, including colouring packs, eBooks, guides and workbooks, for individuals, families, Sunday schools, churches and ministries.`,
+        `${COMPANY.name} is a South African company, registration number ${COMPANY.registration}, with its head office at 2 Mushroom Road, Plooysville AH, Midrand. Kingdom Library offers Christian digital resources, including colouring packs, eBooks, guides and workbooks, for individuals, families, Sunday schools, churches and ministries.`,
       ],
     },
     {
@@ -41,7 +41,7 @@ const terms: LegalDoc = {
           list: [
             "to provide accurate and truthful information;",
             "not to misuse the website, its content or its tools;",
-            `to respect all intellectual property belonging to Kingdom Members and ${COMPANY.name}.`,
+            `to respect all intellectual property belonging to Kingdom Library and ${COMPANY.name}.`,
           ],
         },
       ],
@@ -102,7 +102,7 @@ const privacy: LegalDoc = {
   title: "Privacy Policy",
   updated: "23 September 2026",
   intro: [
-    `This Privacy Policy explains how ${COMPANY.name} ("we", "our" or "us"), the company behind Kingdom Members, collects and uses your personal information, in line with the Protection of Personal Information Act, 2013 (POPIA). We are the responsible party for the personal information described here.`,
+    `This Privacy Policy explains how ${COMPANY.name} ("we", "our" or "us"), the company behind Kingdom Library, collects and uses your personal information, in line with the Protection of Personal Information Act, 2013 (POPIA). We are the responsible party for the personal information described here.`,
   ],
   sections: [
     {
@@ -137,7 +137,7 @@ const privacy: LegalDoc = {
     {
       heading: "3. Who we share it with",
       blocks: [
-        "We share your information only with the service providers that help us run Kingdom Members, and only as far as they need it:",
+        "We share your information only with the service providers that help us run Kingdom Library, and only as far as they need it:",
         {
           list: [
             "our payment gateway and Paystack, which process your payment;",

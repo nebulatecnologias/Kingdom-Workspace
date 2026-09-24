@@ -1,4 +1,4 @@
-# Kingdom Members: app
+# Kingdom Library: app
 
 Área de membros da Kingdom: Next.js 16 (App Router), Supabase, Tailwind v4 com o design system Kingdom UI, e interface em 3 idiomas (inglês da África do Sul, português, espanhol).
 
@@ -57,9 +57,9 @@ O GitHub Actions (`.github/workflows/members.yml`) corre tudo isto em cada push 
 
 | Serviço | Onde |
 |---|---|
-| Site | Vercel, projeto `kingdom-members` (equipa Nebula Tecnologias): https://kingdom-members.vercel.app. Pasta `members/app`, funções em Londres (`lhr1`) |
+| Site | Vercel, projeto `kingdom-members` (equipa Nebula Tecnologias): **https://library.kingdomcompny.com** (também responde em https://kingdom-members.vercel.app). Pasta `members/app`, funções em Londres (`lhr1`). Emails enviados como `Kingdom Library <library@kingdomcompny.com>` |
 | Base de dados e contas | Supabase, projeto `inaxsnghgzfaarjsbljh` (região `eu-west-2`, Londres) |
-| Emails | Resend, domínio `kingdomcompny.com`, remetente `members@kingdomcompny.com`. O domínio é partilhado com outras apps: esta app usa uma chave própria só de envio (`Kingdom Members (Vercel)`) e não altera o domínio |
+| Emails | Resend, domínio `kingdomcompny.com`, remetente `members@kingdomcompny.com`. O domínio é partilhado com outras apps: esta app usa uma chave própria só de envio (`Kingdom Library (Vercel)`) e não altera o domínio |
 
 Variáveis no Vercel: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (chave publicável), `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_REPLY_TO`, `INVITE_TTL_DAYS`, `SUPPORT_EMAIL`, `SUPPORT_WHATSAPP`, `CRON_SECRET`, `GATEWAY_WEBHOOK_SECRET`, `GATEWAY_ACCEPT_TEST_EVENTS` e `DISPUTE_SUSPENDS_ACCESS`. Depois de mudar uma variável, é preciso publicar de novo.
 
@@ -127,13 +127,13 @@ Não inclui o Storage: os testes dos downloads e dos carregamentos de ficheiros 
 
 ## Gateway de pagamento (fase 2)
 
-- **Endpoint:** `POST /api/webhooks/gateway`. Em produção, registe `https://kingdom-members.vercel.app/api/webhooks/gateway` na aba "Integrações" do gateway e cole o segredo de assinatura (`whsec_…`) em **Admin → Integrações** (ou na variável `GATEWAY_WEBHOOK_SECRET` no Vercel, que também é aceite).
+- **Endpoint:** `POST /api/webhooks/gateway`. Em produção, registe `https://library.kingdomcompny.com/api/webhooks/gateway` na aba "Integrações" do gateway e cole o segredo de assinatura (`whsec_…`) em **Admin → Integrações** (ou na variável `GATEWAY_WEBHOOK_SECRET` no Vercel, que também é aceite).
 - **O que faz com cada evento:**
 
   | Evento | Efeito |
   |---|---|
   | `order.paid` | Dá acesso aos produtos, identificados pelo campo "ID do produto no gateway". Quem ainda não tem conta recebe o convite; quem já tem recebe o email "novo na sua biblioteca". Uma compra feita pelo cadeado (`metadata.member_user_id`) vai para a conta desse membro, mesmo com outro email no checkout |
-  | `order.refunded` | Reembolso total: retira o acesso dessa compra. Reembolso parcial: mantém o acesso e fica registado |
+  | `order.refunded` | Qualquer reembolso, total ou parcial, retira o acesso dessa compra. Um `order.paid` tardio ou uma disputa ganha não o devolvem |
   | `order.disputed` | Suspende o acesso dessa compra. Com `DISPUTE_SUSPENDS_ACCESS=false`, só o retira se a disputa for perdida |
   | `order.dispute_resolved` | `won`: devolve o acesso; `lost`: retira-o de vez |
   | `integration.test` | Só confirma a receção |

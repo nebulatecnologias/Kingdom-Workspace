@@ -34,7 +34,7 @@ export async function deliverViaResend(apiKey: string, to: string, email: Pick<R
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from: process.env.EMAIL_FROM ?? "Kingdom Members <hello@example.com>",
+      from: process.env.EMAIL_FROM ?? "Kingdom Library <hello@example.com>",
       to: [to],
       reply_to: process.env.EMAIL_REPLY_TO || undefined,
       subject: email.subject,

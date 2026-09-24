@@ -31,7 +31,7 @@ function layout(opts: {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:1px solid #ebe6e0;border-radius:18px;overflow:hidden;font-family:'Google Sans','Product Sans','Segoe UI',Roboto,Arial,sans-serif;color:#3b3732">
 <tr><td style="background:#f2570f;background-image:linear-gradient(160deg,#ff8a45,#ee5410);padding:22px 30px">
   <img src="${opts.siteUrl}/email/logo.png" width="34" height="34" alt="" style="vertical-align:middle;border:0;border-radius:8px">
-  <span style="vertical-align:middle;margin-left:10px;color:#ffffff;font-size:18px;font-weight:700;letter-spacing:-0.02em">Kingdom Members</span>
+  <span style="vertical-align:middle;margin-left:10px;color:#ffffff;font-size:18px;font-weight:700;letter-spacing:-0.02em">Kingdom Library</span>
 </td></tr>
 <tr><td style="padding:30px;font-size:15.5px;line-height:1.6">
   <h1 style="margin:0 0 16px;font-size:25px;line-height:1.2;color:#1c1a17;font-weight:500;letter-spacing:-0.02em">${esc(opts.heading)}</h1>
@@ -183,7 +183,7 @@ export function renderAlertEmail(opts: { locale: Locale; siteUrl: string; kind: 
   const url = `${opts.siteUrl}/admin/${opts.kind === "daily" ? "" : "integrations"}`.replace(/\/$/, "");
   const greeting = t("mail_hi", { name: opts.name || "" }).replace(/\s+,/, ",");
   return {
-    subject: `[Kingdom Members] ${heading}`,
+    subject: `[Kingdom Library] ${heading}`,
     preview: lines[0] ?? heading,
     html: layout({
       locale: opts.locale,

@@ -5,7 +5,7 @@ import { googleSans } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Kingdom Members", template: "%s · Kingdom Members" },
+  title: { default: "Kingdom Library", template: "%s · Kingdom Library" },
   description: "Your Christian resources, all in one place.",
   robots: { index: false, follow: false },
 };

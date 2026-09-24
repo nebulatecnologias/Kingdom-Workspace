@@ -1,4 +1,4 @@
-# Kingdom Members — Plano de desenvolvimento
+# Kingdom Library — Plano de desenvolvimento
 
 Referências:
 - Produto: `members/PRODUCT.md`
@@ -41,11 +41,11 @@ members/
 |---|---|---|
 | `profiles` | `id` (= auth.users.id), `full_name`, `email`, `locale`, `role` (`member`/`admin`), `status` (`active`/`deactivated`), `terms_accepted_at`, `created_at`, `last_seen_at` | Criada por trigger quando nasce um utilizador |
 | `sections` | `id`, `slug`, `sort_order`; `section_translations` (`section_id`, `locale`, `name`) | Secções da vitrine (ex.: Para crianças, Para pregadores, Vida cristã) |
-| `products` | `id`, `slug`, `type` (`colouring`/`book`/`guide`/`workbook`, extensível), `section_id`, `gateway_product_id` (único), `price_cents`, `currency` (`ZAR`), `access` (`paid`/`free`), `visibility` (`visible`/`soon`/`hidden`), `sort_order`, `cover_path`, `field_colour`, `page_count`, `free_sample` (bool) | Controla a vitrine; o `type` decide a página e o leitor |
+| `products` | `id`, `slug`, `type` (`colouring`/`book`/`guide`/`workbook`/`kit`, extensível), `section_id`, `gateway_product_id` (único), `price_cents`, `currency` (`ZAR`), `access` (`paid`/`free`), `visibility` (`visible`/`soon`/`hidden`), `sort_order`, `cover_path`, `field_colour`, `page_count`, `free_sample` (bool) | Controla a vitrine; o `type` decide a página e o leitor |
 | `product_translations` | `product_id`, `locale`, `title`, `description`, `verse`, `verse_ref` | PK (`product_id`, `locale`); se faltar uma tradução, usa `en` |
 | `product_pages` | `id`, `product_id`, `position`, `locale` (nulo = todos), `pdf_path`, `preview_path`, `lineart_path`, `title` por idioma | Packs de colorir e apostilas: uma página por linha |
 | `product_chapters` | `id`, `product_id`, `locale`, `position`, `title`, `body_html`, `minutes`, `is_sample` | eBooks e guias: capítulos/passos para o leitor online |
-| `product_files` | `product_id`, `locale`, `format` (`pdf`/`epub`), `path`, `size_bytes` | Downloads completos |
+| `product_assets` | `id`, `product_id`, `locale` (nulo = todos), `position`, `title`, `kind` (`pdf`/`epub`/`image`/`audio`/`zip`), `path`, `size_bytes`, `duration_seconds` | Materiais do produto: quantos forem precisos (substituiu `product_files`, que só guardava um PDF/EPUB por idioma). Um **kit** é um produto feito só de materiais; comprá-lo abre todos |
 | `reading_progress` | `user_id`, `product_id`, `chapter_position`, `updated_at` | "Continuar a ler" e estados lido/a ler |
 | `entitlements` | `id`, `user_id` (nulo até existir conta), `email`, `product_id`, `source` (`order`/`manual`/`free`), `order_id`, `granted_at`, `revoked_at`, `revoked_reason` | Único ativo por (utilizador ou email, produto) |
 | `invites` | `id`, `email`, `full_name`, `locale`, `token_hash` (único), `product_ids[]`, `status` (`sent`/`opened`/`accepted`/`expired`/`revoked`), `expires_at`, `opened_at`, `accepted_at`, `source` (`gateway`/`manual`), `order_id`, `created_by` | O token em claro nunca é guardado |
@@ -101,13 +101,13 @@ members/
 
 ### 3.5 Reembolsos e disputas
 - `order.refunded` com `full_refund: true` → revoga os direitos de acesso dessa venda (`revoked_reason: refund`).
-- Reembolso parcial → regista e sinaliza ao admin (decisão pendente: revogar ou não).
-- `order.disputed` → suspende o acesso (configurável).
+- Reembolso parcial → também revoga os direitos de acesso dessa venda (decisão 3). Um `order.paid` tardio ou uma disputa ganha não os devolvem.
+- `order.disputed` → suspende o acesso logo (`DISPUTE_SUSPENDS_ACCESS`, decisão 4).
 - `order.dispute_resolved` com `won` → repõe; com `lost` → revoga.
 
 ### 3.6 Downloads, leitura e colorir online
 - **Leitor online** (eBooks, guias): capítulos em HTML guardados em `product_chapters` e servidos pelo servidor só a quem tem acesso (ou só o capítulo de amostra). Guarda o progresso em `reading_progress`. Tamanho de letra ajustável; funciona bem no telemóvel.
-- `GET /api/products/[id]/download?format=&page=` confirma o direito de acesso e redireciona para uma URL assinada de 60 s.
+- `GET /api/products/[id]/download?asset=&page=` confirma o direito de acesso e redireciona para uma URL assinada de 60 s (3 horas para ouvir um áudio na página).
 - **Colorir online.** A pintura por regiões funciona com line art em **SVG** (como no protótipo) ou com **PNG + flood fill em canvas**. Decidir o formato das artes: com PNG funciona com qualquer desenho.
 - **Marca d'água com o email do comprador** (fase posterior): pdf-lib no servidor, com cache.
 
@@ -219,10 +219,10 @@ Em cada fase: mensagens de commit claras, testes a passar e revisão antes de av
 
 ### Depois do lançamento (backlog)
 - Marca d'água nos PDFs; PWA com acesso offline aos produtos descarregados.
-- Novos tipos de produto: áudio (pregações), vídeo-aulas, planos de leitura.
+- Novos tipos de produto: vídeo-aulas, planos de leitura. (O áudio já está coberto pelos materiais e kits.)
 - Notificações por WhatsApp.
 - Integração com email marketing (mesmos eventos).
-- Analytics de produtos mais vistos e desbloqueados; cupões e bundles; subscrição mensal.
+- Analytics de produtos mais vistos e desbloqueados; cupões; subscrição mensal. (Os kits já cobrem os bundles.)
 
 ---
 
@@ -248,14 +248,14 @@ Em cada fase: mensagens de commit claras, testes a passar e revisão antes de av
 
 ## 8. Decisões pendentes
 
-1. Domínio de produção (ex.: `members.<marca>.co.za`) e endereço remetente dos emails.
-2. Região do Supabase (confirmar a mais próxima da África do Sul disponível) e plano (Free → Pro para backups PITR).
-3. Reembolso parcial: retirar ou manter o acesso?
-4. Disputa aberta: suspender já ou só se a disputa for perdida?
-5. Validade do convite: 7 dias?
+1. ~~Domínio de produção e endereço remetente dos emails.~~ **Resolvido:** a plataforma chama-se **Kingdom Library**, em **library.kingdomcompny.com**. Os emails saem como `Kingdom Library <library@kingdomcompny.com>`.
+2. Região do Supabase: **Londres (`eu-west-2`)**, junto das funções da Vercel (`lhr1`). Falta passar ao plano Pro para ter backups PITR.
+3. ~~Reembolso parcial: retirar ou manter o acesso?~~ **Resolvido:** qualquer reembolso, total ou parcial, retira o acesso dessa compra.
+4. ~~Disputa aberta: suspender já ou só se a disputa for perdida?~~ **Resolvido:** o acesso fica suspenso logo e volta se a disputa for ganha.
+5. ~~Validade do convite: 7 dias?~~ **Resolvido:** 7 dias.
 6. ~~Formato das artes para colorir online: SVG ou PNG.~~ **Resolvido na fase 3:** o estúdio aceita os dois. As ilustrações SVG com zonas pintam-se zona a zona; qualquer imagem (PNG, JPG ou SVG) pinta-se com um balde de tinta que pára nas linhas.
 6b. Formato dos livros: capítulos em texto (Word/Google Docs → leitor online + PDF/EPUB gerados) ou só PDF pronto (mais simples, sem leitor com progresso). **Resolvido na fase 3:** a app suporta os dois. Um produto pode ter capítulos para o leitor online (com progresso e amostra) e/ou ficheiros PDF/EPUB para descarregar.
 7. Contraste do laranja dos botões: manter fiel à referência ou escurecer para AA.
-8. Número de WhatsApp de suporte e email de ajuda.
+8. ~~Número de WhatsApp de suporte e email de ajuda.~~ **Resolvido:** mantêm-se os contactos atuais (+27 78 448 6040 e contact@sheltondouglas.co.za).
 9. ~~Mais do que um administrador? Exigir 2FA no admin?~~ **Resolvido na fase 4:** pode haver vários administradores. A verificação em dois passos (app autenticadora) é opcional mas recomendada no painel; quando está ativa, é exigida para entrar no admin e para a base de dados reconhecer a sessão como admin.
-10. Quem envia o recibo de pagamento: o gateway (recomendado) ou a área de membros.
+10. ~~Quem envia o recibo de pagamento?~~ **Resolvido:** o gateway. A área de membros envia só o convite ou o email "novo na sua biblioteca".

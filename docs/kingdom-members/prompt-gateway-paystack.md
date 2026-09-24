@@ -9,7 +9,7 @@ Copiar tudo abaixo da linha e colar na sessão do Claude que desenvolve o gatewa
 Estás a trabalhar no meu gateway de pagamentos (este repositório). Tenho acesso às APIs do Paystack (chaves test e live), mas a integração ainda não existe. Hoje quero duas entregas:
 
 1. **Integração completa de pagamentos com o Paystack.** O mercado principal é a África do Sul, com moeda ZAR.
-2. **Uma aba "Integrações" com webhooks de saída.** Serve para que outras aplicações minhas recebam eventos de venda. A primeira é a **Kingdom Members**, a área de membros com conteúdo cristão digital (packs de colorir, eBooks, guias e apostilas). Ela usa estes eventos para:
+2. **Uma aba "Integrações" com webhooks de saída.** Serve para que outras aplicações minhas recebam eventos de venda. A primeira é a **Kingdom Library**, a área de membros com conteúdo cristão digital (packs de colorir, eBooks, guias e apostilas). Ela usa estes eventos para:
    - enviar o convite de criação de conta;
    - libertar produtos;
    - retirar acesso em reembolsos e disputas.
@@ -49,7 +49,7 @@ Estás a trabalhar no meu gateway de pagamentos (este repositório). Tenho acess
    - `status` = `success` | `cancelled` | `failed`;
    - `reference` = a referência do pedido (ex.: `KG-20260923-8F3K2`).
 
-   Exemplo: `https://kingdom-members.vercel.app/purchase/return?product=<id>&status=success&reference=KG-20260923-8F3K2`. A área de membros nunca liberta nada por causa deste redirect: só mostra o estado e espera pelo webhook `order.paid`.
+   Exemplo: `https://library.kingdomcompny.com/purchase/return?product=<id>&status=success&reference=KG-20260923-8F3K2`. A área de membros nunca liberta nada por causa deste redirect: só mostra o estado e espera pelo webhook `order.paid`.
 4. **Webhook de entrada do Paystack** (`POST /webhooks/paystack`):
    - Validar o header `x-paystack-signature`. O valor esperado é HMAC-SHA512 do **corpo cru** do pedido, com a secret key como chave. Calcular sobre o body antes do parse e comparar em tempo constante.
    - Responder 200 rapidamente e processar de forma assíncrona.
@@ -165,13 +165,13 @@ Estás a trabalhar no meu gateway de pagamentos (este repositório). Tenho acess
 - **Proteção SSRF:** rejeitar URLs que resolvam para IPs privados, loopback, link-local ou metadata (ex.: `169.254.169.254`). Verificar ao gravar a integração e novamente a cada entrega.
 - **A ordem de chegada não é garantida.** Documentar isto.
 
-# Contrato com a Kingdom Members (primeira integração)
+# Contrato com a Kingdom Library (primeira integração)
 
 - Identifica os produtos pelo `product_id` do gateway.
 - Usa `customer.email`, `customer.name` e `locale` (`en` | `pt` | `es`) para enviar o convite no idioma do comprador.
 - Usa `metadata.member_user_id` quando a compra veio de um produto bloqueado dentro da área de membros. Nesse caso o produto é libertado na conta existente, sem convite.
-- **O gateway não envia emails de acesso.** Envia no máximo o recibo de pagamento. O convite e o acesso são da Kingdom Members.
-- Eu registo o URL do endpoint da Kingdom Members na aba "Integrações" quando ela estiver publicada.
+- **O gateway não envia emails de acesso.** Envia no máximo o recibo de pagamento. O convite e o acesso são da Kingdom Library.
+- Eu registo o URL do endpoint da Kingdom Library na aba "Integrações" quando ela estiver publicada.
 
 # Testes e entrega
 

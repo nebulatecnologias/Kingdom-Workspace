@@ -26,7 +26,7 @@ test("invite → create account → library, with purchases linked", { tag: "@cr
   await expect(page.locator(".bought")).toContainText("Money God’s Way");
   await acceptInvite(page, member.url, { password: PASSWORD });
   await expect(page.getByRole("heading", { name: "Hello, Thandi" })).toBeVisible();
-  await expect(page.getByText("Welcome to Kingdom Members!")).toBeVisible();
+  await expect(page.getByText("Welcome to Kingdom Library!")).toBeVisible();
 
   const { data: profile } = await admin().from("profiles").select("id, full_name, terms_accepted_at").eq("email", member.email).single();
   expect(profile?.full_name).toBe("Thandi Test");

@@ -1,6 +1,6 @@
-# Kingdom Members: runbook de suporte
+# Kingdom Library: runbook de suporte
 
-Guia rápido para resolver os pedidos mais comuns dos clientes e responder aos alertas. Tudo se faz na administração: **https://kingdom-members.vercel.app/admin**. Cada ação fica registada em **Atividade** (o sino no topo).
+Guia rápido para resolver os pedidos mais comuns dos clientes e responder aos alertas. Tudo se faz na administração: **https://library.kingdomcompny.com/admin**. Cada ação fica registada em **Atividade** (o sino no topo).
 
 > Regra de ouro: um pagamento só desbloqueia produtos quando o webhook do gateway chega assinado. Nunca é preciso pedir ao cliente que pague outra vez. Primeiro confirme o que aconteceu em **Integrações → Entregas recentes**.
 
@@ -79,7 +79,7 @@ O mesmo resumo aparece no topo da **Visão geral**, com o título "Precisa da su
 
 ## 10. Monitorização
 
-- **Estado do site:** `https://kingdom-members.vercel.app/api/health` responde `{"ok":true}` quando a app e a base de dados estão bem. Registe este endereço num monitor gratuito, como UptimeRobot ou Better Stack, com verificação de 5 em 5 minutos e alerta por email ou WhatsApp.
+- **Estado do site:** `https://library.kingdomcompny.com/api/health` responde `{"ok":true}` quando a app e a base de dados estão bem. Registe este endereço num monitor gratuito, como UptimeRobot ou Better Stack, com verificação de 5 em 5 minutos e alerta por email ou WhatsApp.
 - **Registos:**
   - **Vercel:** projeto `kingdom-members` → Logs, para erros do servidor.
   - **Supabase:** projeto `inaxsnghgzfaarjsbljh` → Logs, para a base de dados e a autenticação.

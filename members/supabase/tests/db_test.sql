@@ -250,10 +250,15 @@ begin
   r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_a', 'buyer@example.co.za', array['prod_jonah']));
   assert r ->> 'status' = 'refunded' and jsonb_array_length(r -> 'granted') = 0, 'late order.paid ignored after refund';
 
-  -- partial refund keeps access
+  -- any refund, even partial, removes that order's access; nothing brings it back
   r := public.gateway_apply_event('order.refunded', pg_temp.ev('ord_b', 'other@example.co.za', '{}',
          '{"order":{"id":"ord_b","amount":14900,"refunded_amount":5000,"full_refund":false}}'));
-  assert r ->> 'status' = 'partially_refunded' and (r ->> 'revoked')::int = 0, 'partial refund keeps access';
+  assert r ->> 'status' = 'partially_refunded' and (r ->> 'revoked')::int = 1, 'partial refund removes access';
+  r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_b', 'other@example.co.za', array['prod_jonah']));
+  assert jsonb_array_length(r -> 'granted') = 0, 'late order.paid ignored after a partial refund';
+  r := public.gateway_apply_event('order.dispute_resolved', pg_temp.ev('ord_b', 'other@example.co.za', '{}', '{"outcome":"won"}'));
+  assert r ->> 'status' = 'partially_refunded' and (r ->> 'restored')::int = 0, 'a won dispute does not undo a refund';
+  assert (select count(*) from public.entitlements where email = 'other@example.co.za' and revoked_at is null) = 0, 'no access after a partial refund';
 
   -- dispute suspends; won restores; a second dispute lost revokes for good
   r := public.gateway_apply_event('order.paid', pg_temp.ev('ord_c', 'dispute@example.co.za', array['prod_creation']));

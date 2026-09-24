@@ -17,7 +17,7 @@ Prototype: static HTML/CSS/JS (single clickable file, sample data). Production: 
 
 ## Product Purpose
 
-Kingdom Members is the private library where buyers of Kingdom's Christian digital products get what they bought. Product types today: colouring packs (printable A4 pages + on-screen colouring), eBooks (read online + PDF/EPUB), guides (step-by-step, with templates) and workbooks (printable A4 worksheets); new types can be added later. A purchase in the owner's own payment gateway (Paystack underneath) fires a signed webhook; the member receives a welcome email with a single-use, time-limited link that goes straight to account creation and into the library. Inside, owned products are open; other products show a padlock and lead to the gateway checkout, and are unlocked automatically after payment. Success = a buyer goes from email to opening what they bought in under two minutes without contacting support.
+Kingdom Library is the private library where buyers of Kingdom's Christian digital products get what they bought. Product types today: colouring packs (printable A4 pages + on-screen colouring), eBooks (read online + PDF/EPUB), guides (step-by-step, with templates) and workbooks (printable A4 worksheets); new types can be added later. A purchase in the owner's own payment gateway (Paystack underneath) fires a signed webhook; the member receives a welcome email with a single-use, time-limited link that goes straight to account creation and into the library. Inside, owned products are open; other products show a padlock and lead to the gateway checkout, and are unlocked automatically after payment. Success = a buyer goes from email to opening what they bought in under two minutes without contacting support.
 
 ## Positioning
 
@@ -43,7 +43,7 @@ A members area built around one family's product line and one gateway, not a gen
 
 ## Brand Commitments
 
-- Name: **Kingdom Members**.
+- Name: **Kingdom Library**.
 - Logo: orange rounded-square app mark with a white crown (`members/prototype/assets/logo-source.png`).
 - Typeface: **Google Sans**.
 - Visual reference pinned by the user: the "Ware Sync" warehouse SaaS dashboard (warm off-white canvas, orange gradient pill CTAs, soft rounded cards, green status pills, violet countdown card, activity feed with mention chips).
