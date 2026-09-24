@@ -39,6 +39,15 @@ Measure on a phone profile over a throttled network; users rarely have the devel
 - Fonts: few weights, `font-display: swap`, preloaded if above the fold.
 - Third-party scripts: each one justified; loaded after the main content.
 
+### Perceived speed (how fast it *feels*)
+Users judge speed by how soon the screen reacts, not by when the page finishes. Measure on a phone profile with added latency (Playwright + CDP `Network.emulateNetworkConditions`, e.g. 300 ms): time from the tap to the **first change on screen**, and to the page being ready.
+- Anything over ~100 ms with no visible change feels broken, and users tap again.
+- Server-rendered frameworks: a dynamic route with no loading boundary shows nothing until the server answers. In Next.js App Router, a dynamic route is not prefetched at all without `loading.tsx`. Look for `loading.tsx` / Suspense fallbacks next to each page, and press states (`:active`) on links and cards.
+- `touch-action: manipulation` on controls removes any double-tap-zoom wait.
+- Count the sequential round trips per navigation (middleware auth call, layout, page queries). Each one adds network time; independent reads should run in parallel.
+
+Kingdom Library, measured this way: the first change on screen went from 360–690 ms to 55–81 ms after adding per-page `loading.tsx` skeletons.
+
 ### Back end and database
 - N+1 queries (a query inside a loop over rows), missing indexes on foreign keys and on columns used in `where`/`order by`, unbounded lists without pagination, `select *` of large columns.
 - Database advisors if available (Supabase `get_advisors` type `performance`: unindexed foreign keys, RLS policies that re-evaluate `auth.uid()` per row, etc.).

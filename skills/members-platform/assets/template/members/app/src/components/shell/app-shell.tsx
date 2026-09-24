@@ -162,7 +162,7 @@ export async function AppShell({
               </Link>
             ) : null}
             {user ? (
-              <Link href="/profile" title={t("nav_profile")}>
+              <Link className="mobile-me" href="/profile" title={t("nav_profile")}>
                 {/* The visible initials are part of the link's name, so voice control users can say what they see. */}
                 <Avatar name={user.name} decorative={false} />
                 <span className="sr">{t("nav_profile")}</span>

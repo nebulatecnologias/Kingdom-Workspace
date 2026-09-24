@@ -99,3 +99,29 @@
   .select.asset-lang { width: auto; flex: none; }
   .asset-btns { display: flex; gap: 6px; margin-left: auto; }
 }
+
+/* The 36px avatar in the phone top bar gets a 44px touch area without changing the layout. */
+@layer components {
+  .mobile-me { display: grid; place-items: center; min-width: 44px; min-height: 44px; margin: -4px; }
+}
+
+/* Loading placeholders (PageSkeleton) and instant tap feedback on phones. */
+@layer components {
+  .sk { background: var(--line); border-radius: 10px; animation: sk-pulse 1.2s ease-in-out infinite; }
+  .sk-title { height: 32px; width: min(280px, 60%); margin-bottom: 10px; }
+  .sk-line { height: 14px; width: 100%; margin-top: 10px; }
+  .sk-card { height: 300px; border-radius: 18px; }
+  .skeleton-page .page-head > div { flex: 1; }
+  .sk-button { height: 44px; width: 180px; margin-top: 22px; border-radius: 999px; }
+  .sk-row { height: 44px; margin-top: 10px; }
+  .sk-row:first-child { margin-top: 0; }
+  .skeleton-page { animation: fade .2s ease-out .15s both; }
+  @keyframes sk-pulse { 50% { opacity: .5; } }
+  @media (prefers-reduced-motion: reduce) { .sk, .skeleton-page { animation: none; } }
+}
+@layer base {
+  /* No double-tap-to-zoom wait on controls, and a visible press state so a tap is acknowledged at once. */
+  a, button, label, summary, [role="button"], input, select, textarea { touch-action: manipulation; }
+  html { -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06); }
+  .lib-grid a:active, .card a:active, .toc-row:active, .nav a:active { opacity: .7; }
+}

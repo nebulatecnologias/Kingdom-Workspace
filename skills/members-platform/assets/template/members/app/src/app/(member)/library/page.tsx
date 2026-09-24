@@ -28,17 +28,17 @@ function filterItems(items: LibraryItem[], filter: Filter, q: string) {
 }
 
 export default async function LibraryPage({ searchParams }: PageProps<"/library">) {
-  const profile = await requireMember();
   const sp = await searchParams;
   const t = await getTranslations();
   const intlTag = await getLocale();
   const locale = toLocale(intlTag);
+  // Independent reads run together: every sequential database call adds a round trip to each tap.
+  const [profile, items] = await Promise.all([requireMember(), getLibrary(locale)]);
   const filter: Filter = FILTERS.includes(sp.filter as Filter) ? (sp.filter as Filter) : "all";
   const q = typeof sp.q === "string" ? sp.q.slice(0, 100) : "";
 
-  const [items, progress] = await Promise.all([getLibrary(locale), getProgress(profile.id)]);
+  const [progress, covers] = await Promise.all([getProgress(profile.id), signedImageUrls(items.map((p) => p.coverPath))]);
   const shown = filterItems(items, filter, q);
-  const covers = await signedImageUrls(items.map((p) => p.coverPath));
   const first = (profile.fullName || profile.email).split(" ")[0];
 
   const counts: Record<Filter, number> = {

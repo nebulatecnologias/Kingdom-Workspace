@@ -499,6 +499,7 @@
   "ed_coverHint": "PNG, JPG ou WebP quadrado, até 5 MB. Aparece a cores a quem tem o produto e em traço quando está bloqueado.",
   "ed_uploading": "A carregar…",
   "ed_uploadingN": "A carregar {n} de {total}…",
+  "loading_page": "A carregar…",
   "vis_visible_hint": "Na biblioteca de todos os membros.",
   "vis_soon_hint": "Aparece a cinzento como “Em breve”. Ninguém o consegue abrir ainda.",
   "vis_hidden_hint": "Não aparece na biblioteca. Os pagamentos continuam a desbloqueá-lo e quem o tem mantém o acesso.",

@@ -35,6 +35,9 @@
 - Visually-hidden spans (`.sr`, `position: absolute`) inside tables caused horizontal scroll on phones: `position: relative` on the scroll wrapper.
 - Long text in flex/grid children needs `min-width: 0`.
 - Lighthouse flagged: links in notices not underlined, `role="dialog"` on a form, `aria-hidden` on focusable previews (use `inert`), unlabelled file inputs, avatar colours below 4.5:1.
+- **Taps felt slow on phones.** Pages are dynamic (the CSP nonce, the session), and Next doesn't prefetch a dynamic route unless it has a `loading.tsx`: the old page stayed on screen for 0.4–0.7 s with no sign the tap worked. Fix: a `loading.tsx` next to each page (not at the route-group level, or the wrong placeholder flashes first) rendering `PageSkeleton`; `touch-action: manipulation` and `:active` states; `getClaims()` instead of `getUser()` in `proxy.ts`; independent reads in `Promise.all`. The first on-screen change after a tap went from 360–690 ms to 55–81 ms.
+- Build locally with the env loaded (`set -a; . ./.env.lite; set +a; npm run build`): `NEXT_PUBLIC_*` values are inlined at build time, and without them the browser Supabase client throws.
+- Kill an old `next start` before starting a new build (`ps -eo pid,args | awk '/^ *[0-9]+ next-server/ {print $1}'`); a stale server serves pages pointing at CSS that no longer exists.
 
 ## Environment (sandboxed agents)
 - `pkill -f <pattern>` can kill your own shell: find PIDs via `/proc/*/cmdline` and kill them in a separate command (exit code 144 is the shell noticing, not a failure).
