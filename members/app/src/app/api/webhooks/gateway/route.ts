@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { after } from "next/server";
+import { alertAdmins } from "@/lib/alerts";
 import { retryFailedEmails } from "@/lib/email/retry";
 import { gatewayEvent, isOrderEvent, parseOrderData } from "@/lib/gateway/events";
 import { gatewaySecrets, handleOrderEvent, type Outcome } from "@/lib/gateway/process";
@@ -91,11 +92,14 @@ export async function POST(request: Request) {
     const message = e instanceof Error ? e.message : String(e);
     console.error("gateway webhook: processing failed", event.id, message);
     await admin.from("webhook_events").update({ result: "error", error: message.slice(0, 2000) }).eq("event_id", event.id);
+    after(() => alertAdmins("webhook_error", [`webhook_error_event:${event.id}`]));
     return json({ error: "processing failed, retry later" }, 500);
   }
 
   await admin.from("webhook_events").update({ result: outcome.result, error: outcome.note }).eq("event_id", event.id);
   after(() => retryFailedEmails(5).catch((e) => console.error("email retry failed", e)));
+  // A buyer paid for something we can't match to a product: a person has to fix the mapping and give access.
+  if (outcome.unmapped?.length) after(() => alertAdmins("unknown_product", [`unknown_products:${outcome.unmapped!.join(", ")}`]));
   if (outcome.result === "rejected") return json({ received: true, result: "rejected", reason: outcome.note }, 422);
   return json({ received: true, result: outcome.result });
 }

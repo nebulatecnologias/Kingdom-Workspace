@@ -5,7 +5,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { ChevronLeft, ShieldCheck } from "lucide-react";
 import { MiniCover } from "@/components/admin/cover";
 import { Feed } from "@/components/admin/feed";
-import { AccessToggle, MemberActions, ResetTwoStep } from "@/components/admin/member-controls";
+import { AccessToggle, ChangeEmail, MemberActions, ResetTwoStep } from "@/components/admin/member-controls";
 import { Avatar } from "@/components/shell/app-shell";
 import { toLocale } from "@/i18n/config";
 import { describeActivity } from "@/lib/admin/activity";
@@ -183,6 +183,7 @@ export default async function MemberPage({ params }: PageProps<"/admin/members/[
               {t("md_actions")}
             </h2>
             <MemberActions memberId={member.id} name={name} email={member.email} active={member.status === "active"} self={member.id === profile.id} />
+            <ChangeEmail memberId={member.id} email={member.email} />
             {member.twoStep && member.id !== profile.id ? (
               <div>
                 <ResetTwoStep memberId={member.id} name={name} />

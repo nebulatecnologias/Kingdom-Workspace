@@ -14,6 +14,7 @@ import { adminContext } from "@/lib/admin/context";
 import { adminProducts, auditRows, overview, pendingInvites } from "@/lib/admin/queries";
 import { timeLeft } from "@/lib/admin/time";
 import { formatZar } from "@/lib/format";
+import { hasIssues, healthIssues } from "@/lib/health";
 import { verifiedFactorId } from "@/lib/auth";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -38,12 +39,13 @@ export default async function AdminOverviewPage() {
   const t = await getTranslations();
   const intlTag = await getLocale();
   const locale = toLocale(intlTag);
-  const [stats, pending, rows, products, factorId] = await Promise.all([
+  const [stats, pending, rows, products, factorId, health] = await Promise.all([
     overview(db),
     pendingInvites(db, 6),
     auditRows(db, { limit: 8 }),
     adminProducts(db, locale),
     verifiedFactorId(),
+    healthIssues(db, 24),
   ]);
   const feed = await describeActivity(db, rows);
   const title = (id: string) => products.find((p) => p.id === id)?.title ?? "—";
@@ -63,6 +65,21 @@ export default async function AdminOverviewPage() {
         <div style={{ marginBottom: 18 }}>
           <Notice tone="info">
             {t.rich("mfa_nudge", { link: (c) => <Link href="/admin/security">{c}</Link> })}
+          </Notice>
+        </div>
+      ) : null}
+
+      {hasIssues(health) ? (
+        <div style={{ marginBottom: 18 }}>
+          <Notice tone="warn">
+            <b style={{ fontWeight: 500 }}>{t("att_title")}</b>
+            {health.webhookErrors ? <span style={{ display: "block" }}>{t("att_webhook_errors", { n: health.webhookErrors })}</span> : null}
+            {health.badSignatures ? <span style={{ display: "block" }}>{t("att_bad_signatures", { n: health.badSignatures })}</span> : null}
+            {health.emailsGivenUp ? <span style={{ display: "block" }}>{t("att_emails_given_up", { n: health.emailsGivenUp })}</span> : null}
+            {health.unknownProducts.length ? <span style={{ display: "block" }}>{t("att_unknown_products", { ids: health.unknownProducts.join(", ") })}</span> : null}
+            <Link href="/admin/integrations" style={{ display: "inline-block", marginTop: 4 }}>
+              {t("att_open")}
+            </Link>
           </Notice>
         </div>
       ) : null}

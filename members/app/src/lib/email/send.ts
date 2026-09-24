@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { createAdminClient } from "@/lib/supabase/admin";
 import type { RenderedEmail } from "./templates";
 
-export type EmailTemplate = "invite" | "signin" | "reset" | "unlocked";
+export type EmailTemplate = "invite" | "signin" | "reset" | "unlocked" | "alert";
 
 /**
  * Failed emails that are worth sending again, and when. Sign-in and reset links are not retried:

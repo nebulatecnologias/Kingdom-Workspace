@@ -1,10 +1,11 @@
 "use client";
 
-import { useOptimistic, useState, useTransition } from "react";
+import { useActionState, useOptimistic, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
-import { Send, ShieldOff } from "lucide-react";
-import { sendMemberLink, setAccess, setMemberActive } from "@/app/(admin)/admin/_actions/members";
+import { AtSign, Send, ShieldOff } from "lucide-react";
+import { changeMemberEmail, sendMemberLink, setAccess, setMemberActive, type EmailChangeState } from "@/app/(admin)/admin/_actions/members";
 import { resetTwoStep } from "@/app/(admin)/admin/_actions/security";
+import { keepValues } from "./keep-form";
 import { toast } from "./toaster";
 
 /** On/off switch for one product in a member's library. */
@@ -122,5 +123,49 @@ export function ResetTwoStep({ memberId, name }: { memberId: string; name: strin
       <ShieldOff className="icon icon-sm" aria-hidden="true" />
       {t("mfa_reset")}
     </button>
+  );
+}
+
+/** Correct the member's email. Opens as a small form under the actions. */
+export function ChangeEmail({ memberId, email }: { memberId: string; email: string }) {
+  const t = useTranslations();
+  const [open, setOpen] = useState(false);
+  const [state, action, pending] = useActionState(async (prev: EmailChangeState, fd: FormData) => {
+    const r = await changeMemberEmail(prev, fd);
+    if (r.status === "saved") {
+      toast(t("md_emailChanged"));
+      setOpen(false);
+    }
+    return r;
+  }, { status: "idle" } as EmailChangeState);
+  if (!open) {
+    return (
+      <div>
+        <button type="button" className="btn btn-quiet btn-sm" onClick={() => setOpen(true)}>
+          <AtSign className="icon icon-sm" aria-hidden="true" />
+          {t("md_changeEmail")}
+        </button>
+      </div>
+    );
+  }
+  return (
+    <form className="stack" style={{ gap: 8 }} onSubmit={keepValues(action)} noValidate>
+      <input type="hidden" name="id" value={memberId} />
+      <div className={state.status === "error" ? "field has-error" : "field"}>
+        <label htmlFor="md-email">{t("md_newEmail")}</label>
+        <input className="input" id="md-email" name="email" type="email" defaultValue={email} autoComplete="off" aria-invalid={state.status === "error" || undefined} aria-describedby="md-email-hint" />
+        <span className={state.status === "error" ? "error-text" : "hint"} id="md-email-hint" role={state.status === "error" ? "alert" : undefined}>
+          {state.status === "error" ? t(state.message ?? "err_generic") : t("md_emailHint")}
+        </span>
+      </div>
+      <div style={{ display: "flex", gap: 8 }}>
+        <button type="submit" className="btn btn-primary btn-sm" disabled={pending}>
+          {t("save")}
+        </button>
+        <button type="button" className="btn btn-quiet btn-sm" onClick={() => setOpen(false)}>
+          {t("cancel")}
+        </button>
+      </div>
+    </form>
   );
 }

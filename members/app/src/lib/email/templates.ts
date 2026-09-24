@@ -158,3 +158,43 @@ export function renderUnlockedEmail(opts: {
     text: textVersion([greeting, t("mail_unlocked_p", { pack }), `${t("mail_unlocked_cta")}: ${url}`, order]),
   };
 }
+
+const ALERT_LINES = {
+  webhook_errors: "mail_alert_webhook_errors",
+  webhook_error_event: "mail_alert_webhook_error_event",
+  bad_signatures: "mail_alert_bad_signatures",
+  emails_given_up: "mail_alert_emails_given_up",
+  unknown_products: "mail_alert_unknown_products",
+} as const;
+
+/**
+ * Alert for administrators. `details` are "code:value" lines (e.g. "webhook_errors:3"), written out in the
+ * admin's language here so the email stays readable without knowing the codes.
+ */
+export function renderAlertEmail(opts: { locale: Locale; siteUrl: string; kind: "webhook_error" | "unknown_product" | "daily"; name: string; details: string[] }): RenderedEmail {
+  const t = translatorFor(opts.locale);
+  const heading = t(`mail_alert_title_${opts.kind}`);
+  const lines = opts.details.flatMap((d) => {
+    const i = d.indexOf(":");
+    const code = (i < 0 ? d : d.slice(0, i)) as keyof typeof ALERT_LINES;
+    const value = i < 0 ? "" : d.slice(i + 1);
+    return ALERT_LINES[code] ? [t(ALERT_LINES[code], { n: value, ids: value, id: value })] : [];
+  });
+  const url = `${opts.siteUrl}/admin/${opts.kind === "daily" ? "" : "integrations"}`.replace(/\/$/, "");
+  const greeting = t("mail_hi", { name: opts.name || "" }).replace(/\s+,/, ",");
+  return {
+    subject: `[Kingdom Members] ${heading}`,
+    preview: lines[0] ?? heading,
+    html: layout({
+      locale: opts.locale,
+      siteUrl: opts.siteUrl,
+      preview: lines[0] ?? heading,
+      heading,
+      greeting,
+      body: [t("mail_alert_intro"), ...lines],
+      cta: { label: t("mail_alert_cta"), url },
+      smallPrint: t("mail_alert_small"),
+    }),
+    text: textVersion([greeting, t("mail_alert_intro"), ...lines, `${t("mail_alert_cta")}: ${url}`]),
+  };
+}

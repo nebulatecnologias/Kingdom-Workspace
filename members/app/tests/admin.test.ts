@@ -65,3 +65,20 @@ describe("admin helpers", () => {
     expect(formatZar(14900).replace(/\s/g, " ")).toBe("R 149,00");
   });
 });
+
+describe("admin alerts", () => {
+  it("writes the alert lines out in the admin's language and ignores unknown codes", async () => {
+    const { renderAlertEmail } = await import("../src/lib/email/templates");
+    const mail = renderAlertEmail({ locale: "pt", siteUrl: "https://x.test", kind: "daily", name: "Shelton Douglas", details: ["webhook_errors:3", "unknown_products:prod_a, prod_b", "made_up:1"] });
+    expect(mail.subject).toBe("[Kingdom Members] A Kingdom Members precisa da sua atenção");
+    expect(mail.text).toContain("3 evento(s) do gateway");
+    expect(mail.text).toContain("prod_a, prod_b");
+    expect(mail.text).not.toContain("made_up");
+    expect(mail.html).toContain("https://x.test/admin");
+  });
+
+  it("summarises only the problems that happened", async () => {
+    const { describeIssues } = await import("../src/lib/alerts");
+    expect(describeIssues({ webhookErrors: 0, badSignatures: 2, emailsGivenUp: 0, unknownProducts: [] })).toEqual(["bad_signatures:2"]);
+  });
+});

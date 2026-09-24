@@ -98,6 +98,16 @@ Só para contas com `role = admin` (ativas). Todas as ações ficam no registo (
 - **Integrações** (`/admin/integrations`): URL do webhook, segredo de assinatura (colar o que o gateway mostra; ao substituir, o anterior continua aceite 24 horas; "Mostrar" fica registado), eventos, "Enviar evento de teste" (assina um `integration.test` e envia-o ao próprio webhook), mapeamento dos produtos com os IDs em falta, produtos desconhecidos vistos em pagamentos recentes, e as últimas entregas.
 - **Verificação em dois passos** (`/admin/security`): app autenticadora (TOTP). Com ela ativa, o admin passa por `/auth/verify` depois da palavra-passe, e a base de dados só o trata como admin numa sessão verificada (`is_admin()` exige `aal2`). Se um admin perder o telemóvel, outro admin repõe na ficha de membro; se for o único, apague o fator no painel do Supabase (Authentication → Users).
 
+## Segurança, monitorização e suporte (fase 6)
+
+- **Cabeçalhos:** Content-Security-Policy com nonce por pedido (em `src/proxy.ts`), mais HSTS, `nosniff`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy` e COOP (em `next.config.ts`).
+- **Uploads:** o bucket `products` só aceita PNG, JPG, WebP, PDF e EPUB até 50 MB, mesmo com um link assinado.
+- **Saúde:** `GET /api/health` devolve `{"ok":true}` (200) ou 503, para um monitor externo (UptimeRobot, Better Stack).
+- **Alertas aos administradores (por email):** evento de pagamento com erro, encomenda paga com produto sem ligação, e um resumo diário (cron das 06:30 UTC) quando algo correu mal nas últimas 24 horas. No máximo um email por tipo e por hora. O mesmo resumo aparece na Visão geral.
+- **Mudar o email de um membro:** na ficha do membro. A conta e os acessos passam para o novo email.
+- **Runbook de suporte:** [`docs/kingdom-members/runbook-suporte.md`](../../docs/kingdom-members/runbook-suporte.md).
+- **Testes E2E em telemóvel:** o projeto `mobile` do Playwright (Pixel 7) corre os cinco fluxos críticos do plano, marcados `@critical`.
+
 ## Supabase local sem Docker
 
 Para correr a app e os testes de ponta a ponta numa máquina sem Docker (como os ambientes do Claude Code na web):

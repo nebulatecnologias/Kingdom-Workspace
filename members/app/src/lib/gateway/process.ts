@@ -7,7 +7,7 @@ import { siteUrl } from "@/lib/request";
 import { createAdminClient } from "@/lib/supabase/admin";
 import type { OrderEventType } from "./events";
 
-export type Outcome = { result: "processed" | "rejected"; note: string | null };
+export type Outcome = { result: "processed" | "rejected"; note: string | null; unmapped?: string[] };
 
 type ApplyResult = {
   order_id: string;
@@ -97,5 +97,5 @@ export async function handleOrderEvent(type: OrderEventType, data: unknown, isRe
     });
     notes.push(emailed ? "invite sent" : "invite email failed (will retry)");
   }
-  return { result: "processed", note: notes.join("; ") };
+  return { result: "processed", note: notes.join("; "), unmapped: type === "order.paid" ? r.unmapped : [] };
 }

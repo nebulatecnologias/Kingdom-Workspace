@@ -207,6 +207,46 @@ test("members: search, give and remove a product, sign-in link, deactivate and r
   expect(actions!.map((a) => a.action)).toEqual(expect.arrayContaining(["admin.access.granted", "admin.access.removed", "admin.member.link_sent", "admin.member.deactivated", "admin.member.reactivated"]));
 });
 
+test("changing a member's email moves their access and links purchases waiting under the new email", async ({ page, browser }) => {
+  await resetRateLimits();
+  const oldEmail = uniqueEmail("typo");
+  const newEmail = uniqueEmail("fixed");
+  const { url } = createInvite({ email: oldEmail, name: "Typo Person", products: ["noah"] });
+  const m = await browser.newContext();
+  const mp = await m.newPage();
+  await mp.goto(url);
+  await mp.getByLabel("Password", { exact: true }).fill(PASSWORD);
+  await mp.locator('input[name="terms"]').check();
+  await mp.getByRole("button", { name: "Create account and open my library" }).click();
+  await mp.waitForURL(/\/library\?welcome=1$/);
+  await m.close();
+  const { data: person } = await admin().from("profiles").select("id").eq("email", oldEmail).single();
+  // A purchase made with the right email before the fix, waiting for an account.
+  await admin().from("entitlements").insert({ email: newEmail, product_id: await productId("jonah"), source: "order" });
+
+  await signIn(page, boss.email);
+  await page.waitForURL(/\/admin$/);
+  await page.goto(`/admin/members/${person!.id}`);
+  await page.getByRole("button", { name: "Change email" }).click();
+  await page.getByLabel("New email").fill(boss.email);
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.getByText("Another account already uses this email.")).toBeVisible();
+  await page.getByLabel("New email").fill(newEmail);
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.getByText("Email changed")).toBeVisible();
+
+  const { data: grants } = await admin().from("entitlements").select("email, product_id").eq("user_id", person!.id).is("revoked_at", null);
+  expect(grants!.map((g) => g.email)).toEqual([newEmail, newEmail]);
+  const other = await browser.newContext();
+  const op = await other.newPage();
+  await signIn(op, newEmail);
+  await op.waitForURL(/\/library$/);
+  await op.goto("/products/jonah");
+  await expect(op.getByRole("link", { name: "Colour online" }).first()).toBeVisible();
+  await other.close();
+  expect((await lastAudit("admin.member.email_changed"))?.meta).toMatchObject({ email: newEmail, previous: oldEmail });
+});
+
 test("showcase: keyboard reordering, visibility, and sections in three languages", async ({ page }) => {
   await signIn(page, boss.email);
   await page.waitForURL(/\/admin$/);

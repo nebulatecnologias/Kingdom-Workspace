@@ -20,6 +20,7 @@ const KNOWN = new Set([
   "admin.member.link_sent",
   "admin.member.deactivated",
   "admin.member.reactivated",
+  "admin.member.email_changed",
   "admin.product.created",
   "admin.product.updated",
   "admin.product.content",

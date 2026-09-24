@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { z } from "zod";
 import { isLocale } from "@/i18n/config";
 import { emailSignInLink, grantManually, removeAccess } from "@/lib/access";
 import { adminContext, audit, fail, UUID, type ActionResult } from "@/lib/admin/context";
@@ -62,4 +63,48 @@ export async function setMemberActive(memberId: string, active: boolean): Promis
   await audit(profile, active ? "admin.member.reactivated" : "admin.member.deactivated", { type: "profile", id: member.id }, { email: member.email, name: member.full_name });
   revalidatePath("/admin", "layout");
   return { ok: true };
+}
+
+export type EmailChangeState = { status: "idle" | "saved" | "error"; message?: string };
+
+/**
+ * Corrects a member's email (e.g. a typo at checkout). The sign-in email, the profile and the member's
+ * access move to the new address; purchases already waiting under the new address are linked too.
+ */
+export async function changeMemberEmail(_prev: EmailChangeState, fd: FormData): Promise<EmailChangeState> {
+  const memberId = String(fd.get("id") ?? "");
+  const { profile, db, member } = await loadMember(memberId);
+  if (!member) return { status: "error", message: "err_not_found" };
+  const email = String(fd.get("email") ?? "").trim().toLowerCase();
+  if (!z.email().max(254).safeParse(email).success) return { status: "error", message: "err_email" };
+  if (email === member.email) return { status: "saved" };
+  const { data: taken } = await db.from("profiles").select("id").eq("email", email).maybeSingle();
+  if (taken) return { status: "error", message: "err_email_taken" };
+
+  const { error: authError } = await db.auth.admin.updateUserById(member.id, { email, email_confirm: true });
+  if (authError) {
+    console.error("email change failed", authError.message);
+    return { status: "error", message: authError.code === "email_exists" ? "err_email_taken" : "err_generic" };
+  }
+  await db.from("profiles").update({ email }).eq("id", member.id);
+
+  // Access follows the account. Grants already waiting under the new email for the same products are
+  // retired first (one active grant per email and product), then the rest are linked to the account.
+  const { data: mine } = await db.from("entitlements").select("product_id").eq("user_id", member.id).is("revoked_at", null);
+  const owned = (mine ?? []).map((e) => e.product_id);
+  if (owned.length) {
+    await db
+      .from("entitlements")
+      .update({ revoked_at: new Date().toISOString(), revoked_reason: "merged into account after email change" })
+      .eq("email", email)
+      .is("user_id", null)
+      .is("revoked_at", null)
+      .in("product_id", owned);
+  }
+  await db.from("entitlements").update({ email }).eq("user_id", member.id);
+  await db.rpc("link_entitlements", { p_user_id: member.id, p_email: email });
+
+  await audit(profile, "admin.member.email_changed", { type: "profile", id: member.id }, { email, name: member.full_name, previous: member.email });
+  revalidatePath("/admin", "layout");
+  return { status: "saved" };
 }

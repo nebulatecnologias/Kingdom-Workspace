@@ -125,3 +125,24 @@ test("integration.test and malformed events", async ({ request }) => {
   const noOutcome = await deliver(request, event({ type: "order.dispute_resolved", email: buyer.email, order: buyer.order }));
   expect(noOutcome.status()).toBe(422);
 });
+
+test("a paid order for an unlinked gateway product alerts the admins; the health check answers", async ({ request }) => {
+  await resetRateLimits();
+  const { data: admins } = await admin().from("profiles").select("email").eq("role", "admin").eq("status", "active");
+  test.skip(!admins?.length, "no admin account in this database");
+  const since = new Date();
+  const res = await deliver(request, event({ email: uniqueEmail("unmapped"), order: `ord_unmapped_${Date.now()}`, products: ["prod_does_not_exist"] }));
+  expect(res.status()).toBe(200);
+  await expect
+    .poll(async () => {
+      const { count } = await admin().from("email_log").select("id", { count: "exact", head: true }).eq("template", "alert").gt("created_at", since.toISOString());
+      return count ?? 0;
+    })
+    .toBe(admins!.length);
+  const { data: mail } = await admin().from("email_log").select("payload").eq("template", "alert").gt("created_at", since.toISOString()).limit(1).single();
+  expect((mail!.payload as { subject: string }).subject).toContain("A paid order has a product that isn’t linked");
+
+  const health = await request.get("/api/health");
+  expect(health.status()).toBe(200);
+  expect(await health.json()).toEqual({ ok: true });
+});
