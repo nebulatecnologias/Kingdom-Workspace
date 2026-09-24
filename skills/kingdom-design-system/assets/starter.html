@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kingdom App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap">
+<!-- For a single-file deliverable, replace this link with <style> + the full contents of kingdom-ui.css -->
+<link rel="stylesheet" href="kingdom-ui.css">
+</head>
+<body>
+<!-- Starter: app shell + page head + KPI row + table card. Replace names and data with the new product's. -->
+<div class="app">
+  <aside class="sidebar" aria-label="Main">
+    <a class="brand" href="#"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#f4621d"/><path d="M12.5 27.1 23.9 30.7 31.9 17.9 39.9 30.7 49.7 27.1 46.5 44.8H17.7Z" fill="#fff" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg><span><b>Kingdom App</b><small>Administrator</small></span></a>
+    <div class="split"><button class="split-main"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New item</button><button class="split-more" aria-label="More actions"><svg class="icon" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <nav class="nav">
+      <a href="#" aria-current="page"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Overview</a>
+      <a href="#"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/></svg>People<span class="badge">4</span></a>
+    </nav>
+    <div class="sidebar-foot"><div class="user-chip"><span class="avatar" style="background:#564cc9">KA</span><div class="who"><b>Kingdom Admin</b><span>admin@example.co.za</span></div></div></div>
+  </aside>
+  <div>
+    <header class="mobile-bar"><a class="brand" href="#"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#f4621d"/><path d="M12.5 27.1 23.9 30.7 31.9 17.9 39.9 30.7 49.7 27.1 46.5 44.8H17.7Z" fill="#fff"/></svg><span><b>Kingdom App</b></span></a></header>
+    <main class="main">
+      <div class="topbar"><label class="search"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" placeholder="Search…"></label><span class="spacer"></span><select class="select lang-select" aria-label="Language"><option>English</option><option>Português</option><option>Español</option></select></div>
+      <div class="page-head"><div><h1>Overview</h1><p>One line that says what this screen is for.</p></div></div>
+      <div class="kpis">
+        <div class="card kpi"><span class="kpi-label">People</span><div class="kpi-row"><span class="kpi-value">214</span><div class="bars"><i style="height:45%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:75%"></i></div></div><span class="kpi-delta">+18 this month</span></div>
+        <div class="card kpi"><span class="kpi-label">Pending</span><div class="kpi-row"><span class="kpi-value">5</span><div class="bars"><i style="height:80%"></i><i style="height:50%"></i><i style="height:95%"></i><i style="height:60%"></i><i style="height:40%"></i></div></div><span class="kpi-delta" style="color:var(--amber-ink)">2 expire this week</span></div>
+        <div class="card kpi"><span class="kpi-label">Sales</span><div class="kpi-row"><span class="kpi-value">37</span><div class="bars"><i style="height:35%"></i><i style="height:60%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:100%"></i></div></div><span class="kpi-delta">R 2 913,00</span></div>
+        <div class="card countdown"><div class="countdown-top"><div><b style="font-size:18px">Next deadline</b></div><span class="pill pill-red">Expiring</span></div><div class="clock">05<span>:</span>42<span>:</span>18</div></div>
+      </div>
+      <section class="card">
+        <div class="toolbar"><div class="filters"><button class="filter" aria-pressed="true">All<span class="count">4</span></button><button class="filter" aria-pressed="false">Active<span class="count">3</span></button></div></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th>Person</th><th>Status</th></tr></thead>
+          <tbody><tr><td><div class="cell-person"><span class="avatar" style="background:#f4621d">TM</span><div><b>Thandi Mokoena</b><span>thandi@example.co.za</span></div></div></td><td><span class="pill pill-soft-green"><span class="dot"></span>Active</span></td></tr></tbody></table></div>
+      </section>
+    </main>
+  </div>
+  <nav class="tabbar" aria-label="Main"><a href="#" aria-current="page">Overview</a><a href="#">People</a></nav>
+</div>
+</body>
+</html>

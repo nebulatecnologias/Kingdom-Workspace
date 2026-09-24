@@ -56,6 +56,39 @@
         ],
         "createdAt": "2026-09-21T23:26:47.177Z",
         "reason": "user confirmed: mock de janela de browser dentro do card bento, replicando o padrao da referencia Setrex; e uma metafora de UI distinta, nao um card redundante"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "sf mono",
+        "createdAt": "2026-09-23T17:29:55.431Z",
+        "reason": "assistant judgement: monospace stack is used only in .code-field for the webhook URL and signing secret (literal code/data), not as UI type"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "skills/kingdom-design-system/assets/starter.html"
+        ],
+        "createdAt": "2026-09-23T18:06:18.029Z",
+        "reason": "assistant judgement: violet glow on the countdown clock is part of the user-pinned Ware Sync reference, documented in DESIGN.md (violet glow token)"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "skills/kingdom-design-system/assets/starter.html"
+        ],
+        "createdAt": "2026-09-23T18:06:18.040Z",
+        "reason": "assistant judgement: white label on the pinned orange CTA gradient; contrast trade-off is documented in the skill (--cta-aa variant) and awaiting the user's decision"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "skills/kingdom-design-system/assets/starter.html"
+        ],
+        "createdAt": "2026-09-23T18:07:04.184Z",
+        "reason": "assistant judgement: false positive — table-wrap sits flush in the card by design while each th/td carries 16px padding (same pattern as the reviewed prototype)"
       }
     ]
   }

@@ -1,0 +1,24 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "signInPattern": "login|sign-?in|auth",
+  "roles": {
+    "visitor": {},
+    "member": { "storageState": "auth-member.json" },
+    "other-member": { "storageState": "auth-other.json" },
+    "admin": { "storageState": "auth-admin.json" }
+  },
+  "vars": {
+    "memberProductId": "00000000-0000-0000-0000-000000000000",
+    "memberOrderId": "00000000-0000-0000-0000-000000000000"
+  },
+  "checks": [
+    { "name": "Home / public landing", "path": "/", "expect": { "visitor": "allow", "member": "allow", "admin": "allow" } },
+    { "name": "Member area", "path": "/library", "expect": { "visitor": "deny", "member": "allow", "admin": "allow" } },
+    { "name": "Admin area", "path": "/admin", "expect": { "visitor": "deny", "member": "deny", "other-member": "deny", "admin": "allow" } },
+    { "name": "Admin API or page with personal data", "path": "/admin/members", "expect": { "visitor": "deny", "member": "deny", "admin": "allow" } },
+    { "name": "Download of a product the member owns", "path": "/api/products/{memberProductId}/download", "expect": { "visitor": "deny", "member": "allow", "other-member": "deny" } },
+    { "name": "Another person's order (IDOR)", "path": "/api/orders/{memberOrderId}", "expect": { "visitor": "deny", "other-member": "deny" } },
+    { "name": "Personal data export", "path": "/api/me/export", "expect": { "visitor": "deny", "member": "allow" } },
+    { "name": "Cron endpoint without the secret", "path": "/api/cron/email-retry", "expect": { "visitor": "deny", "member": "deny", "admin": "deny" } }
+  ]
+}
