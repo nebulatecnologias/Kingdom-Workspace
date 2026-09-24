@@ -50,3 +50,33 @@ python -m scripts.package_skill <caminho>/skills/members-platform <caminho>/skil
 ```
 
 Quando o código da app mudar, atualize o modelo em `members-platform/assets/template/` com os ficheiros de `members/` (só os que estão no git).
+
+## software-audit
+
+Auditoria de ponta a ponta de um software que já existe: frontend, backend, base de dados, design, experiência do utilizador, acessibilidade, lógica de negócio, acessos e segurança. O resultado é um relatório com as falhas por ordem de gravidade, cada uma com prova, impacto e correção.
+
+Inclui:
+- `scripts/map_repo.py`: mapeia qualquer repositório (tecnologias, páginas, rotas de API, autenticação, tabelas e RLS, variáveis de ambiente, testes, pontos sensíveis);
+- `scripts/crawl_screens.mjs`: percorre a app a correr, no computador e no telemóvel, com capturas de ecrã, erros, problemas de layout e verificações de acessibilidade (axe);
+- `scripts/save_login.mjs`: entra com uma conta de teste e guarda a sessão;
+- `scripts/access_matrix.mjs`: testa quem consegue abrir o quê (visitante, membro, outro membro, admin);
+- `scripts/check_headers.py`: cabeçalhos de segurança, cookies, HTTPS e CORS;
+- guias por área (`references/`) e o modelo do relatório (`assets/report-template.md`).
+
+Na primeira utilização, na Kingdom Library, encontrou um erro real: carregar Enter na página de login enviava um email de recuperação de palavra-passe em vez de entrar.
+
+### Instalar
+- **claude.ai / app Claude:** carregue `dist/software-audit.skill` em Definições → Capacidades → Skills (ou abra-o numa conversa e clique em **Save skill**).
+- **Claude Code:** copie a pasta `software-audit/` para `~/.claude/skills/` ou para `.claude/skills/` do repositório a auditar.
+
+### Como pedir
+"Audita o meu software", "encontra falhas de UX e de acessos nesta app", "está pronto para lançar?", "revê a segurança do meu site".
+
+Os scripts de browser precisam do `playwright` (e, de preferência, do `axe-core`) instalados na pasta de onde são executados.
+
+### Atualizar
+Edite `software-audit/` e volte a gerar o pacote a partir da pasta da skill-creator:
+
+```
+python -m scripts.package_skill <caminho>/skills/software-audit <caminho>/skills/dist
+```
