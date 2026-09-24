@@ -24,7 +24,7 @@ async function productId(slug: string) {
   return data!.id as string;
 }
 
-test("after the checkout, the return page waits for the payment and opens the product", async ({ page, request }) => {
+test("after the checkout, the return page waits for the payment and opens the product; a refund takes it back", { tag: "@critical" }, async ({ page, request }) => {
   const member = await join(page);
   const jonah = await productId("jonah");
 
@@ -59,6 +59,24 @@ test("after the checkout, the return page waits for the payment and opens the pr
   // Coming back to the return page later goes straight to the product.
   await page.goto(`/purchase/return?product=${jonah}`);
   await expect(page).toHaveURL(/\/products\/jonah\?unlocked=1$/);
+
+  // A full refund takes it away again.
+  const refund = JSON.stringify({
+    id: `evt_e2e_refund_${Date.now()}`,
+    type: "order.refunded",
+    api_version: "2026-09-01",
+    created_at: new Date().toISOString(),
+    livemode: true,
+    data: { ...JSON.parse(body).data, full_refund: true, refunded_amount: 6900 },
+  });
+  const refunded = await request.post("/api/webhooks/gateway", {
+    data: refund,
+    headers: { "Content-Type": "application/json", "X-Kingdom-Signature": signatureHeader([SECRET], refund) },
+  });
+  expect(refunded.status()).toBe(200);
+  await page.goto("/products/jonah");
+  await expect(page.getByRole("link", { name: /Unlock · R 69,00/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Colour online" })).toHaveCount(0);
 });
 
 test("a cancelled checkout offers to try again, and the status API answers only for the member", async ({ page, browser }) => {

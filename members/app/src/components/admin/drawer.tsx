@@ -23,7 +23,7 @@ export function Drawer({
   formAction?: (formData: FormData) => void;
 }) {
   const t = useTranslations();
-  const panel = useRef<HTMLElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = panel.current;
@@ -69,17 +69,17 @@ export function Drawer({
 
   return (
     <div className="scrim drawer-scrim" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      {formAction ? (
-        <form ref={panel as React.RefObject<HTMLFormElement>} className="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" onSubmit={keepValues(formAction)} noValidate>
-          {head}
-          {children}
-        </form>
-      ) : (
-        <div ref={panel as React.RefObject<HTMLDivElement>} className="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
-          {head}
-          {children}
-        </div>
-      )}
+      <div ref={panel} className="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+        {head}
+        {formAction ? (
+          // display: contents keeps the drawer's column layout for the form's fields.
+          <form onSubmit={keepValues(formAction)} noValidate style={{ display: "contents" }}>
+            {children}
+          </form>
+        ) : (
+          children
+        )}
+      </div>
     </div>
   );
 }

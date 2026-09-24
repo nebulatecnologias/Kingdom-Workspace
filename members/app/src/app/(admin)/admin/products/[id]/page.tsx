@@ -209,7 +209,8 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
                 </Link>
               </nav>
             </div>
-            <div style={{ pointerEvents: "none" }} aria-hidden="true">
+            {/* A picture of the library card: inert, so its link can't be focused or clicked. */}
+            <div inert>
               <PackCard
                 intlTag={intlTag}
                 coverUrl={urls.get(p.cover_path ?? "")}

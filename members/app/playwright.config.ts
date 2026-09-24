@@ -24,6 +24,15 @@ export default defineConfig({
         launchOptions: process.env.PLAYWRIGHT_CHROMIUM_PATH ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH } : {},
       },
     },
+    {
+      // The five critical flows of the plan (tagged @critical) again on a phone.
+      name: "mobile",
+      grep: /@critical/,
+      use: {
+        ...devices["Pixel 7"],
+        launchOptions: process.env.PLAYWRIGHT_CHROMIUM_PATH ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH } : {},
+      },
+    },
   ],
   webServer: {
     command: "npm run start",

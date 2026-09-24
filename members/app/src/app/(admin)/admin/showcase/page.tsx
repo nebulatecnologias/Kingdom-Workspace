@@ -87,8 +87,9 @@ export default async function ShowcasePage() {
                       {g.items.map((p) => {
                         const own = p.access === "free";
                         return (
-                          <div className="p" key={p.id} style={p.visibility === "soon" ? { opacity: 0.55 } : undefined}>
-                            <div className="c" style={{ background: p.fieldColour }}>
+                          <div className="p" key={p.id}>
+                            {/* "Coming soon" dims the cover only, so the title keeps readable contrast. */}
+                            <div className="c" style={{ background: p.fieldColour, ...(p.visibility === "soon" ? { opacity: 0.55 } : {}) }}>
                               <Art path={p.coverPath} url={covers.get(p.coverPath ?? "")} mode={own ? "color" : "line"} />
                             </div>
                             {!own && p.visibility === "visible" ? (

@@ -18,7 +18,7 @@ test.describe.configure({ mode: "serial" });
 
 const member = { email: uniqueEmail("member"), url: "" };
 
-test("invite → create account → library, with purchases linked", async ({ page }) => {
+test("invite → create account → library, with purchases linked", { tag: "@critical" }, async ({ page }) => {
   member.url = createInvite({ email: member.email, name: "Thandi Test", products: ["noah", "money"] }).url;
   await page.goto(member.url);
   await expect(page.locator("#iv-email")).toHaveValue(member.email);
@@ -50,7 +50,7 @@ test("validation explains what to fix", async ({ page }) => {
   await expect(page.getByText("Please accept the terms to continue.")).toBeVisible();
 });
 
-test("an expired invite offers a fresh link that works", async ({ page }) => {
+test("an expired invite offers a fresh link that works", { tag: "@critical" }, async ({ page }) => {
   const email = uniqueEmail("expired");
   const { url } = createInvite({ email, ttlDays: -1 });
   await page.goto(url);
@@ -78,7 +78,7 @@ test("password sign-in, wrong password and sign-out", async ({ page }) => {
   await page.waitForURL(/\/login$/);
 });
 
-test("email-link sign-in needs a button press (mail scanners cannot use it)", async ({ page }) => {
+test("email-link sign-in needs a button press (mail scanners cannot use it)", { tag: "@critical" }, async ({ page }) => {
   await page.goto("/login");
   const before = new Date();
   await page.getByLabel("Email").fill(member.email);

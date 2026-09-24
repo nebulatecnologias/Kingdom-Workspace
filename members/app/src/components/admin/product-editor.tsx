@@ -140,6 +140,8 @@ export function CoverUpload({ productId, coverPath, coverUrl, fieldColour }: { p
           accept="image/png,image/jpeg,image/webp"
           className="sr"
           id="ed-cover-file"
+          aria-label={t("ed_cover")}
+          tabIndex={-1}
           onChange={async (e) => {
             const file = e.target.files?.[0];
             e.target.value = "";
@@ -318,7 +320,7 @@ export function PagesEditor({ productId, locale, pages, pageCount }: { productId
         <Upload className="icon" aria-hidden="true" />
         <b style={{ color: "var(--ink)", fontWeight: 500 }}>{progress ?? t("ed_drop")}</b>
         <span style={{ fontSize: 13.5 }}>{t("ed_dropP")}</span>
-        <input ref={input} type="file" multiple accept="image/png,image/jpeg,image/webp" className="sr" id="ed-pages-file" onChange={(e) => {
+        <input ref={input} type="file" multiple accept="image/png,image/jpeg,image/webp" className="sr" id="ed-pages-file" aria-label={t("ed_drop")} tabIndex={-1} onChange={(e) => {
           const files = [...(e.target.files ?? [])];
           e.target.value = "";
           void upload(files);
@@ -421,6 +423,7 @@ export function FilesEditor({ productId, locale, files }: { productId: string; l
               className="sr"
               accept={f.format === "pdf" ? "application/pdf,.pdf" : "application/epub+zip,.epub"}
               aria-label={`${t("ed_browse")}: ${f.format.toUpperCase()}`}
+              tabIndex={-1}
               onChange={(e) => {
                 const file = e.target.files?.[0];
                 e.target.value = "";

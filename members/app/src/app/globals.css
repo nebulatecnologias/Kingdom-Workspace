@@ -39,7 +39,7 @@
 
 /* Tailwind's preflight removes link underlines; links inside running text need one to be told apart from it (WCAG 1.4.1). */
 @layer components {
-  p a:not(.btn), .hint a:not(.btn), address a, .reader a { text-decoration: underline; }
+  p a:not(.btn), .hint a:not(.btn), .notice a:not(.btn), address a, .reader a { text-decoration: underline; }
 }
 
 /* Admin pieces built with links and <details> instead of the prototype's buttons, so they work without JavaScript. */

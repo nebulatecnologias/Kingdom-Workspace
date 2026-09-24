@@ -28,7 +28,8 @@ export type ShellUser = { name: string; email: string } | null;
 
 type NavItem = { href: string; label: string; icon: ReactNode; badge?: number; exact?: boolean; also?: string[]; sidebarOnly?: boolean };
 
-const AVATAR_COLOURS = ["#f4621d", "#564cc9", "#15803d", "#1f5f9a", "#b8400a", "#8a5b00", "#b4202d", "#0f7a6c"];
+// Every colour keeps white initials at 4.5:1 or better (WCAG AA).
+const AVATAR_COLOURS = ["#c2410c", "#564cc9", "#15803d", "#1f5f9a", "#b8400a", "#8a5b00", "#b4202d", "#0f7a6c"];
 
 export function Avatar({ name, size = 36, decorative = true }: { name: string; size?: number; decorative?: boolean }) {
   const initials = name.split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase() || "?";
