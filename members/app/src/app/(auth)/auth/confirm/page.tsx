@@ -35,7 +35,7 @@ export default async function ConfirmPage({ searchParams }: PageProps<"/auth/con
         <form action={confirmLink} className="stack">
           <input type="hidden" name="token_hash" value={tokenHash} />
           <input type="hidden" name="type" value={type} />
-          <input type="hidden" name="next" value={safeNext(one(sp.next))} />
+          <input type="hidden" name="next" value={one(sp.next) ? safeNext(one(sp.next)) : ""} />
           <SubmitButton>{type === "recovery" ? t("mail_reset_cta") : t("confirm_button")}</SubmitButton>
         </form>
       ) : (

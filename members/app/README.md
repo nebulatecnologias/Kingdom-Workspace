@@ -75,6 +75,22 @@ Variáveis no Vercel: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_
 - **Perfil** (`/profile`): nome, idioma (guardado no perfil e usado nos emails), palavra-passe, descarregar os dados (JSON) e apagar a conta (POPIA: apaga o perfil, o acesso, o progresso, os convites e o histórico de emails; os pedidos ficam, sem ligação à conta, por obrigação fiscal).
 - **Ilustrações de exemplo:** `src/lib/art.ts` tem as ilustrações do protótipo. Um produto ou página usa-as com `builtin:<nome>` em `cover_path` / `lineart_path`; os produtos reais usam caminhos do bucket privado `products`.
 
+## Administração (fase 4)
+
+Só para contas com `role = admin` (ativas). Todas as ações ficam no registo (`audit_log`) e aparecem em **Atividade** (`/admin/activity`, o sino no topo).
+
+- **Visão geral** (`/admin`): membros, convites pendentes e desbloqueios do mês (com vendas), com a evolução das últimas 5 semanas; o próximo convite a expirar com contagem decrescente e "Reenviar"; os convites à espera; a atividade recente.
+- **Convites** (`/admin/invites`): filtros por estado, pesquisa, criar à mão ("Novo convite": email, nome, idioma, validade de 3/7/14 dias e produtos), reenviar, copiar um link novo (o anterior deixa de funcionar) e revogar. Se o email já tem conta, os produtos entram logo na biblioteca e a pessoa recebe o email "novo na sua biblioteca". Revogar retira os produtos dados à mão com esse convite enquanto ninguém os usa; compras nunca são tocadas.
+- **Membros** (`/admin/members`): lista com pesquisa; na ficha de cada membro, ligar/desligar cada produto, ver as encomendas, enviar um link de entrada, desativar/reativar (bloqueia a entrada e esconde a biblioteca; as compras ficam) e repor a verificação em dois passos de outro admin.
+- **Vitrine** (`/admin/showcase`): ordem dos produtos (arrastar, ou setas do teclado na pega), secção e visibilidade (visível, em breve, oculto) de cada produto, secções com nomes em EN/PT/ES, e pré-visualização da biblioteca.
+- **Editor do produto** (`/admin/products/[id]`, novo em `/admin/products/new`):
+  - **Detalhes:** tipo, secção, título, descrição e versículo por idioma, endereço web, cor de fundo e capa.
+  - **Conteúdo:** ficheiros PDF/EPUB por idioma; páginas para colorir (PNG/JPG, com pré-visualizações geradas no browser) ou capítulos com texto em Markdown simples, tempo de leitura calculado e amostra grátis.
+  - **Venda e acesso:** preço, pago/grátis, ID do produto no gateway, link de checkout e visibilidade. Um produto só pode ser apagado enquanto ninguém o tem.
+  - Os ficheiros vão do browser diretamente para o bucket privado `products` com um link de carregamento de uso único; a app confirma que o ficheiro existe antes de o registar.
+- **Integrações** (`/admin/integrations`): URL do webhook, segredo de assinatura (colar o que o gateway mostra; ao substituir, o anterior continua aceite 24 horas; "Mostrar" fica registado), eventos, "Enviar evento de teste" (assina um `integration.test` e envia-o ao próprio webhook), mapeamento dos produtos com os IDs em falta, produtos desconhecidos vistos em pagamentos recentes, e as últimas entregas.
+- **Verificação em dois passos** (`/admin/security`): app autenticadora (TOTP). Com ela ativa, o admin passa por `/auth/verify` depois da palavra-passe, e a base de dados só o trata como admin numa sessão verificada (`is_admin()` exige `aal2`). Se um admin perder o telemóvel, outro admin repõe na ficha de membro; se for o único, apague o fator no painel do Supabase (Authentication → Users).
+
 ## Supabase local sem Docker
 
 Para correr a app e os testes de ponta a ponta numa máquina sem Docker (como os ambientes do Claude Code na web):
@@ -87,11 +103,11 @@ npm run build && npm run e2e            # ou npm run dev
 members/supabase/lite/stop.sh
 ```
 
-Não inclui o Storage: o teste dos downloads de ficheiros guardados é saltado aqui e corre no CI, que usa o Supabase completo.
+Não inclui o Storage: os testes dos downloads e dos carregamentos de ficheiros são saltados aqui e correm no CI, que usa o Supabase completo.
 
 ## Gateway de pagamento (fase 2)
 
-- **Endpoint:** `POST /api/webhooks/gateway`. Em produção, registe `https://kingdom-members.vercel.app/api/webhooks/gateway` na aba "Integrações" do gateway e copie o segredo de assinatura (`whsec_…`) para a variável `GATEWAY_WEBHOOK_SECRET` no Vercel.
+- **Endpoint:** `POST /api/webhooks/gateway`. Em produção, registe `https://kingdom-members.vercel.app/api/webhooks/gateway` na aba "Integrações" do gateway e cole o segredo de assinatura (`whsec_…`) em **Admin → Integrações** (ou na variável `GATEWAY_WEBHOOK_SECRET` no Vercel, que também é aceite).
 - **O que faz com cada evento:**
 
   | Evento | Efeito |

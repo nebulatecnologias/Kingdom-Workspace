@@ -339,4 +339,83 @@ do $$ begin
   assert not has_function_privilege('authenticated', 'public.handle_new_user()', 'execute'), 'members cannot call handle_new_user';
 end $$;
 
+-- ---------------------------------------------------------------------------
+-- Phase 4: administration
+-- ---------------------------------------------------------------------------
+
+-- Admin functions are for the server (service role) only.
+do $$ begin
+  assert not has_function_privilege('authenticated', 'public.admin_overview()', 'execute'), 'members cannot call admin_overview';
+  assert not has_function_privilege('anon', 'public.admin_reorder_products(uuid[])', 'execute'), 'anon cannot reorder';
+  assert not has_function_privilege('authenticated', 'public.admin_move_page(uuid, int, int)', 'execute'), 'members cannot move pages';
+  assert has_function_privilege('service_role', 'public.admin_delete_page(uuid, int)', 'execute'), 'service role can delete pages';
+end $$;
+
+-- Overview figures.
+do $$
+declare o jsonb;
+begin
+  o := public.admin_overview();
+  assert (o ->> 'members')::int = (select count(*) from public.profiles where role = 'member'), 'overview member count';
+  assert jsonb_array_length(o -> 'weeks') = 5, 'five weekly buckets';
+  assert (o ->> 'sales_month_cents') is not null, 'sales figure present';
+end $$;
+
+-- Reordering the showcase and sections.
+do $$
+declare ids uuid[];
+begin
+  select array_agg(id order by slug desc) into ids from public.products;
+  perform public.admin_reorder_products(ids);
+  assert (select sort_order from public.products where id = ids[1]) = 10, 'first product sorted first';
+  assert (select sort_order from public.products where id = ids[array_length(ids, 1)]) = array_length(ids, 1) * 10, 'last product sorted last';
+  select array_agg(id order by slug desc) into ids from public.sections;
+  perform public.admin_reorder_sections(ids);
+  assert (select sort_order from public.sections where id = ids[1]) = 10, 'sections reordered';
+end $$;
+
+-- Moving and deleting pages keeps positions 1..n in every language.
+do $$
+declare
+  pid uuid := (select id from public.products where slug = 'noah');
+  first_path text;
+  n int;
+begin
+  select lineart_path into first_path from public.product_pages where product_id = pid and locale = 'en' and position = 1;
+  perform public.admin_move_page(pid, 1, 3);
+  assert (select lineart_path from public.product_pages where product_id = pid and locale = 'en' and position = 3) = first_path, 'page 1 moved to 3';
+  assert (select lineart_path from public.product_pages where product_id = pid and locale = 'pt' and position = 3) = first_path, 'every language moved';
+  perform public.admin_move_page(pid, 3, 1);
+  assert (select lineart_path from public.product_pages where product_id = pid and locale = 'en' and position = 1) = first_path, 'page moved back';
+  select count(*) into n from public.product_pages where product_id = pid and locale = 'en';
+  perform public.admin_delete_page(pid, 1);
+  assert (select count(*) from public.product_pages where product_id = pid and locale = 'en') = n - 1, 'page deleted';
+  assert (select array_agg(position order by position) from public.product_pages where product_id = pid and locale = 'en')
+       = (select array_agg(g) from generate_series(1, n - 1) g), 'no gaps after delete';
+  perform public.admin_move_page(pid, 1, 99); -- out of range: nothing happens
+end $$;
+
+-- An admin with an authenticator app counts as admin only after passing it (aal2).
+insert into auth.mfa_factors (user_id, status) values ('00000000-0000-0000-0000-0000000000ad', 'verified');
+begin;
+set local role authenticated;
+set local request.jwt.claims = '{"sub":"00000000-0000-0000-0000-0000000000ad","aal":"aal1"}';
+do $$ begin
+  assert not public.is_admin(), 'aal1 session is not admin once 2FA is on';
+  assert (select count(*) from public.invites) = 0, 'aal1 session reads no invites';
+end $$;
+set local request.jwt.claims = '{"sub":"00000000-0000-0000-0000-0000000000ad","aal":"aal2"}';
+do $$ begin
+  assert public.is_admin(), 'aal2 session is admin';
+end $$;
+rollback;
+delete from auth.mfa_factors;
+begin;
+set local role authenticated;
+set local request.jwt.claims = '{"sub":"00000000-0000-0000-0000-0000000000ad"}';
+do $$ begin
+  assert public.is_admin(), 'admin without 2FA is admin';
+end $$;
+rollback;
+
 \echo 'All database tests passed'

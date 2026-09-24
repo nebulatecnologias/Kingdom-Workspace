@@ -104,6 +104,8 @@ export async function issueInvite(opts: {
   expiresInDays?: number;
   /** Set by the email retry job so the backoff schedule ends. */
   emailAttempt?: number;
+  /** False when an admin only wants the link to copy (it still replaces the previous link). */
+  notify?: boolean;
 }): Promise<{ inviteId: string; url: string; expiresAt: Date; emailed: boolean }> {
   const admin = createAdminClient();
   const email = opts.email.trim().toLowerCase();
@@ -160,6 +162,7 @@ export async function issueInvite(opts: {
   if (opts.source === "manual") await grantByEmail({ email, productIds: opts.productIds, source: "manual" });
 
   const url = `${siteUrl()}/invite/${token}?lang=${opts.locale}`;
+  if (opts.notify === false) return { inviteId, url, expiresAt, emailed: false };
   const { ok } = await sendEmail({
     to: email,
     template: "invite",

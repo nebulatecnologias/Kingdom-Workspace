@@ -41,3 +41,42 @@
 @layer components {
   p a:not(.btn), .hint a:not(.btn), address a, .reader a { text-decoration: underline; }
 }
+
+/* Admin pieces built with links and <details> instead of the prototype's buttons, so they work without JavaScript. */
+@layer components {
+  .split-menu { display: flex; position: static; }
+  .split-menu > summary { list-style: none; cursor: pointer; color: #fff; }
+  .split-menu > summary::-webkit-details-marker { display: none; }
+  .split-menu > summary:hover { background: rgba(255, 255, 255, .08); }
+  .split-menu > summary:focus-visible { outline: none; box-shadow: var(--ring); }
+  .split-pop { position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 30; padding: 6px; box-shadow: var(--shadow-pop); display: grid; gap: 2px; }
+  .split-pop .btn { justify-content: flex-start; }
+  .icon-btn-cta { background: var(--cta); color: #fff; border: 0; }
+  .tabs a { padding: 10px 14px; font-weight: 500; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; text-decoration: none; }
+  .tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--orange-500); }
+  .seg a { border-radius: 999px; padding: 7px 14px; font-size: 13.5px; font-weight: 500; color: var(--muted); text-decoration: none; }
+  .seg-sm a { padding: 5px 11px; font-size: 12.5px; }
+  .seg a[aria-current="true"], .seg a[aria-current="page"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(28, 22, 16, .12); }
+  .row-link, .feed-link { color: inherit; text-decoration: none; }
+  .feed-link:hover b, .feed-link:hover .chip-mention { text-decoration: underline; }
+  .row-link::after { content: ""; position: absolute; inset: 0; }
+  .table tr.clickable { position: relative; }
+  .table tr.clickable:focus-within { background: var(--surface-2); }
+  .stack-covers { display: flex; align-items: center; gap: 8px; }
+  .stack-covers .mini-cover { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; overflow: hidden; box-shadow: 0 0 0 2px var(--surface); }
+  .stack-covers .mini-cover + .mini-cover { margin-left: -12px; }
+  .stack-covers .mini-cover > svg, .stack-covers .mini-cover > img { width: 80%; height: 80%; }
+  .sc-thumb > svg, .sc-thumb > img, .mini > svg, .mini > img { width: 80%; height: 80%; }
+}
+
+/* Feed mentions can be long email addresses: let them wrap like text instead of stretching the line. */
+@layer components {
+  .feed-item .chip-mention { display: inline; overflow-wrap: anywhere; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .feed-item .chip-mention::after { display: inline-block; margin-left: 5px; vertical-align: middle; }
+}
+
+/* Keep wide content (tables, long codes) scrolling inside its card on phones instead of widening the page. */
+@layer components {
+  .table-wrap { position: relative; } /* screen-reader-only text in tables is positioned against this, not the page */
+  .stack > *, .field > * { min-width: 0; }
+}

@@ -11,8 +11,14 @@ create table auth.users (
   email text,
   raw_user_meta_data jsonb not null default '{}'
 );
+-- Two-step verification factors (only the columns the schema reads).
+create table auth.mfa_factors (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users (id) on delete cascade,
+  status text not null default 'unverified'
+);
 create function auth.uid() returns uuid language sql stable as $$
-  select nullif(coalesce(current_setting('request.jwt.claim.sub', true),
+  select nullif(coalesce(nullif(current_setting('request.jwt.claim.sub', true), ''),
                          (nullif(current_setting('request.jwt.claims', true), '')::jsonb ->> 'sub')), '')::uuid
 $$;
 grant usage on schema auth to anon, authenticated, service_role;

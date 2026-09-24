@@ -12,6 +12,11 @@ export function safeNext(next: string | null | undefined, fallback = "/library")
   return next;
 }
 
+/** Where someone lands after signing in when no page asked for it. */
+export function homeFor(role: string | null | undefined) {
+  return role === "admin" ? "/admin" : "/library";
+}
+
 export function siteUrl() {
   return (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 }

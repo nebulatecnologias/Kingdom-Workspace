@@ -257,5 +257,5 @@ Em cada fase: mensagens de commit claras, testes a passar e revisão antes de av
 6b. Formato dos livros: capítulos em texto (Word/Google Docs → leitor online + PDF/EPUB gerados) ou só PDF pronto (mais simples, sem leitor com progresso). **Resolvido na fase 3:** a app suporta os dois. Um produto pode ter capítulos para o leitor online (com progresso e amostra) e/ou ficheiros PDF/EPUB para descarregar.
 7. Contraste do laranja dos botões: manter fiel à referência ou escurecer para AA.
 8. Número de WhatsApp de suporte e email de ajuda.
-9. Mais do que um administrador? Exigir 2FA no admin?
+9. ~~Mais do que um administrador? Exigir 2FA no admin?~~ **Resolvido na fase 4:** pode haver vários administradores. A verificação em dois passos (app autenticadora) é opcional mas recomendada no painel; quando está ativa, é exigida para entrar no admin e para a base de dados reconhecer a sessão como admin.
 10. Quem envia o recibo de pagamento: o gateway (recomendado) ou a área de membros.

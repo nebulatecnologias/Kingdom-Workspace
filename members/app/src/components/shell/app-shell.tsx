@@ -5,6 +5,7 @@ import {
   LogOut,
   Bell,
   BookOpen,
+  ChevronDown,
   CircleHelp,
   LayoutDashboard,
   LogIn,
@@ -12,7 +13,7 @@ import {
   MessageCircle,
   Plug,
   Plus,
-  Search,
+  ShieldCheck,
   Store,
   User,
   Users,
@@ -25,7 +26,7 @@ import { signOut } from "@/app/(auth)/actions";
 
 export type ShellUser = { name: string; email: string } | null;
 
-type NavItem = { href: string; label: string; icon: ReactNode; badge?: number; exact?: boolean };
+type NavItem = { href: string; label: string; icon: ReactNode; badge?: number; exact?: boolean; also?: string[]; sidebarOnly?: boolean };
 
 const AVATAR_COLOURS = ["#f4621d", "#564cc9", "#15803d", "#1f5f9a", "#b8400a", "#8a5b00", "#b4202d", "#0f7a6c"];
 
@@ -46,10 +47,13 @@ export function Avatar({ name, size = 36, decorative = true }: { name: string; s
 export async function AppShell({
   variant,
   user,
+  pendingInvites,
   children,
 }: {
   variant: "member" | "admin";
   user: ShellUser;
+  /** Admin only: live invites, shown as a badge on "Invites". */
+  pendingInvites?: number;
   children: ReactNode;
 }) {
   const t = await getTranslations();
@@ -59,10 +63,12 @@ export async function AppShell({
     variant === "admin"
       ? [
           { href: "/admin", label: t("nav_overview"), icon: icon(LayoutDashboard), exact: true },
-          { href: "/admin/invites", label: t("nav_invites"), icon: icon(Mail) },
+          { href: "/admin/invites", label: t("nav_invites"), icon: icon(Mail), badge: pendingInvites },
           { href: "/admin/members", label: t("nav_members"), icon: icon(Users) },
-          { href: "/admin/showcase", label: t("nav_showcase"), icon: icon(Store) },
+          { href: "/admin/showcase", label: t("nav_showcase"), icon: icon(Store), also: ["/admin/products"] },
           { href: "/admin/integrations", label: t("nav_integrations"), icon: icon(Plug) },
+          // On phones the overview links here; the tab bar keeps five items.
+          { href: "/admin/security", label: t("nav_security"), icon: icon(ShieldCheck), sidebarOnly: true },
         ]
       : [
           { href: "/library", label: t("nav_library"), icon: icon(BookOpen) },
@@ -75,18 +81,38 @@ export async function AppShell({
         <Brand href={variant === "admin" ? "/admin" : "/library"} subtitle={variant === "admin" ? t("nav_admin") : undefined} />
         {variant === "admin" ? (
           <div className="split">
-            <Link className="split-main" href="/admin/invites?new=1" style={{ borderRadius: 999 }}>
+            <Link className="split-main" href="/admin/invites?new=1">
               {icon(Plus)}
               {t("newInvite")}
             </Link>
+            <details className="split-menu">
+              <summary className="split-more" aria-label={t("moreActions")} title={t("moreActions")}>
+                <ChevronDown className="icon" aria-hidden="true" />
+              </summary>
+              <div className="card split-pop">
+                <Link className="btn btn-quiet btn-block" href="/admin/invites?new=1">
+                  <Mail className="icon icon-sm" aria-hidden="true" />
+                  {t("newInvite")}
+                </Link>
+                <Link className="btn btn-quiet btn-block" href="/admin/products/new">
+                  <Plus className="icon icon-sm" aria-hidden="true" />
+                  {t("newPack")}
+                </Link>
+              </div>
+            </details>
           </div>
         ) : null}
         <nav className="nav">
           {nav.map((item) => (
-            <NavLink key={item.href} href={item.href} exact={item.exact}>
+            <NavLink key={item.href} href={item.href} exact={item.exact} also={item.also}>
               {item.icon}
               {item.label}
-              {item.badge ? <span className="badge">{item.badge}</span> : null}
+              {item.badge ? (
+                <span className="badge">
+                  {item.badge}
+                  <span className="sr"> {t("nav_pendingBadge")}</span>
+                </span>
+              ) : null}
             </NavLink>
           ))}
           {variant === "member" ? (
@@ -129,6 +155,11 @@ export async function AppShell({
           <Brand href={variant === "admin" ? "/admin" : "/library"} subtitle={variant === "admin" ? t("nav_admin") : undefined} />
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
             <LanguageSelect id="lang-m" />
+            {variant === "admin" ? (
+              <Link className="icon-btn icon-btn-cta" href="/admin/invites?new=1" aria-label={t("newInvite")} title={t("newInvite")}>
+                {icon(Plus)}
+              </Link>
+            ) : null}
             {user ? (
               <Link href="/profile" title={t("nav_profile")}>
                 {/* The visible initials are part of the link's name, so voice control users can say what they see. */}
@@ -140,23 +171,15 @@ export async function AppShell({
         </header>
         <main className="main" id="main">
           <div className="topbar">
-            {variant === "admin" ? (
-              <label className="search">
-                {icon(Search)}
-                <span className="sr">{t("searchAdmin")}</span>
-                <input type="search" placeholder={t("searchAdmin")} autoComplete="off" />
-              </label>
-            ) : (
-              <Suspense fallback={<div className="search" />}>
-                <SearchBox label={t("searchPacks")} action="/library" />
-              </Suspense>
-            )}
+            <Suspense fallback={<div className="search" />}>
+              {variant === "admin" ? <SearchBox label={t("searchAdmin")} action="/admin/search" /> : <SearchBox label={t("searchPacks")} action="/library" />}
+            </Suspense>
             <span className="spacer" />
             <LanguageSelect />
             {variant === "admin" ? (
-              <button className="icon-btn" type="button" aria-label={t("feed_title")}>
+              <Link className="icon-btn" href="/admin/activity" aria-label={t("feed_title")} title={t("feed_title")}>
                 {icon(Bell)}
-              </button>
+              </Link>
             ) : (
               <Link className="icon-btn" href="/help" aria-label={t("nav_help")}>
                 {icon(CircleHelp)}
@@ -167,8 +190,8 @@ export async function AppShell({
         </main>
       </div>
       <nav className="tabbar" aria-label={variant === "admin" ? "Admin" : "Main"}>
-        {nav.map((item) => (
-          <NavLink key={item.href} href={item.href} exact={item.exact}>
+        {nav.filter((item) => !item.sidebarOnly).map((item) => (
+          <NavLink key={item.href} href={item.href} exact={item.exact} also={item.also}>
             {item.icon}
             {item.label}
           </NavLink>

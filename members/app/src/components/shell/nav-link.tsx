@@ -5,9 +5,10 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
 /** Sidebar / tab-bar link that marks itself as the current page. */
-export function NavLink({ href, exact, children }: { href: string; exact?: boolean; children: ReactNode }) {
+export function NavLink({ href, exact, also = [], children }: { href: string; exact?: boolean; also?: string[]; children: ReactNode }) {
   const pathname = usePathname();
-  const active = exact ? pathname === href : pathname === href || pathname.startsWith(href + "/");
+  const under = (base: string) => pathname === base || pathname.startsWith(base + "/");
+  const active = exact ? pathname === href : under(href) || also.some(under);
   return (
     <Link href={href} aria-current={active ? "page" : undefined}>
       {children}

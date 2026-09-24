@@ -11,6 +11,8 @@ const PROTECTED = ["/library", "/products", "/profile", "/admin", "/help"];
  * away from private areas. Role checks (admin) happen again on the server in requireAdmin().
  */
 export async function proxy(request: NextRequest) {
+  // Layouts cannot see the URL; this lets the admin layout send people back to the page they asked for.
+  request.headers.set("x-km-path", request.nextUrl.pathname + request.nextUrl.search);
   // Links in emails carry ?lang=xx so the page opens in the recipient's language.
   const lang = request.nextUrl.searchParams.get("lang");
   const langCookie = lang && LOCALES.includes(lang) ? lang : null;

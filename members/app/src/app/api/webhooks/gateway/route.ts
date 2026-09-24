@@ -74,10 +74,11 @@ export async function POST(request: Request) {
 
   let outcome: Outcome;
   try {
-    if (!event.livemode && process.env.GATEWAY_ACCEPT_TEST_EVENTS !== "true") {
-      outcome = { result: "processed", note: "test-mode event ignored (GATEWAY_ACCEPT_TEST_EVENTS is off)" };
-    } else if (event.type === "integration.test") {
+    // Test pings prove the connection, so they are acknowledged in either mode.
+    if (event.type === "integration.test") {
       outcome = { result: "processed", note: "integration test received" };
+    } else if (!event.livemode && process.env.GATEWAY_ACCEPT_TEST_EVENTS !== "true") {
+      outcome = { result: "processed", note: "test-mode event ignored (GATEWAY_ACCEPT_TEST_EVENTS is off)" };
     } else if (isOrderEvent(event.type)) {
       const data = parseOrderData(event.type, event.data);
       outcome = data.ok

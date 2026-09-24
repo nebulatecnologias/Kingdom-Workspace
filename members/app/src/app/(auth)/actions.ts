@@ -4,11 +4,12 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { isLocale, type Locale } from "@/i18n/config";
 import { setLocale } from "@/i18n/actions";
-import { renderResetEmail, renderSignInEmail } from "@/lib/email/templates";
+import { emailSignInLink } from "@/lib/access";
+import { renderResetEmail } from "@/lib/email/templates";
 import { sendEmail } from "@/lib/email/send";
 import { findInvite, issueInvite } from "@/lib/invites";
 import { allow } from "@/lib/rate-limit";
-import { clientIp, safeNext, siteUrl } from "@/lib/request";
+import { clientIp, homeFor, safeNext, siteUrl } from "@/lib/request";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { hashToken } from "@/lib/tokens";
@@ -97,6 +98,7 @@ export async function acceptInvite(token: string, _prev: FormState, formData: Fo
     await supabase.auth.signInWithPassword({ email, password });
   }
   await setLocale(locale);
+  await admin.from("profiles").update({ last_seen_at: new Date().toISOString() }).eq("id", created.user.id);
   await audit("invite.accepted", "invite", consumed.invite_id, { email }, created.user.id);
   redirect("/library?welcome=1");
 }
@@ -111,20 +113,7 @@ async function sendAccessLink(email: string, locale: Locale) {
 
   if (profile) {
     if (profile.status !== "active") return;
-    const { data, error } = await admin.auth.admin.generateLink({ type: "magiclink", email });
-    if (error || !data.properties?.hashed_token) {
-      console.error("generateLink failed", error?.message);
-      return;
-    }
-    const mailLocale: Locale = isLocale(profile.locale) ? profile.locale : locale;
-    const url = `${siteUrl()}/auth/confirm?token_hash=${data.properties.hashed_token}&type=email&lang=${mailLocale}`;
-    await sendEmail({
-      to: email,
-      template: "signin",
-      locale: mailLocale,
-      link: url,
-      email: renderSignInEmail({ locale: mailLocale, siteUrl: siteUrl(), name: (profile.full_name || "").split(" ")[0], url }),
-    });
+    await emailSignInLink({ email, fullName: profile.full_name, locale: isLocale(profile.locale) ? profile.locale : locale });
     return;
   }
 
@@ -170,14 +159,15 @@ export async function signInWithPassword(_prev: FormState, formData: FormData): 
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error || !data.user) return { status: "error", message: "err_login", email };
 
-  const { data: profile } = await supabase.from("profiles").select("locale, status").eq("id", data.user.id).maybeSingle();
+  const { data: profile } = await supabase.from("profiles").select("locale, status, role").eq("id", data.user.id).maybeSingle();
   if (!profile || profile.status !== "active") {
     await supabase.auth.signOut();
     return { status: "error", message: "err_login", email };
   }
   if (isLocale(profile.locale)) await setLocale(profile.locale);
   await createAdminClient().from("profiles").update({ last_seen_at: new Date().toISOString() }).eq("id", data.user.id);
-  redirect(safeNext(String(formData.get("next") ?? "")));
+  const next = String(formData.get("next") ?? "");
+  redirect(next ? safeNext(next) : homeFor(profile.role));
 }
 
 export async function forgotPassword(_prev: FormState, formData: FormData): Promise<FormState> {
@@ -212,14 +202,15 @@ export async function confirmLink(formData: FormData) {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
   if (error || !data.user) redirect("/login?error=link");
-  const { data: profile } = await supabase.from("profiles").select("locale, status").eq("id", data.user.id).maybeSingle();
+  const { data: profile } = await supabase.from("profiles").select("locale, status, role").eq("id", data.user.id).maybeSingle();
   if (!profile || profile.status !== "active") {
     await supabase.auth.signOut();
     redirect("/login?error=link");
   }
   if (isLocale(profile.locale)) await setLocale(profile.locale);
   await createAdminClient().from("profiles").update({ last_seen_at: new Date().toISOString() }).eq("id", data.user.id);
-  redirect(type === "recovery" ? "/auth/reset" : safeNext(String(formData.get("next") ?? "")));
+  const next = String(formData.get("next") ?? "");
+  redirect(type === "recovery" ? "/auth/reset" : next ? safeNext(next) : homeFor(profile.role));
 }
 
 export async function resetPassword(_prev: FormState, formData: FormData): Promise<FormState> {
