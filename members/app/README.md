@@ -69,8 +69,10 @@ Variáveis no Vercel: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_
 - **Produto** (`/products/[slug]`):
   - **Colorir:** páginas A4, download de cada página, download completo (quando há PDF) e colorir online.
   - **eBook, guia e apostila:** índice com o progresso, leitor online (`/read/[n]`), amostra grátis para quem não comprou, e download PDF/EPUB (quando há ficheiros).
+  - **Kit:** vários materiais num só produto (PDF, EPUB, imagens, áudio, ZIP). Bloqueado, mostra "O que inclui" (títulos, tipos, tamanhos, duração), sem os ficheiros. Comprado, mostra "Neste kit": cada material com "Descarregar", imagens com "Ver", áudios com leitor na página, e "Descarregar tudo" quando há um ZIP.
+  - Qualquer produto pode ter materiais extra ("Mais materiais"), além dos downloads principais.
 - **Colorir online** (`/colour/[n]`): toque numa zona para a pintar; as cores ficam guardadas no dispositivo e o desenho pode ser descarregado em PNG. Funciona com as ilustrações de exemplo (SVG) e com qualquer imagem carregada (PNG, JPG ou SVG), pintada com um balde de tinta que pára nas linhas.
-- **Downloads** (`/api/products/[id]/download`): o acesso é verificado com a sessão do membro antes de gerar um link do Supabase Storage válido por 60 segundos. Sem acesso, a resposta é 403, mesmo com o URL direto; sem sessão, é 401.
+- **Downloads** (`/api/products/[id]/download?asset=<id>`): o acesso é verificado com a sessão do membro antes de gerar um link do Supabase Storage válido por 60 segundos (3 horas para ouvir um áudio, com `&view=1`, para o leitor poder avançar). Sem acesso, a resposta é 403, mesmo com o URL direto; sem sessão, é 401. `?format=pdf|epub` continua a servir o primeiro PDF/EPUB, para links antigos.
 - **Cadeado** (`/api/checkout/[id]`): leva ao `checkout_url` do produto com o email, o nome, o idioma e o ID do membro, para o pagamento desbloquear esta conta. Sem `checkout_url`, mostra um aviso na página do produto.
 - **Perfil** (`/profile`): nome, idioma (guardado no perfil e usado nos emails), palavra-passe, descarregar os dados (JSON) e apagar a conta (POPIA: apaga o perfil, o acesso, o progresso, os convites e o histórico de emails; os pedidos ficam, sem ligação à conta, por obrigação fiscal).
 - **Ilustrações de exemplo:** `src/lib/art.ts` tem as ilustrações do protótipo. Um produto ou página usa-as com `builtin:<nome>` em `cover_path` / `lineart_path`; os produtos reais usam caminhos do bucket privado `products`.
@@ -92,7 +94,8 @@ Só para contas com `role = admin` (ativas). Todas as ações ficam no registo (
 - **Vitrine** (`/admin/showcase`): ordem dos produtos (arrastar, ou setas do teclado na pega), secção e visibilidade (visível, em breve, oculto) de cada produto, secções com nomes em EN/PT/ES, e pré-visualização da biblioteca.
 - **Editor do produto** (`/admin/products/[id]`, novo em `/admin/products/new`):
   - **Detalhes:** tipo, secção, título, descrição e versículo por idioma, endereço web, cor de fundo e capa.
-  - **Conteúdo:** ficheiros PDF/EPUB por idioma; páginas para colorir (PNG/JPG, com pré-visualizações geradas no browser) ou capítulos com texto em Markdown simples, tempo de leitura calculado e amostra grátis.
+  - **Conteúdo:** páginas para colorir (PNG/JPG, com pré-visualizações geradas no browser) ou capítulos com texto em Markdown simples, tempo de leitura calculado e amostra grátis. Os kits não têm este separador.
+  - **Materiais:** quantos ficheiros forem precisos (PDF, EPUB, PNG, JPG, WebP, MP3, M4A, ZIP; até 50 MB cada), vários de uma vez. Cada um tem título, ordem e idioma ("Todos os idiomas" ou EN/PT/ES). Os membros veem os de todos os idiomas e os do seu idioma (os ingleses, quando não há no seu). A duração dos áudios é lida no browser. Comprar o produto abre todos os materiais; um reembolso fecha todos (tabela `product_assets`).
   - **Venda e acesso:** preço, pago/grátis, ID do produto no gateway, link de checkout e visibilidade. Um produto só pode ser apagado enquanto ninguém o tem.
   - Os ficheiros vão do browser diretamente para o bucket privado `products` com um link de carregamento de uso único; a app confirma que o ficheiro existe antes de o registar.
 - **Integrações** (`/admin/integrations`): URL do webhook, segredo de assinatura (colar o que o gateway mostra; ao substituir, o anterior continua aceite 24 horas; "Mostrar" fica registado), eventos, "Enviar evento de teste" (assina um `integration.test` e envia-o ao próprio webhook), mapeamento dos produtos com os IDs em falta, produtos desconhecidos vistos em pagamentos recentes, e as últimas entregas.
@@ -101,7 +104,7 @@ Só para contas com `role = admin` (ativas). Todas as ações ficam no registo (
 ## Segurança, monitorização e suporte (fase 6)
 
 - **Cabeçalhos:** Content-Security-Policy com nonce por pedido (em `src/proxy.ts`), mais HSTS, `nosniff`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy` e COOP (em `next.config.ts`).
-- **Uploads:** o bucket `products` só aceita PNG, JPG, WebP, PDF e EPUB até 50 MB, mesmo com um link assinado.
+- **Uploads:** o bucket `products` só aceita PNG, JPG, WebP, PDF, EPUB, MP3, M4A e ZIP até 50 MB, mesmo com um link assinado. No plano gratuito do Supabase, 50 MB é também o limite por ficheiro (cerca de 50 minutos de MP3 a 128 kbps, ou 100 minutos a 64 kbps mono, que chega para voz).
 - **Saúde:** `GET /api/health` devolve `{"ok":true}` (200) ou 503, para um monitor externo (UptimeRobot, Better Stack).
 - **Alertas aos administradores (por email):** evento de pagamento com erro, encomenda paga com produto sem ligação, e um resumo diário (cron das 06:30 UTC) quando algo correu mal nas últimas 24 horas. No máximo um email por tipo e por hora. O mesmo resumo aparece na Visão geral.
 - **Mudar o email de um membro:** na ficha do membro. A conta e os acessos passam para o novo email.

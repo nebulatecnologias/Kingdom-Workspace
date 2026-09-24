@@ -369,7 +369,7 @@ test("product editor: create, translate, write chapters, set the sale, see it in
   expect((await lastAudit("admin.product.deleted"))?.meta).toMatchObject({ title });
 });
 
-test("uploads go straight to storage: cover, colouring pages with previews, and a PDF", async ({ page }) => {
+test("uploads go straight to storage: cover, colouring pages with previews, and materials", async ({ page }) => {
   const probe = await admin().storage.listBuckets();
   test.skip(Boolean(probe.error) && !process.env.E2E_REQUIRE_STORAGE, "Supabase Storage is not running");
 
@@ -397,13 +397,35 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
   expect(pages![0].title).toBe("Noah page one");
   expect(pages![0].preview_path).toMatch(new RegExp(`^${id}/previews/`));
 
-  const pdf = Buffer.from("%PDF-1.4\n1 0 obj<<>>endobj\ntrailer<<>>\n%%EOF\n");
-  await page.getByLabel("Choose files: PDF").setInputFiles({ name: "pack.pdf", mimeType: "application/pdf", buffer: pdf });
-  await expect.poll(async () => (await admin().from("product_files").select("size_bytes").eq("product_id", id).eq("format", "pdf").maybeSingle()).data?.size_bytes).toBe(pdf.length);
-
   page.once("dialog", (d) => d.accept());
   await page.getByRole("button", { name: "Delete: Page 1" }).click();
   await expect.poll(async () => (await admin().from("product_pages").select("id").eq("product_id", id)).data?.length).toBe(3);
+
+  // Materials: several files of different kinds at once; the browser's "audio/x-m4a" is normalised.
+  await page.goto(`/admin/products/${id}?tab=materials`);
+  const pdf = Buffer.from("%PDF-1.4\n1 0 obj<<>>endobj\ntrailer<<>>\n%%EOF\n");
+  await page.locator("#ed-assets-file").setInputFiles([
+    { name: "family-guide.pdf", mimeType: "application/pdf", buffer: pdf },
+    { name: "worship-song.m4a", mimeType: "audio/x-m4a", buffer: Buffer.from("not really audio") },
+    { name: "everything.zip", mimeType: "application/x-zip-compressed", buffer: Buffer.from("PK\u0003\u0004") },
+  ]);
+  await expect(page.getByText("3 materials added")).toBeVisible();
+  const { data: assets } = await admin().from("product_assets").select("id, kind, title, locale, size_bytes").eq("product_id", id).order("position");
+  expect(assets!.map((a) => a.kind)).toEqual(["pdf", "audio", "zip"]);
+  expect(assets![0]).toMatchObject({ title: "Family guide", locale: null, size_bytes: pdf.length });
+
+  await page.getByLabel("Title: Audio 2").fill("Worship songs");
+  await page.getByLabel("Language: Family guide").selectOption("pt");
+  await page.getByRole("button", { name: "Save changes" }).click();
+  await expect(page.getByText("Changes saved")).toBeVisible();
+  await expect.poll(async () => (await admin().from("product_assets").select("title").eq("id", assets![1].id).single()).data?.title).toBe("Worship songs");
+  expect((await admin().from("product_assets").select("locale").eq("id", assets![0].id).single()).data?.locale).toBe("pt");
+
+  await page.getByRole("button", { name: "Move up: Worship songs" }).click();
+  await expect.poll(async () => (await admin().from("product_assets").select("kind").eq("product_id", id).order("position")).data?.map((a) => a.kind)).toEqual(["audio", "pdf", "zip"]);
+  page.once("dialog", (d) => d.accept());
+  await page.getByRole("button", { name: "Delete: Everything (ZIP)" }).click();
+  await expect.poll(async () => (await admin().from("product_assets").select("id").eq("product_id", id)).data?.length).toBe(2);
 
   await page.goto(`/admin/products/${id}?tab=sales`);
   page.once("dialog", (d) => d.accept());
@@ -411,6 +433,8 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
   await page.waitForURL(/\/admin\/showcase$/);
   const { data: left } = await admin().storage.from("products").list(`${id}/pages`);
   expect(left ?? []).toHaveLength(0);
+  const { data: leftAssets } = await admin().storage.from("products").list(`${id}/assets`);
+  expect(leftAssets ?? []).toHaveLength(0);
 });
 
 test("integrations: save the gateway secret, send a test event, see it in deliveries", async ({ page }) => {

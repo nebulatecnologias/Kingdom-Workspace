@@ -20,6 +20,8 @@ function contentSecurityPolicy(nonce: string) {
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${dev ? " 'unsafe-eval'" : ""}`,
     "style-src 'self' 'unsafe-inline'",
     `img-src 'self' data: blob: ${supabase}`.trim(),
+    // Audio materials play from signed Supabase links; blob: lets the admin read an upload's length.
+    `media-src 'self' blob: ${supabase}`.trim(),
     "font-src 'self'",
     `connect-src 'self' ${supabase}`.trim(),
     "object-src 'none'",

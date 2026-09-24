@@ -18,7 +18,7 @@ export function NewProductForm({ sections }: { sections: { id: string; name: str
           {t("ed_type")}
         </legend>
         <div className="grid-2">
-          {(["colouring", "book", "guide", "workbook"] as const).map((ty, i) => (
+          {(["colouring", "book", "guide", "workbook", "kit"] as const).map((ty, i) => (
             <label key={ty} className="bought" style={{ cursor: "pointer" }}>
               <input type="radio" name="type" value={ty} defaultChecked={i === 0} style={{ width: 18, height: 18, accentColor: "var(--orange-500)" }} />
               <span>

@@ -395,6 +395,67 @@ begin
   perform public.admin_move_page(pid, 1, 99); -- out of range: nothing happens
 end $$;
 
+-- Kits: many materials per product. Members see the list of a listed product (never the files) and get
+-- the files only with access; buying the kit opens every material at once.
+insert into public.products (slug, type, access, visibility, price_cents) values ('kit-e2e', 'kit', 'paid', 'visible', 29900);
+insert into public.product_assets (product_id, locale, position, title, kind, path, size_bytes, duration_seconds)
+select id, l, n, t, k::public.asset_kind, 'kit/' || n, 100, d from public.products,
+  (values (null::public.locale, 1, 'Worship audio', 'audio', 1860), ('en', 2, 'Guide', 'pdf', null), ('pt', 3, 'Guia', 'pdf', null)) v(l, n, t, k, d)
+where slug = 'kit-e2e';
+do $$ begin
+  assert to_regclass('public.product_files') is null, 'product_files replaced by product_assets';
+  assert not has_function_privilege('authenticated', 'public.admin_reorder_assets(uuid, uuid[])', 'execute'), 'members cannot reorder materials';
+  assert not has_function_privilege('anon', 'public.product_contents(uuid, public.locale)', 'execute'), 'anon cannot list materials';
+end $$;
+begin;
+set local role authenticated;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
+do $$
+declare kit uuid := (select id from public.products where slug = 'kit-e2e');
+begin
+  assert (select count(*) from public.product_assets where product_id = kit) = 0, 'locked kit: files hidden';
+  assert (select count(*) from public.product_contents(kit, 'en')) = 2, 'locked kit: shared + English materials listed';
+  assert (select array_agg(title order by title) from public.product_contents(kit, 'pt')) = array['Guia', 'Worship audio'], 'Portuguese materials in Portuguese';
+  assert (select count(*) from public.product_contents(kit, 'es')) = 2, 'no Spanish materials: English ones';
+  assert (select asset_count from public.library_items('en') where slug = 'kit-e2e') = 2, 'library counts materials';
+  assert not (select owned from public.library_items('en') where slug = 'kit-e2e'), 'kit locked';
+end $$;
+rollback;
+insert into public.entitlements (user_id, email, product_id, source)
+select '00000000-0000-0000-0000-00000000000a', 'thandi@example.co.za', id, 'order' from public.products where slug = 'kit-e2e';
+begin;
+set local role authenticated;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
+do $$
+declare kit uuid := (select id from public.products where slug = 'kit-e2e');
+begin
+  assert (select count(*) from public.product_assets where product_id = kit) = 3, 'bought kit: every material readable';
+  assert (select owned from public.library_items('en') where slug = 'kit-e2e'), 'kit owned';
+end $$;
+rollback;
+update public.entitlements set revoked_at = now() where product_id = (select id from public.products where slug = 'kit-e2e');
+update public.products set visibility = 'hidden' where slug = 'kit-e2e';
+begin;
+set local role authenticated;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
+do $$
+declare kit uuid := (select id from public.products where slug = 'kit-e2e');
+begin
+  assert (select count(*) from public.product_assets where product_id = kit) = 0, 'refunded kit: files hidden again';
+  assert (select count(*) from public.product_contents(kit, 'en')) = 0, 'hidden kit: nothing listed';
+end $$;
+rollback;
+do $$
+declare
+  kit uuid := (select id from public.products where slug = 'kit-e2e');
+  ids uuid[] := (select array_agg(id order by position desc) from public.product_assets where product_id = kit);
+begin
+  perform public.admin_reorder_assets(kit, ids);
+  assert (select title from public.product_assets where product_id = kit and position = 1) = 'Guia', 'materials reordered';
+  assert (select array_agg(position order by position) from public.product_assets where product_id = kit) = array[1, 2, 3], 'positions 1..n';
+end $$;
+delete from public.products where slug = 'kit-e2e';
+
 -- An admin with an authenticator app counts as admin only after passing it (aal2).
 insert into auth.mfa_factors (user_id, status) values ('00000000-0000-0000-0000-0000000000ad', 'verified');
 begin;

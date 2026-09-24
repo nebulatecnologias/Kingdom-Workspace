@@ -3,9 +3,9 @@
 import { useActionState, useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { ArrowDown, ArrowUp, FileText, ImageUp, Plus, Trash2, Upload } from "lucide-react";
+import { ArrowDown, ArrowUp, BookOpen, FileArchive, FileText, Headphones, Image as ImageIcon, ImageUp, Plus, Trash2, Upload } from "lucide-react";
 import { deleteProduct, saveDetails, saveSales, type FormResult } from "@/app/(admin)/admin/_actions/catalogue";
-import { addPages, deletePage, movePage, removeFile, saveChapters, savePages, setCover, setFile, type ContentResult } from "@/app/(admin)/admin/_actions/content";
+import { addAssets, addPages, deleteAsset, deletePage, movePage, reorderAssets, saveAssets, saveChapters, savePages, setCover, type ContentResult } from "@/app/(admin)/admin/_actions/content";
 import { Art } from "@/components/catalogue/art";
 import { Notice } from "@/components/ui/notice";
 import { toast } from "./toaster";
@@ -59,7 +59,7 @@ export function DetailsForm(props: {
         <div className="field">
           <label htmlFor="ed-type">{t("ed_type")}</label>
           <select className="select" id="ed-type" name="type" defaultValue={props.type}>
-            {(["colouring", "book", "guide", "workbook"] as const).map((ty) => (
+            {(["colouring", "book", "guide", "workbook", "kit"] as const).map((ty) => (
               <option key={ty} value={ty}>
                 {t(`type_${ty}`)}
               </option>
@@ -380,82 +380,202 @@ export function PagesEditor({ productId, locale, pages, pageCount }: { productId
 }
 
 // ---------------------------------------------------------------------------
-// Content: complete downloads (PDF / EPUB) for one language
+// Materials: any number of files (PDF, EPUB, images, audio, ZIP). Owning the product opens all of them.
 // ---------------------------------------------------------------------------
-export type FileRow = { format: "pdf" | "epub"; path: string | null; size: string | null };
+export type AssetKind = "pdf" | "epub" | "image" | "audio" | "zip";
+export type AssetRow = { id: string; kind: AssetKind; title: string; locale: Locale | null; size: string | null; duration: string | null };
 
-export function FilesEditor({ productId, locale, files }: { productId: string; locale: Locale; files: FileRow[] }) {
+const ASSET_ICON = { pdf: FileText, epub: BookOpen, image: ImageIcon, audio: Headphones, zip: FileArchive } as const;
+const ASSET_ACCEPT = ".pdf,.epub,.png,.jpg,.jpeg,.webp,.mp3,.m4a,.zip,application/pdf,application/epub+zip,image/png,image/jpeg,image/webp,audio/mpeg,audio/mp4,application/zip";
+
+/** The one content type the bucket accepts for each file, whatever the browser reports (e.g. "audio/x-m4a"). */
+function assetType(file: File) {
+  const ext = file.name.slice(file.name.lastIndexOf(".") + 1).toLowerCase();
+  const byExt: Record<string, string> = {
+    pdf: "application/pdf",
+    epub: "application/epub+zip",
+    png: "image/png",
+    jpg: "image/jpeg",
+    jpeg: "image/jpeg",
+    webp: "image/webp",
+    mp3: "audio/mpeg",
+    m4a: "audio/mp4",
+    zip: "application/zip",
+  };
+  return byExt[ext] ?? null;
+}
+
+/** Length of an audio file in seconds, read in the browser (null when it can't be read). */
+function audioDuration(file: File): Promise<number | null> {
+  return new Promise((resolve) => {
+    const url = URL.createObjectURL(file);
+    const audio = new Audio();
+    const done = (v: number | null) => {
+      URL.revokeObjectURL(url);
+      resolve(v);
+    };
+    audio.preload = "metadata";
+    audio.onloadedmetadata = () => done(Number.isFinite(audio.duration) ? Math.round(audio.duration) : null);
+    audio.onerror = () => done(null);
+    setTimeout(() => done(null), 10_000);
+    audio.src = url;
+  });
+}
+
+export function MaterialsEditor({ productId, assets }: { productId: string; assets: AssetRow[] }) {
   const t = useTranslations();
   const router = useRouter();
-  const [busy, setBusy] = useState<string | null>(null);
-  const inputs = useRef<Record<string, HTMLInputElement | null>>({});
+  const [state, action] = useActionState(saveAssets, { status: "idle" } as ContentResult);
+  useSaved(state);
+  const [progress, setProgress] = useState<string | null>(null);
+  const [over, setOver] = useState(false);
+  const [uploadLang, setUploadLang] = useState<"all" | Locale>("all");
+  const [pending, start] = useTransition();
+  const input = useRef<HTMLInputElement>(null);
 
-  const upload = async (format: "pdf" | "epub", file: File) => {
-    setBusy(format);
-    const type = file.type || (format === "epub" ? "application/epub+zip" : "application/pdf");
-    const up = await uploadToStorage(productId, "file", file.type ? file : new Blob([file], { type }));
-    const r = up.ok ? await setFile(productId, locale, format, up.path) : up;
-    setBusy(null);
-    toast(r.ok ? t("saved") : t(r.error), r.ok ? "ok" : "error");
-    if (r.ok) router.refresh();
+  const upload = async (files: File[]) => {
+    if (!files.length) return;
+    const added: { path: string; title: string; durationSeconds: number | null }[] = [];
+    for (const [i, file] of files.entries()) {
+      setProgress(t("ed_uploadingN", { n: i + 1, total: files.length }));
+      const type = assetType(file);
+      if (!type) {
+        toast(`${file.name}: ${t("err_file_type")}`, "error");
+        continue;
+      }
+      const up = await uploadToStorage(productId, "asset", file.type === type ? file : new Blob([file], { type }));
+      if (!up.ok) {
+        toast(`${file.name}: ${t(up.error)}`, "error");
+        continue;
+      }
+      added.push({ path: up.path, title: titleFromFileName(file.name), durationSeconds: type.startsWith("audio/") ? await audioDuration(file) : null });
+    }
+    if (added.length) {
+      const r = await addAssets(productId, uploadLang, added);
+      toast(r.ok ? t("ma_added", { n: added.length }) : t(r.error), r.ok ? "ok" : "error");
+      router.refresh();
+    }
+    setProgress(null);
   };
 
+  const act = (fn: () => Promise<{ ok: boolean; error?: string }>) =>
+    start(async () => {
+      const r = await fn();
+      if (!r.ok) toast(t(r.error ?? "err_generic"), "error");
+      router.refresh();
+    });
+  const move = (i: number, by: -1 | 1) => {
+    const ids = assets.map((a) => a.id);
+    [ids[i], ids[i + by]] = [ids[i + by], ids[i]];
+    act(() => reorderAssets(productId, ids));
+  };
+  const name = (a: AssetRow) => a.title || t(`kind_${a.kind}`);
+  const langOptions = (
+    <>
+      <option value="all">{t("ma_allLangs")}</option>
+      {(["en", "pt", "es"] as const).map((l) => (
+        <option key={l} value={l}>
+          {t(`lang_${l}`)}
+        </option>
+      ))}
+    </>
+  );
+
   return (
-    <div className="field">
-      <span className="label">{t("ed_files")}</span>
-      <div className="stack" style={{ gap: 8 }}>
-        {files.map((f) => (
-          <div className="bought" style={{ padding: "10px 12px" }} key={f.format}>
-            <span className="mini" style={{ width: 40, height: 40, background: "var(--orange-soft)", color: "var(--orange-ink)" }} aria-hidden="true">
-              <FileText className="icon" />
-            </span>
-            <span style={{ flex: 1, minWidth: 0 }}>
-              <b style={{ fontWeight: 500, display: "block" }}>
-                {f.format.toUpperCase()} · {locale.toUpperCase()}
-              </b>
-              <span className="hint">{f.path ? f.size ?? t("ed_fileReady") : t("ed_noFile")}</span>
-            </span>
-            <input
-              ref={(el) => {
-                inputs.current[f.format] = el;
-              }}
-              type="file"
-              className="sr"
-              accept={f.format === "pdf" ? "application/pdf,.pdf" : "application/epub+zip,.epub"}
-              aria-label={`${t("ed_browse")}: ${f.format.toUpperCase()}`}
-              tabIndex={-1}
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                e.target.value = "";
-                if (file) void upload(f.format, file);
-              }}
-            />
-            <button type="button" className="btn btn-ghost btn-sm" disabled={!!busy} onClick={() => inputs.current[f.format]?.click()}>
-              <Upload className="icon icon-sm" aria-hidden="true" />
-              {busy === f.format ? t("ed_uploading") : f.path ? t("ed_replace") : t("ed_browse")}
-            </button>
-            {f.path ? (
-              <button
-                type="button"
-                className="icon-btn"
-                style={{ width: 34, height: 34 }}
-                disabled={!!busy}
-                aria-label={`${t("delete")}: ${f.format.toUpperCase()}`}
-                onClick={async () => {
-                  if (!window.confirm(t("ed_removeFileQ"))) return;
-                  const r = await removeFile(productId, locale, f.format);
-                  toast(r.ok ? t("saved") : t(r.error), r.ok ? "ok" : "error");
-                  router.refresh();
-                }}
-              >
-                <Trash2 className="icon icon-sm" aria-hidden="true" />
-              </button>
-            ) : null}
-          </div>
-        ))}
+    <form id={PRODUCT_FORM} onSubmit={keepValues(action)} className="stack">
+      <input type="hidden" name="id" value={productId} />
+      <div
+        className={over ? "dropzone over" : "dropzone"}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setOver(true);
+        }}
+        onDragLeave={() => setOver(false)}
+        onDrop={(e) => {
+          e.preventDefault();
+          setOver(false);
+          void upload([...e.dataTransfer.files]);
+        }}
+      >
+        <Upload className="icon" aria-hidden="true" />
+        <b style={{ color: "var(--ink)", fontWeight: 500 }}>{progress ?? t("ma_drop")}</b>
+        <span style={{ fontSize: 13.5 }}>{t("ma_dropP")}</span>
+        <input
+          ref={input}
+          type="file"
+          multiple
+          accept={ASSET_ACCEPT}
+          className="sr"
+          id="ed-assets-file"
+          aria-label={t("ma_drop")}
+          tabIndex={-1}
+          onChange={(e) => {
+            const files = [...(e.target.files ?? [])];
+            e.target.value = "";
+            void upload(files);
+          }}
+        />
+        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", justifyContent: "center", marginTop: 6 }}>
+          <label className="sr" htmlFor="ed-assets-lang">
+            {t("ma_uploadLang")}
+          </label>
+          <select className="select" id="ed-assets-lang" style={{ width: "auto", height: 34 }} value={uploadLang} onChange={(e) => setUploadLang(e.target.value as "all" | Locale)} disabled={!!progress}>
+            {langOptions}
+          </select>
+          <button type="button" className="btn btn-ghost btn-sm" disabled={!!progress} onClick={() => input.current?.click()}>
+            {t("ed_browse")}
+          </button>
+        </div>
       </div>
-      <span className="hint">{t("ed_filesHint")}</span>
-    </div>
+      <p className="hint">{t("ma_hint")}</p>
+      {assets.length ? (
+        <ol className="stack" style={{ gap: 8, listStyle: "none", padding: 0, margin: 0 }}>
+          {assets.map((a, i) => {
+            const Icon = ASSET_ICON[a.kind];
+            return (
+              <li key={a.id} className="bought asset-row" style={{ padding: 8, gap: 10 }}>
+                <span className="mini" style={{ width: 40, height: 40, background: "var(--orange-soft)", color: "var(--orange-ink)" }} aria-hidden="true">
+                  <Icon className="icon" />
+                </span>
+                <span className="asset-fields">
+                  <label className="sr" htmlFor={`as-t-${a.id}`}>
+                    {t("ma_title")}: {t(`kind_${a.kind}`)} {i + 1}
+                  </label>
+                  <input className="input" id={`as-t-${a.id}`} name={`title_${a.id}`} defaultValue={a.title} placeholder={t(`kind_${a.kind}`)} maxLength={150} />
+                  <span className="hint tnum">{[t(`kind_${a.kind}`), a.duration, a.size].filter(Boolean).join(" · ")}</span>
+                </span>
+                <label className="sr" htmlFor={`as-l-${a.id}`}>
+                  {t("ma_lang")}: {name(a)}
+                </label>
+                <select className="select asset-lang" id={`as-l-${a.id}`} name={`locale_${a.id}`} defaultValue={a.locale ?? "all"}>
+                  {langOptions}
+                </select>
+                <span className="asset-btns">
+                  <button type="button" className="icon-btn" style={{ width: 34, height: 34 }} disabled={pending || i === 0} aria-label={`${t("moveUp")}: ${name(a)}`} onClick={() => move(i, -1)}>
+                    <ArrowUp className="icon icon-sm" aria-hidden="true" />
+                  </button>
+                  <button type="button" className="icon-btn" style={{ width: 34, height: 34 }} disabled={pending || i === assets.length - 1} aria-label={`${t("moveDown")}: ${name(a)}`} onClick={() => move(i, 1)}>
+                    <ArrowDown className="icon icon-sm" aria-hidden="true" />
+                  </button>
+                  <button
+                    type="button"
+                    className="icon-btn"
+                    style={{ width: 34, height: 34 }}
+                    disabled={pending}
+                    aria-label={`${t("delete")}: ${name(a)}`}
+                    onClick={() => window.confirm(t("ma_deleteQ", { title: name(a) })) && act(() => deleteAsset(productId, a.id))}
+                  >
+                    <Trash2 className="icon icon-sm" aria-hidden="true" />
+                  </button>
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+      ) : (
+        <p className="hint">{t("ma_empty")}</p>
+      )}
+    </form>
   );
 }
 

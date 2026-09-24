@@ -8,7 +8,7 @@ import { createClient } from "@/lib/supabase/server";
  * security decides what they may see: content (chapters, pages, files) only with access, outlines for everyone.
  */
 
-export type ProductType = "colouring" | "book" | "guide" | "workbook";
+export type ProductType = "colouring" | "book" | "guide" | "workbook" | "kit";
 
 export type LibraryItem = {
   id: string;
@@ -25,6 +25,8 @@ export type LibraryItem = {
   chapterCount: number;
   priceCents: number;
   owned: boolean;
+  /** Materials (downloads, images, audio) in the member's language: a kit's card shows "12 items". */
+  assetCount: number;
 };
 
 export type OutlineRow = {
@@ -37,12 +39,14 @@ export type OutlineRow = {
   lineartPath: string | null;
 };
 
-export const isReading = (type: ProductType) => type !== "colouring";
+/** eBooks, guides and workbooks have chapters to read online. */
+export const isReading = (type: ProductType) => type === "book" || type === "guide" || type === "workbook";
 
 type LibraryRow = {
   id: string; slug: string; type: ProductType; access: "paid" | "free"; visibility: "visible" | "soon";
   section_slug: string | null; section_name: string; title: string; cover_path: string | null;
   field_colour: string | null; page_count: number | null; chapter_count: number; price_cents: number; owned: boolean;
+  asset_count: number;
 };
 
 export const getLibrary = cache(async (locale: Locale): Promise<LibraryItem[]> => {
@@ -64,6 +68,7 @@ export const getLibrary = cache(async (locale: Locale): Promise<LibraryItem[]> =
     chapterCount: r.chapter_count,
     priceCents: r.price_cents,
     owned: r.owned,
+    assetCount: r.asset_count ?? 0,
   }));
 });
 
@@ -73,25 +78,25 @@ export type ProductDetail = LibraryItem & {
   verseRef: string | null;
   freeSample: boolean;
   outline: OutlineRow[];
-  files: { format: "pdf" | "epub"; sizeBytes: number | null }[];
+  assets: Asset[];
 };
+
+export type AssetKind = "pdf" | "epub" | "image" | "audio" | "zip";
+/** One material of a product. The file itself is only reachable through the download route, with access. */
+export type Asset = { id: string; kind: AssetKind; title: string; sizeBytes: number | null; durationSeconds: number | null };
 
 export const getProduct = cache(async (slug: string, locale: Locale): Promise<ProductDetail | null> => {
   const item = (await getLibrary(locale)).find((p) => p.slug === slug);
   if (!item) return null;
   const supabase = await createClient();
-  const [{ data: tr }, { data: product }, { data: outline }, { data: files }] = await Promise.all([
+  const [{ data: tr }, { data: product }, { data: outline }, { data: assets }] = await Promise.all([
     supabase.from("product_translations").select("locale, description, verse, verse_ref").eq("product_id", item.id).in("locale", [locale, "en"]),
     supabase.from("products").select("free_sample").eq("id", item.id).single(),
     supabase.rpc("product_outline", { p_product_id: item.id, p_locale: locale }),
-    // Files are readable only with access (RLS), so a locked product simply has none here.
-    supabase.from("product_files").select("locale, format, size_bytes").eq("product_id", item.id).in("locale", [locale, "en"]),
+    // The list of materials (titles, sizes), never the files: shown locked or unlocked.
+    supabase.rpc("product_contents", { p_product_id: item.id, p_locale: locale }),
   ]);
   const text = (tr ?? []).find((r) => r.locale === locale) ?? (tr ?? []).find((r) => r.locale === "en");
-  const byFormat = new Map<string, { format: "pdf" | "epub"; sizeBytes: number | null }>();
-  for (const f of (files ?? []).sort((a) => (a.locale === locale ? -1 : 1))) {
-    if (!byFormat.has(f.format)) byFormat.set(f.format, { format: f.format, sizeBytes: f.size_bytes });
-  }
   return {
     ...item,
     description: text?.description ?? "",
@@ -107,7 +112,13 @@ export const getProduct = cache(async (slug: string, locale: Locale): Promise<Pr
       previewPath: o.preview_path,
       lineartPath: o.lineart_path,
     })),
-    files: [...byFormat.values()],
+    assets: ((assets ?? []) as { id: string; kind: AssetKind; title: string; size_bytes: number | null; duration_seconds: number | null }[]).map((a) => ({
+      id: a.id,
+      kind: a.kind,
+      title: a.title,
+      sizeBytes: a.size_bytes,
+      durationSeconds: a.duration_seconds,
+    })),
   };
 });
 
@@ -138,4 +149,12 @@ export function formatBytes(bytes: number | null | undefined, intlTag: string) {
   if (!bytes) return null;
   const mb = bytes / (1024 * 1024);
   return `${new Intl.NumberFormat(intlTag, { maximumFractionDigits: 1, minimumFractionDigits: 1 }).format(mb)} MB`;
+}
+
+/** "32 min" or "1 h 05 min". */
+export function formatDuration(seconds: number | null | undefined) {
+  if (!seconds) return null;
+  const minutes = Math.max(1, Math.round(seconds / 60));
+  if (minutes < 60) return `${minutes} min`;
+  return `${Math.floor(minutes / 60)} h ${String(minutes % 60).padStart(2, "0")} min`;
 }

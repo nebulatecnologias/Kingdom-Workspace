@@ -14,9 +14,9 @@ Guia rápido para resolver os pedidos mais comuns dos clientes e responder aos a
    - **Sem convite:** continue no passo 2.
 2. Em **Integrações → Entregas recentes**, procure a encomenda pela referência (ex.: `KG-…`).
    - **Não aparece:** o gateway ainda não enviou o evento. Confirme no painel do gateway que a encomenda está paga e que a integração está ativa. O gateway volta a tentar sozinho.
-   - **"Assinatura rejeitada":** o segredo não coincide. Veja a secção 6.
+   - **"Assinatura rejeitada":** o segredo não coincide. Veja a secção 7.
    - **"Falhou, vai repetir":** o gateway volta a tentar. Se continuar a falhar, fale com o programador.
-3. Se o pagamento está confirmado mas o produto não foi entregue (por exemplo, por um produto sem ligação, ver secção 6), dê o acesso à mão:
+3. Se o pagamento está confirmado mas o produto não foi entregue (por exemplo, por um produto sem ligação, ver secção 7), dê o acesso à mão:
    - **O cliente ainda não tem conta:** **Novo convite** com o email e os produtos.
    - **O cliente já tem conta:** na ficha do membro, ligue o produto.
 
@@ -44,7 +44,16 @@ Guia rápido para resolver os pedidos mais comuns dos clientes e responder aos a
 - **Dar a quem ainda não tem conta:** **Novo convite** com os produtos. Se o email já tiver conta, os produtos entram logo na biblioteca e o cliente recebe o email "novo na sua biblioteca".
 - **Retirar** (por exemplo, um reembolso feito fora do gateway): na ficha do membro, desligue o interruptor. Os reembolsos feitos no gateway retiram o acesso sozinhos.
 
-## 6. Alertas automáticos
+## 6. Kits e materiais
+
+- **Criar um kit:** **Novo produto** → tipo **Kit**. Em **Materiais**, arraste todos os ficheiros de uma vez: PDF, EPUB, imagens (PNG, JPG, WebP), áudio (MP3, M4A) ou ZIP, até 50 MB cada. Antes de carregar, escolha o idioma dos ficheiros ("Todos os idiomas" para áudios e imagens que servem a todos).
+- **Títulos, ordem e idioma:** edite na lista e carregue em **Guardar alterações**. As setas mudam a ordem logo.
+- **"Descarregar tudo":** carregue um ZIP com o kit completo. Passa a ser o botão principal da página do kit.
+- **Um áudio com mais de 50 MB:** exporte-o em MP3 a 64 kbps mono (voz), que dá cerca de 100 minutos em 50 MB. Ou divida-o em partes.
+- **"Comprei o kit mas falta um material":** confirme em **Materiais** que o ficheiro está lá e no idioma certo. Um cliente em português vê os materiais em "Todos os idiomas" e os de "Português"; se não houver nenhum em português, vê os de inglês.
+- **O cliente comprou o kit:** tudo abre de uma vez. Um reembolso fecha tudo. Para dar o kit à mão, ligue o produto na ficha do membro (secção 5).
+
+## 7. Alertas automáticos
 
 Os administradores recebem um email, no máximo um por tipo e por hora, quando:
 
@@ -56,19 +65,19 @@ Os administradores recebem um email, no máximo um por tipo e por hora, quando:
 
 O mesmo resumo aparece no topo da **Visão geral**, com o título "Precisa da sua atenção".
 
-## 7. Verificação em dois passos (administradores)
+## 8. Verificação em dois passos (administradores)
 
 - **Ativar:** menu **Verificação em dois passos** → **Ativar**, e leia o código QR com uma app autenticadora (Google Authenticator, Microsoft Authenticator, 1Password).
 - **Um admin perdeu o telemóvel:** outro admin abre a ficha desse membro e carrega em **Repor verificação em dois passos**.
 - **O único admin perdeu o telemóvel:** no painel do Supabase, **Authentication → Users**, apague o fator (MFA) desse utilizador.
 
-## 8. Pedidos de privacidade (POPIA)
+## 9. Pedidos de privacidade (POPIA)
 
 - **"Quero os meus dados":** o membro descarrega-os em **Perfil → Descarregar os meus dados**.
 - **"Apaguem a minha conta":** o membro apaga-a em **Perfil → Apagar a minha conta**. O perfil, os acessos, o progresso, os convites e o histórico de emails são apagados. As encomendas ficam, sem ligação à conta, por obrigação fiscal.
 - Se o membro não conseguir fazê-lo sozinho, apague o utilizador no painel do Supabase (**Authentication → Users → Delete user**) e registe o pedido.
 
-## 9. Monitorização
+## 10. Monitorização
 
 - **Estado do site:** `https://kingdom-members.vercel.app/api/health` responde `{"ok":true}` quando a app e a base de dados estão bem. Registe este endereço num monitor gratuito, como UptimeRobot ou Better Stack, com verificação de 5 em 5 minutos e alerta por email ou WhatsApp.
 - **Registos:**
@@ -79,6 +88,6 @@ O mesmo resumo aparece no topo da **Visão geral**, com o título "Precisa da su
   - 01:00 UTC: expirar convites;
   - 06:30 UTC: repetir emails que falharam e enviar o resumo diário.
 
-## 10. Contactos para o cliente
+## 11. Contactos para o cliente
 
 Apoio: o email e o WhatsApp configurados em `SUPPORT_EMAIL` e `SUPPORT_WHATSAPP`, que aparecem na página **Ajuda** da área de membros.

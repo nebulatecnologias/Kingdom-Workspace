@@ -8,7 +8,7 @@ import {
   CoverUpload,
   DeleteProduct,
   DetailsForm,
-  FilesEditor,
+  MaterialsEditor,
   PagesEditor,
   PRODUCT_FORM,
   SalesForm,
@@ -17,7 +17,7 @@ import { PackCard } from "@/components/catalogue/pack-card";
 import { isLocale, toLocale, type Locale } from "@/i18n/config";
 import { adminContext, UUID } from "@/lib/admin/context";
 import { adminSections } from "@/lib/admin/queries";
-import { formatBytes, isReading, type ProductType } from "@/lib/catalogue";
+import { formatBytes, formatDuration, isReading, type ProductType } from "@/lib/catalogue";
 import { countLabel } from "@/lib/catalogue-labels";
 import { formatZar } from "@/lib/format";
 import { htmlToMarkdown } from "@/lib/markdown";
@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return { title: t("r_admin_pack") };
 }
 
-const TABS = ["details", "content", "sales"] as const;
+const TABS = ["details", "content", "materials", "sales"] as const;
 type Tab = (typeof TABS)[number];
 
 export default async function ProductEditorPage({ params, searchParams }: PageProps<"/admin/products/[id]">) {
@@ -39,7 +39,6 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
   const t = await getTranslations();
   const intlTag = await getLocale();
   const uiLocale = toLocale(intlTag);
-  const tab: Tab = TABS.includes(sp.tab as Tab) ? (sp.tab as Tab) : "details";
   // "?lang=" would switch the whole interface (email links use it), so the version being edited is "?edit=".
   const lang: Locale = isLocale(sp.edit) ? sp.edit : "en";
   const previewOwned = sp.preview !== "locked";
@@ -48,13 +47,16 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
   if (!p) notFound();
   const type = p.type as ProductType;
   const reading = isReading(type);
+  // A kit is its materials: no pages or chapters of its own.
+  const tabs = TABS.filter((v) => !(type === "kit" && v === "content"));
+  const tab: Tab = tabs.includes(sp.tab as Tab) ? (sp.tab as Tab) : "details";
 
-  const [{ data: translations }, sections, { data: pageRows }, { data: chapterRows }, { data: fileRows }, { count: holders }] = await Promise.all([
+  const [{ data: translations }, sections, { data: pageRows }, { data: chapterRows }, { data: assetRows }, { count: holders }] = await Promise.all([
     db.from("product_translations").select("locale, title, description, verse, verse_ref").eq("product_id", id),
     adminSections(db, uiLocale),
     db.from("product_pages").select("locale, position, title, preview_path, lineart_path").eq("product_id", id).order("position"),
     db.from("product_chapters").select("locale, position, title, body_md, body_html, minutes, is_sample").eq("product_id", id).order("position"),
-    db.from("product_files").select("locale, format, path, size_bytes").eq("product_id", id),
+    db.from("product_assets").select("id, locale, title, kind, size_bytes, duration_seconds").eq("product_id", id).order("position").order("created_at"),
     db.from("entitlements").select("id", { count: "exact", head: true }).eq("product_id", id).is("revoked_at", null),
   ]);
 
@@ -73,11 +75,16 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
   const enChapters = (chapterRows ?? []).filter((c) => c.locale === "en");
   const chapterSource = langChapters.length ? langChapters : enChapters;
   const chapters = chapterSource.map((c) => ({ title: c.title, body: c.body_md ?? htmlToMarkdown(c.body_html), sample: c.is_sample, minutes: langChapters.length ? c.minutes : null }));
-  const formats: ("pdf" | "epub")[] = type === "book" ? ["pdf", "epub"] : ["pdf"];
-  const files = formats.map((format) => {
-    const f = (fileRows ?? []).find((x) => x.locale === lang && x.format === format);
-    return { format, path: f?.path ?? null, size: f ? formatBytes(f.size_bytes, intlTag) : null };
-  });
+  const assets = (assetRows ?? []).map((a) => ({
+    id: a.id,
+    kind: a.kind,
+    title: a.title,
+    locale: a.locale,
+    size: formatBytes(a.size_bytes, intlTag),
+    duration: formatDuration(a.duration_seconds),
+  }));
+  // Members see materials without a language plus those in theirs; the card counts the English view.
+  const assetCount = assets.filter((a) => a.kind !== "zip" && (a.locale === null || a.locale === "en")).length;
 
   const urls = await signedImageUrls([p.cover_path, ...pages.map((x) => x.previewPath)]);
   const sectionName = sections.find((s) => s.id === p.section_id)?.name ?? t("sc_noSection");
@@ -139,9 +146,9 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
       <div className="editor">
         <section className="card card-pad">
           <nav className="tabs" aria-label={t("r_admin_pack")}>
-            {TABS.map((v) => (
+            {tabs.map((v) => (
               <Link key={v} href={href({ tab: v })} aria-current={tab === v ? "page" : undefined}>
-                {t(v === "details" ? "ed_details" : v === "content" ? "ed_pages" : "ed_sales")}
+                {t(v === "details" ? "ed_details" : v === "content" ? "ed_pages" : v === "materials" ? "ed_materials" : "ed_sales")}
               </Link>
             ))}
           </nav>
@@ -166,7 +173,6 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
             {tab === "content" ? (
               <>
                 {langSwitch}
-                <FilesEditor key={`files-${lang}`} productId={id} locale={lang} files={files} />
                 {reading ? (
                   <ChaptersEditor
                     key={`ch-${lang}`}
@@ -182,6 +188,7 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
                 )}
               </>
             ) : null}
+            {tab === "materials" ? <MaterialsEditor productId={id} assets={assets} /> : null}
             {tab === "sales" ? (
               <SalesForm
                 id={id}
@@ -227,6 +234,7 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
                   fieldColour: p.field_colour ?? "#f3eee8",
                   pageCount: p.page_count ?? 0,
                   chapterCount,
+                  assetCount,
                   priceCents: p.price_cents,
                   owned: previewOwned || p.access === "free",
                 }}
@@ -241,7 +249,7 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
               </div>
               <div>
                 <dt>{t("ed_pages")}</dt>
-                <dd className="tnum">{countLabel(t, { type, pageCount: p.page_count ?? 0, chapterCount })}</dd>
+                <dd className="tnum">{countLabel(t, { type, pageCount: p.page_count ?? 0, chapterCount, assetCount })}</dd>
               </div>
               <div>
                 <dt>{t("ed_section")}</dt>

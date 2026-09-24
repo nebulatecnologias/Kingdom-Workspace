@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Check, ChevronLeft, ChevronRight, Download, Lock, Palette, BookOpen } from "lucide-react";
+import { BookOpen, Check, ChevronLeft, ChevronRight, Download, Eye, FileArchive, FileText, Headphones, Image as ImageIcon, Lock, Palette } from "lucide-react";
 import { Art } from "@/components/catalogue/art";
 import { Notice } from "@/components/ui/notice";
 import { toLocale } from "@/i18n/config";
 import { requireMember } from "@/lib/auth";
-import { formatBytes, getProduct, getProgress, isReading, type ProductDetail } from "@/lib/catalogue";
+import { formatBytes, formatDuration, getProduct, getProgress, isReading, type Asset, type ProductDetail } from "@/lib/catalogue";
 import { countLabel, priceLabel } from "@/lib/catalogue-labels";
 import { signedImageUrls } from "@/lib/media";
 
@@ -19,7 +19,22 @@ export async function generateMetadata({ params }: PageProps<"/products/[slug]">
 
 type T = Awaited<ReturnType<typeof getTranslations>>;
 
+const ASSET_ICON = { pdf: FileText, epub: BookOpen, image: ImageIcon, audio: Headphones, zip: FileArchive } as const;
+
 function facts(t: T, p: ProductDetail) {
+  if (p.type === "kit") {
+    const docs = p.assets.filter((a) => a.kind === "pdf" || a.kind === "epub").length;
+    const images = p.assets.filter((a) => a.kind === "image").length;
+    const audio = p.assets.filter((a) => a.kind === "audio");
+    const seconds = audio.reduce((sum, a) => sum + (a.durationSeconds ?? 0), 0);
+    return [
+      t("n_items", { n: p.assets.filter((a) => a.kind !== "zip").length }),
+      ...(docs ? [t("n_docs", { n: docs })] : []),
+      ...(images ? [t("n_images", { n: images })] : []),
+      ...(audio.length ? [[t("n_audio", { n: audio.length }), formatDuration(seconds)].filter(Boolean).join(" · ")] : []),
+      t("fact_lang"),
+    ];
+  }
   if (p.type === "colouring") return [t("n_pages", { n: p.pageCount }), t("fact_a4"), t("fact_ages"), t("fact_lang")];
   const f = [countLabel(t, p)];
   if (p.type === "book") f.push(t("fact_formats"), t("fact_devices"));
@@ -45,9 +60,14 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
   const chapters = p.outline.filter((o) => o.kind === "chapter");
   const urls = await signedImageUrls([p.coverPath, ...pages.map((o) => o.previewPath)]);
   const progress = reading ? (await getProgress(profile.id)).find((r) => r.product_id === p.id)?.chapter_position ?? 0 : 0;
-  const pdf = p.files.find((f) => f.format === "pdf");
-  const epub = p.files.find((f) => f.format === "epub");
+  // The hero offers the main downloads; every other material is listed below it.
+  const pdf = p.type === "kit" ? undefined : p.assets.find((a) => a.kind === "pdf");
+  const epub = reading ? p.assets.find((a) => a.kind === "epub") : undefined;
+  const zip = p.assets.find((a) => a.kind === "zip");
+  const inHero = new Set([pdf?.id, reading ? epub?.id : undefined, zip?.id].filter(Boolean));
+  const listed = p.assets.filter((a) => !inHero.has(a.id));
   const download = (q: string) => `/api/products/${p.id}/download?${q}`;
+  const assetName = (a: Asset) => a.title || t(`kind_${a.kind}`);
   const unlock = `/api/checkout/${p.id}`;
   const soon = p.visibility === "soon";
 
@@ -98,7 +118,7 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
         <div>
           <div className="filters">
             {statusPill}
-            {reading ? <span className="pill pill-grey">{t(`type_${p.type}`)}</span> : null}
+            {reading || p.type === "kit" ? <span className="pill pill-grey">{t(`type_${p.type}`)}</span> : null}
           </div>
           <h1 style={{ marginTop: 14 }}>{p.title}</h1>
           {p.description ? <p className="desc">{p.description}</p> : null}
@@ -124,13 +144,13 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
                   </Link>
                 ) : null}
                 {pdf ? (
-                  <a className="btn btn-ghost btn-lg" href={download("format=pdf")}>
+                  <a className="btn btn-ghost btn-lg" href={download(`asset=${pdf.id}`)}>
                     <Download className="icon" aria-hidden="true" />
                     {t("dl_pdf")}
                   </a>
                 ) : null}
                 {epub ? (
-                  <a className="btn btn-quiet btn-lg" href={download("format=epub")}>
+                  <a className="btn btn-quiet btn-lg" href={download(`asset=${epub.id}`)}>
                     <Download className="icon" aria-hidden="true" />
                     {t("dl_epub")}
                   </a>
@@ -139,13 +159,26 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
             ) : null}
             {own && !reading && pdf ? (
               <>
-                <a className="btn btn-primary btn-lg" href={download("format=pdf")}>
+                <a className="btn btn-primary btn-lg" href={download(`asset=${pdf.id}`)}>
                   <Download className="icon" aria-hidden="true" />
                   {t("pack_download")}
                 </a>
                 {formatBytes(pdf.sizeBytes, intlTag) ? (
                   <span className="muted" style={{ alignSelf: "center", fontSize: 13.5 }}>
                     {t("pack_file", { size: formatBytes(pdf.sizeBytes, intlTag)! })}
+                  </span>
+                ) : null}
+              </>
+            ) : null}
+            {own && zip ? (
+              <>
+                <a className={p.type === "kit" ? "btn btn-primary btn-lg" : "btn btn-quiet btn-lg"} href={download(`asset=${zip.id}`)}>
+                  <Download className="icon" aria-hidden="true" />
+                  {t("dl_all")}
+                </a>
+                {p.type === "kit" && formatBytes(zip.sizeBytes, intlTag) ? (
+                  <span className="muted" style={{ alignSelf: "center", fontSize: 13.5 }}>
+                    {t("zip_file", { size: formatBytes(zip.sizeBytes, intlTag)! })}
                   </span>
                 ) : null}
               </>
@@ -168,6 +201,64 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
           </div>
         </div>
       </section>
+
+      {listed.length ? (
+        <>
+          <div className="page-head" style={{ marginBottom: 16 }} id="materials">
+            <h2 style={{ fontSize: 21 }}>{t(p.type !== "kit" ? "m_extra" : own ? "m_inKit" : "m_included")}</h2>
+          </div>
+          <ul className="card toc" style={{ marginBottom: 28 }}>
+            {listed.map((a) => {
+              const Icon = ASSET_ICON[a.kind];
+              const name = assetName(a);
+              const meta = [t(`kind_${a.kind}`), formatDuration(a.durationSeconds), formatBytes(a.sizeBytes, intlTag)].filter(Boolean).join(" · ");
+              const head = (
+                <>
+                  <span className="toc-n" aria-hidden="true">
+                    <Icon className="icon icon-sm" />
+                  </span>
+                  <span className="toc-t">
+                    <b>{name}</b>
+                    <span className="muted tnum">{meta}</span>
+                  </span>
+                </>
+              );
+              if (!own) {
+                const lock = (
+                  <>
+                    {head}
+                    <span className="toc-go">
+                      <Lock className="icon icon-sm" aria-label={t("locked")} />
+                    </span>
+                  </>
+                );
+                return <li key={a.id}>{soon ? <div className="toc-row">{lock}</div> : <a className="toc-row" href={unlock}>{lock}</a>}</li>;
+              }
+              return (
+                <li key={a.id} className="toc-row asset">
+                  {head}
+                  <span className="asset-acts">
+                    {a.kind === "image" ? (
+                      <a className="btn btn-ghost btn-sm" href={download(`asset=${a.id}&view=1`)} target="_blank" rel="noopener" aria-label={`${t("m_view")}: ${name}`}>
+                        <Eye className="icon icon-sm" aria-hidden="true" />
+                        {t("m_view")}
+                      </a>
+                    ) : null}
+                    <a className="btn btn-quiet btn-sm" href={download(`asset=${a.id}`)} aria-label={`${t("pack_dl")}: ${name}`}>
+                      <Download className="icon icon-sm" aria-hidden="true" />
+                      {t("pack_dl")}
+                    </a>
+                  </span>
+                  {a.kind === "audio" ? (
+                    // preload="none": the signed link is only made when the member presses play.
+                    <audio className="asset-audio" controls preload="none" src={download(`asset=${a.id}&view=1`)} aria-label={`${t("m_listen")}: ${name}`} />
+                  ) : null}
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      ) : null}
 
       {reading && chapters.length ? (
         <>

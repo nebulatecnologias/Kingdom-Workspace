@@ -140,7 +140,8 @@ test("stored files are served through short-lived signed links", async ({ page }
   const pdf = Buffer.from("%PDF-1.4\n1 0 obj<<>>endobj\ntrailer<<>>\n%%EOF\n");
   const up = await admin().storage.from("products").upload(path, pdf, { contentType: "application/pdf", upsert: true });
   expect(up.error).toBeNull();
-  await admin().from("product_files").upsert({ product_id: money, locale: "en", format: "pdf", path, size_bytes: pdf.length }, { onConflict: "product_id,locale,format" });
+  await admin().from("product_assets").delete().eq("product_id", money);
+  const { data: asset } = await admin().from("product_assets").insert({ product_id: money, locale: "en", position: 1, title: "Money Matters", kind: "pdf", path, size_bytes: pdf.length }).select("id").single();
 
   await page.goto("/login");
   await page.getByRole("button", { name: "Use password" }).click();
@@ -149,13 +150,17 @@ test("stored files are served through short-lived signed links", async ({ page }
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await page.waitForURL(/\/library$/);
 
-  const res = await page.request.get(`/api/products/${money}/download?format=pdf`, { maxRedirects: 0 });
-  expect(res.status()).toBe(302);
-  const location = res.headers()["location"];
-  expect(location).toContain("/storage/v1/object/sign/products/");
-  const file = await page.request.get(location);
-  expect(file.status()).toBe(200);
-  expect((await file.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  // By material, and by format for older links.
+  for (const q of [`asset=${asset!.id}`, "format=pdf"]) {
+    const res = await page.request.get(`/api/products/${money}/download?${q}`, { maxRedirects: 0 });
+    expect(res.status()).toBe(302);
+    const location = res.headers()["location"];
+    expect(location).toContain("/storage/v1/object/sign/products/");
+    const file = await page.request.get(location);
+    expect(file.status()).toBe(200);
+    expect(file.headers()["content-disposition"]).toContain("attachment");
+    expect((await file.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  }
 });
 
 test("the padlock goes to the product's checkout with the member's details", async ({ page }) => {

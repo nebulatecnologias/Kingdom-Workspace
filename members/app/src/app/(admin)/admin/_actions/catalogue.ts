@@ -6,7 +6,7 @@ import { isLocale, locales as LOCALES, type Locale } from "@/i18n/config";
 import { adminContext, audit, fail, UUID, type ActionResult } from "@/lib/admin/context";
 import { productTitles } from "@/lib/invites";
 
-const TYPES = ["colouring", "book", "guide", "workbook"] as const;
+const TYPES = ["colouring", "book", "guide", "workbook", "kit"] as const;
 const VISIBILITY = ["visible", "soon", "hidden"] as const;
 
 export type FormResult = { status: "idle" | "saved" | "error"; fieldErrors?: Record<string, string>; message?: string };
@@ -281,7 +281,7 @@ export async function deleteProduct(id: string): Promise<ActionResult> {
   const [title] = await productTitles([id], "en");
   const [{ data: pages }, { data: files }, { data: product }] = await Promise.all([
     db.from("product_pages").select("pdf_path, preview_path, lineart_path").eq("product_id", id),
-    db.from("product_files").select("path").eq("product_id", id),
+    db.from("product_assets").select("path").eq("product_id", id),
     db.from("products").select("cover_path").eq("id", id).single(),
   ]);
   const stored = [

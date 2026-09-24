@@ -21,9 +21,32 @@ const KINDS = {
   cover: { types: IMAGE, max: 5 * MB, dir: "cover" },
   page: { types: IMAGE, max: 20 * MB, dir: "pages" },
   preview: { types: IMAGE, max: 2 * MB, dir: "previews" },
-  file: { types: { "application/pdf": "pdf", "application/epub+zip": "epub" }, max: 50 * MB, dir: "files" },
+  asset: {
+    types: {
+      "application/pdf": "pdf",
+      "application/epub+zip": "epub",
+      ...IMAGE,
+      "audio/mpeg": "mp3",
+      "audio/mp4": "m4a",
+      "application/zip": "zip",
+    },
+    max: 50 * MB,
+    dir: "assets",
+  },
 } as const;
 export type UploadKind = keyof typeof KINDS;
+
+/** What each stored extension is, for the materials list. */
+const ASSET_KIND: Record<string, "pdf" | "epub" | "image" | "audio" | "zip"> = {
+  pdf: "pdf",
+  epub: "epub",
+  png: "image",
+  jpg: "image",
+  webp: "image",
+  mp3: "audio",
+  m4a: "audio",
+  zip: "zip",
+};
 
 const BUCKET = "products";
 const refresh = () => revalidatePath("/", "layout");
@@ -37,7 +60,7 @@ export async function startUpload(productId: string, kind: UploadKind, contentTy
   const spec = KINDS[kind];
   if (!UUID.test(productId) || !spec) return fail("err_not_found");
   const ext = (spec.types as Record<string, string>)[contentType];
-  if (!ext) return fail(kind === "file" ? "err_file_type" : "err_image_type");
+  if (!ext) return fail(kind === "asset" ? "err_file_type" : "err_image_type");
   if (!Number.isFinite(size) || size <= 0 || size > spec.max) return fail("err_file_size");
   const path = `${productId}/${spec.dir}/${randomUUID()}.${ext}`;
   const { data, error } = await db.storage.from(BUCKET).createSignedUploadUrl(path);
@@ -162,28 +185,99 @@ export async function savePages(_prev: ContentResult, fd: FormData): Promise<Con
 }
 
 // ---------------------------------------------------------------------------
-// Complete downloads (PDF / EPUB), one per language
+// Materials: any number of files per product (PDF, EPUB, images, audio, a ZIP of everything).
+// Owning the product opens all of them. locale null = the same file for every language.
 // ---------------------------------------------------------------------------
-export async function setFile(productId: string, locale: string, format: string, path: string): Promise<ActionResult> {
+const assetLocale = z.enum(["all", ...locales]).transform((l) => (l === "all" ? null : l));
+const newAssets = z
+  .array(
+    z.object({
+      path: z.string().max(300),
+      title: z.string().trim().max(150),
+      durationSeconds: z.number().int().min(0).max(24 * 3600).nullable(),
+    }),
+  )
+  .min(1)
+  .max(50);
+
+export async function addAssets(productId: string, locale: string, items: z.infer<typeof newAssets>): Promise<ActionResult> {
   const { profile, db } = await adminContext(`/admin/products/${productId}`);
-  if (!UUID.test(productId) || !isLocale(locale) || (format !== "pdf" && format !== "epub") || !path.endsWith(`.${format}`)) return fail("err_file_type");
-  const size = await storedSize(db, productId, path, "files");
-  if (size === null) return fail("err_upload");
-  const { data: before } = await db.from("product_files").select("path").eq("product_id", productId).eq("locale", locale).eq("format", format).maybeSingle();
-  const { error } = await db.from("product_files").upsert({ product_id: productId, locale, format, path, size_bytes: size || null }, { onConflict: "product_id,locale,format" });
-  if (error) return fail("err_generic");
-  if (before?.path && before.path !== path) await removeStored(db, [before.path]);
-  await audit(profile, "admin.product.content", { type: "product", id: productId }, { title: await titleOf(productId), change: `${format} file`, locale });
+  const parsed = newAssets.safeParse(items);
+  const lang = assetLocale.safeParse(locale);
+  if (!UUID.test(productId) || !parsed.success || !lang.success) return fail("err_not_found");
+  const { data: last } = await db.from("product_assets").select("position").eq("product_id", productId).order("position", { ascending: false }).limit(1).maybeSingle();
+  let position = last?.position ?? 0;
+  const rows = [];
+  for (const a of parsed.data) {
+    const kind = ASSET_KIND[a.path.slice(a.path.lastIndexOf(".") + 1)];
+    const size = kind ? await storedSize(db, productId, a.path, "assets") : null;
+    if (!kind || size === null) return fail("err_upload");
+    position += 1;
+    rows.push({
+      product_id: productId,
+      locale: lang.data,
+      position,
+      title: a.title,
+      kind,
+      path: a.path,
+      size_bytes: size || null,
+      duration_seconds: kind === "audio" && a.durationSeconds !== null ? Math.round(a.durationSeconds) : null,
+    });
+  }
+  const { error } = await db.from("product_assets").insert(rows);
+  if (error) {
+    console.error("addAssets failed", error.message);
+    return fail("err_generic");
+  }
+  await audit(profile, "admin.product.content", { type: "product", id: productId }, { title: await titleOf(productId), change: "materials added", count: rows.length });
   refresh();
   return { ok: true };
 }
 
-export async function removeFile(productId: string, locale: string, format: string): Promise<ActionResult> {
+/** Materials tab: titles and languages, saved together. */
+export async function saveAssets(_prev: ContentResult, fd: FormData): Promise<ContentResult> {
+  const productId = String(fd.get("id") ?? "");
   const { profile, db } = await adminContext(`/admin/products/${productId}`);
-  if (!UUID.test(productId) || !isLocale(locale) || (format !== "pdf" && format !== "epub")) return fail("err_not_found");
-  const { data } = await db.from("product_files").delete().eq("product_id", productId).eq("locale", locale).eq("format", format).select("path");
-  await removeStored(db, (data ?? []).map((f) => f.path));
-  await audit(profile, "admin.product.content", { type: "product", id: productId }, { title: await titleOf(productId), change: `${format} file removed`, locale });
+  if (!UUID.test(productId)) return { status: "error", message: "err_not_found" };
+  const updates = new Map<string, { title?: string; locale?: Locale | null }>();
+  for (const [k, v] of fd.entries()) {
+    const m = /^(title|locale)_([0-9a-f-]{36})$/.exec(k);
+    if (!m || !UUID.test(m[2])) continue;
+    const row = updates.get(m[2]) ?? {};
+    if (m[1] === "title") row.title = String(v).trim().slice(0, 150);
+    else {
+      const l = assetLocale.safeParse(String(v));
+      if (l.success) row.locale = l.data;
+    }
+    updates.set(m[2], row);
+  }
+  for (const [assetId, row] of updates) {
+    const { error } = await db.from("product_assets").update(row).eq("id", assetId).eq("product_id", productId);
+    if (error) return { status: "error", message: "err_generic" };
+  }
+  await audit(profile, "admin.product.content", { type: "product", id: productId }, { title: await titleOf(productId), change: "materials", count: updates.size });
+  refresh();
+  return { status: "saved" };
+}
+
+export async function reorderAssets(productId: string, ids: string[]): Promise<ActionResult> {
+  const { db } = await adminContext(`/admin/products/${productId}`);
+  if (!UUID.test(productId) || !Array.isArray(ids) || ids.length > 500 || !ids.every((i) => UUID.test(i))) return fail("err_not_found");
+  const { error } = await db.rpc("admin_reorder_assets", { p_product: productId, p_ids: ids });
+  if (error) return fail("err_generic");
+  refresh();
+  return { ok: true };
+}
+
+export async function deleteAsset(productId: string, assetId: string): Promise<ActionResult> {
+  const { profile, db } = await adminContext(`/admin/products/${productId}`);
+  if (!UUID.test(productId) || !UUID.test(assetId)) return fail("err_not_found");
+  const { data } = await db.from("product_assets").delete().eq("id", assetId).eq("product_id", productId).select("path, title, kind");
+  const gone = data?.[0];
+  if (!gone) return fail("err_not_found");
+  const { count } = await db.from("product_assets").select("id", { count: "exact", head: true }).eq("path", gone.path);
+  if (!count) await removeStored(db, [gone.path]);
+  await audit(profile, "admin.product.content", { type: "product", id: productId }, { title: await titleOf(productId), change: "material removed", material: gone.title || gone.kind });
   refresh();
   return { ok: true };
 }

@@ -8,8 +8,9 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const text = (body: string, status: number) => new Response(body, { status, headers: { "Content-Type": "text/plain; charset=utf-8" } });
 
 /**
- * Downloads: ?format=pdf|epub for the whole product, ?page=<n> for one colouring page.
- * Access is checked with the member's own session first; only then is a 60-second signed URL issued.
+ * Downloads: ?asset=<id> for one material (add &view=1 to open an image or play an audio in the page),
+ * ?format=pdf|epub for the first PDF/EPUB (older links), ?page=<n> for one colouring page.
+ * Access is checked with the member's own session first; only then is a short-lived signed URL issued.
  * Typing the URL directly without access gets 403, and without a session 401.
  */
 export async function GET(request: NextRequest, ctx: RouteContext<"/api/products/[id]/download">) {
@@ -28,8 +29,11 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/api/products
   const slug = product?.slug ?? "product";
   const locales = [profile.locale, "en"];
   const params = request.nextUrl.searchParams;
-  const signed = async (path: string, filename: string) => {
-    const { data, error: signError } = await admin.storage.from("products").createSignedUrl(path, 60, { download: filename });
+  // Downloads start at once, so 60 seconds is plenty. An audio player keeps fetching the same link while
+  // the member listens and skips around, so a played file gets 3 hours; an image shown in the page, 10 minutes.
+  const signed = async (path: string, filename: string, view?: "audio" | "image") => {
+    const seconds = view === "audio" ? 3 * 3600 : view === "image" ? 600 : 60;
+    const { data, error: signError } = await admin.storage.from("products").createSignedUrl(path, seconds, view ? undefined : { download: filename });
     if (signError || !data) return text("This file is not available yet.", 404);
     return Response.redirect(data.signedUrl, 302);
   };
@@ -60,10 +64,31 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/api/products
     return text("This file is not available yet.", 404);
   }
 
+  const assetParam = params.get("asset");
+  if (assetParam) {
+    if (!UUID.test(assetParam)) return text("Not found", 404);
+    const { data: asset } = await admin.from("product_assets").select("kind, title, path, position").eq("id", assetParam).eq("product_id", id).maybeSingle();
+    if (!asset) return text("Not found", 404);
+    const view = params.get("view") === "1" && (asset.kind === "audio" || asset.kind === "image") ? asset.kind : undefined;
+    return signed(asset.path, `${slug}-${fileSlug(asset.title) || asset.position}${extension(asset.path)}`, view);
+  }
+
   const format = params.get("format") ?? "pdf";
   if (format !== "pdf" && format !== "epub") return text("Not found", 404);
-  const { data: files } = await admin.from("product_files").select("locale, path").eq("product_id", id).eq("format", format).in("locale", locales);
-  const file = (files ?? []).find((f) => f.locale === profile.locale) ?? (files ?? [])[0];
+  const { data: files } = await admin.from("product_assets").select("locale, path").eq("product_id", id).eq("kind", format).order("position");
+  const file =
+    (files ?? []).find((f) => f.locale === profile.locale) ?? (files ?? []).find((f) => f.locale === null) ?? (files ?? []).find((f) => locales.includes(f.locale ?? ""));
   if (!file) return text("This file is not available yet.", 404);
-  return signed(file.path, `${slug}-${file.locale}.${format}`);
+  return signed(file.path, `${slug}-${file.locale ?? "all"}.${format}`);
 }
+
+const extension = (path: string) => path.slice(path.lastIndexOf("."));
+/** "Worship Songs (Vol. 1)" -> "worship-songs-vol-1", for a readable file name. */
+const fileSlug = (title: string) =>
+  title
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 60);
