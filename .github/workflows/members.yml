@@ -79,7 +79,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: supabase/setup-cli@v1
         with:
-          version: latest
+          # Pinned: "latest" asks the GitHub API, whose rate limit can fail the job.
+          version: 2.117.0
       - name: Start Supabase (auth, database, API)
         working-directory: members
         # ghcr.io rate-limits the Supabase images on shared runners, even when logged in.
