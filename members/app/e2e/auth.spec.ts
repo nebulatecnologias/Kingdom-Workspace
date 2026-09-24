@@ -71,8 +71,9 @@ test("password sign-in, wrong password and sign-out", async ({ page }) => {
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page.getByText("That email and password don’t match.")).toBeVisible();
 
+  // Enter in the password field signs in (it used to trigger "Forgot password?", the form's first submit button).
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
-  await page.getByRole("button", { name: "Sign in", exact: true }).click();
+  await page.getByLabel("Password", { exact: true }).press("Enter");
   await page.waitForURL(/\/library$/);
   await page.getByRole("button", { name: "Sign out" }).first().click();
   await page.waitForURL(/\/login$/);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect, useState, useTransition } from "react";
 import { Info, Mail, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { forgotPassword, requestLink, signInWithPassword, type FormState } from "@/app/(auth)/actions";
@@ -34,6 +34,7 @@ export function LoginForm({ next, defaultEmail = "" }: { next: string; defaultEm
   const [linkState, linkAction] = useActionState(requestLink, idle);
   const [pwState, pwAction] = useActionState(signInWithPassword, idle);
   const [resetState, resetAction] = useActionState(forgotPassword, idle);
+  const [resetting, startReset] = useTransition();
   const [dismissedSent, setDismissedSent] = useState(false);
 
   if (linkState.status === "sent" && !dismissedSent) {
@@ -81,7 +82,17 @@ export function LoginForm({ next, defaultEmail = "" }: { next: string; defaultEm
           <div className="field">
             <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
               <label htmlFor="lg-pw">{t("password")}</label>
-              <button type="submit" formAction={resetAction} formNoValidate className="btn-link" style={{ fontSize: 13.5 }}>
+              {/* Not a submit button: pressing Enter in the form must sign in, and the first submit button is the one Enter uses. */}
+              <button
+                type="button"
+                className="btn-link"
+                style={{ fontSize: 13.5 }}
+                disabled={resetting}
+                onClick={(e) => {
+                  const fd = new FormData(e.currentTarget.form ?? undefined);
+                  startReset(() => resetAction(fd));
+                }}
+              >
                 {t("login_forgot")}
               </button>
             </div>
