@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { IntentLink as Link } from "@/components/shell/intent-link";
 import { getLocale, getTranslations } from "next-intl/server";
 import { GripVertical, Lock, Plus, Store } from "lucide-react";
 import { SectionsPanel, ShowcaseList } from "@/components/admin/showcase";

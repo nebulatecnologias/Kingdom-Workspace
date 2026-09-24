@@ -1,4 +1,4 @@
-name: Members app
+name: Kingdom Members
 
 on:
   push:
@@ -39,6 +39,10 @@ jobs:
           --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 10
     steps:
       - uses: actions/checkout@v5
+      - name: Check the seed is up to date with the prototype data
+        run: |
+          node members/supabase/scripts/generate-seed.mjs
+          git diff --exit-code members/supabase/seed.sql
       - name: Run database tests
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
@@ -104,6 +108,15 @@ jobs:
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run e2e
+      # The report artifact can't always be downloaded: print each failed test's page snapshot into the log.
+      - name: Show page snapshots of failed tests
+        if: failure()
+        run: |
+          find test-results -name error-context.md 2>/dev/null | while read -r f; do
+            echo "::group::$f"
+            sed '/# Test source/,$d' "$f"
+            echo "::endgroup::"
+          done
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { IntentLink as Link } from "@/components/shell/intent-link";
 import { getTranslations } from "next-intl/server";
 import { Bell } from "lucide-react";
 import { Feed } from "@/components/admin/feed";

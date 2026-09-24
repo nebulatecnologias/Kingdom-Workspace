@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Mail, MessageCircle, RotateCcw } from "lucide-react";
+import { requireMember } from "@/lib/auth";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -9,6 +10,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HelpPage() {
+  // Every member page checks the session itself, not only the layout and proxy (prefetches skip the proxy).
+  await requireMember("/help");
   const t = await getTranslations();
   const whatsapp = process.env.SUPPORT_WHATSAPP;
   const email = process.env.SUPPORT_EMAIL;

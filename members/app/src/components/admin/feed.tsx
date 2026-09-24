@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { IntentLink as Link } from "@/components/shell/intent-link";
 import { getLocale, getTranslations } from "next-intl/server";
 import type { FeedItem } from "@/lib/admin/activity";
 import { timeOrDate } from "@/lib/admin/time";

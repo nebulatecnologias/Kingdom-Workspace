@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { Brand } from "@/components/ui/brand";
 import { LanguageSelect } from "@/components/ui/language-select";
+import { IntentLink } from "./intent-link";
 import { NavLink } from "./nav-link";
 import { SearchBox } from "./search-box";
 import { signOut } from "@/app/(auth)/actions";
@@ -58,6 +59,9 @@ export async function AppShell({
   children: ReactNode;
 }) {
   const t = await getTranslations();
+  // The admin prefetches on intent; the member area keeps prefetching visible links so taps respond at once.
+  const ShellLink = variant === "admin" ? IntentLink : Link;
+  const intent = variant === "admin";
   const icon = (I: typeof BookOpen) => <I className="icon" aria-hidden="true" />;
 
   const nav: NavItem[] =
@@ -79,33 +83,33 @@ export async function AppShell({
   return (
     <div className="app">
       <aside className="sidebar" aria-label={variant === "admin" ? "Admin" : "Main"}>
-        <Brand href={variant === "admin" ? "/admin" : "/library"} subtitle={variant === "admin" ? t("nav_admin") : undefined} />
+        <Brand href={variant === "admin" ? "/admin" : "/library"} subtitle={variant === "admin" ? t("nav_admin") : undefined} intent={intent} />
         {variant === "admin" ? (
           <div className="split">
-            <Link className="split-main" href="/admin/invites?new=1">
+            <ShellLink className="split-main" href="/admin/invites?new=1">
               {icon(Plus)}
               {t("newInvite")}
-            </Link>
+            </ShellLink>
             <details className="split-menu">
               <summary className="split-more" aria-label={t("moreActions")} title={t("moreActions")}>
                 <ChevronDown className="icon" aria-hidden="true" />
               </summary>
               <div className="card split-pop">
-                <Link className="btn btn-quiet btn-block" href="/admin/invites?new=1">
+                <ShellLink className="btn btn-quiet btn-block" href="/admin/invites?new=1">
                   <Mail className="icon icon-sm" aria-hidden="true" />
                   {t("newInvite")}
-                </Link>
-                <Link className="btn btn-quiet btn-block" href="/admin/products/new">
+                </ShellLink>
+                <ShellLink className="btn btn-quiet btn-block" href="/admin/products/new">
                   <Plus className="icon icon-sm" aria-hidden="true" />
                   {t("newPack")}
-                </Link>
+                </ShellLink>
               </div>
             </details>
           </div>
         ) : null}
         <nav className="nav">
           {nav.map((item) => (
-            <NavLink key={item.href} href={item.href} exact={item.exact} also={item.also}>
+            <NavLink key={item.href} href={item.href} exact={item.exact} also={item.also} intent={intent}>
               {item.icon}
               {item.label}
               {item.badge ? (
@@ -117,7 +121,7 @@ export async function AppShell({
             </NavLink>
           ))}
           {variant === "member" ? (
-            <NavLink href="/help">
+            <NavLink href="/help" intent={intent}>
               {icon(MessageCircle)}
               {t("nav_help")}
             </NavLink>
@@ -125,10 +129,10 @@ export async function AppShell({
         </nav>
         <div className="sidebar-foot">
           {variant === "admin" ? (
-            <Link className="btn btn-ghost btn-block" href="/library">
+            <ShellLink className="btn btn-ghost btn-block" href="/library">
               {icon(BookOpen)}
               {t("nav_viewMember")}
-            </Link>
+            </ShellLink>
           ) : null}
           {user ? (
             <div className="user-chip">
@@ -144,29 +148,29 @@ export async function AppShell({
               </form>
             </div>
           ) : (
-            <Link className="btn btn-ghost btn-block" href="/login">
+            <ShellLink className="btn btn-ghost btn-block" href="/login">
               {icon(LogIn)}
               {t("login_signIn")}
-            </Link>
+            </ShellLink>
           )}
         </div>
       </aside>
       <div>
         <header className="mobile-bar">
-          <Brand href={variant === "admin" ? "/admin" : "/library"} subtitle={variant === "admin" ? t("nav_admin") : undefined} />
+          <Brand href={variant === "admin" ? "/admin" : "/library"} subtitle={variant === "admin" ? t("nav_admin") : undefined} intent={intent} />
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
             <LanguageSelect id="lang-m" />
             {variant === "admin" ? (
-              <Link className="icon-btn icon-btn-cta" href="/admin/invites?new=1" aria-label={t("newInvite")} title={t("newInvite")}>
+              <ShellLink className="icon-btn icon-btn-cta" href="/admin/invites?new=1" aria-label={t("newInvite")} title={t("newInvite")}>
                 {icon(Plus)}
-              </Link>
+              </ShellLink>
             ) : null}
             {user ? (
-              <Link className="mobile-me" href="/profile" title={t("nav_profile")}>
+              <ShellLink className="mobile-me" href="/profile" title={t("nav_profile")}>
                 {/* The visible initials are part of the link's name, so voice control users can say what they see. */}
                 <Avatar name={user.name} decorative={false} />
                 <span className="sr">{t("nav_profile")}</span>
-              </Link>
+              </ShellLink>
             ) : null}
           </div>
         </header>
@@ -178,13 +182,13 @@ export async function AppShell({
             <span className="spacer" />
             <LanguageSelect />
             {variant === "admin" ? (
-              <Link className="icon-btn" href="/admin/activity" aria-label={t("feed_title")} title={t("feed_title")}>
+              <ShellLink className="icon-btn" href="/admin/activity" aria-label={t("feed_title")} title={t("feed_title")}>
                 {icon(Bell)}
-              </Link>
+              </ShellLink>
             ) : (
-              <Link className="icon-btn" href="/help" aria-label={t("nav_help")}>
+              <ShellLink className="icon-btn" href="/help" aria-label={t("nav_help")}>
                 {icon(CircleHelp)}
-              </Link>
+              </ShellLink>
             )}
           </div>
           {children}
@@ -192,13 +196,13 @@ export async function AppShell({
       </div>
       <nav className="tabbar" aria-label={variant === "admin" ? "Admin" : "Main"}>
         {nav.filter((item) => !item.sidebarOnly).map((item) => (
-          <NavLink key={item.href} href={item.href} exact={item.exact} also={item.also}>
+          <NavLink key={item.href} href={item.href} exact={item.exact} also={item.also} intent={intent}>
             {item.icon}
             {item.label}
           </NavLink>
         ))}
         {variant === "member" ? (
-          <NavLink href="/help">
+          <NavLink href="/help" intent={intent}>
             {icon(MessageCircle)}
             {t("nav_help")}
           </NavLink>

@@ -84,5 +84,16 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|email/|api/webhooks|api/cron|api/health|.*\\.(?:png|jpg|jpeg|svg|webp|ico|css|js|woff2?)$).*)"],
+  matcher: [
+    {
+      source: "/((?!_next/static|_next/image|favicon.ico|email/|api/webhooks|api/cron|api/health|.*\\.(?:png|jpg|jpeg|svg|webp|ico|css|js|woff2?)$).*)",
+      // Link prefetches skip the proxy (as the Next.js CSP guide recommends): they carry no page to protect
+      // with a CSP, and checking the session on each one cost an auth-server round trip per link on screen.
+      // The pages and layouts they render check the user themselves.
+      missing: [
+        { type: "header", key: "next-router-prefetch" },
+        { type: "header", key: "purpose", value: "prefetch" },
+      ],
+    },
+  ],
 };

@@ -53,6 +53,23 @@ test.beforeAll(async () => {
   boss = await createAdmin("Naledi Admin");
 });
 
+test("admin links prefetch on intent only, and prefetches skip the proxy", async ({ page }) => {
+  await signIn(page, boss.email);
+  await page.waitForURL(/\/admin$/);
+  const prefetches: { path: string; csp: boolean }[] = [];
+  page.on("response", (r) => {
+    if (r.request().headers()["next-router-prefetch"]) prefetches.push({ path: new URL(r.url()).pathname, csp: "content-security-policy" in r.headers() });
+  });
+  await page.goto("/admin/members");
+  await page.waitForLoadState("networkidle");
+  // Prefetching every visible admin link again after each save queued dozens of server renders.
+  expect(prefetches, "nothing is prefetched just for being on screen").toEqual([]);
+  await page.getByRole("link", { name: /^Invites/ }).first().hover();
+  await expect.poll(() => prefetches.some((p) => p.path === "/admin/invites")).toBe(true);
+  // The proxy (session check, CSP) does not run for prefetches; the pages check the user themselves.
+  expect(prefetches.filter((p) => p.csp)).toEqual([]);
+});
+
 test("members cannot reach admin pages or admin actions' data", async ({ page }) => {
   await resetRateLimits();
   const email = uniqueEmail("plain");
@@ -373,11 +390,6 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
   const probe = await admin().storage.listBuckets();
   test.skip(Boolean(probe.error) && !process.env.E2E_REQUIRE_STORAGE, "Supabase Storage is not running");
 
-  // Browser errors (a failed upload logs one) go to the test output, to diagnose failures on CI.
-  page.on("console", (m) => {
-    if (m.type() === "error" || m.type() === "warning") console.log(`[browser ${m.type()}] ${m.text()}`);
-  });
-  page.on("requestfailed", (r) => console.log(`[request failed] ${r.method()} ${r.url()} ${r.failure()?.errorText}`));
   await signIn(page, boss.email);
   await page.waitForURL(/\/admin$/);
   await page.goto("/admin/products/new");
@@ -396,7 +408,7 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
     { name: "noah-page-one.png", mimeType: "image/png", buffer: png },
     { name: "noah-page-two.png", mimeType: "image/png", buffer: png },
   ]);
-  await expect(page.locator(".toasts")).toContainText("2 pages added", { timeout: 15_000 });
+  await expect(page.locator(".toasts")).toContainText("2 pages added");
   const { data: pages } = await admin().from("product_pages").select("locale, position, title, lineart_path, preview_path").eq("product_id", id).order("position");
   expect(pages).toHaveLength(6); // two pages x three languages
   expect(pages![0].title).toBe("Noah page one");
@@ -415,9 +427,7 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
     { name: "everything.zip", mimeType: "application/x-zip-compressed", buffer: Buffer.from("PK\u0003\u0004") },
   ]);
   // Reading the notices area (not one text) means a failure shows what the page actually said.
-  const started = Date.now();
-  await expect(page.locator(".toasts")).toContainText("3 materials added", { timeout: 15_000 });
-  console.log(`materials upload took ${Date.now() - started} ms`);
+  await expect(page.locator(".toasts")).toContainText("3 materials added");
   const { data: assets } = await admin().from("product_assets").select("id, kind, title, locale, size_bytes").eq("product_id", id).order("position");
   expect(assets!.map((a) => a.kind)).toEqual(["pdf", "audio", "zip"]);
   expect(assets![0]).toMatchObject({ title: "Family guide", locale: null, size_bytes: pdf.length });

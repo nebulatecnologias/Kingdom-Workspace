@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { IntentLink as Link } from "@/components/shell/intent-link";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Bell, Lock, Mail, ShieldCheck, Users } from "lucide-react";
 import { Countdown } from "@/components/admin/countdown";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { IntentLink as Link } from "@/components/shell/intent-link";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Mail, Search } from "lucide-react";
 import { InviteActions } from "@/components/admin/invite-actions";
