@@ -99,3 +99,8 @@
   .select.asset-lang { width: auto; flex: none; }
   .asset-btns { display: flex; gap: 6px; margin-left: auto; }
 }
+
+/* The 36px avatar in the phone top bar gets a 44px touch area without changing the layout. */
+@layer components {
+  .mobile-me { display: grid; place-items: center; min-width: 44px; min-height: 44px; margin: -4px; }
+}
