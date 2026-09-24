@@ -160,3 +160,11 @@ test("emails never follow the browser's language: without a chosen language they
     .toBe("en");
   await context.close();
 });
+
+test("the refund policy is public and linked from the terms", async ({ page }) => {
+  await page.goto("/legal/terms");
+  await page.getByRole("link", { name: "Refund Policy" }).click();
+  await expect(page).toHaveURL(/\/legal\/refunds$/);
+  await expect(page.getByRole("heading", { name: "Refund Policy", level: 1 })).toBeVisible();
+  await expect(page.getByText("You may ask for a refund within 7 days of your purchase.")).toBeVisible();
+});

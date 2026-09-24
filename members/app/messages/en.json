@@ -669,5 +669,7 @@
   "ma_lang": "Language",
   "ma_deleteQ": "Remove “{title}”? Members will no longer see it.",
   "ma_empty": "No materials yet.",
-  "ma_added": "{n, plural, one {# material added} other {# materials added}}"
+  "ma_added": "{n, plural, one {# material added} other {# materials added}}",
+  "help_refunds": "Refunds",
+  "help_refundsP": "You can ask for a refund within 7 days of your purchase, by email. See our <policy>Refund Policy</policy>."
 }

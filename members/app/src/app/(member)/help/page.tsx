@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, RotateCcw } from "lucide-react";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -41,6 +42,15 @@ export default async function HelpPage() {
             <b style={{ display: "block", fontWeight: 500 }}>
               {email ? <a href={`mailto:${email}`}>{email}</a> : t("help_placeholder")}
             </b>
+          </div>
+        </div>
+        <div className="bought">
+          <span className="mini" style={{ background: "var(--sunken)", color: "var(--ink-2)" }}>
+            <RotateCcw className="icon" aria-hidden="true" />
+          </span>
+          <div>
+            <span className="hint">{t("help_refunds")}</span>
+            <span style={{ display: "block" }}>{t.rich("help_refundsP", { policy: (c) => <Link href="/legal/refunds">{c}</Link> })}</span>
           </div>
         </div>
       </div>

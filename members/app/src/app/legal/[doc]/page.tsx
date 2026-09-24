@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Brand } from "@/components/ui/brand";
@@ -23,6 +24,15 @@ export async function generateMetadata({ params }: PageProps<"/legal/[doc]">): P
 
 function Block({ block }: { block: LegalBlock }) {
   if (typeof block === "string") return <p>{block}</p>;
+  if ("link" in block) {
+    return (
+      <p>
+        {block.before}
+        <Link href={`/legal/${block.link.doc}`}>{block.link.label}</Link>
+        {block.after}
+      </p>
+    );
+  }
   if ("list" in block) {
     return (
       <ul style={{ display: "grid", gap: 6, paddingLeft: 22, listStyle: "disc" }}>

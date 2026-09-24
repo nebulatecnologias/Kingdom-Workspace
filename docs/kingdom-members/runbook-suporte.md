@@ -44,6 +44,13 @@ Guia rápido para resolver os pedidos mais comuns dos clientes e responder aos a
 - **Dar a quem ainda não tem conta:** **Novo convite** com os produtos. Se o email já tiver conta, os produtos entram logo na biblioteca e o cliente recebe o email "novo na sua biblioteca".
 - **Retirar** (por exemplo, um reembolso feito fora do gateway): na ficha do membro, desligue o interruptor. Os reembolsos feitos no gateway retiram o acesso sozinhos.
 
+### Pedido de reembolso
+A política pública está em **/legal/refunds**: reembolso até **7 dias** depois da compra, pedido por email.
+
+1. Confirme a data da compra: em **Membros**, abra a ficha do cliente e veja as encomendas, ou procure a referência na pesquisa do topo.
+2. **Dentro dos 7 dias:** faça o reembolso no painel do gateway. O acesso a essa compra sai da biblioteca sozinho, incluindo todos os materiais de um kit. Responda ao cliente a confirmar.
+3. **Depois dos 7 dias:** a compra é final, salvo se a lei exigir outra coisa. Se o problema for um ficheiro que não abre, ajude o cliente: reenvie um link de entrada ou substitua o ficheiro em **Materiais**.
+
 ## 6. Kits e materiais
 
 - **Criar um kit:** **Novo produto** → tipo **Kit**. Em **Materiais**, arraste todos os ficheiros de uma vez: PDF, EPUB, imagens (PNG, JPG, WebP), áudio (MP3, M4A) ou ZIP, até 50 MB cada. Antes de carregar, escolha o idioma dos ficheiros ("Todos os idiomas" para áudios e imagens que servem a todos).

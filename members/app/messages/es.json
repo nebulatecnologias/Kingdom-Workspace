@@ -669,5 +669,7 @@
   "ma_lang": "Idioma",
   "ma_deleteQ": "¿Quitar “{title}”? Los miembros dejarán de verlo.",
   "ma_empty": "Todavía no hay materiales.",
-  "ma_added": "{n, plural, one {# material añadido} other {# materiales añadidos}}"
+  "ma_added": "{n, plural, one {# material añadido} other {# materiales añadidos}}",
+  "help_refunds": "Reembolsos",
+  "help_refundsP": "Puedes pedir el reembolso hasta 7 días después de la compra, por correo. Consulta nuestra <policy>política de reembolsos</policy>."
 }

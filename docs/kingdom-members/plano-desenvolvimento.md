@@ -259,3 +259,4 @@ Em cada fase: mensagens de commit claras, testes a passar e revisão antes de av
 8. ~~Número de WhatsApp de suporte e email de ajuda.~~ **Resolvido:** mantêm-se os contactos atuais (+27 78 448 6040 e contact@sheltondouglas.co.za).
 9. ~~Mais do que um administrador? Exigir 2FA no admin?~~ **Resolvido na fase 4:** pode haver vários administradores. A verificação em dois passos (app autenticadora) é opcional mas recomendada no painel; quando está ativa, é exigida para entrar no admin e para a base de dados reconhecer a sessão como admin.
 10. ~~Quem envia o recibo de pagamento?~~ **Resolvido:** o gateway. A área de membros envia só o convite ou o email "novo na sua biblioteca".
+11. ~~Política de reembolsos~~ **Resolvido:** reembolso até 7 dias após a compra, pedido por email. Página pública em `/legal/refunds`, ligada nos Termos e na Ajuda.
