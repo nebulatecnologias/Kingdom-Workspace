@@ -7,18 +7,47 @@ const LOCALE_COOKIE = "km-locale";
 const PROTECTED = ["/library", "/products", "/purchase", "/profile", "/admin", "/help"];
 
 /**
+ * Content Security Policy with a fresh nonce per request: Next.js adds it to its own scripts, and nothing
+ * else may run. Styles allow inline attributes (the UI uses style props); images and API calls may also go
+ * to Supabase (signed file URLs, uploads, two-step verification).
+ */
+function contentSecurityPolicy(nonce: string) {
+  const supabase = process.env.NEXT_PUBLIC_SUPABASE_URL ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).origin : "";
+  const https = (process.env.NEXT_PUBLIC_SITE_URL ?? "").startsWith("https:");
+  const dev = process.env.NODE_ENV === "development";
+  return [
+    "default-src 'self'",
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${dev ? " 'unsafe-eval'" : ""}`,
+    "style-src 'self' 'unsafe-inline'",
+    `img-src 'self' data: blob: ${supabase}`.trim(),
+    "font-src 'self'",
+    `connect-src 'self' ${supabase}`.trim(),
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+    ...(https ? ["upgrade-insecure-requests"] : []),
+  ].join("; ");
+}
+
+/**
  * Refreshes the Supabase session cookie on every page request and sends signed-out visitors
  * away from private areas. Role checks (admin) happen again on the server in requireAdmin().
  */
 export async function proxy(request: NextRequest) {
   // Layouts cannot see the URL; this lets the admin layout send people back to the page they asked for.
   request.headers.set("x-km-path", request.nextUrl.pathname + request.nextUrl.search);
+  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+  const csp = contentSecurityPolicy(nonce);
+  request.headers.set("x-nonce", nonce);
+  request.headers.set("Content-Security-Policy", csp);
   // Links in emails carry ?lang=xx so the page opens in the recipient's language.
   const lang = request.nextUrl.searchParams.get("lang");
   const langCookie = lang && LOCALES.includes(lang) ? lang : null;
   if (langCookie) request.cookies.set(LOCALE_COOKIE, langCookie);
   const withLang = (res: NextResponse) => {
     if (langCookie) res.cookies.set(LOCALE_COOKIE, langCookie, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
+    res.headers.set("Content-Security-Policy", csp);
     return res;
   };
 
