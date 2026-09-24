@@ -424,7 +424,7 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
   await page.getByRole("button", { name: "Move up: Worship songs" }).click();
   await expect.poll(async () => (await admin().from("product_assets").select("kind").eq("product_id", id).order("position")).data?.map((a) => a.kind)).toEqual(["audio", "pdf", "zip"]);
   page.once("dialog", (d) => d.accept());
-  await page.getByRole("button", { name: "Delete: Everything (ZIP)" }).click();
+  await page.getByRole("button", { name: "Delete: Everything", exact: true }).click();
   await expect.poll(async () => (await admin().from("product_assets").select("id").eq("product_id", id)).data?.length).toBe(2);
 
   await page.goto(`/admin/products/${id}?tab=sales`);
