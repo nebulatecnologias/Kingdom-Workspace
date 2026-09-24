@@ -79,7 +79,9 @@ O mesmo resumo aparece no topo da **Visão geral**, com o título "Precisa da su
 
 ## 10. Monitorização
 
-- **Estado do site:** `https://library.kingdomcompny.com/api/health` responde `{"ok":true}` quando a app e a base de dados estão bem. Registe este endereço num monitor gratuito, como UptimeRobot ou Better Stack, com verificação de 5 em 5 minutos e alerta por email ou WhatsApp.
+- **Estado do site:** o **Better Stack** (plano gratuito) verifica `https://library.kingdomcompny.com/api/health` de 3 em 3 minutos. O endereço responde `{"ok":true}` quando a app e a base de dados estão bem.
+  - **Alerta "down":** a app ou a base de dados não respondem. Abra os registos da Vercel e do Supabase (abaixo). No Supabase, confirme que o projeto não está pausado: no plano gratuito, um projeto sem atividade durante cerca de uma semana é pausado, e as verificações do monitor servem também para o manter ativo. Se estiver pausado, carregue em **Restore project**.
+  - **Alerta "up":** o site voltou a responder. Não é preciso fazer nada.
 - **Registos:**
   - **Vercel:** projeto `kingdom-members` → Logs, para erros do servidor.
   - **Supabase:** projeto `inaxsnghgzfaarjsbljh` → Logs, para a base de dados e a autenticação.

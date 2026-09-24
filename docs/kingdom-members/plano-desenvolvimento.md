@@ -249,7 +249,7 @@ Em cada fase: mensagens de commit claras, testes a passar e revisão antes de av
 ## 8. Decisões pendentes
 
 1. ~~Domínio de produção e endereço remetente dos emails.~~ **Resolvido:** a plataforma chama-se **Kingdom Library**, em **library.kingdomcompny.com**. Os emails saem como `Kingdom Library <library@kingdomcompny.com>`.
-2. Região do Supabase: **Londres (`eu-west-2`)**, junto das funções da Vercel (`lhr1`). Falta passar ao plano Pro para ter backups PITR.
+2. Região do Supabase: **Londres (`eu-west-2`)**, junto das funções da Vercel (`lhr1`). O plano Pro (backups PITR) fica para depois das primeiras vendas; até lá, o monitor Better Stack mantém o projeto ativo e avisa se o site cair.
 3. ~~Reembolso parcial: retirar ou manter o acesso?~~ **Resolvido:** qualquer reembolso, total ou parcial, retira o acesso dessa compra.
 4. ~~Disputa aberta: suspender já ou só se a disputa for perdida?~~ **Resolvido:** o acesso fica suspenso logo e volta se a disputa for ganha.
 5. ~~Validade do convite: 7 dias?~~ **Resolvido:** 7 dias.
