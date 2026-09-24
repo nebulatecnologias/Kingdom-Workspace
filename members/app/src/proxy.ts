@@ -4,7 +4,7 @@ import { createServerClient } from "@supabase/ssr";
 // Kept local: proxy runs separately from the app bundle.
 const LOCALES = ["en", "pt", "es"];
 const LOCALE_COOKIE = "km-locale";
-const PROTECTED = ["/library", "/products", "/profile", "/admin", "/help"];
+const PROTECTED = ["/library", "/products", "/purchase", "/profile", "/admin", "/help"];
 
 /**
  * Refreshes the Supabase session cookie on every page request and sends signed-out visitors

@@ -181,7 +181,7 @@ test("the padlock goes to the product's checkout with the member's details", asy
   expect(target.searchParams.get("email")).toBe(member);
   const { data: profile } = await admin().from("profiles").select("id").eq("email", member).single();
   expect(target.searchParams.get("ref")).toBe(profile!.id);
-  expect(target.searchParams.get("return_url")).toContain("/products/jonah");
+  expect(target.searchParams.get("return_url")).toContain(`/purchase/return?product=${jonah}`);
   await admin().from("products").update({ checkout_url: null }).eq("id", jonah);
 });
 

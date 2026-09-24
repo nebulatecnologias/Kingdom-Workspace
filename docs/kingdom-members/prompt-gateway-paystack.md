@@ -44,6 +44,12 @@ Estás a trabalhar no meu gateway de pagamentos (este repositório). Tenho acess
    - `return_url` (só domínios numa allowlist configurável).
 
    Estes dados são guardados no pedido e voltam nos webhooks de saída.
+
+   **Regresso ao `return_url`:** depois do pagamento (ou se o cliente cancelar), redirecionar o browser para o `return_url` recebido, **mantendo os parâmetros que já traz** e acrescentando:
+   - `status` = `success` | `cancelled` | `failed`;
+   - `reference` = a referência do pedido (ex.: `KG-20260923-8F3K2`).
+
+   Exemplo: `https://kingdom-members.vercel.app/purchase/return?product=<id>&status=success&reference=KG-20260923-8F3K2`. A área de membros nunca liberta nada por causa deste redirect: só mostra o estado e espera pelo webhook `order.paid`.
 4. **Webhook de entrada do Paystack** (`POST /webhooks/paystack`):
    - Validar o header `x-paystack-signature`. O valor esperado é HMAC-SHA512 do **corpo cru** do pedido, com a secret key como chave. Calcular sobre o body antes do parse e comparar em tempo constante.
    - Responder 200 rapidamente e processar de forma assíncrona.

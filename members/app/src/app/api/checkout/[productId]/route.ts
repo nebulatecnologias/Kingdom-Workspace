@@ -35,6 +35,6 @@ export async function GET(_request: NextRequest, ctx: RouteContext<"/api/checkou
   if (profile.fullName) target.searchParams.set("name", profile.fullName);
   target.searchParams.set("locale", profile.locale);
   target.searchParams.set("ref", profile.id);
-  target.searchParams.set("return_url", `${siteUrl()}/products/${product.slug}?purchase=return`);
+  target.searchParams.set("return_url", `${siteUrl()}/purchase/return?product=${product.id}`);
   redirect(target.toString());
 }

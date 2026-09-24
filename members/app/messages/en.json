@@ -608,5 +608,20 @@
   "mfa_resetDone": "{name} can set up two-step verification again",
   "err_mfa_code": "That code didn’t work. Check the time on your phone and try the newest code.",
   "err_self_mfa": "Turn off your own two-step verification on the security page.",
-  "ed_sampleHint": "Chapters marked as free sample can be read by every member, even before buying."
+  "ed_sampleHint": "Chapters marked as free sample can be read by every member, even before buying.",
+  "pr_waiting_title": "Confirming your payment…",
+  "pr_waiting_lead": "This usually takes a few seconds. {title} will open as soon as your payment is confirmed. You can keep this page open.",
+  "pr_unlocked_title": "Unlocked!",
+  "pr_unlocked_lead": "{title} is now in your library. Opening it…",
+  "pr_open": "Open {title}",
+  "pr_slow_title": "Still confirming",
+  "pr_slow_lead": "Your payment is taking longer than usual to reach us. There’s no need to pay again: as soon as it’s confirmed, {title} appears in your library and we’ll email you.",
+  "pr_check_again": "Check again",
+  "pr_back_library": "Back to my library",
+  "pr_help": "Paid but still nothing after an hour? Write to <link>{email}</link> with your payment reference.",
+  "pr_cancel_title": "Payment not completed",
+  "pr_cancel_lead": "Nothing was charged for {title}. You can try again whenever you’re ready.",
+  "pr_try_again": "Try again",
+  "pr_back_product": "Back to the product",
+  "pr_unlocked_notice": "Thank you! {title} is unlocked and in your library."
 }

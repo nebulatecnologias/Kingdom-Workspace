@@ -75,6 +75,13 @@ Variáveis no Vercel: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_
 - **Perfil** (`/profile`): nome, idioma (guardado no perfil e usado nos emails), palavra-passe, descarregar os dados (JSON) e apagar a conta (POPIA: apaga o perfil, o acesso, o progresso, os convites e o histórico de emails; os pedidos ficam, sem ligação à conta, por obrigação fiscal).
 - **Ilustrações de exemplo:** `src/lib/art.ts` tem as ilustrações do protótipo. Um produto ou página usa-as com `builtin:<nome>` em `cover_path` / `lineart_path`; os produtos reais usam caminhos do bucket privado `products`.
 
+## Checkout pelo cadeado (fase 5)
+
+- O cadeado (`/api/checkout/[id]`) envia o membro para o `checkout_url` do produto com `email`, `name`, `locale`, `ref` (o ID do membro) e `return_url=/purchase/return?product=<id>`.
+- Depois do pagamento, o gateway devolve o browser a `/purchase/return`, que mostra "A confirmar o pagamento…" e pergunta a `/api/purchase/status` a cada 2 segundos, durante 1 minuto, se o produto já está na conta. Quando o webhook `order.paid` chega, a página abre o produto com a mensagem "Obrigado! … está desbloqueado". Se demorar, explica que não é preciso pagar de novo e que o membro recebe um email.
+- Com `?status=cancelled` (ou `failed`) no regresso, mostra "Pagamento não concluído" e o botão "Tentar de novo".
+- O regresso do browser nunca desbloqueia nada: só o webhook assinado o faz.
+
 ## Administração (fase 4)
 
 Só para contas com `role = admin` (ativas). Todas as ações ficam no registo (`audit_log`) e aparecem em **Atividade** (`/admin/activity`, o sino no topo).

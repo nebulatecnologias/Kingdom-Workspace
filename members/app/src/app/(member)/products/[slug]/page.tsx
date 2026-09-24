@@ -80,6 +80,11 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
         <ChevronLeft className="icon icon-sm" aria-hidden="true" />
         {t("pack_backLib")}
       </Link>
+      {sp.unlocked === "1" && own ? (
+        <div style={{ marginBottom: 18 }}>
+          <Notice tone="ok">{t("pr_unlocked_notice", { title: p.title })}</Notice>
+        </div>
+      ) : null}
       {sp.checkout === "unavailable" ? (
         <div style={{ marginBottom: 18 }}>
           <Notice tone="info">{t("checkout_unavailable")}</Notice>

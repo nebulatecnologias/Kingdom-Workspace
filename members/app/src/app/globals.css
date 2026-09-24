@@ -80,3 +80,9 @@
   .table-wrap { position: relative; } /* screen-reader-only text in tables is positioned against this, not the page */
   .stack > *, .field > * { min-width: 0; }
 }
+
+/* Waiting spinner on state screens (the checkout return page). */
+@layer components {
+  .state-icon .spin { animation: spin 1s linear infinite; }
+  @media (prefers-reduced-motion: reduce) { .state-icon .spin { animation: none; } }
+}

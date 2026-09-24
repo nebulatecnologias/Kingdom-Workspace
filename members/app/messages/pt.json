@@ -608,5 +608,20 @@
   "mfa_resetDone": "{name} pode configurar de novo a verificação em dois passos",
   "err_mfa_code": "Esse código não funcionou. Confirme a hora do telemóvel e tente o código mais recente.",
   "err_self_mfa": "Desative a sua própria verificação em dois passos na página de segurança.",
-  "ed_sampleHint": "Os capítulos marcados como amostra grátis podem ser lidos por todos os membros, mesmo antes de comprar."
+  "ed_sampleHint": "Os capítulos marcados como amostra grátis podem ser lidos por todos os membros, mesmo antes de comprar.",
+  "pr_waiting_title": "A confirmar o seu pagamento…",
+  "pr_waiting_lead": "Normalmente demora poucos segundos. {title} abre assim que o pagamento for confirmado. Pode manter esta página aberta.",
+  "pr_unlocked_title": "Desbloqueado!",
+  "pr_unlocked_lead": "{title} já está na sua biblioteca. A abrir…",
+  "pr_open": "Abrir {title}",
+  "pr_slow_title": "Ainda a confirmar",
+  "pr_slow_lead": "O seu pagamento está a demorar mais do que o normal a chegar. Não precisa de pagar outra vez: assim que for confirmado, {title} aparece na sua biblioteca e enviamos-lhe um email.",
+  "pr_check_again": "Verificar de novo",
+  "pr_back_library": "Voltar à minha biblioteca",
+  "pr_help": "Pagou e continua sem nada ao fim de uma hora? Escreva para <link>{email}</link> com a referência do pagamento.",
+  "pr_cancel_title": "Pagamento não concluído",
+  "pr_cancel_lead": "Não foi cobrado nada por {title}. Pode tentar de novo quando quiser.",
+  "pr_try_again": "Tentar de novo",
+  "pr_back_product": "Voltar ao produto",
+  "pr_unlocked_notice": "Obrigado! {title} está desbloqueado e na sua biblioteca."
 }
