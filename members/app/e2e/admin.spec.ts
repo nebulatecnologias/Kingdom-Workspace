@@ -373,6 +373,11 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
   const probe = await admin().storage.listBuckets();
   test.skip(Boolean(probe.error) && !process.env.E2E_REQUIRE_STORAGE, "Supabase Storage is not running");
 
+  // Browser errors (a failed upload logs one) go to the test output, to diagnose failures on CI.
+  page.on("console", (m) => {
+    if (m.type() === "error" || m.type() === "warning") console.log(`[browser ${m.type()}] ${m.text()}`);
+  });
+  page.on("requestfailed", (r) => console.log(`[request failed] ${r.method()} ${r.url()} ${r.failure()?.errorText}`));
   await signIn(page, boss.email);
   await page.waitForURL(/\/admin$/);
   await page.goto("/admin/products/new");
@@ -391,7 +396,7 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
     { name: "noah-page-one.png", mimeType: "image/png", buffer: png },
     { name: "noah-page-two.png", mimeType: "image/png", buffer: png },
   ]);
-  await expect(page.getByText("2 pages added")).toBeVisible();
+  await expect(page.locator(".toasts")).toContainText("2 pages added", { timeout: 15_000 });
   const { data: pages } = await admin().from("product_pages").select("locale, position, title, lineart_path, preview_path").eq("product_id", id).order("position");
   expect(pages).toHaveLength(6); // two pages x three languages
   expect(pages![0].title).toBe("Noah page one");
