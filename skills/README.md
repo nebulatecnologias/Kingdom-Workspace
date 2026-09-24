@@ -22,3 +22,31 @@ python -m scripts.package_skill <caminho>/skills/kingdom-design-system
 ```
 
 O comando corre a partir da pasta da skill-creator.
+
+## members-platform
+
+"Super skill" para criar plataformas como a Kingdom Library: área de membros para vender produtos digitais, com convites criados pelas compras, webhooks do gateway, kits, downloads protegidos, admin completo, 3 idiomas, segurança, testes e publicação na Vercel + Supabase + Resend.
+
+Inclui:
+- o código completo da Kingdom Library como modelo (`assets/template/`);
+- um script que cria um projeto novo já com outra marca, domínio e contactos (`scripts/new_project.py`);
+- um gerador de favicon e imagens de partilha a partir do logo (`scripts/make_icons.mjs`);
+- o design system Kingdom (`assets/design-system/`);
+- os controlos de qualidade de interface adaptados do impeccable e do ui-ux-pro-max (com atribuição em `NOTICE.md`);
+- o guia passo a passo: perguntas iniciais com as decisões por defeito, fases 0–6, segurança, testes, publicação e os problemas já resolvidos.
+
+### Instalar
+- **claude.ai / app Claude:** carregue `dist/members-platform.skill` em Definições → Capacidades → Skills (ou abra-o numa conversa e clique em **Save skill**).
+- **Claude Code:** copie a pasta `members-platform/` para `~/.claude/skills/` ou para `.claude/skills/` do novo repositório.
+
+### Como pedir
+"Cria uma área de membros para os meus cursos, como a Kingdom Library", "quero uma biblioteca digital para vender eBooks com o Paystack", "clona o sistema da Kingdom Library para a marca X".
+
+### Atualizar
+Edite `members-platform/` e volte a gerar o pacote a partir da pasta da skill-creator:
+
+```
+python -m scripts.package_skill <caminho>/skills/members-platform <caminho>/skills/dist
+```
+
+Quando o código da app mudar, atualize o modelo em `members-platform/assets/template/` com os ficheiros de `members/` (só os que estão no git).
