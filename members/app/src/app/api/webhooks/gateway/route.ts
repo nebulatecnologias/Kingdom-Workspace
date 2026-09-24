@@ -9,7 +9,7 @@ import { allow } from "@/lib/rate-limit";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 /**
- * Receives events from the Kingdom payment gateway (contract in docs/kingdom-members/prompt-gateway-paystack.md).
+ * Receives events from the Kingdom payment gateway (contract in docs/kingdom-members/prompt-gateway-api-webhooks.md).
  * Signed with HMAC-SHA256, deduplicated by event id, applied in one database transaction.
  * 2xx means "received, do not send again"; 5xx asks the gateway to retry later.
  */

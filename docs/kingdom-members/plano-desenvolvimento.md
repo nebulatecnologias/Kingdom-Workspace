@@ -4,7 +4,7 @@ Referências:
 - Produto: `members/PRODUCT.md`
 - Design system: `members/DESIGN.md`
 - Protótipo: `members/prototype/`
-- Contrato com o gateway: `docs/kingdom-members/prompt-gateway-paystack.md`
+- Contrato com o gateway: `docs/kingdom-members/prompt-gateway-api-webhooks.md` (v2; o `prompt-gateway-paystack.md` fica como histórico)
 
 ---
 

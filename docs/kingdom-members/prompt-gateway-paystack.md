@@ -1,5 +1,7 @@
 # Prompt para o gateway: Paystack + aba de Integrações (webhooks)
 
+> **Substituído por [`prompt-gateway-api-webhooks.md`](prompt-gateway-api-webhooks.md)** (v2): o contrato exato que a Kingdom Library já implementa em produção, assinaturas Standard Webhooks, vetores de teste e a API REST pública. Este documento fica como histórico.
+
 Copiar tudo abaixo da linha e colar na sessão do Claude que desenvolve o gateway.
 
 ---

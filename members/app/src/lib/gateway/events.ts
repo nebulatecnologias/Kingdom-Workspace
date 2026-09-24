@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-/** Event types the gateway sends (contract v1, see docs/kingdom-members/prompt-gateway-paystack.md). */
+/** Event types the gateway sends (contract v1, see docs/kingdom-members/prompt-gateway-api-webhooks.md). */
 export const ORDER_EVENTS = ["order.paid", "order.refunded", "order.disputed", "order.dispute_resolved"] as const;
 export type OrderEventType = (typeof ORDER_EVENTS)[number];
 
