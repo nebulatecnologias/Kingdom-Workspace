@@ -10,6 +10,8 @@ export const LIMITS = {
   // Admin alert emails: one per kind per hour, and one daily summary.
   alert: { limit: 1, windowSeconds: 60 * 60 },
   alertDaily: { limit: 1, windowSeconds: 20 * 60 * 60 },
+  // Product comments per member: enough to talk, too few to flood the moderation queue.
+  comment: { limit: 6, windowSeconds: 60 * 60 },
 } as const;
 
 /** Registers a hit and returns true while the caller is within the limit. Fails open if the check itself errors. */

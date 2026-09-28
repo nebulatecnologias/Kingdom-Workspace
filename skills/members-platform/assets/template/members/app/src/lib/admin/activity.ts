@@ -36,6 +36,14 @@ const KNOWN = new Set([
   "admin.integration.test",
   "admin.mfa.enabled",
   "admin.mfa.disabled",
+  "admin.banner.created",
+  "admin.banner.updated",
+  "admin.banner.activated",
+  "admin.banner.deactivated",
+  "admin.banner.deleted",
+  "admin.comment.approved",
+  "admin.comment.rejected",
+  "admin.comment.deleted",
 ]);
 
 const str = (v: unknown) => (typeof v === "string" ? v : typeof v === "number" ? String(v) : "");

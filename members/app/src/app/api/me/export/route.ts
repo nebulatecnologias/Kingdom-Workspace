@@ -16,10 +16,11 @@ export async function GET() {
     admin.from("invites").select("status, created_at, expires_at, accepted_at").eq("email", profile.email),
     admin.from("email_log").select("template, status, created_at").eq("to_email", profile.email),
   ]);
-  const [{ data: answers }, { data: curation }, { data: picks }] = await Promise.all([
+  const [{ data: answers }, { data: curation }, { data: picks }, { data: comments }] = await Promise.all([
     admin.from("onboarding_responses").select("skipped, content_types, challenges, curation_opt_in, curation_spheres, created_at").eq("user_id", profile.id).order("created_at"),
     admin.from("curation_subscriptions").select("spheres, subscribed_at, unsubscribed_at, last_sent_at").eq("user_id", profile.id).maybeSingle(),
     admin.from("curation_sends").select("month, product_ids, status").eq("user_id", profile.id).order("month"),
+    admin.from("product_comments").select("product:products(slug), body, status, created_at").eq("user_id", profile.id).order("created_at"),
   ]);
   const body = {
     exported_at: new Date().toISOString(),
@@ -32,6 +33,7 @@ export async function GET() {
     emails_sent: emails ?? [],
     welcome_answers: answers ?? [],
     monthly_picks: { subscription: curation ?? null, sent: picks ?? [] },
+    comments: comments ?? [],
   };
   return new Response(JSON.stringify(body, null, 2), {
     headers: {

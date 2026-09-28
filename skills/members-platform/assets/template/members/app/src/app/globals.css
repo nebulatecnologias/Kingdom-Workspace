@@ -213,3 +213,20 @@
   .hist-list dd { margin: 0; }
   @media (max-width: 640px) { .hist-list dl { grid-template-columns: minmax(0, 1fr); } .hist-list dd { margin-bottom: 6px; } }
 }
+
+/* Product comments (member page) and the moderation queue (admin). */
+@layer components {
+  .comments { display: grid; gap: 16px; margin-top: 34px; max-width: 760px; }
+  .comments h2 { font-size: 20px; letter-spacing: -.02em; }
+  .comment-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .comment { padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); display: grid; gap: 6px; }
+  .comment-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14px; }
+  .comment-head b { font-weight: 500; }
+  .comment-head .btn { margin-left: auto; }
+  .comment p, .cmad-body { white-space: pre-line; overflow-wrap: anywhere; color: var(--ink-2); }
+  .cmad-list { list-style: none; margin: 0; padding: 6px 0; }
+  .cmad-row { display: grid; gap: 8px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+  .cmad-row:last-child { border-bottom: 0; }
+  .cmad-meta { display: flex; gap: 8px 12px; flex-wrap: wrap; align-items: baseline; font-size: 14px; }
+  .cmad-meta b { font-weight: 500; }
+}

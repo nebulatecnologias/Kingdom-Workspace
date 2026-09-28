@@ -4,12 +4,15 @@ import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { BookOpen, Check, ChevronLeft, ChevronRight, Download, Eye, FileArchive, FileText, Headphones, Image as ImageIcon, Lock, Palette } from "lucide-react";
 import { Art } from "@/components/catalogue/art";
+import { CommentForm, DeleteComment } from "@/components/catalogue/comments";
 import { DownloadAll } from "@/components/catalogue/download-all";
 import { Notice } from "@/components/ui/notice";
 import { toLocale } from "@/i18n/config";
 import { requireMember } from "@/lib/auth";
 import { formatBytes, formatDuration, getProduct, getProgress, isReading, type Asset, type ProductDetail } from "@/lib/catalogue";
 import { countLabel, priceLabel } from "@/lib/catalogue-labels";
+import { shortDate } from "@/lib/admin/time";
+import { productComments } from "@/lib/comments";
 import { signedImageUrls } from "@/lib/media";
 
 export async function generateMetadata({ params }: PageProps<"/products/[slug]">): Promise<Metadata> {
@@ -60,9 +63,10 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
   const reading = isReading(p.type);
   const pages = p.outline.filter((o) => o.kind === "page");
   const chapters = p.outline.filter((o) => o.kind === "chapter");
-  const [urls, rows] = await Promise.all([
+  const [urls, rows, comments] = await Promise.all([
     signedImageUrls([p.coverPath, ...pages.map((o) => o.previewPath)]),
     reading ? getProgress(profile.id) : Promise.resolve([]),
+    p.visibility === "visible" ? productComments(p.id, profile.id) : Promise.resolve([]),
   ]);
   const progress = rows.find((r) => r.product_id === p.id)?.chapter_position ?? 0;
   // The hero offers the main downloads; every other material is listed below it.
@@ -368,6 +372,32 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
             ) : null}
           </div>
         </>
+      ) : null}
+
+      {p.visibility === "visible" ? (
+        <section className="comments" aria-labelledby="comments-title">
+          <h2 id="comments-title">
+            {t("cm_title")} <span className="muted tnum">{comments.filter((c) => !c.pending).length}</span>
+          </h2>
+          {own ? <CommentForm productId={p.id} slug={p.slug} /> : <p className="muted">{t("cm_ownersOnly")}</p>}
+          {comments.length ? (
+            <ul className="comment-list">
+              {comments.map((c) => (
+                <li key={c.id} className="comment">
+                  <div className="comment-head">
+                    <b>{c.author || t("cm_member")}</b>
+                    <span className="muted tnum">{shortDate(c.createdAt, intlTag)}</span>
+                    {c.pending ? <span className="pill pill-amber">{t("cm_pending")}</span> : null}
+                    {c.mine ? <DeleteComment id={c.id} slug={p.slug} /> : null}
+                  </div>
+                  <p>{c.body}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="hint">{t("cm_empty")}</p>
+          )}
+        </section>
       ) : null}
     </>
   );

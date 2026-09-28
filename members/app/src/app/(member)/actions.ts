@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireMember } from "@/lib/auth";
+import { allow } from "@/lib/rate-limit";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
@@ -66,4 +67,37 @@ export async function deleteAccount() {
   const supabase = await createClient();
   await supabase.auth.signOut();
   redirect("/login?notice=deleted");
+}
+
+export type CommentState = { status: "idle" | "sent" | "error"; message?: string };
+
+/** A comment waits for an administrator before other members see it. Only members with access may write. */
+export async function postComment(_prev: CommentState, fd: FormData): Promise<CommentState> {
+  const productId = String(fd.get("product_id") ?? "");
+  const slug = String(fd.get("slug") ?? "");
+  if (!UUID.test(productId)) return { status: "error", message: "err_not_found" };
+  const profile = await requireMember(`/products/${slug}`);
+  const body = String(fd.get("body") ?? "").trim().slice(0, 1500);
+  if (!body) return { status: "error", message: "err_comment_empty" };
+  const supabase = await createClient();
+  const { data: access } = await supabase.rpc("has_access", { p_product_id: productId });
+  if (access !== true) return { status: "error", message: "err_comment_access" };
+  if (!(await allow("comment", profile.id))) return { status: "error", message: "err_comment_rate" };
+  const { error } = await createAdminClient().from("product_comments").insert({ product_id: productId, user_id: profile.id, body });
+  if (error) {
+    console.error("postComment failed", error.message);
+    return { status: "error", message: "err_generic" };
+  }
+  revalidatePath(`/products/${slug}`);
+  revalidatePath("/admin/comments");
+  return { status: "sent" };
+}
+
+/** Members can take back their own comment, waiting or published. */
+export async function deleteMyComment(id: string, slug: string) {
+  if (!UUID.test(id)) return { ok: false };
+  const profile = await requireMember(`/products/${slug}`);
+  const { error } = await createAdminClient().from("product_comments").delete().eq("id", id).eq("user_id", profile.id);
+  revalidatePath(`/products/${slug}`);
+  return { ok: !error };
 }

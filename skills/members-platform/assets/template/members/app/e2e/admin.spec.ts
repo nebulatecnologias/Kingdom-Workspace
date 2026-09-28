@@ -400,13 +400,17 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
   await page.getByRole("button", { name: "Create and continue" }).click();
   await page.waitForURL(/\/admin\/products\/[0-9a-f-]{36}$/);
   const id = page.url().split("/").pop()!;
+  // Files set before React has hydrated the page fire a change event nobody listens to yet.
+  const hydrated = () => page.waitForLoadState("networkidle");
 
   // A tiny valid PNG (1x1, white).
   const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==", "base64");
+  await hydrated();
   await page.locator("#ed-cover-file").setInputFiles({ name: "cover.png", mimeType: "image/png", buffer: png });
   await expect.poll(async () => (await admin().from("products").select("cover_path").eq("id", id).single()).data?.cover_path ?? "").toMatch(new RegExp(`^${id}/cover/`));
 
   await page.goto(`/admin/products/${id}?tab=content`);
+  await hydrated();
   await page.locator("#ed-pages-file").setInputFiles([
     { name: "noah-page-one.png", mimeType: "image/png", buffer: png },
     { name: "noah-page-two.png", mimeType: "image/png", buffer: png },
@@ -423,6 +427,7 @@ test("uploads go straight to storage: cover, colouring pages with previews, and 
 
   // Materials: several files of different kinds at once; the browser's "audio/x-m4a" is normalised.
   await page.goto(`/admin/products/${id}?tab=materials`);
+  await hydrated();
   const pdf = Buffer.from("%PDF-1.4\n1 0 obj<<>>endobj\ntrailer<<>>\n%%EOF\n");
   await page.locator("#ed-assets-file").setInputFiles([
     { name: "family-guide.pdf", mimeType: "application/pdf", buffer: pdf },

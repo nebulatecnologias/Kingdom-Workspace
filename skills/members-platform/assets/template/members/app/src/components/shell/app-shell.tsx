@@ -13,6 +13,7 @@ import {
   LogIn,
   Mail,
   MessageCircle,
+  MessagesSquare,
   Plug,
   Plus,
   ShieldCheck,
@@ -52,12 +53,15 @@ export async function AppShell({
   variant,
   user,
   pendingInvites,
+  pendingComments,
   children,
 }: {
   variant: "member" | "admin";
   user: ShellUser;
   /** Admin only: live invites, shown as a badge on "Invites". */
   pendingInvites?: number;
+  /** Admin only: comments waiting for approval, shown as a badge on "Comments". */
+  pendingComments?: number;
   children: ReactNode;
 }) {
   const t = await getTranslations();
@@ -74,6 +78,7 @@ export async function AppShell({
           { href: "/admin/members", label: t("nav_members"), icon: icon(Users) },
           { href: "/admin/showcase", label: t("nav_showcase"), icon: icon(Store), also: ["/admin/products"] },
           { href: "/admin/integrations", label: t("nav_integrations"), icon: icon(Plug) },
+          { href: "/admin/comments", label: t("nav_comments"), icon: icon(MessagesSquare), badge: pendingComments, sidebarOnly: true },
           { href: "/admin/banners", label: t("nav_banners"), icon: icon(GalleryHorizontal), sidebarOnly: true },
           // On phones the overview links here; the tab bar keeps five items.
           { href: "/admin/security", label: t("nav_security"), icon: icon(ShieldCheck), sidebarOnly: true },

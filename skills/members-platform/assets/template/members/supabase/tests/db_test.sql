@@ -572,4 +572,23 @@ delete from public.curation_sends;
 delete from public.curation_subscriptions;
 delete from public.products where slug like 'cur-%';
 
+-- Product comments: server only, reviewed before they are public.
+do $$
+declare pid uuid := (select id from public.products where slug = 'noah');
+begin
+  begin
+    insert into public.product_comments (product_id, user_id, body) values (pid, '00000000-0000-0000-0000-00000000000a', '   ');
+    raise exception 'blank comment accepted';
+  exception when check_violation then null;
+  end;
+  begin
+    insert into public.product_comments (product_id, user_id, body, status) values (pid, '00000000-0000-0000-0000-00000000000a', 'Hi', 'approved');
+    raise exception 'approved without review time accepted';
+  exception when check_violation then null;
+  end;
+  assert not has_table_privilege('authenticated', 'public.product_comments', 'select'), 'members cannot read comments directly';
+  assert not has_table_privilege('authenticated', 'public.product_comments', 'insert'), 'members cannot write comments directly';
+  assert not has_table_privilege('anon', 'public.product_comments', 'select'), 'visitors cannot read comments';
+end $$;
+
 \echo 'All database tests passed'

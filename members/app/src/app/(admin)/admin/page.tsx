@@ -39,13 +39,14 @@ export default async function AdminOverviewPage() {
   const t = await getTranslations();
   const intlTag = await getLocale();
   const locale = toLocale(intlTag);
-  const [stats, pending, rows, products, factorId, health] = await Promise.all([
+  const [stats, pending, rows, products, factorId, health, { count: pendingComments }] = await Promise.all([
     overview(db),
     pendingInvites(db, 6),
     auditRows(db, { limit: 8 }),
     adminProducts(db, locale),
     verifiedFactorId(),
     healthIssues(db, 24),
+    db.from("product_comments").select("id", { count: "exact", head: true }).eq("status", "pending"),
   ]);
   const feed = await describeActivity(db, rows);
   const title = (id: string) => products.find((p) => p.id === id)?.title ?? "—";
@@ -65,6 +66,14 @@ export default async function AdminOverviewPage() {
         <div style={{ marginBottom: 18 }}>
           <Notice tone="info">
             {t.rich("mfa_nudge", { link: (c) => <Link href="/admin/security">{c}</Link> })}
+          </Notice>
+        </div>
+      ) : null}
+
+      {pendingComments ? (
+        <div style={{ marginBottom: 18 }}>
+          <Notice tone="info">
+            {t.rich("cm_waiting", { n: pendingComments, link: (c) => <Link href="/admin/comments">{c}</Link> })}
           </Notice>
         </div>
       ) : null}
