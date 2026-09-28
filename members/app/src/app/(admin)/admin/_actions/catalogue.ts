@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { isLocale, locales as LOCALES, type Locale } from "@/i18n/config";
+import { pick, SPHERES } from "@/lib/spheres";
 import { adminContext, audit, fail, UUID, type ActionResult } from "@/lib/admin/context";
 import { productTitles } from "@/lib/invites";
 
@@ -204,7 +205,7 @@ export async function saveDetails(_prev: FormResult, fd: FormData): Promise<Form
 
   const { error } = await db
     .from("products")
-    .update({ type, section_id: UUID.test(sectionId) ? sectionId : null, field_colour: colour || null, slug })
+    .update({ type, section_id: UUID.test(sectionId) ? sectionId : null, field_colour: colour || null, slug, spheres: pick(fd.getAll("spheres"), SPHERES) })
     .eq("id", id);
   if (error) return { status: "error", message: "err_generic" };
   if (title) {

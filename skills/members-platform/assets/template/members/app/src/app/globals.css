@@ -180,3 +180,36 @@
     .home-stat span { font-size: 12px; }
   }
 }
+
+/* Welcome questions (one at a time) and the admin's view of a member's answers. */
+@layer components {
+  .welcome-steps { display: grid; gap: 8px; }
+  .welcome-q { border: 0; padding: 0; margin: 0; display: grid; gap: 14px; min-width: 0; }
+  .welcome-q > legend { padding: 0; float: left; width: 100%; }
+  .welcome-q > legend + * { clear: both; }
+  .welcome-q h1 { font-size: 26px; letter-spacing: -.02em; line-height: 1.2; }
+  .welcome-q h1:focus { outline: none; }
+  .welcome-q .lead { color: var(--muted); }
+  .choices { display: grid; gap: 8px; }
+  .choices-row { grid-template-columns: 1fr 1fr; }
+  .choice { display: flex; gap: 12px; align-items: flex-start; padding: 13px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); cursor: pointer; font-size: 15px; }
+  .choice:hover { border-color: var(--line-strong); }
+  .choice:has(input:checked) { border-color: var(--orange-400); background: var(--orange-soft); }
+  .choice:has(input:focus-visible) { box-shadow: var(--ring); }
+  .choice input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--orange-500); flex: none; }
+  .choice span { display: grid; gap: 2px; }
+  .choice b { font-weight: 500; }
+  .choice small { color: var(--muted); font-size: 13px; }
+  .choice-sm { padding: 10px 12px; font-size: 14px; }
+  .welcome-nav { display: flex; justify-content: space-between; gap: 10px; }
+  .sphere-tags { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px 16px; }
+  .hist-sub { display: grid; gap: 4px; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); }
+  .hist-sub b { font-weight: 500; }
+  .hist-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .hist-list li { display: grid; gap: 6px; padding-top: 14px; border-top: 1px solid var(--line); }
+  .hist-list li:first-child { padding-top: 0; border-top: 0; }
+  .hist-list dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 12px; margin: 0; font-size: 13.5px; }
+  .hist-list dt { color: var(--muted); }
+  .hist-list dd { margin: 0; }
+  @media (max-width: 640px) { .hist-list dl { grid-template-columns: minmax(0, 1fr); } .hist-list dd { margin-bottom: 6px; } }
+}

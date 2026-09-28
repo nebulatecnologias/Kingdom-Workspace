@@ -34,10 +34,13 @@ export default async function MemberPage({ params }: PageProps<"/admin/members/[
   if (!UUID.test(id)) notFound();
   const t = await getTranslations();
   const intlTag = await getLocale();
-  const [detail, products, rows] = await Promise.all([
+  const [detail, products, rows, { data: answers }, { data: sub }, { data: sends }] = await Promise.all([
     memberDetail(db, id),
     adminProducts(db, toLocale(intlTag)),
     auditRows(db, { limit: 10, target: { type: "profile", id } }),
+    db.from("onboarding_responses").select("id, skipped, content_types, challenges, curation_opt_in, curation_spheres, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
+    db.from("curation_subscriptions").select("spheres, subscribed_at, unsubscribed_at").eq("user_id", id).maybeSingle(),
+    db.from("curation_sends").select("month, product_ids, status").eq("user_id", id).order("month", { ascending: false }).limit(6),
   ]);
   if (!detail) notFound();
   const { member, grants, orders } = detail;
@@ -45,6 +48,8 @@ export default async function MemberPage({ params }: PageProps<"/admin/members/[
   const paid = products.filter((p) => p.access === "paid");
   const covers = await signedImageUrls(paid.map((p) => p.coverPath));
   const name = member.fullName || member.email;
+  const spheres = (list: string[]) => list.map((x) => t(`sphere_${x}`)).join(", ");
+  const monthName = (d: string) => new Intl.DateTimeFormat(intlTag, { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(d));
 
   const sourceLabel = (productId: string) => {
     const g = grants.find((x) => x.productId === productId);
@@ -190,6 +195,58 @@ export default async function MemberPage({ params }: PageProps<"/admin/members/[
               </div>
             ) : null}
             {member.status !== "active" ? <p className="hint">{t("md_inactiveNote")}</p> : null}
+          </section>
+          <section className="card card-pad stack" aria-labelledby="history-title">
+            <div>
+              <h2 id="history-title" style={{ fontSize: 16 }}>
+                {t("hist_title")}
+              </h2>
+              <p className="hint" style={{ marginTop: 4 }}>
+                {t("hist_lead")}
+              </p>
+            </div>
+            <div className="hist-sub">
+              <b>{t("hist_curation")}</b>
+              <span>
+                {sub && !sub.unsubscribed_at
+                  ? t("hist_subscribed", { date: shortDate(sub.subscribed_at, intlTag), spheres: spheres(sub.spheres) })
+                  : sub?.unsubscribed_at
+                    ? t("hist_stopped", { date: shortDate(sub.unsubscribed_at, intlTag) })
+                    : t("hist_never")}
+              </span>
+              {sends?.length ? (
+                <span className="hint">
+                  {sends
+                    .map((x) => `${monthName(x.month)}: ${x.status === "sent" ? t("hist_sent", { n: x.product_ids.length }) : t(`hist_send_${x.status}`)}`)
+                    .join(" · ")}
+                </span>
+              ) : null}
+            </div>
+            {answers?.length ? (
+              <ol className="hist-list">
+                {answers.map((a) => (
+                  <li key={a.id}>
+                    <span className="muted tnum" style={{ fontSize: 13 }}>
+                      {shortDate(a.created_at, intlTag)}
+                    </span>
+                    {a.skipped ? (
+                      <span>{t("hist_skipped")}</span>
+                    ) : (
+                      <dl>
+                        <dt>{t("hist_wants")}</dt>
+                        <dd>{a.content_types.length ? a.content_types.map((c: string) => t(`wel_type_${c}`)).join(", ") : "—"}</dd>
+                        <dt>{t("hist_challenges")}</dt>
+                        <dd>{a.challenges.length ? spheres(a.challenges) : "—"}</dd>
+                        <dt>{t("hist_curation")}</dt>
+                        <dd>{a.curation_opt_in ? t("hist_yes", { spheres: spheres(a.curation_spheres) }) : t("hist_no")}</dd>
+                      </dl>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p className="hint">{t("hist_none")}</p>
+            )}
           </section>
           <section className="card" aria-labelledby="member-feed">
             <div className="card-head">

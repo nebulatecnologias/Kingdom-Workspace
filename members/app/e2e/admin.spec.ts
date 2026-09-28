@@ -1,6 +1,6 @@
 import { createHmac } from "node:crypto";
 import { expect, test, type Page } from "@playwright/test";
-import { admin, createInvite, latestLink, resetRateLimits, uniqueEmail } from "./helpers";
+import { admin, createInvite, latestLink, resetRateLimits, uniqueEmail, skipWelcome } from "./helpers";
 
 const PASSWORD = "Adm1n-pass!23";
 
@@ -80,7 +80,7 @@ test("members cannot reach admin pages or admin actions' data", async ({ page })
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.locator('input[name="terms"]').check();
   await page.getByRole("button", { name: "Create account and open my library" }).click();
-  await page.waitForURL(/\/home\?welcome=1$/);
+  await skipWelcome(page);
   for (const path of ["/admin/invites", "/admin/members", "/admin/showcase", "/admin/integrations", "/admin/activity"]) {
     await page.goto(path);
     await expect(page).toHaveURL(/\/home$/);
@@ -176,7 +176,7 @@ test("members: search, give and remove a product, sign-in link, deactivate and r
   await mp.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await mp.locator('input[name="terms"]').check();
   await mp.getByRole("button", { name: "Create account and open my library" }).click();
-  await mp.waitForURL(/\/home\?welcome=1$/);
+  await skipWelcome(mp);
 
   await signIn(page, boss.email);
   await page.waitForURL(/\/admin$/);
@@ -237,7 +237,7 @@ test("changing a member's email moves their access and links purchases waiting u
   await mp.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await mp.locator('input[name="terms"]').check();
   await mp.getByRole("button", { name: "Create account and open my library" }).click();
-  await mp.waitForURL(/\/home\?welcome=1$/);
+  await skipWelcome(mp);
   await m.close();
   const { data: person } = await admin().from("profiles").select("id").eq("email", oldEmail).single();
   // A purchase made with the right email before the fix, waiting for an account.
@@ -375,7 +375,7 @@ test("product editor: create, translate, write chapters, set the sale, see it in
   await mp.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await mp.locator('input[name="terms"]').check();
   await mp.getByRole("button", { name: "Create account and open my library" }).click();
-  await mp.waitForURL(/\/home\?welcome=1$/);
+  await skipWelcome(mp);
   await mp.goto("/library");
   await expect(mp.getByRole("link", { name: `${title}: Locked` })).toContainText("R 59,50");
   await mp.goto(`/products/${created!.slug}/read/1`);

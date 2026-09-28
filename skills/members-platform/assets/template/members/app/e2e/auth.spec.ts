@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { admin, createInvite, latestLink, resetRateLimits, uniqueEmail } from "./helpers";
+import { admin, createInvite, latestLink, resetRateLimits, uniqueEmail, skipWelcome } from "./helpers";
 
 const PASSWORD = "Str0ng-pass!23";
 
@@ -11,7 +11,7 @@ async function acceptInvite(page: Page, url: string, opts: { password?: string }
   else await page.getByLabel("Skip the password").check();
   await page.locator('input[name="terms"]').check();
   await page.getByRole("button", { name: "Create account and open my library" }).click();
-  await page.waitForURL(/\/home\?welcome=1$/);
+  await skipWelcome(page);
 }
 
 test.describe.configure({ mode: "serial" });

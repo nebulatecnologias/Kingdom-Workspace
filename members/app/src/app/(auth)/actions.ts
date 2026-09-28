@@ -108,7 +108,8 @@ export async function acceptInvite(token: string, _prev: FormState, formData: Fo
   await setLocale(locale);
   await admin.from("profiles").update({ last_seen_at: new Date().toISOString() }).eq("id", created.user.id);
   await audit("invite.accepted", "invite", consumed.invite_id, { email }, created.user.id);
-  redirect("/home?welcome=1");
+  // New members answer three short questions first, then land on Home with the welcome note.
+  redirect(`/welcome?next=${encodeURIComponent("/home?welcome=1")}`);
 }
 
 // ---------------------------------------------------------------------------

@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import type { Page } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 
 export const admin = () =>
@@ -36,4 +37,11 @@ export async function latestLink(to: string, template: "invite" | "signin" | "re
     await new Promise((r) => setTimeout(r, 250));
   }
   throw new Error(`No ${template} email for ${to}`);
+}
+
+/** New accounts see the welcome questions first; "Not now" goes on to Home with the welcome note. */
+export async function skipWelcome(page: Page) {
+  await page.waitForURL(/\/welcome\?next=/);
+  await page.getByRole("button", { name: "Not now, take me to my library" }).click();
+  await page.waitForURL(/\/home\?welcome=1$/);
 }

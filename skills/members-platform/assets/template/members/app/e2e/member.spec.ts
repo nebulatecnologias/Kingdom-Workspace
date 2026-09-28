@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { admin, createInvite, resetRateLimits, uniqueEmail } from "./helpers";
+import { admin, createInvite, resetRateLimits, uniqueEmail, skipWelcome } from "./helpers";
 
 const PASSWORD = "Str0ng-pass!23";
 const BASE = "http://localhost:3000";
@@ -12,7 +12,7 @@ async function join(page: Page, products: string[], name = "Lerato Dube") {
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.locator('input[name="terms"]').check();
   await page.getByRole("button", { name: "Create account and open my library" }).click();
-  await page.waitForURL(/\/home\?welcome=1$/);
+  await skipWelcome(page);
   return email;
 }
 

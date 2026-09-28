@@ -534,4 +534,42 @@ rollback;
 delete from public.banners;
 delete from public.products where slug in ('banner-owned', 'banner-offer');
 
+-- Welcome answers and monthly curation: server only; picks follow the member's spheres, new things first.
+insert into public.products (slug, type, access, visibility, price_cents, spheres, sort_order) values
+  ('cur-peace-owned', 'guide', 'paid', 'visible', 100, '{peace_rest}', 1),
+  ('cur-peace-new', 'guide', 'paid', 'visible', 100, '{peace_rest}', 2),
+  ('cur-money', 'guide', 'paid', 'visible', 100, '{money_stewardship}', 3),
+  ('cur-prayer-sent', 'guide', 'paid', 'visible', 100, '{prayer_intimacy,peace_rest}', 4),
+  ('cur-hidden', 'guide', 'paid', 'hidden', 100, '{peace_rest}', 5);
+insert into public.entitlements (user_id, email, product_id, source)
+select '00000000-0000-0000-0000-00000000000a', 'thandi@example.co.za', id, 'manual' from public.products where slug = 'cur-peace-owned';
+insert into public.curation_subscriptions (user_id, spheres) values ('00000000-0000-0000-0000-00000000000a', '{peace_rest,prayer_intimacy}');
+insert into public.curation_sends (user_id, month, product_ids, status)
+select '00000000-0000-0000-0000-00000000000a', date '2026-01-01', array[id], 'sent' from public.products where slug = 'cur-prayer-sent';
+do $$ begin
+  assert (select array_agg(slug) from public.curation_picks('00000000-0000-0000-0000-00000000000a', 4))
+    = array['cur-peace-new', 'cur-prayer-sent', 'cur-peace-owned'],
+    'picks: matching spheres only, visible only, not owned first, never-suggested before suggested';
+  assert (select count(*) from public.curation_picks('00000000-0000-0000-0000-00000000000a', 1)) = 1, 'limit';
+  update public.curation_subscriptions set unsubscribed_at = now() where user_id = '00000000-0000-0000-0000-00000000000a';
+  assert not exists (select 1 from public.curation_picks('00000000-0000-0000-0000-00000000000a', 4)), 'nothing for someone who unsubscribed';
+  begin
+    insert into public.onboarding_responses (user_id, content_types) values ('00000000-0000-0000-0000-00000000000a', '{videos}');
+    raise exception 'unknown content type accepted';
+  exception when check_violation then null;
+  end;
+  begin
+    insert into public.onboarding_responses (user_id, curation_opt_in) values ('00000000-0000-0000-0000-00000000000a', true);
+    raise exception 'opt-in without spheres accepted';
+  exception when check_violation then null;
+  end;
+  assert not has_table_privilege('authenticated', 'public.onboarding_responses', 'select'), 'members cannot read answer history';
+  assert not has_table_privilege('authenticated', 'public.curation_subscriptions', 'select'), 'members cannot read subscriptions';
+  assert not has_function_privilege('authenticated', 'public.curation_picks(uuid, int)', 'execute'), 'members cannot run the picker';
+  assert not has_column_privilege('authenticated', 'public.profiles', 'onboarded_at', 'update'), 'members cannot mark themselves onboarded';
+end $$;
+delete from public.curation_sends;
+delete from public.curation_subscriptions;
+delete from public.products where slug like 'cur-%';
+
 \echo 'All database tests passed'

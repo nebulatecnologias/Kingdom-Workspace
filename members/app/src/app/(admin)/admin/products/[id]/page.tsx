@@ -165,6 +165,7 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
                   sections={sections.map((s) => ({ id: s.id, name: s.name }))}
                   slug={p.slug}
                   fieldColour={p.field_colour ?? "#fde0c6"}
+                  spheres={p.spheres ?? []}
                   text={{ title: text?.title ?? "", description: text?.description ?? "", verse: text?.verse ?? "", verseRef: text?.verse_ref ?? "" }}
                 />
                 <CoverUpload productId={id} coverPath={p.cover_path} coverUrl={urls.get(p.cover_path ?? "")} fieldColour={p.field_colour ?? "#fde0c6"} />

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { ArrowDown, ArrowUp, BookOpen, FileArchive, FileText, Headphones, Image as ImageIcon, ImageUp, Plus, Trash2, Upload } from "lucide-react";
 import { deleteProduct, saveDetails, saveSales, type FormResult } from "@/app/(admin)/admin/_actions/catalogue";
+import { SPHERES } from "@/lib/spheres";
 import { addAssets, addPages, deleteAsset, deletePage, movePage, reorderAssets, saveAssets, saveChapters, savePages, setCover, type ContentResult } from "@/app/(admin)/admin/_actions/content";
 import { Art } from "@/components/catalogue/art";
 import { Notice } from "@/components/ui/notice";
@@ -43,6 +44,7 @@ export function DetailsForm(props: {
   sections: { id: string; name: string }[];
   slug: string;
   fieldColour: string;
+  spheres: string[];
   text: { title: string; description: string; verse: string; verseRef: string };
 }) {
   const t = useTranslations();
@@ -115,6 +117,22 @@ export function DetailsForm(props: {
           <FieldError id="ed-field_colour" error={err.field_colour} />
         </div>
       </div>
+      <fieldset className="field" style={{ border: 0, padding: 0, margin: 0 }} aria-describedby="ed-spheres-hint">
+        <legend className="label" style={{ marginBottom: 8 }}>
+          {t("ed_spheres")}
+        </legend>
+        <div className="sphere-tags">
+          {SPHERES.map((s) => (
+            <label className="check" key={s}>
+              <input type="checkbox" name="spheres" value={s} defaultChecked={props.spheres.includes(s)} />
+              {t(`sphere_${s}`)}
+            </label>
+          ))}
+        </div>
+        <span className="hint" id="ed-spheres-hint">
+          {t("ed_spheresHint")}
+        </span>
+      </fieldset>
     </form>
   );
 }

@@ -105,7 +105,7 @@ const terms: LegalDoc = {
 
 const privacy: LegalDoc = {
   title: "Privacy Policy",
-  updated: "23 September 2026",
+  updated: "28 September 2026",
   intro: [
     `This Privacy Policy explains how ${COMPANY.name} ("we", "our" or "us"), the company behind Kingdom Library, collects and uses your personal information, in line with the Protection of Personal Information Act, 2013 (POPIA). We are the responsible party for the personal information described here.`,
   ],
@@ -118,6 +118,7 @@ const privacy: LegalDoc = {
             "Account details: your name, email address, preferred language, and the date you accepted our Terms.",
             "Purchases: the products you bought, order references, amounts and refund status, as sent to us by our payment gateway. We never receive or store your card details.",
             "Use of your library: which products you open and how far you have read, so you can pick up where you left off.",
+            "Your welcome answers, if you choose to give them: the kinds of content you would like, the areas of Christian life where you feel challenged, and whether you want our monthly picks. Only our team sees them.",
             "Security information: sign-in times, and your IP address for a short time to limit repeated sign-in attempts.",
             "Emails we send you: the type of email, when it was sent and whether it was delivered.",
           ],
@@ -133,6 +134,7 @@ const privacy: LegalDoc = {
             "to send you invites, sign-in links, password resets and notices about your purchases;",
             "to keep your account and our website secure;",
             "to answer your questions and give you support;",
+            "to suggest resources that fit your answers and, only if you said yes, to send you one email a month with picks for the areas you chose (you can stop it at any time from the email or your profile);",
             "to meet our legal and accounting obligations.",
           ],
         },

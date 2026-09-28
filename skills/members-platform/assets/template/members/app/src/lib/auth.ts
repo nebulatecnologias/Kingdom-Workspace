@@ -13,6 +13,8 @@ export type Profile = {
   locale: Locale;
   role: "member" | "admin";
   status: "active" | "deactivated";
+  /** When the member answered or skipped the welcome questionnaire; null until then. */
+  onboardedAt: string | null;
 };
 
 /** The signed-in auth user, checked with the auth server. Cached per request. */
@@ -29,7 +31,7 @@ export const getProfile = cache(async (): Promise<Profile | null> => {
   const supabase = await createClient();
   const { data: p } = await supabase
     .from("profiles")
-    .select("id, email, full_name, locale, role, status")
+    .select("id, email, full_name, locale, role, status, onboarded_at")
     .eq("id", user.id)
     .maybeSingle();
   if (!p) return null;
@@ -40,6 +42,7 @@ export const getProfile = cache(async (): Promise<Profile | null> => {
     locale: isLocale(p.locale) ? p.locale : "en",
     role: p.role === "admin" ? "admin" : "member",
     status: p.status === "deactivated" ? "deactivated" : "active",
+    onboardedAt: p.onboarded_at ?? null,
   };
 });
 

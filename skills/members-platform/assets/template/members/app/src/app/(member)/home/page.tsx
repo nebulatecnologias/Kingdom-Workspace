@@ -81,6 +81,21 @@ export default async function HomePage({ searchParams }: PageProps<"/home">) {
         </div>
       </div>
 
+      {!profile.onboardedAt ? (
+        <div className="card card-pad home-sec home-start">
+          <div>
+            <b style={{ fontWeight: 500 }}>{t("home_welcomeQ")}</b>
+            <p className="muted" style={{ fontSize: 14, marginTop: 2 }}>
+              {t("home_welcomeQP")}
+            </p>
+          </div>
+          <Link className="btn btn-primary btn-sm" href="/welcome">
+            {t("home_welcomeQGo")}
+            <ArrowRight className="icon icon-sm" aria-hidden="true" />
+          </Link>
+        </div>
+      ) : null}
+
       <BannerCarousel banners={banners} />
 
       <section className="home-stats" aria-label={t("home_progress")}>

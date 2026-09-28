@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { createAdminClient } from "@/lib/supabase/admin";
 import type { RenderedEmail } from "./templates";
 
-export type EmailTemplate = "invite" | "signin" | "reset" | "unlocked" | "alert";
+export type EmailTemplate = "invite" | "signin" | "reset" | "unlocked" | "alert" | "curation";
 
 /**
  * Failed emails that are worth sending again, and when. Sign-in and reset links are not retried:
@@ -29,7 +29,7 @@ export function devMailboxEnabled() {
 }
 
 /** Sends one email through the Resend HTTP API. Throws with Resend's message on failure. */
-export async function deliverViaResend(apiKey: string, to: string, email: Pick<RenderedEmail, "subject" | "html" | "text">) {
+export async function deliverViaResend(apiKey: string, to: string, email: Pick<RenderedEmail, "subject" | "html" | "text">, headers?: Record<string, string>) {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
@@ -40,6 +40,7 @@ export async function deliverViaResend(apiKey: string, to: string, email: Pick<R
       subject: email.subject,
       html: email.html,
       text: email.text,
+      headers,
     }),
   });
   const body = (await res.json().catch(() => ({}))) as { id?: string; message?: string };
@@ -62,6 +63,8 @@ export async function sendEmail(opts: {
   link?: string;
   /** 1 for the first try; the retry job passes the running count so the backoff schedule ends. */
   attempt?: number;
+  /** Extra email headers, e.g. List-Unsubscribe on the monthly picks. */
+  headers?: Record<string, string>;
 }): Promise<{ ok: boolean }> {
   const admin = createAdminClient();
   const apiKey = process.env.RESEND_API_KEY;
@@ -99,7 +102,7 @@ export async function sendEmail(opts: {
     .single();
 
   try {
-    const providerId = await deliverViaResend(apiKey, opts.to, opts.email);
+    const providerId = await deliverViaResend(apiKey, opts.to, opts.email, opts.headers);
     // Once delivered, the content is no longer needed: keep only the subject.
     if (row)
       await admin

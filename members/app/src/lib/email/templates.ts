@@ -1,5 +1,6 @@
 import { intlLocale, type Locale } from "@/i18n/config";
 import { formatZar } from "@/lib/format";
+import type { Sphere } from "@/lib/spheres";
 import { translatorFor } from "./translator";
 
 export type RenderedEmail = { subject: string; preview: string; html: string; text: string };
@@ -20,6 +21,8 @@ function layout(opts: {
   extraHtml?: string;
   cta: { label: string; url: string };
   smallPrint: string;
+  /** Marketing emails only: the one-click way out, under the small print. */
+  unsubscribe?: { label: string; url: string };
 }): string {
   const t = translatorFor(opts.locale);
   const p = (text: string) => `<p style="margin:0 0 16px">${esc(text)}</p>`;
@@ -39,7 +42,7 @@ function layout(opts: {
   ${opts.body.map(p).join("")}
   ${opts.extraHtml ?? ""}
   <p style="margin:8px 0 20px"><a href="${esc(opts.cta.url)}" style="display:inline-block;background:#f2570f;background-image:linear-gradient(180deg,#ff7f37,#f2570f);color:#ffffff;text-decoration:none;font-weight:500;padding:14px 26px;border-radius:999px">${esc(opts.cta.label)}</a></p>
-  ${opts.smallPrint ? `<p style="margin:0 0 16px;font-size:13px;color:#6f6962">${esc(opts.smallPrint)}</p>` : ""}
+  ${opts.smallPrint ? `<p style="margin:0 0 16px;font-size:13px;color:#6f6962">${esc(opts.smallPrint)}${opts.unsubscribe ? ` <a href="${esc(opts.unsubscribe.url)}" style="color:#b8400a">${esc(opts.unsubscribe.label)}</a>` : ""}</p>` : ""}
   <p style="margin:0 0 16px;font-size:12.5px;color:#6f6962">${esc(t("mail_link_fallback"))}<br><a href="${esc(opts.cta.url)}" style="color:#b8400a;word-break:break-all">${esc(opts.cta.url)}</a></p>
   <p style="margin:0 0 16px;padding-top:16px;border-top:1px solid #efe9e2;font-size:14.5px;color:#6f6962">${esc(t("mail_verse"))}</p>
   <p style="margin:0">${esc(t("mail_signoff"))}<br>${esc(t("mail_team"))}</p>
@@ -196,5 +199,54 @@ export function renderAlertEmail(opts: { locale: Locale; siteUrl: string; kind: 
       smallPrint: t("mail_alert_small"),
     }),
     text: textVersion([greeting, t("mail_alert_intro"), ...lines, `${t("mail_alert_cta")}: ${url}`]),
+  };
+}
+
+/** Monthly picks: a few products for the spheres the member chose, with a one-click way to stop. */
+export function renderCurationEmail(opts: {
+  locale: Locale;
+  siteUrl: string;
+  name: string;
+  month: Date;
+  spheres: Sphere[];
+  items: { title: string; slug: string; owned: boolean }[];
+  unsubscribeUrl: string;
+}): RenderedEmail {
+  const t = translatorFor(opts.locale);
+  const month = new Intl.DateTimeFormat(intlLocale[opts.locale], { month: "long", timeZone: "UTC" }).format(opts.month);
+  const spheres = new Intl.ListFormat(intlLocale[opts.locale], { style: "long", type: "conjunction" }).format(opts.spheres.map((s) => t(`sphere_${s}` as const)));
+  const greeting = t("mail_hi", { name: opts.name || "" }).replace(/\s+,/, ",");
+  const url = `${opts.siteUrl}/home?lang=${opts.locale}`;
+  const itemUrl = (slug: string) => `${opts.siteUrl}/products/${slug}?lang=${opts.locale}`;
+  const tag = (owned: boolean) => (owned ? t("mail_cur_owned") : t("mail_cur_new"));
+  const list = `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 18px;border:1px solid #efe9e2;border-radius:14px">${opts.items
+    .map(
+      (i, n) =>
+        `<tr><td style="padding:14px 16px;${n ? "border-top:1px solid #efe9e2;" : ""}"><a href="${esc(itemUrl(i.slug))}" style="color:#1c1a17;font-weight:500;text-decoration:none">${esc(i.title)}</a><br><span style="font-size:13px;color:#6f6962">${esc(tag(i.owned))}</span></td></tr>`,
+    )
+    .join("")}</table>`;
+  const intro = t("mail_cur_p", { spheres });
+  return {
+    subject: t("mail_subject_curation", { month }),
+    preview: t("mail_preview_curation", { spheres }),
+    html: layout({
+      locale: opts.locale,
+      siteUrl: opts.siteUrl,
+      preview: t("mail_preview_curation", { spheres }),
+      heading: t("mail_cur_title", { month }),
+      greeting,
+      body: [intro],
+      extraHtml: list,
+      cta: { label: t("mail_cur_cta"), url },
+      smallPrint: t("mail_cur_why"),
+      unsubscribe: { label: t("mail_cur_stop"), url: opts.unsubscribeUrl },
+    }),
+    text: textVersion([
+      greeting,
+      intro,
+      opts.items.map((i) => `- ${i.title} (${tag(i.owned)}): ${itemUrl(i.slug)}`).join("\n"),
+      `${t("mail_cur_cta")}: ${url}`,
+      `${t("mail_cur_why")} ${t("mail_cur_stop")}: ${opts.unsubscribeUrl}`,
+    ]),
   };
 }
