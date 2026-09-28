@@ -1,0 +1,127 @@
+@import "tailwindcss";
+/* Kingdom UI: tokens + component classes (kept identical to the design-system skill). Layered so Tailwind utilities win. */
+@import "../styles/kingdom-ui.css" layer(components);
+
+/* Self-hosted Google Sans from next/font, with the documented fallback stack. */
+:root {
+  --font: var(--font-google-sans), "Google Sans", "Product Sans", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+}
+
+@theme inline {
+  --font-sans: var(--font-google-sans), "Google Sans", "Product Sans", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+  --color-canvas: var(--canvas); --color-canvas-2: var(--canvas-2);
+  --color-surface: var(--surface); --color-surface-2: var(--surface-2); --color-sunken: var(--sunken);
+  --color-line: var(--line); --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink); --color-ink-2: var(--ink-2); --color-muted: var(--muted); --color-faint: var(--faint);
+  --color-orange-300: var(--orange-300); --color-orange-400: var(--orange-400); --color-orange-500: var(--orange-500); --color-orange-600: var(--orange-600);
+  --color-orange-soft: var(--orange-soft); --color-orange-ink: var(--orange-ink);
+  --color-green: var(--green); --color-green-soft: var(--green-soft); --color-green-ink: var(--green-ink);
+  --color-red: var(--red); --color-red-soft: var(--red-soft); --color-red-ink: var(--red-ink);
+  --color-amber-soft: var(--amber-soft); --color-amber-ink: var(--amber-ink);
+  --color-blue-soft: var(--blue-soft); --color-blue-ink: var(--blue-ink);
+  --color-violet-1: var(--violet-1); --color-violet-2: var(--violet-2); --color-violet-soft: var(--violet-soft); --color-violet-ink: var(--violet-ink);
+  --color-art-ink: var(--art-ink);
+  --color-field-sky: #d6ebf8; --color-field-sand: #ffe6b3; --color-field-meadow: #d9eed0; --color-field-blush: #f8d5cf;
+  --color-field-lagoon: #cbedee; --color-field-lavender: #e8e2fb; --color-field-wheat: #f3e0c3; --color-field-apricot: #fde0c6;
+  --color-field-mint: #dff0d6; --color-field-periwinkle: #e6e0f8; --color-field-ice: #d6e7f6;
+  --radius-xs: 8px; --radius-sm: 12px; --radius-field: 14px; --radius-md: 16px; --radius-card: 22px; --radius-xl: 26px; --radius-panel: 30px;
+  --shadow-rest: var(--shadow-1); --shadow-lift: var(--shadow-2); --shadow-popover: var(--shadow-pop); --shadow-cta: var(--cta-shadow); --shadow-focus: var(--ring);
+  --ease-kingdom: var(--ease);
+  --breakpoint-shell: 980px; --breakpoint-wide: 1180px;
+}
+
+/* Gradient utilities (Tailwind v4 has no background-image theme namespace). */
+@utility bg-cta { background-image: var(--cta); }
+@utility bg-cta-hover { background-image: var(--cta-hover); }
+@utility bg-cta-aa { background-image: var(--cta-aa); }
+@utility bg-card { background-image: var(--card-bg); }
+@utility bg-brand { background-image: var(--brand-panel); }
+
+/* Tailwind's preflight removes link underlines; links inside running text need one to be told apart from it (WCAG 1.4.1). */
+@layer components {
+  p a:not(.btn), .hint a:not(.btn), .notice a:not(.btn), address a, .reader a { text-decoration: underline; }
+}
+
+/* Admin pieces built with links and <details> instead of the prototype's buttons, so they work without JavaScript. */
+@layer components {
+  .split-menu { display: flex; position: static; }
+  .split-menu > summary { list-style: none; cursor: pointer; color: #fff; }
+  .split-menu > summary::-webkit-details-marker { display: none; }
+  .split-menu > summary:hover { background: rgba(255, 255, 255, .08); }
+  .split-menu > summary:focus-visible { outline: none; box-shadow: var(--ring); }
+  .split-pop { position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 30; padding: 6px; box-shadow: var(--shadow-pop); display: grid; gap: 2px; }
+  .split-pop .btn { justify-content: flex-start; }
+  .icon-btn-cta { background: var(--cta); color: #fff; border: 0; }
+  .tabs a { padding: 10px 14px; font-weight: 500; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; text-decoration: none; }
+  .tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--orange-500); }
+  .seg a { border-radius: 999px; padding: 7px 14px; font-size: 13.5px; font-weight: 500; color: var(--muted); text-decoration: none; }
+  .seg-sm a { padding: 5px 11px; font-size: 12.5px; }
+  .seg a[aria-current="true"], .seg a[aria-current="page"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(28, 22, 16, .12); }
+  .row-link, .feed-link { color: inherit; text-decoration: none; }
+  .feed-link:hover b, .feed-link:hover .chip-mention { text-decoration: underline; }
+  .row-link::after { content: ""; position: absolute; inset: 0; }
+  .table tr.clickable { position: relative; }
+  .table tr.clickable:focus-within { background: var(--surface-2); }
+  .stack-covers { display: flex; align-items: center; gap: 8px; }
+  .stack-covers .mini-cover { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; overflow: hidden; box-shadow: 0 0 0 2px var(--surface); }
+  .stack-covers .mini-cover + .mini-cover { margin-left: -12px; }
+  .stack-covers .mini-cover > svg, .stack-covers .mini-cover > img { width: 80%; height: 80%; }
+  .sc-thumb > svg, .sc-thumb > img, .mini > svg, .mini > img { width: 80%; height: 80%; }
+}
+
+/* Feed mentions can be long email addresses: let them wrap like text instead of stretching the line. */
+@layer components {
+  .feed-item .chip-mention { display: inline; overflow-wrap: anywhere; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .feed-item .chip-mention::after { display: inline-block; margin-left: 5px; vertical-align: middle; }
+}
+
+/* Keep wide content (tables, long codes) scrolling inside its card on phones instead of widening the page. */
+@layer components {
+  .table-wrap { position: relative; } /* screen-reader-only text in tables is positioned against this, not the page */
+  .stack > *, .field > * { min-width: 0; }
+}
+
+/* Waiting spinner on state screens (the checkout return page). */
+@layer components {
+  .state-icon .spin { animation: spin 1s linear infinite; }
+  @media (prefers-reduced-motion: reduce) { .state-icon .spin { animation: none; } }
+}
+
+/* Kits: materials list (member product page) and the Materials tab (admin). */
+@layer components {
+  .toc-row.asset { flex-wrap: wrap; }
+  .toc-row.asset:hover { background: transparent; }
+  .asset-acts { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+  .asset-audio { flex-basis: 100%; width: 100%; height: 40px; }
+  .asset-row { flex-wrap: wrap; }
+  .asset-fields { flex: 1 1 160px; min-width: 0; display: grid; gap: 4px; }
+  .asset-row .select.asset-lang { min-width: 140px; }
+  .select.asset-lang { width: auto; flex: none; }
+  .asset-btns { display: flex; gap: 6px; margin-left: auto; }
+}
+
+/* The 36px avatar in the phone top bar gets a 44px touch area without changing the layout. */
+@layer components {
+  .mobile-me { display: grid; place-items: center; min-width: 44px; min-height: 44px; margin: -4px; }
+}
+
+/* Loading placeholders (PageSkeleton) and instant tap feedback on phones. */
+@layer components {
+  .sk { background: var(--line); border-radius: 10px; animation: sk-pulse 1.2s ease-in-out infinite; }
+  .sk-title { height: 32px; width: min(280px, 60%); margin-bottom: 10px; }
+  .sk-line { height: 14px; width: 100%; margin-top: 10px; }
+  .sk-card { height: 300px; border-radius: 18px; }
+  .skeleton-page .page-head > div { flex: 1; }
+  .sk-button { height: 44px; width: 180px; margin-top: 22px; border-radius: 999px; }
+  .sk-row { height: 44px; margin-top: 10px; }
+  .sk-row:first-child { margin-top: 0; }
+  .skeleton-page { animation: fade .2s ease-out .15s both; }
+  @keyframes sk-pulse { 50% { opacity: .5; } }
+  @media (prefers-reduced-motion: reduce) { .sk, .skeleton-page { animation: none; } }
+}
+@layer base {
+  /* No double-tap-to-zoom wait on controls, and a visible press state so a tap is acknowledged at once. */
+  a, button, label, summary, [role="button"], input, select, textarea { touch-action: manipulation; }
+  html { -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06); }
+  .lib-grid a:active, .card a:active, .toc-row:active, .nav a:active { opacity: .7; }
+}

@@ -1,3 +1,10 @@
 node_modules/
 __pycache__/
 *.pyc
+members/.impeccable/review/
+members/prototype/dist/
+skills/kingdom-design-system-workspace/
+
+# Lite local Supabase (members/supabase/lite)
+members/supabase/lite/.cache/
+members/app/.env.lite

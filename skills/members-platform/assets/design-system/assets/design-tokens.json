@@ -1,0 +1,1061 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T17:29:00+00:00",
+  "title": "Design System: Kingdom Members",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Stone Canvas",
+        "canonical": "#f5f3f0",
+        "oklch": "oklch(96.5% 0.005 78.3)",
+        "tonalRamp": [
+          "#0c0b09",
+          "#252422",
+          "#413f3d",
+          "#5f5d5b",
+          "#7f7d7a",
+          "#a09e9b",
+          "#c9c7c4",
+          "#f0eeeb"
+        ],
+        "dark": "#141311",
+        "cssVar": "--canvas"
+      },
+      "canvas-2": {
+        "role": "neutral",
+        "displayName": "Sidebar Stone",
+        "canonical": "#efece8",
+        "oklch": "oklch(94.4% 0.006 75.4)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#262421",
+          "#423f3c",
+          "#605d5a",
+          "#7f7d79",
+          "#a19e9a",
+          "#cac7c3",
+          "#f1eeea"
+        ],
+        "dark": "#1a1816",
+        "cssVar": "--canvas-2"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c7c7c7",
+          "#eeeeee"
+        ],
+        "dark": "#1e1c19",
+        "cssVar": "--surface"
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Paper Warm",
+        "canonical": "#fbfaf8",
+        "oklch": "oklch(98.5% 0.003 84.6)",
+        "tonalRamp": [
+          "#0c0b0a",
+          "#252422",
+          "#40403e",
+          "#5e5d5c",
+          "#7e7d7b",
+          "#9f9e9c",
+          "#c8c7c5",
+          "#efeeec"
+        ],
+        "dark": "#1b1917",
+        "cssVar": "--surface-2"
+      },
+      "sunken": {
+        "role": "neutral",
+        "displayName": "Sunken Stone",
+        "canonical": "#f1eeea",
+        "oklch": "oklch(95.0% 0.006 75.4)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#262421",
+          "#423f3c",
+          "#605d5a",
+          "#7f7d79",
+          "#a19e9a",
+          "#cac7c3",
+          "#f1eeea"
+        ],
+        "dark": "#26231f",
+        "cssVar": "--sunken"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e8e3dd",
+        "oklch": "oklch(91.8% 0.010 72.7)",
+        "tonalRamp": [
+          "#0e0b07",
+          "#27231f",
+          "#433f3a",
+          "#615d58",
+          "#817c77",
+          "#a29e98",
+          "#cbc6c1",
+          "#f3eee7"
+        ],
+        "dark": "#2f2b27",
+        "cssVar": "--line"
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Hairline Strong",
+        "canonical": "#d9d3cb",
+        "oklch": "oklch(86.9% 0.013 75.4)",
+        "tonalRamp": [
+          "#0e0a06",
+          "#28231d",
+          "#443f38",
+          "#625d56",
+          "#827c75",
+          "#a39d96",
+          "#ccc6be",
+          "#f4ede5"
+        ],
+        "dark": "#3d3833",
+        "cssVar": "--line-strong"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Warm Ink",
+        "canonical": "#1c1a17",
+        "oklch": "oklch(21.9% 0.007 78.2)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#262421",
+          "#423f3c",
+          "#605d5a",
+          "#7f7d79",
+          "#a19e9a",
+          "#cac7c3",
+          "#f1eeea"
+        ],
+        "dark": "#f4f0ea",
+        "cssVar": "--ink"
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Label Ink",
+        "canonical": "#3b3732",
+        "oklch": "oklch(33.9% 0.010 73.6)",
+        "tonalRamp": [
+          "#0e0b07",
+          "#27231f",
+          "#433f3a",
+          "#615d57",
+          "#817c77",
+          "#a29e98",
+          "#cbc6c0",
+          "#f3eee7"
+        ],
+        "dark": "#ddd6cd",
+        "cssVar": "--ink-2"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Stone",
+        "canonical": "#6f6962",
+        "oklch": "oklch(52.4% 0.013 71.8)",
+        "tonalRamp": [
+          "#0f0a06",
+          "#28231d",
+          "#443f38",
+          "#625d56",
+          "#827c75",
+          "#a49d96",
+          "#cdc6be",
+          "#f4ede5"
+        ],
+        "dark": "#aaa298",
+        "cssVar": "--muted"
+      },
+      "faint": {
+        "role": "neutral",
+        "displayName": "Faint Stone (non-text)",
+        "canonical": "#7d766e",
+        "oklch": "oklch(66.7% 0.014 71.3)",
+        "tonalRamp": [
+          "#0f0a05",
+          "#28231d",
+          "#453f38",
+          "#635c55",
+          "#837c74",
+          "#a49d95",
+          "#cdc6be",
+          "#f5ede4"
+        ],
+        "dark": "#7f786f",
+        "cssVar": "--faint",
+        "note": "2.7:1 on canvas; placeholders and chevrons only, not text."
+      },
+      "orange-300": {
+        "role": "primary",
+        "displayName": "Orange 300",
+        "canonical": "#ffb38a",
+        "oklch": "oklch(83.0% 0.104 49.2)",
+        "tonalRamp": [
+          "#180500",
+          "#3d1700",
+          "#682c00",
+          "#8c4921",
+          "#af6942",
+          "#d38a62",
+          "#fdb48d",
+          "#ffeadf"
+        ],
+        "cssVar": "--orange-300"
+      },
+      "orange-400": {
+        "role": "primary",
+        "displayName": "Orange 400 (bar top)",
+        "canonical": "#ff8a4c",
+        "oklch": "oklch(75.1% 0.161 46.8)",
+        "tonalRamp": [
+          "#190500",
+          "#3e1601",
+          "#692a01",
+          "#964004",
+          "#c75708",
+          "#ed7a3a",
+          "#ffb38e",
+          "#ffeae0"
+        ],
+        "cssVar": "--orange-400"
+      },
+      "orange-500": {
+        "role": "primary",
+        "displayName": "Ember Orange",
+        "canonical": "#f4621d",
+        "oklch": "oklch(67.5% 0.194 41.4)",
+        "tonalRamp": [
+          "#1a0400",
+          "#411301",
+          "#6d2503",
+          "#9c3907",
+          "#ce4e0d",
+          "#fd6a29",
+          "#fdb397",
+          "#ffe9e1"
+        ],
+        "cssVar": "--orange-500"
+      },
+      "orange-600": {
+        "role": "primary",
+        "displayName": "Orange 600",
+        "canonical": "#e14e0c",
+        "oklch": "oklch(62.0% 0.194 39.1)",
+        "tonalRamp": [
+          "#1b0300",
+          "#431101",
+          "#702202",
+          "#a03506",
+          "#d3490b",
+          "#fe6933",
+          "#fdb39a",
+          "#fee9e2"
+        ],
+        "cssVar": "--orange-600"
+      },
+      "orange-soft": {
+        "role": "primary",
+        "displayName": "Apricot Wash",
+        "canonical": "#fff0e7",
+        "oklch": "oklch(96.5% 0.020 53.3)",
+        "tonalRamp": [
+          "#120904",
+          "#2c211b",
+          "#493d36",
+          "#675b53",
+          "#877a72",
+          "#a99b93",
+          "#d3c4bb",
+          "#faebe2"
+        ],
+        "dark": "#3a2216",
+        "cssVar": "--orange-soft"
+      },
+      "orange-ink": {
+        "role": "primary",
+        "displayName": "Burnt Ink",
+        "canonical": "#b8400a",
+        "oklch": "oklch(53.5% 0.165 39.5)",
+        "tonalRamp": [
+          "#1b0300",
+          "#421101",
+          "#6f2302",
+          "#9f3606",
+          "#cb5224",
+          "#f17549",
+          "#fdb39a",
+          "#fee9e2"
+        ],
+        "dark": "#ffab7c",
+        "cssVar": "--orange-ink"
+      },
+      "cta-glow": {
+        "role": "primary",
+        "displayName": "Sunrise CTA Top",
+        "canonical": "#ff7f37",
+        "oklch": "oklch(73.3% 0.176 46.6)",
+        "tonalRamp": [
+          "#190500",
+          "#3e1701",
+          "#692b03",
+          "#964107",
+          "#c6580e",
+          "#f3752a",
+          "#feb38f",
+          "#ffeae0"
+        ],
+        "note": "Top stop of --cta: linear-gradient(180deg, #ff7f37 0%, #f2570f 100%). Not a standalone custom property."
+      },
+      "cta-deep": {
+        "role": "primary",
+        "displayName": "Sunrise CTA Base",
+        "canonical": "#f2570f",
+        "oklch": "oklch(65.8% 0.203 39.7)",
+        "tonalRamp": [
+          "#1b0300",
+          "#421101",
+          "#6f2302",
+          "#9f3604",
+          "#d24a09",
+          "#fd6a32",
+          "#fdb399",
+          "#fee9e2"
+        ],
+        "note": "Bottom stop of --cta; hover gradient is #ff8b47 -> #f4621d."
+      },
+      "green": {
+        "role": "tertiary",
+        "displayName": "Owned Green",
+        "canonical": "#15803d",
+        "oklch": "oklch(62.7% 0.170 149.2)",
+        "tonalRamp": [
+          "#001003",
+          "#022d0f",
+          "#044e1f",
+          "#097130",
+          "#109643",
+          "#3cba60",
+          "#6ce588",
+          "#c8ffd1"
+        ],
+        "cssVar": "--green"
+      },
+      "green-soft": {
+        "role": "tertiary",
+        "displayName": "Green Wash",
+        "canonical": "#e3f6ea",
+        "oklch": "oklch(95.6% 0.026 158.2)",
+        "tonalRamp": [
+          "#030e07",
+          "#19281f",
+          "#35443b",
+          "#526258",
+          "#718278",
+          "#92a498",
+          "#bacdc1",
+          "#e1f4e8"
+        ],
+        "dark": "#15301f",
+        "cssVar": "--green-soft"
+      },
+      "green-ink": {
+        "role": "tertiary",
+        "displayName": "Green Ink",
+        "canonical": "#0f7a37",
+        "oklch": "oklch(50.8% 0.136 149.5)",
+        "tonalRamp": [
+          "#001003",
+          "#022d10",
+          "#054e20",
+          "#0b7132",
+          "#33934f",
+          "#59b66f",
+          "#83e097",
+          "#c9ffd2"
+        ],
+        "dark": "#6fdc98",
+        "cssVar": "--green-ink"
+      },
+      "red": {
+        "role": "tertiary",
+        "displayName": "Alert Red",
+        "canonical": "#d42a39",
+        "oklch": "oklch(63.0% 0.215 21.9)",
+        "tonalRamp": [
+          "#1e0002",
+          "#4b000a",
+          "#7a091a",
+          "#ae122a",
+          "#e02a3e",
+          "#fc6669",
+          "#fdb0ad",
+          "#fee9e7"
+        ],
+        "cssVar": "--red"
+      },
+      "red-soft": {
+        "role": "tertiary",
+        "displayName": "Red Wash",
+        "canonical": "#fde8ea",
+        "oklch": "oklch(94.8% 0.023 11.0)",
+        "tonalRamp": [
+          "#140709",
+          "#2e1f21",
+          "#4b3b3d",
+          "#6a585a",
+          "#8a787a",
+          "#ac999b",
+          "#d6c2c3",
+          "#fee9eb"
+        ],
+        "dark": "#3a1a1d",
+        "cssVar": "--red-soft"
+      },
+      "red-ink": {
+        "role": "tertiary",
+        "displayName": "Red Ink",
+        "canonical": "#b4202d",
+        "oklch": "oklch(50.0% 0.182 23.1)",
+        "tonalRamp": [
+          "#1f0001",
+          "#4a0109",
+          "#7c0215",
+          "#ad1627",
+          "#d44247",
+          "#fb6767",
+          "#feb0ab",
+          "#ffe9e7"
+        ],
+        "dark": "#ff8f98",
+        "cssVar": "--red-ink"
+      },
+      "amber-soft": {
+        "role": "tertiary",
+        "displayName": "Amber Wash",
+        "canonical": "#fff4d9",
+        "oklch": "oklch(96.9% 0.037 88.5)",
+        "tonalRamp": [
+          "#110a00",
+          "#2b230d",
+          "#483f29",
+          "#665d46",
+          "#867c64",
+          "#a89e85",
+          "#d1c7ac",
+          "#f9eed3"
+        ],
+        "dark": "#352a12",
+        "cssVar": "--amber-soft"
+      },
+      "amber-ink": {
+        "role": "tertiary",
+        "displayName": "Amber Ink",
+        "canonical": "#8a5b00",
+        "oklch": "oklch(51.0% 0.108 74.2)",
+        "tonalRamp": [
+          "#130900",
+          "#341f00",
+          "#573904",
+          "#7e540b",
+          "#a37327",
+          "#c6944c",
+          "#f1bd75",
+          "#ffebd3"
+        ],
+        "dark": "#f5c865",
+        "cssVar": "--amber-ink"
+      },
+      "blue-soft": {
+        "role": "tertiary",
+        "displayName": "Info Wash",
+        "canonical": "#e6f1fb",
+        "oklch": "oklch(95.3% 0.018 245.4)",
+        "tonalRamp": [
+          "#050c12",
+          "#1d252c",
+          "#384149",
+          "#565f67",
+          "#757f87",
+          "#96a0a9",
+          "#bec9d2",
+          "#e5f0fa"
+        ],
+        "dark": "#16283a",
+        "cssVar": "--blue-soft"
+      },
+      "blue-ink": {
+        "role": "tertiary",
+        "displayName": "Info Ink",
+        "canonical": "#1f5f9a",
+        "oklch": "oklch(47.6% 0.115 250.2)",
+        "tonalRamp": [
+          "#000c1c",
+          "#012545",
+          "#024174",
+          "#20609b",
+          "#4381bf",
+          "#64a3e3",
+          "#9eccfd",
+          "#e3f0ff"
+        ],
+        "dark": "#8cc4f5",
+        "cssVar": "--blue-ink"
+      },
+      "violet-1": {
+        "role": "secondary",
+        "displayName": "Countdown Violet Light",
+        "canonical": "#7b72e8",
+        "oklch": "oklch(61.8% 0.173 283.6)",
+        "tonalRamp": [
+          "#0b002e",
+          "#230467",
+          "#3b2495",
+          "#5647b9",
+          "#7369de",
+          "#938ffb",
+          "#c0c1fd",
+          "#ecedfe"
+        ],
+        "cssVar": "--violet-1"
+      },
+      "violet-2": {
+        "role": "secondary",
+        "displayName": "Countdown Violet Deep",
+        "canonical": "#564cc9",
+        "oklch": "oklch(50.1% 0.187 280.8)",
+        "tonalRamp": [
+          "#09002f",
+          "#20036a",
+          "#371f9d",
+          "#5145c2",
+          "#6d68e8",
+          "#8e90ff",
+          "#bdc2fc",
+          "#ebedff"
+        ],
+        "cssVar": "--violet-2"
+      },
+      "violet-soft": {
+        "role": "secondary",
+        "displayName": "Mention Wash",
+        "canonical": "#ecebfc",
+        "oklch": "oklch(94.6% 0.023 288.7)",
+        "tonalRamp": [
+          "#0b0a14",
+          "#23222f",
+          "#3f3e4b",
+          "#5d5c6a",
+          "#7c7b8a",
+          "#9d9cac",
+          "#c6c5d6",
+          "#edecfd"
+        ],
+        "dark": "#25234a",
+        "cssVar": "--violet-soft"
+      },
+      "violet-ink": {
+        "role": "secondary",
+        "displayName": "Mention Ink",
+        "canonical": "#4a42b8",
+        "oklch": "oklch(46.1% 0.179 279.7)",
+        "tonalRamp": [
+          "#090030",
+          "#1e036b",
+          "#35249a",
+          "#4f48be",
+          "#6c6be4",
+          "#8d91fb",
+          "#bcc2fd",
+          "#ebedfe"
+        ],
+        "dark": "#b3adff",
+        "cssVar": "--violet-ink"
+      },
+      "art-ink": {
+        "role": "art",
+        "displayName": "Line-Art Ink",
+        "canonical": "#1d1b18",
+        "oklch": "oklch(22.3% 0.006 78.2)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#262421",
+          "#423f3c",
+          "#605d5a",
+          "#7f7d79",
+          "#a19e9a",
+          "#cac7c3",
+          "#f1eeea"
+        ],
+        "cssVar": "--art-ink"
+      },
+      "field-sky": {
+        "role": "art",
+        "displayName": "Sky Field",
+        "canonical": "#d6ebf8",
+        "oklch": "oklch(92.8% 0.028 234.9)",
+        "tonalRamp": [
+          "#010d15",
+          "#162630",
+          "#31424d",
+          "#4e616c",
+          "#6d808c",
+          "#8ea2ae",
+          "#b6cbd7",
+          "#def2fe"
+        ],
+        "note": "Per-pack cover ground, set inline from pack data; theme-independent."
+      },
+      "field-sand": {
+        "role": "art",
+        "displayName": "Sand Field",
+        "canonical": "#ffe6b3",
+        "oklch": "oklch(93.3% 0.071 84.8)",
+        "tonalRamp": [
+          "#110a00",
+          "#302201",
+          "#513c08",
+          "#705a2b",
+          "#917a4a",
+          "#b39b6b",
+          "#ddc492",
+          "#ffedc7"
+        ],
+        "note": "Per-pack cover ground, set inline from pack data; theme-independent."
+      },
+      "field-meadow": {
+        "role": "art",
+        "displayName": "Meadow Field",
+        "canonical": "#d9eed0",
+        "oklch": "oklch(92.6% 0.046 136.2)",
+        "tonalRamp": [
+          "#030f00",
+          "#192912",
+          "#35452d",
+          "#52644a",
+          "#718469",
+          "#92a589",
+          "#bacfb1",
+          "#e1f6d8"
+        ],
+        "note": "Per-pack cover ground, set inline from pack data; theme-independent."
+      },
+      "field-blush": {
+        "role": "art",
+        "displayName": "Blush Field",
+        "canonical": "#f8d5cf",
+        "oklch": "oklch(90.1% 0.040 29.4)",
+        "tonalRamp": [
+          "#190403",
+          "#351c18",
+          "#533833",
+          "#735550",
+          "#94756f",
+          "#b69690",
+          "#e0beb8",
+          "#fee9e5"
+        ],
+        "note": "Per-pack cover ground, set inline from pack data; theme-independent."
+      },
+      "field-lagoon": {
+        "role": "art",
+        "displayName": "Lagoon Field",
+        "canonical": "#cbedee",
+        "oklch": "oklch(92.2% 0.035 198.7)",
+        "tonalRamp": [
+          "#000e0f",
+          "#0b292a",
+          "#284647",
+          "#466465",
+          "#658485",
+          "#85a6a7",
+          "#aecfd0",
+          "#d4f6f7"
+        ],
+        "note": "Per-pack cover ground, set inline from pack data; theme-independent."
+      },
+      "field-lavender": {
+        "role": "art",
+        "displayName": "Lavender Field",
+        "canonical": "#e8e2fb",
+        "oklch": "oklch(92.5% 0.034 296.7)",
+        "tonalRamp": [
+          "#0d0818",
+          "#262133",
+          "#413c50",
+          "#5f5a6f",
+          "#7f7990",
+          "#a09ab2",
+          "#c9c3db",
+          "#f0ebff"
+        ],
+        "note": "Per-pack cover ground, set inline from pack data; theme-independent."
+      },
+      "field-wheat": {
+        "role": "art",
+        "displayName": "Wheat Field",
+        "canonical": "#f3e0c3",
+        "oklch": "oklch(91.5% 0.044 78.5)",
+        "tonalRamp": [
+          "#120900",
+          "#2f2108",
+          "#4c3d24",
+          "#6b5b41",
+          "#8c7b60",
+          "#ad9c80",
+          "#d7c5a8",
+          "#ffecce"
+        ],
+        "note": "Per-pack cover ground, set inline from pack data; theme-independent."
+      },
+      "field-apricot": {
+        "role": "art",
+        "displayName": "Apricot Field",
+        "canonical": "#fde0c6",
+        "oklch": "oklch(92.4% 0.047 64.1)",
+        "tonalRamp": [
+          "#150800",
+          "#341f09",
+          "#513a25",
+          "#715842",
+          "#927860",
+          "#b49980",
+          "#dec2a8",
+          "#ffead8"
+        ],
+        "note": "Per-pack cover ground, set inline from pack data; theme-independent."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page greeting and page titles."
+      },
+      "display-hero": {
+        "displayName": "Display Hero",
+        "purpose": "Pack page title and auth-panel headline."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "KPI values (30px under 640px); countdown clock uses the same weight at clamp(24px, 2.3vw, 32px)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Dialog titles and the continue card heading (21-22px)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles and pack names (16.5-17px)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text; 14.5px under 640px; leads capped at 56-60ch in muted."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Field labels, segmented controls, small buttons; buttons and pills 13-14.5px at 500."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Hints, errors, deltas, timestamps."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-1 (rest)",
+        "value": "0 1px 2px rgba(28, 22, 16, .05), 0 6px 18px -8px rgba(28, 22, 16, .10)",
+        "dark": "0 1px 2px rgba(0, 0, 0, .4), 0 8px 20px -10px rgba(0, 0, 0, .6)",
+        "purpose": "Cards, pack cards, active nav item."
+      },
+      {
+        "name": "shadow-2 (lift)",
+        "value": "0 2px 6px rgba(28, 22, 16, .06), 0 18px 40px -16px rgba(28, 22, 16, .22)",
+        "dark": "0 2px 6px rgba(0, 0, 0, .4), 0 18px 40px -16px rgba(0, 0, 0, .7)",
+        "purpose": "Pack card hover, large pack cover, phone preview."
+      },
+      {
+        "name": "shadow-pop",
+        "value": "0 12px 32px -8px rgba(28, 22, 16, .28), 0 2px 8px rgba(28, 22, 16, .08)",
+        "dark": "0 12px 32px -8px rgba(0, 0, 0, .7), 0 2px 8px rgba(0, 0, 0, .4)",
+        "purpose": "Dialogs, drawers, toasts, menus, prototype panel."
+      },
+      {
+        "name": "cta-shadow",
+        "value": "0 1px 0 rgba(255, 255, 255, .35) inset, 0 6px 16px -4px rgba(226, 78, 12, .55)",
+        "purpose": "Primary buttons and split pill only."
+      },
+      {
+        "name": "clock-glow",
+        "value": "0 16px 30px -14px rgba(86, 76, 201, .8), inset 0 1px 0 rgba(255, 255, 255, .25)",
+        "purpose": "Countdown clock tile only."
+      },
+      {
+        "name": "ring",
+        "value": "0 0 0 3px rgba(244, 98, 29, .28)",
+        "purpose": "All :focus-visible and focused inputs."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.22, 1, .36, 1)",
+        "purpose": "The only easing curve."
+      },
+      {
+        "name": "duration-control",
+        "value": "150-200ms",
+        "purpose": "Buttons, inputs, toggles, hover fills."
+      },
+      {
+        "name": "duration-lift",
+        "value": "250ms",
+        "purpose": "Pack card hover lift (translateY(-3px)) and colouring-region fill."
+      },
+      {
+        "name": "rise",
+        "value": "280ms; from opacity 0, translateY(14px) scale(.98)",
+        "purpose": "Dialogs, toasts, prototype panel."
+      },
+      {
+        "name": "slide",
+        "value": "300ms; from translateX(40px), opacity 0",
+        "purpose": "Drawers."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation/transition-duration .01ms",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-collapse",
+        "value": "1180px"
+      },
+      {
+        "name": "tablet",
+        "value": "980px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      }
+    ],
+    "themes": {
+      "mechanism": "prefers-color-scheme: dark on :root:not([data-theme=\"light\"]), plus :root[data-theme=\"dark\"]; solid accents unchanged",
+      "darkCardBg": "linear-gradient(180deg, #211f1c 0%, #1c1a17 100%)"
+    },
+    "gradients": {
+      "cta": "linear-gradient(180deg, #ff7f37 0%, #f2570f 100%)",
+      "cta-hover": "linear-gradient(180deg, #ff8b47 0%, #f4621d 100%)",
+      "card-bg": "linear-gradient(180deg, #ffffff 0%, #fbfaf8 100%)",
+      "kpi-bars": "linear-gradient(180deg, #ff8a4c, #f4621d)",
+      "countdown": "linear-gradient(160deg, #7b72e8, #564cc9)",
+      "brand-panel": "linear-gradient(160deg, #ff8a45 0%, #f25a12 55%, #d9470a 100%)",
+      "email-band": "linear-gradient(160deg, #ff8a45, #ee5410)"
+    },
+    "art": {
+      "strokeColor": "#1d1b18",
+      "strokeWidth": "3.2",
+      "lineJoin": "round",
+      "crayons": [
+        "#f2594b",
+        "#ff9f43",
+        "#ffd54a",
+        "#6cc56a",
+        "#5ab0e6",
+        "#5e8fd6",
+        "#b69cff",
+        "#ff8fb1",
+        "#a8743f",
+        "#8a8f98",
+        "#2e2a26"
+      ],
+      "lockedTreatment": "line-only art, cover filter saturate(.5), art opacity .8",
+      "soonTreatment": "grayscale(1), opacity .6"
+    },
+    "avatarPalette": [
+      "#f4621d",
+      "#564cc9",
+      "#15803d",
+      "#1f5f9a",
+      "#b8400a",
+      "#8a5b00",
+      "#b4202d",
+      "#0f7a6c"
+    ],
+    "fontLoading": {
+      "prototype": "Google Fonts css2 Google+Sans wght 400;500;700 display=swap",
+      "production": "self-host via next/font"
+    },
+    "email": {
+      "theme": "fixed light, literal values",
+      "canvas": "#f3f1ee",
+      "card": "#ffffff",
+      "border": "#ebe6e0",
+      "text": "#3b3732",
+      "heading": "#1c1a17",
+      "small": "#6f6962",
+      "footBg": "#faf8f5",
+      "footText": "#8b847b",
+      "maxWidth": "560px",
+      "radius": "18px"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one gradient CTA per view.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Download all pages</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 18px;border-radius:999px;border:1px solid transparent;font-family:var(--font);font-weight:500;font-size:14.5px;white-space:nowrap;cursor:pointer;transition:background .18s cubic-bezier(.22,1,.36,1),box-shadow .18s cubic-bezier(.22,1,.36,1),transform .18s cubic-bezier(.22,1,.36,1)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(244,98,29,.28)}.ds-btn-primary{background:linear-gradient(180deg,#ff7f37 0%,#f2570f 100%);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 6px 16px -4px rgba(226,78,12,.55)}.ds-btn-primary:hover{background:linear-gradient(180deg,#ff8b47 0%,#f4621d 100%)}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary actions beside the primary.",
+      "html": "<button class=\"ds-btn-ghost\">Resend</button>",
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-family:var(--font);font-weight:500;font-size:14.5px;box-shadow:0 1px 2px rgba(28,22,16,.04);cursor:pointer;transition:background .18s,border-color .18s}.ds-btn-ghost:hover{border-color:var(--line-strong);background:var(--surface-2)}.ds-btn-ghost:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(244,98,29,.28)}"
+    },
+    {
+      "name": "Admin Split CTA",
+      "kind": "button",
+      "refersTo": "split-cta",
+      "description": "Sidebar standing primary in admin: New invite plus menu.",
+      "html": "<div class=\"ds-split\"><button class=\"ds-split-main\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><path d=\"M12 5v14M5 12h14\"/></svg>New invite</button><button class=\"ds-split-more\" aria-label=\"More actions\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 9l6 6 6-6\"/></svg></button></div>",
+      "css": ".ds-split{display:flex;align-items:stretch;width:228px;border-radius:999px;background:linear-gradient(180deg,#ff7f37 0%,#f2570f 100%);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 6px 16px -4px rgba(226,78,12,.55)}.ds-split>button{background:transparent;border:0;color:#fff;font-family:var(--font);font-weight:500;cursor:pointer}.ds-split>button:hover{background:rgba(255,255,255,.08)}.ds-split>button:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(244,98,29,.28)}.ds-split-main{display:flex;align-items:center;gap:10px;padding:0 18px 0 20px;min-height:50px;font-size:15px;flex:1;border-radius:999px 0 0 999px}.ds-split-more{width:46px;border-left:1px solid rgba(255,255,255,.28)!important;display:grid;place-items:center;border-radius:0 999px 999px 0}"
+    },
+    {
+      "name": "Filter Chips",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Library filters with count bubble; selected inverts to ink.",
+      "html": "<div class=\"ds-filters\"><button class=\"ds-filter\" aria-pressed=\"true\">All<span class=\"ds-count\">8</span></button><button class=\"ds-filter\" aria-pressed=\"false\">My packs<span class=\"ds-count\">3</span></button><button class=\"ds-filter\" aria-pressed=\"false\">Locked<span class=\"ds-count\">4</span></button></div>",
+      "css": ".ds-filters{display:flex;flex-wrap:wrap;gap:8px}.ds-filter{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-family:var(--font);font-size:14px;font-weight:500;color:var(--ink-2);cursor:pointer}.ds-filter:hover{border-color:var(--line-strong)}.ds-filter:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(244,98,29,.28)}.ds-count{min-width:22px;height:22px;padding:0 6px;display:grid;place-items:center;border-radius:999px;background:var(--sunken);font-size:12px;color:var(--muted)}.ds-filter[aria-pressed=\"true\"]{background:var(--ink);border-color:var(--ink);color:var(--canvas)}.ds-filter[aria-pressed=\"true\"] .ds-count{background:rgba(255,255,255,.16);color:inherit}"
+    },
+    {
+      "name": "Status Pills and Feed Chips",
+      "kind": "chip",
+      "refersTo": "pill-owned",
+      "description": "Owned (solid green), price (orange-soft with padlock), lifecycle soft pills, mention and code chips.",
+      "html": "<div class=\"ds-row\"><span class=\"ds-pill ds-pill-green\"><span class=\"ds-dot\"></span>Unlocked</span><span class=\"ds-pill ds-pill-orange\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5\" y=\"11\" width=\"14\" height=\"10\" rx=\"2\"/><path d=\"M8 11V8a4 4 0 0 1 8 0v3\"/></svg>R 89</span><span class=\"ds-pill ds-pill-blue\"><span class=\"ds-dot\"></span>Opened</span><span class=\"ds-pill ds-pill-grey\">Coming soon</span></div><p class=\"ds-feed\"><span class=\"ds-mention\">@Thandi</span> unlocked <span class=\"ds-code\">#10482</span></p>",
+      "css": ".ds-row{display:flex;flex-wrap:wrap;gap:8px}.ds-pill{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:999px;font-family:var(--font);font-size:13px;font-weight:500;white-space:nowrap}.ds-dot{width:7px;height:7px;border-radius:50%;background:currentColor}.ds-pill-green{background:var(--green);color:#fff}.ds-pill-green .ds-dot{background:#fff}.ds-pill-orange{background:var(--orange-soft);color:var(--orange-ink)}.ds-pill-blue{background:var(--blue-soft);color:var(--blue-ink)}.ds-pill-grey{background:var(--sunken);color:var(--muted)}.ds-feed{font-family:var(--font);font-size:14px;line-height:1.7;color:var(--ink)}.ds-mention{display:inline-flex;align-items:center;gap:5px;padding:1px 8px;border-radius:8px;background:var(--violet-soft);color:var(--violet-ink);font-weight:500}.ds-mention::after{content:\"\";width:7px;height:7px;border-radius:50%;border:2px solid var(--green)}.ds-code{display:inline-block;padding:1px 8px;border-radius:8px;background:var(--sunken);color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "48px field with 14px radius; orange border and ring on focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-label\">Email</span><input class=\"ds-input\" placeholder=\"you@example.co.za\"><span class=\"ds-hint\">We send your sign-in link here.</span></label>",
+      "css": ".ds-field{display:grid;gap:7px;font-family:var(--font);max-width:360px}.ds-label{font-size:13.5px;font-weight:500;color:var(--ink-2)}.ds-hint{font-size:12.5px;color:var(--muted)}.ds-input{width:100%;min-height:48px;padding:0 16px;border-radius:14px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font:inherit;font-size:15px;transition:border-color .15s,box-shadow .15s}.ds-input::placeholder{color:var(--faint)}.ds-input:hover{border-color:var(--faint)}.ds-input:focus{outline:none;border-color:var(--orange-500);box-shadow:0 0 0 3px rgba(244,98,29,.28)}"
+    },
+    {
+      "name": "Sidebar Navigation",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Active item is a raised white tile with an orange icon.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 19V5a1 1 0 0 1 1-1h4v16H5a1 1 0 0 1-1-1zM9 4h4v16H9zM14 5l4-1 3 15-4 1z\"/></svg>Library<span class=\"ds-badge\">3</span></a><a href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21a8 8 0 0 1 16 0\"/></svg>Profile</a></nav>",
+      "css": ".ds-nav{display:grid;gap:2px;width:228px;padding:8px;background:var(--canvas-2);font-family:var(--font)}.ds-nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;text-decoration:none;color:var(--ink-2);font-size:15px;font-weight:500}.ds-nav a:hover{background:var(--sunken);color:var(--ink)}.ds-nav a:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(244,98,29,.28)}.ds-nav a[aria-current=\"page\"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(28,22,16,.05),0 6px 18px -8px rgba(28,22,16,.10)}.ds-nav a[aria-current=\"page\"] svg{color:var(--orange-500)}.ds-badge{margin-left:auto;min-width:22px;height:22px;padding:0 7px;border-radius:999px;background:var(--orange-soft);color:var(--orange-ink);font-size:12px;display:grid;place-items:center}"
+    },
+    {
+      "name": "Pack Card (owned / locked)",
+      "kind": "card",
+      "refersTo": "pack-card",
+      "description": "Signature: pastel field cover; owned coloured with green pill, locked desaturated with padlock disc and price pill.",
+      "html": "<div class=\"ds-packs\"><button class=\"ds-pack\"><div class=\"ds-cover\" style=\"background:#d6ebf8\"><svg viewBox=\"0 0 200 200\" width=\"78%\" fill=\"#fff\" stroke=\"#1d1b18\" stroke-width=\"3.2\" stroke-linejoin=\"round\"><circle cx=\"160\" cy=\"42\" r=\"17\" fill=\"#ffc94a\"/><path d=\"M52 92 L100 62 L148 92 Z\" fill=\"#d9573b\"/><rect x=\"62\" y=\"90\" width=\"76\" height=\"34\" rx=\"3\" fill=\"#f0c27a\"/><path d=\"M22 124 H178 L160 158 H40 Z\" fill=\"#b7743f\"/></svg></div><div class=\"ds-body\"><h3>Noah and the Ark</h3><div class=\"ds-foot\"><span class=\"ds-meta\">12 pages</span><span class=\"ds-pill-own\"><span class=\"ds-d\"></span>Unlocked</span></div></div></button><button class=\"ds-pack ds-locked\"><div class=\"ds-cover\" style=\"background:#cbedee\"><svg viewBox=\"0 0 200 200\" width=\"78%\" fill=\"#fff\" stroke=\"#1d1b18\" stroke-width=\"3.2\" stroke-linejoin=\"round\"><circle cx=\"160\" cy=\"42\" r=\"17\"/><path d=\"M52 92 L100 62 L148 92 Z\"/><rect x=\"62\" y=\"90\" width=\"76\" height=\"34\" rx=\"3\"/><path d=\"M22 124 H178 L160 158 H40 Z\"/></svg><span class=\"ds-lock\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><rect x=\"5\" y=\"11\" width=\"14\" height=\"10\" rx=\"2\"/><path d=\"M8 11V8a4 4 0 0 1 8 0v3\"/></svg></span></div><div class=\"ds-body\"><h3>Jonah and the Whale</h3><div class=\"ds-foot\"><span class=\"ds-meta\">8 pages</span><span class=\"ds-pill-price\">R 69</span></div></div></button></div>",
+      "css": ".ds-packs{display:grid;grid-template-columns:repeat(2,236px);gap:18px;font-family:var(--font)}.ds-pack{position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,var(--surface) 0%,var(--surface-2) 100%);border:1px solid var(--line);border-radius:22px;box-shadow:0 1px 2px rgba(28,22,16,.05),0 6px 18px -8px rgba(28,22,16,.10);overflow:hidden;text-align:left;padding:0;color:var(--ink);font:inherit;cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s cubic-bezier(.22,1,.36,1)}.ds-pack:hover{transform:translateY(-3px);box-shadow:0 2px 6px rgba(28,22,16,.06),0 18px 40px -16px rgba(28,22,16,.22)}.ds-pack:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(244,98,29,.28)}.ds-cover{position:relative;aspect-ratio:4/3.4;margin:10px 10px 0;border-radius:16px;overflow:hidden;display:grid;place-items:center}.ds-locked .ds-cover{filter:saturate(.5)}.ds-lock{position:absolute;right:12px;top:12px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(28,26,23,.82);color:#fff;box-shadow:0 6px 16px -6px rgba(0,0,0,.5)}.ds-body{padding:14px 16px 16px;display:grid;gap:10px}.ds-body h3{margin:0;font-size:16.5px;font-weight:500;line-height:1.3;letter-spacing:-.015em}.ds-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}.ds-meta{color:var(--muted);font-size:13.5px}.ds-pill-own,.ds-pill-price{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:500}.ds-pill-own{background:var(--green);color:#fff}.ds-d{width:7px;height:7px;border-radius:50%;background:#fff}.ds-pill-price{background:var(--orange-soft);color:var(--orange-ink)}"
+    },
+    {
+      "name": "Countdown Card",
+      "kind": "custom",
+      "refersTo": "countdown-clock",
+      "description": "Admin KPI-row card: next expiring invite with violet clock tile.",
+      "html": "<div class=\"ds-cd\"><div class=\"ds-cd-top\"><div><b>Lerato’s invite</b><span>lerato@example.co.za</span></div><span class=\"ds-exp\">Expiring</span></div><div class=\"ds-clock\">05<span>:</span>42<span>:</span>18</div></div>",
+      "css": ".ds-cd{width:300px;padding:18px 18px 16px;display:grid;gap:12px;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:22px;box-shadow:0 1px 2px rgba(28,22,16,.05),0 6px 18px -8px rgba(28,22,16,.10);font-family:var(--font);color:var(--ink)}.ds-cd-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.ds-cd-top b{display:block;font-size:18px;font-weight:500;letter-spacing:-.02em}.ds-cd-top span{display:block;font-size:13px;color:var(--muted)}.ds-cd-top .ds-exp{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;background:var(--red);color:#fff;font-size:13px;font-weight:500}.ds-clock{border-radius:18px;padding:12px 16px;background:linear-gradient(160deg,#7b72e8,#564cc9);color:#fff;font-size:30px;font-weight:500;letter-spacing:.02em;display:flex;justify-content:space-between;align-items:center;font-variant-numeric:tabular-nums;box-shadow:0 16px 30px -14px rgba(86,76,201,.8),inset 0 1px 0 rgba(255,255,255,.25)}.ds-clock span{opacity:.55;font-size:26px}"
+    },
+    {
+      "name": "KPI Card with Mini Chart",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Admin metric: icon label, 38px tabular value, five orange-gradient bars.",
+      "html": "<div class=\"ds-kpi\"><span class=\"ds-kpi-l\">Members</span><div class=\"ds-kpi-r\"><span class=\"ds-kpi-v\">214</span><div class=\"ds-bars\"><i style=\"height:45%\"></i><i style=\"height:70%\"></i><i style=\"height:55%\"></i><i style=\"height:90%\"></i><i style=\"height:75%\"></i></div></div><span class=\"ds-kpi-d\">+18 this month</span></div>",
+      "css": ".ds-kpi{width:240px;padding:18px 20px 20px;display:grid;gap:14px;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:22px;box-shadow:0 1px 2px rgba(28,22,16,.05),0 6px 18px -8px rgba(28,22,16,.10);font-family:var(--font)}.ds-kpi-l{font-size:14px;color:var(--ink-2)}.ds-kpi-r{display:flex;align-items:flex-end;justify-content:space-between}.ds-kpi-v{font-size:38px;font-weight:500;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;color:var(--ink)}.ds-bars{display:flex;align-items:flex-end;gap:4px;height:38px}.ds-bars i{width:7px;border-radius:4px;background:linear-gradient(180deg,var(--orange-400),var(--orange-500))}.ds-kpi-d{font-size:12.5px;color:var(--green-ink);font-weight:500}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Warm Dashboard, Loud Art",
+    "overview": "Kingdom Members wears a pinned SaaS dashboard world (the user's \"Ware Sync\" reference) and lets one thing shout: the colouring-pack artwork. Everything around it is a quiet, warm grey-white canvas, soft white cards with generous 22px corners, and one orange gradient that marks the way forward. The chrome is calm on purpose, so pastel pack fields with thick-line art carry the colour.\n\nDensity is moderate and dashboard-like: a 264px sidebar, a greeting headline, filter chips, then a grid of cards. Every interactive shape is a full pill, and every container is a large rounded card lifted by warm, diffuse shadows. Type is Google Sans only, set at weight 500 for everything that names something and 400 for running text. Owned and locked are shown by colour. Owned covers are fully coloured. Locked covers show desaturated line art with a dark padlock disc and an orange price pill.\n\nThe world rejects the generic LMS course grid and the cream-and-serif \"kids' faith\" look. It is warm without being cream and friendly without a display serif.",
+    "keyCharacteristics": [
+      "Warm grey-white canvas (`canvas`) with white, barely graded cards (`surface` to `surface-2`).",
+      "One orange gradient (`cta-glow` to `cta-deep`) for primary action, progress, KPI mini-bars and brand panels.",
+      "Full-pill buttons, chips, pills, search and filters. Containers use 22px corners.",
+      "Soft, negative-spread, warm-tinted shadows. There are no hard edges or offset blocks.",
+      "Pastel pack fields under 3.2px near-black line art. This is the only multi-hue area of any screen.",
+      "Google Sans at weights 400/500. Weight 700 is reserved for the wordmark.",
+      "Full light and dark themes via the same custom properties (`prefers-color-scheme` plus a `data-theme` override)."
+    ],
+    "rules": [
+      {
+        "name": "The Loud Artwork Rule",
+        "body": "Pack art on its pastel field is the only multi-hue area on a screen. UI chrome stays in stone neutrals plus orange, and status colour appears only inside pills, dots and notices.",
+        "section": "colors"
+      },
+      {
+        "name": "The Violet Means Time Rule",
+        "body": "Violet is spent only on the expiry countdown and on people mentions. It never appears as a generic accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Medium Weight Rule",
+        "body": "Headings, labels, buttons and numerals are 500. Weight 700 appears only in the Kingdom Members wordmark and the email band title.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "Page and card headings stand alone, with no small label line above them (removed in review). Sidebar group labels and KPI metric labels are navigation and data labels, not kickers, and stay.",
+        "section": "typography"
+      },
+      {
+        "name": "The Soft Lift Rule",
+        "body": "Shadows are diffuse and warm with negative spread. A hover lift is `translateY(-3px)` plus Rest → Lift. There are no zero-blur offset shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep one primary gradient CTA per view. In admin, the sidebar split pill (\"New invite\") is that primary.",
+      "**Do** give pack covers their pastel field and let coloured art be the loudest element on the screen.",
+      "**Do** show locked content by desaturating it and adding the padlock disc plus orange price pill, never by hiding it.",
+      "**Do** make every pressable control a full pill and every container a 22px card with the Rest shadow.",
+      "**Do** set headings at 500 with negative tracking (-0.015em to -0.03em) and use tabular numerals for money, counts, clocks and IDs.",
+      "**Do** define colours through the root custom properties so the dark theme follows automatically. Emails are the one exception and stay fixed light.",
+      "**Do** self-host Google Sans through `next/font` in the Next.js build."
+    ],
+    "donts": [
+      "**Don't** put an eyebrow or kicker line above page or card headings.",
+      "**Don't** use violet for anything but the countdown and people mentions.",
+      "**Don't** use weight 700 outside the wordmark and email band, and don't introduce a second typeface. System monospace is only for code fields.",
+      "**Don't** use zero-blur offset shadows or cool grey shadows. Shadows stay warm, diffuse and negatively spread.",
+      "**Don't** use `faint` for any readable text (labels, timestamps, captions). It is below AA contrast and is for placeholders and chevrons only. Use `muted` instead.",
+      "**Don't** drift toward the cream-and-serif \"kids' faith\" look or a generic LMS course grid."
+    ]
+  }
+}

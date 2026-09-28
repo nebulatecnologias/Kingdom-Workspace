@@ -1,0 +1,91 @@
+/* Kingdom UI → Tailwind CSS v4. Paste after `@import "tailwindcss";` in app/globals.css. */
+
+:root {
+  color-scheme: light;
+  --canvas: #f5f3f0; --canvas-2: #efece8; --surface: #ffffff; --surface-2: #fbfaf8; --sunken: #f1eeea;
+  --line: #e8e3dd; --line-strong: #d9d3cb;
+  --ink: #1c1a17; --ink-2: #3b3732; --muted: #6f6962; --faint: #7d766e;
+  --orange-300: #ffb38a; --orange-400: #ff8a4c; --orange-500: #f4621d; --orange-600: #e14e0c;
+  --orange-soft: #fff0e7; --orange-ink: #b8400a;
+  --green: #15803d; --green-soft: #e3f6ea; --green-ink: #0f7a37;
+  --red: #d42a39; --red-soft: #fde8ea; --red-ink: #b4202d;
+  --amber-soft: #fff4d9; --amber-ink: #8a5b00;
+  --blue-soft: #e6f1fb; --blue-ink: #1f5f9a;
+  --violet-1: #7b72e8; --violet-2: #564cc9; --violet-soft: #ecebfc; --violet-ink: #4a42b8;
+  --art-ink: #1d1b18;
+  --cta: linear-gradient(180deg, #ff7f37 0%, #f2570f 100%);
+  --cta-hover: linear-gradient(180deg, #ff8b47 0%, #f4621d 100%);
+  --cta-aa: linear-gradient(180deg, #d4460b 0%, #b83d08 100%);
+  --brand-panel: linear-gradient(160deg, #ff8a45 0%, #f25a12 55%, #d9470a 100%);
+  --card-bg: linear-gradient(180deg, #ffffff 0%, #fbfaf8 100%);
+  --shadow-1: 0 1px 2px rgba(28, 22, 16, .05), 0 6px 18px -8px rgba(28, 22, 16, .10);
+  --shadow-2: 0 2px 6px rgba(28, 22, 16, .06), 0 18px 40px -16px rgba(28, 22, 16, .22);
+  --shadow-pop: 0 12px 32px -8px rgba(28, 22, 16, .28), 0 2px 8px rgba(28, 22, 16, .08);
+  --cta-shadow: 0 1px 0 rgba(255, 255, 255, .35) inset, 0 6px 16px -4px rgba(226, 78, 12, .55);
+  --ring: 0 0 0 3px rgba(244, 98, 29, .28);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --canvas: #141311; --canvas-2: #1a1816; --surface: #1e1c19; --surface-2: #1b1917; --sunken: #26231f;
+    --line: #2f2b27; --line-strong: #3d3833; --ink: #f4f0ea; --ink-2: #ddd6cd; --muted: #aaa298; --faint: #7f786f;
+    --orange-soft: #3a2216; --orange-ink: #ffab7c; --green-soft: #15301f; --green-ink: #6fdc98;
+    --red-soft: #3a1a1d; --red-ink: #ff8f98; --amber-soft: #352a12; --amber-ink: #f5c865;
+    --blue-soft: #16283a; --blue-ink: #8cc4f5; --violet-soft: #25234a; --violet-ink: #b3adff;
+    --card-bg: linear-gradient(180deg, #211f1c 0%, #1c1a17 100%);
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 20px -10px rgba(0, 0, 0, .6);
+    --shadow-2: 0 2px 6px rgba(0, 0, 0, .4), 0 18px 40px -16px rgba(0, 0, 0, .7);
+    --shadow-pop: 0 12px 32px -8px rgba(0, 0, 0, .7), 0 2px 8px rgba(0, 0, 0, .4);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: #141311; --canvas-2: #1a1816; --surface: #1e1c19; --surface-2: #1b1917; --sunken: #26231f;
+  --line: #2f2b27; --line-strong: #3d3833; --ink: #f4f0ea; --ink-2: #ddd6cd; --muted: #aaa298; --faint: #7f786f;
+  --orange-soft: #3a2216; --orange-ink: #ffab7c; --green-soft: #15301f; --green-ink: #6fdc98;
+  --red-soft: #3a1a1d; --red-ink: #ff8f98; --amber-soft: #352a12; --amber-ink: #f5c865;
+  --blue-soft: #16283a; --blue-ink: #8cc4f5; --violet-soft: #25234a; --violet-ink: #b3adff;
+  --card-bg: linear-gradient(180deg, #211f1c 0%, #1c1a17 100%);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 20px -10px rgba(0, 0, 0, .6);
+  --shadow-2: 0 2px 6px rgba(0, 0, 0, .4), 0 18px 40px -16px rgba(0, 0, 0, .7);
+  --shadow-pop: 0 12px 32px -8px rgba(0, 0, 0, .7), 0 2px 8px rgba(0, 0, 0, .4);
+}
+
+@theme inline {
+  --font-sans: var(--font-google-sans), "Google Sans", "Product Sans", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+  --color-canvas: var(--canvas); --color-canvas-2: var(--canvas-2);
+  --color-surface: var(--surface); --color-surface-2: var(--surface-2); --color-sunken: var(--sunken);
+  --color-line: var(--line); --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink); --color-ink-2: var(--ink-2); --color-muted: var(--muted); --color-faint: var(--faint);
+  --color-orange-300: var(--orange-300); --color-orange-400: var(--orange-400); --color-orange-500: var(--orange-500); --color-orange-600: var(--orange-600);
+  --color-orange-soft: var(--orange-soft); --color-orange-ink: var(--orange-ink);
+  --color-green: var(--green); --color-green-soft: var(--green-soft); --color-green-ink: var(--green-ink);
+  --color-red: var(--red); --color-red-soft: var(--red-soft); --color-red-ink: var(--red-ink);
+  --color-amber-soft: var(--amber-soft); --color-amber-ink: var(--amber-ink);
+  --color-blue-soft: var(--blue-soft); --color-blue-ink: var(--blue-ink);
+  --color-violet-1: var(--violet-1); --color-violet-2: var(--violet-2); --color-violet-soft: var(--violet-soft); --color-violet-ink: var(--violet-ink);
+  --color-art-ink: var(--art-ink);
+  --color-field-sky: #d6ebf8; --color-field-sand: #ffe6b3; --color-field-meadow: #d9eed0; --color-field-blush: #f8d5cf;
+  --color-field-lagoon: #cbedee; --color-field-lavender: #e8e2fb; --color-field-wheat: #f3e0c3; --color-field-apricot: #fde0c6;
+  --color-field-mint: #dff0d6; --color-field-periwinkle: #e6e0f8; --color-field-ice: #d6e7f6;
+  --radius-xs: 8px; --radius-sm: 12px; --radius-field: 14px; --radius-md: 16px; --radius-card: 22px; --radius-xl: 26px; --radius-panel: 30px;
+  --shadow-rest: var(--shadow-1); --shadow-lift: var(--shadow-2); --shadow-popover: var(--shadow-pop); --shadow-cta: var(--cta-shadow); --shadow-focus: var(--ring);
+  --ease-kingdom: var(--ease);
+  --breakpoint-shell: 980px; --breakpoint-wide: 1180px;
+}
+
+/* Gradient utilities (Tailwind v4 has no background-image theme namespace). */
+@utility bg-cta { background-image: var(--cta); }
+@utility bg-cta-hover { background-image: var(--cta-hover); }
+@utility bg-cta-aa { background-image: var(--cta-aa); }
+@utility bg-card { background-image: var(--card-bg); }
+@utility bg-brand { background-image: var(--brand-panel); }
+
+@layer base {
+  body { background: var(--canvas); color: var(--ink); font-family: var(--font-sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4 { font-weight: 500; letter-spacing: -.015em; text-wrap: balance; }
+  :focus-visible { outline: none; box-shadow: var(--ring); }
+  ::selection { background: rgba(244, 98, 29, .22); }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+}
