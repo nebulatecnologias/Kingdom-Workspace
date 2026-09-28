@@ -6,3 +6,8 @@
 export function formatZar(cents: number, _intlTag?: string): string {
   return new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR" }).format(cents / 100);
 }
+
+/** Whole rand without cents when there are none: 7500 -> "R 75", 7550 -> "R 75,50". For headline prices. */
+export function formatZarShort(cents: number): string {
+  return new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR", maximumFractionDigits: cents % 100 ? 2 : 0, minimumFractionDigits: cents % 100 ? 2 : 0 }).format(cents / 100);
+}

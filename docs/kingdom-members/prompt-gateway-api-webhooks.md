@@ -1,6 +1,8 @@
-# Prompt para o gateway: API de integração e webhooks (v2, alinhado com a Kingdom Library em produção)
+# Prompt para o gateway: API de integração, webhooks e assinaturas (v3, alinhado com a Kingdom Library em produção)
 
 Copiar tudo abaixo da linha e colar na sessão do agente que desenvolve o gateway. Substitui o `prompt-gateway-paystack.md`: a parte do Paystack mantém-se, e este documento fixa o contrato que a Kingdom Library já implementa em produção e acrescenta os padrões de mercado para outros sistemas.
+
+**Novo na v3:** assinaturas mensais com período grátis (o plano Kingdom Library: R75/mês, primeiros 30 dias grátis, cartão pedido no início). Ver "Parte 1B", os eventos `subscription.*` na Parte 2, o checkout do plano na Parte 3 e o contrato atualizado. Tudo o que já existia para pedidos (`order.*`) fica igual.
 
 ---
 
@@ -8,7 +10,7 @@ Copiar tudo abaixo da linha e colar na sessão do agente que desenvolve o gatewa
 
 Estás a trabalhar no meu gateway de pagamentos (este repositório). Por baixo usa o **Paystack** (mercado principal: África do Sul, ZAR). Por cima, o gateway tem de falar com outros sistemas de duas formas:
 
-1. **Webhooks de saída**: o gateway avisa as aplicações ligadas quando um pedido é pago, reembolsado ou disputado.
+1. **Webhooks de saída**: o gateway avisa as aplicações ligadas quando um pedido é pago, reembolsado ou disputado, e quando uma assinatura começa, renova, falha, é cancelada ou termina.
 2. **API REST pública**: outras aplicações criam checkouts, consultam pedidos, fazem reembolsos e gerem os seus webhooks.
 
 **O primeiro cliente já existe e está em produção: a Kingdom Library** (`https://library.kingdomcompny.com`), a área de membros onde se vendem produtos digitais cristãos. Ela já recebe e valida os webhooks descritos na secção "Contrato com a Kingdom Library". **Esse contrato é fixo:** os nomes de campos, os cabeçalhos e a assinatura têm de coincidir exatamente, ou os clientes deixam de receber o acesso depois de pagar.
@@ -25,7 +27,7 @@ Os próximos clientes serão sistemas de empresas maiores (ERP, CRM, contabilida
 
 # Princípios (valem para a API e para os webhooks)
 
-- **IDs** opacos, estáveis e com prefixo: `ord_`, `evt_`, `prod_`, `cus_`, `cs_` (checkout session), `re_` (reembolso), `we_` (webhook endpoint). Um ID nunca é reutilizado.
+- **IDs** opacos, estáveis e com prefixo: `ord_`, `evt_`, `prod_`, `cus_`, `cs_` (checkout session), `re_` (reembolso), `we_` (webhook endpoint), `plan_` (plano), `sub_` (assinatura). Um ID nunca é reutilizado.
 - **Dinheiro** em inteiros na unidade mínima (cêntimos): R149,00 = `14900`. Moeda em ISO 4217 (`"ZAR"`). Nunca usar números decimais.
 - **Datas** em ISO 8601, UTC, com `Z` (`2026-09-23T10:15:00Z`). A única exceção são os segundos Unix da assinatura.
 - **JSON** em UTF-8 e `snake_case`. Acrescentar campos novos não é uma alteração incompatível; renomear ou remover é.
@@ -53,6 +55,28 @@ Os próximos clientes serão sistemas de empresas maiores (ERP, CRM, contabilida
 - Estados do pedido: `pending → paid → partially_refunded | refunded | disputed → dispute_won | dispute_lost`. Transições inválidas ficam registadas no log e são ignoradas.
 - O redirect do browser nunca liberta nada. A fonte da verdade é o webhook confirmado.
 - **O gateway envia o recibo de pagamento.** Não envia emails de acesso: esses são da Kingdom Library.
+
+# Parte 1B: assinaturas (novo na v3)
+
+O primeiro plano é o **plano Kingdom Library**: R75 por mês (`7500` ZAR), **30 dias grátis**, e o cartão é pedido logo no início. Enquanto a assinatura dá acesso, a Kingdom Library abre toda a biblioteca ao membro.
+
+**No gateway**
+- Um recurso `plan` (`plan_…`): nome, `amount`, `currency`, `interval: "month"`, `trial_days`, estado, e um **link de checkout estável** (como os produtos). Eu colo o ID do plano e o link na Kingdom Library, em Admin → Integrações → "Plano mensal".
+- Um recurso `subscription` (`sub_…`) por cliente e plano, com a máquina de estados:
+  `trialing → active → past_due → active` (quando o retry cobra) `| canceled → expired`.
+  - `trialing`: cartão guardado, nada cobrado; termina em `trial_end`.
+  - `active`: a última cobrança correu bem; o mês pago termina em `current_period_end`.
+  - `past_due`: uma renovação falhou e o gateway está a tentar de novo (recomendado: 3 tentativas em 3 dias).
+  - `canceled`: o cliente cancelou. Com `cancel_at_period_end: true` mantém o acesso até `current_period_end` (ou `trial_end`) e não volta a ser cobrado; sem isso, termina logo.
+  - `expired`: acabou (fim do período depois de cancelar, ou retries esgotados). Estado final.
+- **Paystack:** confirma na documentação atual (https://paystack.com/docs/payments/subscriptions) como fazer isto; não confies só na memória. O caminho habitual é:
+  1. recolher o cartão sem cobrar o mês (por exemplo, uma transação de verificação do valor mínimo, reembolsada logo, que devolve uma `authorization` reutilizável);
+  2. criar a subscrição no Paystack com essa autorização e `start_date` = fim do período grátis, para que a primeira cobrança de R75 aconteça só no dia 31;
+  3. ouvir `subscription.create`, `charge.success` (renovações), `invoice.payment_failed`, `subscription.not_renew` e `subscription.disable` e traduzi-los para os eventos de saída abaixo.
+  - Se o Paystack oferecer um link para o cliente gerir a assinatura (atualizar o cartão, cancelar), envia-o em `manage_url`. A Kingdom Library mostra-o ao membro.
+- **Emails:** o gateway envia os recibos de cada cobrança. **Não** envia o aviso de fim do período grátis nem o email de boas-vindas ao plano: esses são da Kingdom Library (ela avisa 3 dias antes da primeira cobrança).
+- Um cliente só pode ter **uma assinatura viva por plano**: se voltar ao checkout com uma `trialing`/`active`, mostra-lhe que já tem o plano (e o `manage_url`).
+- Se o cliente já teve o período grátis antes (mesmo email ou cartão), o novo checkout começa sem período grátis. Diz-me se preferes outra regra.
 
 # Parte 2: webhooks de saída
 
@@ -83,6 +107,52 @@ Os próximos clientes serão sistemas de empresas maiores (ERP, CRM, contabilida
 | `integration.test` | Botão "Enviar evento de teste" | `data.message` |
 
 Os receptores ignoram tipos que não conhecem (respondem 2xx). Podes acrescentar eventos no futuro, como `checkout.expired` ou `order.created`, sem quebrar ninguém.
+
+## Eventos de assinatura (v1.1, novo na v3)
+
+| Tipo | Quando |
+|---|---|
+| `subscription.created` | O checkout do plano terminou: cartão guardado e período grátis a começar (`trialing`), ou primeira cobrança feita (`active`) |
+| `subscription.updated` | Qualquer outra mudança (ex.: o cliente reativa antes do fim, muda de cartão) |
+| `subscription.renewed` | Uma cobrança mensal correu bem (incluindo a primeira depois do período grátis): `active` com o novo `current_period_end` |
+| `subscription.payment_failed` | Uma cobrança falhou e vai ser repetida: `past_due` |
+| `subscription.canceled` | O cliente (ou o admin) cancelou: `canceled`, com `cancel_at_period_end` |
+| `subscription.ended` | A assinatura terminou de vez: `expired` |
+
+**Todos** os eventos `subscription.*` levam o **retrato completo e atual** da assinatura. O receptor não precisa de eventos anteriores e guarda sempre o retrato mais recente (pelo `updated_at`). Por isso, eventos repetidos ou fora de ordem não estragam nada.
+
+```json
+{
+  "id": "evt_01JSUB",
+  "type": "subscription.created",
+  "api_version": "2026-09-01",
+  "created_at": "2026-09-29T10:15:00Z",
+  "livemode": true,
+  "data": {
+    "subscription": {
+      "id": "sub_01JAB",
+      "plan_id": "plan_kingdom_library_monthly",
+      "status": "trialing",
+      "amount": 7500,
+      "currency": "ZAR",
+      "interval": "month",
+      "trial_end": "2026-10-29T10:15:00Z",
+      "current_period_end": "2026-10-29T10:15:00Z",
+      "cancel_at_period_end": false,
+      "canceled_at": null,
+      "updated_at": "2026-09-29T10:15:00Z",
+      "manage_url": "https://pay.<domínio>/s/sub_01JAB/manage"
+    },
+    "customer": { "id": "cus_01JAB", "email": "parent@example.co.za", "name": "Thandi Mokoena", "phone": null },
+    "locale": "en",
+    "metadata": { "member_user_id": "3f0c2a4e-8b1d-4c6a-9e2f-1a2b3c4d5e6f", "source": "plan_checkout" }
+  }
+}
+```
+
+- `updated_at` tem de **crescer sempre** que o retrato muda (é o que ordena os eventos).
+- `trial_end` é obrigatório em `trialing`; `current_period_end` é obrigatório em `active` e `past_due`.
+- `metadata` do checkout do plano (ver Parte 3) volta igual em todos os eventos dessa assinatura.
 
 ## Payload de um evento de pedido
 
@@ -222,6 +292,8 @@ Quando um membro carrega no cadeado de um produto bloqueado, a Kingdom Library a
   A Kingdom Library mostra "a confirmar pagamento" e espera pelo `order.paid`. O redirect não liberta nada.
 - Sem `ref` (compra feita fora da área de membros), `member_user_id` vai `null`. A Kingdom Library cria então um convite para o email do checkout.
 
+**Checkout do plano (novo na v3).** O plano tem o seu próprio link de checkout estável (ex.: `https://pay.<domínio>/p/plan_kingdom_library_monthly`). Quando um membro carrega em "Começar os meus 30 dias grátis", a Kingdom Library abre esse link com **os mesmos parâmetros** (`email`, `name`, `locale`, `ref`, `return_url`). O `return_url` é `https://library.kingdomcompny.com/plan?status=started`. No regresso, acrescenta `status` (`success` | `cancelled` | `failed`) como nos produtos. A página do checkout do plano deve dizer claramente: "R0 hoje; R75 a partir de <data>, todos os meses, até cancelar".
+
 # Contrato com a Kingdom Library (já em produção, não mudar)
 
 **Endpoint:** `POST https://library.kingdomcompny.com/api/webhooks/gateway`. Eu registo-o na aba Integrações e colo o segredo na Kingdom Library, em Admin → Integrações.
@@ -241,6 +313,24 @@ Quando um membro carrega no cadeado de um produto bloqueado, a Kingdom Library a
 | `data.order.refunded_amount`, `data.order.full_refund` | no `order.refunded` | Qualquer reembolso, parcial ou total, retira o acesso dado por aquele pedido |
 | `data.outcome` | **sim** no `order.dispute_resolved` | `won` devolve o acesso suspenso (salvo se já houve reembolso); `lost` retira-o de vez |
 
+
+**Assinaturas (novo na v3): o que ela lê**
+
+| Campo | Obrigatório | Uso |
+|---|---|---|
+| `data.subscription.id` | **sim** | Chave da assinatura, igual em todos os eventos dela |
+| `data.subscription.plan_id` | **sim** | Tem de ser igual ao "ID do plano no gateway" em Admin → Integrações. Um ID desconhecido é recusado com 422 e não dá acesso. |
+| `data.subscription.status` | **sim** | `trialing`, `active`, `past_due`, `canceled` ou `expired` |
+| `data.subscription.trial_end` | em `trialing` | Fim do acesso grátis e data do aviso (3 dias antes) |
+| `data.subscription.current_period_end` | em `active` e `past_due` | Fim do mês pago |
+| `data.subscription.cancel_at_period_end` | não | `true`: acesso até ao fim do período; `false` num `canceled`: acesso termina já |
+| `data.subscription.updated_at` | recomendado | Ordena os retratos; um retrato mais antigo do que o guardado é ignorado (200) |
+| `data.subscription.manage_url` | recomendado | Link "Gerir ou cancelar" mostrado ao membro (só `https://`) |
+| `data.customer.email` | **sim** | Conta a que o plano é ligado se não houver `member_user_id`; se ainda não houver conta, fica à espera e é ligado quando a pessoa entrar |
+| `data.metadata.member_user_id` | não | UUID do membro que começou o checkout |
+
+**Acesso que ela dá:** `trialing` até `trial_end`; `active` até `current_period_end` + 3 dias; `past_due` até `current_period_end` + 3 dias (tempo para os retries); `canceled` com `cancel_at_period_end` até ao fim do período, sem ele termina já; `expired` termina já. Se um evento de renovação nunca chegar, o acesso acaba sozinho nessa data. O fim do plano nunca retira produtos comprados à parte.
+
 **Comportamento dela:**
 - Uma disputa aberta suspende o acesso logo.
 - Estados finais (`refunded`, `dispute_lost`) nunca voltam atrás, mesmo que chegue um `order.paid` atrasado.
@@ -255,7 +345,7 @@ Quando um membro carrega no cadeado de um produto bloqueado, a Kingdom Library a
 | 400 | `{"error":"invalid JSON" \| "invalid event"}` | Envelope inválido |
 | 401 | `{"error":"invalid signature"}` | Assinatura em falta, mal formada, com mais de 5 min ou errada |
 | 413 | `{"error":"payload too large"}` | Corpo acima de 256 KB |
-| 422 | `{"received":true,"result":"rejected","reason":"…"}` | Dados do evento inválidos (ex.: sem `order.id`, ou sem `outcome`) |
+| 422 | `{"received":true,"result":"rejected","reason":"…"}` | Dados do evento inválidos (ex.: sem `order.id`, sem `outcome`, ou um `plan_id` desconhecido) |
 | 500 / 503 | `{"error":"…retry later"}` | Temporário: repetir |
 
 # Parte 4: API REST pública
@@ -278,6 +368,8 @@ Base: `https://api.<domínio>/v1`. Documentada num ficheiro **OpenAPI 3.1** (`/v
 | `customers` | obter, listar |
 | `events` | listar e obter (30 dias) |
 | `webhook_endpoints` | criar, listar, atualizar, apagar, rodar segredo, enviar teste |
+| `plans` | listar, obter (preço, intervalo, `trial_days`, link de checkout) |
+| `subscriptions` | listar (filtros: `status`, `plan`, `customer_email`), obter, cancelar (`at_period_end: true` por defeito), obter o `manage_url` |
 
 **Convenções**
 - **Idempotência:** header `Idempotency-Key` em todos os `POST`. A resposta é guardada 24 h e devolvida igual se a chave se repetir; a mesma chave com um corpo diferente dá 409.
@@ -310,6 +402,7 @@ Base: `https://api.<domínio>/v1`. Documentada num ficheiro **OpenAPI 3.1** (`/v
 - Backoff e classificação das respostas (2xx / temporário / definitivo).
 - Bloqueio SSRF e allowlist do `return_url`.
 - Máquina de estados, incluindo o reembolso parcial seguido de total (`refunded_amount` acumulado).
+- Assinaturas: período grátis sem cobrança; primeira cobrança só no fim do período; renovação; falha e retries; cancelamento no fim do período; fim; `updated_at` sempre a crescer; uma única assinatura viva por cliente e plano.
 - `Idempotency-Key` da API; paginação; formato dos erros.
 - Validação do OpenAPI contra as respostas reais.
 
@@ -320,6 +413,8 @@ Base: `https://api.<domínio>/v1`. Documentada num ficheiro **OpenAPI 3.1** (`/v
 4. Reembolso parcial → o acesso é retirado. Disputa aberta → o acesso é suspenso; disputa ganha → o acesso volta.
 5. O mesmo evento reenviado → `{"duplicate": true}`.
 6. Um `product_id` desconhecido → a Kingdom Library alerta o admin e o gateway regista 200.
+7. Plano: colo o ID do plano e o link de checkout em Admin → Integrações → "Plano mensal". Em modo test, "Começar os meus 30 dias grátis" → cartão → `subscription.created` (`trialing`) → a biblioteca inteira abre, e a página do plano mostra "os seus dias grátis vão até…".
+8. Encurto o período grátis em test → `subscription.renewed` (`active`) → o acesso continua. Uma renovação recusada → `subscription.payment_failed` → o acesso continua 3 dias. Cancelar → `subscription.canceled` com `cancel_at_period_end` → acesso até ao fim do período → `subscription.ended` → o acesso do plano termina (os produtos comprados à parte ficam).
 
 **Entregáveis:**
 - código com testes;

@@ -44,6 +44,7 @@ const KNOWN = new Set([
   "admin.comment.approved",
   "admin.comment.rejected",
   "admin.comment.deleted",
+  "admin.plan.updated",
 ]);
 
 const str = (v: unknown) => (typeof v === "string" ? v : typeof v === "number" ? String(v) : "");

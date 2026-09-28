@@ -4,7 +4,7 @@ import { createServerClient } from "@supabase/ssr";
 // Kept local: proxy runs separately from the app bundle.
 const LOCALES = ["en", "pt", "es"];
 const LOCALE_COOKIE = "km-locale";
-const PROTECTED = ["/home", "/welcome", "/library", "/products", "/purchase", "/profile", "/admin", "/help"];
+const PROTECTED = ["/home", "/welcome", "/plan", "/library", "/products", "/purchase", "/profile", "/admin", "/help"];
 
 /**
  * Content Security Policy with a fresh nonce per request: Next.js adds it to its own scripts, and nothing

@@ -3,8 +3,9 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireMember } from "@/lib/auth";
+import { getPlan, memberPlan, planOpen } from "@/lib/plan";
 import { safeNext } from "@/lib/request";
-import { CONTENT_TYPES, pick, SPHERES } from "@/lib/spheres";
+import { CONTENT_TYPES, DAILY_TIMES, FAITH_STAGES, one, pick, SPHERES, STUDY_WITH } from "@/lib/spheres";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export type WelcomeState = { status: "idle" | "error"; message?: string; field?: "curation_spheres" };
@@ -29,8 +30,12 @@ export async function saveWelcome(_prev: WelcomeState, fd: FormData): Promise<We
   const admin = createAdminClient();
   const { error } = await admin.from("onboarding_responses").insert({
     user_id: profile.id,
+    quiz_version: 2,
     content_types: contentTypes,
     challenges,
+    faith_stage: one(fd.get("faith_stage"), FAITH_STAGES),
+    daily_time: one(fd.get("daily_time"), DAILY_TIMES),
+    study_with: pick(fd.getAll("study_with"), STUDY_WITH),
     curation_opt_in: optIn,
     curation_spheres: curationSpheres,
   });
@@ -41,6 +46,8 @@ export async function saveWelcome(_prev: WelcomeState, fd: FormData): Promise<We
   await admin.from("profiles").update({ onboarded_at: new Date().toISOString() }).eq("id", profile.id);
   await setCuration(profile.id, optIn ? curationSpheres : null);
   revalidatePath("/", "layout");
+  // The monthly picks come with the plan: someone who wants them sees the plan next (unless they already have it).
+  if (optIn && planOpen(await getPlan()) && !(await memberPlan(profile.id))?.active) redirect(`/plan?next=${encodeURIComponent(after(fd))}`);
   redirect(after(fd));
 }
 

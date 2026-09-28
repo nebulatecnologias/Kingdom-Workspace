@@ -5,18 +5,20 @@ import { useTranslations } from "next-intl";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { saveWelcome, type WelcomeState } from "@/app/welcome/actions";
 import { keepValues } from "@/components/admin/keep-form";
-import { CONTENT_TYPES, SPHERES, type Sphere } from "@/lib/spheres";
+import { CONTENT_TYPES, DAILY_TIMES, FAITH_STAGES, SPHERES, STUDY_WITH, type Sphere } from "@/lib/spheres";
 
-const STEPS = 3;
+const STEPS = 6;
+const CURATION_STEP = 6;
 
 /**
- * Three short questions, one at a time: what they want to find, where they feel challenged, and whether
- * they want the monthly picks. One form underneath, so every answer is sent together at the end.
+ * Six short questions, one at a time: what they want to find, where they feel challenged, where they are in
+ * their faith, how much time they have each day, who they use the resources with, and whether they want the
+ * monthly picks. One form underneath, so every answer is sent together at the end.
  */
 export function WelcomeQuiz({ next, subscribed }: { next: string; subscribed: Sphere[] | null }) {
   const t = useTranslations();
   const [state, action, pending] = useActionState(saveWelcome, { status: "idle" } as WelcomeState);
-  const [step, setStep] = useState(state.field ? 3 : 1);
+  const [step, setStep] = useState(state.field ? CURATION_STEP : 1);
   const [challenges, setChallenges] = useState<Sphere[]>([]);
   const [curation, setCuration] = useState<"yes" | "no" | "">(subscribed ? "yes" : "");
   // The monthly spheres start as the member's challenges until they change them.
@@ -25,7 +27,7 @@ export function WelcomeQuiz({ next, subscribed }: { next: string; subscribed: Sp
   const spheres = picked ?? challenges;
 
   useEffect(() => {
-    if (state.field) setStep(3); // eslint-disable-line react-hooks/set-state-in-effect -- show the question the error is about
+    if (state.field) setStep(CURATION_STEP); // eslint-disable-line react-hooks/set-state-in-effect -- show the question the error is about
   }, [state]);
   const go = (n: number) => {
     setStep(n);
@@ -86,6 +88,60 @@ export function WelcomeQuiz({ next, subscribed }: { next: string; subscribed: Sp
       <fieldset className="welcome-q" hidden={step !== 3}>
         <legend>
           <h1 ref={step === 3 ? heading : undefined} tabIndex={-1}>
+            {t("wel_qFaith")}
+          </h1>
+        </legend>
+        <p className="lead">{t("wel_qFaithP")}</p>
+        <div className="choices">
+          {FAITH_STAGES.map((f) => (
+            <label className="choice" key={f}>
+              <input type="radio" name="faith_stage" value={f} />
+              <span>
+                <b>{t(`wel_faith_${f}`)}</b>
+                <small>{t(`wel_faith_${f}_hint`)}</small>
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className="welcome-q" hidden={step !== 4}>
+        <legend>
+          <h1 ref={step === 4 ? heading : undefined} tabIndex={-1}>
+            {t("wel_qTime")}
+          </h1>
+        </legend>
+        <p className="lead">{t("wel_qTimeP")}</p>
+        <div className="choices choices-row">
+          {DAILY_TIMES.map((d) => (
+            <label className="choice" key={d}>
+              <input type="radio" name="daily_time" value={d} />
+              <span>{t(`wel_time_${d}`)}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className="welcome-q" hidden={step !== 5}>
+        <legend>
+          <h1 ref={step === 5 ? heading : undefined} tabIndex={-1}>
+            {t("wel_qWith")}
+          </h1>
+        </legend>
+        <p className="lead">{t("wel_qWithP")}</p>
+        <div className="choices">
+          {STUDY_WITH.map((w) => (
+            <label className="choice" key={w}>
+              <input type="checkbox" name="study_with" value={w} />
+              <span>{t(`wel_with_${w}`)}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className="welcome-q" hidden={step !== CURATION_STEP}>
+        <legend>
+          <h1 ref={step === CURATION_STEP ? heading : undefined} tabIndex={-1}>
             {t("wel_q3")}
           </h1>
         </legend>

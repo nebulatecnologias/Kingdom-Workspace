@@ -23,7 +23,7 @@ export const COMPANY = {
 
 const terms: LegalDoc = {
   title: "Terms of Use",
-  updated: "24 September 2026",
+  updated: "29 September 2026",
   intro: [
     `Welcome to Kingdom Library. Kingdom Library is a brand of ${COMPANY.name} ("we", "our" or "us"). These Terms of Use govern your use of this website and the digital resources available through Kingdom Library. By using this website or purchasing our products, you agree to these Terms. If you do not agree, please do not use our website or products.`,
   ],
@@ -80,7 +80,22 @@ const terms: LegalDoc = {
       ],
     },
     {
-      heading: "7. Refunds",
+      heading: "7. The monthly plan",
+      blocks: [
+        {
+          list: [
+            "The Kingdom Library plan opens every product in the library, including new ones, and the monthly picks email, for as long as the plan is active. The price is shown on the plan page before you start (currently R 75 a month).",
+            "The plan starts with a free period (currently 30 days). You add your card on our payment provider's page; nothing is charged during the free period. We email you 3 days before it ends.",
+            "When the free period ends, the monthly price is charged to your card, and again every month on the same day, until you cancel.",
+            "You can cancel at any time from your profile or by contacting us. If you cancel during the free period, you pay nothing. If you cancel later, you keep access until the end of the month you have paid for, and you are not charged again.",
+            "If a monthly payment fails, our payment provider tries again for a few days; if it still fails, the plan ends and so does the access it gave. Products you bought separately stay yours.",
+            "We may change the price with at least 30 days' notice by email; you can cancel before the new price applies.",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "8. Refunds",
       blocks: [
         {
           before: "You may ask for a refund within 7 days of your purchase, by email. The details are in our ",
@@ -90,22 +105,22 @@ const terms: LegalDoc = {
       ],
     },
     {
-      heading: "8. Limitation of liability",
+      heading: "9. Limitation of liability",
       blocks: [
         "We provide educational resources and support, but we cannot guarantee specific results, as these depend on how the materials are used. We are not liable for any loss, damage or interruption resulting from the use or misuse of our website or products.",
       ],
     },
     {
-      heading: "9. Changes to these Terms",
+      heading: "10. Changes to these Terms",
       blocks: ["We may update these Terms at any time. Please check this page from time to time to stay informed."],
     },
-    { heading: "10. Contact", blocks: [{ contact: true }] },
+    { heading: "11. Contact", blocks: [{ contact: true }] },
   ],
 };
 
 const privacy: LegalDoc = {
   title: "Privacy Policy",
-  updated: "28 September 2026",
+  updated: "29 September 2026",
   intro: [
     `This Privacy Policy explains how ${COMPANY.name} ("we", "our" or "us"), the company behind Kingdom Library, collects and uses your personal information, in line with the Protection of Personal Information Act, 2013 (POPIA). We are the responsible party for the personal information described here.`,
   ],
@@ -118,7 +133,8 @@ const privacy: LegalDoc = {
             "Account details: your name, email address, preferred language, and the date you accepted our Terms.",
             "Purchases: the products you bought, order references, amounts and refund status, as sent to us by our payment gateway. We never receive or store your card details.",
             "Use of your library: which products you open and how far you have read, so you can pick up where you left off.",
-            "Your welcome answers, if you choose to give them: the kinds of content you would like, the areas of Christian life where you feel challenged, and whether you want our monthly picks. Only our team sees them.",
+            "Your welcome answers, if you choose to give them: the kinds of content you would like, the areas of Christian life where you feel challenged, where you are in your faith, how much time you set aside each day, who you use the resources with, and whether you want our monthly picks. Only our team sees them.",
+            "Your monthly plan, if you have one: its status and dates as sent to us by our payment provider (never your card details).",
             "Security information: sign-in times, and your IP address for a short time to limit repeated sign-in attempts.",
             "Emails we send you: the type of email, when it was sent and whether it was delivered.",
           ],
@@ -134,7 +150,8 @@ const privacy: LegalDoc = {
             "to send you invites, sign-in links, password resets and notices about your purchases;",
             "to keep your account and our website secure;",
             "to answer your questions and give you support;",
-            "to suggest resources that fit your answers and, only if you said yes, to send you one email a month with picks for the areas you chose (you can stop it at any time from the email or your profile);",
+            "to suggest resources that fit your answers and, only if you said yes and have the monthly plan, to send you one email a month with picks for the areas you chose (you can stop it at any time from the email or your profile);",
+            "to give you the access your monthly plan includes, and to email you about it (when it starts, and 3 days before your free period ends);",
             "to meet our legal and accounting obligations.",
           ],
         },

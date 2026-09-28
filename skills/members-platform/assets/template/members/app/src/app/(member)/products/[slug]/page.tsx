@@ -13,6 +13,7 @@ import { formatBytes, formatDuration, getProduct, getProgress, isReading, type A
 import { countLabel, priceLabel } from "@/lib/catalogue-labels";
 import { shortDate } from "@/lib/admin/time";
 import { productComments } from "@/lib/comments";
+import { getPlan, planOpen } from "@/lib/plan";
 import { signedImageUrls } from "@/lib/media";
 
 export async function generateMetadata({ params }: PageProps<"/products/[slug]">): Promise<Metadata> {
@@ -63,10 +64,11 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
   const reading = isReading(p.type);
   const pages = p.outline.filter((o) => o.kind === "page");
   const chapters = p.outline.filter((o) => o.kind === "chapter");
-  const [urls, rows, comments] = await Promise.all([
+  const [urls, rows, comments, plan] = await Promise.all([
     signedImageUrls([p.coverPath, ...pages.map((o) => o.previewPath)]),
     reading ? getProgress(profile.id) : Promise.resolve([]),
     p.visibility === "visible" ? productComments(p.id, profile.id) : Promise.resolve([]),
+    own ? Promise.resolve(null) : getPlan(),
   ]);
   const progress = rows.find((r) => r.product_id === p.id)?.chapter_position ?? 0;
   // The hero offers the main downloads; every other material is listed below it.
@@ -102,6 +104,11 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
         <Lock className="icon" aria-hidden="true" />
         {t("unlockFor", { price: priceLabel(p.priceCents, intlTag) })}
       </a>
+      {planOpen(plan) ? (
+        <Link className="btn btn-quiet" href="/plan">
+          {t("pack_orPlan")}
+        </Link>
+      ) : null}
     </>
   );
 

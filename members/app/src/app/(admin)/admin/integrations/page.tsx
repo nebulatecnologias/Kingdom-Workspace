@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import { IntentLink as Link } from "@/components/shell/intent-link";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Check, CreditCard, Plug, X } from "lucide-react";
+import { Check, CreditCard, Crown, Plug, X } from "lucide-react";
 import { MiniCover } from "@/components/admin/cover";
+import { PlanSettings } from "@/components/admin/plan-settings";
 import { CopyButton, SecretField, TestEventButton } from "@/components/admin/integrations";
 import { toLocale } from "@/i18n/config";
 import { adminContext } from "@/lib/admin/context";
 import { adminProducts } from "@/lib/admin/queries";
 import { daysSince, timeOrDate } from "@/lib/admin/time";
 import { formatZar } from "@/lib/format";
-import { ORDER_EVENTS } from "@/lib/gateway/events";
+import { ORDER_EVENTS, SUBSCRIPTION_EVENTS } from "@/lib/gateway/events";
 import { signedImageUrls } from "@/lib/media";
+import { getPlan } from "@/lib/plan";
 import { siteUrl } from "@/lib/request";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,12 +31,15 @@ export default async function IntegrationsPage() {
   const { db } = await adminContext("/admin/integrations");
   const t = await getTranslations();
   const intlTag = await getLocale();
-  const [{ data: stored }, { data: events }, products, { data: unmappedRows }] = await Promise.all([
+  const [{ data: stored }, { data: events }, products, { data: unmappedRows }, plan, { data: subs }] = await Promise.all([
     db.from("integration_secrets").select("secret_current, secret_previous, previous_valid_until").eq("name", "gateway").maybeSingle(),
     db.from("webhook_events").select("event_id, type, received_at, signature_ok, result, error, payload").order("received_at", { ascending: false }).limit(25),
     adminProducts(db, toLocale(intlTag)),
     db.from("audit_log").select("meta").like("action", "gateway.order.%").order("id", { ascending: false }).limit(200),
+    getPlan(),
+    db.from("subscriptions").select("status").gt("access_until", new Date().toISOString()).neq("status", "expired"),
   ]);
+  const subCount = (status: string) => (subs ?? []).filter((x) => x.status === status).length;
   const deliveries = (events ?? []) as Delivery[];
   const envSecret = process.env.GATEWAY_WEBHOOK_SECRET ?? null;
   const secret = stored?.secret_current ?? envSecret;
@@ -132,7 +137,7 @@ export default async function IntegrationsPage() {
             <div className="field">
               <span className="label">{t("int_events")}</span>
               <div className="filters">
-                {[...ORDER_EVENTS, "integration.test"].map((e) => (
+                {[...ORDER_EVENTS, ...SUBSCRIPTION_EVENTS, "integration.test"].map((e) => (
                   <span key={e} className="chip-code" style={{ padding: "5px 10px" }}>
                     {e}
                   </span>
@@ -199,6 +204,27 @@ export default async function IntegrationsPage() {
               </table>
             </div>
           </section>
+
+          {plan ? (
+            <section className="card card-pad stack" aria-labelledby="plan-set-title">
+              <div>
+                <h2 className="card-title" id="plan-set-title">
+                  <Crown className="icon" aria-hidden="true" />
+                  {t("pl_title")}
+                </h2>
+                <p className="muted" style={{ marginTop: 4, fontSize: 14 }}>
+                  {t("pl_lead")}
+                </p>
+              </div>
+              <div className="filters">
+                <span className="pill pill-blue">{t("pl_trialing", { n: subCount("trialing") })}</span>
+                <span className="pill pill-soft-green">{t("pl_activeN", { n: subCount("active") })}</span>
+                {subCount("past_due") ? <span className="pill pill-amber">{t("pl_pastDue", { n: subCount("past_due") })}</span> : null}
+                {subCount("canceled") ? <span className="pill pill-grey">{t("pl_canceling", { n: subCount("canceled") })}</span> : null}
+              </div>
+              <PlanSettings priceCents={plan.priceCents} trialDays={plan.trialDays} gatewayPlanId={plan.gatewayPlanId} checkoutUrl={plan.checkoutUrl} active={plan.active} />
+            </section>
+          ) : null}
 
           <section className="card" aria-labelledby="log-title">
             <div className="card-head">

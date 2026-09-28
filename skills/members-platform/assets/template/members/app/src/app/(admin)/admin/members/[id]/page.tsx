@@ -14,6 +14,7 @@ import { adminProducts, auditRows, memberDetail } from "@/lib/admin/queries";
 import { relativeDays, shortDate } from "@/lib/admin/time";
 import { formatZar } from "@/lib/format";
 import { signedImageUrls } from "@/lib/media";
+import { memberPlan } from "@/lib/plan";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -34,13 +35,14 @@ export default async function MemberPage({ params }: PageProps<"/admin/members/[
   if (!UUID.test(id)) notFound();
   const t = await getTranslations();
   const intlTag = await getLocale();
-  const [detail, products, rows, { data: answers }, { data: sub }, { data: sends }] = await Promise.all([
+  const [detail, products, rows, { data: answers }, { data: sub }, { data: sends }, plan] = await Promise.all([
     memberDetail(db, id),
     adminProducts(db, toLocale(intlTag)),
     auditRows(db, { limit: 10, target: { type: "profile", id } }),
-    db.from("onboarding_responses").select("id, skipped, content_types, challenges, curation_opt_in, curation_spheres, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
+    db.from("onboarding_responses").select("id, skipped, content_types, challenges, faith_stage, daily_time, study_with, curation_opt_in, curation_spheres, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
     db.from("curation_subscriptions").select("spheres, subscribed_at, unsubscribed_at").eq("user_id", id).maybeSingle(),
     db.from("curation_sends").select("month, product_ids, status").eq("user_id", id).order("month", { ascending: false }).limit(6),
+    memberPlan(id),
   ]);
   if (!detail) notFound();
   const { member, grants, orders } = detail;
@@ -206,6 +208,22 @@ export default async function MemberPage({ params }: PageProps<"/admin/members/[
               </p>
             </div>
             <div className="hist-sub">
+              <b>{t("hist_plan")}</b>
+              <span>
+                {!plan
+                  ? t("hist_planNone")
+                  : plan.active
+                    ? plan.status === "trialing" && plan.trialEndsAt
+                      ? t("hist_planTrial", { date: shortDate(plan.trialEndsAt, intlTag) })
+                      : plan.cancelAtPeriodEnd && plan.accessUntil
+                        ? t("hist_planEnding", { date: shortDate(plan.accessUntil, intlTag) })
+                        : plan.status === "past_due"
+                          ? t("hist_planPastDue")
+                          : t("hist_planActive", { date: shortDate(plan.currentPeriodEnd ?? plan.accessUntil ?? new Date(), intlTag) })
+                    : t("hist_planEnded")}
+              </span>
+            </div>
+            <div className="hist-sub">
               <b>{t("hist_curation")}</b>
               <span>
                 {sub && !sub.unsubscribed_at
@@ -237,6 +255,24 @@ export default async function MemberPage({ params }: PageProps<"/admin/members/[
                         <dd>{a.content_types.length ? a.content_types.map((c: string) => t(`wel_type_${c}`)).join(", ") : "—"}</dd>
                         <dt>{t("hist_challenges")}</dt>
                         <dd>{a.challenges.length ? spheres(a.challenges) : "—"}</dd>
+                        {a.faith_stage ? (
+                          <>
+                            <dt>{t("hist_faith")}</dt>
+                            <dd>{t(`wel_faith_${a.faith_stage}`)}</dd>
+                          </>
+                        ) : null}
+                        {a.daily_time ? (
+                          <>
+                            <dt>{t("hist_time")}</dt>
+                            <dd>{t(`wel_time_${a.daily_time}`)}</dd>
+                          </>
+                        ) : null}
+                        {a.study_with?.length ? (
+                          <>
+                            <dt>{t("hist_with")}</dt>
+                            <dd>{a.study_with.map((w: string) => t(`wel_with_${w}`)).join(", ")}</dd>
+                          </>
+                        ) : null}
                         <dt>{t("hist_curation")}</dt>
                         <dd>{a.curation_opt_in ? t("hist_yes", { spheres: spheres(a.curation_spheres) }) : t("hist_no")}</dd>
                       </dl>

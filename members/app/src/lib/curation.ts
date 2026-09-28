@@ -11,40 +11,32 @@ export function monthOf(now = new Date()) {
   return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
 }
 
-type Sub = { user_id: string; spheres: string[]; token: string; profile: { email: string; full_name: string; locale: string; status: string } | null };
+type Sub = { user_id: string; spheres: string[]; token: string; email: string; full_name: string; locale: string };
 
 /**
- * Monthly picks. Runs every day with the daily job; each subscriber gets one email per calendar month,
- * starting the month after they subscribed. A run sends at most `limit` emails; the rest follow the next day.
+ * Monthly picks, part of the plan. Runs every day with the daily job; each member with an active plan who
+ * asked for them gets one email per calendar month, starting the month after they said yes. A run sends at
+ * most `limit` emails; the rest follow the next day.
  */
 export async function sendMonthlyCuration(limit = 50, now = new Date()) {
   const admin = createAdminClient();
   const month = monthOf(now);
   const monthIso = month.toISOString();
-  const { data, error } = await admin
-    .from("curation_subscriptions")
-    .select("user_id, spheres, token, profile:profiles(email, full_name, locale, status)")
-    .is("unsubscribed_at", null)
-    .lt("subscribed_at", monthIso)
-    .or(`last_sent_at.is.null,last_sent_at.lt.${monthIso}`)
-    .limit(limit);
+  // Only members with an active plan are due: the monthly picks are part of the plan.
+  const { data, error } = await admin.rpc("curation_due", { p_month: monthIso, p_limit: limit });
   if (error) {
     console.error("curation: listing subscribers failed", error.message);
     return { curated: 0, curationFailed: 0 };
   }
   let curated = 0;
   let curationFailed = 0;
-  for (const sub of (data ?? []) as unknown as Sub[]) {
-    const profile = sub.profile;
+  for (const sub of (data ?? []) as Sub[]) {
+    const profile = sub;
     const record = async (status: "sent" | "failed" | "empty", productIds: string[] = []) => {
       await admin.from("curation_sends").upsert({ user_id: sub.user_id, month: monthIso.slice(0, 10), product_ids: productIds, status }, { onConflict: "user_id,month" });
       // A failure is tried again tomorrow; a sent or empty month is done.
       if (status !== "failed") await admin.from("curation_subscriptions").update({ last_sent_at: now.toISOString() }).eq("user_id", sub.user_id);
     };
-    if (!profile || profile.status !== "active") {
-      await record("empty");
-      continue;
-    }
     const locale = isLocale(profile.locale) ? profile.locale : "en";
     const { data: picks } = await admin.rpc("curation_picks", { p_user_id: sub.user_id, p_limit: 4 });
     const rows = (picks ?? []) as { product_id: string; slug: string; owned: boolean }[];

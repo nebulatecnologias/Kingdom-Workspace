@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
-import { Check, Globe, KeyRound, Mail, ShieldCheck } from "lucide-react";
+import { Check, Crown, Globe, KeyRound, Mail, ShieldCheck } from "lucide-react";
 import { LanguageChoice, NameForm, PasswordForm, PrivacyActions } from "@/components/profile/profile-forms";
 import { Notice } from "@/components/ui/notice";
 import { stopCuration } from "@/app/welcome/actions";
 import { requireMember } from "@/lib/auth";
+import { getPlan, memberPlan, planOpen } from "@/lib/plan";
 import { isSphere } from "@/lib/spheres";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -20,6 +21,20 @@ export default async function ProfilePage({ searchParams }: PageProps<"/profile"
   const t = await getTranslations();
   const { data: sub } = await createAdminClient().from("curation_subscriptions").select("spheres, unsubscribed_at").eq("user_id", profile.id).maybeSingle();
   const spheres = sub && !sub.unsubscribed_at ? (sub.spheres as string[]).filter(isSphere) : [];
+  const [plan, offer] = await Promise.all([memberPlan(profile.id), getPlan()]);
+  const intlTag = await getLocale();
+  const date = (iso: string) => new Intl.DateTimeFormat(intlTag, { day: "numeric", month: "long", timeZone: "Africa/Johannesburg" }).format(new Date(iso));
+  const planLine = !plan?.active
+    ? t("pf_planNone")
+    : plan.status === "trialing" && plan.trialEndsAt
+      ? plan.cancelAtPeriodEnd
+        ? t("plan_endsOn", { date: date(plan.trialEndsAt) })
+        : t("pf_planTrial", { date: date(plan.trialEndsAt) })
+      : plan.status === "past_due"
+        ? t("plan_pastDue")
+        : plan.cancelAtPeriodEnd && plan.accessUntil
+          ? t("plan_endsOn", { date: date(plan.accessUntil) })
+          : t("pf_planActive", { date: date(plan.currentPeriodEnd ?? plan.accessUntil ?? new Date().toISOString()) });
   return (
     <>
       {sp.notice === "curation_off" ? (
@@ -82,6 +97,35 @@ export default async function ProfilePage({ searchParams }: PageProps<"/profile"
           </div>
         </section>
 
+        {plan || planOpen(offer) ? (
+          <section className="card card-pad stack" aria-labelledby="pf-plan">
+            <div>
+              <h2 className="card-title" id="pf-plan">
+                <Crown className="icon" aria-hidden="true" />
+                {t("plan_title")}
+              </h2>
+              <p className="muted" style={{ marginTop: 4, maxWidth: "60ch" }}>
+                {planLine}
+              </p>
+            </div>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              {plan?.active ? (
+                plan.manageUrl ? (
+                  <a className="btn btn-ghost" href={plan.manageUrl} target="_blank" rel="noopener noreferrer">
+                    {t("plan_manage")}
+                  </a>
+                ) : (
+                  <span className="hint">{t("pf_planCancelHelp")}</span>
+                )
+              ) : planOpen(offer) ? (
+                <Link className="btn btn-primary" href="/plan">
+                  {t("pf_planSee")}
+                </Link>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
+
         <section className="card card-pad stack" aria-labelledby="pf-curation">
           <div>
             <h2 className="card-title" id="pf-curation">
@@ -89,7 +133,11 @@ export default async function ProfilePage({ searchParams }: PageProps<"/profile"
               {t("cur_title")}
             </h2>
             <p className="muted" style={{ marginTop: 4, maxWidth: "60ch" }}>
-              {spheres.length ? t("cur_on", { spheres: spheres.map((s) => t(`sphere_${s}`)).join(", ") }) : t("cur_off")}
+              {spheres.length
+                ? plan?.active
+                  ? t("cur_on", { spheres: spheres.map((s) => t(`sphere_${s}`)).join(", ") })
+                  : t("cur_onNoPlan", { spheres: spheres.map((s) => t(`sphere_${s}`)).join(", ") })
+                : t("cur_off")}
             </p>
           </div>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>

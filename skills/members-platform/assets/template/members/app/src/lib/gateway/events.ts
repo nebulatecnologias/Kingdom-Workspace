@@ -52,3 +52,47 @@ export function parseOrderData(type: OrderEventType, data: unknown) {
   }
   return { ok: true as const, data: d };
 }
+
+/** Subscription events (contract v1.1): each one carries the gateway's full, current view of the subscription. */
+export const SUBSCRIPTION_EVENTS = [
+  "subscription.created",
+  "subscription.updated",
+  "subscription.renewed",
+  "subscription.payment_failed",
+  "subscription.canceled",
+  "subscription.ended",
+] as const;
+export type SubscriptionEventType = (typeof SUBSCRIPTION_EVENTS)[number];
+
+export function isSubscriptionEvent(type: string): type is SubscriptionEventType {
+  return (SUBSCRIPTION_EVENTS as readonly string[]).includes(type);
+}
+
+const isoDate = z.string().max(40).refine((v) => !Number.isNaN(Date.parse(v)), "expected an ISO 8601 date");
+
+const subscriptionData = z.looseObject({
+  subscription: z.looseObject({
+    id: z.string().min(1).max(200),
+    plan_id: z.string().min(1).max(200),
+    status: z.enum(["trialing", "active", "past_due", "canceled", "expired"]),
+    trial_end: isoDate.nullish(),
+    current_period_end: isoDate.nullish(),
+    cancel_at_period_end: z.boolean().nullish(),
+    canceled_at: isoDate.nullish(),
+    updated_at: isoDate.nullish(),
+    manage_url: z.url().max(2000).nullish(),
+  }),
+  customer: z.looseObject({ email: z.email().max(320), name: z.string().max(200).nullish() }),
+  locale: z.string().max(10).nullish(),
+  metadata: z.looseObject({ member_user_id: z.string().max(100).nullish() }).nullish(),
+});
+
+/** Validates the data of a subscription.* event. A trial must say when it ends; a paid month, when it ends. */
+export function parseSubscriptionData(data: unknown) {
+  const parsed = subscriptionData.safeParse(data);
+  if (!parsed.success) return { ok: false as const, error: parsed.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("; ") };
+  const s = parsed.data.subscription;
+  if (s.status === "trialing" && !s.trial_end && !s.current_period_end) return { ok: false as const, error: "subscription.trial_end: required while trialing" };
+  if ((s.status === "active" || s.status === "past_due") && !s.current_period_end) return { ok: false as const, error: "subscription.current_period_end: required" };
+  return { ok: true as const, data: parsed.data };
+}

@@ -2,9 +2,10 @@ import { randomUUID } from "node:crypto";
 import { after } from "next/server";
 import { alertAdmins } from "@/lib/alerts";
 import { retryFailedEmails } from "@/lib/email/retry";
-import { gatewayEvent, isOrderEvent, parseOrderData } from "@/lib/gateway/events";
+import { gatewayEvent, isOrderEvent, isSubscriptionEvent, parseOrderData, parseSubscriptionData } from "@/lib/gateway/events";
 import { gatewaySecrets, handleOrderEvent, type Outcome } from "@/lib/gateway/process";
 import { verifySignature } from "@/lib/gateway/signature";
+import { handleSubscriptionEvent } from "@/lib/plan";
 import { allow } from "@/lib/rate-limit";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -85,6 +86,9 @@ export async function POST(request: Request) {
       outcome = data.ok
         ? await handleOrderEvent(event.type, data.data, claim === "retry")
         : { result: "rejected", note: `invalid data: ${data.error}` };
+    } else if (isSubscriptionEvent(event.type)) {
+      const data = parseSubscriptionData(event.data);
+      outcome = data.ok ? await handleSubscriptionEvent(data.data) : { result: "rejected", note: `invalid data: ${data.error}` };
     } else {
       outcome = { result: "processed", note: `event type ${event.type} is not used` };
     }

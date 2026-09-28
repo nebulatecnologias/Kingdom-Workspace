@@ -591,4 +591,76 @@ begin
   assert not has_table_privilege('anon', 'public.product_comments', 'select'), 'visitors cannot read comments';
 end $$;
 
+-- Monthly plan: a subscription snapshot opens every visible product while access lasts; old snapshots are ignored.
+update public.plans set gateway_plan_id = 'plan_all_access' where code = 'all_access';
+do $$
+declare r jsonb;
+begin
+  begin
+    perform public.gateway_apply_subscription('{"subscription":{"id":"sub_x","status":"trialing","plan_id":"plan_nope"},"customer":{"email":"a@b.co"}}');
+    raise exception 'unknown plan accepted';
+  exception when sqlstate '22023' then null;
+  end;
+  r := public.gateway_apply_subscription(jsonb_build_object(
+    'subscription', jsonb_build_object('id', 'sub_1', 'status', 'trialing', 'plan_id', 'plan_all_access',
+      'trial_end', now() + interval '30 days', 'current_period_end', now() + interval '30 days', 'updated_at', now() - interval '1 minute'),
+    'customer', jsonb_build_object('email', 'Thandi@Example.co.za'),
+    'metadata', jsonb_build_object('member_user_id', 'not-a-uuid')));
+  assert (r ->> 'new')::boolean and (r ->> 'user_id') = '00000000-0000-0000-0000-00000000000a', 'new trial linked by email';
+  assert public.plan_active('00000000-0000-0000-0000-00000000000a'), 'trial gives access';
+  -- An older snapshot arriving late changes nothing.
+  r := public.gateway_apply_subscription(jsonb_build_object(
+    'subscription', jsonb_build_object('id', 'sub_1', 'status', 'expired', 'plan_id', 'plan_all_access', 'updated_at', now() - interval '1 hour'),
+    'customer', jsonb_build_object('email', 'thandi@example.co.za')));
+  assert (r ->> 'stale')::boolean, 'older snapshot ignored';
+  assert public.plan_active('00000000-0000-0000-0000-00000000000a'), 'still active after a stale event';
+end $$;
+begin;
+set local role authenticated;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
+do $$ begin
+  assert public.has_access((select id from public.products where slug = 'sermon')), 'the plan opens a paid product never bought';
+  assert not public.has_access((select id from public.products where visibility = 'hidden' limit 1)), 'but not hidden products';
+  assert not has_table_privilege('authenticated', 'public.subscriptions', 'select'), 'members cannot read subscriptions';
+  assert not has_function_privilege('authenticated', 'public.plan_active(uuid)', 'execute'), 'members cannot probe plans';
+  assert not has_function_privilege('authenticated', 'public.gateway_apply_subscription(jsonb)', 'execute'), 'members cannot apply events';
+end $$;
+rollback;
+do $$
+declare r jsonb;
+begin
+  -- Cancelled at the end of the period: access until then. Ended: access stops now.
+  r := public.gateway_apply_subscription(jsonb_build_object(
+    'subscription', jsonb_build_object('id', 'sub_1', 'status', 'canceled', 'plan_id', 'plan_all_access', 'cancel_at_period_end', true,
+      'current_period_end', now() + interval '10 days', 'updated_at', now()),
+    'customer', jsonb_build_object('email', 'thandi@example.co.za')));
+  assert public.plan_active('00000000-0000-0000-0000-00000000000a'), 'cancelled at period end keeps access until then';
+  r := public.gateway_apply_subscription(jsonb_build_object(
+    'subscription', jsonb_build_object('id', 'sub_1', 'status', 'expired', 'plan_id', 'plan_all_access', 'updated_at', now() + interval '1 second'),
+    'customer', jsonb_build_object('email', 'thandi@example.co.za')));
+  assert not public.plan_active('00000000-0000-0000-0000-00000000000a'), 'expired plan gives no access';
+  -- A subscription paid before the account exists is linked when it is created.
+  r := public.gateway_apply_subscription(jsonb_build_object(
+    'subscription', jsonb_build_object('id', 'sub_2', 'status', 'active', 'plan_id', 'plan_all_access', 'current_period_end', now() + interval '20 days'),
+    'customer', jsonb_build_object('email', 'later@example.co.za')));
+  assert (r ->> 'user_id') is null, 'no account yet';
+  insert into auth.users (id, email, raw_user_meta_data) values ('00000000-0000-0000-0000-0000000000c1', 'later@example.co.za', '{"full_name":"Later Member"}');
+  perform public.link_entitlements('00000000-0000-0000-0000-0000000000c1', 'later@example.co.za');
+  assert public.plan_active('00000000-0000-0000-0000-0000000000c1'), 'linked on sign-up';
+  -- Only plan members are due for the monthly picks.
+  insert into public.curation_subscriptions (user_id, spheres, subscribed_at) values
+    ('00000000-0000-0000-0000-00000000000a', '{peace_rest}', now() - interval '60 days'),
+    ('00000000-0000-0000-0000-0000000000c1', '{peace_rest}', now() - interval '60 days');
+  assert (select array_agg(user_id) from public.curation_due(date_trunc('month', now()), 40)) = array['00000000-0000-0000-0000-0000000000c1'::uuid],
+    'monthly picks only for members with an active plan';
+  begin
+    insert into public.onboarding_responses (user_id, faith_stage) values ('00000000-0000-0000-0000-00000000000a', 'expert');
+    raise exception 'unknown faith stage accepted';
+  exception when check_violation then null;
+  end;
+end $$;
+delete from public.curation_subscriptions;
+delete from public.subscriptions;
+delete from auth.users where id = '00000000-0000-0000-0000-0000000000c1';
+
 \echo 'All database tests passed'

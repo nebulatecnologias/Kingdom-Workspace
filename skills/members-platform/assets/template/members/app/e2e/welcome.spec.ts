@@ -12,6 +12,8 @@ async function productId(slug: string) {
 test.describe.configure({ mode: "serial" });
 
 test("welcome questions, monthly picks, one-click stop, and the admin's customer history", { tag: "@critical" }, async ({ page, browser, request }) => {
+  // The plan is on (linked to the gateway), so wanting the monthly picks leads to it.
+  await admin().from("plans").update({ gateway_plan_id: "plan_e2e_welcome", checkout_url: "https://pay.example.test/plans/welcome", active: true }).eq("code", "all_access");
   await resetRateLimits();
   const email = uniqueEmail("welcome");
   const { url } = createInvite({ email, name: "Naomi Welcome", products: ["money"] });
@@ -30,6 +32,15 @@ test("welcome questions, monthly picks, one-click stop, and the admin's customer
   await page.getByLabel(/^Peace & Rest/).check();
   await page.getByLabel(/^Money & Stewardship/).check();
   await page.getByRole("button", { name: "Next" }).click();
+  await expect(page.getByRole("heading", { name: "Where are you in your walk with God?" })).toBeFocused();
+  await page.getByLabel(/^Growing/).check();
+  await page.getByRole("button", { name: "Next" }).click();
+  await page.getByLabel("10 to 30 minutes").check();
+  await page.getByRole("button", { name: "Next" }).click();
+  await page.getByLabel("My spouse").check();
+  await page.getByLabel("My children").check();
+  await page.getByRole("button", { name: "Next" }).click();
+  await expect(page.getByText("Question 6 of 6")).toBeVisible();
   await page.getByLabel("Yes, please").check();
   // The monthly areas start as the challenges; the member narrows them down.
   const areas = page.getByRole("group", { name: "Areas for your monthly picks" });
@@ -42,24 +53,53 @@ test("welcome questions, monthly picks, one-click stop, and the admin's customer
   await expect(page.getByLabel("Video courses")).toBeChecked({ checked: true }); // answers kept after an error
   await areas.getByLabel("Peace & Rest").check();
   await page.getByRole("button", { name: "Finish" }).click();
+  // Wanting the monthly picks leads to the plan they come with; "Not now" goes on to Home.
+  await page.waitForURL(/\/plan\?next=%2Fhome%3Fwelcome%3D1$/);
+  await expect(page.getByRole("heading", { name: "The whole library, every month" })).toBeVisible();
+  await expect(page.getByText("Monthly picks by email for Peace & Rest")).toBeVisible();
+  await page.getByRole("link", { name: "Not now" }).click();
   await page.waitForURL(/\/home\?welcome=1$/);
   await expect(page.getByText("Help us get to know you")).toHaveCount(0);
 
   const { data: member } = await admin().from("profiles").select("id, onboarded_at").eq("email", email).single();
   expect(member!.onboarded_at).not.toBeNull();
-  const { data: answers } = await admin().from("onboarding_responses").select("content_types, challenges, curation_opt_in, curation_spheres").eq("user_id", member!.id);
-  expect(answers).toEqual([{ content_types: ["books", "courses"], challenges: ["peace_rest", "money_stewardship"], curation_opt_in: true, curation_spheres: ["peace_rest"] }]);
+  const { data: answers } = await admin()
+    .from("onboarding_responses")
+    .select("content_types, challenges, faith_stage, daily_time, study_with, curation_opt_in, curation_spheres")
+    .eq("user_id", member!.id);
+  expect(answers).toEqual([
+    {
+      content_types: ["books", "courses"],
+      challenges: ["peace_rest", "money_stewardship"],
+      faith_stage: "growing",
+      daily_time: "10_30",
+      study_with: ["spouse", "children"],
+      curation_opt_in: true,
+      curation_spheres: ["peace_rest"],
+    },
+  ]);
 
   await page.goto("/profile");
-  await expect(page.getByText("You get an email each month with resources for Peace & Rest.")).toBeVisible();
+  await expect(page.getByText("You chose Peace & Rest. The monthly picks email comes with the plan.")).toBeVisible();
 
-  // The daily job sends the picks once per month, from the month after subscribing.
+  // The daily job sends the picks once per month, from the month after subscribing, and only with the plan.
   const [money, jonah] = [await productId("money"), await productId("jonah")];
   await admin().from("products").update({ spheres: ["peace_rest"] }).in("id", [money, jonah]);
+  await admin().from("curation_subscriptions").update({ subscribed_at: new Date(Date.now() - 40 * 86400_000).toISOString() }).eq("user_id", member!.id);
+  expect((await request.get("/api/cron/email-retry", { headers: CRON })).status()).toBe(200);
+  let mails = await admin().from("email_log").select("payload").eq("to_email", email).eq("template", "curation");
+  expect(mails.data, "no plan, no monthly picks").toHaveLength(0);
+  const gid = `sub_e2e_welcome_${Date.now()}`;
+  await admin().from("subscriptions").insert({
+    user_id: member!.id, email, plan_code: "all_access", gateway_subscription_id: gid, status: "active",
+    current_period_end: new Date(Date.now() + 20 * 86400_000).toISOString(), access_until: new Date(Date.now() + 23 * 86400_000).toISOString(),
+    gateway_updated_at: new Date().toISOString(),
+  });
+  await admin().from("curation_subscriptions").update({ subscribed_at: new Date().toISOString() }).eq("user_id", member!.id);
   const due = await request.get("/api/cron/email-retry", { headers: CRON });
   expect(due.status()).toBe(200);
-  let mails = await admin().from("email_log").select("payload").eq("to_email", email).eq("template", "curation");
-  expect(mails.data).toHaveLength(0); // subscribed this month: the first picks come next month
+  mails = await admin().from("email_log").select("payload").eq("to_email", email).eq("template", "curation");
+  expect(mails.data).toHaveLength(0); // said yes this month: the first picks come next month
   await admin().from("curation_subscriptions").update({ subscribed_at: new Date(Date.now() - 40 * 86400_000).toISOString() }).eq("user_id", member!.id);
   expect((await request.get("/api/cron/email-retry", { headers: CRON })).status()).toBe(200);
   expect((await request.get("/api/cron/email-retry", { headers: CRON })).status()).toBe(200);
@@ -67,9 +107,9 @@ test("welcome questions, monthly picks, one-click stop, and the admin's customer
   expect(mails.data, "one email a month, however often the job runs").toHaveLength(1);
   const mail = mails.data![0].payload as { subject: string; html: string; link: string };
   expect(mail.subject).toMatch(/^Your picks for /);
-  // What they don't have yet comes first; what they own is marked.
-  expect(mail.html.indexOf("Jonah and the Big Fish")).toBeGreaterThan(-1);
-  expect(mail.html.indexOf("Jonah and the Big Fish")).toBeLessThan(mail.html.indexOf("Money God’s Way"));
+  // With the plan everything is theirs already.
+  expect(mail.html).toContain("Jonah and the Big Fish");
+  expect(mail.html).toContain("Money God’s Way");
   expect(mail.html).toContain("Already in your library");
   expect(mail.link).toMatch(/\/unsubscribe\?t=[0-9a-f-]{36}$/);
   expect((await request.get("/api/cron/email-retry")).status(), "the job needs the cron secret").toBe(401);
@@ -105,9 +145,15 @@ test("welcome questions, monthly picks, one-click stop, and the admin's customer
   await expect(history).toContainText("eBooks and devotionals, Video courses");
   await expect(history).toContainText("Peace & Rest, Money & Stewardship");
   await expect(history).toContainText("Yes: Peace & Rest");
+  await expect(history).toContainText("Growing");
+  await expect(history).toContainText("10 to 30 minutes");
+  await expect(history).toContainText("My spouse, My children");
+  await expect(history).toContainText(/Paying, renews on/);
   await expect(history).toContainText(/Stopped on/);
   await expect(history).toContainText("2 picks sent");
   await ctx.close();
+  await admin().from("subscriptions").delete().eq("gateway_subscription_id", gid);
+  await admin().from("plans").update({ gateway_plan_id: null, checkout_url: null, active: false }).eq("code", "all_access");
 });
 
 test("members who skip are not asked again, and Home offers the questions until they answer", async ({ page }) => {

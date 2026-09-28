@@ -250,3 +250,55 @@ export function renderCurationEmail(opts: {
     ]),
   };
 }
+
+const longDate = (iso: string, locale: Locale) =>
+  new Intl.DateTimeFormat(intlLocale[locale], { day: "numeric", month: "long", year: "numeric", timeZone: "Africa/Johannesburg" }).format(new Date(iso));
+
+/** Sent once when the monthly plan starts: what they have now, and when (and how much) the first charge is. */
+export function renderPlanStartedEmail(opts: { locale: Locale; siteUrl: string; name: string; trialEndsAt: string | null; priceCents: number }): RenderedEmail {
+  const t = translatorFor(opts.locale);
+  const greeting = t("mail_hi", { name: opts.name || "" }).replace(/\s+,/, ",");
+  const price = formatZar(opts.priceCents, intlLocale[opts.locale]);
+  const url = `${opts.siteUrl}/library?lang=${opts.locale}`;
+  const body = [t("mail_plan_p"), opts.trialEndsAt ? t("mail_plan_trial", { date: longDate(opts.trialEndsAt, opts.locale), price }) : t("mail_plan_paid", { price })];
+  return {
+    subject: t("mail_subject_plan"),
+    preview: t("mail_preview_plan"),
+    html: layout({
+      locale: opts.locale,
+      siteUrl: opts.siteUrl,
+      preview: t("mail_preview_plan"),
+      heading: t("mail_plan_title"),
+      greeting,
+      body,
+      cta: { label: t("mail_plan_cta"), url },
+      smallPrint: t("mail_plan_cancel"),
+    }),
+    text: textVersion([greeting, ...body, `${t("mail_plan_cta")}: ${url}`, t("mail_plan_cancel")]),
+  };
+}
+
+/** Three days before the free trial ends: the first charge is coming, and how to stop it. */
+export function renderTrialEndingEmail(opts: { locale: Locale; siteUrl: string; name: string; chargeDate: string; priceCents: number; manageUrl: string | null }): RenderedEmail {
+  const t = translatorFor(opts.locale);
+  const greeting = t("mail_hi", { name: opts.name || "" }).replace(/\s+,/, ",");
+  const date = longDate(opts.chargeDate, opts.locale);
+  const price = formatZar(opts.priceCents, intlLocale[opts.locale]);
+  const url = opts.manageUrl ?? `${opts.siteUrl}/profile?lang=${opts.locale}`;
+  const body = [t("mail_trial_p", { date, price }), t("mail_trial_keep")];
+  return {
+    subject: t("mail_subject_trial", { date }),
+    preview: t("mail_preview_trial", { price }),
+    html: layout({
+      locale: opts.locale,
+      siteUrl: opts.siteUrl,
+      preview: t("mail_preview_trial", { price }),
+      heading: t("mail_trial_title"),
+      greeting,
+      body,
+      cta: { label: t("mail_trial_cta"), url },
+      smallPrint: "",
+    }),
+    text: textVersion([greeting, ...body, `${t("mail_trial_cta")}: ${url}`]),
+  };
+}
