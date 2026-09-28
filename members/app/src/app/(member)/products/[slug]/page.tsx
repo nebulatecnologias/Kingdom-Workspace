@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { BookOpen, Check, ChevronLeft, ChevronRight, Download, Eye, FileArchive, FileText, Headphones, Image as ImageIcon, Lock, Palette } from "lucide-react";
 import { Art } from "@/components/catalogue/art";
+import { DownloadAll } from "@/components/catalogue/download-all";
 import { Notice } from "@/components/ui/notice";
 import { toLocale } from "@/i18n/config";
 import { requireMember } from "@/lib/auth";
@@ -28,7 +29,8 @@ function facts(t: T, p: ProductDetail) {
     const audio = p.assets.filter((a) => a.kind === "audio");
     const seconds = audio.reduce((sum, a) => sum + (a.durationSeconds ?? 0), 0);
     return [
-      t("n_items", { n: p.assets.filter((a) => a.kind !== "zip").length }),
+      // A ZIP is one material like any loose file: a ZIP and two PDFs make "3 items".
+      t("n_items", { n: p.assets.length }),
       ...(docs ? [t("n_docs", { n: docs })] : []),
       ...(images ? [t("n_images", { n: images })] : []),
       ...(audio.length ? [[t("n_audio", { n: audio.length }), formatDuration(seconds)].filter(Boolean).join(" · ")] : []),
@@ -66,9 +68,11 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
   // The hero offers the main downloads; every other material is listed below it.
   const pdf = p.type === "kit" ? undefined : p.assets.find((a) => a.kind === "pdf");
   const epub = reading ? p.assets.find((a) => a.kind === "epub") : undefined;
-  const zip = p.assets.find((a) => a.kind === "zip");
-  const inHero = new Set([pdf?.id, reading ? epub?.id : undefined, zip?.id].filter(Boolean));
+  // Kits list every material, ZIPs included; books keep their PDF/EPUB in the hero and list the extras.
+  const inHero = new Set([pdf?.id, reading ? epub?.id : undefined].filter(Boolean));
   const listed = p.assets.filter((a) => !inHero.has(a.id));
+  const totalBytes = p.assets.reduce((sum, a) => sum + (a.sizeBytes ?? 0), 0);
+  const allFiles = t("dl_files", { n: p.assets.length, size: formatBytes(totalBytes, intlTag) ?? "" }).replace(/ · $/, "");
   const download = (q: string) => `/api/products/${p.id}/download?${q}`;
   const assetName = (a: Asset) => a.title || t(`kind_${a.kind}`);
   const unlock = `/api/checkout/${p.id}`;
@@ -127,7 +131,8 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
           {p.description ? <p className="desc">{p.description}</p> : null}
           {p.verse ? (
             <p className="muted" style={{ marginTop: 12 }}>
-              “{p.verse}”{p.verseRef ? ` · ${p.verseRef}` : ""}
+              {/* Admins often paste the verse with its quotation marks; show exactly one pair. */}
+              “{p.verse.trim().replace(/^["“”'‘’]+|["“”'‘’]+$/g, "")}”{p.verseRef ? ` · ${p.verseRef}` : ""}
             </p>
           ) : null}
           <div className="facts">
@@ -173,18 +178,19 @@ export default async function ProductPage({ params, searchParams }: PageProps<"/
                 ) : null}
               </>
             ) : null}
-            {own && zip ? (
+            {own && p.type === "kit" && p.assets.length === 1 ? (
               <>
-                <a className={p.type === "kit" ? "btn btn-primary btn-lg" : "btn btn-quiet btn-lg"} href={download(`asset=${zip.id}`)}>
+                <a className="btn btn-primary btn-lg" href={download(`asset=${p.assets[0].id}`)}>
                   <Download className="icon" aria-hidden="true" />
-                  {t("dl_all")}
+                  {t("pack_download")}
                 </a>
-                {p.type === "kit" && formatBytes(zip.sizeBytes, intlTag) ? (
-                  <span className="muted" style={{ alignSelf: "center", fontSize: 13.5 }}>
-                    {t("zip_file", { size: formatBytes(zip.sizeBytes, intlTag)! })}
-                  </span>
-                ) : null}
+                <span className="muted" style={{ alignSelf: "center", fontSize: 13.5 }}>
+                  {allFiles}
+                </span>
               </>
+            ) : null}
+            {own && p.assets.length > 1 ? (
+              <DownloadAll productId={p.id} fileIds={p.assets.map((a) => a.id)} sizeLabel={allFiles} primary={p.type === "kit"} />
             ) : null}
             {!own ? (
               <>

@@ -117,7 +117,7 @@ test("a kit shows what it includes while locked, and one purchase opens every ma
       { product_id: id, locale: "pt", position: 3, title: "Devocional em família", kind: "pdf", path: `${id}/assets/c.pdf`, size_bytes: 2_000_000 },
       { product_id: id, locale: null, position: 4, title: "", kind: "zip", path: `${id}/assets/d.zip`, size_bytes: 9_000_000 },
     ])
-    .select("id, kind");
+    .select("id, kind, locale");
   const audio = assets!.find((a) => a.kind === "audio")!.id as string;
 
   try {
@@ -127,10 +127,11 @@ test("a kit shows what it includes while locked, and one purchase opens every ma
     await expect(page.getByText("Worship songs")).toBeVisible();
     await expect(page.getByText("Family devotional")).toBeVisible();
     await expect(page.getByText("Devocional em família")).toHaveCount(0);
-    await expect(page.getByText("2 items")).toBeVisible();
+    // The ZIP counts as a material like the loose files.
+    await expect(page.getByText("3 items")).toBeVisible();
     await expect(page.getByText("1 audio · 31 min")).toBeVisible();
     await expect(page.getByRole("link", { name: /Unlock · R 299,00/ })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Download everything" })).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Download everything" })).toHaveCount(0);
     expect((await page.request.get(`/api/products/${id}/download?asset=${audio}`, { maxRedirects: 0 })).status()).toBe(403);
 
     // One paid order for the kit's gateway product.
@@ -156,11 +157,22 @@ test("a kit shows what it includes while locked, and one purchase opens every ma
 
     await page.goto(`/products/${slug}`);
     await expect(page.getByRole("heading", { name: "In this kit" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Download everything" })).toBeVisible();
     await expect(page.getByRole("link", { name: "Download: Worship songs" })).toBeVisible();
     await expect(page.getByRole("link", { name: "Download: Family devotional" })).toBeVisible();
     await expect(page.locator("audio")).toHaveAttribute("src", `/api/products/${id}/download?asset=${audio}&view=1`);
     expect((await page.request.get(`/api/products/${id}/download?asset=${audio}`, { maxRedirects: 0 })).status()).not.toBe(403);
+
+    // "Download everything" fetches every material the member can see (ZIP and loose files), not just the ZIP.
+    const asked: string[] = [];
+    await page.route(`**/api/products/${id}/download?asset=*`, (route) => {
+      asked.push(new URL(route.request().url()).searchParams.get("asset")!);
+      return route.fulfill({ status: 200, headers: { "Content-Type": "application/octet-stream", "Content-Disposition": 'attachment; filename="file.bin"' }, body: "x" });
+    });
+    await page.getByRole("button", { name: "Download everything" }).click();
+    await expect.poll(() => asked.length, { timeout: 10_000 }).toBe(3);
+    // An English-speaking member: the shared audio and ZIP plus the English PDF, never the Portuguese one.
+    expect(new Set(asked)).toEqual(new Set(assets!.filter((a) => a.locale !== "pt").map((a) => a.id)));
+    await page.unroute(`**/api/products/${id}/download?asset=*`);
 
     // A refund closes the whole kit again.
     const refund = JSON.stringify({
@@ -178,7 +190,7 @@ test("a kit shows what it includes while locked, and one purchase opens every ma
     expect(refunded.status()).toBe(200);
     await page.goto(`/products/${slug}`);
     await expect(page.getByRole("heading", { name: "What’s included" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Download everything" })).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Download everything" })).toHaveCount(0);
     expect((await page.request.get(`/api/products/${id}/download?asset=${audio}`, { maxRedirects: 0 })).status()).toBe(403);
   } finally {
     await admin().from("entitlements").delete().eq("product_id", id);

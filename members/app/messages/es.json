@@ -652,9 +652,14 @@
   "kind_epub": "eBook (EPUB)",
   "kind_image": "Imagen",
   "kind_audio": "Audio",
-  "kind_zip": "Todo (ZIP)",
+  "kind_zip": "Carpeta ZIP",
   "dl_all": "Descargar todo",
   "zip_file": "ZIP · {size}",
+  "dl_files": "{n, plural, one {# archivo} other {# archivos}} · {size}",
+  "dl_progress": "Descargando {n} de {total}…",
+  "dl_doneAll": "Los {total} archivos se están descargando.",
+  "dl_allow": "Si el navegador lo pregunta, permite varias descargas.",
+  "dl_ios": "En iPhone y iPad, descarga cada archivo de la lista de abajo.",
   "m_extra": "Más materiales",
   "m_inKit": "En este kit",
   "m_included": "Qué incluye",
@@ -670,7 +675,5 @@
   "ma_lang": "Idioma",
   "ma_deleteQ": "¿Quitar “{title}”? Los miembros dejarán de verlo.",
   "ma_empty": "Todavía no hay materiales.",
-  "ma_added": "{n, plural, one {# material añadido} other {# materiales añadidos}}",
-  "help_refunds": "Reembolsos",
-  "help_refundsP": "Puedes pedir el reembolso hasta 7 días después de la compra, por correo. Consulta nuestra <policy>política de reembolsos</policy>."
+  "ma_added": "{n, plural, one {# material añadido} other {# materiales añadidos}}"
 }

@@ -217,12 +217,22 @@ Em cada fase: mensagens de commit claras, testes a passar e revisão antes de av
 - Runbook de suporte: reenviar convite, corrigir email, dar acesso manual.
 - Soft launch com uma compra real em modo live, depois o lançamento.
 
+### Fase 7 — Crescimento (pedida a 28/09/2026)
+Decisões do dono: ficheiros continuam com o limite de 50 MB (plano gratuito do Supabase); vídeos dos cursos no **Bunny Stream**; novo separador **Início**; só quem tem acesso ao conteúdo comenta; curadoria mensal **automática**; o plano "tudo incluído" abre também os conteúdos futuros.
+
+- **A. Correções rápidas:** um ZIP conta como um material (um ZIP e dois PDFs = "3 itens"); "Descarregar tudo" descarrega todos os ficheiros do kit, um a um (no iPhone/iPad, que bloqueiam vários downloads, a lista tem um botão por ficheiro); a Ajuda só mostra WhatsApp e email; o versículo nunca aparece com aspas duplicadas.
+- **B. Início:** banners panorâmicos geridos no admin (imagem para computador e telemóvel, texto, botão, datas, idioma, público, rotação), progresso por produto e curso, "continuar", recomendações.
+- **C. Onboarding e histórico:** questionário de 3 passos (tipos de conteúdo, áreas de desafio nas 6 esferas, consentimento para a curadoria mensal); respostas datadas e versionadas, visíveis só ao admin (e incluídas na exportação POPIA); etiquetas de esfera nos produtos; email mensal automático a quem aceitou.
+- **D. Comentários:** nas páginas de conteúdo e nas aulas; só quem tem acesso; pendentes até o admin aprovar; fila de moderação com aprovar, rejeitar e responder.
+- **E. Cursos:** separador Cursos; curso → módulos → aulas (vídeo Bunny Stream com links assinados, texto, anexos); progresso por aula; aulas de amostra; editor no admin.
+- **F. Assinaturas:** planos com ciclo (mensal, trimestral, semestral, anual) ou duração fixa; conteúdo escolhido ou "tudo, incluindo o futuro"; tolerância de pagamento; plano manual pelo admin; prompt do gateway v3 com eventos de assinatura.
+
 ### Depois do lançamento (backlog)
 - Marca d'água nos PDFs; PWA com acesso offline aos produtos descarregados.
-- Novos tipos de produto: vídeo-aulas, planos de leitura. (O áudio já está coberto pelos materiais e kits.)
+- Novos tipos de produto: planos de leitura. (Áudio: materiais e kits. Vídeo-aulas: fase 7E.)
 - Notificações por WhatsApp.
 - Integração com email marketing (mesmos eventos).
-- Analytics de produtos mais vistos e desbloqueados; cupões; subscrição mensal. (Os kits já cobrem os bundles.)
+- Analytics de produtos mais vistos e desbloqueados; cupões. (Bundles: kits. Subscrições: fase 7F.)
 
 ---
 
