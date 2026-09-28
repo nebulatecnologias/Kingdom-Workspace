@@ -14,7 +14,7 @@ async function join(page: Page) {
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.locator('input[name="terms"]').check();
   await page.getByRole("button", { name: "Create account and open my library" }).click();
-  await page.waitForURL(/\/library\?welcome=1$/);
+  await page.waitForURL(/\/home\?welcome=1$/);
   const { data } = await admin().from("profiles").select("id").eq("email", email).single();
   return { email, id: data!.id as string };
 }

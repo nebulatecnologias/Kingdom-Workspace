@@ -1,5 +1,6 @@
 "use client";
 
+import { startBannerUpload } from "@/app/(admin)/admin/_actions/banners";
 import { startUpload, type UploadKind } from "@/app/(admin)/admin/_actions/content";
 import { createClient } from "@/lib/supabase/client";
 
@@ -11,6 +12,19 @@ export async function uploadToStorage(productId: string, kind: UploadKind, file:
   const { error } = await createClient().storage.from("products").uploadToSignedUrl(path, token, file, { contentType: file.type });
   if (error) {
     console.error("upload failed", error.message);
+    return { ok: false, error: "err_upload" };
+  }
+  return { ok: true, path };
+}
+
+/** Sends a home banner image straight to the private bucket (under banners/). Returns the stored path. */
+export async function uploadBannerImage(file: File): Promise<{ ok: true; path: string } | { ok: false; error: string }> {
+  const started = await startBannerUpload(file.type, file.size);
+  if (!started.ok) return started;
+  const { path, token } = started.data as { path: string; token: string };
+  const { error } = await createClient().storage.from("products").uploadToSignedUrl(path, token, file, { contentType: file.type });
+  if (error) {
+    console.error("banner upload failed", error.message);
     return { ok: false, error: "err_upload" };
   }
   return { ok: true, path };

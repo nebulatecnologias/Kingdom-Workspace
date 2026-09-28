@@ -485,4 +485,53 @@ do $$ begin
 end $$;
 rollback;
 
+-- Home banners: members get only the banners meant for them now (language, dates, on/off, audience).
+insert into public.products (slug, type, access, visibility, price_cents) values
+  ('banner-owned', 'kit', 'paid', 'visible', 100), ('banner-offer', 'kit', 'paid', 'visible', 100);
+insert into public.entitlements (user_id, email, product_id, source)
+select '00000000-0000-0000-0000-00000000000a', 'thandi@example.co.za', id, 'manual' from public.products where slug = 'banner-owned';
+insert into public.banners (title, locale, starts_at, ends_at, active, audience, product_id, sort_order)
+select v.title, v.locale::public.locale, v.starts_at, v.ends_at, v.active, v.audience::public.banner_audience,
+       (select id from public.products where slug = v.product_slug), v.sort_order
+from (values
+  ('Everyone',       null, null::timestamptz,        null::timestamptz,        true,  'all',       null,           2),
+  ('English only',   'en', null,                     null,                     true,  'all',       null,           1),
+  ('Portuguese only','pt', null,                     null,                     true,  'all',       null,           3),
+  ('Not yet',        null, now() + interval '1 day', null,                     true,  'all',       null,           4),
+  ('Over',           null, now() - interval '2 day', now() - interval '1 day', true,  'all',       null,           5),
+  ('Switched off',   null, null,                     null,                     false, 'all',       null,           6),
+  ('Already owned',  null, null,                     null,                     true,  'not_owner', 'banner-owned', 7),
+  ('New offer',      null, null,                     null,                     true,  'not_owner', 'banner-offer', 8)
+) v(title, locale, starts_at, ends_at, active, audience, product_slug, sort_order);
+do $$ begin
+  begin
+    insert into public.banners (title, link) values ('Bad link', '//evil.example');
+    raise exception 'protocol-relative link accepted';
+  exception when check_violation then null;
+  end;
+  begin
+    insert into public.banners (title, audience) values ('No product', 'not_owner');
+    raise exception 'not_owner banner without a product accepted';
+  exception when check_violation then null;
+  end;
+end $$;
+begin;
+set local role authenticated;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
+do $$ begin
+  assert (select array_agg(title) from public.home_banners('en')) = array['English only', 'Everyone', 'New offer'],
+    'English member: own language and all-language banners, live now, switched on, not for products they own; in order';
+  assert (select array_agg(title) from public.home_banners('pt')) = array['Everyone', 'Portuguese only', 'New offer'], 'Portuguese member';
+  assert not has_table_privilege('authenticated', 'public.banners', 'select'), 'members cannot read the banners table';
+end $$;
+rollback;
+begin;
+set local role anon;
+do $$ begin
+  assert not has_function_privilege('anon', 'public.home_banners(public.locale)', 'execute'), 'visitors cannot list banners';
+end $$;
+rollback;
+delete from public.banners;
+delete from public.products where slug in ('banner-owned', 'banner-offer');
+
 \echo 'All database tests passed'

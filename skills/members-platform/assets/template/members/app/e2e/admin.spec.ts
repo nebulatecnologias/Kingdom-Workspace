@@ -60,6 +60,8 @@ test("admin links prefetch on intent only, and prefetches skip the proxy", async
   page.on("response", (r) => {
     if (r.request().headers()["next-router-prefetch"]) prefetches.push({ path: new URL(r.url()).pathname, csp: "content-security-policy" in r.headers() });
   });
+  // The pointer stays where "Sign in" was; over a table row that is real intent and would prefetch it.
+  await page.mouse.move(0, 0);
   await page.goto("/admin/members");
   await page.waitForLoadState("networkidle");
   // Prefetching every visible admin link again after each save queued dozens of server renders.
@@ -78,10 +80,10 @@ test("members cannot reach admin pages or admin actions' data", async ({ page })
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.locator('input[name="terms"]').check();
   await page.getByRole("button", { name: "Create account and open my library" }).click();
-  await page.waitForURL(/\/library\?welcome=1$/);
+  await page.waitForURL(/\/home\?welcome=1$/);
   for (const path of ["/admin/invites", "/admin/members", "/admin/showcase", "/admin/integrations", "/admin/activity"]) {
     await page.goto(path);
-    await expect(page).toHaveURL(/\/library$/);
+    await expect(page).toHaveURL(/\/home$/);
   }
 });
 
@@ -174,7 +176,7 @@ test("members: search, give and remove a product, sign-in link, deactivate and r
   await mp.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await mp.locator('input[name="terms"]').check();
   await mp.getByRole("button", { name: "Create account and open my library" }).click();
-  await mp.waitForURL(/\/library\?welcome=1$/);
+  await mp.waitForURL(/\/home\?welcome=1$/);
 
   await signIn(page, boss.email);
   await page.waitForURL(/\/admin$/);
@@ -215,7 +217,7 @@ test("members: search, give and remove a product, sign-in link, deactivate and r
   const again = await browser.newContext();
   const ap = await again.newPage();
   await signIn(ap, email);
-  await ap.waitForURL(/\/library$/);
+  await ap.waitForURL(/\/home$/);
   await again.close();
 
   await page.goto("/admin/activity");
@@ -235,7 +237,7 @@ test("changing a member's email moves their access and links purchases waiting u
   await mp.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await mp.locator('input[name="terms"]').check();
   await mp.getByRole("button", { name: "Create account and open my library" }).click();
-  await mp.waitForURL(/\/library\?welcome=1$/);
+  await mp.waitForURL(/\/home\?welcome=1$/);
   await m.close();
   const { data: person } = await admin().from("profiles").select("id").eq("email", oldEmail).single();
   // A purchase made with the right email before the fix, waiting for an account.
@@ -257,7 +259,7 @@ test("changing a member's email moves their access and links purchases waiting u
   const other = await browser.newContext();
   const op = await other.newPage();
   await signIn(op, newEmail);
-  await op.waitForURL(/\/library$/);
+  await op.waitForURL(/\/home$/);
   await op.goto("/products/jonah");
   await expect(op.getByRole("link", { name: "Colour online" }).first()).toBeVisible();
   await other.close();
@@ -373,7 +375,8 @@ test("product editor: create, translate, write chapters, set the sale, see it in
   await mp.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await mp.locator('input[name="terms"]').check();
   await mp.getByRole("button", { name: "Create account and open my library" }).click();
-  await mp.waitForURL(/\/library\?welcome=1$/);
+  await mp.waitForURL(/\/home\?welcome=1$/);
+  await mp.goto("/library");
   await expect(mp.getByRole("link", { name: `${title}: Locked` })).toContainText("R 59,50");
   await mp.goto(`/products/${created!.slug}/read/1`);
   await expect(mp.getByRole("heading", { name: "Monday" })).toBeVisible();
@@ -523,4 +526,40 @@ test("two-step verification: turn on, sign in with a code, and another admin can
   await boss2.close();
   const { data: factors } = await admin().auth.admin.mfa.listFactors({ userId: second.id });
   expect(factors?.factors ?? []).toHaveLength(0);
+});
+
+test("a Home banner the admin creates shows on members' Home until it is switched off", async ({ page }) => {
+  const title = `Advent offer ${Date.now().toString(36)}`;
+  await signIn(page, boss.email);
+  await page.waitForURL(/\/admin$/);
+  await page.goto("/admin/banners");
+  await page.getByLabel("Title", { exact: true }).fill(title);
+  await page.getByLabel(/Short text/).fill("Three new devotionals for December.");
+  await page.getByLabel(/Button label/).fill("See the offer");
+  await page.getByLabel(/^Link/).fill("//evil.example");
+  await page.getByRole("button", { name: "Create banner" }).click();
+  await expect(page.getByText("Use a page of this site starting with / or an https:// address.")).toBeVisible();
+  await page.getByLabel(/^Link/).fill("/library?filter=locked");
+  await page.getByRole("button", { name: "Create banner" }).click();
+  await page.waitForURL(/\/admin\/banners\?saved=/);
+  await expect(page.getByText("Banner created.")).toBeVisible();
+  const row = page.locator(".bn-row", { hasText: title });
+  await expect(row).toContainText("Showing");
+  expect((await lastAudit("admin.banner.created"))?.meta).toMatchObject({ title, active: true });
+
+  await page.goto("/home");
+  const banner = page.getByRole("link", { name: new RegExp(title) });
+  await expect(banner).toContainText("See the offer");
+  await expect(banner).toHaveAttribute("href", "/library?filter=locked");
+
+  await page.goto("/admin/banners");
+  await row.getByRole("checkbox", { name: `On: ${title}` }).uncheck();
+  await expect(row).toContainText("Off");
+  await page.goto("/home");
+  await expect(page.getByRole("link", { name: new RegExp(title) })).toHaveCount(0);
+
+  await page.goto("/admin/banners");
+  page.once("dialog", (d) => d.accept());
+  await row.getByRole("button", { name: `Delete: ${title}` }).click();
+  await expect(row).toHaveCount(0);
 });

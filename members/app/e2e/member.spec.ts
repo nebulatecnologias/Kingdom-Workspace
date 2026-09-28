@@ -12,7 +12,7 @@ async function join(page: Page, products: string[], name = "Lerato Dube") {
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.locator('input[name="terms"]').check();
   await page.getByRole("button", { name: "Create account and open my library" }).click();
-  await page.waitForURL(/\/library\?welcome=1$/);
+  await page.waitForURL(/\/home\?welcome=1$/);
   return email;
 }
 
@@ -27,6 +27,8 @@ let member = "";
 
 test("the library shows owned, free, locked and coming-soon products by section", async ({ page }) => {
   member = await join(page, ["noah", "money"]);
+  await expect(page.getByRole("heading", { name: /^Hello, / })).toBeVisible(); // members land on Home
+  await page.goto("/library");
   await expect(page.getByRole("heading", { name: "For children" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Noah’s Ark & the Rainbow", exact: true })).toContainText("Unlocked");
   await expect(page.getByRole("link", { name: "Memory Verse Cards", exact: true })).toContainText("Free");
@@ -41,13 +43,13 @@ test("the library shows owned, free, locked and coming-soon products by section"
   await expect(page.locator("#top-search")).toHaveValue("jonah");
 });
 
-test("reading saves progress and the library offers to continue", async ({ page }) => {
+test("reading saves progress and Home offers to continue", async ({ page }) => {
   await page.goto("/login");
   await page.getByRole("button", { name: "Use password" }).click();
   await page.getByLabel("Email").fill(member);
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await page.waitForURL(/\/library$/);
+  await page.waitForURL(/\/home$/);
 
   await page.goto("/products/money");
   await page.getByRole("link", { name: "Read online" }).click();
@@ -60,7 +62,7 @@ test("reading saves progress and the library offers to continue", async ({ page 
     return data?.[0]?.chapter_position ?? 0;
   }).toBe(2);
 
-  await page.goto("/library");
+  await page.goto("/home");
   await expect(page.getByRole("heading", { name: "Keep reading Money God’s Way" })).toBeVisible();
   await expect(page.getByText("Chapter 2 of 9")).toBeVisible();
 });
@@ -71,7 +73,7 @@ test("a locked guide offers its free sample and stops at chapter 2", async ({ pa
   await page.getByLabel("Email").fill(member);
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await page.waitForURL(/\/library$/);
+  await page.waitForURL(/\/home$/);
 
   await page.goto("/products/sermon");
   await expect(page.getByRole("link", { name: /Unlock · R 149,00/ })).toBeVisible();
@@ -90,7 +92,7 @@ test("colouring online is for owners and remembers the colours", async ({ page }
   await page.getByLabel("Email").fill(member);
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await page.waitForURL(/\/library$/);
+  await page.waitForURL(/\/home$/);
 
   await page.goto("/products/noah");
   await page.getByRole("link", { name: "Colour online" }).first().click();
@@ -112,7 +114,7 @@ test("downloads need access, even with the direct URL", async ({ page, request, 
   await page.getByLabel("Email").fill(member);
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await page.waitForURL(/\/library$/);
+  await page.waitForURL(/\/home$/);
 
   const noah = await productId("noah");
   const jonah = await productId("jonah");
@@ -148,7 +150,7 @@ test("stored files are served through short-lived signed links", async ({ page }
   await page.getByLabel("Email").fill(member);
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await page.waitForURL(/\/library$/);
+  await page.waitForURL(/\/home$/);
 
   // By material, and by format for older links.
   for (const q of [`asset=${asset!.id}`, "format=pdf"]) {
@@ -169,7 +171,7 @@ test("the padlock goes to the product's checkout with the member's details", asy
   await page.getByLabel("Email").fill(member);
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await page.waitForURL(/\/library$/);
+  await page.waitForURL(/\/home$/);
 
   const jonah = await productId("jonah");
   await admin().from("products").update({ checkout_url: null }).eq("id", jonah);

@@ -108,7 +108,7 @@ export async function acceptInvite(token: string, _prev: FormState, formData: Fo
   await setLocale(locale);
   await admin.from("profiles").update({ last_seen_at: new Date().toISOString() }).eq("id", created.user.id);
   await audit("invite.accepted", "invite", consumed.invite_id, { email }, created.user.id);
-  redirect("/library?welcome=1");
+  redirect("/home?welcome=1");
 }
 
 // ---------------------------------------------------------------------------
@@ -229,7 +229,7 @@ export async function resetPassword(_prev: FormState, formData: FormData): Promi
   if (!user.user) redirect("/login?error=link");
   const { error } = await supabase.auth.updateUser({ password });
   if (error) return { status: "error", message: "err_generic" };
-  redirect("/library?notice=password");
+  redirect("/home?notice=password");
 }
 
 export async function signOut() {

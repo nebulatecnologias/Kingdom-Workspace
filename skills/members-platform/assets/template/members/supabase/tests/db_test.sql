@@ -405,7 +405,8 @@ end $$;
 insert into public.products (slug, type, access, visibility, price_cents) values ('kit-e2e', 'kit', 'paid', 'visible', 29900);
 insert into public.product_assets (product_id, locale, position, title, kind, path, size_bytes, duration_seconds)
 select id, l, n, t, k::public.asset_kind, 'kit/' || n, 100, d from public.products,
-  (values (null::public.locale, 1, 'Worship audio', 'audio', 1860), ('en', 2, 'Guide', 'pdf', null), ('pt', 3, 'Guia', 'pdf', null)) v(l, n, t, k, d)
+  (values (null::public.locale, 1, 'Worship audio', 'audio', 1860), ('en', 2, 'Guide', 'pdf', null), ('pt', 3, 'Guia', 'pdf', null),
+          (null, 4, 'Everything', 'zip', null)) v(l, n, t, k, d)
 where slug = 'kit-e2e';
 do $$ begin
   assert to_regclass('public.product_files') is null, 'product_files replaced by product_assets';
@@ -419,10 +420,10 @@ do $$
 declare kit uuid := (select id from public.products where slug = 'kit-e2e');
 begin
   assert (select count(*) from public.product_assets where product_id = kit) = 0, 'locked kit: files hidden';
-  assert (select count(*) from public.product_contents(kit, 'en')) = 2, 'locked kit: shared + English materials listed';
-  assert (select array_agg(title order by title) from public.product_contents(kit, 'pt')) = array['Guia', 'Worship audio'], 'Portuguese materials in Portuguese';
-  assert (select count(*) from public.product_contents(kit, 'es')) = 2, 'no Spanish materials: English ones';
-  assert (select asset_count from public.library_items('en') where slug = 'kit-e2e') = 2, 'library counts materials';
+  assert (select count(*) from public.product_contents(kit, 'en')) = 3, 'locked kit: shared + English materials listed';
+  assert (select array_agg(title order by title) from public.product_contents(kit, 'pt')) = array['Everything', 'Guia', 'Worship audio'], 'Portuguese materials in Portuguese';
+  assert (select count(*) from public.product_contents(kit, 'es')) = 3, 'no Spanish materials: English ones';
+  assert (select asset_count from public.library_items('en') where slug = 'kit-e2e') = 3, 'library counts materials, the ZIP as one of them';
   assert not (select owned from public.library_items('en') where slug = 'kit-e2e'), 'kit locked';
 end $$;
 rollback;
@@ -434,7 +435,7 @@ set local request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
 do $$
 declare kit uuid := (select id from public.products where slug = 'kit-e2e');
 begin
-  assert (select count(*) from public.product_assets where product_id = kit) = 3, 'bought kit: every material readable';
+  assert (select count(*) from public.product_assets where product_id = kit) = 4, 'bought kit: every material readable';
   assert (select owned from public.library_items('en') where slug = 'kit-e2e'), 'kit owned';
 end $$;
 rollback;
@@ -456,8 +457,8 @@ declare
   ids uuid[] := (select array_agg(id order by position desc) from public.product_assets where product_id = kit);
 begin
   perform public.admin_reorder_assets(kit, ids);
-  assert (select title from public.product_assets where product_id = kit and position = 1) = 'Guia', 'materials reordered';
-  assert (select array_agg(position order by position) from public.product_assets where product_id = kit) = array[1, 2, 3], 'positions 1..n';
+  assert (select title from public.product_assets where product_id = kit and position = 1) = 'Everything', 'materials reordered';
+  assert (select array_agg(position order by position) from public.product_assets where product_id = kit) = array[1, 2, 3, 4], 'positions 1..n';
 end $$;
 delete from public.products where slug = 'kit-e2e';
 
@@ -483,5 +484,54 @@ do $$ begin
   assert public.is_admin(), 'admin without 2FA is admin';
 end $$;
 rollback;
+
+-- Home banners: members get only the banners meant for them now (language, dates, on/off, audience).
+insert into public.products (slug, type, access, visibility, price_cents) values
+  ('banner-owned', 'kit', 'paid', 'visible', 100), ('banner-offer', 'kit', 'paid', 'visible', 100);
+insert into public.entitlements (user_id, email, product_id, source)
+select '00000000-0000-0000-0000-00000000000a', 'thandi@example.co.za', id, 'manual' from public.products where slug = 'banner-owned';
+insert into public.banners (title, locale, starts_at, ends_at, active, audience, product_id, sort_order)
+select v.title, v.locale::public.locale, v.starts_at, v.ends_at, v.active, v.audience::public.banner_audience,
+       (select id from public.products where slug = v.product_slug), v.sort_order
+from (values
+  ('Everyone',       null, null::timestamptz,        null::timestamptz,        true,  'all',       null,           2),
+  ('English only',   'en', null,                     null,                     true,  'all',       null,           1),
+  ('Portuguese only','pt', null,                     null,                     true,  'all',       null,           3),
+  ('Not yet',        null, now() + interval '1 day', null,                     true,  'all',       null,           4),
+  ('Over',           null, now() - interval '2 day', now() - interval '1 day', true,  'all',       null,           5),
+  ('Switched off',   null, null,                     null,                     false, 'all',       null,           6),
+  ('Already owned',  null, null,                     null,                     true,  'not_owner', 'banner-owned', 7),
+  ('New offer',      null, null,                     null,                     true,  'not_owner', 'banner-offer', 8)
+) v(title, locale, starts_at, ends_at, active, audience, product_slug, sort_order);
+do $$ begin
+  begin
+    insert into public.banners (title, link) values ('Bad link', '//evil.example');
+    raise exception 'protocol-relative link accepted';
+  exception when check_violation then null;
+  end;
+  begin
+    insert into public.banners (title, audience) values ('No product', 'not_owner');
+    raise exception 'not_owner banner without a product accepted';
+  exception when check_violation then null;
+  end;
+end $$;
+begin;
+set local role authenticated;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
+do $$ begin
+  assert (select array_agg(title) from public.home_banners('en')) = array['English only', 'Everyone', 'New offer'],
+    'English member: own language and all-language banners, live now, switched on, not for products they own; in order';
+  assert (select array_agg(title) from public.home_banners('pt')) = array['Everyone', 'Portuguese only', 'New offer'], 'Portuguese member';
+  assert not has_table_privilege('authenticated', 'public.banners', 'select'), 'members cannot read the banners table';
+end $$;
+rollback;
+begin;
+set local role anon;
+do $$ begin
+  assert not has_function_privilege('anon', 'public.home_banners(public.locale)', 'execute'), 'visitors cannot list banners';
+end $$;
+rollback;
+delete from public.banners;
+delete from public.products where slug in ('banner-owned', 'banner-offer');
 
 \echo 'All database tests passed'

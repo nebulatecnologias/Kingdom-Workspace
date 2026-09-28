@@ -49,7 +49,7 @@ export async function getCurrentUser(): Promise<ShellUser> {
 }
 
 /** Use in member pages and actions: an active member, or a redirect to sign in. */
-export async function requireMember(next = "/library"): Promise<Profile> {
+export async function requireMember(next = "/home"): Promise<Profile> {
   const p = await getProfile();
   if (!p || p.status !== "active") redirect(`/login?next=${encodeURIComponent(next)}`);
   return p;
@@ -74,12 +74,12 @@ export async function verifiedFactorId() {
 }
 
 /**
- * Use in admin pages and actions: an active administrator; members are sent to their library.
+ * Use in admin pages and actions: an active administrator; members are sent to Home.
  * Admins with two-step verification on are asked for their code first.
  */
 export async function requireAdmin(next = "/admin"): Promise<Profile> {
   const p = await requireMember(next);
-  if (p.role !== "admin") redirect("/library");
+  if (p.role !== "admin") redirect("/home");
   if (await needsSecondFactor()) redirect(`/auth/verify?next=${encodeURIComponent(next)}`);
   return p;
 }

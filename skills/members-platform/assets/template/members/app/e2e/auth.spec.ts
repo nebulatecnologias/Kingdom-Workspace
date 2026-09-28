@@ -11,7 +11,7 @@ async function acceptInvite(page: Page, url: string, opts: { password?: string }
   else await page.getByLabel("Skip the password").check();
   await page.locator('input[name="terms"]').check();
   await page.getByRole("button", { name: "Create account and open my library" }).click();
-  await page.waitForURL(/\/library\?welcome=1$/);
+  await page.waitForURL(/\/home\?welcome=1$/);
 }
 
 test.describe.configure({ mode: "serial" });
@@ -74,7 +74,7 @@ test("password sign-in, wrong password and sign-out", async ({ page }) => {
   // Enter in the password field signs in (it used to trigger "Forgot password?", the form's first submit button).
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.getByLabel("Password", { exact: true }).press("Enter");
-  await page.waitForURL(/\/library$/);
+  await page.waitForURL(/\/home$/);
   await page.getByRole("button", { name: "Sign out" }).first().click();
   await page.waitForURL(/\/login$/);
 });
@@ -92,7 +92,7 @@ test("email-link sign-in needs a button press (mail scanners cannot use it)", { 
   expect(res.ok()).toBe(true);
   await page.goto(link);
   await page.getByRole("button", { name: "Sign me in" }).click();
-  await page.waitForURL(/\/library$/);
+  await page.waitForURL(/\/home$/);
   await expect(page.getByRole("heading", { name: "Hello, Thandi" })).toBeVisible();
 });
 
@@ -108,9 +108,9 @@ test("signed-out visitors are sent to sign in; members cannot open admin", async
   await page.getByLabel("Email").fill(member.email);
   await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await page.waitForURL(/\/library$/);
+  await page.waitForURL(/\/home$/);
   await page.goto("/admin");
-  await expect(page).toHaveURL(/\/library$/);
+  await expect(page).toHaveURL(/\/home$/);
 });
 
 test("forgot password → reset → sign in with the new password", async ({ page }) => {
@@ -126,7 +126,7 @@ test("forgot password → reset → sign in with the new password", async ({ pag
   await page.waitForURL(/\/auth\/reset$/);
   await page.getByLabel("Password", { exact: true }).fill("An0ther-pass!45");
   await page.getByRole("button", { name: "Save new password" }).click();
-  await page.waitForURL(/\/library\?notice=password$/);
+  await page.waitForURL(/\/home\?notice=password$/);
   await expect(page.getByText("Your new password is saved.")).toBeVisible();
 });
 

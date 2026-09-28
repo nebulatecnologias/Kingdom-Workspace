@@ -67,7 +67,7 @@ test("order.paid for a new buyer grants access and emails an invite", async ({ r
   await page.getByLabel("Skip the password").check();
   await page.locator('input[name="terms"]').check();
   await page.getByRole("button", { name: "Create account and open my library" }).click();
-  await page.waitForURL(/\/library\?welcome=1$/);
+  await page.waitForURL(/\/home\?welcome=1$/);
 
   const { data: profile } = await admin().from("profiles").select("id").eq("email", buyer.email).single();
   const { count } = await admin().from("entitlements").select("id", { count: "exact", head: true }).eq("user_id", profile!.id).is("revoked_at", null);

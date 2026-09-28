@@ -62,7 +62,7 @@ export default async function LegalPage({ params }: PageProps<"/legal/[doc]">) {
     <div className="main" style={{ maxWidth: 820, margin: "0 auto" }}>
       {/* Not .topbar: that one is hidden on phones, where the member area shows its own bar. */}
       <header style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 20 }}>
-        <Brand href="/library" />
+        <Brand href="/home" />
         <LanguageSelect />
       </header>
       {locale.startsWith("en") ? null : <div style={{ marginBottom: 16 }}><Notice>{t("legal_en_only")}</Notice></div>}

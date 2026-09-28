@@ -84,7 +84,7 @@ export default async function ProductEditorPage({ params, searchParams }: PagePr
     duration: formatDuration(a.duration_seconds),
   }));
   // Members see materials without a language plus those in theirs; the card counts the English view.
-  const assetCount = assets.filter((a) => a.kind !== "zip" && (a.locale === null || a.locale === "en")).length;
+  const assetCount = assets.filter((a) => a.locale === null || a.locale === "en").length;
 
   const urls = await signedImageUrls([p.cover_path, ...pages.map((x) => x.previewPath)]);
   const sectionName = sections.find((s) => s.id === p.section_id)?.name ?? t("sc_noSection");

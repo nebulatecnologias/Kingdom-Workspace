@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IntentLink as Link } from "@/components/shell/intent-link";
 import { getLocale, getTranslations } from "next-intl/server";
-import { GripVertical, Lock, Plus, Store } from "lucide-react";
+import { GalleryHorizontal, GripVertical, Lock, Plus, Store } from "lucide-react";
 import { SectionsPanel, ShowcaseList } from "@/components/admin/showcase";
 import { Art } from "@/components/catalogue/art";
 import { toLocale } from "@/i18n/config";
@@ -37,10 +37,17 @@ export default async function ShowcasePage() {
           <h1>{t("sc_title")}</h1>
           <p>{t("sc_lead")}</p>
         </div>
-        <Link className="btn btn-primary" href="/admin/products/new">
-          <Plus className="icon" aria-hidden="true" />
-          {t("newPack")}
-        </Link>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          {/* On phones the Banners page is not in the tab bar; this is its way in. */}
+          <Link className="btn btn-ghost" href="/admin/banners">
+            <GalleryHorizontal className="icon" aria-hidden="true" />
+            {t("nav_banners")}
+          </Link>
+          <Link className="btn btn-primary" href="/admin/products/new">
+            <Plus className="icon" aria-hidden="true" />
+            {t("newPack")}
+          </Link>
+        </div>
       </div>
       <div className="showcase">
         <section className="card" style={{ overflow: "hidden" }} aria-label={t("sc_title")}>

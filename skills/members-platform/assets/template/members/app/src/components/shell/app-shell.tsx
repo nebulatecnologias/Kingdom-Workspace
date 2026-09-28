@@ -7,6 +7,8 @@ import {
   BookOpen,
   ChevronDown,
   CircleHelp,
+  GalleryHorizontal,
+  House,
   LayoutDashboard,
   LogIn,
   Mail,
@@ -72,10 +74,12 @@ export async function AppShell({
           { href: "/admin/members", label: t("nav_members"), icon: icon(Users) },
           { href: "/admin/showcase", label: t("nav_showcase"), icon: icon(Store), also: ["/admin/products"] },
           { href: "/admin/integrations", label: t("nav_integrations"), icon: icon(Plug) },
+          { href: "/admin/banners", label: t("nav_banners"), icon: icon(GalleryHorizontal), sidebarOnly: true },
           // On phones the overview links here; the tab bar keeps five items.
           { href: "/admin/security", label: t("nav_security"), icon: icon(ShieldCheck), sidebarOnly: true },
         ]
       : [
+          { href: "/home", label: t("nav_home"), icon: icon(House) },
           { href: "/library", label: t("nav_library"), icon: icon(BookOpen) },
           { href: "/profile", label: t("nav_profile"), icon: icon(User) },
         ];
@@ -83,7 +87,7 @@ export async function AppShell({
   return (
     <div className="app">
       <aside className="sidebar" aria-label={variant === "admin" ? "Admin" : "Main"}>
-        <Brand href={variant === "admin" ? "/admin" : "/library"} subtitle={variant === "admin" ? t("nav_admin") : undefined} intent={intent} />
+        <Brand href={variant === "admin" ? "/admin" : "/home"} subtitle={variant === "admin" ? t("nav_admin") : undefined} intent={intent} />
         {variant === "admin" ? (
           <div className="split">
             <ShellLink className="split-main" href="/admin/invites?new=1">
@@ -157,7 +161,7 @@ export async function AppShell({
       </aside>
       <div>
         <header className="mobile-bar">
-          <Brand href={variant === "admin" ? "/admin" : "/library"} subtitle={variant === "admin" ? t("nav_admin") : undefined} intent={intent} />
+          <Brand href={variant === "admin" ? "/admin" : "/home"} subtitle={variant === "admin" ? t("nav_admin") : undefined} intent={intent} />
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
             <LanguageSelect id="lang-m" />
             {variant === "admin" ? (

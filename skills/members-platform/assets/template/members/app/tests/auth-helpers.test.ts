@@ -26,7 +26,7 @@ describe("safeNext", () => {
   it("keeps same-site paths", () => expect(safeNext("/products/money?x=1")).toBe("/products/money?x=1"));
   it("blocks open redirects", () => {
     for (const bad of ["https://evil.example", "//evil.example", "/\\evil.example", "javascript:alert(1)", ""]) {
-      expect(safeNext(bad)).toBe("/library");
+      expect(safeNext(bad)).toBe("/home");
     }
   });
 });

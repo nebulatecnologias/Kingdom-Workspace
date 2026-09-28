@@ -9,7 +9,7 @@ export async function AuthShell({ children }: { children: ReactNode }) {
   return (
     <div className="auth">
       <section className="auth-art">
-        <Brand href="/library" />
+        <Brand href="/home" />
         <div>
           <h2>{t("inv_art_title")}</h2>
           <p>{t("inv_art_p")}</p>

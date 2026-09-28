@@ -7,14 +7,14 @@ export async function clientIp() {
 }
 
 /** Only allow same-site relative paths as post-login destinations. */
-export function safeNext(next: string | null | undefined, fallback = "/library") {
+export function safeNext(next: string | null | undefined, fallback = "/home") {
   if (!next || !next.startsWith("/") || next.startsWith("//") || next.startsWith("/\\")) return fallback;
   return next;
 }
 
 /** Where someone lands after signing in when no page asked for it. */
 export function homeFor(role: string | null | undefined) {
-  return role === "admin" ? "/admin" : "/library";
+  return role === "admin" ? "/admin" : "/home";
 }
 
 export function siteUrl() {
