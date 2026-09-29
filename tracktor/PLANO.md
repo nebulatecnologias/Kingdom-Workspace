@@ -28,6 +28,16 @@ dinheiro escrito `MZ 1 500,00`, tratamento por «você».
 **Ordem pedida pelo Shelton a 29/09/2026:** primeiro a **publicação de posts** e a **caixa
 de conversas** (Meta, WhatsApp, TikTok); depois o resto.
 
+### Decidido pelo Shelton a 29/09/2026 — não voltar a perguntar
+
+- **O código vive na pasta `tracktor/` do `kingdom-dashboard`**, como o `payflow/`, com as
+  migrações na mesma `supabase/migrations`. Este plano muda-se para lá no passo 0.2.
+- **Endereço:** `tracktor.kingdomcompny.com`.
+- **Número de WhatsApp da caixa:** decide-se depois, **antes do passo 2.2**.
+- **Níveis de colaboradores:** há funções no Tracktor. **Aprovam publicações o Gestor de
+  Marketing e o administrador**, e mais ninguém (secção «Níveis de colaboradores»).
+- **O LinkedIn entra depois** (fase 5), não na fase 1.
+
 ---
 
 ## O que já existe nas outras três aplicações e serve aqui
@@ -79,6 +89,64 @@ ou chama a peça que já existe.
 
 ---
 
+## Níveis de colaboradores
+
+**Como assenta no que existe.** Hoje cada pessoa tem um perfil em `utilizadores`
+(`admin`, `colaborador`, `aluno`) e uma lista de áreas (`acessos`), lida pela
+`privado.tenho_acesso()` nas políticas de RLS. O `privado.impedir_auto_promocao` já
+reverte quem tenta mudar o próprio perfil ou os próprios acessos. O Tracktor não cria um
+segundo sistema: junta uma **função** e as **unidades** de cada colaborador, e o
+administrador continua a ser o `admin` de sempre.
+
+**As funções:**
+
+| Função | Para quem | Resumo |
+|---|---|---|
+| Administrador | perfil `admin` | tudo, incluindo a equipa e as ligações às redes |
+| Gestor de Marketing | quem responde pelo marketing de uma ou mais unidades | aprova publicações, gere campanhas, orçamentos e regras de qualificação |
+| Criador de conteúdo | social media, designer | escreve e agenda; o que cria vai para aprovação |
+| Atendimento | comercial, SDR, apoio | caixa de conversas e leads; envia oportunidades ao Payflow |
+| Leitura | direcção de uma unidade | vê métricas e resultados, não mexe em nada |
+
+**O que cada função pode fazer:**
+
+| Acção | Administrador | Gestor de Marketing | Criador de conteúdo | Atendimento | Leitura |
+|---|---|---|---|---|---|
+| Criar e editar publicações | sim | sim | sim | — | — |
+| **Aprovar publicações** | **sim** | **sim** | — | — | — |
+| Publicar sem aprovação | sim | sim | — | — | — |
+| Biblioteca de imagens e vídeos | sim | sim | sim | ver | ver |
+| Caixa de conversas: responder | sim | sim | só comentários | sim | — |
+| Atribuir conversas a outra pessoa | sim | sim | — | só as suas | — |
+| Leads: ver e qualificar | sim | sim | — | sim | ver |
+| Enviar oportunidade ao Payflow | sim | sim | — | sim | — |
+| Campanhas, orçamentos e gasto | sim | sim | ver | — | ver |
+| Regras de qualificação e automações | sim | sim | — | — | — |
+| Formulários | sim | sim | — | ver | — |
+| Métricas | sim | sim | as das suas publicações | as dos seus leads | sim |
+| Ligar e desligar contas das redes | sim | sim | — | — | — |
+| Equipa: convidar e mudar funções | sim | — | — | — | — |
+
+**As regras que seguram isto, na base e não no browser:**
+
+- **Só o Gestor de Marketing e o administrador aprovam.** Uma publicação criada por um
+  Criador de conteúdo nasce «Para aprovar» e o publicador ignora-a até alguém com uma
+  destas funções a aprovar. A aprovação guarda quem aprovou e quando.
+- **O Gestor de Marketing e o administrador publicam directamente:** o que eles agendam
+  nasce já «Agendada», com eles como aprovador.
+- **Editar depois de aprovada volta a pedir aprovação**, quando quem edita não pode aprovar.
+- **Cada pessoa só vê as unidades que lhe foram dadas.** Um Gestor de Marketing da
+  Kingdom Library não aprova publicações da Kingdom Training.
+- **Ninguém muda a própria função nem as próprias unidades.** O mesmo guarda do
+  `impedir_auto_promocao`, estendido às colunas novas.
+
+**O modelo.** `tracktor.membros` (utilizador, função, unidades) e uma função
+`privado.tracktor_pode(accao, unidade)` usada pelas políticas de RLS e pelas Edge
+Functions. Fica numa tabela própria do Tracktor, e não em `utilizadores`, porque quando o
+Tracktor for vendido cada empresa tem a sua equipa com as suas funções.
+
+---
+
 ## O que as plataformas deixam fazer
 
 Confirmar cada linha na documentação oficial no dia em que o passo começar: as regras da
@@ -117,14 +185,15 @@ a outras empresas. O vídeo que a revisão pede grava-se com a funcionalidade j�
 Os dias são de trabalho, como no plano do Payflow. **Pronto quando** é a prova que fecha o
 passo; sem ela o passo não está feito.
 
-### Fase 0 — Fundação (~5 dias)
+### Fase 0 — Fundação (~6,5 dias)
 
 | # | passo | dias | o quê | pronto quando |
 |---|---|---|---|---|
 | 0.1 | Pedidos às plataformas | 0,5 | a lista acima; começa no dia 1 porque demora semanas | todos os pedidos submetidos, com data |
-| 0.2 | Casa do código | 1,5 | pasta, projecto no Vercel, `tracktor.kingdomcompny.com`, esquema `tracktor` na base, áreas de acesso novas, entrada e recuperar no molde do Payflow | o Shelton entra e vê a aplicação vazia com o menu do protótipo |
+| 0.2 | Casa do código | 1,5 | pasta `tracktor/` no `kingdom-dashboard` (o protótipo e este plano mudam-se para lá), projecto no Vercel, `tracktor.kingdomcompny.com`, esquema `tracktor` na base, entrada e recuperar no molde do Payflow | o Shelton entra e vê a aplicação vazia com o menu do protótipo |
 | 0.3 | Testes e CI | 1 | casos no corredor de `testes/`; simuladores de webhooks da Meta e do WhatsApp | CI verde, com um caso que falha de propósito |
 | 0.4 | Ligar contas | 2 | login da Meta para empresas; lista de Páginas, Instagram e números; tokens no cofre; renovação e aviso de expiração; tabela `contas_sociais` | a Página e o Instagram da Kingdom Training aparecem ligados, e o token não aparece em lado nenhum do browser |
+| 0.5 | Níveis de colaboradores | 1,5 | `tracktor.membros`, `privado.tracktor_pode()`, guarda contra a auto-promoção, ecrã «Equipa» (convidar, função, unidades) só para o administrador | prova SQL: um Criador de conteúdo não consegue aprovar nem mudar a própria função, nem pela API; um Gestor de Marketing da Library não vê a Training |
 
 ### Fase 1 — Publicação (~14 dias)
 
@@ -138,7 +207,7 @@ a publicar → publicada | falhou.
 | 1.1 | Biblioteca de media | 2 | carregar imagem e vídeo para o Storage (molde da Academy), validar formato, proporção, tamanho e duração por rede **antes** de agendar | um vídeo que o Instagram recusaria é recusado no Tracktor, com o motivo |
 | 1.2 | Compositor e calendário | 3 | os ecrãs do protótipo com dados reais: semana, mês, texto por rede, pré-visualização, UTM nos links, melhor horário | uma publicação para Facebook e Instagram fica agendada e aparece no calendário |
 | 1.3 | Publicador | 4 | relógio a cada minuto; reclama os destinos vencidos; Facebook (foto, vídeo, texto) e Instagram (imagem, carrossel, reel, story; contentor → estado → publicar); repetição com espera crescente; erros classificados (token, formato, limite) | 20 publicações de teste saem à hora certa na conta de teste, nenhuma duas vezes, e uma falha de propósito fica «Falhou» com o motivo e o botão que resolve |
-| 1.4 | Aprovações e avisos | 1 | quem aprova por unidade; email à equipa quando falha ou uma ligação expira (`carta.ts`) | uma publicação «para aprovar» só sai depois de aprovada |
+| 1.4 | Aprovações e avisos | 1 | fila «Para aprovar» para o Gestor de Marketing e o administrador, com as regras da secção «Níveis»; email a quem aprova quando há publicações à espera, e à equipa quando uma falha ou uma ligação expira (`carta.ts`) | uma publicação de um Criador de conteúdo só sai depois de o Gestor de Marketing a aprovar, e o Criador de conteúdo que tenta aprovar é recusado pela base |
 | 1.5 | Resultados por publicação | 2 | alcance, interações e cliques lidos uma vez por dia nas 4 semanas seguintes | o cartão de uma publicação mostra os números dela |
 | 1.6 | TikTok | 2 | ligar conta; publicar como privado enquanto não há auditoria; ligar o público quando ela chegar | um vídeo de teste chega à conta do TikTok |
 
@@ -196,15 +265,15 @@ Por detalhar quando a fase 3 fechar: a fronteira de cada cliente (a mesma do Pay
 
 | Fase | Dias |
 |---|---|
-| 0 · Fundação | ~5 |
+| 0 · Fundação | ~6,5 |
 | 1 · Publicação | ~14 |
 | 2 · Caixa de conversas | ~16 |
 | 3 · Leads e formulários | ~13 |
 | 4 · Ponte com o Payflow | ~4 |
 | 5 · Campanhas e métricas | ~13 |
-| **Até ao Tracktor completo para a Kingdom** | **~65** |
+| **Até ao Tracktor completo para a Kingdom** | **~66,5** |
 
-A promessa de vender em ~3 meses é apertada: são ~65 dias de trabalho só para a Kingdom,
+A promessa de vender em ~3 meses é apertada: são ~66,5 dias de trabalho só para a Kingdom,
 antes da fase 6. E a auditoria de 29/09 deixou **cinco bloqueios na abertura do Payflow**.
 Proposta: o **0.1 começa já** (só custa pedidos), o resto da fase 0 e a fase 1 começam
 quando esses bloqueios fecharem.
@@ -231,16 +300,10 @@ quando esses bloqueios fecharem.
 
 ## Por decidir
 
-- [ ] **Onde vive o código.** Proposta: pasta `tracktor/` no `kingdom-dashboard`, como o
-      `payflow/`, com as migrações na mesma `supabase/migrations`. É a mesma base e o
-      Tracktor escreve em tabelas do Payflow; um só histórico de migrações evita que as
-      duas discordem. A alternativa é um repositório próprio, como a Academy.
-- [ ] **Endereço:** `tracktor.kingdomcompny.com`?
-- [ ] **Número de WhatsApp da caixa:** o número actual do formulário (+258 85 690 7063),
-      com coexistência se a Meta a permitir, ou um número novo?
-- [ ] **Quem aprova publicações** em cada unidade, ou se a Kingdom Training começa sem
-      aprovação.
-- [ ] **LinkedIn na fase 1** (a Kingdom Company vende B2B por lá) ou na fase 5, como está.
+- [ ] **Número de WhatsApp da caixa** (antes do passo 2.2): o número actual do formulário
+      (+258 85 690 7063), com coexistência se a Meta a permitir, ou um número novo.
+- [ ] **Quem é Gestor de Marketing** em cada unidade (antes do 0.5, para o ecrã «Equipa»
+      nascer com as pessoas certas).
 
 ---
 
@@ -249,5 +312,6 @@ quando esses bloqueios fecharem.
 | # | passo | estado | quando | commit |
 |---|---|---|---|---|
 | — | Protótipo navegável e `DESIGN.md` | **feito** | 25/09/2026 | `16a15b0` |
-| — | Este plano | **escrito**, à espera das decisões acima | 29/09/2026 | — |
+| — | Este plano | **escrito** | 29/09/2026 | `7e7590a` |
+| — | Decisões do Shelton (código, endereço, níveis, LinkedIn depois) | **registadas** | 29/09/2026 | — |
 | 0.1 | Pedidos às plataformas | por começar | — | — |
