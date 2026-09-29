@@ -23,9 +23,9 @@ diferente no formulário e no documento. Escolha **uma** versão e use-a sempre.
 | Site | `https://kingdomcompny.com` | Business Manager, apps |
 | Email no domínio | ____@kingdomcompny.com | para receber o código de verificação |
 
-**Que empresa verificar.** A Kingdom tem duas entidades (Moçambique e África do Sul). A
-Kingdom Training vende em Moçambique, por isso proponho verificar **a entidade de
-Moçambique**. A da África do Sul pode ter o seu portfólio mais tarde.
+**Que empresa verificar: a entidade de Moçambique** (decidido pelo Shelton a 29/09/2026).
+A Kingdom Training vende em Moçambique primeiro. A da África do Sul pode ter o seu
+portfólio mais tarde.
 
 ---
 
