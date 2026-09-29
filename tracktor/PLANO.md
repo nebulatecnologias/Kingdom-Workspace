@@ -37,6 +37,9 @@ de conversas** (Meta, WhatsApp, TikTok); depois o resto.
 - **Níveis de colaboradores:** há funções no Tracktor. **Aprovam publicações o Gestor de
   Marketing e o administrador**, e mais ninguém (secção «Níveis de colaboradores»).
 - **O LinkedIn entra depois** (fase 5), não na fase 1.
+- **A empresa da África do Sul é a dona do Tracktor:** verifica o portfólio da Meta, é dona
+  das apps da Meta e do TikTok, é a responsável pelos dados na política de privacidade
+  (POPIA) e é quem vende o Tracktor a outras empresas.
 
 ---
 

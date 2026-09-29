@@ -17,15 +17,31 @@ diferente no formulário e no documento. Escolha **uma** versão e use-a sempre.
 
 | Dado | Como vai ficar (preencher) | Onde tem de aparecer igual |
 |---|---|---|
-| Nome legal da empresa | ______________________ | registo comercial, NUIT, Business Manager, app da Meta, app do TikTok |
+| Nome legal da empresa | ______________________ (Pty) Ltd | certificado da CIPC, documento da SARS, Business Manager, app da Meta, app do TikTok, política de privacidade |
 | Morada | ______________________ | documento enviado, Business Manager |
-| Telefone da empresa | ______________________ | Business Manager (pode receber a chamada ou o SMS de verificação) |
+| Telefone da empresa (+27) | ______________________ | Business Manager (pode receber a chamada ou o SMS de verificação) |
 | Site | `https://kingdomcompny.com` | Business Manager, apps |
 | Email no domínio | ____@kingdomcompny.com | para receber o código de verificação |
 
-**Que empresa verificar: a entidade de Moçambique** (decidido pelo Shelton a 29/09/2026).
-A Kingdom Training vende em Moçambique primeiro. A da África do Sul pode ter o seu
-portfólio mais tarde.
+**Que empresa verificar: a empresa da África do Sul** (decidido pelo Shelton a
+29/09/2026, em vez da de Moçambique). Tem a documentação mais organizada, e é ela que vai
+vender o Tracktor, por isso é a dona do portfólio e da app desde o primeiro dia. Um
+portfólio verificado com a empresa sul-africana gere sem restrições as Páginas, o Instagram,
+as contas de anúncios e um número de WhatsApp (+258) da Kingdom Training em Moçambique.
+
+**Três cuidados que vêm desta escolha:**
+
+- [ ] **O site liga a marca à empresa.** Uma linha no rodapé de `kingdomcompny.com`:
+      «Kingdom Training é uma marca da [nome legal] (Pty) Ltd». A Meta confirma essa ligação
+      na verificação e ao aprovar o nome de exibição do WhatsApp. Eu faço a alteração quando
+      tiver o nome legal
+- [ ] **Usar o portfólio que já existe**, com as Páginas e o Instagram lá dentro, e mudar os
+      dados dele para os da empresa sul-africana **antes** de pedir a verificação. Mudá-los
+      depois reabre a verificação; um portfólio novo obrigava a mudar os activos de sítio
+- [ ] **Quem paga o quê.** As mensagens-modelo do WhatsApp são pagas pelo método de
+      pagamento do portfólio. As duas tesourarias nunca se misturam (regra do Payflow), por
+      isso decida com o contabilista qual das empresas paga o WhatsApp da Kingdom Training. As
+      contas de anúncios continuam a pagar como hoje, cada uma com o seu cartão
 
 ---
 
@@ -35,10 +51,11 @@ Em business.facebook.com → Definições → Centro de segurança → Verifica�
 
 - [ ] Confirmar que existe **um só** portfólio empresarial (Business Manager) da Kingdom, e que o Shelton é administrador
 - [ ] Preencher os dados da secção 0, exactamente como estão no documento
-- [ ] Juntar **um documento com o nome legal** (a conta da luz não serve para isto):
-  - certidão do registo comercial, ou a publicação no Boletim da República, **ou**
-  - documento fiscal emitido pela Autoridade Tributária com o NUIT (não serve uma declaração preenchida pela própria empresa)
-- [ ] Se a morada ou o telefone não estiverem nesse documento, juntar outro que os tenha: extracto bancário da empresa ou factura de água ou luz
+- [ ] Mudar o nome, a morada e o telefone do portfólio para os da empresa sul-africana (secção 0), **antes** de começar a verificação
+- [ ] Juntar **um documento com o nome legal** (uma factura de serviços não serve para isto):
+  - o **certificado de registo da CIPC**, **ou**
+  - um documento emitido pela **SARS** com o nome da empresa (não serve uma declaração preenchida pela própria empresa)
+- [ ] Se a morada ou o telefone não estiverem nesse documento, juntar outro que os tenha: extracto bancário da empresa ou factura municipal (água, luz)
 - [ ] Documentos a cores, inteiros, sem cortes, dentro da validade
 - [ ] Escolher o método de confirmação: email no domínio (o mais simples), telefone, SMS ou WhatsApp
 - [ ] Opcional mas útil: verificar o domínio `kingdomcompny.com` no Business Manager (Segurança da marca → Domínios). Eu preparo o registo DNS se for este o caminho
@@ -105,8 +122,8 @@ receber mensagens de qualquer pessoa, e a outras empresas usarem o Tracktor.
 As duas plataformas abrem estes endereços durante a revisão, e recusam se não
 responderem.
 
-- [ ] **Política de privacidade** em `tracktor.kingdomcompny.com/privacidade`: que dados das redes se guardam, para quê, por quanto tempo, com quem se partilham (Payflow, Dashboard), e como pedir o apagamento
-- [ ] **Termos de utilização** em `/termos`
+- [ ] **Política de privacidade** em `tracktor.kingdomcompny.com/privacidade`, com a **empresa sul-africana como responsável pelos dados** e escrita segundo a **POPIA** (a lei sul-africana de protecção de dados): que dados das redes se guardam, para quê, por quanto tempo, com quem se partilham (Payflow, Dashboard), e como pedir o apagamento
+- [ ] **Termos de utilização** em `/termos`, em nome da empresa sul-africana, que é quem vende o Tracktor
 - [ ] **Apagamento de dados**: a página com as instruções (o que se apaga e em quanto tempo, não só «envie-nos um email») **e** o endereço que a Meta chama, que responde em JSON com o link de acompanhamento e o código de confirmação
 - [ ] O ícone da app nos tamanhos pedidos
 
@@ -131,7 +148,7 @@ Não se submete agora: a Meta pede um vídeo de cada permissão **a funcionar de
 ### 6a. Conta e app no TikTok for Developers
 
 - [ ] Passar **@kingdomtraining** a **conta de empresa** (Business Account) na app do TikTok
-- [ ] Criar a conta em developers.tiktok.com como **organização** (Kingdom), com o email do domínio
+- [ ] Criar a conta em developers.tiktok.com como **organização**, com o nome legal da empresa sul-africana e o email do domínio
 - [ ] Criar a app **Kingdom Tracktor**: ícone, descrição, os endereços de termos e privacidade da secção 4, plataforma Web
 - [ ] Produtos: **Login Kit** e **Content Posting API**, com o **Direct Post** ligado
 - [ ] Escopos: `user.info.basic`, `video.upload`, `video.publish`
@@ -164,7 +181,7 @@ aberto, fica fora.
 
 - [ ] Nada a pedir já. A conta de WhatsApp Business nasce dentro do portfólio da secção 1, quando o número estiver escolhido
 - [ ] Nome de exibição: o da unidade (Kingdom Training), igual ao da Página
-- [ ] Um método de pagamento no portfólio, para as mensagens-modelo (são pagas por mensagem)
+- [ ] Um método de pagamento no portfólio, para as mensagens-modelo (são pagas por mensagem, ao preço do país de quem recebe). Qual das empresas paga: ver os cuidados da secção 0
 
 **Para a decisão do número:** a Meta passou a permitir usar **o mesmo número na app
 WhatsApp Business e na API ao mesmo tempo** («coexistência»). Em 2026 está anunciada em
