@@ -189,7 +189,7 @@ passo; sem ela o passo não está feito.
 
 | # | passo | dias | o quê | pronto quando |
 |---|---|---|---|---|
-| 0.1 | Pedidos às plataformas | 0,5 | a lista acima; começa no dia 1 porque demora semanas | todos os pedidos submetidos, com data |
+| 0.1 | Pedidos às plataformas | 0,5 | a lista em [`PEDIDOS.md`](PEDIDOS.md); começa no dia 1 porque demora semanas | todos os pedidos submetidos, com data |
 | 0.2 | Casa do código | 1,5 | pasta `tracktor/` no `kingdom-dashboard` (o protótipo e este plano mudam-se para lá), projecto no Vercel, `tracktor.kingdomcompny.com`, esquema `tracktor` na base, entrada e recuperar no molde do Payflow | o Shelton entra e vê a aplicação vazia com o menu do protótipo |
 | 0.3 | Testes e CI | 1 | casos no corredor de `testes/`; simuladores de webhooks da Meta e do WhatsApp | CI verde, com um caso que falha de propósito |
 | 0.4 | Ligar contas | 2 | login da Meta para empresas; lista de Páginas, Instagram e números; tokens no cofre; renovação e aviso de expiração; tabela `contas_sociais` | a Página e o Instagram da Kingdom Training aparecem ligados, e o token não aparece em lado nenhum do browser |
@@ -209,7 +209,7 @@ a publicar → publicada | falhou.
 | 1.3 | Publicador | 4 | relógio a cada minuto; reclama os destinos vencidos; Facebook (foto, vídeo, texto) e Instagram (imagem, carrossel, reel, story; contentor → estado → publicar); repetição com espera crescente; erros classificados (token, formato, limite) | 20 publicações de teste saem à hora certa na conta de teste, nenhuma duas vezes, e uma falha de propósito fica «Falhou» com o motivo e o botão que resolve |
 | 1.4 | Aprovações e avisos | 1 | fila «Para aprovar» para o Gestor de Marketing e o administrador, com as regras da secção «Níveis»; email a quem aprova quando há publicações à espera, e à equipa quando uma falha ou uma ligação expira (`carta.ts`) | uma publicação de um Criador de conteúdo só sai depois de o Gestor de Marketing a aprovar, e o Criador de conteúdo que tenta aprovar é recusado pela base |
 | 1.5 | Resultados por publicação | 2 | alcance, interações e cliques lidos uma vez por dia nas 4 semanas seguintes | o cartão de uma publicação mostra os números dela |
-| 1.6 | TikTok | 2 | ligar conta; publicar como privado enquanto não há auditoria; ligar o público quando ela chegar | um vídeo de teste chega à conta do TikTok |
+| 1.6 | TikTok | 2 | ligar conta; enviar como rascunho para a app do TikTok (não depende da auditoria); o ecrã de publicação já com as regras de partilha do TikTok; publicação directa quando a auditoria sair | um vídeo de teste chega como rascunho à conta do TikTok |
 
 ### Fase 2 — Caixa de conversas (~16 dias)
 
@@ -314,4 +314,4 @@ quando esses bloqueios fecharem.
 | — | Protótipo navegável e `DESIGN.md` | **feito** | 25/09/2026 | `16a15b0` |
 | — | Este plano | **escrito** | 29/09/2026 | `7e7590a` |
 | — | Decisões do Shelton (código, endereço, níveis, LinkedIn depois) | **registadas** | 29/09/2026 | — |
-| 0.1 | Pedidos às plataformas | por começar | — | — |
+| 0.1 | Pedidos às plataformas | **lista pronta** (`PEDIDOS.md`); à espera de o Shelton submeter | 29/09/2026 | — |
