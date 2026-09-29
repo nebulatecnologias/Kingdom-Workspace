@@ -5,6 +5,8 @@ publicações, campanhas, métricas e UTM, conversas de todos os canais, leads c
 qualificação, e formulários. Abre-se `index.html` no browser; não precisa de
 compilação. **Todos os nomes e números são exemplos.**
 
+O plano para passar do protótipo à aplicação real está em [`PLANO.md`](PLANO.md).
+
 ## Ecrãs
 
 | Ecrã | O que mostra |
