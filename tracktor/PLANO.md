@@ -1,5 +1,7 @@
 # Tracktor — plano de desenvolvimento
 
+> **Mudou-se.** A versão viva está em `tracktor/PLANO.md` no repositório `kingdom-dashboard` (29/09/2026). Esta cópia já não se actualiza.
+
 > Escrito a 29/09/2026. Vem do documento «KBOS — Arquitetura» e das decisões do
 > Shelton registadas no `PLANO.md` do `kingdom-dashboard` (secção «O Payflow no KBOS»).
 

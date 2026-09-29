@@ -1,5 +1,7 @@
 # Pedidos às plataformas — passo 0.1 do Tracktor
 
+> **Mudou-se.** A versão viva está em `tracktor/PEDIDOS.md` no repositório `kingdom-dashboard` (29/09/2026). Esta cópia já não se actualiza.
+
 > Preparado a 29/09/2026 para o Shelton. Os pedidos são feitos na conta da empresa; nenhum
 > se faz por aqui. A documentação oficial da Meta e do TikTok estava bloqueada na rede
 > desta sessão: os requisitos vêm de guias publicados em 2026 (lista no fim). **Confirme
