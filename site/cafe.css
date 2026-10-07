@@ -1,6 +1,6 @@
 /* ============================================================
-   Tema "café" para /cafe: carrega depois de site.css.
-   Feito a partir do tema vinho, com a paleta enviada:
+   Cores da página (paleta "café"): carrega depois de site.css,
+   que guarda a estrutura e os efeitos. Paleta:
    off-white #EDE6DC, laranja vibrante #FF5E1E, coffee bean #49372D,
    castanho escuro #2D1E17. O laranja vai só nos botões e em pequenos sinais.
    Dois contextos: escuro (por omissão) e .claro (secções off-white).
@@ -89,9 +89,12 @@ svg [fill="#000"]{ fill:var(--preto); }
 .sintoma input:checked + span::before{ background:var(--laranja); box-shadow:inset 0 0 0 3px var(--acento), 0 0 0 1.5px var(--laranja); }
 .sintoma input:focus-visible + span{ outline-color:var(--laranja); }
 
-/* faixa */
-.faixa-trilho li{ color:rgba(var(--t),.18); }
-.faixa-trilho li.sep{ background:var(--laranja); }
+/* faixa: fina, com os dizeres pequenos */
+.faixa{ padding:16px 0; }
+.faixa-trilho{ animation-duration:45s; }
+.faixa-trilho ul{ gap:26px; padding-right:26px; }
+.faixa-trilho li{ font-size:clamp(15px,1.25vw,17px); letter-spacing:-.01em; color:rgba(var(--t),.62); }
+.faixa-trilho li.sep{ width:6px; height:6px; background:var(--laranja); }
 
 /* problema */
 .chamada{ background:var(--marca); color:#F3EEE6; }
