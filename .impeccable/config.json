@@ -134,6 +134,69 @@
         ],
         "createdAt": "2026-10-07T11:57:55.150Z",
         "reason": "GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes 'grelha fina a desvanecer' in the hero"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "site/bio/index.html"
+        ],
+        "createdAt": "2026-10-07T17:18:35.053Z",
+        "reason": "assistant judgement: clipped children are decorative (hero glow/grid, book-cover spine), not tooltips or menus"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "site/bio/index.html"
+        ],
+        "createdAt": "2026-10-07T17:18:35.068Z",
+        "reason": "assistant judgement: cream ring around the logo seal (0 blur, acts as border) and brown elevation shadow on the main link card; same system as site/index.html"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "site/bio/index.html"
+        ],
+        "createdAt": "2026-10-07T17:19:26.945Z",
+        "reason": "assistant judgement: /bio reuses site.css + cafe.css from site/index.html (same exceptions); GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes grid/glow/marquee patterns"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "site/bio/index.html"
+        ],
+        "createdAt": "2026-10-07T17:19:26.959Z",
+        "reason": "assistant judgement: /bio reuses site.css + cafe.css from site/index.html (same exceptions); GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes grid/glow/marquee patterns"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "site/bio/index.html"
+        ],
+        "createdAt": "2026-10-07T17:19:26.969Z",
+        "reason": "assistant judgement: /bio reuses site.css + cafe.css from site/index.html (same exceptions); GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes grid/glow/marquee patterns"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "site/bio/index.html"
+        ],
+        "createdAt": "2026-10-07T17:19:26.980Z",
+        "reason": "assistant judgement: /bio reuses site.css + cafe.css from site/index.html (same exceptions); GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes grid/glow/marquee patterns"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/bio/index.html"
+        ],
+        "createdAt": "2026-10-07T17:19:26.992Z",
+        "reason": "assistant judgement: false positive, the inner .bio-coluna carries 20px side padding; checked in mobile screenshot"
       }
     ]
   }
