@@ -467,6 +467,96 @@
         ],
         "createdAt": "2026-10-07T19:43:47.257Z",
         "reason": "h4 sao rotulos de coluna do rodape, fora da hierarquia do conteudo; igual aos outros sites"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "prisma/index.html"
+        ],
+        "createdAt": "2026-10-07T20:35:09.833Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/, bloqueio/ e criativo/"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "prisma/index.html"
+        ],
+        "createdAt": "2026-10-07T20:35:09.850Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/, bloqueio/ e criativo/"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "prisma/index.html"
+        ],
+        "createdAt": "2026-10-07T20:35:09.867Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/, bloqueio/ e criativo/"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "prisma/index.html"
+        ],
+        "createdAt": "2026-10-07T20:35:09.882Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/, bloqueio/ e criativo/"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "prisma/index.html"
+        ],
+        "createdAt": "2026-10-07T20:35:09.900Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/, bloqueio/ e criativo/"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "prisma/index.html"
+        ],
+        "createdAt": "2026-10-07T20:35:09.914Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/, bloqueio/ e criativo/"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "prisma/index.html"
+        ],
+        "createdAt": "2026-10-07T20:35:09.928Z",
+        "reason": "Apenas titulos display, afirmacoes grandes e veredicto com leading apertado; corpo de texto a 1.4+"
+      },
+      {
+        "rule": "skipped-heading",
+        "value": "*",
+        "files": [
+          "prisma/index.html"
+        ],
+        "createdAt": "2026-10-07T20:35:09.942Z",
+        "reason": "h4 sao rotulos de coluna do rodape, fora da hierarquia do conteudo; igual aos outros sites"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "prisma/index.html"
+        ],
+        "createdAt": "2026-10-07T20:35:09.958Z",
+        "reason": "Um unico uso intencional: o espectro do prisma no titulo da abertura, que e o conceito do livro (luz que se divide em cores)"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "prisma/prisma.css"
+        ],
+        "createdAt": "2026-10-07T20:35:18.897Z",
+        "reason": "Regra .espectro: unico uso, o espectro do prisma no titulo da abertura (conceito do livro)"
       }
     ]
   }

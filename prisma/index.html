@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<!-- O Prisma da Influência: design system do O Conselheiro (site.css + site.js) com o azul da capa e o espectro do prisma (prisma.css). -->
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>O Prisma da Influência | Livro + Masterclass</title>
+<meta name="description" content="Como te posicionares de maneira estratégica e tornares-te uma autoridade dentro do teu nicho. Um livro de Shelton Douglas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://prismadainfluencia.kingdomcompny.com/">
+<meta property="og:title" content="O Prisma da Influência | Shelton Douglas">
+<meta property="og:description" content="Como te posicionares de maneira estratégica e tornares-te uma autoridade no teu nicho.">
+<meta property="og:image" content="https://prismadainfluencia.kingdomcompny.com/og-prisma-da-influencia.jpg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="O Prisma da Influência, de Shelton Douglas">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Prisma da Influência | Shelton Douglas">
+<meta name="twitter:description" content="Como te posicionares de maneira estratégica e tornares-te uma autoridade no teu nicho.">
+<meta name="twitter:image" content="https://prismadainfluencia.kingdomcompny.com/og-prisma-da-influencia.jpg">
+<meta name="theme-color" content="#070A24">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon-96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/prisma.css">
+<script>document.documentElement.classList.add('anima');</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.2 2.7 2.7L16.2 9.4"/></symbol>
+    <symbol id="i-x-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="m9.2 9.2 5.6 5.6M14.8 9.2l-5.6 5.6"/></symbol>
+    <symbol id="i-trend-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 6.5 6.5 4-4L21 17"/><path d="M15 17h6v-6"/></symbol>
+    <symbol id="i-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 19.5 10 12 21.5 4.5 10Z"/><path d="M4.5 10h15M12 2.5 9 10l3 11.5L15 10Z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8Z"/></symbol>
+    <symbol id="d-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.6 7h14.2l-1.6 7.6a2 2 0 0 1-2 1.6H9.1a2 2 0 0 1-2-1.7Z"/><path d="M2.5 3.5h2.2l2.4 12.7"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M11 10.5h5"/></symbol>
+    <symbol id="d-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="m7 16 3.5-3.5 2.5 2.5L17.5 8.5"/><path d="M13.5 8.5h4v4"/></symbol>
+    <symbol id="d-burn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5c3.9 0 7-2.8 7-6.8 0-4.7-4.1-6.7-4.6-11.2-2.6 1.6-4.4 4.2-4.2 7.4-1.2-.6-1.9-1.8-2-3.2C6.3 9.2 5 11.8 5 14.7c0 4 3.1 6.8 7 6.8Z"/><path d="M12 21.5a3 3 0 0 1-3-3c0-2 1.8-3 3-5 1.2 2 3 3 3 5a3 3 0 0 1-3 3Z"/></symbol>
+    <symbol id="d-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13.5 6.3 5.6A2 2 0 0 1 8.2 4h7.6a2 2 0 0 1 1.9 1.6L20 13.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M4 13.5h4.5l1.5 2.5h4l1.5-2.5H20"/><path d="M9.5 8.5h5"/></symbol>
+    <symbol id="d-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m15.8 8.2-2.2 5.4-5.4 2.2 2.2-5.4Z"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></symbol>
+    <symbol id="d-offer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.6V5a1.5 1.5 0 0 1 1.5-1.5h7.6a1.5 1.5 0 0 1 1.1.44l7 7a1.5 1.5 0 0 1 0 2.12l-7.5 7.5a1.5 1.5 0 0 1-2.12 0l-7-7a1.5 1.5 0 0 1-.58-.96Z"/><circle cx="8.5" cy="8.5" r="1.6"/></symbol>
+    <symbol id="d-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10v4a1.5 1.5 0 0 0 1.5 1.5h2L17 20V4L7 8.5H5A1.5 1.5 0 0 0 3.5 10Z"/><path d="m7.5 15.5 1.3 4.3a1.3 1.3 0 0 0 2.5-.7l-.6-2.4"/><path d="M20.5 9.5v5"/></symbol>
+    <symbol id="d-funnel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5h18l-6.8 8v6.2L9.8 21v-8.5Z"/><path d="M6.4 8.5h11.2"/></symbol>
+    <symbol id="d-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5h15a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"/><path d="M3.5 7.5V6a2 2 0 0 1 2-2h10v3.5"/><path d="M20.5 12h-4a2 2 0 0 0 0 4h4"/></symbol>
+    <symbol id="d-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 15.5 8.5 9.5c2-5 6.2-7 12-7 0 5.8-2 10-6 13Z"/><circle cx="15" cy="9" r="1.6"/><path d="M8.5 9.5 5 9.2 3 11.5l4 1.5M14.5 15.5l.3 3.5-2.3 2-1.5-4"/><path d="M6 18c-.8.8-1.5 2.5-1.5 2.5S6.2 19.8 7 19"/></symbol>
+    <symbol id="d-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M8.5 7.5h7M8.5 11h4.5"/></symbol>
+    <symbol id="d-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="14" height="14" rx="3"/><path d="m16.5 10.5 5-3v9l-5-3"/><path d="m8 9.5 4 2.5-4 2.5Z" fill="currentColor"/></symbol>
+    <symbol id="d-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 4.8-9 4.8-9-4.8Z"/><path d="m3 12 9 4.8 9-4.8"/><path d="m3 16.2 9 4.8 9-4.8"/></symbol>
+    <symbol id="d-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="11" width="17" height="10" rx="1.5"/><rect x="2.5" y="7" width="19" height="4" rx="1.2"/><path d="M12 7v14"/><path d="M12 7C10.5 3.5 6.5 3.5 7 6c.3 1 2 1 5 1Zm0 0c1.5-3.5 5.5-3.5 5-1-.3 1-2 1-5 1Z"/></symbol>
+    <symbol id="d-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15.5a9 9 0 1 1 18 0" /><path d="M3 15.5a9 9 0 0 1 3.2-6.9L12 15.5Z" stroke="none"/><path d="m12 15.5 4.2-4.8"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor"/><path d="M3.5 19h17"/></symbol>
+    <symbol id="d-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="d-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="8"/><path d="M12 13.5V9.5A4 4 0 1 1 8 13.5Z" stroke="none"/><path d="M12 13.5V9.5M9.5 2.5h5M19 6l1.5-1.5"/></symbol>
+    <symbol id="d-leak" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/><path d="M11 7.5v3.5l2.2 1.3"/></symbol>
+    <symbol id="d-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.5 20.5 6 17 9.5"/><path d="M3.5 12V10a4 4 0 0 1 4-4h13"/><path d="M7 21.5 3.5 18 7 14.5"/><path d="M20.5 12v2a4 4 0 0 1-4 4h-13"/><circle cx="12" cy="12" r="2.2"/></symbol>
+    <symbol id="d-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.1 7-11.5a7 7 0 0 0-14 0c0 5.4 7 11.5 7 11.5Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="d-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="16" rx="3"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4"/><path d="m9 14.5 2 2 4-4"/></symbol>
+    <symbol id="d-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.3a6.5 6.5 0 0 1 3.5 5.7"/></symbol>
+    <symbol id="d-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.5 8.5 4.7v9.6L12 21.5l-8.5-4.7V7.2Z"/><path d="M3.5 7.2 12 12l8.5-4.8M12 12v9.5M7.8 4.8l8.5 4.8"/></symbol>
+    <symbol id="d-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h15l-1 12.2a1.8 1.8 0 0 1-1.8 1.8H7.3a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></symbol>
+    <symbol id="d-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c.8 4.6 2.9 6.7 7.5 7.5-4.6.8-6.7 2.9-7.5 7.5-.8-4.6-2.9-6.7-7.5-7.5 4.6-.8 6.7-2.9 7.5-7.5Z"/><path d="M19 16.5c.3 1.7 1 2.4 2.5 2.7-1.5.3-2.2 1-2.5 2.6-.3-1.6-1-2.3-2.5-2.6 1.5-.3 2.2-1 2.5-2.7Z"/></symbol>
+    <symbol id="d-cursor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="19" height="13" rx="2.5"/><path d="M8 20.5h8M12 16.5v4"/><path d="m10 7.5 5 2.2-2.1.8-.8 2.1Z"/></symbol>
+    <symbol id="d-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v9a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A2 2 0 0 1 4 15Z"/><path d="M9.8 8.2a2.3 2.3 0 0 1 4.4.9c0 1.5-2.2 1.9-2.2 3.1"/><circle cx="12" cy="14.2" r=".4" fill="currentColor"/></symbol>
+    <symbol id="d-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6.5"/><path d="m12 5.8 1 2 2.2.3-1.6 1.5.4 2.2-2-1-2 1 .4-2.2-1.6-1.5 2.2-.3Z" fill="currentColor"/><path d="m8.2 14.3-1.7 7.2L12 19l5.5 2.5-1.7-7.2"/></symbol>
+    <symbol id="d-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+    <symbol id="d-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="3"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.7" r="1.3"/></symbol>
+    <symbol id="i-telefone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 3.6h-2A2.2 2.2 0 0 0 3 5.9C3 14.2 9.8 21 18.1 21a2.2 2.2 0 0 0 2.3-2.2v-2l-4.3-1.6-2 2.2a14.5 14.5 0 0 1-5.5-5.5l2.2-2Z"/></symbol>
+    <symbol id="d-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="d-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></symbol>
+    <symbol id="d-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/></symbol>
+    <symbol id="d-unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="3"/><path d="M8 10.5V7.5a4 4 0 0 1 7.7-1.5"/><circle cx="12" cy="15.7" r="1.3"/></symbol>
+    <symbol id="d-steps" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h4v-4h4v-4h4V6h4"/></symbol>
+    <symbol id="d-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8 8 12l4-6.5 4 6.5 4.5-4-2 10.5h-13Z"/><path d="M5.5 21h13"/></symbol>
+    <symbol id="d-hourglass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12M6 21.5h12"/><path d="M7 2.5c0 5 5 6 5 9.5s-5 4.5-5 9.5M17 2.5c0 5-5 6-5 9.5s5 4.5 5 9.5"/></symbol>
+    <symbol id="d-weight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.3 8.5h11.4l3 12h-17.4Z"/><circle cx="12" cy="5.2" r="2.5"/></symbol>
+    <symbol id="d-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></symbol>
+    <symbol id="d-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S3 15.2 3 8.9A4.6 4.6 0 0 1 12 6.6a4.6 4.6 0 0 1 9 2.3c0 6.3-9 11.6-9 11.6Z"/></symbol>
+    <symbol id="d-root" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v9"/><path d="M12 11.5c0 4-4 4-4 9M12 11.5c0 4 4 4 4 9M12 11.5v9"/><path d="M8.5 6.5h7"/></symbol>
+    <symbol id="d-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5a2 2 0 0 1 2-2h2.2l1.6-2.5h5.4l1.6 2.5h2.2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"/><circle cx="12" cy="12.8" r="3.6"/></symbol>
+    <symbol id="d-brush" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5 11 13"/><path d="M9.5 12.5c-2.5 0-4 1.6-4 3.8 0 1.6-.9 2.6-2 3.2 3.6 1 7.5.3 8.2-3.2.3-1.6-.6-3.1-2.2-3.8Z"/></symbol>
+    <symbol id="d-pentool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 6.5 9-6.5 9-6.5-9Z"/><path d="M12 3v6.5"/><circle cx="12" cy="11" r="1.5"/></symbol>
+    <symbol id="d-smart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/><path d="M12 8.2c-1.2-1.6-3.5-.6-3 1.1.4 1.3 3 3 3 3s2.6-1.7 3-3c.5-1.7-1.8-2.7-3-1.1Z"/></symbol>
+    <symbol id="d-type" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7V4.5h15V7"/><path d="M12 4.5v15"/><path d="M9 19.5h6"/></symbol>
+    <symbol id="d-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5.5l11-2V16"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></symbol>
+    <symbol id="d-ruler" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5 16.5 3 21 7.5 7.5 21Z"/><path d="m7 12.5 2 2M10 9.5l1.5 1.5M13 6.5l2 2"/></symbol>
+    <symbol id="d-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5Z"/><path d="M14 2.5v5h5"/><path d="M8.5 13h7M8.5 16.5h4.5"/></symbol>
+    <symbol id="d-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8 8 0 0 1-11.9 7l-4.6 1.2 1.2-4.4A8 8 0 1 1 20.5 11.5Z"/></symbol>
+    <symbol id="d-coins" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9" cy="7" rx="5.5" ry="2.5"/><path d="M3.5 7v4c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5V7"/><path d="M9.5 16.4c.9.6 2.6 1.1 4.5 1.1 3 0 5.5-1.1 5.5-2.5v-4c0-1.2-1.6-2.1-4-2.4"/><path d="M19.5 15v4c0 1.4-2.5 2.5-5.5 2.5s-5.5-1.1-5.5-2.5v-1.5"/></symbol>
+    <symbol id="d-gem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h11l4 5.5L12 21 2.5 9Z"/><path d="M2.5 9h19M9 3.5 7.5 9 12 21l4.5-12L15 3.5"/></symbol>
+    <symbol id="d-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7"/><path d="M3 12.5h18"/></symbol>
+    <symbol id="d-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="11.5" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5v4M8.5 21.5h7"/></symbol>
+    <symbol id="d-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21.5V3.5"/><path d="M5 4h12.5l-2.5 4 2.5 4H5"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ 1. BARRA DE CIMA ============ -->
+<header class="barra" id="barra">
+  <div class="barra-dentro">
+    <a href="#topo" class="marca" aria-label="O Prisma da Influência, início">
+      <span class="selo-escala"><svg><use href="#i-logo"/></svg></span>
+      <span><b><span class="nome-longo">O Prisma da Influência</span><span class="nome-curto">O Prisma</span></b><small>Shelton Douglas</small></span>
+    </a>
+    <nav aria-label="Secções">
+      <a href="#mapa">O mapa</a>
+      <a href="#metodo">As cinco faces</a>
+      <a href="#recebes">O que recebes</a>
+      <a href="#preco">Preço</a>
+      <a href="#perguntas">Perguntas</a>
+    </nav>
+    <a href="#preco" class="botao botao-principal botao-pequeno">Quero o livro</a>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ============ 2. ABERTURA: A LUZ QUE ENTRA NO PRISMA ============ -->
+<section class="abertura pr-abertura">
+  <div class="abertura-fundo" aria-hidden="true"><div class="grelha"></div><div class="luz"></div></div>
+  <div class="contentor">
+    <span class="pr-kicker revela">Um livro de Shelton Douglas</span>
+    <h1 class="revela">Não precisas de gritar mais alto. <span class="espectro">Precisas de ser a referência.</span></h1>
+    <p class="entrada revela">Como te posicionares de maneira estratégica e tornares-te <strong>uma autoridade dentro do teu nicho</strong>, sem depender de sorte nem de milhares de seguidores.</p>
+    <div class="abertura-botoes revela">
+      <a href="#preco" class="botao botao-principal">Quero o livro <svg><use href="#i-arrow"/></svg></a>
+      <a href="#mapa" class="botao botao-linha">Onde estou no mapa?</a>
+    </div>
+
+    <div class="refracao revela" role="img" aria-label="Um feixe de luz entra no livro e sai dividido em cinco raios: clareza, posicionamento, mensagem, presença e autoridade.">
+      <svg class="raios" viewBox="0 0 1100 440" aria-hidden="true">
+        <defs>
+          <linearGradient id="feixe" x1="0" x2="1"><stop offset="0" stop-color="#F5F6FF" stop-opacity="0"/><stop offset="1" stop-color="#F5F6FF" stop-opacity=".95"/></linearGradient>
+        </defs>
+        <path class="raio" style="--d:.2s" pathLength="1" d="M0 262 L520 226" stroke="url(#feixe)" stroke-width="5"/>
+        <path class="raio" style="--d:.9s" pathLength="1" d="M590 214 L950 105" stroke="#7C8BFF"/>
+        <path class="raio" style="--d:1s" pathLength="1" d="M590 218 L950 162" stroke="#A58CFF"/>
+        <path class="raio" style="--d:1.1s" pathLength="1" d="M590 222 L950 220" stroke="#D68AFF"/>
+        <path class="raio" style="--d:1.2s" pathLength="1" d="M590 226 L950 278" stroke="#FF8AC6"/>
+        <path class="raio" style="--d:1.3s" pathLength="1" d="M590 230 L950 335" stroke="#FFC48A"/>
+        <g class="rotulos">
+          <text x="964" y="111">Clareza</text>
+          <text x="964" y="168">Posicionamento</text>
+          <text x="964" y="226">Mensagem</text>
+          <text x="964" y="284">Presença</text>
+          <text x="964" y="341">Autoridade</text>
+        </g>
+      </svg>
+      <img class="prisma-livro" src="/img/capa.webp" alt="Capa do livro O Prisma da Influência, de Shelton Douglas" width="300" height="600">
+    </div>
+    <ul class="raios-lista" aria-hidden="true">
+      <li style="--c:#7C8BFF">Clareza</li><li style="--c:#A58CFF">Posicionamento</li><li style="--c:#D68AFF">Mensagem</li><li style="--c:#FF8AC6">Presença</li><li style="--c:#FFC48A">Autoridade</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 3. O MAPA DE POSICIONAMENTO ============ -->
+<section class="seccao claro" id="mapa">
+  <div class="contentor pr-mapa">
+    <div class="revela">
+      <h2>Onde estás no mapa?</h2>
+      <p class="entrada" style="margin-top:18px">Influência não depende de seres o melhor. <strong>Depende de onde estás posicionado.</strong></p>
+      <ul class="quadrantes-lista">
+        <li><b>Invisível</b>Sabes, mas ninguém sabe que sabes.</li>
+        <li><b>Barulho</b>És visto, mas não és lembrado por nada em concreto.</li>
+        <li><b>Talento escondido</b>És especialista, mas ninguém te encontra.</li>
+        <li class="alvo"><b>Autoridade</b>És visto e lembrado pelo que sabes. É para aqui que o livro te leva.</li>
+      </ul>
+    </div>
+    <div class="mapa-grafico revela" id="mapa-grafico" role="img" aria-label="Mapa de posicionamento com dois eixos, especialização e visibilidade. O ponto que te representa desloca-se de Invisível para Autoridade.">
+      <div class="q q-barulho"><span>Barulho</span></div>
+      <div class="q q-autoridade"><span>Autoridade</span></div>
+      <div class="q q-invisivel"><span>Invisível</span></div>
+      <div class="q q-escondido"><span>Talento escondido</span></div>
+      <svg class="trilho" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M22 78 C 40 74, 60 46, 76 22" pathLength="1"/></svg>
+      <span class="ponto-tu" aria-hidden="true"><i></i>Tu</span>
+      <span class="eixo eixo-x">Especialização</span>
+      <span class="eixo eixo-y">Visibilidade</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. O PROBLEMA ============ -->
+<section class="seccao seccao-escura-pos-clara" id="problema">
+  <div class="contentor">
+    <div class="cabeca revela"><h2>Porque é que quem sabe menos, às vezes, ganha mais?</h2></div>
+    <ol class="afirmacoes">
+      <li class="revela"><span>01</span>Sabes mais do que muita gente que é mais conhecida do que tu.</li>
+      <li class="revela"><span>02</span>Publicas, mas ninguém se lembra do que disseste.</li>
+      <li class="revela"><span>03</span>Competes pelo preço porque ninguém te vê como especialista.</li>
+      <li class="revela"><span>04</span>Dependes de indicações que não controlas.</li>
+    </ol>
+    <p class="pr-veredicto revela">Influência não é sorte nem número de seguidores. <span>É posicionamento.</span></p>
+  </div>
+</section>
+
+<!-- ============ 5. PARA QUEM ============ -->
+<section class="seccao claro" id="para-ti">
+  <div class="contentor">
+    <div class="cabeca centro revela"><h2>Para quem quer ser referência no que faz.</h2></div>
+    <div class="perfis revela">
+      <div><svg><use href="#d-flag"/></svg><b>Empreendedores</b>que querem que a marca seja lembrada.</div>
+      <div><svg><use href="#d-briefcase"/></svg><b>Profissionais liberais</b>advogados, médicos, contabilistas, arquitectos.</div>
+      <div><svg><use href="#d-compass"/></svg><b>Consultores e mentores</b>que vivem do que sabem.</div>
+      <div><svg><use href="#d-mic"/></svg><b>Criadores de conteúdo</b>que querem crescer com propósito.</div>
+      <div><svg><use href="#d-users"/></svg><b>Gestores e líderes</b>que querem ser ouvidos dentro e fora da empresa.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. AS CINCO FACES DO PRISMA ============ -->
+<section class="seccao seccao-escura-pos-clara" id="metodo">
+  <div class="contentor faces">
+    <div class="faces-gema revela" aria-hidden="true">
+      <svg viewBox="0 0 400 380">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C8BFF"/><stop offset="1" stop-color="#2433C9"/></linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D68AFF"/><stop offset="1" stop-color="#5B4BD8"/></linearGradient>
+          <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFC48A"/><stop offset="1" stop-color="#FF8AC6"/></linearGradient>
+        </defs>
+        <polygon points="120,60 200,60 160,130 60,130" fill="url(#g1)" opacity=".85"/>
+        <polygon points="200,60 280,60 240,130 160,130" fill="#F5F6FF" opacity=".9"/>
+        <polygon points="280,60 340,130 240,130" fill="url(#g2)" opacity=".8"/>
+        <polygon points="60,130 160,130 200,330" fill="url(#g1)" opacity=".55"/>
+        <polygon points="160,130 240,130 200,330" fill="url(#g2)" opacity=".75"/>
+        <polygon points="240,130 340,130 200,330" fill="url(#g3)" opacity=".8"/>
+        <g fill="none" stroke="#F5F6FF" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round">
+          <polygon points="120,60 280,60 340,130 200,330 60,130"/>
+          <path d="M60 130h280M120 60l40 70 40-70 40 70 40-70M160 130l40 200 40-200"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="cabeca revela">
+        <h2>As cinco faces do prisma.</h2>
+        <p class="entrada">A mesma luz, bem orientada, transforma-se em algo que ninguém consegue ignorar.</p>
+      </div>
+      <ol class="faces-lista">
+        <li class="revela" style="--c:#7C8BFF"><b>Clareza</b>Saber exactamente quem és, o que fazes e para quem.</li>
+        <li class="revela" style="--c:#A58CFF"><b>Posicionamento</b>Escolher o lugar que queres ocupar no teu nicho.</li>
+        <li class="revela" style="--c:#D68AFF"><b>Mensagem</b>Repetir uma ideia forte até ela ficar associada a ti.</li>
+        <li class="revela" style="--c:#FF8AC6"><b>Presença</b>Aparecer nos sítios certos, com consistência.</li>
+        <li class="revela" style="--c:#FFC48A"><b>Autoridade</b>Transformar o que sabes em prova e reputação.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. O QUE RECEBES ============ -->
+<section class="seccao claro" id="recebes">
+  <div class="contentor">
+    <div class="cabeca revela"><h2>O que recebes</h2></div>
+    <div class="pr-entregas">
+      <div class="entrega cartao medio revela">
+        <img src="/img/capa.webp" alt="" width="300" height="600" loading="lazy">
+        <div><span class="tipo-e"><svg><use href="#d-book"/></svg>Livro</span><h3>O Prisma da Influência</h3><p>Um guia para te posicionares de forma estratégica e te tornares uma autoridade no teu nicho.</p></div>
+      </div>
+      <div class="entrega cartao medio revela">
+        <div class="entrega-video"><img src="/img/masterclass.jpg" alt="" width="900" height="624" loading="lazy"><span class="tocar" aria-hidden="true"><svg><use href="#i-play"/></svg></span></div>
+        <div><span class="tipo-e"><svg><use href="#d-video"/></svg>Masterclass <em>· no pacote completo</em></span><h3>Masterclass gravada</h3><p>O Shelton mostra, na prática, como construir autoridade num nicho, com exemplos do mercado moçambicano.</p></div>
+      </div>
+    </div>
+    <h3 class="aprender-titulo revela">O que vais aprender</h3>
+    <ol class="aprender">
+      <li class="revela">Porque é que ser bom não chega para ser escolhido</li>
+      <li class="revela">Como escolher e dominar um nicho</li>
+      <li class="revela">Como resumir o teu posicionamento numa frase</li>
+      <li class="revela">Como criar uma mensagem que as pessoas repetem</li>
+      <li class="revela">Onde aparecer sem te espalhares por todo o lado</li>
+      <li class="revela">Como transformar conhecimento em prova de autoridade</li>
+      <li class="revela">Como fazer com que te procurem pelo nome</li>
+      <li class="revela">Como transformar autoridade em oportunidades</li>
+    </ol>
+    <div class="cta-meio revela">
+      <a href="#preco" class="botao botao-principal">Quero ver as ofertas <svg><use href="#i-arrow"/></svg></a>
+      <span><svg><use href="#d-mail"/></svg>Acesso imediato por email</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. AUTOR ============ -->
+<section class="pr-autor seccao-escura-pos-clara" id="mentor">
+  <div class="pr-autor-foto" aria-hidden="true"><img src="/img/shelton.jpg" alt="" width="800" height="698" loading="lazy"></div>
+  <div class="contentor">
+    <div class="pr-autor-texto revela">
+      <span class="pr-kicker">O autor</span>
+      <h2>Shelton Douglas</h2>
+      <p class="entrada" style="margin-top:16px">Empreendedor moçambicano, conselheiro empresarial e educador, fundador da agência de marketing digital Vintage Corp, Lda.</p>
+      <p style="margin-top:14px">Dedica-se a orientar empresários, empreendedores e profissionais na construção de vidas e negócios sustentáveis, e a ajudá-los a ocupar o lugar que o seu conhecimento merece.</p>
+      <div class="mentor-numeros">
+        <div><b>4</b><span>Livros publicados</span></div>
+        <div><b>13.000+</b><span>Alunos</span></div>
+        <div><b>10+</b><span>Certificações internacionais</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. PREÇO ============ -->
+<section class="seccao" id="preco" style="overflow:hidden">
+  <div class="precos-fundo" aria-hidden="true"></div>
+  <div class="contentor" style="position:relative">
+    <div class="cabeca centro revela">
+      <h2>Escolhe como queres começar.</h2>
+      <p class="entrada">Podes levar só o livro e aplicar ao teu ritmo, ou levar o pacote completo com a masterclass gravada.</p>
+    </div>
+    <div class="planos">
+      <div class="cartao plano revela">
+        <div class="plano-tipo"><svg><use href="#d-book"/></svg>Apenas o livro</div>
+        <h3>Para aplicares ao teu ritmo</h3>
+        <div class="plano-preco"><span class="antes">Antes 325 MT</span><span class="valor" data-valor="199">199</span><span class="unidade">MT</span></div>
+        <ul>
+          <li><svg><use href="#i-check-circle"/></svg>Livro O Prisma da Influência</li>
+          <li><svg><use href="#i-check-circle"/></svg>O método das cinco faces do prisma</li>
+          <li><svg><use href="#i-check-circle"/></svg>Acesso imediato por email</li>
+        </ul>
+        <a href="https://payflow.kingdomcompny.com/o-prisma-da-influencia" class="botao botao-linha botao-largo">Quero o livro <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="cartao plano destaque revela" id="checkout">
+        <div class="plano-tipo"><svg><use href="#d-gem"/></svg>Livro + Masterclass<span class="promo">Mais completo</span></div>
+        <h3>O pacote completo</h3>
+        <div class="plano-preco"><span class="antes">Antes 947 MT</span><span class="valor" data-valor="399">399</span><span class="unidade">MT</span></div>
+        <ul>
+          <li><svg><use href="#i-check-circle"/></svg>Livro O Prisma da Influência</li>
+          <li><svg><use href="#i-check-circle"/></svg>Masterclass gravada com exemplos reais</li>
+          <li><svg><use href="#i-check-circle"/></svg>O método das cinco faces do prisma</li>
+          <li><svg><use href="#i-check-circle"/></svg>Acesso imediato por email</li>
+        </ul>
+        <a href="https://payflow.kingdomcompny.com/o-prisma-da-influencia-masterclass" class="botao botao-escuro botao-largo">Quero o pacote completo <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="confianca-pag revela">
+      <span><svg><use href="#d-mail"/></svg>Acesso imediato: pagas e recebes o acesso à nossa área de membros directamente no teu email.</span>
+      <span><svg><use href="#d-lock"/></svg>Pagamento seguro, com os teus dados criptografados.</span>
+    </div>
+    <div class="tres-passos">
+      <div class="cartao pequeno revela"><small>01</small>Descobre onde estás no mapa.</div>
+      <div class="cartao pequeno revela"><small>02</small>Escolhe o lugar que queres ocupar.</div>
+      <div class="cartao pequeno revela"><small>03</small>Torna-te a referência do teu nicho.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. PERGUNTAS ============ -->
+<section class="seccao claro" id="perguntas">
+  <div class="contentor">
+    <div class="cabeca centro revela">
+      <h2>Perguntas frequentes</h2>
+      <p class="entrada">O que costumam perguntar antes de começar.</p>
+    </div>
+    <div class="perguntas revela">
+      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r1" id="p1">O que recebo exactamente?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r1" role="region" aria-labelledby="p1"><div><p>Depende da oferta que escolheres. Só o livro, ou o pacote completo, que junta o livro e a masterclass gravada.</p></div></div></div>
+      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r2" id="p2">Em que formato é o livro?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r2" role="region" aria-labelledby="p2"><div><p>É um livro digital. Recebes o acesso na nossa área de membros e podes lê-lo no telemóvel, no tablet ou no computador.</p></div></div></div>
+      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r3" id="p3">Como recebo o acesso depois de pagar?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r3" role="region" aria-labelledby="p3"><div><p>O acesso é imediato. Assim que o pagamento é confirmado, recebes o acesso à nossa área de membros directamente no teu email.</p></div></div></div>
+      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r4" id="p4">O pagamento é seguro?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r4" role="region" aria-labelledby="p4"><div><p>Sim. O pagamento é feito numa página segura e os teus dados são criptografados.</p></div></div></div>
+      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r5" id="p5">A masterclass é ao vivo?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r5" role="region" aria-labelledby="p5"><div><p>Não. É gravada, por isso podes vê-la à hora que quiseres e revê-la as vezes que precisares.</p></div></div></div>
+      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r6" id="p6">Preciso de muitos seguidores para isto funcionar?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r6" role="region" aria-labelledby="p6"><div><p>Não. Autoridade começa pela clareza e pelo posicionamento, não pelo número de seguidores. Muitas referências no seu nicho têm audiências pequenas, mas certas.</p></div></div></div>
+      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r7" id="p7">Tenho de aparecer em vídeo?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r7" role="region" aria-labelledby="p7"><div><p>Não necessariamente. Uma das faces do prisma é a presença: escolher os canais onde fazes sentido, seja vídeo, escrita, palestras ou relações directas.</p></div></div></div>
+      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r8" id="p8">Funciona para nichos pequenos?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r8" role="region" aria-labelledby="p8"><div><p>Sim. Num nicho pequeno é mais fácil tornares-te a referência, e é aí que o posicionamento faz mais diferença.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. FECHO ============ -->
+<section class="fecho" id="marcar">
+  <canvas id="estrelas" aria-hidden="true"></canvas>
+  <div class="nascer" aria-hidden="true"></div>
+  <div class="horizonte" aria-hidden="true"></div>
+  <div class="contentor">
+    <h2 class="revela">A tua luz já existe. Falta dar-lhe direcção.</h2>
+    <p class="entrada revela">Tudo muda quando deixas de perguntar:</p>
+    <div class="perguntas-fecho revela">
+      <span class="velha">“Como é que eu apareço mais?”</span>
+      <span class="entao">e começas a perguntar:</span>
+      <span class="nova">“Pelo que é que eu quero ser lembrado?”</span>
+    </div>
+    <div class="resumo vidro revela">
+      <span class="nome">O Prisma da Influência</span>
+      <span class="sub">Como te posicionares de maneira estratégica e tornares-te uma autoridade dentro do teu nicho.</span>
+      <div class="itens"><span><svg><use href="#d-book"/></svg>Livro</span><span><svg><use href="#d-gem"/></svg>Cinco faces</span><span><svg><use href="#d-video"/></svg>Masterclass</span></div>
+      <a href="#preco" class="botao botao-principal">Quero começar agora <svg><use href="#i-arrow"/></svg></a>
+      <div class="tres" style="margin:0"><span>Acesso imediato por email</span><span>Pagamento seguro</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 12. RODAPÉ ============ -->
+<footer>
+  <div class="contentor">
+    <div class="rodape">
+      <div>
+        <a href="#topo" class="marca"><span class="selo-escala"><svg><use href="#i-logo"/></svg></span><span><b>O Prisma da Influência</b><small>Kingdom Company</small></span></a>
+        <p>Como te posicionares de maneira estratégica e tornares-te uma autoridade dentro do teu nicho.</p>
+      </div>
+      <div>
+        <h4 class="t4">Página</h4>
+        <div class="rodape-links"><a href="#mapa">O mapa</a><a href="#recebes">O que recebes</a><a href="#preco">Preço</a><a href="#perguntas">Perguntas frequentes</a></div>
+      </div>
+      <div>
+        <h4 class="t4">Kingdom Company</h4>
+        <div class="rodape-links">
+          <a href="mailto:comercial@kingdomcompny.com"><svg><use href="#d-mail"/></svg>comercial@kingdomcompny.com</a>
+          <a href="tel:+258851800920"><svg><use href="#i-telefone"/></svg>+258 85 1800 920</a>
+          <a href="#topo"><svg><use href="#d-pin"/></svg>Av. Marginal, Glória Mall, Maputo</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal">© 2026 Kingdom Company. Todos os direitos reservados.<br><span class="aviso-resultados">Os resultados dependem da aplicação de cada pessoa e não são garantidos.</span></div>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+<script src="/prisma.js" defer></script>
+</body>
+</html>
