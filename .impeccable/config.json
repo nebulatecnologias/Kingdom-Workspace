@@ -296,6 +296,105 @@
         ],
         "createdAt": "2026-10-07T18:42:08.707Z",
         "reason": "h4 so no rodape como rotulo; hierarquia real e h1 62px / h2 ~48px / h3 19px / corpo 16px"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.449Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/index.html"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.465Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/index.html"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.482Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/index.html"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.497Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/index.html"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.517Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/index.html"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.532Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/index.html"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.546Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/index.html"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.560Z",
+        "reason": "Apenas titulos display com leading apertado; corpo de texto a 1.5+"
+      },
+      {
+        "rule": "skipped-heading",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.575Z",
+        "reason": "h4 sao rotulos de coluna do rodape, fora da hierarquia do conteudo; igual ao O Conselheiro"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.590Z",
+        "reason": "h4 so no rodape como rotulo; hierarquia real e h1 62px / h2 ~48px / h3 19px / corpo 16px"
+      },
+      {
+        "rule": "ai-color-palette",
+        "value": "*",
+        "files": [
+          "bloqueio/index.html"
+        ],
+        "createdAt": "2026-10-07T19:07:53.605Z",
+        "reason": "user confirmed: o roxo/lilas e a cor da capa do livro O Bloqueio Invisivel, escolhida pelo utilizador"
       }
     ]
   }
