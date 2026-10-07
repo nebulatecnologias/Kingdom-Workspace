@@ -472,7 +472,16 @@ svg [fill="#fff"]{ fill:var(--acento); }
 .degraus-texto small{ display:block; color:var(--verde); font-size:13px; margin-bottom:8px; }
 .degraus-texto b{ display:block; font-weight:500; font-size:17px; color:var(--texto); letter-spacing:-.02em; margin-bottom:6px; }
 @media (max-width:900px){ .degraus-texto{ grid-template-columns:1fr 1fr; } }
-@media (max-width:620px){ .degraus{ height:280px; gap:6px; } .degrau b{ font-size:11px; writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto; } .degraus-texto{ grid-template-columns:1fr; } }
+.degrau b{ min-height:2.7em; line-height:1.35; }
+@media (max-width:620px){
+  .degraus{ display:flex; flex-direction:column; align-items:stretch; gap:10px; height:auto; padding-bottom:0; border-bottom:0; }
+  .degrau{ display:grid; grid-template-columns:118px minmax(0,1fr); align-items:center; gap:12px; height:auto; text-align:left; }
+  .degrau b{ order:0; min-height:0; font-size:14px; }
+  .degrau .barra-d{ order:1; width:var(--h); height:36px; border-radius:4px 12px 12px 4px; transform-origin:left center; }
+  .anima .degraus .barra-d{ transform:scaleX(.04); }
+  .anima .degraus.visto .barra-d{ transform:none; }
+  .degraus-texto{ grid-template-columns:1fr; }
+}
 
 /* ---------- o que recebes: kit ---------- */
 .kit{ display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:16px; }
