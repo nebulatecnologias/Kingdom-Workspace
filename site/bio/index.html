@@ -61,17 +61,7 @@
   .livros h2{ font-size:clamp(28px,7vw,36px); margin-bottom:8px; }
   .livros .entrada{ font-size:16px; margin-bottom:28px; }
   .livro{ display:grid; grid-template-columns:104px minmax(0,1fr); gap:18px; padding:16px; border-radius:22px; margin-bottom:12px; }
-  .capa{ position:relative; aspect-ratio:2/3; border-radius:6px 10px 10px 6px; overflow:hidden; padding:12px 10px 10px 14px; display:flex; flex-direction:column; justify-content:space-between;
-    box-shadow:inset 4px 0 0 rgba(0,0,0,.18), inset 5px 0 0 rgba(255,255,255,.08), 0 14px 28px -14px rgba(0,0,0,.7); }
-  .capa .tipo{ font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; opacity:.75; }
-  .capa .nome{ display:block; font-size:13px; line-height:1.12; letter-spacing:-.02em; font-weight:500; }
-  .capa .autor{ font-size:7.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.7; }
-  .capa .risco{ display:block; width:22px; height:3px; border-radius:2px; background:var(--laranja); margin:6px 0; }
-  .capa.c1{ background:linear-gradient(160deg,#3a2b23,#1f140f); color:#EDE6DC; }
-  .capa.c2{ background:linear-gradient(160deg,#ff7a45,#FF5E1E); color:#2D1E17; }
-  .capa.c2 .risco{ background:#2D1E17; }
-  .capa.c3{ background:linear-gradient(160deg,#F4EFE8,#e3dacd); color:#2D1E17; }
-  .capa.c4{ background:linear-gradient(160deg,#5b463a,#49372D); color:#EDE6DC; }
+  .capa{ width:100%; height:auto; align-self:center; filter:drop-shadow(0 14px 18px rgba(0,0,0,.45)); }
   .livro-info{ display:flex; flex-direction:column; min-width:0; }
   .livro-info .tipo-livro{ font-size:12.5px; color:var(--texto-3); margin-bottom:4px; }
   .livro-info h3{ font-size:19px; line-height:1.2; letter-spacing:-.02em; margin-bottom:6px; }
@@ -79,7 +69,7 @@
   .livro-info .accao{ margin-top:auto; padding-top:12px; }
   .livro-info .botao{ min-height:40px; padding:0 16px; font-size:14px; gap:8px; }
   .livro-info .botao svg{ width:14px; height:14px; }
-  @media (max-width:380px){ .livro{ grid-template-columns:84px minmax(0,1fr); gap:14px; } .capa .nome{ font-size:11.5px; } }
+  @media (max-width:380px){ .livro{ grid-template-columns:84px minmax(0,1fr); gap:14px; } }
 
   .bio-rodape{ padding:30px 0 calc(env(safe-area-inset-bottom,0px) + 34px); text-align:center; border-top:1px solid var(--linha); }
   .bio-rodape img{ width:40px; height:40px; margin:0 auto 10px; }
@@ -144,7 +134,7 @@
       <p class="entrada revela">Ferramentas práticas para ganhar clareza, vender melhor e posicionar-te com autoridade.</p>
 
       <article class="livro cartao medio revela">
-        <div class="capa c1" aria-hidden="true"><span class="tipo">Livro</span><span><span class="risco"></span><span class="nome">O Bloqueio Invisível</span></span><span class="autor">Shelton Douglas</span></div>
+        <img class="capa" src="/img/livros/o-bloqueio-invisivel.webp" alt="Capa do livro O Bloqueio Invisível, de Shelton Douglas" width="300" height="600" loading="lazy">
         <div class="livro-info">
           <span class="tipo-livro">Livro</span>
           <h3>O Bloqueio Invisível</h3>
@@ -154,7 +144,7 @@
       </article>
 
       <article class="livro cartao medio revela">
-        <div class="capa c2" aria-hidden="true"><span class="tipo">Workbook</span><span><span class="risco"></span><span class="nome">Escala Previsível</span></span><span class="autor">Shelton Douglas</span></div>
+        <img class="capa" src="/img/livros/escala-previsivel.webp" alt="Capa do livro Escala Previsível, de Shelton Douglas" width="300" height="600" loading="lazy">
         <div class="livro-info">
           <span class="tipo-livro">Workbook</span>
           <h3>Escala Previsível</h3>
@@ -164,22 +154,22 @@
       </article>
 
       <article class="livro cartao medio revela">
-        <div class="capa c3" aria-hidden="true"><span class="tipo">Workbook</span><span><span class="risco"></span><span class="nome">O Criativo que Aprendeu a Vender</span></span><span class="autor">Shelton Douglas</span></div>
+        <img class="capa" src="/img/livros/o-criativo.webp" alt="Capa do livro O Criativo que Aprendeu a Vender, de Shelton Douglas" width="300" height="600" loading="lazy">
         <div class="livro-info">
           <span class="tipo-livro">Workbook</span>
           <h3>O Criativo que Aprendeu a Vender</h3>
-          <p>O workbook para fechar vendas, para quem vende serviços criativos.</p>
+          <p>Um guia prático para profissionais criativos que desejam transformar talento em rendimento.</p>
           <div class="accao"><a class="botao botao-linha" href="https://ocriativo.kingdomcompny.com" aria-label="Conhecer o livro O Criativo que Aprendeu a Vender">Conhecer o livro <svg><use href="#i-seta-sobe"/></svg></a></div>
         </div>
       </article>
 
       <article class="livro cartao medio revela">
-        <div class="capa c4" aria-hidden="true"><span class="tipo">Manual</span><span><span class="risco"></span><span class="nome">Prisma da Influência</span></span><span class="autor">Shelton Douglas</span></div>
+        <img class="capa" src="/img/livros/prisma-da-influencia.webp" alt="Capa do livro O Prisma da Influência, de Shelton Douglas" width="300" height="600" loading="lazy">
         <div class="livro-info">
           <span class="tipo-livro">Manual</span>
-          <h3>Prisma da Influência</h3>
-          <p>O manual para quem quer posicionar-se de maneira estratégica e tornar-se uma autoridade no seu nicho.</p>
-          <div class="accao"><a class="botao botao-linha" href="https://prismadainfluencia.kingdomcompny.com" aria-label="Conhecer o livro Prisma da Influência">Conhecer o livro <svg><use href="#i-seta-sobe"/></svg></a></div>
+          <h3>O Prisma da Influência</h3>
+          <p>Como se posicionar de maneira estratégica e tornar-se uma autoridade dentro do seu nicho.</p>
+          <div class="accao"><a class="botao botao-linha" href="https://prismadainfluencia.kingdomcompny.com" aria-label="Conhecer o livro O Prisma da Influência">Conhecer o livro <svg><use href="#i-seta-sobe"/></svg></a></div>
         </div>
       </article>
     </div>
