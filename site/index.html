@@ -2,512 +2,142 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>O Conselheiro — Advising Estratégico | Shelton Douglas</title>
-<meta name="description" content="Advising estratégico para empreendedores, líderes e especialistas que precisam de clareza, estrutura e um plano de ação executável. Conduzido por Shelton Douglas — O Conselheiro, Kingdom Company.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Advising com O Conselheiro | Shelton Douglas</title>
+<meta name="description" content="Sessão estratégica e personalizada com Shelton Douglas, O Conselheiro, para identificar o que está a bloquear o teu negócio e definir o que fazer a seguir. Online ou presencial em Maputo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oconselheiro.kingdomcompny.com/">
+<meta property="og:title" content="Advising com O Conselheiro | Shelton Douglas">
+<meta property="og:description" content="Para quem precisa de menos informação e mais clareza. Sessão estratégica e personalizada, online ou presencial em Maputo.">
+<meta property="og:image" content="https://oconselheiro.kingdomcompny.com/og-oconselheiro.jpg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Shelton Douglas, O Conselheiro">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Advising com O Conselheiro | Shelton Douglas">
+<meta name="twitter:description" content="Para quem precisa de menos informação e mais clareza.">
+<meta name="twitter:image" content="https://oconselheiro.kingdomcompny.com/og-oconselheiro.jpg">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js');</script>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>document.documentElement.classList.add('anima');</script>
 </head>
-<body class="bg-ink text-white grain overflow-x-hidden">
+<body>
 
-<!-- scroll progress -->
-<div class="fixed top-0 left-0 right-0 h-[2px] z-[70] bg-white/5">
-  <div id="progress" class="h-full w-full bg-lime-500 origin-left" style="transform:scaleX(0);box-shadow:0 0 12px #c7f534"></div>
-</div>
+<!-- ============ ÍCONES (traço 1.8) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-seta-esq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+    <symbol id="i-certo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-menos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 12h12"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m7 7 10 10M17 7 7 17"/></symbol>
+    <symbol id="i-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.6-4.6"/></symbol>
+    <symbol id="i-bussola" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="m15.8 8.2-2.2 5.4-5.4 2.2 2.2-5.4Z"/></symbol>
+    <symbol id="i-rota" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5.5" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.5 5.5H14a3.5 3.5 0 0 1 0 7h-4a3.5 3.5 0 0 0 0 7h5.5"/></symbol>
+    <symbol id="i-sobe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+    <symbol id="i-pessoas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0"/><path d="M16 4.8a3.4 3.4 0 0 1 0 6.4M18 14.4A6.2 6.2 0 0 1 21.2 20"/></symbol>
+    <symbol id="i-ancora" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.4"/><path d="M12 7.4V21"/><path d="M4 13a8 8 0 0 0 16 0"/><path d="M8.5 10.5h7"/></symbol>
+    <symbol id="i-camadas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 4.8-9 4.8-9-4.8Z"/><path d="m3 12 9 4.8 9-4.8"/><path d="m3 16.2 9 4.8 9-4.8"/></symbol>
+    <symbol id="i-peso" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M4 8h16"/><path d="M7.5 8 4 15.5a3.8 3.8 0 0 0 7 0Z"/><path d="M16.5 8 13 15.5a3.8 3.8 0 0 0 7 0Z"/></symbol>
+    <symbol id="i-ideia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 18h5"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 1 3.6 10.8c-.6.5-1.1 1.3-1.1 2.2h-5c0-.9-.5-1.7-1.1-2.2A6 6 0 0 1 12 3Z"/></symbol>
+    <symbol id="i-dinheiro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="6" width="18.4" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6.5 12h.01M17.5 12h.01"/></symbol>
+    <symbol id="i-labirinto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5 9 15"/><path d="M14 3.5h6.5V10"/><path d="M9 15V9.5H15"/><path d="m15 9.5 5.5-5.5"/></symbol>
+    <symbol id="i-ecra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4" width="18.4" height="12.5" rx="2.2"/><path d="M8.5 20.5h7M12 16.5v4"/></symbol>
+    <symbol id="i-local" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.4s7-6.1 7-11.4a7 7 0 1 0-14 0c0 5.3 7 11.4 7 11.4Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/></symbol>
+    <symbol id="i-pessoa-certo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7.5" r="3.6"/><path d="M3.5 20a6.5 6.5 0 0 1 11.2-4.5"/><path d="m15.5 18.5 2 2 4-4.5"/></symbol>
+    <symbol id="i-email" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="5" width="18.4" height="14" rx="2.4"/><path d="m3.6 7 8.4 5.8L20.4 7"/></symbol>
+    <symbol id="i-telefone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 3.6h-2A2.2 2.2 0 0 0 3 5.9C3 14.2 9.8 21 18.1 21a2.2 2.2 0 0 0 2.3-2.2v-2l-4.3-1.6-2 2.2a14.5 14.5 0 0 1-5.5-5.5l2.2-2Z"/></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.4"/><path d="M3.5 9.6h17M8 2.8v4M16 2.8v4"/></symbol>
+    <symbol id="i-alvo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+    <symbol id="i-documento" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-grafico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></symbol>
+  </defs>
+</svg>
 
-<!-- ============================ NAV ============================ -->
-<header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div id="nav-inner" class="mt-4 flex items-center justify-between rounded-full border border-white/10 bg-black/60 backdrop-blur-xl px-5 py-3 transition-all duration-500">
-      <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="O Conselheiro — início">
-        <span class="grid place-items-center w-9 h-9 rounded-xl bg-lime-500">
-          <svg width="18" height="18" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1.5 L23.2 17.4 L38.5 20 L23.2 22.6 L20 38.5 L16.8 22.6 L1.5 20 L16.8 17.4 Z" fill="#000"/></svg>
-        </span>
-        <span class="font-semibold tracking-tight text-[15px]">O Conselheiro<span class="text-lime-500">.</span></span>
-      </a>
-
-      <nav class="hidden lg:flex items-center gap-1 text-sm text-muted">
-        <a href="#metodologia" class="px-3.5 py-2 rounded-full hover:text-white hover:bg-white/5 transition-colors">Metodologia</a>
-        <a href="#programa" class="px-3.5 py-2 rounded-full hover:text-white hover:bg-white/5 transition-colors">Programa</a>
-        <a href="#para-quem" class="px-3.5 py-2 rounded-full hover:text-white hover:bg-white/5 transition-colors">Para Quem É</a>
-        <a href="#conselheiro" class="px-3.5 py-2 rounded-full hover:text-white hover:bg-white/5 transition-colors">O Conselheiro</a>
-        <a href="#como-funciona" class="px-3.5 py-2 rounded-full hover:text-white hover:bg-white/5 transition-colors">Como Funciona</a>
-      </nav>
-
-      <div class="flex items-center gap-2">
-        <a href="#contacto" data-magnetic class="hidden sm:inline-flex btn-shine items-center gap-2 rounded-full bg-white text-black text-sm font-semibold px-5 py-2.5 hover:bg-lime-500 transition-colors">
-          Agendar sessão
-        </a>
-        <button id="menu-btn" class="lg:hidden grid place-items-center w-10 h-10 rounded-full border border-white/10 text-white" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <div id="mobile-menu" class="hidden lg:hidden mt-2 rounded-3xl border border-white/10 bg-black/90 backdrop-blur-xl p-5">
-      <nav class="flex flex-col">
-        <a href="#metodologia" class="py-3 border-b border-white/5 text-muted hover:text-white transition-colors">Metodologia</a>
-        <a href="#programa" class="py-3 border-b border-white/5 text-muted hover:text-white transition-colors">Programa</a>
-        <a href="#para-quem" class="py-3 border-b border-white/5 text-muted hover:text-white transition-colors">Para Quem É</a>
-        <a href="#conselheiro" class="py-3 border-b border-white/5 text-muted hover:text-white transition-colors">O Conselheiro</a>
-        <a href="#como-funciona" class="py-3 text-muted hover:text-white transition-colors">Como Funciona</a>
-      </nav>
-      <a href="#contacto" class="mt-4 flex items-center justify-center gap-2 rounded-full bg-lime-500 text-black font-semibold px-5 py-3">Agendar sessão</a>
-    </div>
+<!-- ============ 1. BARRA DE CIMA ============ -->
+<header class="barra" id="barra">
+  <div class="barra-dentro">
+    <a href="#topo" class="marca" aria-label="Advising com O Conselheiro, início">
+      <img src="/img/logo.png" alt="" width="360" height="360">
+      <span><b>O Conselheiro</b><small>Shelton Douglas</small></span>
+    </a>
+    <nav aria-label="Secções">
+      <a href="#metodo">Método</a>
+      <a href="#para-ti">Para quem é</a>
+      <a href="#conselheiro">O Conselheiro</a>
+      <a href="#investimento">Investimento</a>
+      <a href="#perguntas">Perguntas</a>
+    </nav>
+    <a href="#investimento" class="botao botao-principal botao-pequeno">Marcar Advising</a>
   </div>
 </header>
 
-<!-- ============================ HERO ============================ -->
-<section id="top" class="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-32 pb-24">
-  <!-- starfield -->
-  <svg class="absolute inset-0 w-full h-full opacity-70" aria-hidden="true" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 900">
-    <g fill="#fff">
-      <circle class="star-a" cx="120" cy="140" r="1.3"/><circle class="star-b" cx="310" cy="80" r="1"/>
-      <circle class="star-c" cx="480" cy="210" r="1.5"/><circle class="star-a" cx="690" cy="110" r="1"/>
-      <circle class="star-b" cx="880" cy="260" r="1.2"/><circle class="star-c" cx="1090" cy="90" r="1.4"/>
-      <circle class="star-a" cx="1280" cy="200" r="1"/><circle class="star-b" cx="1380" cy="420" r="1.3"/>
-      <circle class="star-c" cx="60" cy="380" r="1.1"/><circle class="star-a" cx="210" cy="520" r="1"/>
-      <circle class="star-b" cx="1210" cy="560" r="1.2"/><circle class="star-c" cx="990" cy="430" r="1"/>
-      <circle class="star-a" cx="760" cy="330" r="0.9"/><circle class="star-b" cx="420" cy="620" r="1.1"/>
-      <circle class="star-c" cx="1330" cy="700" r="1"/><circle class="star-a" cx="150" cy="700" r="1.2"/>
-      <circle cx="560" cy="60" r="0.8"/><circle cx="1010" cy="660" r="0.9"/>
-      <circle cx="330" cy="300" r="0.8"/><circle cx="1150" cy="330" r="0.9"/>
-    </g>
-  </svg>
+<main id="topo">
 
-  <!-- planet arc -->
-  <div data-parallax="0.18" class="absolute left-1/2 -translate-x-1/2 top-[38%] w-[160vw] max-w-[1900px] aspect-square rounded-full planet"></div>
-
-  <!-- floating orbs -->
-  <div data-parallax="0.32" class="orb animate-float w-[320px] h-[320px] bg-lime-500/12 left-[6%] top-[22%]"></div>
-  <div data-parallax="0.24" class="orb animate-float-alt w-[260px] h-[260px] bg-white/8 right-[8%] top-[30%]"></div>
-
-  <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center">
-    <div data-reveal class="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-4 py-2 text-[13px] text-white/80 mb-8">
-      <span class="relative grid place-items-center w-2 h-2">
-        <span class="absolute inset-0 rounded-full bg-lime-500 pulse-ring"></span>
-        <span class="w-2 h-2 rounded-full bg-lime-500"></span>
-      </span>
-      Advising com O Conselheiro · Kingdom Company
+<!-- ============ 2. ABERTURA ============ -->
+<section class="abertura">
+  <div class="abertura-fundo" aria-hidden="true"><div class="grelha"></div><div class="luz"></div><div class="foto"></div></div>
+  <div class="contentor">
+    <h1 class="revela">Para quem precisa de menos informação <span>e mais clareza.</span></h1>
+    <p class="entrada revela">Uma sessão estratégica e personalizada com <strong>Shelton Douglas, O Conselheiro</strong>, para identificar o que está a bloquear o teu negócio, projecto ou carreira e definir com clareza o que fazer a seguir.</p>
+    <div class="abertura-botoes revela">
+      <a href="#investimento" class="botao botao-principal">Quero marcar o meu Advising <svg><use href="#i-seta"/></svg></a>
+      <a href="#raio-x" class="botao botao-linha">Fazer o Raio-X rápido</a>
+    </div>
+    <div class="abertura-factos revela">
+      <span><svg><use href="#i-ecra"/></svg>Online por Google Meet</span>
+      <span><svg><use href="#i-local"/></svg>Ou presencial em Maputo</span>
+      <span><svg><use href="#i-relogio"/></svg>Sessão de 1 a 2 horas</span>
+      <span><svg><use href="#i-pessoa-certo"/></svg>Conduzida pessoalmente</span>
     </div>
 
-    <h1 data-reveal style="--reveal-delay:90ms" class="font-semibold tracking-[-0.045em] leading-[0.95] text-[clamp(2.6rem,8.2vw,6rem)]">
-      Para quem precisa de<br>
-      <span class="text-faint">menos informação e</span><br>
-      <span class="text-lime-500">mais clareza.</span>
-    </h1>
-
-    <p data-reveal style="--reveal-delay:180ms" class="mt-7 text-muted text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-      Advising para empreendedores, líderes e especialistas que se sentem estagnados,
-      sobrecarregados ou sem clareza sobre o próximo passo, seja no negócio, na carreira ou nos
-      seus projetos.
-    </p>
-
-    <div data-reveal style="--reveal-delay:270ms" class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-      <a href="#contacto" data-magnetic class="group btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-lime-500 text-black font-semibold px-7 py-4 hover:bg-lime-400 transition-colors">
-        <svg class="btn-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        Agendar uma sessão
-      </a>
-      <a href="#metodologia" data-magnetic class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-white font-semibold px-7 py-4 hover:bg-white/15 transition-colors">
-        Ver a metodologia
-      </a>
-    </div>
-  </div>
-
-  <a href="#dores" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-faint hover:text-white transition-colors" aria-label="Rolar para baixo">
-    <span class="text-[11px] uppercase tracking-[0.25em]">Rolar</span>
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-  </a>
-</section>
-
-<!-- ============================ MARQUEE — DORES ============================ -->
-<section id="dores" class="relative py-16 border-y border-white/8 bg-surface/40">
-  <p data-reveal class="text-center text-sm text-faint mb-8 px-5">Os gargalos que travam o crescimento, e que identificamos no diagnóstico</p>
-
-  <div class="marquee marquee-mask overflow-hidden">
-    <div class="marquee-track gap-3 pr-3">
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Vendas estagnadas</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Equipa com baixa performance</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Processos desestruturados</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Dependência excessiva do dono</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Sobrecarga</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Falta de motivação</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <!-- duplicate for seamless loop -->
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85" aria-hidden="true">Vendas estagnadas</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500" aria-hidden="true"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85" aria-hidden="true">Equipa com baixa performance</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500" aria-hidden="true"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85" aria-hidden="true">Processos desestruturados</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500" aria-hidden="true"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85" aria-hidden="true">Dependência excessiva do dono</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500" aria-hidden="true"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85" aria-hidden="true">Sobrecarga</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500" aria-hidden="true"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85" aria-hidden="true">Falta de motivação</span>
-      <span class="shrink-0 grid place-items-center w-2 h-2 self-center rounded-full bg-lime-500" aria-hidden="true"></span>
-    </div>
-  </div>
-
-  <div class="marquee marquee-mask overflow-hidden mt-3" aria-hidden="true">
-    <div class="marquee-track marquee-track-rev gap-3 pr-3">
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Ideia que não sai do papel</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Conhecimento sem monetização</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Sem saber o próximo passo</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Empresa que não anda sem si</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Perda de sentido no que faz</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Ideia que não sai do papel</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Conhecimento sem monetização</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Sem saber o próximo passo</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Empresa que não anda sem si</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-      <span class="shrink-0 rounded-full border border-white/10 bg-surface-2 px-6 py-3 text-[15px] text-white/85">Perda de sentido no que faz</span>
-      <span class="shrink-0 w-2 h-2 self-center rounded-full bg-lime-500"></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ OBJETIVO ============================ -->
-<section class="relative py-28 md:py-36 overflow-hidden">
-  <div class="orb animate-float w-[420px] h-[420px] bg-lime-500/8 -left-32 top-10"></div>
-  <div class="relative max-w-5xl mx-auto px-5 sm:px-8">
-    <span data-reveal class="inline-block rounded-full border border-lime-500/25 bg-lime-500/10 text-lime-500 text-xs font-semibold uppercase tracking-[0.16em] px-3.5 py-1.5 mb-7">O objetivo</span>
-    <h2 data-reveal style="--reveal-delay:80ms" class="font-semibold tracking-[-0.035em] leading-[1.05] text-[clamp(2rem,5.2vw,3.6rem)] max-w-4xl">
-      Trazer clareza sobre o que está a acontecer e
-      <span class="text-faint">construir um caminho prático para avançar.</span>
-    </h2>
-
-    <div class="grid md:grid-cols-2 gap-5 mt-14">
-      <div data-reveal style="--reveal-delay:140ms" class="spotlight lift rounded-3xl border border-white/10 bg-surface p-8">
-        <p class="text-muted leading-relaxed">
-          Através de uma abordagem estratégica e personalizada, identificamos os gargalos
-          pessoais e empresariais que estão a limitar o crescimento: de vendas estagnadas e
-          equipas com baixa performance a processos desestruturados, sobrecarga e dificuldade
-          em transformar conhecimento e ideias em negócios sustentáveis.
-        </p>
-      </div>
-      <div data-reveal style="--reveal-delay:220ms" class="spotlight lift rounded-3xl border border-white/10 bg-surface p-8">
-        <p class="text-muted leading-relaxed">
-          O papel do Advisor é definir o que precisa de ser resolvido primeiro e dar o suporte
-          especializado necessário para tomar melhores decisões, criando maior autonomia,
-          performance e sustentabilidade.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ METODOLOGIA (BENTO) ============================ -->
-<section id="metodologia" class="relative py-24 md:py-32">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="max-w-3xl mb-14">
-      <span data-reveal class="inline-block rounded-full border border-lime-500/25 bg-lime-500/10 text-lime-500 text-xs font-semibold uppercase tracking-[0.16em] px-3.5 py-1.5 mb-6">Nossa metodologia</span>
-      <h2 data-reveal style="--reveal-delay:80ms" class="font-semibold tracking-[-0.035em] leading-[1.05] text-[clamp(2rem,5.2vw,3.4rem)]">
-        A Tríade da Clareza
-      </h2>
-      <p data-reveal style="--reveal-delay:150ms" class="mt-5 text-muted text-lg leading-relaxed">
-        Todo empreendedor, para alcançar qualquer resultado consistente, precisa de três
-        clarezas essenciais.
-      </p>
-    </div>
-
-    <div class="grid lg:grid-cols-3 gap-4">
-      <!-- big card -->
-      <article data-reveal class="spotlight lift lg:col-span-2 rounded-[28px] border border-white/10 bg-surface overflow-hidden">
-        <div class="p-8 md:p-10">
-          <h3 class="font-semibold text-2xl tracking-tight mb-3">Enxergar, decidir e executar — nesta ordem.</h3>
-          <p class="text-muted leading-relaxed max-w-lg">
-            Enxergar com precisão onde está, compreender qual é o caminho certo a seguir e
-            saber com exatidão o que fazer, em que ordem e em que momento.
-          </p>
+    <div class="palco">
+      <div class="janela vidro" id="janela">
+        <div class="janela-topo">
+          <span class="pontos" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="janela-titulo">Advising · Plano de acção</span>
+          <span class="etiqueta">Exemplo ilustrativo</span>
         </div>
-        <!-- browser mock -->
-        <div class="mx-8 md:mx-10 mb-[-1px] rounded-t-2xl border border-white/10 border-b-0 bg-surface-2 overflow-hidden">
-          <div class="flex items-center gap-1.5 px-4 py-3 border-b border-white/8">
-            <span class="w-2.5 h-2.5 rounded-full bg-white/15"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-white/15"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-lime-500/70"></span>
-          </div>
-          <div class="p-6 md:p-8">
-            <svg viewBox="0 0 520 220" class="w-full h-auto" role="img" aria-label="Diagrama da Tríade da Clareza: Raio-X, Advising e Plano">
-              <defs>
-                <linearGradient id="tri" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#c7f534" stop-opacity="0.22"/>
-                  <stop offset="100%" stop-color="#c7f534" stop-opacity="0.02"/>
-                </linearGradient>
-              </defs>
-              <path d="M260 26 L470 192 L50 192 Z" fill="url(#tri)" stroke="#c7f534" stroke-opacity="0.45" stroke-width="1.5"/>
-              <circle cx="260" cy="26" r="5" fill="#c7f534"/>
-              <circle cx="470" cy="192" r="5" fill="#c7f534"/>
-              <circle cx="50" cy="192" r="5" fill="#c7f534"/>
-              <text x="260" y="14" text-anchor="middle" fill="#fff" font-size="13" font-weight="600" font-family="Onest, sans-serif">Raio-X</text>
-              <text x="470" y="212" text-anchor="end" fill="#fff" font-size="13" font-weight="600" font-family="Onest, sans-serif">Plano</text>
-              <text x="50" y="212" text-anchor="start" fill="#fff" font-size="13" font-weight="600" font-family="Onest, sans-serif">Advising</text>
-              <text x="260" y="120" text-anchor="middle" fill="#a3a3a3" font-size="11" font-family="Onest, sans-serif">desenvolvimento integrado</text>
-              <text x="260" y="138" text-anchor="middle" fill="#a3a3a3" font-size="11" font-family="Onest, sans-serif">do Empreendedor e do Empreendimento</text>
+        <div class="janela-corpo">
+          <div class="painel contorno">
+            <div class="painel-titulo"><b>Raio-X</b><span>Onde estás</span></div>
+            <svg class="radar-mini" viewBox="-52 -16 304 214" role="img" aria-label="Gráfico radar de exemplo com a pressão em cinco áreas: vendas, equipa, processos, delegação e direcção.">
+              <g fill="none" stroke="rgba(255,255,255,.12)">
+                <polygon points="100.0,20.0 176.1,75.3 147.0,164.7 53.0,164.7 23.9,75.3"/>
+                <polygon points="100.0,40.0 157.1,81.5 135.3,148.5 64.7,148.5 42.9,81.5"/>
+                <polygon points="100.0,60.0 138.0,87.6 123.5,132.4 76.5,132.4 62.0,87.6"/>
+                <path d="M100 100 100 20M100 100 176.1 75.3M100 100 147 164.7M100 100 53 164.7M100 100 23.9 75.3"/>
+              </g>
+              <polygon points="100.0,64.0 141.8,86.4 132.9,145.3 60.0,155.0 62.0,87.6" fill="rgba(255,255,255,.16)" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+              <g fill="#bdbdbd" font-size="13" font-family="Google Sans, sans-serif">
+                <text x="100" y="4" text-anchor="middle">Vendas</text>
+                <text x="186" y="72">Equipa</text>
+                <text x="156" y="186">Processos</text>
+                <text x="44" y="186" text-anchor="end">Delegação</text>
+                <text x="14" y="72" text-anchor="end">Direcção</text>
+              </g>
             </svg>
           </div>
-        </div>
-      </article>
-
-      <!-- orbit card -->
-      <article data-reveal style="--reveal-delay:120ms" class="spotlight lift rounded-[28px] border border-white/10 bg-surface p-8 flex flex-col">
-        <div class="relative grid place-items-center h-56 mb-8">
-          <div class="absolute w-52 h-52 rounded-full border border-white/8"></div>
-          <div class="absolute w-36 h-36 rounded-full border border-white/8"></div>
-          <div class="absolute w-52 h-52 orbit">
-            <span class="absolute -top-2 left-1/2 -translate-x-1/2 grid place-items-center w-9 h-9 rounded-xl bg-surface-3 border border-white/10 text-[11px] font-semibold">RX</span>
-            <span class="absolute top-1/2 -right-2 -translate-y-1/2 grid place-items-center w-9 h-9 rounded-xl bg-surface-3 border border-white/10 text-[11px] font-semibold">AD</span>
-            <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 grid place-items-center w-9 h-9 rounded-xl bg-surface-3 border border-white/10 text-[11px] font-semibold">PL</span>
+          <div class="painel contorno">
+            <div class="painel-titulo"><b>Gargalos</b><span>Pressão</span></div>
+            <div class="gargalo"><div>Delegação<b>85%</b></div><span class="barrinha"><i style="--v:85%"></i></span></div>
+            <div class="gargalo"><div>Processos<b>70%</b></div><span class="barrinha"><i style="--v:70%"></i></span></div>
+            <div class="gargalo"><div>Equipa<b>55%</b></div><span class="barrinha"><i style="--v:55%"></i></span></div>
+            <div class="gargalo"><div>Direcção<b>50%</b></div><span class="barrinha"><i style="--v:50%"></i></span></div>
+            <div class="gargalo"><div>Vendas<b>45%</b></div><span class="barrinha"><i style="--v:45%"></i></span></div>
           </div>
-          <div class="absolute w-36 h-36 orbit-rev">
-            <span class="absolute top-1/2 -left-1.5 -translate-y-1/2 w-3 h-3 rounded-full bg-white/25"></span>
-          </div>
-          <span class="relative grid place-items-center w-14 h-14 rounded-2xl bg-lime-500">
-            <svg width="24" height="24" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1.5 L23.2 17.4 L38.5 20 L23.2 22.6 L20 38.5 L16.8 22.6 L1.5 20 L16.8 17.4 Z" fill="#000"/></svg>
-          </span>
-        </div>
-        <h3 class="font-semibold text-xl tracking-tight mb-2.5">Métodos autorais</h3>
-        <p class="text-muted text-[15px] leading-relaxed">
-          Baseados em conhecimento tácito, inspirados nas experiências, histórias e
-          trajetórias reais do advisor. Mentoria prática e enraizada na realidade vivida.
-        </p>
-      </article>
-
-      <!-- ghost number card -->
-      <article data-reveal style="--reveal-delay:60ms" class="spotlight lift relative rounded-[28px] border border-white/10 bg-surface p-8 overflow-hidden flex flex-col justify-end min-h-[300px]">
-        <span class="pointer-events-none absolute -top-6 -right-2 font-semibold text-[190px] leading-none text-white/[0.045] select-none" aria-hidden="true">3</span>
-        <span class="absolute top-8 left-8 inline-flex items-center gap-2 rounded-full bg-lime-500 text-black text-sm font-semibold px-4 py-2">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
-          Clarezas essenciais
-        </span>
-        <h3 class="relative font-semibold text-xl tracking-tight mb-2.5">Onde está, para onde vai, por onde começa</h3>
-        <p class="relative text-muted text-[15px] leading-relaxed">
-          O diferencial está em ir além das técnicas convencionais de gestão: resultados
-          sustentáveis nascem quando empreendedor e empreendimento crescem juntos.
-        </p>
-      </article>
-
-      <!-- wide stat card -->
-      <article data-reveal style="--reveal-delay:150ms" class="spotlight lift lg:col-span-2 rounded-[28px] border border-white/10 bg-surface p-8 md:p-10 grid sm:grid-cols-3 gap-8">
-        <div>
-          <p class="font-semibold text-4xl md:text-5xl tracking-tight text-lime-500"><span data-count="1">0</span>–<span data-count="2">0</span>h</p>
-          <p class="mt-2 text-muted text-sm">Duração de cada sessão, conduzida de forma personalizada.</p>
-        </div>
-        <div>
-          <p class="font-semibold text-4xl md:text-5xl tracking-tight text-lime-500"><span data-count="3">0</span> fases</p>
-          <p class="mt-2 text-muted text-sm">Raio-X, Advising e Plano — uma estrutura lógica orientada a resultados.</p>
-        </div>
-        <div>
-          <p class="font-semibold text-4xl md:text-5xl tracking-tight text-lime-500">2<span class="text-white/25">×</span></p>
-          <p class="mt-2 text-muted text-sm">Formatos disponíveis: online via Google Meet ou presencial em Maputo.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ PROGRAMA (3 FASES) ============================ -->
-<section id="programa" class="relative py-24 md:py-32 overflow-hidden">
-  <div class="orb animate-float-alt w-[500px] h-[500px] bg-lime-500/8 right-[-140px] top-24"></div>
-  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <span data-reveal class="inline-block rounded-full border border-lime-500/25 bg-lime-500/10 text-lime-500 text-xs font-semibold uppercase tracking-[0.16em] px-3.5 py-1.5 mb-6">O programa</span>
-      <h2 data-reveal style="--reveal-delay:80ms" class="font-semibold tracking-[-0.035em] leading-[1.05] text-[clamp(2rem,5.2vw,3.4rem)]">
-        Três fases, um documento final acionável
-      </h2>
-      <p data-reveal style="--reveal-delay:150ms" class="mt-5 text-muted text-lg leading-relaxed">
-        A sessão começa com um Raio-X da situação atual, passa pela identificação dos
-        gargalos e culmina num plano de ação com prioridades e próximos passos claros.
-      </p>
-    </div>
-
-    <div class="grid lg:grid-cols-3 gap-4 items-start">
-      <article data-reveal class="spotlight lift rounded-[28px] border border-white/10 bg-surface p-8">
-        <span class="inline-grid place-items-center w-11 h-11 rounded-2xl bg-surface-3 border border-white/10 mb-6 text-sm font-semibold text-lime-500">01</span>
-        <h3 class="font-semibold text-2xl tracking-tight">Raio-X</h3>
-        <p class="text-faint text-sm mt-1.5 mb-6">Diagnóstico</p>
-        <p class="text-muted text-[15px] leading-relaxed mb-7">Levantamento da situação atual (pessoa, negócio ou equipa).</p>
-        <ul class="space-y-3.5 text-[15px]">
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5 text-lime-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".3"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-white/80">Levantamento da situação atual</span></li>
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5 text-lime-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".3"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-white/80">Identificação de pontos cegos: dores, gargalos e oportunidades</span></li>
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5 text-lime-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".3"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-white/80">Análise de dados financeiros, operacionais e de mercado</span></li>
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5 text-lime-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".3"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-white/80">Definição clara do ponto de partida</span></li>
-        </ul>
-      </article>
-
-      <article data-reveal style="--reveal-delay:110ms" class="spotlight lift rounded-[28px] border border-white/10 bg-surface p-8">
-        <span class="inline-grid place-items-center w-11 h-11 rounded-2xl bg-surface-3 border border-white/10 mb-6 text-sm font-semibold text-lime-500">02</span>
-        <h3 class="font-semibold text-2xl tracking-tight">Advising</h3>
-        <p class="text-faint text-sm mt-1.5 mb-6">Aconselhamento</p>
-        <p class="text-muted text-[15px] leading-relaxed mb-7">Direção estratégica clara a partir das dores identificadas.</p>
-        <ul class="space-y-3.5 text-[15px]">
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5 text-lime-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".3"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-white/80">Desenho da(s) solução(ões) recomendada(s)</span></li>
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5 text-lime-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".3"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-white/80">Definição de objetivos e metas</span></li>
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5 text-lime-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".3"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-white/80">Estabelecimento de KPIs de desempenho</span></li>
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5 text-lime-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".3"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-white/80">Alinhamento de expectativas: o que é realista e em que prazo</span></li>
-        </ul>
-      </article>
-
-      <!-- highlighted lime card -->
-      <article data-reveal style="--reveal-delay:220ms" class="relative lift rounded-[28px] bg-lime-500 text-black p-8 lg:-mt-4 lg:pb-12">
-        <span class="absolute top-6 right-6 rounded-full bg-black text-white text-[11px] font-semibold uppercase tracking-wide px-3 py-1.5">Entregável final</span>
-        <span class="inline-grid place-items-center w-11 h-11 rounded-2xl bg-black/10 border border-black/10 mb-6 text-sm font-semibold">03</span>
-        <h3 class="font-semibold text-2xl tracking-tight">Plano</h3>
-        <p class="text-black/60 text-sm mt-1.5 mb-6">Roadmap</p>
-        <p class="text-black/75 text-[15px] leading-relaxed mb-7">Transformação da solução num roteiro executável com sequenciamento lógico.</p>
-        <ul class="space-y-3.5 text-[15px]">
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".25"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-black/85">O que resolver primeiro para destravar o resto</span></li>
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".25"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-black/85">Roadmap com etapas, prioridades e responsáveis</span></li>
-          <li class="flex gap-3"><svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.4" opacity=".25"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="text-black/85">Documento final claro e acionável, pronto para executar</span></li>
-        </ul>
-        <a href="#contacto" data-magnetic class="group btn-shine mt-9 w-full inline-flex items-center justify-center gap-2.5 rounded-full bg-black text-white font-semibold px-6 py-3.5 hover:bg-surface-3 transition-colors">
-          <svg class="btn-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          Começar agora
-        </a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ PARA QUEM É / NÃO É ============================ -->
-<section id="para-quem" class="relative py-24 md:py-32">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="max-w-3xl mb-14">
-      <span data-reveal class="inline-block rounded-full border border-lime-500/25 bg-lime-500/10 text-lime-500 text-xs font-semibold uppercase tracking-[0.16em] px-3.5 py-1.5 mb-6">Fit</span>
-      <h2 data-reveal style="--reveal-delay:80ms" class="font-semibold tracking-[-0.035em] leading-[1.05] text-[clamp(2rem,5.2vw,3.4rem)]">
-        Para quem é — e para quem <span class="text-faint">não é</span>
-      </h2>
-      <p data-reveal style="--reveal-delay:150ms" class="mt-5 text-muted text-lg leading-relaxed">
-        O Advising é para quem reconhece que precisa de clareza, estrutura e direção, e está
-        disposto a fazer o necessário para avançar.
-      </p>
-    </div>
-
-    <div class="grid lg:grid-cols-2 gap-4">
-      <div data-reveal class="spotlight lift rounded-[28px] border border-lime-500/25 bg-surface p-8 md:p-10">
-        <div class="flex items-center gap-3 mb-8">
-          <span class="grid place-items-center w-10 h-10 rounded-2xl bg-lime-500 text-black">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
-          </span>
-          <h3 class="font-semibold text-xl tracking-tight">É para si se…</h3>
-        </div>
-        <ul class="space-y-4">
-          <li class="flex gap-3.5 text-white/80"><span class="text-lime-500 mt-px">+</span>Tem um negócio, mas sente que está estagnado</li>
-          <li class="flex gap-3.5 text-white/80"><span class="text-lime-500 mt-px">+</span>As vendas deixaram de crescer ou estão abaixo do esperado</li>
-          <li class="flex gap-3.5 text-white/80"><span class="text-lime-500 mt-px">+</span>A sua equipa não mantém uma boa performance</li>
-          <li class="flex gap-3.5 text-white/80"><span class="text-lime-500 mt-px">+</span>Tem uma ideia de negócio, mas não sabe como torná-la realidade</li>
-          <li class="flex gap-3.5 text-white/80"><span class="text-lime-500 mt-px">+</span>A empresa depende demasiado de si</li>
-          <li class="flex gap-3.5 text-white/80"><span class="text-lime-500 mt-px">+</span>Tem dificuldade em estruturar processos internos</li>
-          <li class="flex gap-3.5 text-white/80"><span class="text-lime-500 mt-px">+</span>É especialista e quer entender como monetizar o seu conhecimento</li>
-          <li class="flex gap-3.5 text-white/80"><span class="text-lime-500 mt-px">+</span>Quer deixar de ser indispensável para o funcionamento da empresa</li>
-          <li class="flex gap-3.5 text-white/80"><span class="text-lime-500 mt-px">+</span>Está disposto a rever decisões, comportamentos e estruturas</li>
-        </ul>
-      </div>
-
-      <div data-reveal style="--reveal-delay:130ms" class="spotlight lift rounded-[28px] border border-white/10 bg-surface/60 p-8 md:p-10">
-        <div class="flex items-center gap-3 mb-8">
-          <span class="grid place-items-center w-10 h-10 rounded-2xl bg-white/10 border border-white/10 text-white/70">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
-          </span>
-          <h3 class="font-semibold text-xl tracking-tight text-white/75">Não é para si se…</h3>
-        </div>
-        <ul class="space-y-4">
-          <li class="flex gap-3.5 text-muted"><span class="text-faint mt-px">—</span>Não está disposto a implementar o que for definido</li>
-          <li class="flex gap-3.5 text-muted"><span class="text-faint mt-px">—</span>Não aceita rever os próprios comportamentos e decisões</li>
-          <li class="flex gap-3.5 text-muted"><span class="text-faint mt-px">—</span>Procura apenas motivação momentânea</li>
-          <li class="flex gap-3.5 text-muted"><span class="text-faint mt-px">—</span>Quer crescimento sem mudar processos, equipa ou forma de trabalhar</li>
-          <li class="flex gap-3.5 text-muted"><span class="text-faint mt-px">—</span>Não tem abertura para receber feedback direto</li>
-          <li class="flex gap-3.5 text-muted"><span class="text-faint mt-px">—</span>Não está disposto a investir tempo e energia no processo</li>
-          <li class="flex gap-3.5 text-muted"><span class="text-faint mt-px">—</span>Quer terceirizar completamente a responsabilidade pelo negócio</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ QUEM CONDUZ ============================ -->
-<section id="conselheiro" class="relative py-24 md:py-32 overflow-hidden">
-  <div class="orb animate-float w-[380px] h-[380px] bg-lime-500/10 left-[-100px] top-1/3"></div>
-  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="grid lg:grid-cols-12 gap-5 items-stretch">
-      <!-- portrait / emblem card -->
-      <div data-reveal class="lg:col-span-4 spotlight lift rounded-[28px] border border-white/10 bg-surface relative overflow-hidden min-h-[380px] grid place-items-center">
-        <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
-          <svg viewBox="0 0 200 200" class="w-full h-full"><path d="M100 10 L112 88 L190 100 L112 112 L100 190 L88 112 L10 100 L88 88 Z" fill="#c7f534"/></svg>
-        </div>
-        <div class="relative text-center px-8">
-          <span class="grid place-items-center w-20 h-20 rounded-3xl bg-lime-500 mx-auto mb-6">
-            <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1.5 L23.2 17.4 L38.5 20 L23.2 22.6 L20 38.5 L16.8 22.6 L1.5 20 L16.8 17.4 Z" fill="#000"/></svg>
-          </span>
-          <p class="font-semibold text-2xl tracking-tight">Shelton Douglas</p>
-          <p class="text-lime-500 text-sm mt-1.5">O Conselheiro</p>
-          <p class="text-faint text-xs mt-6">Kingdom Company · Maputo, Moçambique</p>
-        </div>
-      </div>
-
-      <!-- bio -->
-      <div class="lg:col-span-8 flex flex-col gap-4">
-        <div data-reveal style="--reveal-delay:110ms" class="spotlight lift rounded-[28px] border border-white/10 bg-surface p-8 md:p-10">
-          <span class="inline-block rounded-full border border-lime-500/25 bg-lime-500/10 text-lime-500 text-xs font-semibold uppercase tracking-[0.16em] px-3.5 py-1.5 mb-6">Quem conduz</span>
-          <h2 class="font-semibold tracking-[-0.03em] leading-[1.1] text-[clamp(1.7rem,3.6vw,2.4rem)] mb-5">
-            As sessões são conduzidas pessoalmente por Shelton Douglas.
-          </h2>
-          <p class="text-muted leading-relaxed mb-4">
-            Profissional com ampla experiência no desenvolvimento de pequenas e médias
-            empresas e na orientação de empreendedores. A sua abordagem combina mentalidade
-            orientada para resultados, visão estratégica e elevada capacidade de analisar
-            cenários, identificar pontos cegos em estruturas empresariais e reconhecer
-            bloqueios pessoais que limitam o crescimento.
-          </p>
-          <p class="text-muted leading-relaxed">
-            Atua como conselheiro de empresas, personalidades públicas e mentor de
-            empreendedores, ajudando os seus clientes a obter maior clareza, estruturar
-            soluções e tomar decisões mais assertivas.
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div data-reveal style="--reveal-delay:170ms" class="spotlight lift rounded-[28px] border border-lime-500/25 bg-lime-500/[0.06] p-8">
-            <svg class="text-lime-500 mb-4" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 6C6.5 6 4 8.5 4 11.5S6.5 17 9.5 17c.6 0 1-.4 1-1s-.4-1-1-1C7.6 15 6 13.4 6 11.5S7.6 8 9.5 8c.6 0 1-.4 1-1s-.4-1-1-1zm9 0c-3 0-5.5 2.5-5.5 5.5S15.5 17 18.5 17c.6 0 1-.4 1-1s-.4-1-1-1c-1.9 0-3.5-1.6-3.5-3.5S16.6 8 18.5 8c.6 0 1-.4 1-1s-.4-1-1-1z"/></svg>
-            <p class="text-white/90 leading-relaxed">
-              “Mais do que oferecer respostas prontas, atua como conselheiro: faz as perguntas
-              certas, identifica o que muitas vezes não é evidente e ajuda o empreendedor a
-              encontrar clareza para decidir e avançar.”
-            </p>
-          </div>
-
-          <div data-reveal style="--reveal-delay:230ms" class="spotlight lift rounded-[28px] border border-white/10 bg-surface p-8">
-            <p class="text-faint text-xs uppercase tracking-[0.16em] mb-5">Certificações internacionais</p>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-lime-500 shrink-0"></span>
-                <span><span class="text-white font-medium">Google Display Ads</span><br><span class="text-faint text-sm">Google Skills, USA</span></span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-lime-500 shrink-0"></span>
-                <span><span class="text-white font-medium">Inteligência Artificial</span><br><span class="text-faint text-sm">Atrophic, USA</span></span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-lime-500 shrink-0"></span>
-                <span><span class="text-white font-medium">Inbound Marketing</span><br><span class="text-faint text-sm">Rock Content University, Brasil</span></span>
-              </li>
+          <div class="painel contorno">
+            <div class="painel-titulo"><b>Plano</b><span>Por ordem</span></div>
+            <ul class="passos">
+              <li class="feito"><span class="caixa"><svg><use href="#i-certo"/></svg></span><span>Tirar o dono da operação diária<small>Semanas 1 e 2 · Responsável: direcção</small></span></li>
+              <li><span class="caixa"></span><span>Documentar os três processos-chave<small>Semanas 3 e 4 · Responsável: operações</small></span></li>
+              <li><span class="caixa"></span><span>Metas e indicadores por pessoa<small>Mês 2 · Responsável: equipa</small></span></li>
             </ul>
           </div>
         </div>
@@ -516,147 +146,656 @@
   </div>
 </section>
 
-<!-- ============================ COMO FUNCIONA ============================ -->
-<section id="como-funciona" class="relative py-24 md:py-32">
-  <div class="max-w-5xl mx-auto px-5 sm:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-12">
-      <span data-reveal class="inline-block rounded-full border border-lime-500/25 bg-lime-500/10 text-lime-500 text-xs font-semibold uppercase tracking-[0.16em] px-3.5 py-1.5 mb-6">Como funciona</span>
-      <h2 data-reveal style="--reveal-delay:80ms" class="font-semibold tracking-[-0.035em] leading-[1.05] text-[clamp(2rem,5.2vw,3.4rem)]">
-        Escolha o formato da sua sessão
-      </h2>
+<!-- ============ 3. RAIO-X RÁPIDO ============ -->
+<section class="seccao" id="raio-x">
+  <div class="contentor">
+    <div class="cabeca revela">
+      <h2>Faz o teu Raio-X rápido.</h2>
+      <p class="entrada">Marca o que estás a viver hoje e vê onde está a maior pressão. Não é um diagnóstico: é o ponto de partida para a conversa na sessão.</p>
     </div>
-
-    <!-- toggle -->
-    <div data-reveal style="--reveal-delay:130ms" class="flex items-center justify-center gap-4 mb-10">
-      <span id="label-online" class="text-sm font-medium text-white">Online</span>
-      <button id="format-toggle" role="switch" aria-checked="false" aria-label="Alternar entre sessão online e presencial" class="relative w-14 h-8 rounded-full bg-surface-3 border border-white/10 transition-colors">
-        <span id="toggle-knob" class="absolute top-1 left-1 w-6 h-6 rounded-full bg-lime-500 transition-transform duration-300"></span>
-      </button>
-      <span id="label-presencial" class="text-sm font-medium text-muted">Presencial</span>
-    </div>
-
-    <div data-reveal style="--reveal-delay:180ms" class="spotlight rounded-[28px] border border-white/10 bg-surface p-8 md:p-10">
-      <div id="panel-online">
-        <div class="flex items-center gap-3 mb-5">
-          <span class="grid place-items-center w-10 h-10 rounded-2xl bg-lime-500 text-black">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l5-3v10l-5-3z"/><rect x="2" y="6" width="13" height="12" rx="2.5"/></svg>
-          </span>
-          <h3 class="font-semibold text-xl tracking-tight">Sessão online</h3>
+    <div class="teste">
+      <div class="cartao teste-lado revela">
+        <div class="campo">
+          <label for="nome-negocio">O nome do teu negócio ou projecto</label>
+          <input id="nome-negocio" type="text" maxlength="40" placeholder="Por exemplo: Padaria Aurora" autocomplete="off">
         </div>
-        <p class="text-muted leading-relaxed">
-          Realizada através do Google Meet, com a mesma profundidade da sessão presencial.
-          Cada sessão tem a duração de 1 a 2 horas e é conduzida de forma personalizada, com
-          foco nos desafios, objetivos e contexto específico de cada cliente.
-        </p>
+        <fieldset class="grupo-sinais">
+          <legend>O que se aplica a ti?</legend>
+          <div class="sintomas" id="sintomas">
+            <label class="sintoma"><input type="checkbox" value="vendas"><span>As vendas não avançam</span></label>
+            <label class="sintoma"><input type="checkbox" value="equipa"><span>A equipa não entrega como deveria</span></label>
+            <label class="sintoma"><input type="checkbox" value="dono"><span>O negócio depende demasiado de mim</span></label>
+            <label class="sintoma"><input type="checkbox" value="processos"><span>Os processos estão desorganizados</span></label>
+            <label class="sintoma"><input type="checkbox" value="sobrecarga"><span>Estou sobrecarregado</span></label>
+            <label class="sintoma"><input type="checkbox" value="ideia"><span>Tenho uma ideia e não sei por onde começar</span></label>
+            <label class="sintoma"><input type="checkbox" value="conhecimento"><span>Tenho conhecimento e não sei monetizá-lo</span></label>
+            <label class="sintoma"><input type="checkbox" value="decisao"><span>Tenho uma decisão importante pendente</span></label>
+          </div>
+        </fieldset>
       </div>
 
-      <div id="panel-presencial" class="hidden">
-        <div class="flex items-center gap-3 mb-5">
-          <span class="grid place-items-center w-10 h-10 rounded-2xl bg-lime-500 text-black">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-          </span>
-          <h3 class="font-semibold text-xl tracking-tight">Sessão presencial</h3>
+      <div class="teste-resultado vidro revela" aria-live="polite">
+        <div class="janela-topo">
+          <span class="pontos" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="janela-titulo">Raio-X · <b id="nome-saida" style="font-weight:500;color:#fff">O teu negócio</b></span>
+          <span class="etiqueta" id="contagem-sinais">0 sinais</span>
         </div>
-        <p class="text-muted leading-relaxed">
-          Realizada num local previamente acordado ou nas instalações da Kingdom Company, em
-          Maputo. Cada sessão tem a duração de 1 a 2 horas e é conduzida de forma
-          personalizada, com foco nos desafios, objetivos e contexto específico de cada
-          cliente.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-3 gap-4 mt-9 pt-9 border-t border-white/8">
-        <div>
-          <p class="text-white font-medium mb-1.5">Venha preparado</p>
-          <p class="text-muted text-sm leading-relaxed">Com as suas principais dúvidas, desafios, decisões pendentes e objetivos.</p>
-        </div>
-        <div>
-          <p class="text-white font-medium mb-1.5">Estrutura lógica</p>
-          <p class="text-muted text-sm leading-relaxed">Raio-X da situação, identificação dos pontos críticos e plano de ação.</p>
-        </div>
-        <div>
-          <p class="text-white font-medium mb-1.5">Saída da sessão</p>
-          <p class="text-muted text-sm leading-relaxed">Não apenas respostas: clareza sobre o que fazer, por onde começar e como avançar.</p>
+        <div class="janela-corpo">
+          <div class="resultado-grelha">
+            <svg class="radar-grande" viewBox="-52 -16 304 214" role="img" aria-label="Radar com a pressão em cada área, calculada a partir do que marcaste.">
+              <g fill="none" stroke="rgba(255,255,255,.12)">
+                <polygon points="100.0,20.0 176.1,75.3 147.0,164.7 53.0,164.7 23.9,75.3"/>
+                <polygon points="100.0,40.0 157.1,81.5 135.3,148.5 64.7,148.5 42.9,81.5"/>
+                <polygon points="100.0,60.0 138.0,87.6 123.5,132.4 76.5,132.4 62.0,87.6"/>
+                <polygon points="100.0,80.0 119.0,93.8 111.8,116.2 88.2,116.2 81.0,93.8"/>
+                <path d="M100 100 100 20M100 100 176.1 75.3M100 100 147 164.7M100 100 53 164.7M100 100 23.9 75.3"/>
+              </g>
+              <polygon id="radar-area" class="area" points="100.0,96.8 103.0,99.0 101.9,102.6 98.1,102.6 97.0,99.0" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+              <g fill="#bdbdbd" font-size="13" font-family="Google Sans, sans-serif">
+                <text x="100" y="4" text-anchor="middle">Vendas</text>
+                <text x="186" y="72">Equipa</text>
+                <text x="156" y="186">Processos</text>
+                <text x="44" y="186" text-anchor="end">Delegação</text>
+                <text x="14" y="72" text-anchor="end">Direcção</text>
+              </g>
+            </svg>
+            <ul class="areas" id="areas">
+              <li data-area="vendas"><div>Vendas<b>0%</b></div><span class="barrinha"><i></i></span></li>
+              <li data-area="equipa"><div>Equipa<b>0%</b></div><span class="barrinha"><i></i></span></li>
+              <li data-area="processos"><div>Processos<b>0%</b></div><span class="barrinha"><i></i></span></li>
+              <li data-area="delegacao"><div>Delegação<b>0%</b></div><span class="barrinha"><i></i></span></li>
+              <li data-area="direccao"><div>Direcção<b>0%</b></div><span class="barrinha"><i></i></span></li>
+            </ul>
+          </div>
+          <div class="por-onde contorno">
+            <small id="por-onde-titulo">Por onde começar</small>
+            <p id="por-onde-texto">Marca pelo menos um sinal ao lado para veres onde está a maior pressão.</p>
+            <a href="#investimento" class="botao botao-principal botao-pequeno" id="por-onde-botao" style="margin-top:16px" hidden>Levar isto para a sessão <svg><use href="#i-seta"/></svg></a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ CTA ============================ -->
-<section id="contacto" class="relative py-28 md:py-36 overflow-hidden">
-  <div class="absolute left-1/2 -translate-x-1/2 bottom-[-40%] w-[130vw] max-w-[1500px] aspect-square rounded-full planet" aria-hidden="true"></div>
-  <div class="orb animate-float w-[360px] h-[360px] bg-lime-500/14 left-[12%] top-[10%]"></div>
+<!-- ============ 4. FAIXA ============ -->
+<div class="faixa" aria-label="Os gargalos que travam o crescimento">
+  <div class="faixa-trilho">
+    <ul>
+      <li>Vendas estagnadas</li><li class="sep" aria-hidden="true"></li>
+      <li>Equipa sem performance</li><li class="sep" aria-hidden="true"></li>
+      <li>Processos desorganizados</li><li class="sep" aria-hidden="true"></li>
+      <li>Tudo depende do dono</li><li class="sep" aria-hidden="true"></li>
+      <li>Sobrecarga</li><li class="sep" aria-hidden="true"></li>
+      <li>Ideia que não sai do papel</li><li class="sep" aria-hidden="true"></li>
+      <li>Conhecimento sem modelo de negócio</li><li class="sep" aria-hidden="true"></li>
+      <li>Decisões adiadas</li><li class="sep" aria-hidden="true"></li>
+    </ul>
+    <ul aria-hidden="true">
+      <li>Vendas estagnadas</li><li class="sep"></li>
+      <li>Equipa sem performance</li><li class="sep"></li>
+      <li>Processos desorganizados</li><li class="sep"></li>
+      <li>Tudo depende do dono</li><li class="sep"></li>
+      <li>Sobrecarga</li><li class="sep"></li>
+      <li>Ideia que não sai do papel</li><li class="sep"></li>
+      <li>Conhecimento sem modelo de negócio</li><li class="sep"></li>
+      <li>Decisões adiadas</li><li class="sep"></li>
+    </ul>
+  </div>
+</div>
 
-  <div class="relative max-w-3xl mx-auto px-5 sm:px-8 text-center">
-    <h2 data-reveal class="font-semibold tracking-[-0.04em] leading-[1.02] text-[clamp(2.2rem,6.4vw,4.2rem)]">
-      Pronto para ter <span class="text-lime-500">clareza</span> sobre o próximo passo?
-    </h2>
-    <p data-reveal style="--reveal-delay:100ms" class="mt-6 text-muted text-lg leading-relaxed max-w-xl mx-auto">
-      Fale com a Kingdom Company e agende a sua sessão de Advising com O Conselheiro.
-    </p>
-
-    <div data-reveal style="--reveal-delay:190ms" class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-      <a href="mailto:comercial@kingdomcompany.co.za" data-magnetic class="group btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-lime-500 text-black font-semibold px-7 py-4 hover:bg-lime-400 transition-colors">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 7l9 6 9-6"/></svg>
-        comercial@kingdomcompany.co.za
-      </a>
-      <a href="tel:+258851800920" data-magnetic class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-white font-semibold px-7 py-4 hover:bg-white/15 transition-colors">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3.5l1.8 4.4-2.2 1.3a12 12 0 006.7 6.7l1.3-2.2 4.4 1.8V19a2 2 0 01-2.2 2A16.5 16.5 0 013 5.7 2 2 0 015 3.5z"/></svg>
-        +258 85 1800 920
-      </a>
+<!-- ============ PROBLEMA ============ -->
+<section class="seccao" id="problema">
+  <div class="contentor problema">
+    <div class="cabeca revela">
+      <h2>Talvez o teu problema não seja falta de conhecimento.</h2>
+      <p class="apagado" style="font-size:17px">Já leste. Já estudaste. Já tentaste diferentes estratégias. Já tens experiência.</p>
+      <p>Mas continuas sem conseguir responder com clareza:</p>
+      <div class="pergunta cartao">“O que está realmente a impedir o meu crescimento?”</div>
+    </div>
+    <div class="revela">
+      <ul class="sinais">
+        <li><svg><use href="#i-menos"/></svg>As vendas não avançam.</li>
+        <li><svg><use href="#i-menos"/></svg>A equipa não entrega como deveria.</li>
+        <li><svg><use href="#i-menos"/></svg>O negócio depende demasiado de ti.</li>
+        <li><svg><use href="#i-menos"/></svg>Tens demasiadas coisas para resolver ao mesmo tempo.</li>
+        <li><svg><use href="#i-menos"/></svg>Tens uma ideia, mas não sabes por onde começar.</li>
+        <li><svg><use href="#i-menos"/></svg>Precisas de tomar uma decisão importante e não tens clareza suficiente para a tomar.</li>
+      </ul>
+      <div class="chamada">
+        <h3>É para esses momentos que existe o Advising.</h3>
+        <a href="#metodo" class="botao botao-escuro botao-pequeno">Ver como funciona <svg><use href="#i-seta"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ FOOTER ============================ -->
-<footer class="relative border-t border-white/8 bg-surface/50">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
-    <div class="grid md:grid-cols-3 gap-10 md:gap-8">
-      <div>
-        <a href="#top" class="flex items-center gap-2.5 mb-5">
-          <span class="grid place-items-center w-9 h-9 rounded-xl bg-lime-500">
-            <svg width="18" height="18" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1.5 L23.2 17.4 L38.5 20 L23.2 22.6 L20 38.5 L16.8 22.6 L1.5 20 L16.8 17.4 Z" fill="#000"/></svg>
-          </span>
-          <span class="font-semibold tracking-tight">O Conselheiro<span class="text-lime-500">.</span></span>
-        </a>
-        <p class="text-muted text-sm leading-relaxed max-w-xs">
-          Para quem precisa de menos informação e mais clareza.
-        </p>
-      </div>
+<section class="seccao" id="solucao" style="padding-top:0">
+  <div class="contentor">
+    <div class="cabeca centro revela">
+      <h2>Não precisas de mais uma formação.</h2>
+      <p class="entrada">Precisas de alguém que consiga olhar para o teu cenário e ajudar-te a ver o que tu não estás a ver. O Advising é uma sessão de aconselhamento estratégico e personalizado onde analisamos o teu contexto, identificamos os principais gargalos e definimos o que precisa de ser resolvido primeiro.</p>
+    </div>
+    <div class="nao-e revela">
+      <span><svg><use href="#i-x"/></svg>Não é uma conversa motivacional</span>
+      <span><svg><use href="#i-x"/></svg>Não é uma aula genérica</span>
+      <span><svg><use href="#i-x"/></svg>Não é um pacote de conselhos prontos</span>
+    </div>
+    <p class="afirmacao revela">É uma sessão para trazer <strong>clareza e direcção.</strong></p>
+  </div>
+</section>
 
-      <div>
-        <p class="text-white font-medium mb-4 text-sm">Navegação</p>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href="#metodologia" class="text-muted hover:text-lime-500 transition-colors">Metodologia</a></li>
-          <li><a href="#programa" class="text-muted hover:text-lime-500 transition-colors">Programa</a></li>
-          <li><a href="#para-quem" class="text-muted hover:text-lime-500 transition-colors">Para Quem É</a></li>
-          <li><a href="#conselheiro" class="text-muted hover:text-lime-500 transition-colors">O Conselheiro</a></li>
-          <li><a href="#como-funciona" class="text-muted hover:text-lime-500 transition-colors">Como Funciona</a></li>
+<!-- ============ 5. PILARES: O MÉTODO ============ -->
+<section class="seccao" id="metodo" style="padding-top:40px">
+  <div class="contentor">
+    <div class="cabeca centro revela">
+      <h2>A Tríade da Clareza</h2>
+      <p class="entrada">Para alcançar qualquer resultado consistente são precisas três clarezas: ver com precisão onde estás, compreender qual é o caminho certo a seguir e saber com exactidão o que fazer, em que ordem e em que momento.</p>
+    </div>
+
+    <nav class="separadores" aria-label="Fases do método">
+      <div class="separadores-dentro vidro" id="separadores">
+        <span class="indicador" aria-hidden="true"></span>
+        <a href="#pilar-raio-x" class="activo">Raio-X</a>
+        <a href="#pilar-advising">Advising</a>
+        <a href="#pilar-plano">Plano</a>
+        <a href="#pilar-resultado">Resultado</a>
+      </div>
+    </nav>
+
+    <article class="pilar" id="pilar-raio-x">
+      <div class="pilar-texto revela">
+        <div class="fase"><span>01</span>Diagnóstico</div>
+        <h3>Raio-X</h3>
+        <p>Perceber onde estás. Analisamos a situação actual do teu negócio, projecto, equipa ou contexto pessoal.</p>
+        <ul class="lista-certos">
+          <li><svg><use href="#i-certo"/></svg>Identificação de dores, gargalos, pontos cegos e oportunidades.</li>
+          <li><svg><use href="#i-certo"/></svg>Análise dos dados disponíveis: financeiros, operacionais e de mercado.</li>
+          <li><svg><use href="#i-certo"/></svg>Definição clara de onde estás hoje, o verdadeiro ponto de partida.</li>
         </ul>
       </div>
+      <div class="cartao desenho revela" data-desenho>
+        <div class="radar-pilar">
+          <div class="varrimento" aria-hidden="true"></div>
+          <svg viewBox="-52 -16 304 214" role="img" aria-label="Radar a mapear a situação actual em cinco áreas.">
+            <g fill="none" stroke="rgba(255,255,255,.12)">
+              <polygon points="100.0,20.0 176.1,75.3 147.0,164.7 53.0,164.7 23.9,75.3"/>
+              <polygon points="100.0,40.0 157.1,81.5 135.3,148.5 64.7,148.5 42.9,81.5"/>
+              <polygon points="100.0,60.0 138.0,87.6 123.5,132.4 76.5,132.4 62.0,87.6"/>
+              <polygon points="100.0,80.0 119.0,93.8 111.8,116.2 88.2,116.2 81.0,93.8"/>
+              <path d="M100 100 100 20M100 100 176.1 75.3M100 100 147 164.7M100 100 53 164.7M100 100 23.9 75.3"/>
+            </g>
+            <polygon class="surge" style="--d:.9s" points="100.0,52.0 138.0,87.6 135.3,148.5 57.7,158.2 69.6,90.1" fill="rgba(255,255,255,.14)"/>
+            <polygon class="traco" pathLength="1" points="100.0,52.0 138.0,87.6 135.3,148.5 57.7,158.2 69.6,90.1" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+            <g fill="#fff" class="surge" style="--d:1.2s">
+              <circle cx="100" cy="52" r="3.5"/><circle cx="138" cy="87.6" r="3.5"/><circle cx="135.3" cy="148.5" r="3.5"/><circle cx="57.7" cy="158.2" r="3.5"/><circle cx="69.6" cy="90.1" r="3.5"/>
+            </g>
+            <g fill="#bdbdbd" font-size="13" font-family="Google Sans, sans-serif">
+              <text x="100" y="4" text-anchor="middle">Vendas</text>
+              <text x="186" y="72">Equipa</text>
+              <text x="156" y="186">Processos</text>
+              <text x="44" y="186" text-anchor="end">Delegação</text>
+              <text x="14" y="72" text-anchor="end">Direcção</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </article>
 
-      <div>
-        <p class="text-white font-medium mb-4 text-sm">Contacto</p>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href="mailto:comercial@kingdomcompany.co.za" class="text-muted hover:text-lime-500 transition-colors break-all">comercial@kingdomcompany.co.za</a></li>
-          <li><a href="tel:+258851800920" class="text-muted hover:text-lime-500 transition-colors">+258 85 1800 920</a></li>
-          <li class="text-muted leading-relaxed pt-2">Av. de Moçambique, Prédio do Talho<br>Flat No. 9, Maputo, Moçambique</li>
+    <article class="pilar" id="pilar-advising">
+      <div class="pilar-texto revela">
+        <div class="fase"><span>02</span>Aconselhamento</div>
+        <h3>Advising</h3>
+        <p>Perceber o que precisa de ser feito. A partir do diagnóstico, definimos as soluções recomendadas, objectivos, metas e prioridades.</p>
+        <ul class="lista-certos">
+          <li><svg><use href="#i-certo"/></svg>Soluções recomendadas a partir das dores identificadas.</li>
+          <li><svg><use href="#i-certo"/></svg>Indicadores de desempenho para acompanhar cada solução.</li>
+          <li><svg><use href="#i-certo"/></svg>Alinhamento de expectativas: o que é realista alcançar e em que prazo.</li>
         </ul>
+      </div>
+      <div class="cartao desenho revela" data-desenho>
+        <div class="fluxo" id="fluxo">
+          <div class="no"><span class="ico-caixa"><svg><use href="#i-lupa"/></svg></span><span><b>Dor identificada</b><small>O que está a travar o crescimento</small></span></div>
+          <div class="ligacao" aria-hidden="true"></div>
+          <div class="no"><span class="ico-caixa"><svg><use href="#i-bussola"/></svg></span><span><b>Solução recomendada</b><small>O caminho certo para este contexto</small></span></div>
+          <div class="ligacao" aria-hidden="true"></div>
+          <div class="no"><span class="ico-caixa"><svg><use href="#i-alvo"/></svg></span><span><b>Objectivo e meta</b><small>O que é realista e em que prazo</small></span></div>
+          <div class="ligacao" aria-hidden="true"></div>
+          <div class="no"><span class="ico-caixa"><svg><use href="#i-grafico"/></svg></span><span><b>Indicador de desempenho</b><small>Como acompanhar se está a funcionar</small></span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="pilar" id="pilar-plano">
+      <div class="pilar-texto revela">
+        <div class="fase"><span>03</span>Roadmap</div>
+        <h3>Plano</h3>
+        <p>Saber exactamente como avançar. Transformamos a solução num roteiro executável, com sequência lógica: o que precisa de ser resolvido primeiro para desbloquear o resto.</p>
+        <ul class="lista-certos">
+          <li><svg><use href="#i-certo"/></svg>Etapas, prioridades e responsáveis.</li>
+          <li><svg><use href="#i-certo"/></svg>Documento final claro e accionável, pronto para executares.</li>
+          <li><svg><use href="#i-certo"/></svg>Próximos passos definidos, para saíres com direcção e não apenas com ideias.</li>
+        </ul>
+      </div>
+      <div class="cartao desenho revela" data-desenho>
+        <div class="documento">
+          <div class="doc-topo"><b>Plano de acção</b><small>Exemplo ilustrativo</small></div>
+          <div class="gantt">
+            <div class="gantt-linha"><span>Prioridade 1</span><span class="gantt-pista"><i style="--i:0%;--w:34%;--d:.2s"></i></span></div>
+            <div class="gantt-linha"><span>Prioridade 2</span><span class="gantt-pista"><i style="--i:24%;--w:40%;--d:.45s"></i></span></div>
+            <div class="gantt-linha"><span>Prioridade 3</span><span class="gantt-pista"><i style="--i:52%;--w:30%;--d:.7s"></i></span></div>
+            <div class="gantt-linha"><span>Indicadores</span><span class="gantt-pista"><i style="--i:10%;--w:90%;--d:.95s"></i></span></div>
+          </div>
+          <div class="gantt-meses" aria-hidden="true"><span>·</span><span>Mês 1</span><span>Mês 2</span><span>Mês 3</span></div>
+          <div class="assinatura" style="margin-top:22px">
+            <svg viewBox="0 0 150 52" fill="none" aria-hidden="true"><path class="traco" style="--d:1.2s" pathLength="1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 38C12 12 24 8 22 30S30 46 40 26 52 10 55 30 64 42 72 22C76 13 81 34 88 30S99 16 104 28 117 37 130 18M18 45C52 41 96 40 144 38"/></svg>
+            <small>Shelton Douglas<br>O Conselheiro</small>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="pilar" id="pilar-resultado">
+      <div class="pilar-texto revela">
+        <div class="fase"><span>04</span>No fim da sessão</div>
+        <h3>O objectivo não é dar-te mais informação. É reduzir a confusão.</h3>
+        <p>No final da sessão, deves ter maior clareza sobre:</p>
+        <ul class="lista-certos">
+          <li><svg><use href="#i-certo"/></svg><span><strong>Onde estás:</strong> o verdadeiro ponto de partida.</span></li>
+          <li><svg><use href="#i-certo"/></svg><span><strong>O que está a bloquear-te:</strong> os principais gargalos e pontos cegos.</span></li>
+          <li><svg><use href="#i-certo"/></svg><span><strong>O que precisa de ser resolvido:</strong> as prioridades reais.</span></li>
+          <li><svg><use href="#i-certo"/></svg><span><strong>O que fazer a seguir:</strong> um caminho claro para avançar.</span></li>
+        </ul>
+      </div>
+      <div class="cartao desenho revela" data-desenho>
+        <div class="grafico">
+          <svg viewBox="0 0 480 260" role="img" aria-label="Gráfico ilustrativo: a clareza sobe e a confusão desce ao longo das três fases da sessão.">
+            <g stroke="rgba(255,255,255,.08)"><path d="M30 40H460M30 95H460M30 150H460M30 205H460"/></g>
+            <path class="traco" style="--d:.2s" pathLength="1" d="M40 60C100 70 130 110 173 120S260 160 306 175 400 200 440 205" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2.2" stroke-linecap="round"/>
+            <path class="traco" style="--d:.5s" pathLength="1" d="M40 205C100 200 130 175 173 160S260 110 306 85 400 50 440 42" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+            <g class="surge" style="--d:1.6s" fill="#000" stroke="#fff" stroke-width="2"><circle cx="440" cy="42" r="6"/></g>
+            <g fill="#8c8c8c" font-size="15" font-family="Google Sans, sans-serif" text-anchor="middle">
+              <text x="40" y="245">Antes</text><text x="173" y="245">Raio-X</text><text x="306" y="245">Advising</text><text x="440" y="245">Plano</text>
+            </g>
+          </svg>
+          <div class="legenda"><span><i></i>Clareza</span><span><i class="cinza"></i>Confusão</span><span class="apagado">Dados ilustrativos</span></div>
+        </div>
+      </div>
+    </article>
+    <div class="fim-pilares" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ============ 6. BENTO ============ -->
+<section class="seccao" style="padding-top:40px">
+  <div class="contentor">
+    <div class="cabeca revela">
+      <h2>Uma sessão. Três fases. Um plano para executar.</h2>
+    </div>
+    <div class="bento">
+      <article class="cartao holofote largo revela" data-desenho>
+        <div class="sessao-janela vidro">
+          <div class="janela-topo">
+            <span class="pontos" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="janela-titulo">Sessão de Advising</span>
+            <span class="sessao-tempo">1 a 2 horas</span>
+          </div>
+          <div class="sessao-ecras">
+            <div class="ecra contorno"><img src="/img/shelton.jpg" alt="" loading="lazy" width="880" height="768"><small>Shelton Douglas</small></div>
+            <div class="ecra contorno"><span class="inicial">Tu</span><small>Tu</small></div>
+          </div>
+          <div class="fases-barra">
+            <div class="pista" aria-hidden="true"><span class="seg"><i></i></span><span class="seg"><i></i></span><span class="seg"><i></i></span></div>
+            <div class="nomes"><span>Raio-X</span><span>Advising</span><span>Plano</span></div>
+          </div>
+        </div>
+        <div class="texto">
+          <h3>Conduzida pessoalmente, do diagnóstico ao plano.</h3>
+          <p>Uma estrutura lógica na mesma sessão: Raio-X da situação, identificação dos pontos críticos e plano de acção. Online por Google Meet ou presencial em Maputo.</p>
+        </div>
+      </article>
+
+      <article class="cartao holofote revela">
+        <div class="orbita" aria-hidden="true">
+          <span class="anel a1"></span><span class="anel a2"></span>
+          <div class="roda">
+            <span class="satelite" style="--a:0deg;--raio:130px"><span><svg><use href="#i-lupa"/></svg></span></span>
+            <span class="satelite" style="--a:120deg;--raio:130px"><span><svg><use href="#i-bussola"/></svg></span></span>
+            <span class="satelite" style="--a:240deg;--raio:130px"><span><svg><use href="#i-rota"/></svg></span></span>
+          </div>
+          <div class="roda r2">
+            <span class="satelite" style="--a:60deg;--raio:84px"><span><svg><use href="#i-alvo"/></svg></span></span>
+            <span class="satelite" style="--a:240deg;--raio:84px"><span><svg><use href="#i-sobe"/></svg></span></span>
+          </div>
+          <div class="nucleo"><img src="/img/logo.png" alt="" width="360" height="360"></div>
+        </div>
+        <div class="texto">
+          <h3>Métodos autorais</h3>
+          <p>Baseados em conhecimento tácito, inspirados nas experiências, histórias e trajectórias reais do Conselheiro.</p>
+        </div>
+      </article>
+
+      <article class="cartao holofote revela">
+        <span class="numero-gigante" aria-hidden="true">3</span>
+        <span class="pilula"><svg><use href="#i-certo"/></svg>Clarezas essenciais</span>
+        <div class="texto">
+          <h3>Onde estás, para onde vais, por onde começas.</h3>
+          <p>Resultados sustentáveis nascem quando o empreendedor e o empreendimento crescem juntos.</p>
+        </div>
+      </article>
+
+      <article class="cartao holofote largo revela">
+        <img class="triade-img" src="/img/triade.png" alt="Diagrama da Tríade da Clareza: Raio-X, Advising e Plano, os três lados do triângulo." width="1100" height="880" loading="lazy">
+        <div class="texto">
+          <h3>Os três lados do mesmo triângulo.</h3>
+          <p>Raio-X, Advising e Plano não funcionam sozinhos. É a combinação dos três que transforma confusão em decisões.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FAIXAS DE DETALHES: PARA TI SE ============ -->
+<section class="seccao" id="para-ti" style="padding-top:40px">
+  <div class="contentor">
+    <div class="cabeca revela">
+      <h2>Este Advising é para ti se…</h2>
+    </div>
+  </div>
+  <div class="filas revela">
+    <div class="fila">
+      <div class="fila-grupo">
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-sobe"/></svg></span><h4>Tens um negócio, mas sentes que está estagnado.</h4><p>As vendas deixaram de crescer ou estão abaixo do que esperavas.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-pessoas"/></svg></span><h4>A tua equipa não está a entregar como deveria.</h4><p>Existe dificuldade de performance, organização ou execução.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-ancora"/></svg></span><h4>O negócio depende demasiado de ti.</h4><p>Tudo passa por ti e sentes que não consegues sair da operação.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-camadas"/></svg></span><h4>Tens processos desorganizados.</h4><p>Sabes que precisas de estrutura, mas não sabes exactamente o que deve ser organizado primeiro.</p></div>
+      </div>
+      <div class="fila-grupo" aria-hidden="true">
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-sobe"/></svg></span><h4>Tens um negócio, mas sentes que está estagnado.</h4><p>As vendas deixaram de crescer ou estão abaixo do que esperavas.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-pessoas"/></svg></span><h4>A tua equipa não está a entregar como deveria.</h4><p>Existe dificuldade de performance, organização ou execução.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-ancora"/></svg></span><h4>O negócio depende demasiado de ti.</h4><p>Tudo passa por ti e sentes que não consegues sair da operação.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-camadas"/></svg></span><h4>Tens processos desorganizados.</h4><p>Sabes que precisas de estrutura, mas não sabes exactamente o que deve ser organizado primeiro.</p></div>
+      </div>
+    </div>
+    <div class="fila inversa">
+      <div class="fila-grupo">
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-peso"/></svg></span><h4>Estás sobrecarregado.</h4><p>Passas demasiado tempo a resolver problemas e pouco tempo a trabalhar no crescimento.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-ideia"/></svg></span><h4>Tens uma ideia, mas não sabes como transformá-la em realidade.</h4><p>Precisas de validar, estruturar e definir os próximos passos.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-dinheiro"/></svg></span><h4>Tens conhecimento, mas não sabes como o transformar num negócio.</h4><p>Precisas de clareza sobre posicionamento, modelo ou caminho de monetização.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-labirinto"/></svg></span><h4>Estás perdido sobre qual deve ser o próximo passo.</h4><p>E sabes que continuar a fazer tudo ao mesmo tempo não é solução.</p></div>
+      </div>
+      <div class="fila-grupo" aria-hidden="true">
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-peso"/></svg></span><h4>Estás sobrecarregado.</h4><p>Passas demasiado tempo a resolver problemas e pouco tempo a trabalhar no crescimento.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-ideia"/></svg></span><h4>Tens uma ideia, mas não sabes como transformá-la em realidade.</h4><p>Precisas de validar, estruturar e definir os próximos passos.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-dinheiro"/></svg></span><h4>Tens conhecimento, mas não sabes como o transformar num negócio.</h4><p>Precisas de clareza sobre posicionamento, modelo ou caminho de monetização.</p></div>
+        <div class="cartao medio detalhe"><span class="ico-caixa"><svg><use href="#i-labirinto"/></svg></span><h4>Estás perdido sobre qual deve ser o próximo passo.</h4><p>E sabes que continuar a fazer tudo ao mesmo tempo não é solução.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. CARROSSEL: O ADVISING PARA CADA MOMENTO ============ -->
+<section class="seccao" style="padding-top:40px">
+  <div class="contentor">
+    <div class="cabeca revela">
+      <h2>O que sai da sessão, em cada momento.</h2>
+      <p class="entrada">Cada sessão é adaptada ao teu contexto. Estes são exemplos do tipo de clareza com que podes sair.</p>
+    </div>
+    <div class="cartao carrossel revela" id="carrossel" aria-roledescription="carrossel" aria-label="Exemplos de situações">
+      <div class="carrossel-palco">
+        <div class="slide-texto">
+          <div class="troca" data-troca>
+            <div class="contagem" id="car-contagem">1 / 5</div>
+            <h3 id="car-titulo">O negócio estagnou.</h3>
+            <p id="car-texto">As vendas deixaram de crescer e já tentaste de tudo um pouco. O Raio-X separa o que é sintoma do que é causa, e o plano diz o que mudar primeiro.</p>
+          </div>
+          <div class="carrossel-controlos">
+            <button class="seta" type="button" id="car-ant" aria-label="Exemplo anterior"><svg><use href="#i-seta-esq"/></svg></button>
+            <button class="seta" type="button" id="car-seg" aria-label="Exemplo seguinte"><svg><use href="#i-seta"/></svg></button>
+            <div class="marcadores" id="car-marcadores"></div>
+          </div>
+        </div>
+        <div class="telemovel" aria-hidden="true">
+          <div class="telemovel-ecra">
+            <div class="troca" data-troca>
+              <div class="tel-topo"><span class="inic" id="tel-inic">LM</span><span><b id="tel-nome">Loja Marés</b><small id="tel-sector">Comércio · Plano de acção</small></span></div>
+              <div class="tel-bloco contorno"><small>Gargalo principal</small><p id="tel-gargalo">A oferta é igual à da concorrência.</p></div>
+              <div class="tel-bloco contorno"><small>Por ordem</small>
+                <ul class="tel-lista" id="tel-lista">
+                  <li><i>1</i>Rever o posicionamento e a oferta</li>
+                  <li><i>2</i>Definir uma meta de vendas mensal</li>
+                  <li><i>3</i>Acompanhar dois indicadores por semana</li>
+                </ul>
+              </div>
+              <div class="tel-bloco contorno"><small>Próximo passo</small><p id="tel-passo">Esta semana: falar com 10 clientes actuais.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="nota">Exemplos ilustrativos: os negócios e os planos são inventados.</p>
+  </div>
+</section>
+
+<!-- ============ O CONSELHEIRO ============ -->
+<section class="seccao" id="conselheiro">
+  <div class="contentor conselheiro">
+    <div class="retrato revela">
+      <img src="/img/shelton.jpg" alt="Shelton Douglas" width="880" height="768" loading="lazy">
+      <span class="pilula">O Conselheiro</span>
+    </div>
+    <div class="revela">
+      <h2>Shelton Douglas</h2>
+      <p class="papel">Conselheiro de empresas e mentor de empreendedores</p>
+      <p class="entrada">As sessões são conduzidas pessoalmente por Shelton Douglas, com experiência no desenvolvimento de pequenas e médias empresas e na orientação de empreendedores.</p>
+      <p class="entrada">Actua como conselheiro de empresas, personalidades públicas e mentor de empreendedores, ajudando os seus clientes a obter maior clareza, estruturar soluções e tomar decisões mais assertivas. Mais do que oferecer respostas prontas, o papel do Conselheiro é fazer as perguntas certas, identificar aquilo que muitas vezes não é evidente e ajudar-te a encontrar clareza para decidir e avançar.</p>
+      <div class="abordagem">
+        <span>Visão estratégica</span><span>Orientação para resultados</span><span>Análise de cenários</span><span>Identificação de pontos cegos</span>
+      </div>
+      <div class="certificados">
+        <div class="contorno"><b>Google Display Ads</b><small>Google Skills, USA</small></div>
+        <div class="contorno"><b>Inteligência Artificial</b><small>Atrophic, USA</small></div>
+        <div class="contorno"><b>Inbound Marketing</b><small>Rock Content University, Brasil</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccao" id="confiam" style="padding-top:0">
+  <div class="contentor">
+    <div class="cabeca centro revela">
+      <h2>Empreendedores que confiam na expertise do Conselheiro</h2>
+    </div>
+    <div class="confianca">
+      <div class="cartao medio pessoa revela"><img src="/img/clientes/sheila-ibrahimo.jpg" alt="Sheila Ibrahimo" width="240" height="240" loading="lazy"><div><h4>Sheila Ibrahimo</h4><span class="arroba">@sheilaibrahimo</span><p>Empresária, comunicadora, fundadora de marca de cosmética</p><span class="seguidores"><svg><use href="#i-pessoas"/></svg>666 mil seguidores</span></div></div>
+      <div class="cartao medio pessoa revela"><img src="/img/clientes/criss-joan.jpg" alt="Criss Joan" width="240" height="240" loading="lazy"><div><h4>Criss Joan</h4><span class="arroba">@criss_swb</span><p>Influencer, mudança de mentalidade</p><span class="seguidores"><svg><use href="#i-pessoas"/></svg>108 mil seguidores</span></div></div>
+      <div class="cartao medio pessoa revela"><img src="/img/clientes/irene-solange.jpg" alt="Irene Solange" width="240" height="240" loading="lazy"><div><h4>Irene Solange</h4><span class="arroba">@irenesolangee</span><p>Apresentadora e jornalista, socióloga, saúde pública</p><span class="seguidores"><svg><use href="#i-pessoas"/></svg>67,6 mil seguidores</span></div></div>
+      <div class="cartao medio pessoa revela"><img src="/img/clientes/lizete-mangueleze.jpg" alt="Lizete Mangueleze" width="240" height="240" loading="lazy"><div><h4>Lizete Mangueleze</h4><span class="arroba">@lizetemangueleze</span><p>Antropóloga e estratega de marcas</p><span class="seguidores"><svg><use href="#i-pessoas"/></svg>10,5 mil seguidores</span></div></div>
+      <div class="cartao medio pessoa revela"><img src="/img/clientes/arcelia-massango.jpg" alt="Arcélia Massango" width="240" height="240" loading="lazy"><div><h4>Arcélia Massango</h4><span class="arroba">@arceliamassango</span><p>Vendas, palestras, negócios, treinamento</p><span class="seguidores"><svg><use href="#i-pessoas"/></svg>7.339 seguidores</span></div></div>
+      <div class="cartao medio pessoa revela"><img src="/img/clientes/solange-mateus.jpg" alt="Solange Mateus" width="240" height="240" loading="lazy"><div><h4>Solange Mateus</h4><span class="arroba">@solangemateusm</span><p>Founder e consultora</p><span class="seguidores"><svg><use href="#i-pessoas"/></svg>2.809 seguidores</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRITÉRIO ============ -->
+<section class="seccao" id="nao-e">
+  <div class="contentor criterio">
+    <div class="revela">
+      <h2>Não é para toda a gente.</h2>
+      <p class="entrada" style="margin-top:20px">O Advising é para quem está disposto a olhar honestamente para a própria situação e fazer o necessário para avançar.</p>
+      <p class="forte">O Advising exige abertura, responsabilidade e disposição para agir.</p>
+    </div>
+    <ul class="lista-nao cartao medio revela">
+      <li><svg><use href="#i-x"/></svg>Procuras apenas motivação momentânea.</li>
+      <li><svg><use href="#i-x"/></svg>Não estás disposto a implementar o que for definido.</li>
+      <li><svg><use href="#i-x"/></svg>Não aceitas rever decisões, comportamentos ou processos.</li>
+      <li><svg><use href="#i-x"/></svg>Queres crescimento sem mudar a forma como trabalhas.</li>
+      <li><svg><use href="#i-x"/></svg>Não tens abertura para receber feedback directo.</li>
+      <li><svg><use href="#i-x"/></svg>Procuras alguém para assumir a responsabilidade pelo teu negócio.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ COMO ACONTECE ============ -->
+<section class="seccao" id="sessao" style="padding-top:0">
+  <div class="contentor">
+    <div class="cabeca revela">
+      <h2>Como acontece</h2>
+      <p class="entrada">Cada sessão é adaptada aos desafios, objectivos e contexto específico de cada cliente.</p>
+    </div>
+    <div class="formatos">
+      <div class="cartao medio formato holofote revela"><span class="ico-caixa"><svg><use href="#i-ecra"/></svg></span><h3>Online</h3><p>Sessão através do Google Meet, com acompanhamento totalmente personalizado.</p></div>
+      <div class="cartao medio formato holofote revela"><span class="ico-caixa"><svg><use href="#i-local"/></svg></span><h3>Presencial</h3><p>Sessão presencial na cidade de Maputo, em local previamente acordado ou nas instalações da Kingdom Company.</p></div>
+    </div>
+    <div class="sub revela">
+      <h3>Como preparar a sessão</h3>
+      <p>Quanto mais claro for o cenário apresentado, mais profundo e objectivo poderá ser o aconselhamento. Vem preparado com:</p>
+    </div>
+    <div class="preparar">
+      <div class="cartao pequeno revela"><small>01</small>As principais dúvidas que tens.</div>
+      <div class="cartao pequeno revela"><small>02</small>Os desafios que estás a enfrentar.</div>
+      <div class="cartao pequeno revela"><small>03</small>As decisões que precisas de tomar.</div>
+      <div class="cartao pequeno revela"><small>04</small>Os teus principais objectivos.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. INVESTIMENTO ============ -->
+<section class="seccao" id="investimento" style="border-top:1px solid var(--linha);overflow:hidden">
+  <div class="precos-fundo" aria-hidden="true"></div>
+  <div class="contentor" style="position:relative">
+    <div class="cabeca centro revela">
+      <h2>Escolhe a forma de fazer o teu Advising</h2>
+    </div>
+    <div class="planos">
+      <div class="cartao plano revela">
+        <div class="plano-tipo"><svg><use href="#i-ecra"/></svg>Advising Online</div>
+        <h3>Sessão individual por Google Meet</h3>
+        <p class="desc">Para quem está fora de Maputo ou prefere resolver sem sair do escritório.</p>
+        <div class="plano-preco"><span class="valor" data-valor="2650">2.650</span><span class="unidade">MT por hora</span></div>
+        <ul>
+          <li><svg><use href="#i-certo"/></svg>Raio-X, Advising e Plano na mesma sessão</li>
+          <li><svg><use href="#i-certo"/></svg>Conduzida pessoalmente por Shelton Douglas</li>
+          <li><svg><use href="#i-certo"/></svg>Totalmente adaptada ao teu contexto</li>
+        </ul>
+        <a href="https://payflow.kingdomcompny.com/business-advising-com-o-conselheiro-online" class="botao botao-linha botao-largo">Marcar Advising Online <svg><use href="#i-seta"/></svg></a>
+      </div>
+      <div class="cartao plano destaque revela">
+        <div class="plano-tipo"><svg><use href="#i-local"/></svg>Advising Presencial<span class="promo">Preço promocional</span></div>
+        <h3>Sessão individual em Maputo</h3>
+        <p class="desc">Para cenários mais complexos, que pedem mais tempo e análise de documentos.</p>
+        <div class="plano-preco"><span class="antes">5.300 MT</span><span class="valor" data-valor="3650">3.650</span><span class="unidade">MT por até 2 horas</span></div>
+        <ul>
+          <li><svg><use href="#i-certo"/></svg>Raio-X, Advising e Plano com mais profundidade</li>
+          <li><svg><use href="#i-certo"/></svg>Em local previamente acordado ou na Kingdom Company</li>
+          <li><svg><use href="#i-certo"/></svg>Espaço para envolver a equipa ou os sócios</li>
+        </ul>
+        <a href="https://payflow.kingdomcompny.com/business-advising-com-o-conselheiro-presencial" class="botao botao-escuro botao-largo">Marcar Advising Presencial <svg><use href="#i-seta"/></svg></a>
       </div>
     </div>
 
-    <div class="mt-14 pt-8 border-t border-white/8 flex flex-col md:flex-row gap-5 md:items-center md:justify-between">
-      <p class="text-faint text-xs leading-relaxed max-w-2xl">
-        Ao concluir a inscrição no Advising, o cliente declara ter aceite integralmente os
-        Termos, celebrando com a Kingdom Company um contrato de prestação de serviços de
-        consultoria, nos termos dos artigos 405.º e 406.º do Código Civil.
-      </p>
-      <p class="text-faint text-xs shrink-0">© 2026 Kingdom Company PYT</p>
+    <div class="cartao medio comparar revela" data-desenho>
+      <div>
+        <h4>Quanto custa uma sessão de 2 horas</h4>
+        <p>O online é cobrado por hora. O presencial cobre até 2 horas, com o preço promocional.</p>
+      </div>
+      <div class="barras-preco" role="img" aria-label="Duas horas online custam 5.300 MT; o presencial custa 3.650 MT até 2 horas, em vez de 5.300 MT.">
+        <div class="linha"><span>Online, 2 horas</span><span class="pista"><i class="cinza" style="--v:100%;--d:.1s"></i></span><b>5.300 MT</b></div>
+        <div class="linha"><span>Presencial, preço normal</span><span class="pista"><i class="cinza" style="--v:100%;--d:.25s"></i></span><b>5.300 MT</b></div>
+        <div class="linha"><span>Presencial, promoção</span><span class="pista"><i style="--v:68.9%;--d:.4s"></i></span><b>3.650 MT</b></div>
+      </div>
     </div>
+
+    <div class="marcar-passos">
+      <div class="cartao medio revela"><span class="n">01</span><span class="ico-caixa"><svg><use href="#i-bussola"/></svg></span><h4>Escolhes o formato</h4><p>Decides se queres a sessão presencial, em Maputo, ou online por Google Meet.</p></div>
+      <div class="cartao medio revela"><span class="n">02</span><span class="ico-caixa"><svg><use href="#i-dinheiro"/></svg></span><h4>Fazes o pagamento</h4><p>O pagamento é feito no formato que escolheste, directamente na página de pagamento.</p></div>
+      <div class="cartao medio revela"><span class="n">03</span><span class="ico-caixa"><svg><use href="#i-calendario"/></svg></span><h4>Recebes o link de agendamento</h4><p>Logo a seguir ao pagamento, recebes um link para escolheres a data e o local da sessão.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. PERGUNTAS ============ -->
+<section class="seccao" id="perguntas" style="padding-top:40px">
+  <div class="contentor">
+    <div class="cabeca centro revela">
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="perguntas revela" id="lista-perguntas">
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false" aria-controls="r1" id="p1">Como funciona a sessão?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r1" role="region" aria-labelledby="p1"><div><p>Numa sessão de 1 a 2 horas passamos pelas três fases da Tríade da Clareza: o Raio-X da tua situação actual, o Advising com as soluções e prioridades, e o Plano, um roteiro com etapas, prioridades e responsáveis, pronto para executares.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false" aria-controls="r2" id="p2">Online ou presencial: qual devo escolher?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r2" role="region" aria-labelledby="p2"><div><p>O online, por Google Meet, é para quem está fora de Maputo ou prefere resolver sem sair do escritório. O presencial é para cenários mais complexos, que pedem mais tempo e análise de documentos, e dá espaço para envolver a equipa ou os sócios.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false" aria-controls="r3" id="p3">Quanto custa?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r3" role="region" aria-labelledby="p3"><div><p>O Advising Online custa 2.650 MT por hora. O Advising Presencial custa 3.650 MT por até 2 horas, em preço promocional (o preço normal é 5.300 MT).</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false" aria-controls="r4" id="p4">Como escolho a data da sessão?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r4" role="region" aria-labelledby="p4"><div><p>Escolhes o formato e fazes o pagamento na página de pagamento. Logo a seguir, recebes um link para escolheres a data e o local da sessão.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false" aria-controls="r5" id="p5">O que devo preparar antes?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r5" role="region" aria-labelledby="p5"><div><p>Vem com as principais dúvidas que tens, os desafios que estás a enfrentar, as decisões que precisas de tomar e os teus principais objectivos. Quanto mais claro for o cenário, mais profundo e objectivo poderá ser o aconselhamento.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false" aria-controls="r6" id="p6">Com o que saio da sessão?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r6" role="region" aria-labelledby="p6"><div><p>Com clareza sobre onde estás, o que te está a bloquear, o que precisa de ser resolvido primeiro e o que fazer a seguir, num documento final claro e accionável. Sais com direcção, e não apenas com ideias.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false" aria-controls="r7" id="p7">Quem conduz a sessão?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta" id="r7" role="region" aria-labelledby="p7"><div><p>Todas as sessões são conduzidas pessoalmente por Shelton Douglas, O Conselheiro.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. FECHO ============ -->
+<section class="fecho" id="marcar">
+  <canvas id="estrelas" aria-hidden="true"></canvas>
+  <div class="nascer" aria-hidden="true"></div>
+  <div class="horizonte" aria-hidden="true"></div>
+  <div class="contentor">
+    <div class="selo revela"><img src="/img/logo.png" alt="" width="360" height="360"></div>
+    <h2 class="revela">Uma sessão pode mudar a forma como vês o teu negócio.</h2>
+    <p class="entrada revela">Às vezes não precisas de mais seis meses a tentar descobrir o que está errado. Precisas de parar, olhar para o cenário, identificar o verdadeiro problema e decidir o que precisa de acontecer primeiro.</p>
+    <div class="tres revela"><span>Menos informação</span><span>Mais clareza</span><span>Melhores decisões</span></div>
+    <div class="revela"><a href="#investimento" class="botao botao-principal">Marcar o meu Advising <svg><use href="#i-seta"/></svg></a></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 12. RODAPÉ ============ -->
+<footer>
+  <div class="contentor">
+    <div class="rodape">
+      <div>
+        <a href="#topo" class="marca"><img src="/img/logo.png" alt="" width="360" height="360"><span><b>Advising com O Conselheiro</b><small>Kingdom Company</small></span></a>
+        <p>Para quem precisa de menos informação e mais clareza.</p>
+      </div>
+      <div>
+        <h4>Página</h4>
+        <div class="rodape-links">
+          <a href="#metodo">Método</a><a href="#conselheiro">O Conselheiro</a><a href="#investimento">Investimento</a><a href="#perguntas">Perguntas</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <div class="rodape-links">
+          <a href="mailto:comercial@kingdomcompny.com"><svg><use href="#i-email"/></svg>comercial@kingdomcompny.com</a>
+          <a href="tel:+258851800920"><svg><use href="#i-telefone"/></svg>+258 85 1800 920</a>
+          <a href="#sessao"><svg><use href="#i-local"/></svg>Av. Marginal, Glória Mall, Maputo</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal">© 2026 Kingdom Company. Todos os direitos reservados.</div>
   </div>
 </footer>
 
-<script src="app.js" defer></script>
+<script src="/site.js" defer></script>
 </body>
 </html>

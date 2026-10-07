@@ -2,8 +2,6 @@
   "name": "kingdom-workspace",
   "private": true,
   "scripts": {
-    "build:css": "tailwindcss -i site/src/input.css -o site/styles.css --minify",
-    "watch:css": "tailwindcss -i site/src/input.css -o site/styles.css --watch",
     "serve": "python3 -m http.server 8934 --directory site"
   },
   "devDependencies": {
