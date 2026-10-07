@@ -514,9 +514,6 @@ svg [fill="#fff"]{ fill:var(--acento); }
 .autor-bq .bio-autor{ margin:30px auto 0; max-width:680px; color:var(--texto-2); }
 .autor-bq .mentor-numeros{ max-width:620px; margin:36px auto 0; text-align:left; }
 
-/* preço: o plano sem "antes" fica alinhado com o outro */
-.plano-preco .antes.vazio{ visibility:hidden; }
-@media (max-width:860px){ .plano-preco .antes.vazio{ display:none; } }
 @media (max-width:900px){
   .capa-palco .livro{ height:74%; }
   .pensamento.p2{ display:none; }
