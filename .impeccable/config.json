@@ -395,6 +395,78 @@
         ],
         "createdAt": "2026-10-07T19:07:53.605Z",
         "reason": "user confirmed: o roxo/lilas e a cor da capa do livro O Bloqueio Invisivel, escolhida pelo utilizador"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "criativo/index.html"
+        ],
+        "createdAt": "2026-10-07T19:43:47.158Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/ e bloqueio/"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "criativo/index.html"
+        ],
+        "createdAt": "2026-10-07T19:43:47.172Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/ e bloqueio/"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "criativo/index.html"
+        ],
+        "createdAt": "2026-10-07T19:43:47.186Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/ e bloqueio/"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "criativo/index.html"
+        ],
+        "createdAt": "2026-10-07T19:43:47.199Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/ e bloqueio/"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "criativo/index.html"
+        ],
+        "createdAt": "2026-10-07T19:43:47.214Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/ e bloqueio/"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "criativo/index.html"
+        ],
+        "createdAt": "2026-10-07T19:43:47.229Z",
+        "reason": "Mesmo design system do O Conselheiro (guia de sites de venda), aceite pelo utilizador; padrao ja ignorado em escala/ e bloqueio/"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "criativo/index.html"
+        ],
+        "createdAt": "2026-10-07T19:43:47.243Z",
+        "reason": "Apenas titulos display e a frase de veredicto com leading apertado; corpo de texto a 1.4+"
+      },
+      {
+        "rule": "skipped-heading",
+        "value": "*",
+        "files": [
+          "criativo/index.html"
+        ],
+        "createdAt": "2026-10-07T19:43:47.257Z",
+        "reason": "h4 sao rotulos de coluna do rodape, fora da hierarquia do conteudo; igual aos outros sites"
       }
     ]
   }
