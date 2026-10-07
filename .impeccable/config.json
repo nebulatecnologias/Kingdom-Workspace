@@ -116,6 +116,69 @@
         ],
         "createdAt": "2026-10-07T11:23:44.239Z",
         "reason": "GUIA-SITES-DE-VENDAS.md (user-supplied guide) specifies the tabs indicator moving with translateX and width; carousel dots are 8px"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "site/vinho/index.html"
+        ],
+        "createdAt": "2026-10-07T11:45:07.604Z",
+        "reason": "assistant judgement: /vinho is the same structure as site/index.html with the user-requested wine palette; GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes this pattern"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "site/vinho/index.html"
+        ],
+        "createdAt": "2026-10-07T11:45:07.620Z",
+        "reason": "assistant judgement: /vinho is the same structure as site/index.html with the user-requested wine palette; GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes this pattern"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "site/vinho/index.html"
+        ],
+        "createdAt": "2026-10-07T11:45:07.638Z",
+        "reason": "assistant judgement: /vinho is the same structure as site/index.html with the user-requested wine palette; GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes this pattern"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "site/vinho/index.html"
+        ],
+        "createdAt": "2026-10-07T11:45:07.655Z",
+        "reason": "assistant judgement: /vinho is the same structure as site/index.html with the user-requested wine palette; GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes this pattern"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "site/vinho/index.html"
+        ],
+        "createdAt": "2026-10-07T11:45:07.677Z",
+        "reason": "assistant judgement: /vinho is the same structure as site/index.html with the user-requested wine palette; GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes this pattern"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "site/vinho/index.html"
+        ],
+        "createdAt": "2026-10-07T11:45:07.701Z",
+        "reason": "assistant judgement: /vinho is the same structure as site/index.html with the user-requested wine palette; GUIA-SITES-DE-VENDAS.md (user-supplied guide) prescribes this pattern"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/vinho/index.html"
+        ],
+        "createdAt": "2026-10-07T11:45:07.718Z",
+        "reason": "assistant judgement: false positive, padding lives in .contentor/child wrappers; checked in full-page desktop and mobile screenshots"
       }
     ]
   }

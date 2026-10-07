@@ -1,0 +1,179 @@
+/* ============================================================
+   Tema "vinho" para /vinho: carrega depois de site.css.
+   Paleta: creme #E4E0D4, vinho escuro #341815, bordô #7C3638, rosado #B9928D.
+   Dois contextos: escuro (por omissão) e .claro (secções creme).
+   --t é a "tinta" em RGB, para contornos e véus.
+============================================================ */
+:root,
+.claro .janela, .claro .teste-resultado, .claro .telemovel, .claro .chamada{
+  --preto:#341815;
+  --cartao-a:#44211d; --cartao-b:#2b1310;
+  --t:228,224,212;
+  --linha:rgba(228,224,212,.10); --linha-forte:rgba(228,224,212,.2);
+  --texto:#EEEAE0; --texto-2:#d6c6bf; --texto-3:#B9928D;
+  --acento:#E4E0D4; --sobre-acento:#341815;
+  color:var(--texto);
+}
+.claro, .barra{
+  --cartao-a:#ece8de; --cartao-b:#dcd6c9;
+  --t:52,24,21;
+  --linha:rgba(52,24,21,.12); --linha-forte:rgba(52,24,21,.22);
+  --texto:#2a1310; --texto-2:#5a4440; --texto-3:#6e5650;
+  --acento:#7C3638; --sobre-acento:#F3EFE6;
+  color:var(--texto);
+}
+:root{
+  --creme:#E4E0D4;
+  --bordo:#7C3638; --bordo-claro:#8d4245; --bordo-escuro:#64292c;
+  --marca:linear-gradient(160deg,var(--bordo-claro) 0%,var(--bordo) 55%,var(--bordo-escuro) 100%);
+  color-scheme:light dark;
+}
+html,body{ background:var(--preto); }
+.claro{ background:var(--creme); }
+:focus-visible{ outline-color:var(--acento); }
+
+/* cartões, vidro, contornos */
+.vidro{ background:rgba(43,19,16,.55); border-color:rgba(var(--t),.16); }
+.claro .vidro{ background:rgba(236,232,222,.6); }
+.claro .janela.vidro, .claro .teste-resultado.vidro{ background:linear-gradient(135deg,#43201c,#2b1310); border-color:rgba(52,24,21,.5); }
+.contorno{ background:rgba(var(--t),.03); box-shadow:inset 0 0 0 1px rgba(var(--t),.12); }
+.holofote::after{ background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(var(--t),.08), transparent 60%); }
+
+/* botões: o bordô é o botão principal em toda a página */
+.botao-principal{ background:var(--bordo); color:#F3EFE6; box-shadow:0 0 0 1px rgba(255,255,255,.12) inset, 0 12px 34px -14px rgba(124,54,56,.8); }
+.botao-principal:hover{ background:var(--bordo-claro); box-shadow:0 0 0 1px rgba(255,255,255,.18) inset, 0 16px 40px -12px rgba(124,54,56,.9); }
+.botao-linha{ background:rgba(var(--t),.03); }
+.botao-linha:hover{ border-color:rgba(var(--t),.45); background:rgba(var(--t),.06); }
+.botao-escuro{ background:#F3EFE6; color:#341815; }
+.botao-escuro:hover{ background:#fff; }
+
+/* barra de cima: creme sobre tudo */
+.barra.rolou{ background:rgba(228,224,212,.94); border-bottom-color:rgba(52,24,21,.12); }
+.barra nav a:hover{ background:rgba(52,24,21,.06); }
+
+/* abertura */
+.abertura-fundo .grelha{ background-image:linear-gradient(rgba(52,24,21,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(52,24,21,.09) 1px, transparent 1px); }
+.abertura-fundo .luz{ background:radial-gradient(closest-side, rgba(124,54,56,.16), rgba(124,54,56,.05) 55%, transparent); }
+.abertura-fundo .foto{ display:none !important; }
+@media (max-width:640px){ .abertura{ padding-top:130px; } }
+.janela{ box-shadow:0 40px 110px -40px rgba(52,24,21,.65); }
+.janela-topo{ border-bottom-color:rgba(var(--t),.1); }
+.pontos i{ background:rgba(var(--t),.2); }
+.etiqueta{ box-shadow:inset 0 0 0 1px rgba(var(--t),.14); }
+.barrinha{ background:rgba(var(--t),.09); }
+.barrinha i{ background:var(--acento); }
+.passos li{ background:rgba(var(--t),.03); box-shadow:inset 0 0 0 1px rgba(var(--t),.09); }
+.passos li .caixa{ box-shadow:inset 0 0 0 1.5px rgba(var(--t),.35); }
+.passos li.feito .caixa{ background:var(--acento); }
+.passos li.feito .caixa svg{ color:var(--sobre-acento); }
+svg [stroke="#fff"]{ stroke:var(--acento); }
+svg [fill="#fff"]{ fill:var(--acento); }
+svg [fill="#bdbdbd"]{ fill:var(--texto-2); }
+svg [fill="#8c8c8c"]{ fill:var(--texto-3); }
+svg [stroke="rgba(255,255,255,.12)"], svg [stroke="rgba(255,255,255,.08)"]{ stroke:rgba(var(--t),.13); }
+svg [fill="rgba(255,255,255,.16)"], svg [fill="rgba(255,255,255,.18)"], svg [fill="rgba(255,255,255,.14)"]{ fill:rgba(var(--t),.16); }
+svg [stroke="rgba(255,255,255,.4)"]{ stroke:rgba(var(--t),.42); }
+svg [fill="#000"]{ fill:var(--preto); }
+
+/* raio-x rápido */
+.campo input{ background:rgba(var(--t),.03); }
+.campo input:focus{ border-color:rgba(var(--t),.5); background:rgba(var(--t),.05); }
+.sintoma span::before{ box-shadow:inset 0 0 0 1.5px rgba(var(--t),.35); }
+.sintoma input:checked + span{ background:var(--acento); color:var(--sobre-acento); border-color:var(--acento); }
+.sintoma input:checked + span::before{ background:var(--sobre-acento); box-shadow:inset 0 0 0 4px var(--acento), 0 0 0 1.5px var(--sobre-acento); }
+.sintoma input:focus-visible + span{ outline-color:var(--acento); }
+
+/* faixa */
+.faixa-trilho li{ color:rgba(var(--t),.18); }
+.faixa-trilho li.sep{ background:var(--bordo); }
+
+/* problema */
+.chamada{ background:var(--marca); color:#F3EFE6; }
+.chamada::before{ background:radial-gradient(80% 60% at 100% 0%, rgba(255,255,255,.14), transparent 60%), radial-gradient(70% 55% at 0% 100%, rgba(0,0,0,.18), transparent 65%); }
+.chamada h3{ color:#F3EFE6; }
+
+/* método */
+.separadores a.activo{ color:var(--sobre-acento); }
+.indicador{ background:var(--acento); }
+.varrimento{ background:conic-gradient(from 0deg, rgba(var(--t),.18), transparent 22%); }
+.no{ background:rgba(var(--t),.03); box-shadow:inset 0 0 0 1px rgba(var(--t),.1); }
+.no .ico-caixa,.detalhe .ico-caixa,.formato .ico-caixa,.marcar-passos .ico-caixa{ box-shadow:inset 0 0 0 1px rgba(var(--t),.18); }
+.no.aceso{ background:rgba(var(--t),.07); box-shadow:inset 0 0 0 1px rgba(var(--t),.32); }
+.no.aceso .ico-caixa{ background:var(--acento); color:var(--sobre-acento); }
+.ligacao{ background-image:linear-gradient(rgba(var(--t),.4) 50%, transparent 50%); }
+.documento{ background:#F3EFE6; color:#2a1310; box-shadow:0 30px 80px -30px rgba(0,0,0,.6); }
+.documento .doc-topo small,.gantt-meses,.assinatura small{ color:#6e5650; }
+.gantt-linha{ color:#4a3430; }
+.gantt-pista{ background:#e2dbcd; }
+.gantt-pista i{ background:var(--bordo); }
+.assinatura{ border-top-color:#ddd5c6; }
+.assinatura svg{ color:#341815; }
+.grafico .legenda i{ background:var(--acento); }
+.grafico .legenda i.cinza{ background:rgba(var(--t),.42); }
+
+/* bento */
+.sessao-tempo::before{ background:#c9817d; }
+.ecra img{ filter:none; }
+.ecra .inicial{ box-shadow:inset 0 0 0 1px rgba(var(--t),.22); }
+.fases-barra .seg{ background:rgba(var(--t),.1); }
+.fases-barra .seg i{ background:var(--acento); }
+.satelite span{ background:var(--cartao-b); box-shadow:inset 0 0 0 1px rgba(var(--t),.18); }
+.nucleo{ background:var(--bordo-escuro); box-shadow:0 0 0 1px rgba(228,224,212,.25), 0 0 60px rgba(124,54,56,.8); }
+.numero-gigante{ color:rgba(var(--t),.06); }
+.pilula{ background:var(--acento); color:var(--sobre-acento); }
+.triade-img{ opacity:.85; }
+
+/* carrossel */
+.seta:hover{ background:rgba(var(--t),.08); }
+.marcadores button{ background:rgba(var(--t),.25); }
+.marcadores button.activo{ background:var(--acento); }
+.telemovel{ background:#24100d; box-shadow:inset 0 0 0 1px rgba(228,224,212,.18), 0 40px 100px -40px rgba(52,24,21,.7); }
+.telemovel-ecra{ background:linear-gradient(180deg,#43201c,#2b1310); }
+.telemovel-ecra::before{ background:#1a0907; box-shadow:inset 0 0 0 1px rgba(228,224,212,.08); }
+.tel-topo .inic{ background:var(--bordo); color:#F3EFE6; }
+.tel-lista li i{ box-shadow:inset 0 0 0 1px rgba(var(--t),.22); }
+
+/* o conselheiro e confiança: fotografias a cores, quentes como a referência */
+.retrato img,.pessoa img{ filter:none; }
+.retrato::after{ background:linear-gradient(0deg, rgba(43,19,16,.65), transparent 45%); }
+.pessoa:hover img{ filter:none; }
+
+/* preços */
+.precos-fundo{ background:radial-gradient(closest-side, rgba(124,54,56,.45), transparent); }
+.plano.destaque{ background:var(--marca); border-color:#9a5053; color:#F3EFE6; box-shadow:0 30px 90px -30px rgba(124,54,56,.9); }
+.plano.destaque::before{ background:radial-gradient(80% 60% at 100% 0%, rgba(255,255,255,.16), transparent 60%), radial-gradient(70% 55% at 0% 100%, rgba(0,0,0,.2), transparent 65%); }
+.plano.destaque h3,.plano.destaque .valor,.plano.destaque li svg{ color:#F3EFE6; }
+.plano.destaque .plano-tipo,.plano.destaque .plano-preco .antes{ color:rgba(243,239,230,.65); }
+.plano.destaque .desc,.plano.destaque li,.plano.destaque .unidade{ color:rgba(243,239,230,.85); }
+.plano.destaque .plano-preco{ border-color:rgba(243,239,230,.2); }
+.promo{ background:#F3EFE6; color:#341815; }
+.barras-preco .pista{ background:rgba(var(--t),.08); }
+.barras-preco .pista i{ background:var(--acento); }
+.barras-preco .pista i.cinza{ background:rgba(var(--t),.35); }
+
+/* perguntas */
+.pergunta-item.aberta .mais{ background:var(--acento); color:var(--sobre-acento); }
+
+/* fecho */
+.fecho .nascer{ background:radial-gradient(closest-side, rgba(185,146,141,.38), rgba(124,54,56,.3) 55%, transparent); }
+.fecho .horizonte{ border-top-color:rgba(228,224,212,.45); box-shadow:0 -30px 80px -20px rgba(185,146,141,.3); background:var(--preto); }
+.tres span::before{ background:#c9817d; }
+
+/* a moldura bordô da referência, só no computador */
+@media (min-width:1100px){
+  body::before, body::after{ content:""; position:fixed; top:0; bottom:0; width:10px; background:var(--bordo); z-index:200; pointer-events:none; }
+  body::before{ left:0; } body::after{ right:0; }
+}
+
+/* nas secções escuras o botão principal é creme (o bordô destaca-se pouco sobre vinho) */
+.botao-principal{ background:#E4E0D4; color:#341815; box-shadow:0 0 0 1px rgba(255,255,255,.3) inset, 0 12px 34px -14px rgba(0,0,0,.6); }
+.botao-principal:hover{ background:#F3EFE6; box-shadow:0 0 0 1px rgba(255,255,255,.4) inset, 0 16px 40px -12px rgba(0,0,0,.7); }
+.claro .botao-principal, .barra .botao-principal{ background:var(--bordo); color:#F3EFE6; box-shadow:0 0 0 1px rgba(255,255,255,.12) inset, 0 12px 34px -14px rgba(124,54,56,.8); }
+.claro .botao-principal:hover, .barra .botao-principal:hover{ background:var(--bordo-claro); }
+
+/* o método vem a seguir a uma secção creme */
+#metodo{ padding-top:130px !important; }
+@media (max-width:720px){ #metodo{ padding-top:88px !important; } }
+
+/* a barra de cima tem sempre fundo creme (texto vinho legível sobre qualquer secção) */
+.barra{ background:rgba(228,224,212,.94); backdrop-filter:blur(18px) saturate(1.3); -webkit-backdrop-filter:blur(18px) saturate(1.3); }
