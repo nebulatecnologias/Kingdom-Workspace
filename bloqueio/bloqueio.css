@@ -350,21 +350,84 @@ svg [fill="#fff"]{ fill:var(--acento); }
 .produto .livro::before{ content:""; position:absolute; inset:6% -14% -4% -6%; background:radial-gradient(closest-side, rgba(34,27,51,.30), rgba(34,27,51,.12) 60%, transparent); pointer-events:none; }
 .produto .livro::after{ content:""; position:absolute; left:-4%; right:-12%; bottom:-7%; height:14%; background:radial-gradient(closest-side, rgba(34,27,51,.45), rgba(34,27,51,.16) 60%, transparent); pointer-events:none; }
 
-/* ============================================================
-   Próprio do Bloqueio Invisível
-============================================================ */
-/* abertura: o que o mapa regista */
-.registos{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:14px; }
-.registo{ padding:14px 16px; border-radius:14px; }
-.registo small{ display:flex; align-items:center; gap:7px; font-size:12.5px; color:var(--texto-3); margin-bottom:8px; }
-.registo small i{ width:6px; height:6px; border-radius:50%; background:rgba(var(--t),.35); }
-.registo b{ display:block; font-weight:500; font-size:15.5px; line-height:1.35; letter-spacing:-.02em; color:var(--texto); }
-.registo.funda{ box-shadow:inset 0 0 0 1px rgba(168,139,224,.5); background:rgba(168,139,224,.08); }
-.registo.funda small i{ background:var(--verde); }
-.registo.funda b{ color:var(--verde-claro); }
-@media (max-width:560px){ .registos{ grid-template-columns:1fr; } .registo b{ font-size:14.5px; } .grafico-op .dias{ font-size:11px; padding:6px 0 0; } }
 
-/* invisível: as três camadas, como um icebergue (a ponta é a mais pequena) */
+/* ============================================================
+   Próprio do Bloqueio Invisível (estrutura diferente da Escala)
+============================================================ */
+
+/* ---------- abertura dividida: texto à esquerda, capa à direita ---------- */
+.abertura.dividida{ text-align:left; padding:150px 0 100px; }
+.abertura.dividida .contentor{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:48px; align-items:center; }
+.abertura.dividida h1{ margin:0 0 24px; max-width:none; font-size:clamp(38px,4.4vw,62px); }
+.abertura.dividida .entrada{ margin:0 0 34px; max-width:560px; }
+.abertura.dividida .abertura-botoes{ justify-content:flex-start; }
+.abertura.dividida .abertura-factos{ justify-content:flex-start; margin-top:30px; }
+.de-quem{ display:inline-flex; align-items:center; gap:10px; margin-bottom:24px; padding:6px 14px 6px 6px; border-radius:999px; font-size:14px; color:var(--texto-2); box-shadow:inset 0 0 0 1px var(--linha-forte); background:rgba(255,255,255,.6); }
+.de-quem img{ width:28px; height:28px; border-radius:50%; object-fit:cover; object-position:50% 25%; }
+.capa-palco.produto{ width:100%; aspect-ratio:auto; height:600px; margin:0; }
+.capa-palco .livro{ height:80%; }
+.capa-palco .halo{ position:absolute; inset:8% 6%; border-radius:50%; background:radial-gradient(closest-side, rgba(168,139,224,.30), rgba(168,139,224,.08) 60%, transparent); }
+.pensamento{ position:absolute; z-index:2; max-width:230px; padding:11px 16px; border-radius:18px 18px 18px 5px; font-size:15px; line-height:1.35; font-style:italic; letter-spacing:-.01em; color:var(--texto-2);
+  background:rgba(255,255,255,.82); box-shadow:inset 0 0 0 1px rgba(34,27,51,.1), 0 18px 34px -20px rgba(34,27,51,.45); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+.pensamento.p1{ left:0; top:12%; }
+.pensamento.p2{ right:0; top:38%; border-radius:18px 18px 5px 18px; }
+.pensamento.p3{ left:4%; bottom:12%; }
+@media (prefers-reduced-motion:no-preference){
+  .anima .pensamento{ animation:nevoa 7s ease-in-out infinite; }
+  .anima .pensamento.p2{ animation-delay:-2.3s; } .anima .pensamento.p3{ animation-delay:-4.6s; }
+  @keyframes nevoa{ 0%,100%{ filter:blur(4px); opacity:.35; transform:translateY(6px); } 35%,65%{ filter:blur(0); opacity:1; transform:none; } }
+}
+@media (max-width:900px){
+  .abertura.dividida{ padding:110px 0 70px; text-align:center; }
+  .abertura.dividida .contentor{ grid-template-columns:1fr; gap:10px; }
+  .abertura.dividida .entrada{ margin:0 auto 30px; }
+  .abertura.dividida .abertura-botoes,.abertura.dividida .abertura-factos{ justify-content:center; }
+  .capa-palco.produto{ order:-1; height:420px; }
+  .pensamento{ font-size:13px; max-width:150px; padding:8px 12px; }
+  .pensamento.p1{ top:6%; } .pensamento.p3{ bottom:6%; left:0; }
+}
+
+/* ---------- espelho: o que dizes e o que está por baixo (fica nítido ao descer) ---------- */
+.espelho{ max-width:1000px; margin:0 auto; border-radius:30px; padding:10px 34px 14px; }
+.espelho-topo{ display:grid; grid-template-columns:minmax(0,1fr) 48px minmax(0,1.25fr); gap:18px; padding:22px 0 14px; font-size:13px; color:var(--texto-3); border-bottom:1px solid var(--linha); }
+.espelho-topo span:last-child{ color:var(--verde); }
+.reflexo{ display:grid; grid-template-columns:minmax(0,1fr) 48px minmax(0,1.25fr); gap:18px; align-items:center; padding:26px 0; border-bottom:1px solid var(--linha); }
+.reflexo:last-child{ border-bottom:0; }
+.reflexo .dito{ font-size:clamp(19px,2vw,24px); letter-spacing:-.03em; color:var(--texto); line-height:1.25; }
+.reflexo .seta-r{ width:40px; height:40px; border-radius:50%; display:grid; place-items:center; box-shadow:inset 0 0 0 1px rgba(168,139,224,.4); color:var(--verde); }
+.reflexo .seta-r svg{ width:16px; height:16px; }
+.reflexo .verdade{ --n:1; font-size:17px; line-height:1.5; color:var(--texto-2); filter:blur(calc((1 - var(--n)) * 9px)); opacity:calc(.2 + .8 * var(--n)); }
+.reflexo.chave .verdade{ color:var(--verde-claro); font-size:18px; }
+.espelho-pe{ text-align:center; margin-top:34px; color:var(--texto-2); }
+.espelho-pe strong{ color:var(--texto); }
+@media (max-width:700px){
+  .espelho{ padding:6px 20px 10px; }
+  .espelho-topo{ display:none; }
+  .reflexo{ grid-template-columns:1fr; gap:10px; padding:22px 0; }
+  .reflexo .seta-r{ width:30px; height:30px; transform:rotate(90deg); }
+}
+
+/* ---------- problema: um dia com um bloqueio invisível ---------- */
+.dia{ list-style:none; position:relative; display:flex; flex-direction:column; gap:12px; }
+.dia::before{ content:""; position:absolute; left:61px; top:24px; bottom:24px; width:1px; background:linear-gradient(180deg, rgba(var(--t),.12), rgba(168,139,224,.8)); }
+.dia li{ display:grid; grid-template-columns:48px 28px minmax(0,1fr); align-items:start; gap:0; }
+.dia time{ font-size:13px; color:var(--texto-3); padding-top:21px; font-variant-numeric:tabular-nums; }
+.dia .ponto{ position:relative; z-index:1; width:11px; height:11px; margin:24px 0 0 9px; border-radius:50%; background:var(--branco); box-shadow:0 0 0 1px rgba(var(--t),.3); }
+.dia li:last-child .ponto{ background:var(--acento); box-shadow:0 0 0 4px rgba(91,69,160,.18); }
+.dia .momento{ padding:16px 20px; }
+.dia .momento b{ display:block; font-weight:500; font-size:17px; letter-spacing:-.02em; color:var(--texto); margin-bottom:4px; }
+.dia .momento span{ font-size:15px; color:var(--texto-2); }
+.dia + .chamada{ margin-top:14px; }
+
+/* ---------- para ti: lista de verificação ---------- */
+.lista-sim{ display:grid; grid-template-columns:1fr 1fr; gap:0 40px; padding:14px 34px; max-width:1000px; margin:0 auto; }
+.lista-sim li{ list-style:none; display:flex; gap:14px; align-items:flex-start; padding:20px 0; border-bottom:1px solid var(--linha); font-size:17px; letter-spacing:-.02em; color:var(--texto); line-height:1.4; }
+.lista-sim li:nth-last-child(-n+2){ border-bottom:0; }
+.lista-sim li svg{ width:22px; height:22px; flex:none; color:var(--acento); margin-top:1px; }
+.lista-sim li span{ display:block; font-size:15px; color:var(--texto-2); margin-top:3px; letter-spacing:0; }
+@media (max-width:760px){ .lista-sim{ grid-template-columns:1fr; padding:6px 22px; } .lista-sim li:nth-last-child(2){ border-bottom:1px solid var(--linha); } }
+
+/* ---------- invisível: as três camadas, como um icebergue ---------- */
 .camadas{ display:flex; flex-direction:column; gap:10px; }
 .camada{ display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:16px; row-gap:2px; align-items:center; padding:20px 22px; border-radius:22px; }
 .camada .ico-caixa{ grid-row:span 2; width:44px; height:44px; border-radius:13px; color:var(--verde); }
@@ -382,21 +445,81 @@ svg [fill="#fff"]{ fill:var(--acento); }
 .superficie::before,.superficie::after{ content:""; flex:1; border-top:1px dashed rgba(168,139,224,.55); }
 @media (max-width:560px){ .camada.c1{ margin-inline:6%; } .camada.c2{ margin-inline:3%; } .camada{ padding:18px; } }
 
-/* o que recebes: uma folha de exercício */
-.folha{ position:relative; margin-top:auto; padding-top:28px; }
-.ficha{ position:relative; margin-right:84px; padding:22px 22px 24px; border-radius:18px; background:#F7F5FB; color:#221B33; transform:rotate(-1.2deg); box-shadow:0 30px 60px -30px rgba(0,0,0,.65); }
+/* ---------- como funciona: passos na vertical, com o título fixo ao lado ---------- */
+.metodo-bq{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:64px; align-items:start; }
+.lado-fixo{ position:sticky; top:120px; }
+.lado-fixo .cabeca{ margin-bottom:28px; }
+.lado-fixo .nao-e{ flex-direction:column; align-items:flex-start; margin:0; }
+.mapa-passos{ list-style:none; position:relative; display:flex; flex-direction:column; gap:12px; }
+.mapa-passos::before{ content:""; position:absolute; left:43px; top:30px; bottom:30px; width:1px; background:rgba(var(--t),.14); }
+.passo{ position:relative; display:grid; grid-template-columns:62px minmax(0,1fr); gap:18px; align-items:center; padding:20px 24px 20px 20px; transition:box-shadow .5s, background .5s; }
+.passo .ico-caixa{ position:relative; z-index:1; width:48px; height:48px; background:var(--branco); color:var(--texto-3); transition:background .5s, color .5s; }
+.passo small{ display:block; font-size:12.5px; color:var(--texto-3); margin-bottom:2px; font-variant-numeric:tabular-nums; }
+.passo b{ display:block; font-weight:500; font-size:20px; letter-spacing:-.03em; color:var(--texto); margin-bottom:4px; }
+.passo p{ font-size:15.5px; color:var(--texto-2); }
+.passo.aceso .ico-caixa{ background:var(--acento); color:#fff; box-shadow:none; }
+.passo.aceso{ box-shadow:inset 0 0 0 1px rgba(91,69,160,.35); }
+.passo:last-child.aceso{ background:var(--marca); }
+.passo:last-child.aceso b,.passo:last-child.aceso p,.passo:last-child.aceso small{ color:#F7F5FB; }
+.passo:last-child.aceso .ico-caixa{ background:var(--verde); color:var(--sobre-verde); }
+.frase-clareza{ margin:72px auto 0; max-width:900px; text-align:center; font-size:clamp(22px,2.6vw,32px); line-height:1.3; letter-spacing:-.04em; color:var(--texto-3); }
+.frase-clareza span{ display:block; color:var(--texto); margin-top:6px; }
+.frase-clareza span em{ font-style:normal; color:var(--acento); }
+@media (max-width:900px){ .metodo-bq{ grid-template-columns:1fr; gap:36px; } .lado-fixo{ position:static; } .lado-fixo .nao-e{ align-items:stretch; } .passo{ grid-template-columns:52px minmax(0,1fr); gap:14px; padding:16px; } .mapa-passos::before{ left:39px; } .passo .ico-caixa{ width:44px; height:44px; } }
+
+/* ---------- o que recebes: dois cartões lado a lado e uma faixa por baixo ---------- */
+.recebes-bq{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.recebes-bq .cartao{ padding:32px; display:flex; flex-direction:column; }
+.recebes-bq .tipo{ display:inline-flex; align-items:center; gap:8px; font-size:13.5px; color:var(--verde); margin-bottom:10px; }
+.recebes-bq .tipo svg{ width:17px; height:17px; }
+.recebes-bq h3{ margin-bottom:12px; }
+.recebes-bq p{ font-size:16px; }
+.recebes-bq .local{ display:flex; align-items:center; gap:10px; margin-top:16px; font-size:15px; color:var(--texto-2); }
+.recebes-bq .local svg{ width:18px; height:18px; color:var(--verde); flex:none; }
+.recebes-bq .video{ margin-top:auto; padding-top:26px; }
+.levas{ grid-column:1/-1; display:grid; grid-template-columns:auto repeat(4,minmax(0,1fr)); gap:12px; align-items:center; }
+.levas .rotulo-levas{ font-size:15px; color:var(--texto-2); padding-right:12px; }
+.levas .rotulo-levas b{ display:block; font-weight:500; font-size:19px; color:var(--texto); letter-spacing:-.03em; }
+.levas div.contorno{ display:flex; align-items:center; gap:10px; padding:14px 16px; border-radius:14px; font-size:14.5px; color:var(--texto-2); }
+.levas svg{ width:18px; height:18px; color:var(--verde); flex:none; }
+.folha{ position:relative; margin-top:auto; padding-top:26px; }
+.ficha{ position:relative; margin-right:22%; padding:22px 22px 24px; border-radius:18px; background:#F7F5FB; color:#221B33; transform:rotate(-1.2deg); box-shadow:0 30px 60px -30px rgba(0,0,0,.65); z-index:1; }
 .ficha small{ display:block; font-size:12.5px; color:#635A7C; margin-bottom:8px; }
 .ficha .pergunta-ex{ font-size:17px; line-height:1.4; letter-spacing:-.02em; color:#221B33; margin-bottom:12px; }
 .ficha .linha-ex{ display:block; min-height:32px; line-height:32px; border-bottom:1px solid rgba(34,27,51,.18); font-size:15px; font-style:italic; color:#5B45A0; }
-.folha img{ position:absolute; right:-4px; bottom:-10px; width:116px; height:auto; transform:rotate(6deg); filter:drop-shadow(0 18px 18px rgba(0,0,0,.5)); }
-@media (max-width:560px){ .ficha{ margin-right:0; } .folha img{ display:none; } }
+.folha img{ position:absolute; right:0; bottom:-6px; width:150px; height:auto; transform:rotate(7deg); filter:drop-shadow(0 18px 18px rgba(0,0,0,.5)); }
 .tag-pacote{ align-self:flex-start; font-size:12px; padding:4px 10px; border-radius:999px; background:rgba(168,139,224,.16); color:var(--verde-claro); margin-bottom:12px; }
-.recebes .cartao .video{ padding-top:22px; }
-/* a folha preenche o cartão grande: capa grande atrás, exercício à frente */
-.folha{ display:flex; align-items:flex-end; flex:1; min-height:430px; }
-.folha img{ right:6%; top:26px; bottom:auto; width:230px; transform:rotate(7deg); }
-.ficha{ z-index:1; margin-right:26%; flex:1; }
-@media (max-width:900px){ .folha{ min-height:0; } .folha img{ display:none; } .ficha{ margin-right:0; } }
+@media (max-width:1000px){ .levas{ grid-template-columns:1fr 1fr; } .levas .rotulo-levas{ grid-column:1/-1; padding:0 0 4px; } }
+@media (max-width:860px){ .recebes-bq{ grid-template-columns:1fr; } }
+@media (max-width:560px){ .recebes-bq .cartao{ padding:24px 22px; } .levas{ grid-template-columns:1fr; } .ficha{ margin-right:0; } .folha img{ display:none; } }
+
+/* ---------- objeções em conversa: pergunta à esquerda, resposta à direita ---------- */
+.conversa{ max-width:1040px; margin:0 auto; border-top:1px solid var(--linha); }
+.troca{ display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:48px; padding:36px 0; border-bottom:1px solid var(--linha); }
+.troca h3{ font-size:clamp(21px,2.2vw,27px); line-height:1.25; letter-spacing:-.035em; }
+.troca h3::before{ content:"“"; display:block; font-size:54px; line-height:.6; color:var(--acento); margin-bottom:10px; }
+.troca .r p{ font-size:16.5px; }
+.troca .r p + p{ margin-top:12px; }
+.troca .curta{ color:var(--acento); font-size:19px; letter-spacing:-.02em; }
+.troca .forte{ padding:16px 20px; background:rgba(91,69,160,.08); box-shadow:inset 0 0 0 1px rgba(91,69,160,.25); border-radius:14px; color:var(--texto); font-size:17px; }
+@media (max-width:760px){ .troca{ grid-template-columns:1fr; gap:14px; padding:28px 0; } }
+
+/* ---------- autor: a frase em primeiro plano ---------- */
+.autor-bq{ max-width:860px; margin:0 auto; text-align:center; }
+.autor-bq .foto-autor{ width:150px; height:150px; border-radius:50%; object-fit:cover; object-position:50% 22%; margin:0 auto 30px; display:block; box-shadow:0 0 0 1px rgba(var(--t),.2), 0 0 0 10px rgba(var(--t),.04); }
+.autor-bq blockquote{ font-size:clamp(26px,3.4vw,42px); line-height:1.18; letter-spacing:-.045em; color:var(--texto); }
+.autor-bq blockquote span{ color:var(--verde); }
+.autor-bq .autor-nome{ margin-top:26px; font-size:15px; color:var(--texto-3); }
+.autor-bq .autor-nome b{ display:block; font-weight:500; font-size:18px; color:var(--texto); margin-bottom:2px; }
+.autor-bq .bio-autor{ margin:30px auto 0; max-width:680px; color:var(--texto-2); }
+.autor-bq .mentor-numeros{ max-width:620px; margin:36px auto 0; text-align:left; }
+
 /* preço: o plano sem "antes" fica alinhado com o outro */
 .plano-preco .antes.vazio{ visibility:hidden; }
 @media (max-width:860px){ .plano-preco .antes.vazio{ display:none; } }
+@media (max-width:900px){
+  .capa-palco .livro{ height:74%; }
+  .pensamento.p2{ display:none; }
+  .pensamento.p1{ left:0; top:5%; }
+  .pensamento.p3{ left:auto; right:0; bottom:9%; border-radius:18px 18px 5px 18px; }
+}
