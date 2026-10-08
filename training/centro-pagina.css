@@ -9,23 +9,7 @@
 .sinal-brasao img{ width:100%; height:100%; object-fit:contain; display:block; }
 .nucleo-brasao{ background:#16130F; padding:14px; box-shadow:0 0 0 10px rgba(232,105,12,.07), inset 0 0 0 1px rgba(232,105,12,.4), 0 18px 40px -12px rgba(0,0,0,.9); }
 .nucleo-brasao img{ width:100%; height:100%; object-fit:contain; display:block; }
-.sete-numero{ color:#2A2621; font-size:clamp(84px, 8.4vw, 120px); }
-.fluxo-av{ background:var(--marca); color:var(--sobre-marca); }
 .fecho-brasao{ width:clamp(104px, 11vw, 136px); height:auto; margin:0 auto 36px; filter:drop-shadow(0 18px 40px rgba(224,96,0,.35)); }
-
-/* ---------------- Abertura: a tríade ---------------- */
-.triade{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; text-align:left; }
-.foco{
-  position:relative; display:flex; flex-direction:column; padding:26px 26px 28px; border-radius:var(--raio-lg);
-  background:linear-gradient(160deg, var(--cartao-a) 0%, var(--cartao-b) 70%); border:1px solid var(--linha);
-}
-.foco b{ display:block; margin-top:34px; font-size:clamp(22px, 2.1vw, 27px); font-weight:500; letter-spacing:-.035em; line-height:1.1; }
-.foco small{ display:block; margin-top:8px; font-size:14px; color:var(--texto-3); }
-.foco-ico{ width:46px; height:46px; border-radius:14px; display:grid; place-items:center; background:var(--marca); color:var(--sobre-marca); box-shadow:0 10px 24px -12px rgba(224,96,0,.8); }
-.foco-ico svg{ width:22px; height:22px; }
-.anima .hero-palco .foco{ opacity:0; transform:translateY(16px); transition:opacity .8s var(--sai), transform 1s var(--sai); }
-.anima .hero-palco.visto .foco{ opacity:1; transform:none; }
-.anima .hero-palco.visto .foco:nth-child(2){ transition-delay:.1s; } .anima .hero-palco.visto .foco:nth-child(3){ transition-delay:.2s; }
 
 /* ---------------- Sem negociar: a frase que se acende ---------------- */
 .sem-negociar{ max-width:1000px; margin:0 auto; }
@@ -50,25 +34,117 @@
 .proposito-versiculo p{ margin:0; font-size:clamp(22px, 2.3vw, 30px); line-height:1.3; letter-spacing:-.025em; color:var(--texto); text-wrap:balance; }
 .proposito-versiculo cite{ display:block; margin-top:20px; font-style:normal; font-size:15px; font-weight:500; color:var(--laranja-ink); }
 
-/* ---------------- Performance: as barras ---------------- */
-.barras{
-  width:100%; max-width:430px; padding:22px 22px 18px; border-radius:var(--raio-lg);
+/* ---------------- As três esferas: espírito, alma e corpo ---------------- */
+.cartao-esferas{ display:flex; flex-direction:column; min-height:560px; }
+.esferas{ flex:1; display:grid; place-items:center; padding:34px 30px 0; }
+.esferas svg{ width:100%; max-width:330px; overflow:visible; }
+.esfera circle{ fill:rgba(232,105,12,.07); stroke:rgba(244,239,233,.22); stroke-width:1; transition:stroke .4s, fill .4s; }
+.esfera text{ font:500 15px var(--font); letter-spacing:-.01em; fill:var(--texto); text-anchor:middle; }
+.cartao-esferas:hover .esfera circle{ stroke:rgba(232,105,12,.55); }
+.esferas-nucleo{ fill:var(--laranja); filter:drop-shadow(0 0 10px rgba(232,105,12,.9)); transform-box:fill-box; transform-origin:center; animation:respira-nucleo 3.6s ease-in-out infinite; }
+@keyframes respira-nucleo{ 50%{ transform:scale(1.35); } }
+/* desalinhadas ao início, alinham-se quando o cartão entra no ecrã */
+.esfera{ transition:transform 1.6s var(--sai); }
+.anima .cartao-esferas:not(.visto) .e1{ transform:translate(0, -38px); }
+.anima .cartao-esferas:not(.visto) .e2{ transform:translate(-36px, 22px); }
+.anima .cartao-esferas:not(.visto) .e3{ transform:translate(36px, 22px); }
+.anima .cartao-esferas:not(.visto) .esferas-nucleo{ opacity:0; }
+.esferas-nucleo{ transition:opacity .8s .9s; }
+
+/* ---------------- Painéis dos três focos ---------------- */
+.painel-topo{ display:flex; justify-content:space-between; align-items:center; gap:12px; font-size:14px; }
+.painel-topo b{ font-weight:500; }
+.painel-topo span{ font-size:12px; padding:5px 10px; border-radius:8px; background:rgba(244,239,233,.06); color:var(--texto-2); white-space:nowrap; }
+
+/* Espiritualidade: a bússola que assenta nos princípios */
+.bussola{ width:100%; max-width:400px; display:flex; flex-direction:column; align-items:center; gap:26px; }
+.bussola-disco{ position:relative; width:min(300px, 76vw); aspect-ratio:1; border-radius:50%;
+  background:radial-gradient(circle at 50% 38%, #221E19, #120F0D 72%);
+  box-shadow:inset 0 0 0 1px rgba(244,239,233,.1), 0 40px 70px -30px rgba(0,0,0,.95), 0 0 0 10px rgba(232,105,12,.04); }
+.bussola-escala{ position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg); }
+.bussola-escala circle{ fill:none; }
+.riscos{ stroke:rgba(244,239,233,.22); stroke-width:7; stroke-dasharray:.5 4.5; }
+.riscos-maiores{ stroke:rgba(244,239,233,.5); stroke-width:13; stroke-dasharray:1 89; stroke-dashoffset:.5; }
+.anel-interior{ stroke:rgba(244,239,233,.07); stroke-width:1; }
+.bussola-rumo{ position:absolute; font-size:12px; font-weight:500; color:var(--texto-3); letter-spacing:.01em; white-space:nowrap; }
+.bussola-rumo.norte{ top:19%; left:50%; transform:translateX(-50%); color:var(--laranja-ink); font-size:13px; }
+.bussola-rumo.sul{ bottom:19%; left:50%; transform:translateX(-50%); }
+.bussola-rumo.este{ right:17%; top:50%; transform:translateY(-50%); }
+.bussola-rumo.oeste{ left:17%; top:50%; transform:translateY(-50%); }
+.bussola-agulha{ position:absolute; left:50%; top:50%; width:16px; height:56%; margin:-28% 0 0 -8px; transform-origin:50% 50%; }
+.bussola-agulha::before, .bussola-agulha::after{ content:""; position:absolute; left:0; right:0; height:50%; }
+.bussola-agulha::before{ top:0; background:var(--marca); clip-path:polygon(50% 0, 100% 100%, 0 100%); filter:drop-shadow(0 0 8px rgba(232,105,12,.6)); }
+.bussola-agulha::after{ bottom:0; background:#3A342D; clip-path:polygon(0 0, 100% 0, 50% 100%); }
+.bussola-eixo{ position:absolute; left:50%; top:50%; width:14px; height:14px; margin:-7px 0 0 -7px; border-radius:50%; background:#F4EFE9; box-shadow:0 0 0 4px #15120F, 0 0 0 5px rgba(244,239,233,.2); }
+.anima .pilar-visual.visto .bussola-agulha{ animation:procura 3.4s var(--sai) both; }
+@keyframes procura{
+  0%{ transform:rotate(112deg); } 22%{ transform:rotate(-74deg); } 42%{ transform:rotate(38deg); }
+  60%{ transform:rotate(-16deg); } 76%{ transform:rotate(6deg); } 100%{ transform:rotate(0deg); }
+}
+.anima .pilar-visual:not(.visto) .bussola-agulha{ transform:rotate(112deg); }
+.bussola-legenda{ margin:0; text-align:center; max-width:34ch; }
+.bussola-legenda b{ display:block; font-weight:500; font-size:16px; }
+.bussola-legenda span{ display:block; margin-top:4px; font-size:14px; color:var(--texto-3); }
+
+/* Inteligência emocional: da reação à resposta, com a respiração no meio */
+.respira, .escada{
+  width:100%; max-width:440px; padding:22px 22px 20px; border-radius:var(--raio-lg);
   background:linear-gradient(160deg, #1A1714, #100E0C); border:1px solid var(--linha); box-shadow:0 30px 60px -30px rgba(0,0,0,.9);
 }
-.barras-topo{ display:flex; justify-content:space-between; align-items:center; font-size:14px; }
-.barras-topo b{ font-weight:500; }
-.barras-topo span{ font-size:12px; padding:5px 10px; border-radius:8px; background:rgba(244,239,233,.06); color:var(--texto-2); }
-.barras-col{ list-style:none; margin:18px 0 0; padding:0; height:210px; display:grid; grid-template-columns:repeat(6, 1fr); gap:12px; align-items:end; border-bottom:1px solid var(--linha); }
-.barras-col li{ height:100%; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:8px; }
-.barras-col i{ display:block; width:100%; height:calc(var(--h) * 170px); border-radius:10px 10px 4px 4px; background:rgba(244,239,233,.09); transform-origin:bottom; }
-.barras-col li.topo i{ background:var(--marca); box-shadow:0 14px 30px -12px rgba(224,96,0,.8); }
-.barras-col span{ font-size:12px; color:var(--texto-3); padding-bottom:8px; }
-.anima .pilar-visual:not(.visto) .barras-col i{ transform:scaleY(.08); }
-.anima .pilar-visual.visto .barras-col i{ transform:none; transition:transform 1.1s var(--sai); }
-.anima .pilar-visual.visto .barras-col li:nth-child(2) i{ transition-delay:.08s; } .anima .pilar-visual.visto .barras-col li:nth-child(3) i{ transition-delay:.16s; }
-.anima .pilar-visual.visto .barras-col li:nth-child(4) i{ transition-delay:.24s; } .anima .pilar-visual.visto .barras-col li:nth-child(5) i{ transition-delay:.32s; }
-.anima .pilar-visual.visto .barras-col li:nth-child(6) i{ transition-delay:.4s; }
-.fluxo-av svg{ width:20px; height:20px; }
+.respira-palco{ position:relative; height:190px; margin-top:16px; }
+.respira-linha{ position:absolute; inset:15px 0; width:100%; height:160px; }
+.respira-linha path{ fill:none; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; }
+.r-reacao{ stroke:rgba(244,239,233,.42); stroke-width:2; }
+.r-calma{ stroke:var(--laranja); stroke-width:3; }
+.anima .pilar-visual:not(.visto) .respira-linha path{ stroke-dashoffset:1; }
+.anima .pilar-visual.visto .r-reacao{ transition:stroke-dashoffset 1.2s ease-out; }
+.anima .pilar-visual.visto .r-calma{ transition:stroke-dashoffset 1.4s 1.4s var(--sai); }
+.respira-centro{ position:absolute; left:50%; top:50%; width:118px; height:118px; margin:-59px 0 0 -59px; display:grid; place-items:center; }
+.respira-bola{ position:absolute; inset:0; border-radius:50%;
+  background:radial-gradient(circle at 50% 40%, rgba(232,105,12,.38), rgba(232,105,12,.08) 62%, transparent 72%);
+  box-shadow:inset 0 0 0 1px rgba(232,105,12,.45); animation:respiracao 8s ease-in-out infinite; }
+@keyframes respiracao{ 0%, 100%{ transform:scale(.72); } 50%{ transform:scale(1); } }
+.respira-texto{ position:relative; display:grid; font-size:13px; font-weight:500; color:var(--texto); }
+.respira-texto em{ grid-area:1 / 1; font-style:normal; text-align:center; animation:troca-a 8s ease-in-out infinite; }
+.respira-texto em + em{ animation-name:troca-b; }
+@keyframes troca-a{ 0%, 44%{ opacity:1; } 50%, 94%{ opacity:0; } 100%{ opacity:1; } }
+@keyframes troca-b{ 0%, 44%{ opacity:0; } 50%, 94%{ opacity:1; } 100%{ opacity:0; } }
+.respira-rotulos{ display:grid; grid-template-columns:1fr 1fr 1fr; margin-top:6px; font-size:12.5px; color:var(--texto-3); }
+.respira-rotulos span:nth-child(2){ text-align:center; }
+.respira-rotulos span:last-child{ text-align:right; color:var(--laranja-ink); }
+
+/* Performance: a escada do método, com a marca a subir degrau a degrau */
+.escada-palco{ position:relative; margin-top:18px; }
+.escada-degraus{ list-style:none; margin:0; padding:0; height:236px; display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; align-items:end; border-bottom:1px solid var(--linha); }
+.escada-degraus li{ position:relative; height:calc(52px + var(--i) * 40px); border-radius:12px 12px 4px 4px; background:rgba(244,239,233,.05); box-shadow:inset 0 0 0 1px rgba(244,239,233,.08); display:flex; align-items:flex-end; justify-content:center; padding-bottom:10px; transition:background-color .5s, box-shadow .5s; }
+.escada-degraus li span{ font-size:11.5px; font-weight:500; color:var(--texto-2); }
+.escada-degraus li:last-child{ background:var(--marca); box-shadow:0 16px 34px -14px rgba(224,96,0,.85); }
+.escada-degraus li:last-child span{ color:var(--sobre-marca); }
+.anima .pilar-visual.visto .escada-degraus li:not(:last-child){ background:rgba(232,105,12,.12); box-shadow:inset 0 0 0 1px rgba(232,105,12,.3); transition-delay:calc(var(--i) * .55s + .3s); }
+.escada-marca{ position:absolute; width:18px; height:18px; margin-left:-9px; border-radius:50%; background:#F4EFE9; box-shadow:0 0 0 5px rgba(232,105,12,.35), 0 0 18px rgba(232,105,12,.8);
+  left:90%; bottom:calc(52px + 4 * 40px + 8px); }
+.anima .pilar-visual:not(.visto) .escada-marca{ left:10%; bottom:60px; }
+.anima .pilar-visual.visto .escada-marca{ animation:sobe 2.9s .3s both; }
+@keyframes sobe{
+  0%{ left:10%; bottom:60px; animation-timing-function:cubic-bezier(.3,0,.2,1); }
+  18%{ left:30%; bottom:100px; } 22%{ left:30%; bottom:100px; animation-timing-function:cubic-bezier(.3,0,.2,1); }
+  40%{ left:50%; bottom:140px; } 44%{ left:50%; bottom:140px; animation-timing-function:cubic-bezier(.3,0,.2,1); }
+  62%{ left:70%; bottom:180px; } 66%{ left:70%; bottom:180px; animation-timing-function:cubic-bezier(.3,0,.2,1); }
+  86%, 100%{ left:90%; bottom:220px; }
+}
+
+/* ---------------- Kingdom Academy: a janela da escola online ---------------- */
+.academia{ overflow-x:clip; }
+.academia-accoes{ margin-top:30px; display:flex; justify-content:center; }
+.academia-palco{ position:relative; isolation:isolate; max-width:1080px; margin:0 auto; perspective:1700px; }
+.academia-luz{ position:absolute; z-index:-1; left:50%; top:10%; width:min(1100px, 120vw); height:80%; transform:translateX(-50%); pointer-events:none;
+  background:radial-gradient(45% 50% at 50% 45%, rgba(232,105,12,.32), transparent 70%); filter:blur(14px); }
+.academia .janela-hero{ transform:rotateX(var(--rx, 14deg)) scale(var(--sc, .94)); }
+.app-sinal-brasao{ background:#16130F; padding:5px; box-shadow:inset 0 0 0 1px rgba(232,105,12,.35); }
+.app-sinal-brasao img{ width:100%; height:100%; object-fit:contain; }
+.capa-laranja{ --cc:#F59A55; } .capa-marfim{ --cc:#EADFC8; } .capa-cobre{ --cc:#D9925F; }
+.academia-nota{ margin:16px 0 0; text-align:center; font-size:12.5px; color:var(--texto-3); }
+.faq-resposta .link{ color:var(--laranja-ink); text-decoration:underline; text-underline-offset:3px; }
 
 /* ---------------- Valores: a roda ---------------- */
 .valores-lista{ list-style:none; margin:0 auto; padding:0; max-width:760px; display:grid; gap:12px; }
@@ -101,7 +177,6 @@
 .no-valor:hover{ color:var(--texto); box-shadow:inset 0 0 0 1px rgba(232,105,12,.5), 0 14px 28px -12px rgba(0,0,0,.9); }
 .no-valor[aria-selected="true"]{ background:var(--marca); color:var(--sobre-marca); scale:1.14; box-shadow:0 0 0 6px rgba(232,105,12,.12), 0 16px 34px -12px rgba(224,96,0,.85); }
 .roda-centro{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; text-align:center; }
-.roda-centro img{ width:46px; height:46px; object-fit:contain; margin-bottom:10px; opacity:.9; }
 .roda-centro span{ font-size:clamp(46px, 5vw, 64px); font-weight:500; letter-spacing:-.05em; line-height:1; font-variant-numeric:tabular-nums; }
 .roda-centro small{ font-size:13px; color:var(--texto-3); margin-top:4px; }
 
@@ -209,6 +284,8 @@ button.foto:hover img{ transform:scale(1.04); }
   .sn-linha{ color:var(--texto); }
   .sn-linha:last-child{ color:var(--laranja); }
   .roda-giro, .no-valor{ transition:none; }
+  .esferas-nucleo, .respira-bola, .respira-texto em{ animation:none; }
+  .respira-texto em + em{ display:none; }
 }
 
 /* ---------------- Ecrãs mais pequenos ---------------- */
@@ -224,13 +301,6 @@ button.foto:hover img{ transform:scale(1.04); }
   .proposito{ grid-template-columns:1fr; }
   .proposito-versiculo{ border-left:0; border-top:1px solid var(--linha); }
   .fundador-foto{ aspect-ratio:4 / 3.6; }
-}
-@media (max-width:760px){
-  .triade{ grid-template-columns:1fr; }
-  .foco{ flex-direction:row; align-items:center; gap:16px; padding:18px 18px; }
-  .foco b{ margin-top:0; font-size:20px; }
-  .foco small{ margin-top:3px; }
-  .foco div{ min-width:0; }
 }
 @media (max-width:600px){
   .sn-linha{ font-size:clamp(38px, 11.5vw, 52px); }

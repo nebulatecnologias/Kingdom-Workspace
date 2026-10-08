@@ -51,6 +51,21 @@
     addEventListener("resize", acende); acende();
   }
 
+  /* ---------------- Kingdom Academy: a janela começa inclinada e endireita-se ao deslizar ---------------- */
+  const janela = $("janela-academy"), palcoAcademia = $("academia-palco");
+  if(janela && !calmo){
+    let pedido = 0;
+    const endireita = () => {
+      pedido = 0;
+      const topo = palcoAcademia.getBoundingClientRect().top;
+      const p = Math.min(Math.max((innerHeight - topo) / (innerHeight * 0.75), 0), 1);
+      janela.style.setProperty("--rx", `${(14 * (1 - p)).toFixed(2)}deg`);
+      janela.style.setProperty("--sc", (0.94 + 0.06 * p).toFixed(4));
+    };
+    addEventListener("scroll", () => { if(!pedido) pedido = requestAnimationFrame(endireita); }, { passive:true });
+    addEventListener("resize", endireita); endireita();
+  }
+
   /* ---------------- Os três focos: separadores que seguem a leitura ---------------- */
   const abas = [...document.querySelectorAll("#pilares-abas a")];
   const indicador = $("pilares-indicador");
