@@ -57,7 +57,7 @@
   .link.principal .ico-caixa{ background:var(--laranja); color:#2D1E17; box-shadow:none; }
 
   /* vídeo de boas-vindas do canal */
-  .canal{ padding:8px 0 8px; }
+  .canal{ padding:64px 0 8px; }
   .canal h2{ font-size:clamp(28px,7vw,36px); margin-bottom:8px; }
   .canal .entrada{ font-size:16px; margin-bottom:22px; }
   .video-cartao{ padding:10px; border-radius:26px; }
@@ -163,7 +163,7 @@
       <p class="entrada revela">Começa por este vídeo de boas-vindas e subscreve para acompanhares os próximos.</p>
       <div class="video-cartao cartao medio revela">
         <a class="video-previa" id="video-previa" href="https://youtu.be/VDmkFY1j_3k" target="_blank" rel="noopener" data-video="VDmkFY1j_3k" aria-label="Ver o vídeo de boas-vindas do canal">
-          <img src="https://i.ytimg.com/vi/VDmkFY1j_3k/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+          <img src="/img/video-boas-vindas.webp" alt="" width="1280" height="720" loading="lazy">
           <span class="tocar" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
           <span class="etiqueta-video">Prévia · toca para ver com som</span>
         </a>
@@ -264,7 +264,7 @@
       io.disconnect();
       var m = document.createElement("iframe");
       m.className = "previa-movel";
-      m.src = base + "?autoplay=1&mute=1&loop=1&playlist=" + id + "&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3";
+      m.src = base + "?autoplay=1&mute=1&loop=1&playlist=" + id + "&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3&cc_load_policy=0";
       m.title = "Prévia do vídeo de boas-vindas";
       m.allow = "autoplay; encrypted-media";
       m.tabIndex = -1;
