@@ -184,7 +184,11 @@
      Para pôr fotografias, basta juntar { src, alt } (ex.: "/img/eventos/founders-1.webp") à lista do evento.
      Enquanto a lista está vazia, ficam os lugares reservados. */
   const GALERIAS = {
-    founders:[],
+    founders:[
+      { src:"/img/eventos/founders-1.webp", alt:"Participante a tomar notas num encontro do Kingdom Founders" },
+      { src:"/img/eventos/founders-2.webp", alt:"Participante a falar durante um encontro do Kingdom Founders" },
+      { src:"/img/eventos/founders-3.webp", alt:"Participantes à mesa num encontro do Kingdom Founders" }
+    ],
     tracktion:[
       { src:"/img/eventos/tracktion-1.webp", alt:"Convidada a falar num encontro do Kingdom Tracktion" },
       { src:"/img/eventos/tracktion-2.webp", alt:"Participante a sorrir durante um encontro do Kingdom Tracktion" },
