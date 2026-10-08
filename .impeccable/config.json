@@ -1043,6 +1043,51 @@
         ],
         "createdAt": "2026-10-08T12:16:06.808Z",
         "reason": "Falso positivo: o texto branco das capas assenta num véu escuro (vcapa::before), não no realce claro do canto"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "training/index.html"
+        ],
+        "createdAt": "2026-10-08T17:46:48.607Z",
+        "reason": "Efeito do sistema de referência do GUIA-SITES-DE-VENDAS (membros.kingdomcompny.com/site), igual ao Tracktion"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "training/index.html"
+        ],
+        "createdAt": "2026-10-08T17:46:48.625Z",
+        "reason": "Efeito do sistema de referência do GUIA-SITES-DE-VENDAS (membros.kingdomcompny.com/site), igual ao Tracktion"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "training/index.html"
+        ],
+        "createdAt": "2026-10-08T17:46:48.642Z",
+        "reason": "Efeito do sistema de referência do GUIA-SITES-DE-VENDAS (membros.kingdomcompny.com/site), igual ao Tracktion"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "training/index.html"
+        ],
+        "createdAt": "2026-10-08T17:46:48.661Z",
+        "reason": "Falso positivo: contentores estruturais (pilares-grelha, faq, versículo) cujos filhos têm padding próprio"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "training/centro.css"
+        ],
+        "createdAt": "2026-10-08T17:46:48.679Z",
+        "reason": "Efeito do sistema de referência do GUIA-SITES-DE-VENDAS (membros.kingdomcompny.com/site), igual ao Tracktion"
       }
     ]
   }
