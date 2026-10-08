@@ -737,6 +737,96 @@
         ],
         "createdAt": "2026-10-08T11:14:20.867Z",
         "reason": "Rótulos curtos em Cinzel (handles e meses), não texto corrido"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:37:57.524Z",
+        "reason": "Composição pedida pelo utilizador (referência Colosseum: 'THE' sobre 'COLOSSEUM'): 'KINGDOM' faz parte do nome da marca"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:37:57.540Z",
+        "reason": "Painéis de vidro fosco pedidos pelo utilizador; o filete de luz e a sombra larga são o que dá profundidade ao vidro"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:37:57.556Z",
+        "reason": "Instrument Serif itálico foi a fonte escolhida explicitamente pelo utilizador"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:37:57.573Z",
+        "reason": "Os h2/h3 de 13-14px são rótulos em capitais espaçadas (preceitos e listas), não títulos; os títulos reais vão de 34 a 176px"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:37:57.589Z",
+        "reason": "Fundo pergaminho pedido pelo utilizador (referência Colosseum + paleta Kingdom)"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:37:57.604Z",
+        "reason": "Composição pedida pelo utilizador (referência Colosseum: 'THE' sobre 'COLOSSEUM'): 'KINGDOM' faz parte do nome da marca"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:37:57.620Z",
+        "reason": "Painéis de vidro fosco pedidos pelo utilizador; o filete de luz e a sombra larga são o que dá profundidade ao vidro"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:37:57.637Z",
+        "reason": "Instrument Serif itálico foi a fonte escolhida explicitamente pelo utilizador"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:37:57.654Z",
+        "reason": "Os h2/h3 de 13-14px são rótulos em capitais espaçadas (preceitos e listas), não títulos; os títulos reais vão de 34 a 176px"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:37:57.670Z",
+        "reason": "Fundo pergaminho pedido pelo utilizador (referência Colosseum + paleta Kingdom)"
       }
     ]
   }
