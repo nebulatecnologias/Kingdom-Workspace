@@ -39,6 +39,7 @@
 .esferas{ flex:1; display:grid; place-items:center; padding:34px 30px 0; }
 .esferas svg{ width:100%; max-width:330px; overflow:visible; }
 .esfera circle{ fill:rgba(232,105,12,.07); stroke:rgba(244,239,233,.22); stroke-width:1; transition:stroke .4s, fill .4s; }
+.esfera-ico{ color:var(--laranja-ink); }
 .esfera text{ font:500 15px var(--font); letter-spacing:-.01em; fill:var(--texto); text-anchor:middle; }
 .cartao-esferas:hover .esfera circle{ stroke:rgba(232,105,12,.55); }
 .esferas-nucleo{ fill:var(--laranja); filter:drop-shadow(0 0 10px rgba(232,105,12,.9)); transform-box:fill-box; transform-origin:center; animation:respira-nucleo 3.6s ease-in-out infinite; }
