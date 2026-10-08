@@ -827,6 +827,222 @@
         ],
         "createdAt": "2026-10-08T11:37:57.670Z",
         "reason": "Fundo pergaminho pedido pelo utilizador (referência Colosseum + paleta Kingdom)"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T12:16:06.392Z",
+        "reason": "Brilho marfim por trás da janela, dos botões e dos cartões em destaque: é o efeito do site de vendas da área de membros que o utilizador pediu como referência (excepção registada no guia)"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T12:16:06.413Z",
+        "reason": "Luz da abertura do sistema de referência (membros.kingdomcompny.com/site), com a cor do selo"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T12:16:06.431Z",
+        "reason": "Luz a nascer no fecho, efeito do sistema de referência"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T12:16:06.449Z",
+        "reason": "Faixas em movimento do sistema de referência; param ao passar o rato e com movimento reduzido"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T12:16:06.467Z",
+        "reason": "Grelha fina a desvanecer na abertura, do sistema de referência"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T12:16:06.486Z",
+        "reason": "Janelas de demonstração dentro dos cartões (mock da área de membros), como na referência"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T12:16:06.502Z",
+        "reason": "Ponto «Ao vivo» da mesa estratégica online; pára com movimento reduzido"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T12:16:06.518Z",
+        "reason": "Falso positivo: o texto branco das capas assenta num véu escuro (vcapa::before), não no realce claro do canto"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "tracktion/site.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.535Z",
+        "reason": "Brilho marfim por trás da janela, dos botões e dos cartões em destaque: é o efeito do site de vendas da área de membros que o utilizador pediu como referência (excepção registada no guia)"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "tracktion/site.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.552Z",
+        "reason": "Luz da abertura do sistema de referência (membros.kingdomcompny.com/site), com a cor do selo"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "tracktion/site.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.568Z",
+        "reason": "Luz a nascer no fecho, efeito do sistema de referência"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "tracktion/site.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.585Z",
+        "reason": "Faixas em movimento do sistema de referência; param ao passar o rato e com movimento reduzido"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "tracktion/site.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.600Z",
+        "reason": "Grelha fina a desvanecer na abertura, do sistema de referência"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "tracktion/site.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.619Z",
+        "reason": "Janelas de demonstração dentro dos cartões (mock da área de membros), como na referência"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "tracktion/site.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.635Z",
+        "reason": "Ponto «Ao vivo» da mesa estratégica online; pára com movimento reduzido"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "tracktion/site.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.651Z",
+        "reason": "Falso positivo: o texto branco das capas assenta num véu escuro (vcapa::before), não no realce claro do canto"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.668Z",
+        "reason": "Brilho marfim por trás da janela, dos botões e dos cartões em destaque: é o efeito do site de vendas da área de membros que o utilizador pediu como referência (excepção registada no guia)"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.685Z",
+        "reason": "Luz da abertura do sistema de referência (membros.kingdomcompny.com/site), com a cor do selo"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.708Z",
+        "reason": "Luz a nascer no fecho, efeito do sistema de referência"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.728Z",
+        "reason": "Faixas em movimento do sistema de referência; param ao passar o rato e com movimento reduzido"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.749Z",
+        "reason": "Grelha fina a desvanecer na abertura, do sistema de referência"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.770Z",
+        "reason": "Janelas de demonstração dentro dos cartões (mock da área de membros), como na referência"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.791Z",
+        "reason": "Ponto «Ao vivo» da mesa estratégica online; pára com movimento reduzido"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T12:16:06.808Z",
+        "reason": "Falso positivo: o texto branco das capas assenta num véu escuro (vcapa::before), não no realce claro do canto"
       }
     ]
   }

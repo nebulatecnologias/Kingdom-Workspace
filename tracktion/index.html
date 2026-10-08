@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<!-- Kingdom Tracktion: mastermind de seis meses, por candidatura. Página independente (tracktion.css + tracktion.js). -->
+<!-- Kingdom Tracktion: o sistema do site de vendas da área de membros (site.css), com as cores do selo
+     e Instrument Serif itálico nos títulos (tracktion.css). Sem fotografias: só o logótipo. -->
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kingdom Tracktion | Mastermind por candidatura</title>
-<meta name="description" content="Seis meses à mesa de empresários que já percorreram o caminho. O mastermind da Kingdom para empreendedores que querem crescer com mais clareza, melhores decisões e resultados mais rápidos. Doze lugares, por candidatura.">
+<meta name="description" content="Seis meses para o teu negócio ganhar tracção: mentorias, experiências presenciais, advisings individuais e treino da tua equipa, ao lado de empresários que já percorreram o caminho. Doze lugares, por candidatura.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tracktion.kingdomcompny.com/">
 <meta property="og:title" content="Kingdom Tracktion | Mastermind por candidatura">
-<meta property="og:description" content="Seis meses à mesa de empresários que já percorreram o caminho. Doze lugares, por candidatura.">
+<meta property="og:description" content="Seis meses para o teu negócio ganhar tracção, ao lado de empresários que já percorreram o caminho. Doze lugares, por candidatura.">
 <meta property="og:image" content="https://tracktion.kingdomcompny.com/og-kingdom-tracktion.jpg">
 <meta property="og:image:width" content="1080">
 <meta property="og:image:height" content="1080">
@@ -17,539 +18,545 @@
 <meta property="og:locale" content="pt_PT">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kingdom Tracktion | Mastermind por candidatura">
-<meta name="twitter:description" content="Seis meses à mesa de empresários que já percorreram o caminho. Doze lugares, por candidatura.">
+<meta name="twitter:description" content="Seis meses para o teu negócio ganhar tracção, ao lado de empresários que já percorreram o caminho.">
 <meta name="twitter:image" content="https://tracktion.kingdomcompny.com/og-kingdom-tracktion.jpg">
-<meta name="theme-color" content="#ECE5D8">
+<meta name="theme-color" content="#000E07">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-96.png" sizes="96x96">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Instrument+Serif:ital@1&display=swap">
+<link rel="stylesheet" href="/site.css">
 <link rel="stylesheet" href="/tracktion.css">
-<script>document.documentElement.classList.add('anima');</script>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></symbol>
-    <symbol id="i-mais" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
-    <symbol id="i-sim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
-    <symbol id="i-nao" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
-    <symbol id="coluna" viewBox="0 0 120 246">
-      <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
-        <path d="M4 2h112v9H4z"/>
-        <path d="M22 17c-10-1-14 9-8 13 5 3 10-2 6-5"/><path d="M98 17c10-1 14 9 8 13-5 3-10-2-6-5"/>
-        <path d="M22 11v6h76v-6"/>
-        <path d="M24 17l6 37h60l6-37"/>
-        <path d="M31 54c0-11 5-19 11-23"/><path d="M89 54c0-11-5-19-11-23"/>
-        <path d="M60 54c-1-12-5-22-5-30"/><path d="M60 54c1-12 5-22 5-30"/>
-        <path d="M45 54c2-9 5-14 9-17"/><path d="M75 54c-2-9-5-14-9-17"/>
-        <path d="M26 54h68v6H26z"/>
-        <path d="M29 60h62l-2 158H31z"/>
-        <path d="M39 65v148M47.5 65v148M56 65v148M64 65v148M72.5 65v148M81 65v148"/>
-        <path d="M27 218h66v6H27z"/><path d="M21 224h78v8H21z"/><path d="M15 232h90v11H15z"/>
-      </g>
-    </symbol>
-    <symbol id="arcada" viewBox="0 0 1200 380"><path d="M0 20L1200 20M0 28L1200 28M0 28L0 40M42 31h16v6h-16zM100 28L100 40M200 28L200 40M242 31h16v6h-16zM300 28L300 40M400 28L400 40M442 31h16v6h-16zM500 28L500 40M600 28L600 40M642 31h16v6h-16zM700 28L700 40M800 28L800 40M842 31h16v6h-16zM900 28L900 40M1000 28L1000 40M1042 31h16v6h-16zM1100 28L1100 40M0 40L1200 40M0 46L1200 46M0 52L1200 52M-5 52V148M5 52V148M95 52V148M105 52V148M195 52V148M205 52V148M295 52V148M305 52V148M395 52V148M405 52V148M495 52V148M505 52V148M595 52V148M605 52V148M695 52V148M705 52V148M795 52V148M805 52V148M895 52V148M905 52V148M995 52V148M1005 52V148M1095 52V148M1105 52V148M1195 52V148M1205 52V148M18 148V95.2A32 32 0 0 1 82 95.2V148M12 95.2A38 38 0 0 1 88 95.2M10 95.2L18 95.2M82 95.2L90 95.2M118 148V95.2A32 32 0 0 1 182 95.2V148M112 95.2A38 38 0 0 1 188 95.2M110 95.2L118 95.2M182 95.2L190 95.2M218 148V95.2A32 32 0 0 1 282 95.2V148M212 95.2A38 38 0 0 1 288 95.2M210 95.2L218 95.2M282 95.2L290 95.2M318 148V95.2A32 32 0 0 1 382 95.2V148M312 95.2A38 38 0 0 1 388 95.2M310 95.2L318 95.2M382 95.2L390 95.2M418 148V95.2A32 32 0 0 1 482 95.2V148M412 95.2A38 38 0 0 1 488 95.2M410 95.2L418 95.2M482 95.2L490 95.2M518 148V95.2A32 32 0 0 1 582 95.2V148M512 95.2A38 38 0 0 1 588 95.2M510 95.2L518 95.2M582 95.2L590 95.2M618 148V95.2A32 32 0 0 1 682 95.2V148M612 95.2A38 38 0 0 1 688 95.2M610 95.2L618 95.2M682 95.2L690 95.2M718 148V95.2A32 32 0 0 1 782 95.2V148M712 95.2A38 38 0 0 1 788 95.2M710 95.2L718 95.2M782 95.2L790 95.2M818 148V95.2A32 32 0 0 1 882 95.2V148M812 95.2A38 38 0 0 1 888 95.2M810 95.2L818 95.2M882 95.2L890 95.2M918 148V95.2A32 32 0 0 1 982 95.2V148M912 95.2A38 38 0 0 1 988 95.2M910 95.2L918 95.2M982 95.2L990 95.2M1018 148V95.2A32 32 0 0 1 1082 95.2V148M1012 95.2A38 38 0 0 1 1088 95.2M1010 95.2L1018 95.2M1082 95.2L1090 95.2M1118 148V95.2A32 32 0 0 1 1182 95.2V148M1112 95.2A38 38 0 0 1 1188 95.2M1110 95.2L1118 95.2M1182 95.2L1190 95.2M0 150L1200 150M0 156L1200 156M0 162L1200 162M-5 162V258M5 162V258M95 162V258M105 162V258M195 162V258M205 162V258M295 162V258M305 162V258M395 162V258M405 162V258M495 162V258M505 162V258M595 162V258M605 162V258M695 162V258M705 162V258M795 162V258M805 162V258M895 162V258M905 162V258M995 162V258M1005 162V258M1095 162V258M1105 162V258M1195 162V258M1205 162V258M18 258V205.2A32 32 0 0 1 82 205.2V258M12 205.2A38 38 0 0 1 88 205.2M10 205.2L18 205.2M82 205.2L90 205.2M118 258V205.2A32 32 0 0 1 182 205.2V258M112 205.2A38 38 0 0 1 188 205.2M110 205.2L118 205.2M182 205.2L190 205.2M218 258V205.2A32 32 0 0 1 282 205.2V258M212 205.2A38 38 0 0 1 288 205.2M210 205.2L218 205.2M282 205.2L290 205.2M318 258V205.2A32 32 0 0 1 382 205.2V258M312 205.2A38 38 0 0 1 388 205.2M310 205.2L318 205.2M382 205.2L390 205.2M418 258V205.2A32 32 0 0 1 482 205.2V258M412 205.2A38 38 0 0 1 488 205.2M410 205.2L418 205.2M482 205.2L490 205.2M518 258V205.2A32 32 0 0 1 582 205.2V258M512 205.2A38 38 0 0 1 588 205.2M510 205.2L518 205.2M582 205.2L590 205.2M618 258V205.2A32 32 0 0 1 682 205.2V258M612 205.2A38 38 0 0 1 688 205.2M610 205.2L618 205.2M682 205.2L690 205.2M718 258V205.2A32 32 0 0 1 782 205.2V258M712 205.2A38 38 0 0 1 788 205.2M710 205.2L718 205.2M782 205.2L790 205.2M818 258V205.2A32 32 0 0 1 882 205.2V258M812 205.2A38 38 0 0 1 888 205.2M810 205.2L818 205.2M882 205.2L890 205.2M918 258V205.2A32 32 0 0 1 982 205.2V258M912 205.2A38 38 0 0 1 988 205.2M910 205.2L918 205.2M982 205.2L990 205.2M1018 258V205.2A32 32 0 0 1 1082 205.2V258M1012 205.2A38 38 0 0 1 1088 205.2M1010 205.2L1018 205.2M1082 205.2L1090 205.2M1118 258V205.2A32 32 0 0 1 1182 205.2V258M1112 205.2A38 38 0 0 1 1188 205.2M1110 205.2L1118 205.2M1182 205.2L1190 205.2M0 260L1200 260M0 266L1200 266M0 272L1200 272M-5 272V368M5 272V368M95 272V368M105 272V368M195 272V368M205 272V368M295 272V368M305 272V368M395 272V368M405 272V368M495 272V368M505 272V368M595 272V368M605 272V368M695 272V368M705 272V368M795 272V368M805 272V368M895 272V368M905 272V368M995 272V368M1005 272V368M1095 272V368M1105 272V368M1195 272V368M1205 272V368M18 368V315.2A32 32 0 0 1 82 315.2V368M12 315.2A38 38 0 0 1 88 315.2M10 315.2L18 315.2M82 315.2L90 315.2M118 368V315.2A32 32 0 0 1 182 315.2V368M112 315.2A38 38 0 0 1 188 315.2M110 315.2L118 315.2M182 315.2L190 315.2M218 368V315.2A32 32 0 0 1 282 315.2V368M212 315.2A38 38 0 0 1 288 315.2M210 315.2L218 315.2M282 315.2L290 315.2M318 368V315.2A32 32 0 0 1 382 315.2V368M312 315.2A38 38 0 0 1 388 315.2M310 315.2L318 315.2M382 315.2L390 315.2M418 368V315.2A32 32 0 0 1 482 315.2V368M412 315.2A38 38 0 0 1 488 315.2M410 315.2L418 315.2M482 315.2L490 315.2M518 368V315.2A32 32 0 0 1 582 315.2V368M512 315.2A38 38 0 0 1 588 315.2M510 315.2L518 315.2M582 315.2L590 315.2M618 368V315.2A32 32 0 0 1 682 315.2V368M612 315.2A38 38 0 0 1 688 315.2M610 315.2L618 315.2M682 315.2L690 315.2M718 368V315.2A32 32 0 0 1 782 315.2V368M712 315.2A38 38 0 0 1 788 315.2M710 315.2L718 315.2M782 315.2L790 315.2M818 368V315.2A32 32 0 0 1 882 315.2V368M812 315.2A38 38 0 0 1 888 315.2M810 315.2L818 315.2M882 315.2L890 315.2M918 368V315.2A32 32 0 0 1 982 315.2V368M912 315.2A38 38 0 0 1 988 315.2M910 315.2L918 315.2M982 315.2L990 315.2M1018 368V315.2A32 32 0 0 1 1082 315.2V368M1012 315.2A38 38 0 0 1 1088 315.2M1010 315.2L1018 315.2M1082 315.2L1090 315.2M1118 368V315.2A32 32 0 0 1 1182 315.2V368M1112 315.2A38 38 0 0 1 1188 315.2M1110 315.2L1118 315.2M1182 315.2L1190 315.2M0 368L1200 368M0 376L1200 376" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></symbol>
-  </defs>
-</svg>
-
 <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
 
-<header class="topo" id="topo">
-  <div class="envolve">
-    <a class="marca" href="#conteudo" aria-label="Kingdom Tracktion, início">
-      <img src="/img/selo-p.webp" alt="" width="44" height="44">
-      <span>Kingdom Tracktion<small>Mastermind</small></span>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="marca" href="#topo" aria-label="Kingdom Tracktion, início">
+      <span class="sinal sinal-selo" aria-hidden="true"><img src="/img/selo-p.webp" alt="" width="34" height="34"></span>
+      <span>Kingdom Tracktion</span>
     </a>
-    <a class="botao botao-vidro" href="#candidatura" data-candidatura>Candidatar-me</a>
+    <nav class="nav-links" aria-label="Secções">
+      <a href="#modelos">Modelos</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#metodo">Método</a>
+      <a href="#para-quem">Para quem é</a>
+      <a href="#perguntas">Perguntas</a>
+    </nav>
+    <a class="btn btn-laranja btn-nav" href="#candidatura" data-candidatura>Candidatar-me</a>
   </div>
 </header>
 
 <main id="conteudo">
 
-  <!-- herói: o monumento -->
-  <section class="heroi papel">
-    <div class="envolve">
-      <img class="emblema" src="/img/selo-p.webp" alt="" width="72" height="72">
-      <p class="rotulo">Kingdom</p>
-      <h1>Tracktion</h1>
-      <p class="titulo-filete">Mastermind</p>
-      <span class="traco" aria-hidden="true"></span>
-      <ul class="preceitos">
-        <li><h2>Decisões com conselho</h2><p>As melhores decisões raramente nascem no isolamento.<br>Nascem à mesa de quem já percorreu o caminho.</p></li>
-        <li><h2>Seis meses à mesa</h2><p>Um conselho de empresários ao teu lado,<br>todos os meses, online e presencialmente.</p></li>
-        <li><h2>Doze lugares</h2><p>A entrada é feita por candidatura.<br>O nível de quem se senta eleva a conversa de todos.</p></li>
-      </ul>
+<!-- ============ Abertura: a promessa ============ -->
+<section class="hero" id="topo">
+  <div class="hero-luz" aria-hidden="true"></div>
+  <div class="hero-grelha" aria-hidden="true"></div>
+  <div class="hero-texto">
+    <h1 class="revela">Seis meses para o teu negócio ganhar tracção.</h1>
+    <p class="hero-sub revela">O Kingdom Tracktion é o mastermind para empreendedores que querem crescer com mais clareza, melhores decisões e resultados mais rápidos, acompanhados de perto por empresários que já percorreram o caminho.</p>
+    <div class="hero-accoes revela">
+      <a class="btn btn-laranja btn-lg" href="#candidatura" data-candidatura>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        Candidatar-me</a>
+      <a class="btn btn-escuro btn-lg" href="#como-funciona">Como funciona</a>
     </div>
-    <figure class="horizonte"><img src="/img/colunas.webp" alt="Colunata coríntia em pedra sob arcos clássicos" width="961" height="1281" fetchpriority="high"></figure>
-  </section>
+    <p class="hero-nota revela"><span class="ponto" aria-hidden="true"></span>12 empreendedores por turma · 6 meses · entrada por candidatura</p>
+  </div>
 
-  <!-- fundação: a máxima -->
-  <section class="fundacao">
-    <div class="fundo-arcada" aria-hidden="true"><svg viewBox="0 0 1200 380"><use href="#arcada"/></svg></div>
-    <div class="envolve">
-      <h2 class="revela">Não cresças sozinho.<br><span class="inteiro">Senta-te</span> à mesa certa.</h2>
-      <p class="lead revela">O ecossistema estratégico para empreendedores que querem crescer com mais clareza, melhores decisões e resultados mais rápidos, lado a lado com empresários que já percorreram o caminho.</p>
-      <div class="accoes revela">
-        <a class="botao botao-marfim" href="#candidatura" data-candidatura>Candidatar-me <svg aria-hidden="true"><use href="#i-seta"/></svg></a>
-        <a class="ligacao" href="#como-funciona">Como funciona</a>
+  <!-- O semestre de um membro, visto como na área de membros -->
+  <div class="hero-palco revela" id="palco">
+    <div class="janela janela-hero" id="janela-hero" style="--m:#E6DEBA">
+      <div class="janela-topo" aria-hidden="true">
+        <span class="sem v"></span><span class="sem a"></span><span class="sem d"></span>
+        <span class="janela-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>tracktion.kingdomcompny.com/membro</span></span>
       </div>
-      <dl class="factos vidro revela">
-        <div><dt>6</dt><dd>Meses</dd></div>
-        <div><dt>12</dt><dd>Lugares</dd></div>
-        <div><dt>3</dt><dd>Mentores</dd></div>
-      </dl>
-      <blockquote class="maxima revela">
-        <p>Os planos fracassam por falta de conselho, mas são bem-sucedidos quando há muitos conselheiros.</p>
-        <cite>Provérbios 15:22</cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- carta -->
-  <section class="seccao papel carta" id="carta">
-    <div class="envolve">
-      <div class="abertura revela">
-        <p class="inscricao">Uma carta de Shelton Douglas</p>
-        <h2>Há momentos em que uma <span class="acento">porta</span> se abre.</h2>
-      </div>
-      <div class="folha revela">
-        <p>E quem a ignora passa anos a perguntar-se o que teria acontecido se tivesse entrado. Este é um desses momentos.</p>
-        <p>Se esta página chegou até ti, não foi por acaso. Há quem tenha reparado no teu percurso, no teu empenho e na tua determinação em crescer quando outros desistiram.</p>
-        <p>Durante os próximos seis meses, vou reunir os conselheiros que me acompanham nos negócios e na vida: pessoas que operam nos bastidores e que raramente partilham as suas estratégias fora do seu círculo restrito.</p>
-        <p>Vêm revelar o que geralmente não se expõe ao público, e <strong>vão fazê-lo para apenas 12 empreendedores selecionados.</strong> Um lugar onde as decisões estratégicas que hoje te custam tempo, dinheiro e energia passam a ser tomadas com o apoio directo de quem já percorreu esse caminho.</p>
-        <p>Acredito que este programa é a peça que faltava para acelerar tudo o que tens construído.</p>
-        <p>Com consideração, e com a expectativa de te ver do outro lado,</p>
-        <div class="assinatura-carta">
-          <span class="nome">Shelton D.</span>
-          <small>Fundador · Kingdom Company</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- diferença -->
-  <section class="seccao papel-2 diferenca">
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <h2>Há uma diferença entre trabalhar muito e <span class="acento">crescer.</span></h2>
-      </div>
-      <div class="contraste revela">
-        <div class="lado vidro-claro">
-          <p class="inscricao">O que trabalha muito</p>
-          <h3>Depende do seu próprio esforço.</h3>
-          <p>Cada resultado custa-lhe mais horas. Quando pára, o negócio pára com ele.</p>
-        </div>
-        <span class="versus" aria-hidden="true">vs</span>
-        <div class="lado cresce">
-          <p class="inscricao">O que cresce</p>
-          <h3>Depende das suas decisões.</h3>
-          <p>Cada boa decisão multiplica o que construiu. E as melhores raramente nascem no isolamento.</p>
-        </div>
-      </div>
-      <div class="nascem">
-        <h3 class="revela">As melhores decisões nascem…</h3>
-        <ol class="revela">
-          <li>No contacto com quem já errou onde tu ainda não erraste.</li>
-          <li>Quando alguém de fora olha para o teu negócio e vê exactamente o que te está a travar.</li>
-          <li>Num ambiente onde o nível da conversa te obriga a subir.</li>
-        </ol>
-      </div>
-      <p class="conclusao revela">Precisas de um lugar onde os teus desafios reais sejam analisados por quem já os resolveu, e onde o teu próximo ano seja construído com clareza. É isso que o <em>Kingdom Tracktion</em> existe para fazer.</p>
-    </div>
-  </section>
-
-  <!-- o que é -->
-  <section class="seccao escuro oquee" id="o-que-e">
-    <div class="fundo-arcada" aria-hidden="true"><svg viewBox="0 0 1200 380"><use href="#arcada"/></svg></div>
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">O que é</p>
-        <h2>Um conselho de empresários ao teu lado, durante <span class="acento">seis meses.</span></h2>
-        <p class="lead">Um mastermind premium de acompanhamento estratégico, para empreendedores que querem crescer dentro de uma comunidade de empresários, com mais clareza, estrutura e inteligência empresarial.</p>
-      </div>
-      <div class="colunas">
-        <div class="vidro revela">
-          <h3>Terás acesso a</h3>
-          <ul class="lista-real">
-            <li><span><strong>Aconselhamento estratégico</strong> sobre as decisões que estás a tomar agora.</span></li>
-            <li><span><strong>Experiências reais de mercado</strong>, contadas por quem as viveu.</span></li>
-            <li><span><strong>Sessões de validação de decisões</strong>, antes de arriscares o teu dinheiro.</span></li>
-            <li><span><strong>Visitas técnicas</strong> e consultoria empresarial no terreno.</span></li>
-            <li><span><strong>Proximidade contínua</strong> com empresários, especialistas e mentores experientes.</span></li>
-          </ul>
-        </div>
-        <div class="vidro revela">
-          <h3>Para que possas</h3>
-          <ul class="lista-real">
-            <li><span>Reduzir erros desnecessários.</span></li>
-            <li><span>Evitar decisões financeiras precipitadas.</span></li>
-            <li><span>Economizar tempo e dinheiro.</span></li>
-            <li><span>Validar a tua estratégia antes de a executar.</span></li>
-            <li><span>Acelerar o crescimento com mais clareza.</span></li>
-            <li><span>Desenvolver capacidade empresarial, com suporte emocional e técnico contínuo.</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- pilares -->
-  <section class="seccao papel pilares-seccao" id="pilares">
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">O que vais trabalhar</p>
-        <h2>Seis pilares para <span class="acento">sustentar</span> o crescimento.</h2>
-        <p class="lead">Durante o semestre, cada membro trabalha os pilares fundamentais do crescimento empresarial.</p>
-      </div>
-      <div class="colunata revela">
-        <div class="entablamento">Kingdom Tracktion · Mastermind</div>
-        <div class="dentes-claros" aria-hidden="true"></div>
-        <ol class="pilares">
-          <li class="pilar"><svg aria-hidden="true"><use href="#coluna"/></svg><div class="base"><b>I</b><span>Planeamento estratégico</span></div></li>
-          <li class="pilar"><svg aria-hidden="true"><use href="#coluna"/></svg><div class="base"><b>II</b><span>Produtividade e alta performance</span></div></li>
-          <li class="pilar"><svg aria-hidden="true"><use href="#coluna"/></svg><div class="base"><b>III</b><span>Posicionamento e marca pessoal</span></div></li>
-          <li class="pilar"><svg aria-hidden="true"><use href="#coluna"/></svg><div class="base"><b>IV</b><span>Marketing e vendas</span></div></li>
-          <li class="pilar"><svg aria-hidden="true"><use href="#coluna"/></svg><div class="base"><b>V</b><span>Gestão empresarial</span></div></li>
-          <li class="pilar"><svg aria-hidden="true"><use href="#coluna"/></svg><div class="base"><b>VI</b><span>Networking estratégico</span></div></li>
-        </ol>
-        <div class="soco" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- como funciona -->
-  <section class="seccao escuro como" id="como-funciona">
-    <div class="fundo-foto" aria-hidden="true"><img src="/img/colunas.webp" alt="" width="961" height="1281" loading="lazy"></div>
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">Como funciona</p>
-        <h2>Uma mesa estratégica, todos os <span class="acento">meses.</span></h2>
-        <p class="lead">O formato é em grupo, mas a atenção é individual. Em cada encontro, um participante é acompanhado directamente enquanto os restantes aprendem com as análises, correcções e estratégias partilhadas ao vivo.</p>
-      </div>
-      <div class="formatos">
-        <article class="formato revela">
-          <figure><img src="/img/online.webp" alt="Sessão de mastermind online com vários empresários" width="1100" height="736" loading="lazy"></figure>
-          <p class="inscricao">Todos os meses · Online</p>
-          <h3>Sessão de mastermind</h3>
-          <p>Uma ligação mensal via Google Meet onde apresentas os teus desafios, dúvidas, estratégias e decisões, e recebes visão externa qualificada e direcção prática.</p>
-        </article>
-        <article class="formato revela">
-          <figure><img src="/img/consultoria.webp" alt="Consultoria estratégica presencial, frente a frente" width="1100" height="733" loading="lazy"></figure>
-          <p class="inscricao">Todos os meses · Presencial</p>
-          <h3>Consultoria com Shelton Douglas</h3>
-          <p>Uma sessão presencial de consultoria estratégica por mês, com o mentor. Um nível de proximidade e acompanhamento raro em programas tradicionais.</p>
-        </article>
-        <article class="formato revela">
-          <figure><img src="/img/mesa.webp" alt="Encontro exclusivo entre empresários à volta de uma mesa" width="1100" height="733" loading="lazy"></figure>
-          <p class="inscricao">Ao longo do semestre</p>
-          <h3>Visitas técnicas e encontros</h3>
-          <p>Visitas técnicas e sessões de consultoria empresarial, e dois encontros presenciais exclusivos entre empresários e mentores.</p>
-        </article>
-      </div>
-
-      <div class="calendario vidro revela">
-        <header>
-          <h3>O semestre, mês a mês</h3>
-          <p>Seis sessões online, seis consultorias presenciais, dois encontros.</p>
-        </header>
-        <ol class="meses">
-          <li class="mes"><span class="num">I</span><span class="linhas"><small>Sessão online</small><small>Consultoria</small></span></li>
-          <li class="mes"><span class="num">II</span><span class="linhas"><small>Sessão online</small><small>Consultoria</small></span></li>
-          <li class="mes encontro"><span class="num">III</span><span class="linhas"><small>Sessão online</small><small>Consultoria</small><small class="destaque">Encontro a meio</small></span></li>
-          <li class="mes"><span class="num">IV</span><span class="linhas"><small>Sessão online</small><small>Consultoria</small></span></li>
-          <li class="mes"><span class="num">V</span><span class="linhas"><small>Sessão online</small><small>Consultoria</small></span></li>
-          <li class="mes encontro"><span class="num">VI</span><span class="linhas"><small>Sessão online</small><small>Consultoria</small><small class="destaque">Encontro de encerramento</small></span></li>
-        </ol>
-        <div class="encontros">
-          <div>
-            <h4>Os dois encontros presenciais</h4>
-            <p>Um a meio e outro no encerramento do mastermind. Só para membros e mentores.</p>
+      <div class="app" aria-hidden="true">
+        <aside class="app-lado">
+          <div class="app-marca"><span class="app-sinal app-selo"><img src="/img/selo-p.webp" alt="" width="34" height="34"></span><span class="app-nome">Kingdom Tracktion</span></div>
+          <span class="app-item ativo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 4l8.5 6.5V20H15v-5.5H9V20H3.5z"/></svg>O meu semestre</span>
+          <span class="app-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18M20 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4M8 21l4-5 4 5"/></svg>Kingdom Class</span>
+          <span class="app-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Kingdom Experience</span>
+          <span class="app-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7.5" r="3.5"/><path d="M3 20a7 7 0 0 1 11-5.7M16 18l2 2 4-4"/></svg>Advisings</span>
+          <span class="app-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.5 3.5 0 0 1 0 6.6M18.5 20a6.5 6.5 0 0 0-2.6-5.2"/></svg>Training</span>
+        </aside>
+        <div class="app-corpo">
+          <p class="app-ola">O teu semestre</p>
+          <p class="app-data">Mês 3 de 6 · este mês há encontro presencial.</p>
+          <div class="app-continuar">
+            <span class="capa capa-marfim">KC</span>
+            <div class="app-cont-texto">
+              <b>Mesa estratégica do mês</b>
+              <small>Kingdom Class · o teu caso em análise</small>
+              <span class="barra"><span style="--p:.5"></span></span>
+            </div>
+            <span class="app-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7v10l8-5z" fill="currentColor"/></svg></span>
           </div>
-          <ul>
-            <li>Partilha de experiências reais</li>
-            <li>Networking estratégico</li>
-            <li>Análise do crescimento dos membros</li>
-            <li>Bastidores empresariais</li>
-            <li>Oportunidades de colaboração</li>
-            <li>Troca de contactos</li>
-            <li>Geração de oportunidades de negócio</li>
-            <li>Almoço privado entre empresários e mentores</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- para quem -->
-  <section class="seccao papel-2 paraquem" id="para-quem">
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">Antes de te candidatares</p>
-        <h2>Esta mesa não é para <span class="acento">todos.</span></h2>
-        <p class="lead">O nível do grupo é o que dá valor a cada encontro. Por isso a entrada é por candidatura.</p>
-      </div>
-      <div class="duas">
-        <div class="tabua sim vidro-claro revela">
-          <p class="inscricao">Para quem é</p>
-          <h3>É para ti se</h3>
-          <p>O Kingdom Tracktion foi criado para empreendedores que:</p>
-          <ul>
-            <li><svg aria-hidden="true"><use href="#i-sim"/></svg>Valorizam fazer parte de um grupo de empreendedores com mentalidade de crescimento.</li>
-            <li><svg aria-hidden="true"><use href="#i-sim"/></svg>Querem crescer de forma estratégica.</li>
-            <li><svg aria-hidden="true"><use href="#i-sim"/></svg>Sentem que estão a construir sozinhos, sem o apoio de quem entende os desafios de empreender.</li>
-            <li><svg aria-hidden="true"><use href="#i-sim"/></svg>Desejam proximidade com empresários e especialistas experientes nas suas áreas.</li>
-            <li><svg aria-hidden="true"><use href="#i-sim"/></svg>Valorizam direcção e validação estratégica.</li>
-            <li><svg aria-hidden="true"><use href="#i-sim"/></svg>Valorizam networking e parcerias qualificadas.</li>
-            <li><svg aria-hidden="true"><use href="#i-sim"/></svg>Querem acesso a bastidores e experiências reais de mercado.</li>
-            <li><svg aria-hidden="true"><use href="#i-sim"/></svg>Entendem que o ambiente influencia os resultados.</li>
-            <li><svg aria-hidden="true"><use href="#i-sim"/></svg>Querem evoluir como empresários.</li>
-          </ul>
-        </div>
-        <div class="tabua nao vidro-claro revela">
-          <p class="inscricao">Para quem não é</p>
-          <h3>Não é para ti se</h3>
-          <p>O Kingdom Tracktion não foi criado para quem:</p>
-          <ul>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Não tem capacidade de contribuir com o grupo.</li>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Procura apenas motivação temporária.</li>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Acredita que não precisa de ninguém.</li>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Quer resultados sem execução.</li>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Não está disposto a receber aconselhamento estratégico.</li>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Não valoriza ambiente e networking.</li>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Procura apenas informação gratuita.</li>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Não está disposto a aplicar estratégias no próprio negócio.</li>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Acredita que crescer é apenas fruto de sorte.</li>
-            <li><svg aria-hidden="true"><use href="#i-nao"/></svg>Está satisfeito com resultados medianos.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- mentores -->
-  <section class="seccao noite mentores" id="mentores">
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">Quem se senta à mesa</p>
-        <h2>Os conselheiros que vais <span class="acento">conhecer.</span></h2>
-        <p class="lead">Mentores e especialistas selecionados estrategicamente para acelerar o teu crescimento nesta jornada empresarial.</p>
-      </div>
-      <div class="lista">
-        <article class="mentor revela">
-          <div class="retrato"><div class="janela"><img src="/img/cesar.webp" alt="Dr. César Muianga" width="380" height="475" loading="lazy"></div></div>
-          <div>
-            <p class="inscricao">Mentor</p>
-            <h3>Dr. César Muianga</h3>
-            <p class="cargo">CEO · Help Multiservice</p>
-            <dl class="numeros vidro">
-              <div><dt>+1.800</dt><dd>Colaboradores</dd></div>
-              <div><dt>+13M</dt><dd>Em facturação mensal</dd></div>
-              <div><dt>+15</dt><dd>Anos no mercado nacional</dd></div>
-            </dl>
-            <p>Sócio-fundador da Help Multiservice, a maior empresa de higiene e limpeza de Moçambique. À frente de uma organização com mais de 1.800 colaboradores e mais de 15 anos de operação, acumulou prémios e certificações que reconhecem não apenas a dimensão da empresa, mas a qualidade da sua liderança.</p>
-            <p>O maior teste veio na pandemia. Enquanto muitos recuavam, o Dr. César conduziu a empresa ao sucesso em plena crise, provando que a gestão de excelência não se mede apenas nos bons momentos.</p>
+          <div class="app-kpis">
+            <span><b>6</b>meses</span><span><b>12</b>membros</span><span><b>4</b>modelos</span>
           </div>
-        </article>
-        <article class="mentor revela">
-          <div class="retrato"><div class="janela"><img src="/img/josue.webp" alt="Josué D. Chale" width="310" height="388" loading="lazy"></div></div>
-          <div>
-            <p class="inscricao">Mentor · Brasil</p>
-            <h3>Josué D. Chale</h3>
-            <p class="cargo">Mentor · The Mentoring BR</p>
-            <p>Empresário, mentor cristão e moçambicano a construir legado no Brasil. A sua trajectória é marcada por uma perspicácia rara nos negócios e por uma ousadia que quebrou barreiras: mesmo como estrangeiro, chegou a ambientes altamente estratégicos e às figuras mais influentes dos mercados brasileiro e moçambicano.</p>
-            <p>O reconhecimento não tardou. Foi condecorado na Gala do Poder do Networking, ao lado de Lineu Candeeiro e de outras referências de peso no mercado brasileiro.</p>
-            <div class="galeria">
-              <img src="/img/josue-1.webp" alt="Josué D. Chale num evento de negócios" width="575" height="767" loading="lazy">
-              <img src="/img/josue-2.webp" alt="Josué D. Chale com um empresário brasileiro" width="543" height="723" loading="lazy">
-              <img src="/img/josue-3.webp" alt="Josué D. Chale recebe o prémio na Gala do Poder do Networking" width="579" height="771" loading="lazy">
+          <div class="app-cursos">
+            <span class="curso"><span class="capa capa-bege">KE</span><b>Encontro a meio</b><small>Kingdom Experience</small></span>
+            <span class="curso"><span class="capa capa-ferrugem">1:1</span><b>Advising do mês</b><small>Com o mentor</small></span>
+            <span class="curso"><span class="capa capa-musgo">TR</span><b>A tua equipa</b><small>Training</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Faixa: áreas de actuação ============ -->
+<section class="faixa" aria-label="Áreas de actuação">
+  <div class="faixa-trilho">
+    <ul class="faixa-lista">
+      <li>Planeamento estratégico</li><li>Produtividade e alta performance</li><li>Posicionamento e marca pessoal</li><li>Marketing e vendas</li><li>Gestão empresarial</li><li>Networking estratégico</li>
+    </ul>
+    <ul class="faixa-lista" aria-hidden="true">
+      <li>Planeamento estratégico</li><li>Produtividade e alta performance</li><li>Posicionamento e marca pessoal</li><li>Marketing e vendas</li><li>Gestão empresarial</li><li>Networking estratégico</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ O que é ============ -->
+<section class="bloco" id="como-funciona">
+  <div class="cabeca">
+    <h2 class="revela">Um conselho de empresários ao teu lado, durante seis meses</h2>
+    <p class="revela">Um mastermind premium de acompanhamento estratégico: aconselhamento, experiências reais de mercado, validação de decisões, visitas técnicas e proximidade contínua com quem já fez o caminho.</p>
+  </div>
+
+  <div class="bento">
+    <article class="cartao cartao-largo revela luz-rato">
+      <div class="cartao-texto">
+        <h3>Uma mesa estratégica, todos os meses.</h3>
+        <p>Cada membro traz os seus desafios, dúvidas e decisões e recebe visão externa qualificada e direcção prática. O formato é em grupo; a atenção é individual.</p>
+      </div>
+      <div class="janela janela-aula" aria-hidden="true">
+        <div class="janela-topo"><span class="sem v"></span><span class="sem a"></span><span class="sem d"></span></div>
+        <div class="aula">
+          <div class="aula-video">
+            <span class="aula-ao-vivo"><i></i>Ao vivo</span>
+            <span class="aula-play"><svg viewBox="0 0 24 24"><path d="M9 7v10l8-5z" fill="currentColor"/></svg></span>
+            <span class="aula-tempo"><span class="aula-tempo-fill"></span></span>
+          </div>
+          <div class="aula-lista">
+            <span class="esq feito"></span><span class="esq feito"></span><span class="esq agora"></span><span class="esq"></span><span class="esq"></span><span class="esq"></span>
+          </div>
+          <div class="aula-info"><span class="esq l1"></span><span class="esq l2"></span><span class="esq l3"></span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="cartao cartao-orbita revela luz-rato">
+      <div class="orbita" aria-hidden="true">
+        <span class="anel a1"></span><span class="anel a2"></span><span class="anel a3"></span>
+        <div class="roda r1">
+          <span class="astro" style="--ang:20deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.5 3.5 0 0 1 0 6.6M18.5 20a6.5 6.5 0 0 0-2.6-5.2"/></svg></span>
+          <span class="astro" style="--ang:200deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        </div>
+        <div class="roda r2">
+          <span class="astro" style="--ang:80deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <span class="astro" style="--ang:230deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2.5" width="16" height="19" rx="2"/><path d="M9 21.5V18h6v3.5M8.5 7h.01M12 7h.01M15.5 7h.01M8.5 11h.01M12 11h.01M15.5 11h.01M8.5 15h.01M15.5 15h.01"/></svg></span>
+          <span class="astro" style="--ang:330deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></span>
+        </div>
+        <div class="roda r3">
+          <span class="astro" style="--ang:130deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18M20 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4M8 21l4-5 4 5"/></svg></span>
+          <span class="astro" style="--ang:290deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/></svg></span>
+        </div>
+        <span class="nucleo nucleo-selo"><img src="/img/selo-p.webp" alt="" width="72" height="72"></span>
+      </div>
+      <div class="cartao-pe">
+        <h3>Um conselho à tua volta</h3>
+        <p>Mentores, especialistas, convidados especiais e empresários com objectivos em comum, num ambiente seguro para partilhar desafios e crescer sem julgamento.</p>
+      </div>
+    </article>
+
+    <article class="cartao cartao-sete revela luz-rato">
+      <div class="sete" aria-hidden="true">
+        <span class="sete-numero">6 meses</span>
+        <span class="sete-pilula"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.5 3.5 0 0 1 0 6.6M18.5 20a6.5 6.5 0 0 0-2.6-5.2"/></svg>12 lugares</span>
+      </div>
+      <div class="cartao-pe">
+        <h3>Um semestre, uma turma pequena</h3>
+        <p>Seis meses de acompanhamento com apenas doze empreendedores, para que cada negócio tenha a atenção que merece, do diagnóstico ao último encontro.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ Os quatro modelos ============ -->
+<section class="bloco pilares" id="modelos" aria-labelledby="t-modelos">
+  <div class="cabeca">
+    <h2 id="t-modelos" class="revela">Quatro modelos, um só acompanhamento</h2>
+    <p class="revela">Mentorias, experiências, advisings individuais e o treino da tua equipa a trabalhar juntos durante os seis meses.</p>
+  </div>
+
+  <nav class="pilares-abas" id="pilares-abas" aria-label="Modelos do mastermind">
+    <div class="pilares-abas-in">
+      <a href="#m-class" class="ativo">Kingdom Class</a>
+      <a href="#m-experience">Kingdom Experience</a>
+      <a href="#m-advising">Advisings</a>
+      <a href="#m-training">Training</a>
+      <a href="#m-acompanhamento">Acompanhamento</a>
+      <span class="pilares-indicador" id="pilares-indicador" aria-hidden="true"></span>
+    </div>
+  </nav>
+
+  <div class="pilares-grelha">
+    <!-- Kingdom Class -->
+    <article class="pilar" id="m-class">
+      <div class="pilar-texto">
+        <h3 class="revela">Kingdom Class: mentorias dentro do mastermind</h3>
+        <p class="pilar-intro revela">Uma mesa estratégica por mês, online, com mentores e empresários experientes. Cada encontro funciona como uma reunião de conselho: um membro é acompanhado directamente e todos aprendem com a análise.</p>
+        <ul class="pilar-itens">
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18M20 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4M8 21l4-5 4 5"/></svg>
+            <div><b>O teu desafio, analisado ao vivo</b><p>Apresentas decisões, dúvidas e estratégias e recebes correcções e direcção prática de quem já resolveu o mesmo problema.</p></div></li>
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>
+            <div><b>Mentores e convidados especiais</b><p>Mentores, especialistas e convidados de surpresa a que só os membros do Kingdom Tracktion têm acesso.</p></div></li>
+        </ul>
+      </div>
+      <div class="pilar-visual" aria-hidden="true">
+        <div class="fluxo" data-fluxo>
+          <div class="fluxo-quem"><span class="fluxo-av">KC</span><div><b>Mesa estratégica</b><small>Kingdom Class · Google Meet</small></div></div>
+          <div class="fluxo-passo"><span class="fluxo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20.5l1.3-5A8 8 0 1 1 21 12z"/></svg></span><div><b>Apresentas o desafio</b><small>Decisões, dúvidas e estratégia</small></div><em>tu</em></div>
+          <div class="fluxo-passo"><span class="fluxo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span><div><b>Análise dos mentores</b><small>Visão externa qualificada</small></div><em>mentores</em></div>
+          <div class="fluxo-passo"><span class="fluxo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.5 3.5 0 0 1 0 6.6M18.5 20a6.5 6.5 0 0 0-2.6-5.2"/></svg></span><div><b>Contributos do grupo</b><small>Experiências reais de mercado</small></div><em>grupo</em></div>
+          <div class="fluxo-passo"><span class="fluxo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg></span><div><b>Plano para o mês</b><small>Direcção prática, por escrito</small></div><em>no fim</em></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kingdom Experience -->
+    <article class="pilar" id="m-experience">
+      <div class="pilar-texto">
+        <h3 class="revela">Kingdom Experience: experiências em encontros</h3>
+        <p class="pilar-intro revela">Encontros presenciais exclusivos e visitas técnicas, para veres de perto como decidem e trabalham empresas que já crescem.</p>
+        <ul class="pilar-itens">
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <div><b>Dois encontros presenciais</b><p>Um a meio e outro no encerramento: experiências reais, análise do crescimento dos membros, oportunidades de colaboração e um almoço privado entre empresários e mentores.</p></div></li>
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="2"/><path d="M9 21.5V18h6v3.5M8.5 7h.01M12 7h.01M15.5 7h.01M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg>
+            <div><b>Visitas técnicas</b><p>Os bastidores de empresas que movimentam milhões e gerem grandes equipas, com consultoria empresarial no terreno.</p></div></li>
+        </ul>
+      </div>
+      <div class="pilar-visual" aria-hidden="true">
+        <div class="vitrine">
+          <div class="janela-topo"><span class="sem v"></span><span class="sem a"></span><span class="sem d"></span></div>
+          <div class="vitrine-corpo">
+            <p class="vitrine-titulo">As tuas experiências</p>
+            <div class="vitrine-linha"><span>Semestre MMXXVI</span><em>Só para membros</em></div>
+            <div class="vitrine-capas">
+              <span class="vcapa v1"><b>Encontro a meio</b><i style="--p:.5"></i></span>
+              <span class="vcapa v2"><b>Visita técnica</b><i style="--p:.3"></i></span>
+              <span class="vcapa v3"><b>Encontro final</b><i style="--p:.08"></i></span>
             </div>
           </div>
-        </article>
-        <article class="mentor revela">
-          <div class="retrato"><div class="janela"><img src="/img/shelton.webp" alt="Shelton Douglas" width="380" height="475" loading="lazy"></div></div>
-          <div>
-            <p class="inscricao">Mentor · Anfitrião</p>
-            <h3>Shelton Douglas</h3>
-            <p class="cargo">CEO · Kingdom Company</p>
-            <dl class="numeros vidro">
-              <div><dt>+12K</dt><dd>Alunos em cursos e mentorias</dd></div>
-              <div><dt>+15M</dt><dd>Facturados em lançamentos digitais</dd></div>
-              <div><dt>+5</dt><dd>Anos no mercado digital</dd></div>
-            </dl>
-            <p>Empreendedor, mentor e recordista nacional em lançamentos digitais. Nos últimos anos tornou-se a referência por detrás do crescimento das maiores figuras do mercado digital em Moçambique, estruturando negócios, escalando resultados e transformando visão em impacto real.</p>
-            <p>Fora dos negócios, é líder cristão, com a convicção de que a prosperidade verdadeira começa de dentro para fora.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Advisings -->
+    <article class="pilar" id="m-advising">
+      <div class="pilar-texto">
+        <h3 class="revela">Advisings individuais com o empreendedor</h3>
+        <p class="pilar-intro revela">Uma sessão presencial de consultoria estratégica por mês com o mentor Shelton Douglas. Um nível de proximidade raro em programas tradicionais.</p>
+        <ul class="pilar-itens">
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <div><b>Decisões validadas antes de arriscar</b><p>Antes de investir, contratar ou mudar de rumo, a decisão passa por quem já a tomou. Menos erros desnecessários e menos decisões financeiras precipitadas.</p></div></li>
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 3.5V5h6V3.5M9 11h6M9 15h4"/></svg>
+            <div><b>Um plano até ao próximo encontro</b><p>Sais de cada advising com prioridades claras e o próximo passo definido.</p></div></li>
+        </ul>
+      </div>
+      <div class="pilar-visual" aria-hidden="true">
+        <div class="cert-pilha">
+          <div class="cert">
+            <div class="cert-marca"><span class="cert-sinal">KT</span>Kingdom Tracktion</div>
+            <p class="cert-titulo">Advising individual</p>
+            <p class="cert-peq">Presencial · uma vez por mês</p>
+            <p class="cert-nome">O teu plano do mês</p>
+            <ul class="cert-lista">
+              <li><i></i>Prioridade do mês</li>
+              <li><i></i>Decisão validada</li>
+              <li><i></i>Próximo passo</li>
+            </ul>
+            <svg class="cert-assinatura" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34c10-18 18-26 22-22s-8 26-2 26 14-30 20-28-6 24 0 24 10-16 16-16 2 14 8 14 12-10 18-12 6 8 14 8 18-6 24-10"/></svg>
+            <p class="cert-peq">Mentor</p>
           </div>
-        </article>
+        </div>
       </div>
-      <div class="convidados vidro revela">
-        <div class="medalhoes" aria-hidden="true"><span class="medalhao">?</span><span class="medalhao">?</span><span class="medalhao">?</span></div>
-        <h3>E ainda convidados especiais, e alguns de surpresa.</h3>
-        <p>Só os membros do Kingdom Tracktion terão acesso a eles.</p>
+    </article>
+
+    <!-- Training -->
+    <article class="pilar" id="m-training">
+      <div class="pilar-texto">
+        <h3 class="revela">Training: o treinamento da tua equipa</h3>
+        <p class="pilar-intro revela">Crescer não depende só de ti. O Training leva o método às equipas dos empreendedores, para que a estratégia saia do papel e aconteça no dia-a-dia.</p>
+        <ul class="pilar-itens">
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+            <div><b>Equipas alinhadas com a estratégia</b><p>Toda a gente sabe para onde o negócio vai, o que muda e qual é o seu papel.</p></div></li>
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"/></svg>
+            <div><b>Execução com método</b><p>Vendas, gestão e produtividade trabalhadas com a equipa, com metas que cada um entende e acompanha.</p></div></li>
+        </ul>
+      </div>
+      <div class="pilar-visual" aria-hidden="true">
+        <div class="ranking">
+          <div class="ranking-filtro">A tua equipa<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></div>
+          <ol id="ranking"></ol>
+          <p class="ranking-nota">Exemplo ilustrativo</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Acompanhamento -->
+    <article class="pilar" id="m-acompanhamento">
+      <div class="pilar-texto">
+        <h3 class="revela">Acompanhamento do primeiro ao sexto mês</h3>
+        <p class="pilar-intro revela">Proximidade contínua com empresários, especialistas e mentores, com suporte emocional e técnico durante todo o semestre.</p>
+        <ul class="pilar-itens">
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20.5l1.3-5A8 8 0 1 1 21 12z"/></svg>
+            <div><b>Um grupo que entende a tua realidade</b><p>Partilhas desafios, trocas experiências reais e recebes perspectivas de quem vive o mesmo que tu.</p></div></li>
+          <li class="revela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg>
+            <div><b>Crescimento com clareza</b><p>Economizas tempo e dinheiro, aceleras com mais clareza e desenvolves capacidade empresarial mês após mês.</p></div></li>
+        </ul>
+      </div>
+      <div class="pilar-visual" aria-hidden="true">
+        <div class="grafico" id="grafico">
+          <svg viewBox="0 0 420 240" preserveAspectRatio="none">
+            <g class="grafico-grelha"><path d="M0 40H420M0 100H420M0 160H420M0 220H420"/></g>
+            <path class="serie s1" pathLength="1" d="M0 200 C40 196 60 180 84 176 S130 160 160 146 S210 120 240 112 S290 86 320 70 S380 48 420 40"/>
+            <path class="serie s2" pathLength="1" d="M0 210 C40 208 70 198 100 194 S150 182 180 176 S240 160 270 150 S340 128 420 112"/>
+            <path class="serie s3" pathLength="1" d="M0 120 C40 124 70 140 100 150 S160 170 190 180 S250 196 280 200 S350 208 420 212"/>
+            <circle class="grafico-ponto" cx="320" cy="70" r="5"/>
+          </svg>
+          <div class="grafico-dica"><b>Mês V</b><span><i class="c1"></i>Clareza nas decisões</span><span><i class="c2"></i>Execução da equipa</span><span><i class="c3"></i>Erros evitáveis</span></div>
+          <p class="grafico-nota">Ilustração, não são dados reais</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ Tudo o que acontece ============ -->
+<section class="bloco bloco-faixas" aria-labelledby="t-detalhes">
+  <div class="cabeca cabeca-esq">
+    <h2 id="t-detalhes" class="revela">Tudo o que acontece durante o semestre.</h2>
+  </div>
+  <div class="trilhos">
+    <div class="trilho" data-dir="esq"><ul class="trilho-lista" id="trilho-1"></ul></div>
+    <div class="trilho" data-dir="dir"><ul class="trilho-lista" id="trilho-2"></ul></div>
+  </div>
+</section>
+
+<!-- ============ Experiências fora do ecrã ============ -->
+<section class="bloco" id="experiencias">
+  <div class="cabeca">
+    <h2 class="revela">O que vives fora do ecrã</h2>
+    <p class="revela">É à mesa, no terreno e nos bastidores que nascem as melhores conversas, as parcerias e as oportunidades de negócio.</p>
+  </div>
+
+  <div class="slider revela" id="slider" aria-roledescription="carrossel" aria-label="Experiências do Kingdom Tracktion">
+    <div class="slider-lado">
+      <div class="slider-palco" id="slider-palco" aria-hidden="true">
+        <div class="tel" id="tel" style="--m:#E6DEBA">
+          <div class="tel-topo"><span class="tel-sinal"><img src="/img/selo-p.webp" alt="" width="28" height="28"></span><span>Kingdom Experience</span></div>
+          <div class="tel-capa"><span id="tel-capa-txt">Encontro · Mês III</span><span class="barra"><span id="tel-barra" style="--p:.5"></span></span></div>
+          <div class="tel-linha"><span></span><span></span></div>
+          <div class="tel-linha"><span></span><span></span></div>
+          <div class="tel-botao">Só para membros</div>
+        </div>
+      </div>
+      <div class="slider-setas">
+        <button type="button" id="slide-ant" aria-label="Experiência anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button type="button" id="slide-seg" aria-label="Experiência seguinte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </div>
     </div>
-  </section>
-
-  <!-- diferente -->
-  <section class="seccao papel diferente">
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">Porque não é uma mentoria comum</p>
-        <h2>O que torna esta mesa <span class="acento">diferente.</span></h2>
+    <div class="slider-texto" aria-live="polite">
+      <p class="slider-tipo"><span class="slider-tipo-ico" id="slide-ico" aria-hidden="true"></span><span id="slide-tipo"></span></p>
+      <p class="slider-frase" id="slide-frase"></p>
+      <div class="slider-pe">
+        <div><b id="slide-titulo"></b><small id="slide-quando"></small></div>
+        <span class="slider-contador"><span id="slide-n">1</span> / <span id="slide-total">4</span></span>
       </div>
-      <ol>
-        <li class="revela">
-          <h3>Experiências reais de empresas em crescimento</h3>
-          <p>Acesso aos bastidores, estratégias e decisões aplicadas por empresários e marcas que movimentam milhões, gerem grandes equipas e geram resultados reais no mercado.</p>
-        </li>
-        <li class="revela">
-          <h3>Um ambiente que entende a tua realidade</h3>
-          <p>Empresários com objectivos de crescimento em comum, num ambiente seguro para partilhar desafios, trocar experiências reais e crescer sem julgamento.</p>
-        </li>
-        <li class="revela">
-          <h3>Networking que gera oportunidades e reduz custos</h3>
-          <p>Além das conexões estratégicas, os membros têm acesso a parcerias, recomendações e descontos em serviços dentro do ecossistema.</p>
-        </li>
-      </ol>
-      <blockquote class="versiculo revela">
-        <p>Assim como o ferro afia o ferro, o homem afia o seu companheiro.</p>
-        <cite>Provérbios 27:17</cite>
-      </blockquote>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- fase experimental -->
-  <section class="seccao papel-2 experimental">
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">Fase experimental</p>
-        <h2>Quem já se sentou à <span class="acento">mesa.</span></h2>
-        <p class="lead">Empresários que participaram na fase experimental do projecto.</p>
-      </div>
-      <ul class="pessoas">
-        <li class="pessoa revela"><div class="moldura"><img src="/img/domingas.webp" alt="Domingas Trindade" width="344" height="341" loading="lazy"></div><h3>Domingas Trindade</h3><p>@domingas_trindade</p></li>
-        <li class="pessoa revela"><div class="moldura"><img src="/img/ismail.webp" alt="Ismail Essak" width="600" height="592" loading="lazy"></div><h3>Ismail Essak</h3><p>Chairman · @chairman.mz</p></li>
-        <li class="pessoa revela"><div class="moldura"><img src="/img/solange.webp" alt="Solange Mateus" width="588" height="590" loading="lazy"></div><h3>Solange Mateus</h3><p>@solangemateusm</p></li>
+<!-- ============ Metodologia ============ -->
+<section class="bloco" id="metodo">
+  <div class="cabeca">
+    <h2 class="revela">A nossa metodologia</h2>
+    <p class="revela">Do diagnóstico à tracção, em quatro movimentos que se repetem todos os meses do semestre.</p>
+  </div>
+  <ol class="metodo">
+    <li class="cartao passo revela luz-rato" style="--p:.25">
+      <span class="passo-num">I</span>
+      <h3>Diagnóstico</h3>
+      <p>Percebemos onde está o teu negócio, o que o trava e onde queres chegar ao fim dos seis meses.</p>
+      <span class="barra"><span></span></span>
+    </li>
+    <li class="cartao passo revela luz-rato" style="--p:.5">
+      <span class="passo-num">II</span>
+      <h3>Mesa estratégica</h3>
+      <p>Os teus desafios reais são analisados por empresários que já os resolveram. Sais com direcção, não com teoria.</p>
+      <span class="barra"><span></span></span>
+    </li>
+    <li class="cartao passo revela luz-rato" style="--p:.75">
+      <span class="passo-num">III</span>
+      <h3>Validação</h3>
+      <p>Antes de investir, contratar ou mudar de rumo, validas a decisão com quem já a tomou.</p>
+      <span class="barra"><span></span></span>
+    </li>
+    <li class="cartao passo revela luz-rato" style="--p:1">
+      <span class="passo-num">IV</span>
+      <h3>Execução acompanhada</h3>
+      <p>Advisings, visitas técnicas e o treino da equipa garantem que o plano sai do papel.</p>
+      <span class="barra"><span></span></span>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ Para quem é ============ -->
+<section class="bloco" id="para-quem">
+  <div class="cabeca">
+    <h2 class="revela">Esta mesa não é para todos</h2>
+    <p class="revela">O nível do grupo é o que dá valor a cada encontro. Por isso a entrada é por candidatura.</p>
+  </div>
+  <div class="planos planos-dois revela">
+    <article class="plano destaque">
+      <svg class="plano-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg>
+      <h3>É para ti se</h3>
+      <p class="plano-desc">O Kingdom Tracktion foi criado para empreendedores que:</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg><span>Querem crescer de forma estratégica, num grupo com mentalidade de crescimento.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg><span>Sentem que estão a construir sozinhos, sem o apoio de quem entende os desafios de empreender.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg><span>Desejam proximidade com empresários e especialistas experientes.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg><span>Valorizam direcção, validação estratégica, networking e parcerias qualificadas.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg><span>Querem acesso a bastidores e experiências reais de mercado.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg><span>Entendem que o ambiente influencia os resultados e querem evoluir como empresários.</span></li>
       </ul>
-    </div>
-  </section>
-
-  <!-- investimento -->
-  <section class="seccao escuro investimento" id="investimento">
-    <div class="fundo-foto" aria-hidden="true"><img src="/img/colunas.webp" alt="" width="961" height="1281" loading="lazy"></div>
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">O investimento</p>
-        <h2>Tudo o que recebes, <span class="acento">em resumo.</span></h2>
-      </div>
-      <ul class="razao vidro revela">
-        <li class="cabecalho"><span>O que está incluído</span><span>Valor real</span></li>
-        <li><span>6 sessões de mastermind online</span><span>22.800 MT</span></li>
-        <li><span>6 consultorias individuais presenciais</span><span>40.000 MT</span></li>
-        <li><span>2 encontros presenciais exclusivos</span><span>11.600 MT</span></li>
-        <li><span>Visitas técnicas de consultoria (por visita)</span><span>6.800 MT</span></li>
-        <li><span>Acesso ao painel de mentores</span><span>Inestimável</span></li>
-        <li><span>Comunidade de empresários</span><span>Inestimável</span></li>
-        <li class="total"><span>Valor total do ecossistema</span><span>+78.000 MT</span></li>
+      <a class="btn btn-verde" href="#candidatura" data-candidatura><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Candidatar-me</a>
+    </article>
+    <article class="plano plano-nao">
+      <svg class="plano-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+      <h3>Não é para ti se</h3>
+      <p class="plano-desc">O Kingdom Tracktion não foi criado para quem:</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m15 9-6 6M9 9l6 6"/></svg><span>Não tem capacidade de contribuir com o grupo.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m15 9-6 6M9 9l6 6"/></svg><span>Procura apenas motivação temporária ou informação gratuita.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m15 9-6 6M9 9l6 6"/></svg><span>Acredita que não precisa de ninguém.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m15 9-6 6M9 9l6 6"/></svg><span>Quer resultados sem execução.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m15 9-6 6M9 9l6 6"/></svg><span>Não está disposto a receber aconselhamento nem a aplicar estratégias no próprio negócio.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m15 9-6 6M9 9l6 6"/></svg><span>Não valoriza ambiente e networking.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m15 9-6 6M9 9l6 6"/></svg><span>Acredita que crescer é apenas fruto de sorte, ou está satisfeito com resultados medianos.</span></li>
       </ul>
-      <div class="oferta vidro-claro revela">
-        <p class="inscricao">O teu investimento no Kingdom Tracktion</p>
-        <p class="preco">40.800<small>MT</small></p>
-        <p class="parcelas">ou <b>3 × 13.600 MT</b> por mês, ou <b>5 × 8.160 MT</b> por mês</p>
-        <a class="botao botao-verde" href="#candidatura" data-candidatura>Candidatar-me <svg aria-hidden="true"><use href="#i-seta"/></svg></a>
-        <p class="nota">Por candidatura · Apenas 12 lugares</p>
-      </div>
-    </div>
-  </section>
+    </article>
+  </div>
+</section>
 
-  <!-- candidatura -->
-  <section class="seccao papel-2 candidatura" id="candidatura">
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">Como entrar</p>
-        <h2>A entrada é por <span class="acento">candidatura.</span></h2>
-        <p class="lead">Selecionamos cada membro com cuidado, porque o nível de quem está à mesa é o que eleva a conversa de todos.</p>
-      </div>
-      <ol class="passos">
-        <li class="revela"><h3>Envias a tua candidatura</h3><p>Contas-nos quem és, o que construíste e o momento em que está o teu negócio.</p></li>
-        <li class="revela"><h3>Analisamos o teu perfil</h3><p>A equipa avalia se o Kingdom Tracktion é o lugar certo para ti, e tu para ele.</p></li>
-        <li class="revela"><h3>Confirmas o teu lugar</h3><p>Se fores selecionado, recebes o convite para garantir um dos 12 lugares da turma.</p></li>
-      </ol>
-      <div class="chamada revela">
-        <a class="botao botao-verde" href="#candidatura" data-candidatura>Candidatar-me agora <svg aria-hidden="true"><use href="#i-seta"/></svg></a>
-        <p>Leva poucos minutos. Responde com verdade: é o que nos permite ajudar-te.</p>
+<!-- ============ Como aplicar ============ -->
+<section class="bloco" id="candidatura">
+  <div class="cabeca">
+    <h2 class="revela">A entrada é por candidatura</h2>
+    <p class="revela">São doze lugares por turma. Selecionamos cada membro com cuidado, porque o nível de quem está à mesa eleva a conversa de todos.</p>
+  </div>
+  <article class="cartao cartao-largo cartao-aplicar revela luz-rato">
+    <div class="cartao-texto">
+      <h3>Três passos até ao teu lugar.</h3>
+      <ul class="pilar-itens">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          <div><b>Envias a tua candidatura</b><p>Contas-nos quem és, o que construíste e o momento em que está o teu negócio. Leva poucos minutos.</p></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="7.5" r="3.5"/><path d="M3 20a7 7 0 0 1 11-5.7M16 18l2 2 4-4"/></svg>
+          <div><b>Analisamos o teu perfil</b><p>A equipa avalia se o Kingdom Tracktion é o lugar certo para ti, e tu para ele.</p></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.3-9.3M17 6l3 3M14 9l2 2"/></svg>
+          <div><b>Confirmas o teu lugar</b><p>Se fores selecionado, recebes o convite e os próximos passos para entrar na turma.</p></div></li>
+      </ul>
+      <a class="btn btn-laranja btn-lg" href="#candidatura" data-candidatura><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Candidatar-me agora</a>
+    </div>
+    <div class="pilar-visual aplicar-visual" aria-hidden="true">
+      <div class="fluxo" data-fluxo>
+        <div class="fluxo-quem"><span class="fluxo-av fluxo-av-selo"><img src="/img/selo-p.webp" alt="" width="36" height="36"></span><div><b>A tua candidatura</b><small>Kingdom Tracktion · turma MMXXVI</small></div></div>
+        <div class="fluxo-passo"><span class="fluxo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span><div><b>Candidatura enviada</b><small>Sobre ti e o teu negócio</small></div><em>hoje</em></div>
+        <div class="fluxo-passo"><span class="fluxo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span><div><b>Perfil em análise</b><small>Pela equipa Kingdom</small></div><em>a seguir</em></div>
+        <div class="fluxo-passo"><span class="fluxo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></span><div><b>Convite para a turma</b><small>Se fores selecionado</small></div><em>resposta</em></div>
+        <div class="fluxo-passo"><span class="fluxo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg></span><div><b>Lugar confirmado</b><small>Um dos 12 da turma</small></div><em>bem-vindo</em></div>
       </div>
     </div>
-  </section>
+  </article>
+</section>
 
-  <!-- perguntas -->
-  <section class="seccao papel perguntas-seccao" id="perguntas">
-    <div class="envolve">
-      <div class="cabeca revela">
-        <span class="traco" aria-hidden="true"></span>
-        <p class="inscricao">Perguntas frequentes</p>
-        <h2>Antes de <span class="acento">decidires.</span></h2>
-      </div>
-      <div class="perguntas revela">
-        <details>
-          <summary>Quanto tempo dura o mastermind?<svg aria-hidden="true"><use href="#i-mais"/></svg></summary>
-          <p>Seis meses. Em cada mês tens uma sessão de mastermind online e uma consultoria presencial; ao longo do semestre há visitas técnicas e dois encontros presenciais exclusivos, um a meio e outro no encerramento.</p>
-        </details>
-        <details>
-          <summary>Como funcionam as sessões online?<svg aria-hidden="true"><use href="#i-mais"/></svg></summary>
-          <p>Uma vez por mês, via Google Meet. O formato é em grupo, mas a atenção é individual: cada participante pode apresentar os seus desafios, dúvidas, estratégias e decisões, e os restantes membros aprendem com as análises e correcções feitas ao vivo.</p>
-        </details>
-        <details>
-          <summary>Porque é que a entrada é por candidatura?<svg aria-hidden="true"><use href="#i-mais"/></svg></summary>
-          <p>Porque o valor de um mastermind está no nível de quem participa. São apenas 12 lugares, e cada membro deve conseguir contribuir com o grupo, aplicar o que aprende e estar disposto a receber aconselhamento estratégico.</p>
-        </details>
-        <details>
-          <summary>Quanto custa e como posso pagar?<svg aria-hidden="true"><use href="#i-mais"/></svg></summary>
-          <p>O investimento é de 40.800 MT. Podes pagar de uma vez, em 3 parcelas de 13.600 MT por mês, ou em 5 parcelas de 8.160 MT por mês. Os detalhes do pagamento são enviados depois de a tua candidatura ser aceite.</p>
-        </details>
-        <details>
-          <summary>Quem são os mentores?<svg aria-hidden="true"><use href="#i-mais"/></svg></summary>
-          <p>O Dr. César Muianga (Help Multiservice), Josué D. Chale (The Mentoring BR) e Shelton Douglas (Kingdom Company). O mastermind conta ainda com convidados especiais e de surpresa, só para membros.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+<!-- ============ Perguntas ============ -->
+<section class="bloco" id="perguntas">
+  <div class="cabeca">
+    <h2 class="revela">Perguntas frequentes</h2>
+    <p class="revela">O que costumam perguntar antes de se candidatarem.</p>
+  </div>
+  <div class="faq revela">
+    <details class="faq-item" open>
+      <summary>Quanto tempo dura o Kingdom Tracktion?<i aria-hidden="true"></i></summary>
+      <div class="faq-resposta"><div><p>Seis meses. Em cada mês há uma mesa estratégica online (Kingdom Class) e um advising individual presencial; ao longo do semestre há visitas técnicas e dois encontros presenciais exclusivos (Kingdom Experience), um a meio e outro no encerramento.</p></div></div>
+    </details>
+    <details class="faq-item">
+      <summary>Como funcionam as sessões online?<i aria-hidden="true"></i></summary>
+      <div class="faq-resposta"><div><p>Uma vez por mês, pelo Google Meet. O formato é em grupo, mas a atenção é individual: cada participante pode apresentar desafios, dúvidas, estratégias e decisões, e os restantes aprendem com as análises e correcções feitas ao vivo.</p></div></div>
+    </details>
+    <details class="faq-item">
+      <summary>O que é um advising?<i aria-hidden="true"></i></summary>
+      <div class="faq-resposta"><div><p>É uma sessão presencial de consultoria estratégica, um a um, com o mentor Shelton Douglas, focada só no teu negócio. Há uma por mês durante os seis meses.</p></div></div>
+    </details>
+    <details class="faq-item">
+      <summary>O que é o Training?<i aria-hidden="true"></i></summary>
+      <div class="faq-resposta"><div><p>É o treinamento das equipas dos empreendedores, para que a estratégia definida à mesa seja executada no dia-a-dia por quem trabalha contigo.</p></div></div>
+    </details>
+    <details class="faq-item">
+      <summary>Quem são os mentores?<i aria-hidden="true"></i></summary>
+      <div class="faq-resposta"><div><p>O Dr. César Muianga, sócio-fundador da Help Multiservice; Josué D. Chale, mentor na The Mentoring BR; e Shelton Douglas, CEO da Kingdom Company. O mastermind conta ainda com convidados especiais e de surpresa, só para membros.</p></div></div>
+    </details>
+    <details class="faq-item">
+      <summary>Porque é que a entrada é por candidatura?<i aria-hidden="true"></i></summary>
+      <div class="faq-resposta"><div><p>Porque o valor de um mastermind está no nível de quem participa. São apenas doze lugares, e cada membro deve conseguir contribuir com o grupo, aplicar o que aprende e estar disposto a receber aconselhamento estratégico.</p></div></div>
+    </details>
+    <details class="faq-item">
+      <summary>E o investimento?<i aria-hidden="true"></i></summary>
+      <div class="faq-resposta"><div><p>O investimento e as formas de pagamento são apresentados depois da análise da tua candidatura.</p></div></div>
+    </details>
+  </div>
+</section>
 
-  <!-- fecho -->
-  <section class="fecho">
-    <div class="fundo-foto" aria-hidden="true"><img src="/img/colunas.webp" alt="" width="961" height="1281" loading="lazy"></div>
-    <div class="envolve revela">
-      <div class="placa vidro">
-        <img class="selo" src="/img/selo.webp" alt="Selo Kingdom Tracktion Mastermind" width="720" height="720" loading="lazy">
-        <h2>Doze lugares. Seis meses.<br>Uma <span class="acento">mesa.</span></h2>
-        <p class="lead">Se sentes que este é o teu momento, não deixes a porta fechar-se. Candidata-te hoje.</p>
-        <a class="botao botao-marfim" href="#candidatura" data-candidatura>Candidatar-me <svg aria-hidden="true"><use href="#i-seta"/></svg></a>
-      </div>
-    </div>
-  </section>
+<!-- ============ Fecho ============ -->
+<section class="fecho" aria-labelledby="t-fecho">
+  <canvas class="estrelas" id="estrelas" aria-hidden="true"></canvas>
+  <div class="fecho-luz" aria-hidden="true"></div>
+  <div class="fecho-texto">
+    <img class="fecho-selo revela" src="/img/selo.webp" alt="Selo Kingdom Tracktion Mastermind" width="720" height="720" loading="lazy">
+    <h2 id="t-fecho" class="revela">Não cresças sozinho. Senta-te à mesa certa.</h2>
+    <p class="revela">Doze lugares, seis meses e um conselho de empresários ao teu lado.</p>
+    <a class="btn btn-laranja btn-lg revela" href="#candidatura" data-candidatura>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      Candidatar-me</a>
+  </div>
+</section>
 
 </main>
 
 <footer class="rodape">
-  <div class="envolve">
-    <p>Kingdom Tracktion · Uma iniciativa <a href="https://training.kingdomcompny.com/bio">Kingdom Training Center</a></p>
-    <p>© MMXXVI Kingdom Company</p>
+  <div class="rodape-in">
+    <a class="marca" href="#topo" aria-label="Kingdom Tracktion, voltar ao início">
+      <span class="sinal sinal-selo" aria-hidden="true"><img src="/img/selo-p.webp" alt="" width="34" height="34"></span>
+      <span>Kingdom Tracktion</span>
+    </a>
+    <nav class="rodape-links" aria-label="Rodapé">
+      <a href="#modelos">Modelos</a>
+      <a href="#metodo">Método</a>
+      <a href="#candidatura">Candidatura</a>
+      <a href="https://training.kingdomcompny.com/bio">Kingdom Training</a>
+    </nav>
+    <p class="rodape-nota">Uma iniciativa Kingdom Training Center · © MMXXVI Kingdom Company</p>
   </div>
 </footer>
 
-<script src="/tracktion.js" defer></script>
+<script src="/tracktion.js"></script>
 </body>
 </html>
