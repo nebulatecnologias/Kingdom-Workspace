@@ -293,7 +293,13 @@
       { src:"/img/eventos/tracktion-2.webp", alt:"Participante a sorrir durante um encontro do Kingdom Tracktion" },
       { src:"/img/eventos/tracktion-3.webp", alt:"Participante a ouvir durante um encontro do Kingdom Tracktion" }
     ],
-    outros:[]
+    outros:[
+      { src:"/img/eventos/momentos-1.webp", alt:"Participantes a aplaudir à mesa durante um encontro" },
+      { src:"/img/eventos/momentos-2.webp", alt:"Grupo de participantes num encontro do Kingdom Tracktion" },
+      { src:"/img/eventos/momentos-3.webp", alt:"Momento de emoção entre dois participantes" },
+      { src:"/img/eventos/momentos-4.webp", alt:"Participantes a conversar no intervalo, à volta do lanche" },
+      { src:"/img/eventos/momentos-5.webp", alt:"Participantes a aplaudir durante um encontro" }
+    ]
   };
   const LUGARES = { founders:3, tracktion:3, outros:5 };
   const dialogo = $("foto-aberta"), palco = $("foto-aberta-palco");
