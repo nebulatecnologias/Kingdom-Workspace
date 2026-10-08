@@ -1,0 +1,51 @@
+/* ============================================================
+   Kingdom Academy: as cores da academia por cima de site.css
+   (o mesmo sistema da bio d'O Conselheiro, que usa a paleta "café").
+   Paleta do flyer e do logótipo: off-white #ECEDE7, laranja #FF6E01
+   (no logótipo, de #FF7F45 a #EC470D) e carvão #2A2A28.
+   O laranja vai só nos botões e em pequenos sinais.
+   Dois contextos: escuro (por omissão) e .claro (secções off-white).
+   --t é a "tinta" em RGB, para contornos e véus.
+============================================================ */
+:root{
+  --preto:#2A2A28;
+  --cartao-a:#3A3A37; --cartao-b:#252523;
+  --t:236,237,231;
+  --linha:rgba(236,237,231,.10); --linha-forte:rgba(236,237,231,.2);
+  --texto:#F1F2EE; --texto-2:#D2D3CD; --texto-3:#AEAFA8;
+  --acento:#ECEDE7; --sobre-acento:#2A2A28;
+  --offwhite:#ECEDE7;
+  --laranja:#FF6E01; --laranja-claro:#FF8A33;
+  --carvao:#2A2A28; --carvao-claro:#3A3A37; --carvao-escuro:#1E1E1C;
+  --marca:linear-gradient(160deg,var(--carvao-claro) 0%,var(--carvao) 55%,var(--carvao-escuro) 100%);
+  --logo:linear-gradient(170deg,#FF7F45 0%,#F45E1E 55%,#EC470D 100%);
+  color:var(--texto);
+  color-scheme:light dark;
+}
+.claro{
+  --cartao-a:#F6F7F2; --cartao-b:#E2E3DC;
+  --t:42,42,40;
+  --linha:rgba(42,42,40,.12); --linha-forte:rgba(42,42,40,.22);
+  --texto:#2A2A28; --texto-2:#4A4A46; --texto-3:#62625D;
+  --acento:#2A2A28; --sobre-acento:#F1F2EE;
+  color:var(--texto);
+  background:var(--offwhite);
+}
+html,body{ background:var(--preto); }
+::selection{ background:rgba(255,110,1,.35); }
+:focus-visible{ outline-color:var(--laranja); }
+
+/* cartões e contornos */
+.contorno{ background:rgba(var(--t),.03); box-shadow:inset 0 0 0 1px rgba(var(--t),.12); }
+.holofote::after{ background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(var(--t),.08), transparent 60%); }
+
+/* botões: o laranja é o botão principal; texto carvão por cima, para ter contraste */
+.botao-principal, .claro .botao-principal{ background:var(--laranja); color:#2A2A28; box-shadow:0 0 0 1px rgba(255,255,255,.18) inset, 0 12px 30px -14px rgba(42,42,40,.5); }
+.botao-principal:hover, .claro .botao-principal:hover{ background:var(--laranja-claro); }
+.botao-linha{ background:rgba(var(--t),.03); }
+.botao-linha:hover{ border-color:rgba(var(--t),.45); background:rgba(var(--t),.06); }
+
+/* abertura: a grelha fina e a luz laranja do sistema, em tinta carvão */
+.abertura-fundo .grelha{ background-image:linear-gradient(rgba(42,42,40,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(42,42,40,.08) 1px, transparent 1px); }
+.abertura-fundo .luz{ background:radial-gradient(closest-side, rgba(255,110,1,.14), rgba(42,42,40,.05) 55%, transparent); }
+.abertura-fundo .foto{ display:none !important; }

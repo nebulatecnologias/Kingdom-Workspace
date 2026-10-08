@@ -1097,6 +1097,42 @@
         ],
         "createdAt": "2026-10-08T18:29:33.642Z",
         "reason": "A janela ilustrativa da plataforma Kingdom Academy (demonstração do GUIA-SITES-DE-VENDAS), igual ao Tracktion"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "academy/bio/index.html"
+        ],
+        "createdAt": "2026-10-08T20:53:24.605Z",
+        "reason": "Do sistema de referência da bio d'O Conselheiro (site.css), igual às outras bios"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "academy/bio/index.html"
+        ],
+        "createdAt": "2026-10-08T20:53:24.626Z",
+        "reason": "Do sistema de referência da bio d'O Conselheiro (site.css), igual às outras bios"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "academy/bio/index.html"
+        ],
+        "createdAt": "2026-10-08T20:53:24.641Z",
+        "reason": "Do sistema de referência da bio d'O Conselheiro (site.css), igual às outras bios"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "academy/bio/index.html"
+        ],
+        "createdAt": "2026-10-08T20:53:24.658Z",
+        "reason": "Do sistema de referência da bio d'O Conselheiro (site.css), igual às outras bios"
       }
     ]
   }
