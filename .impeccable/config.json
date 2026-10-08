@@ -557,6 +557,42 @@
         ],
         "createdAt": "2026-10-07T20:35:18.897Z",
         "reason": "Regra .espectro: unico uso, o espectro do prisma no titulo da abertura (conceito do livro)"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "training/index.html"
+        ],
+        "createdAt": "2026-10-08T10:17:43.983Z",
+        "reason": "Mesmo modelo da bio d'O Conselheiro e do design system aceite pelo utilizador; padrao ja ignorado nos outros sites"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "training/index.html"
+        ],
+        "createdAt": "2026-10-08T10:17:43.998Z",
+        "reason": "Mesmo modelo da bio d'O Conselheiro e do design system aceite pelo utilizador; padrao ja ignorado nos outros sites"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "training/index.html"
+        ],
+        "createdAt": "2026-10-08T10:17:44.015Z",
+        "reason": "Mesmo modelo da bio d'O Conselheiro e do design system aceite pelo utilizador; padrao ja ignorado nos outros sites"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "training/index.html"
+        ],
+        "createdAt": "2026-10-08T10:17:44.037Z",
+        "reason": "Mesmo modelo da bio d'O Conselheiro e do design system aceite pelo utilizador; padrao ja ignorado nos outros sites"
       }
     ]
   }
