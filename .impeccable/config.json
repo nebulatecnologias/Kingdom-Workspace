@@ -629,6 +629,114 @@
         ],
         "createdAt": "2026-10-08T10:33:41.720Z",
         "reason": "Mesmo modelo da bio d'O Conselheiro; padrao ja ignorado nos outros sites"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:14:20.663Z",
+        "reason": "Secções com padding vertical generoso e conteúdo dentro de .envolve com gutter; cartões com inset duplo em box-shadow"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:14:20.682Z",
+        "reason": "Inscrições romanas (versículos em Cinzel, friso arquitectónico) e rótulos curtos: maiúsculas são o conceito clássico da página"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:14:20.700Z",
+        "reason": "Dentículos de entablamento clássico (moldura arquitectónica), não listras decorativas"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:14:20.724Z",
+        "reason": "body/herói cortam só overflow horizontal decorativo; o selo absoluto fica dentro dos limites"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:14:20.742Z",
+        "reason": "Títulos display em Cormorant com entrelinha 1.0–1.15; texto corrido usa 1.6"
+      },
+      {
+        "rule": "wide-tracking",
+        "value": "*",
+        "files": [
+          "tracktion/index.html"
+        ],
+        "createdAt": "2026-10-08T11:14:20.763Z",
+        "reason": "Rótulos curtos em Cinzel (handles e meses), não texto corrido"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:14:20.782Z",
+        "reason": "Secções com padding vertical generoso e conteúdo dentro de .envolve com gutter; cartões com inset duplo em box-shadow"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:14:20.801Z",
+        "reason": "Inscrições romanas (versículos em Cinzel, friso arquitectónico) e rótulos curtos: maiúsculas são o conceito clássico da página"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:14:20.817Z",
+        "reason": "Dentículos de entablamento clássico (moldura arquitectónica), não listras decorativas"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:14:20.834Z",
+        "reason": "body/herói cortam só overflow horizontal decorativo; o selo absoluto fica dentro dos limites"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:14:20.850Z",
+        "reason": "Títulos display em Cormorant com entrelinha 1.0–1.15; texto corrido usa 1.6"
+      },
+      {
+        "rule": "wide-tracking",
+        "value": "*",
+        "files": [
+          "tracktion/tracktion.css"
+        ],
+        "createdAt": "2026-10-08T11:14:20.867Z",
+        "reason": "Rótulos curtos em Cinzel (handles e meses), não texto corrido"
       }
     ]
   }
