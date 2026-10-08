@@ -92,8 +92,8 @@
     { nome:"Nofre Lino", negocio:"Drop Studio", foto:"" },
     { nome:"Solange Mateus", negocio:"Sol Wash", foto:"" },
     { nome:"Liam Green", negocio:"Choise", foto:"" },
-    { nome:"Tania", negocio:"", foto:"" },
-    { nome:"Yulde", negocio:"", foto:"" },
+    { nome:"Tanya Janeth", negocio:"Fofices · Florista", foto:"" },
+    { nome:"Yulde Adnesse", negocio:"Adnesse Agency", foto:"" },
     { nome:"Hostina Beatriz", negocio:"Epic Shop", foto:"/img/hostina.webp" },
     { nome:"Bruno Muianga", negocio:"Muga Agency", foto:"/img/bruno.webp" }
   ].filter(p => p.foto);
