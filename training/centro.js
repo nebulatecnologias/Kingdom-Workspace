@@ -30,6 +30,105 @@
     revela.forEach(el => io.observe(el));
   }
 
+  /* ---------------- Abertura: o céu ----------------
+     Centenas de estrelas a cintilar que se afastam um pouco do rato. Uma delas é a verdadeira:
+     brilha mais quando o rato se aproxima e, ao ser encontrada, solta uma onda de luz pelo céu. */
+  const ceu = $("ceu-hero"), abertura = $("topo");
+  if(ceu && ceu.getContext){
+    const ctx = ceu.getContext("2d");
+    const sorteio = semente => () => {
+      semente = (semente + 0x6d2b79f5) | 0;
+      let r = Math.imul(semente ^ (semente >>> 15), 1 | semente);
+      r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+      return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+    };
+    const limita = (n, a, b) => Math.min(b, Math.max(a, n));
+    const rato = { x:0, y:0, dentro:false };
+    let L = 0, A = 0, base = 1, estrelas = [], real = { x:0, y:0 };
+    let perto = 0, achada = false, onda = null, escurece = 0, visivel = true, pedido = 0, antes = performance.now();
+
+    const prepara = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      L = ceu.clientWidth; A = ceu.clientHeight; base = Math.max(1, Math.min(L, A));
+      ceu.width = Math.round(L * dpr); ceu.height = Math.round(A * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const r = sorteio(42);
+      const n = Math.round(limita(L * A / 4200, 150, 300));
+      estrelas = Array.from({ length:n }, () => ({
+        x:.02 + r() * .96, y:.02 + r() * .96, t:.8 + r() * 1.6, o:.22 + r() * .5,
+        v:.35 + r() * 1.1, f:r() * Math.PI * 2, quente:r() < .18
+      }));
+      /* a verdadeira fica de lado, longe do título */
+      const esquerda = r() < .5;
+      real = { x:(esquerda ? .07 + r() * .12 : .81 + r() * .12) * L, y:(.16 + r() * .46) * A };
+    };
+
+    const desenha = agora => {
+      const dt = Math.min(.05, (agora - antes) / 1000); antes = agora;
+      ctx.clearRect(0, 0, L, A);
+      const raioPerto = .26 * base, raioFuga = .3 * base;
+      const dReal = rato.dentro ? Math.hypot(rato.x - real.x, rato.y - real.y) : Infinity;
+      perto += ((rato.dentro ? limita(1 - dReal / raioPerto, 0, 1) : 0) - perto) * .08;
+      if(!achada && dReal < 22){ achada = true; onda = { t:0 }; escurece = 1; }
+      if(onda){ onda.t += dt; if(onda.t > 1.6) onda = null; }
+      if(escurece > 0) escurece = Math.max(0, escurece - dt * .45);
+      const t = agora / 1000, alcance = Math.hypot(L, A) * .6;
+
+      for(const s of estrelas){
+        const sx = s.x * L, sy = s.y * A;
+        let o = calmo ? s.o : s.o * (.55 + .45 * Math.sin(t * s.v * Math.PI * 2 + s.f));
+        let dx = 0, dy = 0, tam = s.t;
+        if(rato.dentro && !calmo){
+          const ex = sx - rato.x, ey = sy - rato.y, d = Math.hypot(ex, ey);
+          const forca = limita(1 - d / raioFuga, 0, 1);
+          if(d > .5){ dx = ex / d * forca * 4; dy = ey / d * forca * 4; }
+          o *= 1 + forca * .55; tam *= 1 + forca * .12;
+          if(perto > 0){
+            const aReal = Math.hypot(sx - real.x, sy - real.y);
+            if(aReal < raioFuga) o *= 1 - perto * .55 * (1 - aReal / raioFuga);
+          }
+        }
+        if(onda){
+          const raio = onda.t / 1.6 * alcance, aOnda = Math.hypot(sx - real.x, sy - real.y), anel = Math.abs(aOnda - raio);
+          if(anel < 34) o *= 1 + (1 - anel / 34) * 1.4 * (1 - onda.t / 1.6);
+        }
+        o *= 1 - escurece * .28;
+        ctx.globalAlpha = limita(o, .04, 1);
+        ctx.fillStyle = s.quente ? "#F59A55" : "#ffffff";
+        ctx.beginPath(); ctx.arc(sx + dx, sy + dy, tam / 2, 0, Math.PI * 2); ctx.fill();
+      }
+
+      /* a estrela verdadeira */
+      const brilho = achada ? .8 + .2 * Math.sin(t * 2.6) : perto;
+      const halo = 10 + brilho * 16;
+      const g = ctx.createRadialGradient(real.x, real.y, 0, real.x, real.y, halo);
+      g.addColorStop(0, `rgba(255,214,150,${.22 + brilho * .45})`);
+      g.addColorStop(.45, `rgba(232,105,12,${brilho * .22})`);
+      g.addColorStop(1, "rgba(232,105,12,0)");
+      ctx.globalAlpha = 1; ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(real.x, real.y, halo, 0, Math.PI * 2); ctx.fill();
+      ctx.globalAlpha = .6 + brilho * .4; ctx.fillStyle = "#FFF4E2";
+      ctx.beginPath(); ctx.arc(real.x, real.y, 1.7 + brilho * .6, 0, Math.PI * 2); ctx.fill();
+      ctx.globalAlpha = 1;
+    };
+
+    const ciclo = agora => { desenha(agora); pedido = visivel && !document.hidden ? requestAnimationFrame(ciclo) : 0; };
+    const arranca = () => { if(!pedido && !calmo){ antes = performance.now(); pedido = requestAnimationFrame(ciclo); } };
+    prepara();
+    if(calmo){ achada = true; desenha(performance.now()); }
+    else {
+      abertura.addEventListener("pointermove", e => {
+        const r = ceu.getBoundingClientRect();
+        rato.x = e.clientX - r.left; rato.y = e.clientY - r.top; rato.dentro = true;
+      });
+      abertura.addEventListener("pointerleave", () => { rato.dentro = false; });
+      if("IntersectionObserver" in window) new IntersectionObserver(([e]) => { visivel = e.isIntersecting; if(visivel) arranca(); }).observe(abertura);
+      document.addEventListener("visibilitychange", () => { if(!document.hidden) arranca(); });
+      arranca();
+    }
+    addEventListener("resize", () => { prepara(); if(calmo) desenha(performance.now()); });
+  }
+
   /* ---------------- A luz que segue o rato nos cartões ---------------- */
   document.querySelectorAll(".luz-rato").forEach(c => c.addEventListener("pointermove", e => {
     const r = c.getBoundingClientRect();
