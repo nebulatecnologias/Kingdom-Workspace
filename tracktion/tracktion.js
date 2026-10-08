@@ -95,8 +95,7 @@
     { nome:"Tania", negocio:"", foto:"" },
     { nome:"Yulde", negocio:"", foto:"" },
     { nome:"Hostina Beatriz", negocio:"Epic Shop", foto:"/img/hostina.webp" },
-    { nome:"Bruno Muianga", negocio:"Muga Agency", foto:"/img/bruno.webp" },
-    { nome:"Airson Zunguze", negocio:"World Punch", foto:"/img/airson.webp" }
+    { nome:"Bruno Muianga", negocio:"Muga Agency", foto:"/img/bruno.webp" }
   ].filter(p => p.foto);
   let atual = 0, relogio = 0;
   const palco = $("slider-palco"), foto = $("slide-foto"), nomeEl = $("slide-nome"), mini = $("miniaturas");
