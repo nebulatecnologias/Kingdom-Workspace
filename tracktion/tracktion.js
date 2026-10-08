@@ -1,6 +1,6 @@
 /* ============================================================
    Kingdom Tracktion: os efeitos do site de vendas da área de membros
-   (entradas ao deslizar, janela que endireita, faixas, separadores que
+   (entradas ao deslizar, faixas, separadores que
    seguem a leitura, fluxos que acendem, carrossel, perguntas e estrelas).
    ============================================================ */
 (() => {
@@ -32,21 +32,6 @@
       if(e.isIntersecting){ e.target.classList.add("visto"); io.unobserve(e.target); }
     }), { rootMargin:"0px 0px -8% 0px", threshold:0.08 });
     revela.forEach(el => io.observe(el));
-  }
-
-  /* ---------------- A janela da abertura endireita-se ao deslizar ---------------- */
-  const janela = $("janela-hero");
-  if(janela && !calmo){
-    let pedido = 0;
-    const inclina = () => {
-      pedido = 0;
-      const p = Math.min(Math.max(scrollY / 520, 0), 1);
-      const e = 1 - Math.pow(1 - p, 3);
-      janela.style.setProperty("--rx", `${(16 * (1 - e)).toFixed(2)}deg`);
-      janela.style.setProperty("--sc", (0.93 + 0.07 * e).toFixed(4));
-    };
-    addEventListener("scroll", () => { if(!pedido) pedido = requestAnimationFrame(inclina); }, { passive:true });
-    inclina();
   }
 
   /* ---------------- A luz que segue o rato nos cartões ---------------- */
