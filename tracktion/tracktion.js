@@ -85,15 +85,15 @@
   /* ---------------- Fora do ecrã: quem já passou pelo Kingdom Tracktion ----------------
      A ordem é a pedida; quem ainda não tem fotografia fica de fora até a imagem chegar. */
   const PESSOAS = [
-    { nome:"Shinita Bijal", negocio:"Serena Beauty", foto:"" },
+    { nome:"Shinita Bijal", negocio:"Serena Beauty", foto:"/img/shinita.webp" },
     { nome:"Domingas Trindade", negocio:"DT Consultório Jurídico", foto:"/img/domingas.webp" },
-    { nome:"Renato Aleixo", negocio:"MTA Nation", foto:"" },
+    { nome:"Renato Aleixo", negocio:"MTA Nation", foto:"/img/renato.webp" },
     { nome:"Irene Solange", negocio:"Jornada Vitalidade", foto:"/img/irene.webp" },
     { nome:"Nofre Lino", negocio:"Drop Studio", foto:"" },
-    { nome:"Solange Mateus", negocio:"Sol Wash", foto:"" },
+    { nome:"Solange Mateus", negocio:"Sol Wash", foto:"/img/solange.webp" },
     { nome:"Liam Green", negocio:"Choise", foto:"" },
-    { nome:"Tanya Janeth", negocio:"Fofices · Florista", foto:"" },
-    { nome:"Yulde Adnesse", negocio:"Adnesse Agency", foto:"" },
+    { nome:"Tanya Janeth", negocio:"Fofices · Florista", foto:"/img/tanya.webp" },
+    { nome:"Yulde Adnesse", negocio:"Adnesse Agency", foto:"/img/yulde.webp" },
     { nome:"Hostina Beatriz", negocio:"Epic Shop", foto:"/img/hostina.webp" },
     { nome:"Bruno Muianga", negocio:"Muga Agency", foto:"/img/bruno.webp" }
   ].filter(p => p.foto);
