@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kingdom Academy · Escola online</title>
-<meta name="description" content="A escola online da Kingdom Company: Escala 10X, Receita Digital e Método Flow AI. Cursos práticos de marketing digital, vendas e inteligência artificial.">
+<meta name="description" content="A escola online da Kingdom Company. Cursos práticos de marketing digital, vendas e inteligência artificial, e os livros de Shelton Douglas.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://academy.kingdomcompny.com/bio">
 <meta property="og:title" content="Kingdom Academy · Escola online">
-<meta property="og:description" content="Escala 10X, Receita Digital e Método Flow AI. Mais de 13.000 alunos já estudaram connosco.">
+<meta property="og:description" content="A escola online da Kingdom Company. Mais de 13.000 alunos já estudaram connosco.">
 <meta property="og:image" content="https://academy.kingdomcompny.com/og-kingdom-academy.jpg">
 <meta property="og:image:width" content="1080">
 <meta property="og:image:height" content="1080">
@@ -59,37 +59,20 @@
   .link.principal .link-texto small{ color:#C9CAC3; }
   .link.principal .ico-caixa{ background:var(--logo); color:#fff; box-shadow:none; }
 
-  /* cursos */
-  .cursos{ padding:64px 0 56px; }
-  .cursos h2{ font-size:clamp(28px,7vw,36px); margin-bottom:8px; }
-  .cursos .entrada{ font-size:16px; margin-bottom:28px; }
-  .curso{ display:grid; grid-template-columns:112px minmax(0,1fr); gap:18px; padding:16px; border-radius:22px; margin-bottom:12px; }
-  .curso-info{ display:flex; flex-direction:column; min-width:0; }
-  .curso-info .tipo-curso{ font-size:12.5px; color:var(--laranja-claro); margin-bottom:4px; }
-  .curso-info h3{ font-size:20px; line-height:1.2; letter-spacing:-.02em; margin-bottom:6px; }
-  .curso-info p{ font-size:14.5px; line-height:1.5; }
-  .curso-info .accao{ margin-top:auto; padding-top:14px; }
-  .curso-info .botao{ min-height:40px; padding:0 16px; font-size:14px; gap:8px; }
-  .curso-info .botao svg{ width:14px; height:14px; }
-
-  /* as capas dos cursos: tipografia grossa em maiúsculas, como no flyer da academia */
-  .capa-curso{ position:relative; align-self:start; aspect-ratio:4 / 5; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:12px;
-    font-weight:700; text-transform:uppercase; letter-spacing:-.03em; line-height:.9; box-shadow:0 0 0 1px rgba(236,237,231,.1), 0 16px 26px -14px rgba(0,0,0,.7); }
-  .capa-curso small{ display:block; font-size:12px; letter-spacing:.02em; }
-  .capa-curso b{ display:block; font-weight:700; }
-  .capa-curso svg{ position:absolute; top:12px; left:12px; width:22px; height:22px; }
-  .capa-escala{ background:var(--logo); color:#fff; }
-  .capa-escala b{ font-size:40px; }
-  .capa-escala small{ color:#2A2A28; font-size:13px; }
-  .capa-receita{ background:#ECEDE7; color:#2A2A28; }
-  .capa-receita b{ font-size:21px; }
-  .capa-receita b + b{ color:#A84300; }
-  .capa-receita svg{ color:#A84300; }
-  .capa-flow{ background:linear-gradient(160deg,#3F3F3B,#1E1E1C); color:#F1F2EE; }
-  .capa-flow b{ font-size:30px; color:var(--laranja); }
-  .capa-flow b + b{ color:#F1F2EE; font-size:24px; }
-  .capa-flow svg{ color:var(--laranja); }
-  @media (max-width:380px){ .curso{ grid-template-columns:92px minmax(0,1fr); gap:14px; } .capa-escala b{ font-size:32px; } .capa-receita b{ font-size:17px; } .capa-flow b{ font-size:24px; } }
+  /* livros, como na bio d'O Conselheiro */
+  .livros{ padding:64px 0 56px; }
+  .livros h2{ font-size:clamp(28px,7vw,36px); margin-bottom:8px; }
+  .livros .entrada{ font-size:16px; margin-bottom:28px; }
+  .livro{ display:grid; grid-template-columns:104px minmax(0,1fr); gap:18px; padding:16px; border-radius:22px; margin-bottom:12px; }
+  .capa{ width:100%; height:auto; align-self:center; filter:drop-shadow(0 14px 18px rgba(0,0,0,.45)); }
+  .livro-info{ display:flex; flex-direction:column; min-width:0; }
+  .livro-info .tipo-livro{ font-size:12.5px; color:var(--laranja-claro); margin-bottom:4px; }
+  .livro-info h3{ font-size:19px; line-height:1.2; letter-spacing:-.02em; margin-bottom:6px; }
+  .livro-info p{ font-size:14.5px; line-height:1.5; }
+  .livro-info .accao{ margin-top:auto; padding-top:12px; }
+  .livro-info .botao{ min-height:40px; padding:0 16px; font-size:14px; gap:8px; }
+  .livro-info .botao svg{ width:14px; height:14px; }
+  @media (max-width:380px){ .livro{ grid-template-columns:84px minmax(0,1fr); gap:14px; } }
 
   .bio-rodape{ padding:30px 0 calc(env(safe-area-inset-bottom,0px) + 34px); text-align:center; border-top:1px solid var(--linha); }
   .bio-rodape img{ width:40px; height:40px; margin:0 auto 10px; border-radius:11px; }
@@ -103,9 +86,6 @@
   <defs>
     <symbol id="i-seta-sobe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
     <symbol id="i-coroa" viewBox="0 0 24 24" fill="currentColor"><path d="M3.2 8.6a.7.7 0 0 1 1-.8l4.2 2L11.4 4a.7.7 0 0 1 1.2 0l3 5.8 4.2-2a.7.7 0 0 1 1 .8l-1.9 9.3a1 1 0 0 1-1 .8H6.1a1 1 0 0 1-1-.8Z"/></symbol>
-    <symbol id="i-escala" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
-    <symbol id="i-receita" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5M18 9.5v5"/></symbol>
-    <symbol id="i-flow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="m12 7.5 1.4 3.1 3.1 1.4-3.1 1.4L12 16.5l-1.4-3.1L7.5 12l3.1-1.4Z"/></symbol>
   </defs>
 </svg>
 
@@ -135,39 +115,49 @@
     </div>
   </section>
 
-  <!-- ============ CURSOS ============ -->
-  <section class="cursos" id="cursos" aria-labelledby="cursos-titulo">
+  <!-- ============ LIVROS ============ -->
+  <section class="livros" id="livros" aria-labelledby="livros-titulo">
     <div class="bio-coluna">
-      <h2 class="revela" id="cursos-titulo">Os nossos cursos</h2>
-      <p class="entrada revela">Escolha por onde começar: vender online, dar os primeiros passos no digital ou pôr a inteligência artificial a trabalhar para si.</p>
+      <h2 class="revela" id="livros-titulo">Os livros de Shelton Douglas</h2>
+      <p class="entrada revela">Ferramentas práticas para ganhar clareza, vender melhor e posicionar-se com autoridade.</p>
 
-      <article class="curso cartao medio revela">
-        <div class="capa-curso capa-escala" aria-hidden="true"><svg><use href="#i-escala"/></svg><small>Escala</small><b>10X</b></div>
-        <div class="curso-info">
-          <span class="tipo-curso">Dropshipping e low-ticket</span>
-          <h3>Escala 10X</h3>
-          <p>Aprenda a vender online com dropshipping e produtos de baixo valor, e a transformar as primeiras vendas num negócio que escala.</p>
-          <div class="accao"><a class="botao botao-linha" href="https://escala10x.kingdomcompny.com/" target="_blank" rel="noopener" aria-label="Conhecer o curso Escala 10X">Conhecer o curso <svg aria-hidden="true"><use href="#i-seta-sobe"/></svg></a></div>
+      <article class="livro cartao medio revela">
+        <img class="capa" src="/img/livros/o-bloqueio-invisivel.webp" alt="Capa do livro O Bloqueio Invisível, de Shelton Douglas" width="300" height="600" loading="lazy">
+        <div class="livro-info">
+          <span class="tipo-livro">Livro</span>
+          <h3>O Bloqueio Invisível</h3>
+          <p>Um mapa prático para descobrir o que se passa consigo e começar a enxergar com clareza o que o impede de avançar, sem se sentir culpado.</p>
+          <div class="accao"><a class="botao botao-linha" href="https://obloqueio.kingdomcompny.com" target="_blank" rel="noopener" aria-label="Conhecer o livro O Bloqueio Invisível">Conhecer o livro <svg aria-hidden="true"><use href="#i-seta-sobe"/></svg></a></div>
         </div>
       </article>
 
-      <article class="curso cartao medio revela">
-        <div class="capa-curso capa-receita" aria-hidden="true"><svg><use href="#i-receita"/></svg><b>Receita</b><b>Digital</b></div>
-        <div class="curso-info">
-          <span class="tipo-curso">Para começar no marketing digital</span>
-          <h3>Receita Digital</h3>
-          <p>Para quem quer dar os primeiros passos no marketing digital através da estratégia de economia de arbitragem.</p>
-          <div class="accao"><a class="botao botao-linha" href="https://receitadigital.kingdomcompny.com/" target="_blank" rel="noopener" aria-label="Conhecer o curso Receita Digital">Conhecer o curso <svg aria-hidden="true"><use href="#i-seta-sobe"/></svg></a></div>
+      <article class="livro cartao medio revela">
+        <img class="capa" src="/img/livros/escala-previsivel.webp" alt="Capa do livro Escala Previsível, de Shelton Douglas" width="300" height="600" loading="lazy">
+        <div class="livro-info">
+          <span class="tipo-livro">Workbook</span>
+          <h3>Escala Previsível</h3>
+          <p>O workbook de vendas em escala para pequenos e médios negócios.</p>
+          <div class="accao"><a class="botao botao-linha" href="https://escalaprevisivel.kingdomcompny.com" target="_blank" rel="noopener" aria-label="Conhecer o livro Escala Previsível">Conhecer o livro <svg aria-hidden="true"><use href="#i-seta-sobe"/></svg></a></div>
         </div>
       </article>
 
-      <article class="curso cartao medio revela">
-        <div class="capa-curso capa-flow" aria-hidden="true"><svg><use href="#i-flow"/></svg><small>Método</small><b>Flow</b><b>AI</b></div>
-        <div class="curso-info">
-          <span class="tipo-curso">Inteligência artificial e automação</span>
-          <h3>Método Flow AI</h3>
-          <p>Um curso de inteligência artificial e automação de marketing, para fazer mais com menos tempo e menos esforço manual.</p>
-          <div class="accao"><a class="botao botao-linha" href="https://flowai.kingdomcompny.com/" target="_blank" rel="noopener" aria-label="Conhecer o curso Método Flow AI">Conhecer o curso <svg aria-hidden="true"><use href="#i-seta-sobe"/></svg></a></div>
+      <article class="livro cartao medio revela">
+        <img class="capa" src="/img/livros/o-criativo.webp" alt="Capa do livro O Criativo que Aprendeu a Vender, de Shelton Douglas" width="300" height="600" loading="lazy">
+        <div class="livro-info">
+          <span class="tipo-livro">Workbook</span>
+          <h3>O Criativo que Aprendeu a Vender</h3>
+          <p>Um guia prático para profissionais criativos que desejam transformar talento em rendimento.</p>
+          <div class="accao"><a class="botao botao-linha" href="https://ocriativo.kingdomcompny.com" target="_blank" rel="noopener" aria-label="Conhecer o livro O Criativo que Aprendeu a Vender">Conhecer o livro <svg aria-hidden="true"><use href="#i-seta-sobe"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="livro cartao medio revela">
+        <img class="capa" src="/img/livros/prisma-da-influencia.webp" alt="Capa do livro O Prisma da Influência, de Shelton Douglas" width="300" height="600" loading="lazy">
+        <div class="livro-info">
+          <span class="tipo-livro">Manual</span>
+          <h3>O Prisma da Influência</h3>
+          <p>Como se posicionar de maneira estratégica e tornar-se uma autoridade dentro do seu nicho.</p>
+          <div class="accao"><a class="botao botao-linha" href="https://prismadainfluencia.kingdomcompny.com" target="_blank" rel="noopener" aria-label="Conhecer o livro O Prisma da Influência">Conhecer o livro <svg aria-hidden="true"><use href="#i-seta-sobe"/></svg></a></div>
         </div>
       </article>
     </div>
