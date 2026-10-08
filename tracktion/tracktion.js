@@ -85,13 +85,13 @@
   /* ---------------- Fora do ecrã: quem já passou pelo Kingdom Tracktion ----------------
      A ordem é a pedida; quem ainda não tem fotografia fica de fora até a imagem chegar. */
   const PESSOAS = [
-    { nome:"Shinita", negocio:"", foto:"" },
+    { nome:"Shinita Bijal", negocio:"Serena Beauty", foto:"" },
     { nome:"Domingas Trindade", negocio:"DT Consultório Jurídico", foto:"/img/domingas.webp" },
-    { nome:"Renato Aleixo", negocio:"", foto:"" },
+    { nome:"Renato Aleixo", negocio:"MTA Nation", foto:"" },
     { nome:"Irene Solange", negocio:"Jornada Vitalidade", foto:"/img/irene.webp" },
-    { nome:"Nofre Lino", negocio:"", foto:"" },
-    { nome:"Solange Mateus", negocio:"", foto:"" },
-    { nome:"Liam", negocio:"", foto:"" },
+    { nome:"Nofre Lino", negocio:"Drop Studio", foto:"" },
+    { nome:"Solange Mateus", negocio:"Sol Wash", foto:"" },
+    { nome:"Liam Green", negocio:"Choise", foto:"" },
     { nome:"Tania", negocio:"", foto:"" },
     { nome:"Yulde", negocio:"", foto:"" },
     { nome:"Hostina Beatriz", negocio:"Epic Shop", foto:"/img/hostina.webp" },
