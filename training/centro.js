@@ -181,11 +181,15 @@
   }
 
   /* ---------------- Galerias dos eventos ----------------
-     Para pôr fotografias, basta juntar os caminhos (ex.: "/img/eventos/founders-1.webp") à lista do evento.
+     Para pôr fotografias, basta juntar { src, alt } (ex.: "/img/eventos/founders-1.webp") à lista do evento.
      Enquanto a lista está vazia, ficam os lugares reservados. */
   const GALERIAS = {
     founders:[],
-    tracktion:[],
+    tracktion:[
+      { src:"/img/eventos/tracktion-1.webp", alt:"Convidada a falar num encontro do Kingdom Tracktion" },
+      { src:"/img/eventos/tracktion-2.webp", alt:"Participante a sorrir durante um encontro do Kingdom Tracktion" },
+      { src:"/img/eventos/tracktion-3.webp", alt:"Participante a ouvir durante um encontro do Kingdom Tracktion" }
+    ],
     outros:[]
   };
   const LUGARES = { founders:3, tracktion:3, outros:5 };
@@ -193,7 +197,7 @@
   let aberta = { lista:[], i:0 };
   const pintaAberta = () => {
     const f = aberta.lista[aberta.i];
-    palco.innerHTML = `<img src="${esc(f)}" alt="Fotografia ${aberta.i + 1} de ${aberta.lista.length}">`;
+    palco.innerHTML = `<img src="${esc(f.src)}" alt="${esc(f.alt || `Fotografia ${aberta.i + 1} de ${aberta.lista.length}`)}">`;
   };
   if(dialogo && dialogo.showModal){
     const navega = d => { aberta.i = (aberta.i + d + aberta.lista.length) % aberta.lista.length; pintaAberta(); };
@@ -215,11 +219,11 @@
         continue;
       }
       const resto = i === lugares - 1 && lista.length > lugares ? lista.length - lugares : 0;
-      html += `<button type="button" class="foto" data-i="${i}" aria-label="Abrir fotografia ${i + 1}${resto ? ` e mais ${resto}` : ""}"><img src="${esc(f)}" alt="" loading="lazy">${resto ? `<span class="foto-mais">+${resto}</span>` : ""}</button>`;
+      html += `<button type="button" class="foto" data-i="${i}" aria-label="Ver em grande: ${esc(f.alt || `fotografia ${i + 1}`)}${resto ? ` e mais ${resto}` : ""}"><img src="${esc(f.src)}" alt="" loading="lazy">${resto ? `<span class="foto-mais">+${resto}</span>` : ""}</button>`;
     }
     g.innerHTML = html;
     g.querySelectorAll("button.foto").forEach(b => b.addEventListener("click", () => {
-      if(!dialogo || !dialogo.showModal) return window.open(lista[Number(b.dataset.i)], "_blank");
+      if(!dialogo || !dialogo.showModal) return window.open(lista[Number(b.dataset.i)].src, "_blank");
       aberta = { lista, i:Number(b.dataset.i) };
       dialogo.querySelectorAll(".foto-nav").forEach(n => { n.hidden = lista.length < 2; });
       pintaAberta(); dialogo.showModal();
