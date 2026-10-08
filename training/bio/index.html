@@ -7,9 +7,10 @@
 <title>Kingdom Training · Educação</title>
 <meta name="description" content="Um único lugar. Tudo que você precisa para ativar o seu espírito, governar suas emoções e escalar seus negócios.">
 <meta property="og:type" content="profile">
+<meta property="og:url" content="https://training.kingdomcompny.com/bio">
 <meta property="og:title" content="Kingdom Training · Educação">
 <meta property="og:description" content="Ativar o espírito, governar as emoções e escalar os negócios. 10X Mindset, Kingdom Founders e Kingdom Tracktion.">
-<meta property="og:image" content="/og-kingdom-training.jpg">
+<meta property="og:image" content="https://training.kingdomcompny.com/og-kingdom-training.jpg">
 <meta property="og:image:width" content="1080">
 <meta property="og:image:height" content="1080">
 <meta property="og:locale" content="pt_PT">
@@ -28,7 +29,15 @@
 
   /* topo: brasão, nome e bio, sobre a textura do logótipo */
   .bio-topo{ position:relative; padding:64px 0 40px; text-align:center; overflow:hidden; }
-  .bio-topo .textura{ position:absolute; inset:0; background:url("/img/textura.jpg") 50% 30%/cover no-repeat; opacity:.55;
+  /* céu estrelado com brilho no horizonte, o mesmo do fim das páginas dos livros; fica fixo por trás da página */
+  .ceu{ position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .ceu canvas{ position:absolute; inset:0; width:100%; height:100%; }
+  .ceu .nascer{ position:absolute; left:50%; bottom:-38vh; width:max(1100px,150vw); height:78vh; transform:translateX(-50%); border-radius:50%;
+    background:radial-gradient(closest-side, rgba(232,105,12,.36), rgba(152,64,0,.22) 55%, transparent); filter:blur(10px); }
+  .ceu .horizonte{ position:absolute; left:50%; bottom:calc(22vh - max(1500px,190vw)); width:max(1500px,190vw); aspect-ratio:1; transform:translateX(-50%); border-radius:50%;
+    border-top:1px solid rgba(244,239,233,.45); box-shadow:0 -30px 80px -20px rgba(232,105,12,.3); background:#0C0B09; }
+  main, .bio-rodape{ position:relative; z-index:1; }
+  .bio-topo .textura{ position:absolute; inset:0; background:url("/img/textura.jpg") 50% 30%/cover no-repeat; opacity:.28;
     mask-image:linear-gradient(180deg,#000 30%,transparent 100%); -webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 100%); }
   .bio-topo .brilho{ position:absolute; left:50%; top:40px; width:420px; height:420px; transform:translateX(-50%); border-radius:50%;
     background:radial-gradient(closest-side, rgba(232,105,12,.22), transparent 70%); }
@@ -48,20 +57,20 @@
   .programas h2{ font-size:clamp(24px,6vw,30px); margin-bottom:6px; }
   .programas .entrada{ font-size:15.5px; margin-bottom:22px; }
   .lista-programas{ display:flex; flex-direction:column; gap:12px; }
-  .programa{ position:relative; display:grid; grid-template-columns:52px minmax(0,1fr) 40px; column-gap:16px; row-gap:10px; align-items:start; padding:20px 18px; border-radius:24px; transition:transform .3s var(--sai); }
+  .programa{ position:relative; display:grid; grid-template-columns:96px minmax(0,1fr) auto; column-gap:16px; row-gap:12px; align-items:start; padding:16px; border-radius:24px; transition:transform .3s var(--sai); background:linear-gradient(160deg, rgba(31,28,24,.92), rgba(19,18,16,.92)); }
+  .programa .capa-programa{ width:96px; height:96px; border-radius:16px; object-fit:cover; box-shadow:0 0 0 1px rgba(244,239,233,.12), 0 14px 26px -14px rgba(0,0,0,.8); }
+  .programa .em-breve{ align-self:start; font-size:11.5px; padding:5px 9px; border-radius:999px; color:var(--texto-2); box-shadow:inset 0 0 0 1px var(--linha-forte); white-space:nowrap; }
+  .programa.indisponivel .capa-programa{ filter:saturate(.7); }
   a.programa:hover{ transform:translateY(-2px); }
   a.programa:active{ transform:scale(.985); }
-  .programa .ico-caixa{ width:52px; height:52px; border-radius:16px; display:grid; place-items:center; background:var(--marca); color:#F4EFE9; }
-  .programa .ico-caixa svg{ width:24px; height:24px; }
-  .programa-texto{ min-width:0; }
+  .programa-texto{ min-width:0; align-self:center; }
   .programa-texto b{ display:block; font-weight:500; font-size:18px; letter-spacing:-.02em; line-height:1.25; }
   .programa .para-quem{ display:inline-block; margin-top:6px; font-size:12.5px; padding:3px 10px; border-radius:999px; color:var(--laranja-claro); box-shadow:inset 0 0 0 1px rgba(232,105,12,.45); background:rgba(232,105,12,.08); }
-  .programa p{ grid-column:2 / -1; font-size:14.5px; line-height:1.55; color:var(--texto-2); }
+  .programa p{ grid-column:1 / -1; font-size:14.5px; line-height:1.55; color:var(--texto-2); }
   .programa .bolha{ width:40px; height:40px; border-radius:50%; display:grid; place-items:center; background:var(--laranja); color:#160B03; transition:transform .45s var(--sai); }
   .programa .bolha svg{ width:16px; height:16px; }
   a.programa:hover .bolha{ transform:rotate(-45deg); }
-  .programa .num{ position:absolute; right:20px; bottom:16px; font-size:12px; color:var(--texto-3); font-variant-numeric:tabular-nums; }
-  @media (max-width:400px){ .programa{ grid-template-columns:46px minmax(0,1fr) 36px; column-gap:12px; padding:18px 14px; } .programa .ico-caixa{ width:46px; height:46px; } .programa p{ grid-column:1 / -1; } }
+  @media (max-width:400px){ .programa{ grid-template-columns:80px minmax(0,1fr) auto; column-gap:12px; padding:14px; } .programa .capa-programa{ width:80px; height:80px; } .programa .bolha{ width:36px; height:36px; } }
 
   .bio-rodape{ padding:30px 0 calc(env(safe-area-inset-bottom,0px) + 34px); text-align:center; border-top:1px solid var(--linha); }
   .bio-rodape img{ width:44px; height:44px; margin:0 auto 10px; }
@@ -74,11 +83,10 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-seta-sobe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
-    <symbol id="i-mente" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c.8 4.6 2.9 6.7 7.5 7.5-4.6.8-6.7 2.9-7.5 7.5-.8-4.6-2.9-6.7-7.5-7.5 4.6-.8 6.7-2.9 7.5-7.5Z"/><path d="M19 16.5c.3 1.7 1 2.4 2.5 2.7-1.5.3-2.2 1-2.5 2.6-.3-1.6-1-2.3-2.5-2.6 1.5-.3 2.2-1 2.5-2.7Z"/></symbol>
-    <symbol id="i-coroa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8 8 12l4-6.5 4 6.5 4.5-4-2 10.5h-13Z"/><path d="M5.5 21h13"/></symbol>
-    <symbol id="i-rota" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/></symbol>
   </defs>
 </svg>
+
+<div class="ceu" aria-hidden="true"><canvas id="estrelas"></canvas><div class="nascer"></div><div class="horizonte"></div></div>
 
 <main>
   <!-- ============ TOPO ============ -->
@@ -86,7 +94,7 @@
     <div class="textura" aria-hidden="true"></div>
     <div class="brilho" aria-hidden="true"></div>
     <div class="bio-coluna">
-      <div class="brasao revela"><img src="/img/brasao.png" alt="Kingdom Training" width="448" height="448"></div>
+      <div class="brasao revela"><img src="/img/brasao.png" alt="Kingdom Training" width="320" height="320"></div>
       <h1 class="revela">Kingdom Training</h1>
       <p class="bio-papel revela">Educação</p>
       <p class="bio-texto revela"><strong>Um único lugar.</strong> Tudo que você precisa para ativar o seu espírito, governar suas emoções e escalar seus negócios.</p>
@@ -101,23 +109,23 @@
       <p class="entrada revela">Do empreendedor ao empreendimento, e ao acompanhamento contínuo.</p>
       <div class="lista-programas">
         <a class="programa cartao medio holofote revela" href="https://10xmindset.kingdomcompny.com/" target="_blank" rel="noopener">
-          <span class="ico-caixa"><svg><use href="#i-mente"/></svg></span>
+          <img class="capa-programa" src="/img/10x-mindset.webp" alt="Capa do 10X Mindset" width="400" height="400" loading="lazy">
           <span class="programa-texto"><b>10X Mindset</b><span class="para-quem">O Empreendedor</span></span>
           <span class="bolha" aria-hidden="true"><svg><use href="#i-seta-sobe"/></svg></span>
           <p>Um treinamento online de transformação pessoal orientado para te ajudar a compreender os padrões internos que podem estar a limitar a tua capacidade de prosperar e avançar para o próximo nível.</p>
         </a>
         <a class="programa cartao medio holofote revela" href="https://founders.kingdomcompny.com/" target="_blank" rel="noopener">
-          <span class="ico-caixa"><svg><use href="#i-coroa"/></svg></span>
+          <img class="capa-programa" src="/img/kingdom-founders.webp" alt="Capa do Kingdom Founders" width="400" height="400" loading="lazy">
           <span class="programa-texto"><b>Kingdom Founders</b><span class="para-quem">O Empreendedor + O Empreendimento</span></span>
           <span class="bolha" aria-hidden="true"><svg><use href="#i-seta-sobe"/></svg></span>
           <p>Uma mentoria para quem busca se desenvolver espiritualmente, dominar suas emoções e escalar seus negócios.</p>
         </a>
-        <a class="programa cartao medio holofote revela" href="https://tracktor.kingdomcompny.com/" target="_blank" rel="noopener">
-          <span class="ico-caixa"><svg><use href="#i-rota"/></svg></span>
+        <div class="programa cartao medio indisponivel revela">
+          <img class="capa-programa" src="/img/kingdom-tracktion.webp" alt="Capa do Kingdom Tracktion" width="400" height="400" loading="lazy">
           <span class="programa-texto"><b>Kingdom Tracktion</b><span class="para-quem">Acompanhamento</span></span>
-          <span class="bolha" aria-hidden="true"><svg><use href="#i-seta-sobe"/></svg></span>
+          <span class="em-breve">Em breve</span>
           <p>Um mastermind premium de acompanhamento estratégico para empreendedores que desejam crescer dentro de uma comunidade de empreendedores, com mais clareza, estrutura e inteligência empresarial.</p>
-        </a>
+        </div>
       </div>
     </div>
   </section>
@@ -125,7 +133,7 @@
 
 <footer class="bio-rodape">
   <div class="bio-coluna">
-    <img src="/img/brasao.png" alt="" width="448" height="448">
+    <img src="/img/brasao.png" alt="" width="320" height="320" loading="lazy">
     <p>Um único lugar. Ativar, governar, escalar.</p>
     <p style="margin-top:4px">© 2026 Kingdom Company</p>
   </div>
@@ -149,6 +157,38 @@
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visto"); io.unobserve(e.target); } });
   }, { threshold:0.1 });
   els.forEach(function(el){ io.observe(el); });
+})();
+
+/* céu estrelado: estrelas a subir devagar e a cintilar, como no fecho das páginas dos livros */
+(function(){
+  var canvas = document.getElementById("estrelas");
+  if(!canvas || !canvas.getContext) return;
+  var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ctx = canvas.getContext("2d"), estrelas = [], w = 0, h = 0, raf = null;
+  var medir = function(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.clientWidth; h = canvas.clientHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(w * h / 4200);
+    estrelas = [];
+    for(var i = 0; i < n; i++) estrelas.push({ x:Math.random() * w, y:Math.random() * h, r:0.25 + Math.random() * 1.1, f:Math.random() * 6.28, v:0.4 + Math.random() * 1.4, d:0.02 + Math.random() * 0.06 });
+  };
+  var pintar = function(t){
+    ctx.clearRect(0, 0, w, h);
+    for(var i = 0; i < estrelas.length; i++){
+      var s = estrelas[i];
+      ctx.globalAlpha = reduz ? 0.6 : 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(s.f + t * 0.001 * s.v));
+      if(!reduz){ s.y -= s.d; if(s.y < -2){ s.y = h + 2; s.x = Math.random() * w; } }
+      ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  };
+  var ciclo = function(t){ pintar(t); if(!document.hidden && !reduz) raf = requestAnimationFrame(ciclo); };
+  medir(); pintar(0);
+  window.addEventListener("resize", function(){ medir(); pintar(performance.now()); });
+  document.addEventListener("visibilitychange", function(){ if(!document.hidden && !reduz){ cancelAnimationFrame(raf); raf = requestAnimationFrame(ciclo); } });
+  if(!reduz) raf = requestAnimationFrame(ciclo);
 })();
 </script>
 </body>

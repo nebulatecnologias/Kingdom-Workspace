@@ -593,6 +593,42 @@
         ],
         "createdAt": "2026-10-08T10:17:44.037Z",
         "reason": "Mesmo modelo da bio d'O Conselheiro e do design system aceite pelo utilizador; padrao ja ignorado nos outros sites"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "training/bio/index.html"
+        ],
+        "createdAt": "2026-10-08T10:33:41.671Z",
+        "reason": "Mesmo ceu estrelado com brilho do fecho das paginas dos livros, pedido pelo utilizador"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "training/bio/index.html"
+        ],
+        "createdAt": "2026-10-08T10:33:41.688Z",
+        "reason": "Mesmo modelo da bio d'O Conselheiro; padrao ja ignorado nos outros sites"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "training/bio/index.html"
+        ],
+        "createdAt": "2026-10-08T10:33:41.705Z",
+        "reason": "Mesmo modelo da bio d'O Conselheiro; padrao ja ignorado nos outros sites"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "training/bio/index.html"
+        ],
+        "createdAt": "2026-10-08T10:33:41.720Z",
+        "reason": "Mesmo modelo da bio d'O Conselheiro; padrao ja ignorado nos outros sites"
       }
     ]
   }
