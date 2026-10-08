@@ -10,7 +10,7 @@
   const svg = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
 
   /* Quando houver o link do formulário, basta pô-lo aqui: todos os botões «Candidatar-me» passam a usá-lo. */
-  const LINK_CANDIDATURA = "";
+  const LINK_CANDIDATURA = "https://tracktor.kingdomcompny.com/f/kingdom-tracktion?utm_source=site&utm_medium=referencia&utm_campaign=kingdom-tracktion";
   if(LINK_CANDIDATURA) document.querySelectorAll("[data-candidatura]").forEach(a => { a.href = LINK_CANDIDATURA; a.target = "_blank"; a.rel = "noopener"; });
 
   if(!calmo) document.documentElement.classList.add("anima");
