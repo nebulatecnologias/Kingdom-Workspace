@@ -56,6 +56,33 @@
   .link.principal .link-texto small{ color:#d8ccbf; }
   .link.principal .ico-caixa{ background:var(--laranja); color:#2D1E17; box-shadow:none; }
 
+  /* vídeo de boas-vindas do canal */
+  .canal{ padding:8px 0 8px; }
+  .canal h2{ font-size:clamp(28px,7vw,36px); margin-bottom:8px; }
+  .canal .entrada{ font-size:16px; margin-bottom:22px; }
+  .video-cartao{ padding:10px; border-radius:26px; }
+  .video-previa{ position:relative; display:block; aspect-ratio:16/9; border-radius:18px; overflow:hidden; background:#2D1E17; }
+  .video-previa img{ width:100%; height:100%; object-fit:cover; transition:transform .6s var(--sai); }
+  .video-previa::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(45,30,23,0) 45%, rgba(45,30,23,.55)); }
+  a.video-previa:hover img{ transform:scale(1.03); }
+  .video-previa .tocar{ position:absolute; left:50%; top:50%; z-index:1; width:68px; height:68px; margin:-34px 0 0 -34px; border-radius:50%; display:grid; place-items:center; background:var(--laranja); color:#2D1E17; box-shadow:0 0 0 8px rgba(243,238,230,.25), 0 16px 34px -12px rgba(0,0,0,.6); transition:transform .35s var(--sai); }
+  .video-previa .tocar svg{ width:24px; height:24px; margin-left:4px; }
+  a.video-previa:hover .tocar{ transform:scale(1.07); }
+  .video-previa .etiqueta-video{ position:absolute; left:14px; bottom:12px; z-index:1; font-size:13px; color:#F3EEE6; }
+  .video-previa iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .video-previa iframe.previa-movel{ pointer-events:none; transform:scale(1.18); opacity:0; transition:opacity .8s ease; }
+  .video-previa iframe.previa-movel.pronta{ opacity:1; }
+  .video-previa .tocar, .video-previa .etiqueta-video{ z-index:2; }
+  .video-previa::after{ z-index:1; }
+  .canal-linha{ display:flex; align-items:center; gap:10px; padding:14px 4px 4px; }
+  .canal-linha .avatar-canal{ width:40px; height:40px; border-radius:50%; object-fit:cover; flex:none; box-shadow:0 0 0 1px var(--linha-forte); }
+  .canal-linha .canal-nome{ flex:1; min-width:0; text-align:left; }
+  .canal-linha .canal-nome b{ display:block; font-weight:500; font-size:16px; letter-spacing:-.015em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .canal-linha .canal-nome small{ display:block; font-size:13.5px; color:var(--texto-3); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .canal-linha .botao{ min-height:42px; padding:0 15px; font-size:14px; gap:7px; flex:none; }
+  .canal-linha .botao svg{ width:17px; height:17px; }
+  @media (max-width:380px){ .canal-linha{ flex-wrap:wrap; } .canal-linha .botao{ width:100%; justify-content:center; } }
+
   /* livros */
   .livros{ padding:64px 0 56px; }
   .livros h2{ font-size:clamp(28px,7vw,36px); margin-bottom:8px; }
@@ -85,6 +112,8 @@
     <symbol id="i-bussola" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="m15.8 8.2-2.2 5.4-5.4 2.2 2.2-5.4Z"/></symbol>
     <symbol id="i-microfone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0"/><path d="M12 17.5V21"/></symbol>
     <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5 5 16.3A8.5 8.5 0 1 1 8 19.2Z"/><path d="M9 8.8c0 3.3 2.9 6.2 6.2 6.2l1.1-1.6-2-.9-.9.8a4.6 4.6 0 0 1-2.7-2.7l.8-.9-.9-2Z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8Z"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4.5"/><path d="m10 9 5 3-5 3Z" fill="currentColor"/></symbol>
   </defs>
 </svg>
 
@@ -124,6 +153,26 @@
         <span class="link-texto"><b>Fala comigo no WhatsApp</b><small>+258 82 097 0702</small></span>
         <span class="bolha" aria-hidden="true"><svg><use href="#i-seta-sobe"/></svg></span>
       </a>
+    </div>
+  </section>
+
+  <!-- ============ CANAL DO YOUTUBE ============ -->
+  <section class="canal" id="canal" aria-labelledby="canal-titulo">
+    <div class="bio-coluna">
+      <h2 class="revela" id="canal-titulo">Bem-vindo ao meu canal</h2>
+      <p class="entrada revela">Começa por este vídeo de boas-vindas e subscreve para acompanhares os próximos.</p>
+      <div class="video-cartao cartao medio revela">
+        <a class="video-previa" id="video-previa" href="https://youtu.be/VDmkFY1j_3k" target="_blank" rel="noopener" data-video="VDmkFY1j_3k" aria-label="Ver o vídeo de boas-vindas do canal">
+          <img src="https://i.ytimg.com/vi/VDmkFY1j_3k/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+          <span class="tocar" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+          <span class="etiqueta-video">Prévia · toca para ver com som</span>
+        </a>
+        <div class="canal-linha">
+          <img class="avatar-canal" src="/img/shelton-rosto.jpg" alt="" width="480" height="480" loading="lazy">
+          <span class="canal-nome"><b>Shelton Douglas</b><small>@sheltondouglaschairman</small></span>
+          <a class="botao botao-principal" href="https://www.youtube.com/@sheltondouglaschairman?sub_confirmation=1" target="_blank" rel="noopener"><svg><use href="#i-youtube"/></svg>Subscrever</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -199,6 +248,45 @@
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visto"); io.unobserve(e.target); } });
   }, { threshold:0.1 });
   els.forEach(function(el){ io.observe(el); });
+})();
+
+/* vídeo: prévia em movimento (sem som, em loop) quando aparece no ecrã; ao tocar, abre o leitor com som */
+(function(){
+  var previa = document.getElementById("video-previa");
+  if(!previa) return;
+  var id = previa.getAttribute("data-video");
+  var base = "https://www.youtube-nocookie.com/embed/" + id;
+  var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if(!reduz && "IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(es){
+      if(!es[0].isIntersecting) return;
+      io.disconnect();
+      var m = document.createElement("iframe");
+      m.className = "previa-movel";
+      m.src = base + "?autoplay=1&mute=1&loop=1&playlist=" + id + "&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3";
+      m.title = "Prévia do vídeo de boas-vindas";
+      m.allow = "autoplay; encrypted-media";
+      m.tabIndex = -1;
+      m.setAttribute("aria-hidden", "true");
+      m.addEventListener("load", function(){ setTimeout(function(){ m.classList.add("pronta"); }, 900); });
+      previa.insertBefore(m, previa.querySelector(".tocar"));
+    }, { threshold:.4 });
+    io.observe(previa);
+  }
+
+  previa.addEventListener("click", function(e){
+    e.preventDefault();
+    var f = document.createElement("iframe");
+    f.src = base + "?autoplay=1&rel=0&playsinline=1";
+    f.title = "Vídeo de boas-vindas do canal de Shelton Douglas";
+    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    f.allowFullscreen = true;
+    var caixa = document.createElement("div");
+    caixa.className = "video-previa";
+    caixa.appendChild(f);
+    previa.replaceWith(caixa);
+  });
 })();
 </script>
 </body>
