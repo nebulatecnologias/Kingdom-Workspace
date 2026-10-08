@@ -60,20 +60,19 @@
   const I = {
     mesa:'<path d="M3 4h18M20 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4M8 21l4-5 4 5"/>',
     um:'<circle cx="10" cy="7.5" r="3.5"/><path d="M3 20a7 7 0 0 1 11-5.7M16 18l2 2 4-4"/>',
-    predio:'<rect x="4" y="2.5" width="16" height="19" rx="2"/><path d="M9 21.5V18h6v3.5M8.5 7h.01M12 7h.01M15.5 7h.01M8.5 11h.01M12 11h.01M15.5 11h.01"/>',
     local:'<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
-    almoco:'<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>',
     estrela:'<path d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/>',
     escudo:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
     rede:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>',
     olho:'<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
     etiqueta:'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
     equipa:'<circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.5 3.5 0 0 1 0 6.6M18.5 20a6.5 6.5 0 0 0-2.6-5.2"/>',
+    pasta:'<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/>',
     conversa:'<path d="M21 12a8 8 0 0 1-11.5 7.2L4 20.5l1.3-5A8 8 0 1 1 21 12z"/>'
   };
   const DETALHES = [
-    [["mesa", "Mesa estratégica", "uma por mês, no Google Meet"], ["um", "Advising individual", "presencial, todos os meses"], ["predio", "Visitas técnicas", "consultoria no terreno"],
-     ["local", "Encontro a meio", "presencial e exclusivo"], ["almoco", "Almoço privado", "entre empresários e mentores"], ["estrela", "Convidados especiais", "só para membros"]],
+    [["mesa", "Mesa estratégica", "uma por mês, no Google Meet"], ["um", "Advising individual", "online ou presencial, todos os meses"], ["local", "Encontro colectivo", "presencial, todos os meses"],
+     ["conversa", "Experiências reais", "contadas por quem as viveu"], ["estrela", "Convidados especiais", "só para membros"], ["pasta", "Oportunidades de negócio", "entre membros"]],
     [["escudo", "Validação de decisões", "antes de arriscar"], ["rede", "Networking estratégico", "parcerias qualificadas"], ["olho", "Bastidores empresariais", "de quem já cresceu"],
      ["etiqueta", "Descontos no ecossistema", "em serviços de parceiros"], ["equipa", "Treino da equipa", "com o Training"], ["conversa", "Proximidade contínua", "entre encontros"]]
   ];
@@ -83,48 +82,49 @@
     $(id).innerHTML = um + um.replace(/<li class="detalhe">/g, '<li class="detalhe" aria-hidden="true">');
   });
 
-  /* ---------------- Experiências fora do ecrã: o carrossel ---------------- */
-  const SLIDES = [
-    { tipo:"Encontro a meio do semestre", ico:I.local, cor:"#E6DEBA", sobre:"#002C19", capa:"Encontro · Mês III", progresso:50,
-      titulo:"Kingdom Experience", quando:"Presencial · a meio do mastermind",
-      frase:"Partilha de experiências reais, análise do crescimento de cada membro e networking estratégico, a meio do caminho." },
-    { tipo:"Visitas técnicas", ico:I.predio, cor:"#E2A47B", sobre:"#2A1206", capa:"Visita técnica", progresso:35,
-      titulo:"Kingdom Experience", quando:"No terreno · ao longo do semestre",
-      frase:"Os bastidores de empresas que movimentam milhões e gerem grandes equipas, com consultoria empresarial no próprio terreno." },
-    { tipo:"Almoço privado", ico:I.almoco, cor:"#A9C79C", sobre:"#0E2A14", capa:"Almoço · mentores", progresso:70,
-      titulo:"Kingdom Experience", quando:"Só empresários e mentores",
-      frase:"Uma mesa só para empresários e mentores, onde nascem colaborações, troca de contactos e oportunidades de negócio." },
-    { tipo:"Encontro de encerramento", ico:I.estrela, cor:"#F2D9B5", sobre:"#3A200F", capa:"Encontro · Mês VI", progresso:100,
-      titulo:"Kingdom Experience", quando:"Presencial · no fim do mastermind",
-      frase:"Fechamos o semestre juntos: o que mudou em cada negócio, o que vem a seguir e as parcerias que ficam." }
-  ];
+  /* ---------------- Fora do ecrã: quem já passou pelo Kingdom Tracktion ----------------
+     A ordem é a pedida; quem ainda não tem fotografia fica de fora até a imagem chegar. */
+  const PESSOAS = [
+    { nome:"Shinita", negocio:"", foto:"" },
+    { nome:"Domingas Trindade", negocio:"DT Consultório Jurídico", foto:"/img/domingas.webp" },
+    { nome:"Renato Aleixo", negocio:"", foto:"" },
+    { nome:"Irene Solange", negocio:"Jornada Vitalidade", foto:"/img/irene.webp" },
+    { nome:"Nofre Lino", negocio:"", foto:"" },
+    { nome:"Solange Mateus", negocio:"", foto:"" },
+    { nome:"Liam", negocio:"", foto:"" },
+    { nome:"Tania", negocio:"", foto:"" },
+    { nome:"Yulde", negocio:"", foto:"" },
+    { nome:"Hostina Beatriz", negocio:"Epic Shop", foto:"/img/hostina.webp" },
+    { nome:"Bruno Muianga", negocio:"Muga Agency", foto:"/img/bruno.webp" },
+    { nome:"Airson Zunguze", negocio:"World Punch", foto:"/img/airson.webp" }
+  ].filter(p => p.foto);
   let atual = 0, relogio = 0;
-  const tel = $("tel"), frase = $("slide-frase"), palco = $("slider-palco");
-  $("slide-total").textContent = SLIDES.length;
+  const palco = $("slider-palco"), foto = $("slide-foto"), nomeEl = $("slide-nome"), mini = $("miniaturas");
+  $("slide-total").textContent = PESSOAS.length;
+  mini.innerHTML = PESSOAS.map((p, i) => `<button type="button" role="tab" aria-label="${esc(p.nome)}" data-i="${i}"><img src="${esc(p.foto)}" alt="" width="44" height="44" loading="lazy"></button>`).join("");
+  const botoes = [...mini.querySelectorAll("button")];
+  /* Carrega as fotografias seguintes para a troca não piscar. */
+  PESSOAS.forEach(p => { const im = new Image(); im.src = p.foto; });
   const mostra = (i, primeiro) => {
-    atual = (i + SLIDES.length) % SLIDES.length;
-    const s = SLIDES[atual];
+    atual = (i + PESSOAS.length) % PESSOAS.length;
+    const p = PESSOAS[atual];
     const aplica = () => {
-      $("slide-tipo").textContent = s.tipo;
-      $("slide-ico").innerHTML = svg(s.ico);
-      frase.textContent = `«${s.frase}»`;
-      $("slide-titulo").textContent = s.titulo;
-      $("slide-quando").textContent = s.quando;
+      foto.src = p.foto;
+      nomeEl.textContent = p.nome;
+      $("slide-negocio").textContent = p.negocio;
       $("slide-n").textContent = atual + 1;
-      $("tel-capa-txt").textContent = s.capa;
-      $("tel-barra").style.setProperty("--p", s.progresso / 100);
-      tel.style.setProperty("--m", s.cor); tel.style.setProperty("--sobre-m", s.sobre);
-      palco.style.setProperty("--m", s.cor);
-      tel.classList.remove("muda"); frase.classList.remove("muda");
+      botoes.forEach((b, k) => b.setAttribute("aria-selected", String(k === atual)));
+      palco.classList.remove("muda"); nomeEl.classList.remove("muda");
     };
     if(primeiro || calmo) return aplica();
-    tel.classList.add("muda"); frase.classList.add("muda");
+    palco.classList.add("muda"); nomeEl.classList.add("muda");
     setTimeout(aplica, 320);
   };
   const seguinte = () => mostra(atual + 1);
-  const anda = () => { clearInterval(relogio); if(!calmo) relogio = setInterval(seguinte, 7000); };
+  const anda = () => { clearInterval(relogio); if(!calmo && PESSOAS.length > 1) relogio = setInterval(seguinte, 6000); };
   $("slide-seg").addEventListener("click", () => { seguinte(); anda(); });
   $("slide-ant").addEventListener("click", () => { mostra(atual - 1); anda(); });
+  botoes.forEach(b => b.addEventListener("click", () => { mostra(Number(b.dataset.i)); anda(); }));
   const slider = $("slider");
   slider.addEventListener("pointerenter", () => clearInterval(relogio));
   slider.addEventListener("pointerleave", anda);
