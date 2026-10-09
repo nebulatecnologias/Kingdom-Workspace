@@ -46,7 +46,7 @@
     const andares = [...predio.querySelectorAll(".andar")];
     const itens = [...lista.querySelectorAll(".obra-item")];
     const estado = $("obra-estado-txt");
-    const NOMES = { 1:"Consultoria Estratégica", 2:"Desenvolvimento Editorial", 3:"Marketing & Vendas", 4:"Desenvolvimento Tecnológico", 5:"Treinamento corporativo" };
+    const NOMES = { 1:"Consultoria Estratégica", 2:"Desenvolvimento Editorial", 3:"Marketing & Vendas", 4:"Desenvolvimento Tecnológico", 5:"Assessoria Corporativa" };
     let atual = 1, roda = 0, parado = false;
     const escolhe = n => {
       atual = n;
@@ -388,4 +388,20 @@
     addEventListener("resize", () => { prepara(); desenha(performance.now()); });
     if("IntersectionObserver" in window) new IntersectionObserver(([e]) => { visivel = e.isIntersecting; if(visivel && !pedido && !calmo) pedido = requestAnimationFrame(ciclo); }).observe(tela);
   }
+
+  /* ---------- vídeo de apresentação de cada área ----------
+     data-video leva o ID do YouTube. Sem ID, o botão fica inativo e o quadro diz "Vídeo em breve". */
+  document.querySelectorAll(".video-quadro").forEach(q => {
+    const id = (q.dataset.video || "").trim(), botao = q.querySelector(".video-play");
+    if(!id){ botao.disabled = true; botao.setAttribute("aria-label", "Vídeo de apresentação em breve"); return; }
+    q.querySelector(".video-estado")?.remove();
+    botao.addEventListener("click", () => {
+      const f = document.createElement("iframe");
+      f.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
+      f.title = q.dataset.titulo || "Vídeo de apresentação";
+      f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      f.allowFullscreen = true;
+      q.replaceChildren(f);
+    });
+  });
 })();

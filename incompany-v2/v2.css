@@ -382,3 +382,79 @@
 .servico small{ margin-top:14px; }
 .outra{ position:relative; }
 .outra-andar{ position:absolute; top:24px; right:24px; font-size:12.5px; font-weight:500; color:var(--texto-3); }
+
+/* ============================================================
+   Vídeo de apresentação de cada área
+   ============================================================ */
+.video-sec{ padding-top:40px; }
+.video-quadro{ position:relative; max-width:980px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--raio-xl); overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 0%, #17337F 0%, #0A1B5A 45%, #041040 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1), 0 40px 90px -40px rgba(29,91,255,.6); }
+.video-fundo{ position:absolute; inset:0;
+  background-image:linear-gradient(rgba(220,230,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(220,230,255,.06) 1px, transparent 1px);
+  background-size:48px 48px; mask-image:radial-gradient(80% 80% at 50% 50%, #000 30%, transparent 85%); }
+.video-ico{ position:absolute; right:6%; bottom:-8%; color:rgba(143,180,255,.08); }
+.video-ico svg{ width:min(46vw,380px); height:min(46vw,380px); stroke-width:1.2; }
+.video-play{ position:absolute; left:50%; top:50%; width:92px; height:92px; margin:-46px 0 0 -46px; border:0; border-radius:50%;
+  display:grid; place-items:center; color:#fff; background:var(--cta); box-shadow:var(--cta-sombra); cursor:pointer;
+  transition:transform .5s var(--sai); }
+.video-play svg{ width:32px; height:32px; margin-left:4px; }
+.video-play::before, .video-play::after{ content:""; position:absolute; inset:0; border-radius:50%; box-shadow:0 0 0 1px rgba(143,180,255,.5); animation:video-onda 2.8s var(--sai) infinite; }
+.video-play::after{ animation-delay:1.4s; }
+@keyframes video-onda{ from{ transform:scale(1); opacity:1; } to{ transform:scale(1.9); opacity:0; } }
+.video-play:hover{ transform:scale(1.06); }
+.video-play:disabled{ cursor:default; }
+.video-play:disabled:hover{ transform:none; }
+.video-play:focus-visible{ outline:2px solid #fff; outline-offset:4px; }
+.video-legenda{ position:absolute; left:28px; bottom:24px; margin:0; display:flex; flex-direction:column; gap:2px; }
+.video-legenda b{ font-size:18px; font-weight:500; letter-spacing:-.02em; }
+.video-legenda span{ font-size:13.5px; color:var(--texto-3); }
+.video-estado{ position:absolute; right:24px; bottom:26px; padding:7px 13px; border-radius:999px; font-size:12.5px; font-weight:500;
+  color:var(--texto-2); background:rgba(255,255,255,.06); box-shadow:inset 0 0 0 1px rgba(255,255,255,.12); }
+.video-quadro iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+@media (max-width:600px){
+  .video-quadro{ border-radius:var(--raio-lg); }
+  .video-play{ width:68px; height:68px; margin:-34px 0 0 -34px; }
+  .video-play svg{ width:24px; height:24px; }
+  .video-legenda{ left:18px; bottom:16px; }
+  .video-legenda b{ font-size:15px; }
+  .video-legenda span{ display:none; }
+  .video-estado{ right:14px; bottom:16px; font-size:11.5px; padding:6px 10px; }
+}
+@media (prefers-reduced-motion:reduce){ .video-play::before, .video-play::after{ animation:none; opacity:0; } }
+
+/* ---------- cartões dos serviços com página de planos ---------- */
+.servico-real{ padding:0; }
+.servico-real > a{ display:flex; flex-direction:column; gap:12px; height:100%; padding:26px 26px 24px; border-radius:inherit; }
+.servico-real > a:focus-visible{ outline:2px solid #1D5BFF; outline-offset:3px; }
+.servico-inclui{ font-size:13.5px; color:var(--texto-3); padding-top:12px; border-top:1px solid var(--linha); margin-top:auto; }
+.servico-preco{ display:flex; flex-direction:column; gap:2px; }
+.servico-preco small{ align-self:auto; margin:0; padding:0; background:none; font-size:12.5px; font-weight:400; color:var(--texto-3); }
+.servico-preco b{ font-size:26px; letter-spacing:-.03em; color:#1D4FE0; font-variant-numeric:tabular-nums; }
+.servico-preco span{ font-size:13.5px; color:var(--texto-2); }
+.servico-real .pilar-ligacao{ margin-top:6px; color:#1D4FE0; }
+
+/* ============================================================
+   Páginas de planos de cada serviço
+   ============================================================ */
+.hero-servico{ padding-bottom:110px; }
+.servico-resumo{ justify-self:end; width:min(100%,400px); padding:30px; border-radius:var(--raio-xl);
+  background:linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); box-shadow:inset 0 0 0 1px rgba(255,255,255,.12), 0 30px 70px -30px rgba(29,91,255,.55);
+  backdrop-filter:blur(8px); }
+.sr-ico{ width:52px; height:52px; border-radius:16px; display:grid; place-items:center; background:var(--marca); color:#fff; margin-bottom:22px; box-shadow:0 10px 24px -10px rgba(29,91,255,.9); }
+.sr-ico svg{ width:24px; height:24px; }
+.servico-resumo > small{ font-size:13.5px; color:var(--texto-3); }
+.sr-preco{ margin:2px 0 0; display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 10px; }
+.sr-preco b{ font-size:clamp(34px,3.6vw,44px); font-weight:500; letter-spacing:-.035em; font-variant-numeric:tabular-nums; line-height:1.1; }
+.sr-preco span{ font-size:15px; color:var(--texto-2); }
+.servico-resumo dl{ margin:24px 0 0; display:flex; flex-direction:column; }
+.servico-resumo dl > div{ display:grid; grid-template-columns:70px minmax(0,1fr); gap:12px; padding:12px 0; border-top:1px solid var(--linha-forte); font-size:14.5px; }
+.servico-resumo dt{ color:var(--texto-3); }
+.servico-resumo dd{ margin:0; color:var(--texto); }
+@media (max-width:900px){ .servico-resumo{ justify-self:stretch; width:100%; } .hero-servico{ padding-bottom:70px; } }
+
+/* os planos usam os cartões de preço do guia (centro.css: .planos, .plano) */
+.planos-sec{ padding-top:40px; }
+.plano .plano-valor.consulta{ font-size:clamp(28px,2.6vw,34px); }
+.sr-preco b.faixa{ font-size:clamp(26px,2.5vw,32px); white-space:nowrap; }
+.servico-preco b.faixa{ font-size:22px; }
