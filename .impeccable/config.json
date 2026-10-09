@@ -1133,6 +1133,159 @@
         ],
         "createdAt": "2026-10-08T20:53:24.658Z",
         "reason": "Do sistema de referência da bio d'O Conselheiro (site.css), igual às outras bios"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "incompany/index.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.788Z",
+        "reason": "Laranja no 'In' do logótipo (marca, isenta) e branco decorativo aria-hidden (palavra grande do rodapé, número do piso) sobre azul-claro; o texto real tem contraste"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "incompany/index.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.808Z",
+        "reason": "Falso positivo: o recuo está no .contentor (padding lateral) dentro de cada secção; confirmado em captura"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "incompany/servicos/desenvolvimento-editorial.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.828Z",
+        "reason": "Laranja no 'In' do logótipo (marca, isenta) e branco decorativo aria-hidden (palavra grande do rodapé, número do piso) sobre azul-claro; o texto real tem contraste"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "incompany/servicos/desenvolvimento-editorial.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.847Z",
+        "reason": "Falso positivo: o recuo está no .contentor (padding lateral) dentro de cada secção; confirmado em captura"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "incompany/servicos/consultoria-estrategica.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.866Z",
+        "reason": "Laranja no 'In' do logótipo (marca, isenta) e branco decorativo aria-hidden (palavra grande do rodapé, número do piso) sobre azul-claro; o texto real tem contraste"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "incompany/servicos/consultoria-estrategica.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.885Z",
+        "reason": "Falso positivo: o recuo está no .contentor (padding lateral) dentro de cada secção; confirmado em captura"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "incompany/servicos/marketing-e-vendas.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.904Z",
+        "reason": "Laranja no 'In' do logótipo (marca, isenta) e branco decorativo aria-hidden (palavra grande do rodapé, número do piso) sobre azul-claro; o texto real tem contraste"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "incompany/servicos/marketing-e-vendas.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.923Z",
+        "reason": "Falso positivo: o recuo está no .contentor (padding lateral) dentro de cada secção; confirmado em captura"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "incompany/servicos/desenvolvimento-tecnologico.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.946Z",
+        "reason": "Laranja no 'In' do logótipo (marca, isenta) e branco decorativo aria-hidden (palavra grande do rodapé, número do piso) sobre azul-claro; o texto real tem contraste"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "incompany/servicos/desenvolvimento-tecnologico.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.966Z",
+        "reason": "Falso positivo: o recuo está no .contentor (padding lateral) dentro de cada secção; confirmado em captura"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "incompany/index.html"
+        ],
+        "createdAt": "2026-10-09T08:27:51.989Z",
+        "reason": "Brilho dos botões de elevador acesos (efeito específico do mundo do edifício) e sombra com deslocamento do menu"
+      },
+      {
+        "rule": "wide-tracking",
+        "value": "*",
+        "files": [
+          "incompany/index.html"
+        ],
+        "createdAt": "2026-10-09T08:27:52.009Z",
+        "reason": "Rótulo curto em maiúsculas no poço do elevador (SVG decorativo), uso sancionado"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "incompany/servicos/consultoria-estrategica.html"
+        ],
+        "createdAt": "2026-10-09T08:27:52.030Z",
+        "reason": "Faixa de tapume de obra na secção 'em acabamentos': material do mundo do edifício, não decoração genérica"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "incompany/servicos/desenvolvimento-editorial.html"
+        ],
+        "createdAt": "2026-10-09T08:27:52.051Z",
+        "reason": "Faixa de tapume de obra na secção 'em acabamentos': material do mundo do edifício, não decoração genérica"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "incompany/servicos/desenvolvimento-tecnologico.html"
+        ],
+        "createdAt": "2026-10-09T08:27:52.070Z",
+        "reason": "Faixa de tapume de obra na secção 'em acabamentos': material do mundo do edifício, não decoração genérica"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "incompany/servicos/marketing-e-vendas.html"
+        ],
+        "createdAt": "2026-10-09T08:27:52.089Z",
+        "reason": "Faixa de tapume de obra na secção 'em acabamentos': material do mundo do edifício, não decoração genérica"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "incompany/servicos/desenvolvimento-editorial.html"
+        ],
+        "createdAt": "2026-10-09T08:28:14.852Z",
+        "reason": "Só os títulos de exibição (h1/h2 a 40-76px) têm entrelinha apertada, como é próprio de display; o texto corrido está a 1.35-1.55"
       }
     ]
   }
