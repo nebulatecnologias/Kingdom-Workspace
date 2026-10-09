@@ -347,9 +347,8 @@
 .gantt-corpo::after{ content:""; position:absolute; top:40px; bottom:14px; width:2px; border-radius:2px; background:#8FE2FF; box-shadow:0 0 12px rgba(143,226,255,.8); left:calc(18px + 140px + (100% - 36px - 140px) * var(--t)); }
 .gantt-corpo::before{ content:"Hoje"; position:absolute; top:22px; transform:translateX(-50%); font-size:10.5px; font-weight:500; color:#020A2E; background:#8FE2FF; padding:1px 7px; border-radius:6px; left:calc(18px + 141px + (100% - 36px - 140px) * var(--t)); z-index:1; }
 @media (max-width:600px){ .gl{ grid-template-columns:96px minmax(0,1fr); } .gantt-corpo::after{ left:calc(18px + 108px + (100% - 36px - 108px) * var(--t)); } .gantt-corpo::before{ left:calc(18px + 109px + (100% - 36px - 108px) * var(--t)); } }
-/* no telemóvel, os módulos ficam numa só linha: esconde-se o primeiro (já concluído) */
+/* no telemóvel, os quatro módulos ficam numa só linha */
 @media (max-width:600px){
   .tv-modulos{ flex-wrap:nowrap; }
-  .tv-modulos li:first-child{ display:none; }
   .tv-modulos li{ white-space:nowrap; padding:6px 10px; }
 }
