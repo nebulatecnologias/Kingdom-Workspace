@@ -1349,6 +1349,15 @@
         ],
         "createdAt": "2026-10-09T08:49:38.902Z",
         "reason": "Grelha fina do cartão de abertura: elemento do sistema visual fixado pelo cliente (template Investflow em anexo)"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "incompany/index.html"
+        ],
+        "createdAt": "2026-10-09T08:51:48.880Z",
+        "reason": "Falso positivo da leitura estática (não carrega /ic.css, mede 'normal'); a leitura no browser (1280 e 390) dá 0 achados"
       }
     ]
   }
