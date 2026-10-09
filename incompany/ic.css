@@ -1,7 +1,7 @@
 /* ============================================================
    Kingdom InCompany: sistema visual (fixado pelo cliente a partir do
    template "Investflow"). Cartão de abertura azul-marinho com feixe
-   diagonal azul-real a ciano e grelha fina, fundo lavanda claro,
+   diagonal azul-real a ciano e grelha fina, fundo branco fosco,
    cartões brancos de raio grande, botões em pílula azul-real com
    círculo de seta, etiquetas em pílula, ícones de vidro. Google Sans.
 ============================================================ */
@@ -13,6 +13,7 @@
   --azul-2:#3B72FF;
   --azul-claro:#DCE6FF;
   --ciano:#8FE2FF;
+  --fundo:#F4F4F2;          /* branco fosco, neutro: o fundo da página */
   --lavanda:#EEF2FF;
   --lavanda-2:#E4EAFC;
   --branco:#FFFFFF;
@@ -46,7 +47,7 @@
 *,*::before,*::after{ box-sizing:border-box; }
 html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:110px; }
 body{
-  margin:0; background:var(--lavanda); color:var(--texto);
+  margin:0; background:var(--fundo); color:var(--texto);
   font-family:var(--letra); font-size:17px; line-height:1.6; font-weight:400;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
@@ -65,7 +66,7 @@ p{ text-wrap:pretty; }
 ::selection{ background:var(--azul); color:#fff; }
 :focus-visible{ outline:2px solid var(--azul); outline-offset:3px; border-radius:8px; }
 .escuro :focus-visible{ outline-color:var(--ciano); }
-html{ scrollbar-color:#B9C6EE var(--lavanda); }
+html{ scrollbar-color:#B9C0D4 var(--fundo); }
 
 .saltar{ position:absolute; left:16px; top:-60px; z-index:300; background:var(--azul); color:#fff; padding:10px 16px; border-radius:999px; }
 .saltar:focus{ top:12px; }
@@ -156,7 +157,7 @@ html{ scrollbar-color:#B9C6EE var(--lavanda); }
   position:relative; overflow:hidden; isolation:isolate; border-radius:clamp(24px,3vw,36px);
   background:
     radial-gradient(560px circle at var(--mx) var(--my), rgba(143,226,255,.28), transparent 60%),
-    linear-gradient(118deg, var(--noite) 0%, #031663 38%, #1543E8 58%, #6FC8FF 74%, #E9F1FF 90%, #F6F8FF 100%);
+    linear-gradient(118deg, var(--noite) 0%, #031663 38%, #1543E8 58%, #6FC8FF 74%, #DCE8F4 90%, #F4F4F2 100%);
   color:#fff;
 }
 .cartao-noite::before{ /* grelha fina */

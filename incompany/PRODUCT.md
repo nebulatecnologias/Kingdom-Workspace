@@ -41,7 +41,7 @@ Kingdom InCompany is the corporate arm of the Kingdom group: editorial developme
 ## Brand Commitments
 
 - Name rendered "Kingdom InCompany".
-- Visual system pinned by the user (replaces the earlier light-blue/orange palette): the "Investflow" Webflow template look. Deep navy to bright royal blue diagonal gradient hero inside a rounded container with a faint grid, light lavender page grounds, white cards with large radii, royal-blue pill buttons with a round arrow, pill tags, glassy translucent 3D-style icons. Font: Google Sans. Very interactive elements.
+- Visual system pinned by the user (replaces the earlier light-blue/orange palette): the "Investflow" Webflow template look. Deep navy to bright royal blue diagonal gradient hero inside a rounded container with a faint grid, matte off-white page ground (#F4F4F2, neutral, not bluish), white cards with large radii, royal-blue pill buttons with a round arrow, pill tags, glassy translucent 3D-style icons. Font: Google Sans. Very interactive elements.
 
 ## Evidence on Hand
 
