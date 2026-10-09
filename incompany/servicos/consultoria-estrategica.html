@@ -10,13 +10,17 @@
 <meta property="og:title" content="Consultoria Estratégica | Kingdom InCompany">
 <meta property="og:description" content="Decisões com base em dados, não em palpites.">
 <meta property="og:image" content="https://incompany.kingdomcompny.com/og-kingdom-incompany.jpg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
 <meta property="og:locale" content="pt_PT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#AACFDF">
+<meta name="theme-color" content="#020A2E">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-96.png" sizes="96x96">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/fontes/host-grotesk-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="/ic.css">
 <link rel="stylesheet" href="/servico.css">
 <script>document.documentElement.classList.add('anima');</script>
@@ -24,32 +28,97 @@
 <body>
 <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
 
+<!-- ============ ÍCONES (traço) e OBJETOS DE VIDRO ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <linearGradient id="g-vidro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".96"/><stop offset=".5" stop-color="#D9E5FF" stop-opacity=".88"/><stop offset="1" stop-color="#8DB0FF" stop-opacity=".92"/></linearGradient>
+    <linearGradient id="g-fundo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFD2FF"/><stop offset="1" stop-color="#5F8BFF"/></linearGradient>
+    <linearGradient id="g-meio" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E4ECFF"/><stop offset="1" stop-color="#9DBBFF"/></linearGradient>
+    <linearGradient id="g-borda" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#A9C2FF"/></linearGradient>
+
     <symbol id="i-coroa" viewBox="0 0 24 24" fill="currentColor"><path d="M4 8.5 8 11l4-6 4 6 4-2.5V17H4V8.5Z"/><path d="M4 19h16v1.6H4z"/></symbol>
-    <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-sobe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
-    <symbol id="i-baixo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-sobe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-baixo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></symbol>
-    <symbol id="i-elevador" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="m9 9 3-3 3 3M9 15l3 3 3-3"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.6a8.2 8.2 0 0 1-12.1 7.2L4 20l1.3-3.7A8.2 8.2 0 1 1 20 11.6Z"/><path d="M9 8.6c.2 2.7 2.4 5 5.2 5.4l1-1.1-1.6-.9-.8.7a4.6 4.6 0 0 1-2.3-2.3l.7-.8-.9-1.6Z"/></symbol>
-    <symbol id="i-email" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-email" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
     <symbol id="i-telefone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-formulario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+
+    <!-- vidro: livro aberto (Editorial) -->
+    <symbol id="v-livro" viewBox="0 0 96 96">
+      <path d="M8 36c14-8 28-8 40 0 12-8 26-8 40 0v46c-14-7-28-7-40 1-12-8-26-8-40-1Z" fill="url(#g-fundo)" opacity=".85"/>
+      <path d="M12 30c12-7 24-7 35 0v47c-11-6-23-6-35 0Z" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.6"/>
+      <path d="M49 30c11-7 23-7 35 0v47c-12-6-24-6-35 0Z" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.6"/>
+      <path d="M19 42c7-3 14-3 21 0M19 51c7-3 14-3 21 0M56 42c7-3 14-3 21 0M56 51c7-3 14-3 21 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+      <path d="M48 30v47" stroke="#fff" stroke-width="1.6" opacity=".8"/>
+    </symbol>
+    <!-- vidro: barras a crescer (Consultoria) -->
+    <symbol id="v-barras" viewBox="0 0 96 96">
+      <path d="M14 58l6-5h14l-6 5Z" fill="url(#g-meio)"/><path d="M28 58l6-5v29l-6 5Z" fill="url(#g-fundo)"/>
+      <rect x="10" y="58" width="18" height="29" rx="3" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.5"/>
+      <path d="M40 41l6-5h14l-6 5Z" fill="url(#g-meio)"/><path d="M54 41l6-5v46l-6 5Z" fill="url(#g-fundo)"/>
+      <rect x="36" y="41" width="18" height="46" rx="3" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.5"/>
+      <path d="M66 20l6-5h14l-6 5Z" fill="url(#g-meio)"/><path d="M80 20l6-5v67l-6 5Z" fill="url(#g-fundo)"/>
+      <rect x="62" y="20" width="18" height="67" rx="3" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.5"/>
+      <path d="M15 64v16M41 47v32M67 26v52" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".85"/>
+    </symbol>
+    <!-- vidro: funil (Marketing & Vendas) -->
+    <symbol id="v-funil" viewBox="0 0 96 96">
+      <path d="M16 26h70L61 56v26l-18 8V56Z" fill="url(#g-fundo)" opacity=".85" transform="translate(4 3)"/>
+      <path d="M12 24h72L58 55v25l-20 9V55Z" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.6" stroke-linejoin="round"/>
+      <ellipse cx="48" cy="24" rx="36" ry="7" fill="url(#g-meio)" stroke="url(#g-borda)" stroke-width="1.4"/>
+      <path d="M24 32l18 19M44 61v18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".85"/>
+      <circle cx="48" cy="12" r="5" fill="url(#g-vidro)" stroke="url(#g-borda)"/><circle cx="34" cy="8" r="3.5" fill="url(#g-vidro)" stroke="url(#g-borda)"/><circle cx="61" cy="9" r="4" fill="url(#g-vidro)" stroke="url(#g-borda)"/>
+    </symbol>
+    <!-- vidro: cubo com código (Tecnologia) -->
+    <symbol id="v-cubo" viewBox="0 0 96 96">
+      <path d="M48 12l34 17-34 17-34-17Z" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M14 29l34 17v40L14 69Z" fill="url(#g-fundo)" stroke="url(#g-borda)" stroke-width="1.2" stroke-linejoin="round" opacity=".92"/>
+      <path d="M82 29 48 46v40l34-17Z" fill="url(#g-meio)" stroke="url(#g-borda)" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M60 55l-5 6 5 6M70 50l5 6-5 6M66 48l-4 19" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M30 24l18-9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+    </symbol>
+    <!-- vidro: capelo (Treinamento) -->
+    <symbol id="v-capelo" viewBox="0 0 96 96">
+      <path d="M26 46v18c0 8 44 8 44 0V46L48 56Z" fill="url(#g-fundo)" stroke="url(#g-borda)" stroke-width="1.3" stroke-linejoin="round"/>
+      <path d="M48 18l40 17-40 17L8 35Z" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M48 35l30 6v22" fill="none" stroke="url(#g-borda)" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="78" cy="66" r="5" fill="url(#g-vidro)" stroke="url(#g-borda)"/>
+      <path d="M24 33l24-10" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".9"/>
+    </symbol>
+    <!-- vidro: microfone (Na mídia) -->
+    <symbol id="v-micro" viewBox="0 0 96 96">
+      <rect x="35" y="10" width="28" height="48" rx="14" fill="url(#g-fundo)" opacity=".8" transform="translate(4 3)"/>
+      <rect x="33" y="9" width="28" height="48" rx="14" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.6"/>
+      <path d="M23 44c0 14 11 24 24 24s24-10 24-24" fill="none" stroke="url(#g-borda)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M47 68v12M34 84h26" stroke="url(#g-fundo)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M41 19v18M41 23" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".9"/>
+    </symbol>
+    <!-- vidro: jornal (Na mídia) -->
+    <symbol id="v-jornal" viewBox="0 0 96 96">
+      <rect x="18" y="20" width="62" height="64" rx="8" fill="url(#g-fundo)" opacity=".85" transform="translate(4 4)"/>
+      <rect x="14" y="16" width="62" height="64" rx="8" fill="url(#g-vidro)" stroke="url(#g-borda)" stroke-width="1.6"/>
+      <rect x="23" y="26" width="22" height="18" rx="3" fill="url(#g-meio)"/>
+      <path d="M52 29h15M52 37h15M23 53h44M23 61h44M23 69h30" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+    </symbol>
   </defs>
 </svg>
 
 <!-- ============ CABEÇALHO ============ -->
 <header class="topo" id="topo">
-  <div class="contentor topo-dentro">
-    <a class="marca" href="/" aria-label="Kingdom InCompany, página inicial"><svg aria-hidden="true"><use href="#i-coroa"/></svg><span>Kingdom <b>In</b>Company</span></a>
+  <div class="topo-barra">
+    <a class="marca" href="/" aria-label="Kingdom InCompany, página inicial"><svg aria-hidden="true"><use href="#i-coroa"/></svg><span>Kingdom InCompany</span></a>
     <nav class="nav" aria-label="Principal">
       <div class="nav-servicos">
-        <a href="/#pisos">Serviços<svg aria-hidden="true"><use href="#i-baixo"/></svg></a>
-        <div class="lista-pisos">
-          <a href="/servicos/desenvolvimento-editorial"><span class="botao-piso">1</span>Desenvolvimento Editorial</a>
-          <a href="/servicos/consultoria-estrategica"><span class="botao-piso">2</span>Consultoria Estratégica</a>
-          <a href="/servicos/marketing-e-vendas"><span class="botao-piso">3</span>Marketing &amp; Vendas</a>
-          <a href="/servicos/desenvolvimento-tecnologico"><span class="botao-piso">4</span>Desenvolvimento Tecnológico</a>
+        <button type="button" aria-expanded="false" aria-controls="lista-areas">Serviços<svg aria-hidden="true"><use href="#i-baixo"/></svg></button>
+        <div class="lista-areas" id="lista-areas">
+          <a href="/servicos/desenvolvimento-editorial"><span class="vidro-mini"><svg class="vidro" aria-hidden="true"><use href="#v-livro"/></svg></span><span><b>Desenvolvimento Editorial</b><small>Perfis, propostas, concursos, business plans</small></span></a>
+          <a href="/servicos/consultoria-estrategica"><span class="vidro-mini"><svg class="vidro" aria-hidden="true"><use href="#v-barras"/></svg></span><span><b>Consultoria Estratégica</b><small>Diagnóstico, planeamento, Business Advising</small></span></a>
+          <a href="/servicos/marketing-e-vendas"><span class="vidro-mini"><svg class="vidro" aria-hidden="true"><use href="#v-funil"/></svg></span><span><b>Marketing &amp; Vendas</b><small>Posicionamento, canais, processo comercial</small></span></a>
+          <a href="/servicos/desenvolvimento-tecnologico"><span class="vidro-mini"><svg class="vidro" aria-hidden="true"><use href="#v-cubo"/></svg></span><span><b>Desenvolvimento Tecnológico</b><small>Sites, sistemas, automação e IA</small></span></a>
         </div>
       </div>
       <a href="/#metodo">Método</a>
@@ -57,18 +126,20 @@
       <a href="/#midia">Na mídia</a>
       <a href="/#contacto">Contacto</a>
     </nav>
-    <a class="botao botao-principal" href="#agendar">Agendar conversa<svg aria-hidden="true"><use href="#i-seta"/></svg></a>
+    <a class="botao botao-principal" href="#agendar">Agendar conversa<span class="bola"><svg aria-hidden="true"><use href="#i-seta"/></svg></span></a>
     <details class="menu">
-      <summary><svg aria-hidden="true"><use href="#i-menu"/></svg>Menu</summary>
+      <summary aria-label="Abrir menu"><svg aria-hidden="true"><use href="#i-menu"/></svg></summary>
       <nav class="menu-painel" aria-label="Menu">
-        <a href="/servicos/desenvolvimento-editorial"><span class="botao-piso">1</span>Desenvolvimento Editorial</a>
-        <a href="/servicos/consultoria-estrategica"><span class="botao-piso">2</span>Consultoria Estratégica</a>
-        <a href="/servicos/marketing-e-vendas"><span class="botao-piso">3</span>Marketing &amp; Vendas</a>
-        <a href="/servicos/desenvolvimento-tecnologico"><span class="botao-piso">4</span>Desenvolvimento Tecnológico</a>
+        <a href="/servicos/desenvolvimento-editorial"><span class="vidro-mini"><svg class="vidro" aria-hidden="true"><use href="#v-livro"/></svg></span>Desenvolvimento Editorial</a>
+        <a href="/servicos/consultoria-estrategica"><span class="vidro-mini"><svg class="vidro" aria-hidden="true"><use href="#v-barras"/></svg></span>Consultoria Estratégica</a>
+        <a href="/servicos/marketing-e-vendas"><span class="vidro-mini"><svg class="vidro" aria-hidden="true"><use href="#v-funil"/></svg></span>Marketing &amp; Vendas</a>
+        <a href="/servicos/desenvolvimento-tecnologico"><span class="vidro-mini"><svg class="vidro" aria-hidden="true"><use href="#v-cubo"/></svg></span>Desenvolvimento Tecnológico</a>
+        <hr>
         <a href="/#metodo">Método</a>
         <a href="/#clientes">Clientes</a>
         <a href="/#midia">Na mídia</a>
-        <a class="botao botao-principal" href="#agendar">Agendar conversa<svg aria-hidden="true"><use href="#i-seta"/></svg></a>
+        <a href="/#contacto">Contacto</a>
+        <a class="botao botao-principal" href="#agendar">Agendar conversa<span class="bola"><svg aria-hidden="true"><use href="#i-seta"/></svg></span></a>
       </nav>
     </details>
   </div>
@@ -76,60 +147,65 @@
 
 <main id="conteudo">
 
-<!-- ============ ABERTURA: o piso 2 ============ -->
-<section class="piso-abertura">
-  <div class="contentor piso-abertura-grelha">
-    <div class="piso-abertura-texto">
-      <nav class="migalhas" aria-label="Caminho"><a href="/">Início</a><span aria-hidden="true">/</span><a href="/#pisos">Serviços</a><span aria-hidden="true">/</span><span aria-current="page">Consultoria Estratégica</span></nav>
-      <div class="titulo-piso">
-        <span class="piso-numero num" aria-hidden="true">2</span>
+<!-- ============ ABERTURA DA ÁREA ============ -->
+<section class="abertura">
+  <div class="cartao-noite area-heroi">
+    <div class="contentor area-heroi-grelha">
+      <div>
+        <nav class="migalhas" aria-label="Caminho"><a href="/">Início</a><span aria-hidden="true">/</span><a href="/#areas">Áreas</a><span aria-hidden="true">/</span><span aria-current="page">Consultoria Estratégica</span></nav>
         <h1>Consultoria Estratégica</h1>
+        <p class="tese">Decisões com base em dados, não em palpites.</p>
+        <p class="entrada">Analisamos o mercado, o modelo de negócio e os números da sua empresa para definir prioridades, metas, prazos e responsáveis. Depois acompanhamos a execução em sessões de Business Advising.</p>
+        <div class="heroi-accoes">
+          <a class="botao botao-principal" href="#agendar">Agendar conversa<span class="bola"><svg aria-hidden="true"><use href="#i-seta"/></svg></span></a>
+          <a class="botao botao-vidro" href="#servicos">Ver os serviços</a>
+        </div>
       </div>
-      <p class="tese">Decisões com base em dados, não em palpites.</p>
-      <p class="entrada">Analisamos o mercado, o modelo de negócio e os números da sua empresa para definir prioridades, metas, prazos e responsáveis. Depois acompanhamos a execução em sessões de Business Advising.</p>
-      <div class="abertura-accoes">
-        <a class="botao botao-principal" href="#agendar">Agendar conversa com um especialista<svg aria-hidden="true"><use href="#i-seta"/></svg></a>
-        <a class="botao botao-linha" href="#planta">Ver o que fazemos</a>
+      <div class="area-objeto" aria-hidden="true">
+        <svg class="vidro"><use href="#v-barras"/></svg>
+        <span class="etiqueta e1"><svg class="vidro"><use href="#v-capelo"/></svg>Inclui treinamento</span>
+        <span class="etiqueta e2">6 serviços</span>
       </div>
     </div>
-    <figure class="mini-edificio" aria-label="O edifício Kingdom InCompany, com o piso 2 aceso"><svg viewBox="0 0 300 540" role="presentation"><path d="M4 8.5 8 11l4-6 4 6 4-2.5V17H4V8.5Z" transform="translate(90 -7) scale(5)" fill="#fff"/><rect x="20" y="78" width="260" height="12" fill="#fff"/><line x1="238" y1="90" x2="238" y2="540" stroke="#fff" stroke-width="1.2" opacity=".7"/><a href="/servicos/desenvolvimento-tecnologico" class="apagado" aria-label="Piso 4: Desenvolvimento Tecnológico"><rect x="20" y="98" width="200" height="90" fill="#fff"/><rect x="256" y="98" width="24" height="90" fill="#fff"/><text class="m-n" x="38" y="158">4</text><text class="m-nome" x="78" y="152">Tecnologia</text></a><a href="/servicos/marketing-e-vendas" class="apagado" aria-label="Piso 3: Marketing &amp; Vendas"><rect x="20" y="196" width="200" height="90" fill="#fff"/><rect x="256" y="196" width="24" height="90" fill="#fff"/><text class="m-n" x="38" y="256">3</text><text class="m-nome" x="78" y="250">Marketing</text></a><a href="/servicos/consultoria-estrategica" class="aceso" aria-label="Piso 2: Consultoria Estratégica"><rect x="20" y="294" width="200" height="90" fill="#fff"/><rect x="256" y="294" width="24" height="90" fill="#fff"/><text class="m-n" x="38" y="354">2</text><text class="m-nome" x="78" y="348">Consultoria</text></a><a href="/servicos/desenvolvimento-editorial" class="apagado" aria-label="Piso 1: Desenvolvimento Editorial"><rect x="20" y="392" width="200" height="90" fill="#fff"/><rect x="256" y="392" width="24" height="90" fill="#fff"/><text class="m-n" x="38" y="452">1</text><text class="m-nome" x="78" y="446">Editorial</text></a><a href="/#agendar" class="apagado" aria-label="Rés-do-chão: receção"><rect x="20" y="490" width="200" height="60" fill="#fff"/><rect x="256" y="490" width="24" height="60" fill="#fff"/><text class="m-nome" x="38" y="528">R/C · Receção</text></a><rect class="mini-cabine" style="--de:196px" x="224" y="303" width="28" height="72" rx="2" fill="#F24E24"/></svg></figure>
   </div>
 </section>
 
-<!-- ============ A PLANTA DO PISO ============ -->
-<section class="seccao" id="planta" aria-labelledby="planta-titulo">
+<!-- ============ SERVIÇOS DA ÁREA ============ -->
+<section class="seccao" id="servicos" aria-labelledby="servicos-titulo">
   <div class="contentor">
     <div class="cabeca-seccao">
-      <h2 class="revela" id="planta-titulo">Neste piso</h2>
-      <p class="revela">Os serviços desta área. Em breve, cada um terá aqui a descrição completa, com entregáveis, prazos e exemplos.</p>
+      <h2 class="revela" id="servicos-titulo">O que fazemos nesta área</h2>
+      <p class="revela">Em breve, cada serviço terá aqui a sua descrição completa, com entregáveis, prazos e exemplos.</p>
     </div>
-    <ul class="planta-clara"><li class="revela"><span class="sala num">Sala 2.01</span><b>Diagnóstico empresarial</b></li><li class="revela"><span class="sala num">Sala 2.02</span><b>Planeamento estratégico</b></li><li class="revela"><span class="sala num">Sala 2.03</span><b>Modelo de negócio</b></li><li class="revela"><span class="sala num">Sala 2.04</span><b>Processos e organização</b></li><li class="revela"><span class="sala num">Sala 2.05</span><b>Business Advising</b></li><li class="revela"><span class="sala num">Sala 2.06</span><b>Preparação para investimento</b></li><li class="treino revela"><span class="sala">Corredor do elevador</span><b><svg aria-hidden="true"><use href="#i-elevador"/></svg>Treinamento da sua equipa, em todos os serviços deste piso</b></li></ul>
+    <ul class="servicos-grelha"><li class="servico cartao revela"><span class="pilula">Em breve: página do serviço</span><b>Diagnóstico empresarial</b></li><li class="servico cartao revela"><span class="pilula">Em breve: página do serviço</span><b>Planeamento estratégico</b></li><li class="servico cartao revela"><span class="pilula">Em breve: página do serviço</span><b>Modelo de negócio</b></li><li class="servico cartao revela"><span class="pilula">Em breve: página do serviço</span><b>Processos e organização</b></li><li class="servico cartao revela"><span class="pilula">Em breve: página do serviço</span><b>Business Advising</b></li><li class="servico cartao revela"><span class="pilula">Em breve: página do serviço</span><b>Preparação para investimento</b></li><li class="servico-treino cartao-noite revela"><svg class="vidro" aria-hidden="true"><use href="#v-capelo"/></svg><div><b>Treinamento da sua equipa</b><p>Incluído em todos os serviços desta área, para que o resultado fique na empresa.</p></div></li></ul>
   </div>
 </section>
 
-<!-- ============ EM ACABAMENTOS: agendar conversa ============ -->
-<section class="acabamentos escuro" id="agendar" aria-labelledby="agendar-titulo">
-  <div class="contentor acabamentos-grelha">
-    <h2 class="revela" id="agendar-titulo">Este piso está em acabamentos. A conversa já pode começar.</h2>
-    <div class="revela">
-      <p>Enquanto preparamos o detalhe de cada serviço, um especialista de Consultoria Estratégica explica-lhe o que faz sentido para a sua empresa, numa conversa sem compromisso.</p>
-      <!-- Os botões abrem o formulário (Tracktor). Até termos o link, seguem para o WhatsApp comercial. -->
-      <div class="abertura-accoes">
-        <a class="botao botao-principal" href="https://wa.me/message/VGKNLA2PLYBMI1" target="_blank" rel="noopener" data-formulario="agendar">Agendar conversa<svg aria-hidden="true"><use href="#i-seta"/></svg></a>
-        <a class="botao botao-linha" href="https://wa.me/message/VGKNLA2PLYBMI1" target="_blank" rel="noopener" data-formulario="contacto">Enviar pedido de contacto</a>
+<!-- ============ AGENDAR CONVERSA ============ -->
+<section class="agendar-faixa" id="agendar" aria-labelledby="agendar-titulo">
+  <div class="contentor">
+    <div class="cartao-noite agendar-cartao revela">
+      <h2 id="agendar-titulo">Fale com um especialista de Consultoria Estratégica.</h2>
+      <div>
+        <p>Explicamos o que faz sentido para a sua empresa numa conversa sem compromisso.</p>
+        <!-- Os botões abrem o formulário (Tracktor). Até termos o link, seguem para o WhatsApp comercial. -->
+        <div class="heroi-accoes">
+          <a class="botao botao-principal" href="https://wa.me/message/VGKNLA2PLYBMI1" target="_blank" rel="noopener" data-formulario="agendar">Agendar conversa<span class="bola"><svg aria-hidden="true"><use href="#i-seta"/></svg></span></a>
+          <a class="botao botao-vidro" href="https://wa.me/message/VGKNLA2PLYBMI1" target="_blank" rel="noopener" data-formulario="contacto">Enviar pedido de contacto</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ OUTROS PISOS ============ -->
-<section class="seccao" aria-labelledby="outros-titulo">
+<!-- ============ OUTRAS ÁREAS ============ -->
+<section class="seccao" aria-labelledby="outras-titulo">
   <div class="contentor">
     <div class="cabeca-seccao">
-      <h2 class="revela" id="outros-titulo">Outros pisos</h2>
-      <p class="revela">O mesmo método em todas as áreas: diagnóstico, estratégia, implementação e autonomia. <a class="ligacao-sublinhada" href="/#metodo">Ver o método</a></p>
+      <h2 class="revela" id="outras-titulo">Outras áreas</h2>
+      <p class="revela">O mesmo método em todas: diagnóstico, estratégia, implementação e autonomia. <a class="ligacao-sublinhada" href="/#metodo">Ver o método</a></p>
     </div>
-    <nav class="outros-pisos revela" aria-label="Outros pisos"><a href="/servicos/desenvolvimento-editorial"><span class="botao-piso">1</span>Desenvolvimento Editorial</a><a href="/servicos/marketing-e-vendas"><span class="botao-piso">3</span>Marketing &amp; Vendas</a><a href="/servicos/desenvolvimento-tecnologico"><span class="botao-piso">4</span>Desenvolvimento Tecnológico</a></nav>
+    <nav class="outras-areas" aria-label="Outras áreas"><a class="outra cartao revela" href="/servicos/desenvolvimento-editorial"><svg class="vidro" aria-hidden="true"><use href="#v-livro"/></svg><b>Desenvolvimento Editorial</b><span>Documentos que convencem</span><span class="ver">Conhecer a área<svg aria-hidden="true"><use href="#i-seta"/></svg></span></a><a class="outra cartao revela" href="/servicos/marketing-e-vendas"><svg class="vidro" aria-hidden="true"><use href="#v-funil"/></svg><b>Marketing &amp; Vendas</b><span>Um motor comercial</span><span class="ver">Conhecer a área<svg aria-hidden="true"><use href="#i-seta"/></svg></span></a><a class="outra cartao revela" href="/servicos/desenvolvimento-tecnologico"><svg class="vidro" aria-hidden="true"><use href="#v-cubo"/></svg><b>Desenvolvimento Tecnológico</b><span>Sistemas e automação</span><span class="ver">Conhecer a área<svg aria-hidden="true"><use href="#i-seta"/></svg></span></a></nav>
   </div>
 </section>
 
@@ -137,46 +213,45 @@
 
 <!-- ============ RODAPÉ ============ -->
 <footer class="rodape">
-  <div class="contentor">
-    <div class="rodape-grelha">
-      <div>
-        <a class="marca" href="/"><svg aria-hidden="true"><use href="#i-coroa"/></svg><span>Kingdom <b>In</b>Company</span></a>
-        <p>Editorial, consultoria estratégica, marketing e vendas, tecnologia e treinamento corporativo. Um único lugar para desenvolver o seu negócio.</p>
+  <div class="rodape-cartao">
+    <div class="contentor">
+      <div class="rodape-grelha">
+        <div>
+          <a class="marca" href="/"><svg aria-hidden="true"><use href="#i-coroa"/></svg><span>Kingdom InCompany</span></a>
+          <p>Editorial, consultoria estratégica, marketing e vendas, tecnologia e treinamento corporativo. Um único lugar para desenvolver o seu negócio.</p>
+        </div>
+        <div>
+          <h3>Áreas</h3>
+          <ul>
+            <li><a href="/servicos/desenvolvimento-editorial">Desenvolvimento Editorial</a></li>
+            <li><a href="/servicos/consultoria-estrategica">Consultoria Estratégica</a></li>
+            <li><a href="/servicos/marketing-e-vendas">Marketing &amp; Vendas</a></li>
+            <li><a href="/servicos/desenvolvimento-tecnologico">Desenvolvimento Tecnológico</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Grupo Kingdom</h3>
+          <ul>
+            <li><a href="https://training.kingdomcompny.com/" target="_blank" rel="noopener">Kingdom Training Center</a></li>
+            <li><a href="https://academy.kingdomcompny.com/" target="_blank" rel="noopener">Kingdom Academy</a></li>
+            <li><a href="https://www.behance.net/kingdomincompany" target="_blank" rel="noopener">Portfólio no Behance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contactos</h3>
+          <ul>
+            <li><a href="https://wa.me/message/VGKNLA2PLYBMI1" target="_blank" rel="noopener">WhatsApp comercial</a></li>
+            <li><a href="mailto:comercial@kingdomcompany.co.za">comercial@kingdomcompany.co.za</a></li>
+            <li><a href="tel:+258851800920">+258 85 180 0920</a></li>
+            <li><a href="tel:+258820970702">+258 82 097 0702</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Pisos</h3>
-        <ul>
-          <li><a href="/servicos/desenvolvimento-editorial">Desenvolvimento Editorial</a></li>
-          <li><a href="/servicos/consultoria-estrategica">Consultoria Estratégica</a></li>
-          <li><a href="/servicos/marketing-e-vendas">Marketing &amp; Vendas</a></li>
-          <li><a href="/servicos/desenvolvimento-tecnologico">Desenvolvimento Tecnológico</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Grupo Kingdom</h3>
-        <ul>
-          <li><a href="https://training.kingdomcompny.com/" target="_blank" rel="noopener">Kingdom Training Center</a></li>
-          <li><a href="https://academy.kingdomcompny.com/" target="_blank" rel="noopener">Kingdom Academy</a></li>
-          <li><a href="https://www.behance.net/kingdomincompany" target="_blank" rel="noopener">Portfólio no Behance</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Contactos</h3>
-        <ul>
-          <li><a href="https://wa.me/message/VGKNLA2PLYBMI1" target="_blank" rel="noopener">WhatsApp comercial</a></li>
-          <li><a href="mailto:comercial@kingdomcompany.co.za">comercial@kingdomcompany.co.za</a></li>
-          <li><a href="tel:+258851800920">+258 85 180 0920</a></li>
-          <li><a href="tel:+258820970702">+258 82 097 0702</a></li>
-        </ul>
+      <div class="rodape-fim">
+        <span>© 2026 Kingdom InCompany. Moçambique e África do Sul.</span>
+        <span>@kingdomincompany</span>
       </div>
     </div>
-    <div class="rodape-fim">
-      <span>© 2026 Kingdom InCompany. Moçambique e África do Sul.</span>
-      <span>@kingdomincompany</span>
-    </div>
-  </div>
-  <div class="rodape-sinal" aria-hidden="true">
-    <svg viewBox="0 0 1180 190"><text x="590" y="178" text-anchor="middle" textLength="1160" lengthAdjust="spacingAndGlyphs">InCompany</text></svg>
   </div>
 </footer>
 

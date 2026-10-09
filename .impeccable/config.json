@@ -1286,6 +1286,69 @@
         ],
         "createdAt": "2026-10-09T08:28:14.852Z",
         "reason": "Só os títulos de exibição (h1/h2 a 40-76px) têm entrelinha apertada, como é próprio de display; o texto corrido está a 1.35-1.55"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "incompany/index.html"
+        ],
+        "createdAt": "2026-10-09T08:49:38.777Z",
+        "reason": "Grelha fina do cartão de abertura: elemento do sistema visual fixado pelo cliente (template Investflow em anexo)"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "incompany/servicos/consultoria-estrategica.html"
+        ],
+        "createdAt": "2026-10-09T08:49:38.801Z",
+        "reason": "Grelha fina do cartão de abertura: elemento do sistema visual fixado pelo cliente (template Investflow em anexo)"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "incompany/servicos/desenvolvimento-editorial.html"
+        ],
+        "createdAt": "2026-10-09T08:49:38.823Z",
+        "reason": "Grelha fina do cartão de abertura: elemento do sistema visual fixado pelo cliente (template Investflow em anexo)"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "incompany/servicos/desenvolvimento-tecnologico.html"
+        ],
+        "createdAt": "2026-10-09T08:49:38.843Z",
+        "reason": "Grelha fina do cartão de abertura: elemento do sistema visual fixado pelo cliente (template Investflow em anexo)"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "incompany/servicos/marketing-e-vendas.html"
+        ],
+        "createdAt": "2026-10-09T08:49:38.864Z",
+        "reason": "Grelha fina do cartão de abertura: elemento do sistema visual fixado pelo cliente (template Investflow em anexo)"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "incompany/ic.css"
+        ],
+        "createdAt": "2026-10-09T08:49:38.882Z",
+        "reason": "Grelha fina do cartão de abertura: elemento do sistema visual fixado pelo cliente (template Investflow em anexo)"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "incompany/casa.css"
+        ],
+        "createdAt": "2026-10-09T08:49:38.902Z",
+        "reason": "Grelha fina do cartão de abertura: elemento do sistema visual fixado pelo cliente (template Investflow em anexo)"
       }
     ]
   }

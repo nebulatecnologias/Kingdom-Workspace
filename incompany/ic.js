@@ -1,23 +1,39 @@
-/* Kingdom InCompany: o edifício.
-   Sem JavaScript tudo fica visível (os quatro pisos, as quatro fases, o edifício pronto);
-   com JavaScript, o painel do elevador escolhe o piso e o método percorre as fases da obra. */
+/* Kingdom InCompany: interações.
+   Sem JavaScript tudo fica visível e funcional (áreas abertas, números finais, fases em lista);
+   com JavaScript: luz que segue o cursor, mosaicos com profundidade, números que contam,
+   painéis das áreas que se expandem, medidor do método, faixa de logótipos contínua. */
 (function(){
   var raiz = document.documentElement;
   var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var rato = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  raiz.classList.add("com-js");
 
-  /* ---------- cabeçalho: ganha fundo ao deslizar ---------- */
+  /* ---------- cabeçalho: vira pílula branca ao deslizar ---------- */
   var topo = document.getElementById("topo");
   if(topo){
-    var marca = function(){ topo.classList.toggle("preso", window.scrollY > 8); };
+    var marca = function(){ topo.classList.toggle("preso", window.scrollY > 40); };
     marca(); window.addEventListener("scroll", marca, { passive:true });
   }
 
-  /* ---------- menu do telemóvel: fecha ao escolher ---------- */
+  /* ---------- menu de serviços (toque e teclado) ---------- */
+  var servicos = document.querySelector(".nav-servicos");
+  if(servicos){
+    var bs = servicos.querySelector("button");
+    bs.addEventListener("click", function(){
+      var aberto = servicos.classList.toggle("aberto");
+      bs.setAttribute("aria-expanded", aberto ? "true" : "false");
+    });
+    document.addEventListener("click", function(e){ if(!servicos.contains(e.target)){ servicos.classList.remove("aberto"); bs.setAttribute("aria-expanded","false"); } });
+  }
   var menu = document.querySelector(".menu");
   if(menu){
     menu.addEventListener("click", function(e){ if(e.target.closest("a")) menu.removeAttribute("open"); });
-    document.addEventListener("keydown", function(e){ if(e.key === "Escape") menu.removeAttribute("open"); });
   }
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "Escape") return;
+    if(menu) menu.removeAttribute("open");
+    if(servicos){ servicos.classList.remove("aberto"); servicos.querySelector("button").setAttribute("aria-expanded","false"); }
+  });
 
   /* ---------- entrar ao deslizar ---------- */
   var els = document.querySelectorAll(".revela");
@@ -35,118 +51,107 @@
     els.forEach(function(el){ io.observe(el); });
   }
 
-  /* ---------- o edifício da abertura: a cabine percorre os pisos ---------- */
-  var cabine = document.getElementById("cabine");
-  var andares = document.querySelectorAll(".andar");
-  var pisoParado = 4;
-  function levaCabine(n){
-    if(!cabine) return;
-    cabine.style.setProperty("--piso", n);
-    andares.forEach(function(a){ a.classList.toggle("aceso", +a.dataset.piso === n); });
-  }
-  if(cabine){
-    // ao abrir: o edifício levanta-se piso a piso e a cabine sobe até ao topo
-    setTimeout(function(){ levaCabine(pisoParado); }, reduz ? 0 : 1200);
-    andares.forEach(function(a){
-      var n = +a.dataset.piso;
-      a.addEventListener("mouseenter", function(){ levaCabine(n); });
-      a.addEventListener("focus", function(){ levaCabine(n); });
-      a.addEventListener("mouseleave", function(){ levaCabine(pisoParado); });
-      a.addEventListener("click", function(){ if(n > 0) escolhePiso(n, true); });
-    });
-  }
-
-  /* ---------- painel do elevador: um piso de cada vez ---------- */
-  var botoes = Array.prototype.slice.call(document.querySelectorAll(".painel-botoes [role=tab]"));
-  var pisos = document.querySelectorAll(".piso");
-  var visorN = document.getElementById("visor-n");
-  var visorSeta = document.getElementById("visor-seta");
-  var atual = 1;
-  function escolhePiso(n, foca){
-    if(!botoes.length) return;
-    var dir = n > atual ? "vem-de-cima" : "vem-de-baixo";
-    pisos.forEach(function(p){
-      var este = +p.dataset.piso === n;
-      p.classList.remove("vem-de-cima", "vem-de-baixo");
-      p.classList.toggle("ativo", este);
-      if(este && n !== atual) p.classList.add(dir);
-    });
-    botoes.forEach(function(b){
-      var este = +b.dataset.piso === n;
-      b.setAttribute("aria-selected", este ? "true" : "false");
-      b.tabIndex = este ? 0 : -1;
-      if(este && foca) b.focus({ preventScroll:true });
-    });
-    if(visorSeta){
-      visorSeta.classList.remove("parado");
-      visorSeta.classList.toggle("desce", n < atual);
-      clearTimeout(escolhePiso.t);
-      escolhePiso.t = setTimeout(function(){ visorSeta.classList.add("parado"); }, reduz ? 0 : 900);
-    }
-    if(visorN){
-      // o visor conta os pisos pelo caminho, como num elevador
-      var de = atual, passo = n > de ? 1 : -1;
-      clearInterval(escolhePiso.c);
-      if(reduz || de === n){ visorN.textContent = n; }
-      else escolhePiso.c = setInterval(function(){ de += passo; visorN.textContent = de; if(de === n) clearInterval(escolhePiso.c); }, 170);
-    }
-    atual = n;
-  }
-  if(botoes.length){
-    raiz.classList.add("com-js");
-    var inicial = /^#piso-([1-4])$/.exec(location.hash);
-    atual = inicial ? +inicial[1] : 1;
-    escolhePiso(atual);
-    if(visorSeta) visorSeta.classList.add("parado");
-    botoes.forEach(function(b){
-      b.addEventListener("click", function(){ escolhePiso(+b.dataset.piso); });
-      b.addEventListener("keydown", function(e){
-        var n = null;
-        if(e.key === "ArrowUp" || e.key === "ArrowRight") n = Math.min(4, atual + 1);
-        if(e.key === "ArrowDown" || e.key === "ArrowLeft") n = Math.max(1, atual - 1);
-        if(e.key === "Home") n = 1;
-        if(e.key === "End") n = 4;
-        if(n !== null){ e.preventDefault(); escolhePiso(n, true); }
-      });
-    });
-    window.addEventListener("hashchange", function(){
-      var m = /^#piso-([1-4])$/.exec(location.hash);
-      if(m) escolhePiso(+m[1]);
-    });
-  }
-
-  /* ---------- método: as fases da obra ---------- */
-  var desenho = document.getElementById("desenho");
-  var fases = Array.prototype.slice.call(document.querySelectorAll(".fase"));
-  if(desenho && fases.length){
-    var TEMPO = 4200, fase = 1, roda = null, parou = false;
-    function mostraFase(n, anima){
-      fase = n;
-      desenho.setAttribute("data-fase", n);
-      fases.forEach(function(f){
-        var esta = +f.dataset.fase === n;
-        f.classList.remove("ativa");
-        f.style.setProperty("--tempo", (anima && !reduz) ? TEMPO + "ms" : "0s");
-        f.querySelector("button").setAttribute("aria-pressed", esta ? "true" : "false");
-        if(esta){ void f.offsetWidth; f.classList.add("ativa"); }
-      });
-    }
-    function anda(){
-      clearTimeout(roda);
-      if(parou || reduz) return;
-      roda = setTimeout(function(){ mostraFase(fase % 4 + 1, true); anda(); }, TEMPO);
-    }
-    mostraFase(1, false);
-    fases.forEach(function(f){
-      f.querySelector("button").addEventListener("click", function(){ parou = true; clearTimeout(roda); mostraFase(+f.dataset.fase, false); });
-    });
-    if("IntersectionObserver" in window && !reduz){
-      new IntersectionObserver(function(es){
-        es.forEach(function(e){
-          if(e.isIntersecting && !parou){ mostraFase(fase, true); anda(); }
-          else clearTimeout(roda);
+  /* ---------- luz que segue o cursor nos cartões noite ---------- */
+  if(rato && !reduz){
+    document.querySelectorAll(".cartao-noite").forEach(function(c){
+      var pedido = null, ev = null;
+      c.addEventListener("pointermove", function(e){
+        ev = e;
+        if(pedido) return;
+        pedido = requestAnimationFrame(function(){
+          var r = c.getBoundingClientRect();
+          c.style.setProperty("--mx", ((ev.clientX - r.left) / r.width * 100).toFixed(1) + "%");
+          c.style.setProperty("--my", ((ev.clientY - r.top) / r.height * 100).toFixed(1) + "%");
+          pedido = null;
         });
-      }, { threshold:0.35 }).observe(desenho);
+      });
+    });
+  }
+
+  /* ---------- mosaicos da abertura: profundidade com o rato ---------- */
+  var heroi = document.getElementById("heroi");
+  var mosaicos = document.querySelectorAll(".mosaico");
+  if(heroi && mosaicos.length && rato && !reduz){
+    heroi.addEventListener("pointermove", function(e){
+      var r = heroi.getBoundingClientRect();
+      var dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5;
+      mosaicos.forEach(function(m){
+        var f = parseFloat(m.dataset.fundo || 1);
+        m.style.setProperty("--px", (-dx * 14 * f).toFixed(1) + "px");
+        m.style.setProperty("--py", (-dy * 14 * f).toFixed(1) + "px");
+      });
+    });
+    heroi.addEventListener("pointerleave", function(){
+      mosaicos.forEach(function(m){ m.style.setProperty("--px","0px"); m.style.setProperty("--py","0px"); });
+    });
+  }
+
+  /* ---------- faixa de logótipos: duplica para correr sem fim ---------- */
+  if(!reduz) document.querySelectorAll(".faixa-pista").forEach(function(p){
+    Array.prototype.slice.call(p.children).forEach(function(li){
+      var c = li.cloneNode(true); c.setAttribute("aria-hidden","true"); p.appendChild(c);
+    });
+  });
+
+  /* ---------- números que contam ---------- */
+  var contas = document.querySelectorAll("[data-conta]");
+  function formata(n, mil){ return mil ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".") : String(n); }
+  function conta(el){
+    var alvo = +el.dataset.conta, mil = !!el.dataset.mil, t0 = null, dur = 1600;
+    function passo(t){
+      if(!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+      el.textContent = formata(Math.round(alvo * e), mil);
+      if(p < 1) requestAnimationFrame(passo);
+    }
+    requestAnimationFrame(passo);
+  }
+  if(contas.length && "IntersectionObserver" in window && !reduz){
+    var ioc = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ conta(e.target); ioc.unobserve(e.target); } });
+    }, { threshold:0.6 });
+    contas.forEach(function(el){ el.textContent = "0"; ioc.observe(el); });
+  }
+
+  /* ---------- áreas: o painel ativo expande-se ---------- */
+  var areas = Array.prototype.slice.call(document.querySelectorAll(".area"));
+  function ativa(a){
+    areas.forEach(function(x){
+      var esta = x === a;
+      x.classList.toggle("ativa", esta);
+      x.querySelector(".area-cabeca").setAttribute("aria-expanded", esta ? "true" : "false");
+    });
+  }
+  areas.forEach(function(a){
+    a.querySelector(".area-cabeca").addEventListener("click", function(){
+      if(a.classList.contains("ativa") && window.innerWidth < 1000){ a.classList.remove("ativa"); this.setAttribute("aria-expanded","false"); return; }
+      ativa(a);
+    });
+    if(rato) a.addEventListener("mouseenter", function(){ if(window.innerWidth >= 1000) ativa(a); });
+  });
+  // links "#area-n" (mosaicos da abertura) abrem a área certa
+  function daHash(){
+    var m = /^#area-([1-4])$/.exec(location.hash);
+    if(m){ var a = document.getElementById("area-" + m[1]); if(a) ativa(a); }
+  }
+  window.addEventListener("hashchange", daHash); daHash();
+
+  /* ---------- método: a fase em foco acende e o medidor acompanha ---------- */
+  var fases = Array.prototype.slice.call(document.querySelectorAll(".fase"));
+  var medN = document.getElementById("medidor-n"), medNome = document.getElementById("medidor-nome"), medBarra = document.getElementById("medidor-barra");
+  function marcaFase(f){
+    fases.forEach(function(x){ x.classList.toggle("ativa", x === f); });
+    if(medN) medN.textContent = f.dataset.fase;
+    if(medNome) medNome.textContent = f.dataset.nome;
+    if(medBarra) medBarra.style.setProperty("--prog", f.dataset.fase / 4);
+  }
+  if(fases.length){
+    marcaFase(fases[0]);
+    if("IntersectionObserver" in window){
+      var iof = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting) marcaFase(e.target); });
+      }, { rootMargin:"-45% 0px -45% 0px" });
+      fases.forEach(function(f){ iof.observe(f); });
     }
   }
 })();
