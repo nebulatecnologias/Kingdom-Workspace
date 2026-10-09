@@ -1,0 +1,135 @@
+/* ============================================================
+   Kingdom InCompany, versão 2: o que é próprio desta página por cima de centro.css.
+   Secções de leitura em branco fosco (.claro), método em fluxo, números,
+   logótipos, mídia, contacto no fecho e rodapé.
+   ============================================================ */
+
+/* ---------- contexto claro: branco fosco ---------- */
+.claro{
+  --texto:#0A1240; --texto-2:#47507A; --texto-3:#5B6390;
+  --linha:rgba(10,18,64,.1); --linha-forte:rgba(10,18,64,.18);
+  --laranja-ink:#1D4FE0;
+  background:#F4F4F2; color:var(--texto); color-scheme:light;
+  padding-bottom:120px;
+}
+.claro + .claro{ padding-top:0; }
+.claro .cartao-claro{ background:#fff; border-radius:var(--raio-xl); box-shadow:0 1px 2px rgba(10,18,64,.04), 0 14px 34px -16px rgba(10,18,64,.16); }
+.claro .btn-escuro{ color:var(--texto); }
+.claro .btn-escuro:hover{ background:rgba(10,18,64,.04); }
+.claro ::selection{ background:rgba(29,91,255,.25); color:var(--texto); }
+.claro .faq-item[open] summary i{ color:#fff; }
+.secao-escura{ padding-bottom:120px; }
+
+.sinal{ box-shadow:0 6px 16px -6px rgba(29,91,255,.8); }
+.marca b{ font-weight:500; color:var(--laranja-ink); }
+.janela-url em{ font-style:normal; color:var(--texto-3); }
+
+/* ---------- o documento do «Experimente»: capa com a cor e o nome ---------- */
+.app-doc{ display:flex; align-items:center; gap:16px; border-radius:16px; padding:12px 18px 12px 12px; background:rgba(255,255,255,.025); box-shadow:inset 0 0 0 1px rgba(255,255,255,.11); }
+.doc-capa{
+  position:relative; width:78px; height:104px; flex:none; border-radius:8px; overflow:hidden; padding:10px 8px;
+  background:linear-gradient(170deg, var(--m) 0%, color-mix(in srgb, var(--m) 55%, #020A2E) 100%);
+  transition:--m .6s var(--sai); box-shadow:0 14px 24px -12px var(--m);
+  display:flex; flex-direction:column; justify-content:space-between; color:#fff;
+}
+.doc-capa b{ font-size:10px; font-weight:500; line-height:1.15; letter-spacing:-.01em; overflow:hidden; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; }
+.doc-capa i{ font-style:normal; font-size:7.5px; opacity:.8; }
+.doc-capa::after{ content:""; position:absolute; right:-18px; top:-18px; width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,.18); }
+
+/* ---------- faixa: tipos de empresa ---------- */
+.faixa-lista li{ color:#3D4C88; }
+
+/* ---------- pilares: ligação para a página da área ---------- */
+.pilar-ligacao{ display:inline-flex; align-items:center; gap:8px; margin-top:34px; font-weight:500; font-size:15.5px; color:var(--laranja-ink); }
+.pilar-ligacao svg{ width:16px; height:16px; transition:transform .4s var(--sai); }
+.pilar-ligacao:hover svg{ transform:translateX(4px); }
+.pilares-abas{ background:rgba(2,10,46,.82); }
+
+/* rede de sistemas (Tecnologia) */
+.rede-nomes{ display:flex; justify-content:space-between; width:100%; margin-top:-14px; font-size:12px; color:var(--texto-3); }
+.rede-nomes span{ width:64px; text-align:center; }
+
+/* ---------- método: o fluxo que se acende ---------- */
+.metodo-fluxo{ position:relative; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:18px; }
+.metodo-fluxo::before{ content:""; position:absolute; left:6%; right:6%; top:52px; height:2px; background:repeating-linear-gradient(90deg, rgba(10,18,64,.18) 0 6px, transparent 6px 12px); }
+.metodo-linha{ position:absolute; left:6%; top:52px; height:2px; width:88%; background:linear-gradient(90deg, #1D5BFF, #8FE2FF); transform-origin:0 50%; transform:scaleX(var(--p,0)); transition:transform .8s var(--sai); }
+.passo{ position:relative; padding:28px 26px 30px; transition:transform .5s var(--sai), box-shadow .5s var(--sai); }
+.passo-n{
+  position:relative; z-index:1; width:48px; height:48px; border-radius:50%; display:grid; place-items:center; font-weight:500; font-size:18px;
+  background:#fff; color:#1D5BFF; box-shadow:inset 0 0 0 1.5px rgba(29,91,255,.35); transition:background .5s, color .5s, box-shadow .5s;
+}
+.passo h3{ margin:22px 0 0; font-weight:500; font-size:clamp(22px,2vw,26px); letter-spacing:-.03em; line-height:1.2; }
+.passo p{ margin:10px 0 0; color:var(--texto-2); font-size:15.5px; }
+.passo small{ display:inline-flex; margin-top:18px; padding:7px 12px; border-radius:999px; background:#EEF2FF; color:#1D4FE0; font-size:13px; font-weight:500; }
+.passo.aceso{ transform:translateY(-6px); box-shadow:0 2px 4px rgba(10,18,64,.05), 0 28px 50px -24px rgba(29,91,255,.4); }
+.passo.aceso .passo-n{ background:var(--marca); color:#fff; box-shadow:0 0 0 6px rgba(29,91,255,.12), 0 12px 24px -10px rgba(29,91,255,.8); }
+@media (max-width:900px){
+  .metodo-fluxo{ grid-template-columns:1fr 1fr; }
+  .metodo-fluxo::before, .metodo-linha{ display:none; }
+}
+@media (max-width:560px){ .metodo-fluxo{ grid-template-columns:1fr; } }
+
+/* ---------- números e clientes ---------- */
+.numeros{ display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px; }
+.numero{ padding:30px 28px 28px; }
+.numero b{ display:block; font-size:clamp(44px,4.6vw,64px); font-weight:500; letter-spacing:-.045em; line-height:1; font-variant-numeric:tabular-nums; }
+.numero > span{ display:block; margin-top:14px; color:var(--texto-2); font-size:15.5px; }
+.numero.destaque{ background:var(--marca); color:#fff; position:relative; overflow:hidden; isolation:isolate; }
+.numero.destaque::before{ content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(80% 60% at 100% 0%, rgba(255,255,255,.22), transparent 60%), radial-gradient(70% 55% at 0% 100%, rgba(0,20,90,.35), transparent 65%); }
+.numero.destaque > span{ color:rgba(255,255,255,.88); }
+.clientes-titulo{ margin:72px 0 22px; text-align:center; font-size:15px; font-weight:500; color:var(--texto-3); }
+.logos{ display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); gap:12px; }
+.logos li{ display:grid; place-items:center; height:92px; border-radius:18px; background:#fff; color:var(--texto-3); font-size:14px; box-shadow:inset 0 0 0 1px var(--linha); }
+.logos li.reservado{ background:transparent; box-shadow:none; outline:1.5px dashed rgba(10,18,64,.16); outline-offset:-1px; }
+.logos img{ max-height:40px; width:auto; }
+@media (max-width:900px){ .numeros{ grid-template-columns:1fr 1fr; } .logos{ grid-template-columns:repeat(3, minmax(0,1fr)); } }
+@media (max-width:480px){ .numeros{ grid-template-columns:1fr; } .logos{ grid-template-columns:1fr 1fr; } }
+
+/* ---------- mídia ---------- */
+.imprensa{ max-width:960px; margin:0 auto; border-top:1px solid var(--linha-forte); list-style:none; padding:0; }
+.imprensa li{ border-bottom:1px solid var(--linha-forte); }
+.imprensa a{ display:grid; grid-template-columns:200px minmax(0,1fr) 110px 22px; gap:20px; align-items:center; padding:26px 4px; transition:color .2s; }
+.imprensa a:hover .peca{ color:var(--laranja-ink); }
+.imprensa .orgao{ font-size:14.5px; font-weight:500; color:var(--texto-2); }
+.imprensa .peca{ font-size:clamp(18px,1.8vw,22px); font-weight:500; letter-spacing:-.02em; transition:color .2s; }
+.imprensa .data{ font-size:14px; color:var(--texto-3); }
+.imprensa svg{ width:20px; height:20px; color:var(--texto-3); transition:transform .4s var(--sai); }
+.imprensa a:hover svg{ transform:translate(2px,-2px); color:var(--laranja-ink); }
+@media (max-width:720px){
+  .imprensa a{ grid-template-columns:1fr 22px; gap:6px 14px; }
+  .imprensa .orgao, .imprensa .peca, .imprensa .data{ grid-column:1; }
+  .imprensa svg{ grid-column:2; grid-row:1 / span 3; }
+}
+
+/* ---------- fecho: contacto e agendamento ---------- */
+.fecho{ margin-top:0; }
+.fecho-accoes{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+.fecho-contactos{ display:flex; justify-content:center; flex-wrap:wrap; gap:10px 26px; margin-top:44px; font-size:15px; color:var(--texto-2); }
+.fecho-contactos a{ display:inline-flex; align-items:center; gap:9px; transition:color .2s; }
+.fecho-contactos a:hover{ color:var(--texto); }
+.fecho-contactos svg{ width:18px; height:18px; color:var(--laranja-ink); }
+@media (max-width:600px){ .fecho-accoes .btn{ width:100%; } }
+
+/* ---------- rodapé ---------- */
+.rodape-grelha{ max-width:var(--largura); margin:0 auto; padding:56px 24px 0; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; }
+.rodape-grelha p{ margin:14px 0 0; font-size:14.5px; color:var(--texto-3); max-width:34ch; }
+.rodape-grelha h3{ margin:0 0 14px; font-size:14px; font-weight:500; color:var(--texto-3); }
+.rodape-grelha ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:15px; color:var(--texto-2); }
+.rodape-grelha a:hover{ color:var(--texto); }
+@media (max-width:860px){ .rodape-grelha{ grid-template-columns:1fr 1fr; } }
+@media (max-width:480px){ .rodape-grelha{ grid-template-columns:1fr; } }
+
+/* ---------- páginas de área ---------- */
+.migalhas{ display:flex; justify-content:center; flex-wrap:wrap; gap:6px 10px; margin-bottom:24px; font-size:14px; color:var(--texto-3); }
+.migalhas a{ color:var(--texto-2); text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--linha-forte); }
+.servicos{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; list-style:none; margin:0; padding:0; }
+.servico{ display:flex; flex-direction:column; justify-content:space-between; gap:34px; min-height:190px; padding:26px; }
+.servico b{ font-size:clamp(19px,1.7vw,22px); font-weight:500; letter-spacing:-.02em; line-height:1.3; }
+.servico small{ align-self:flex-start; padding:7px 12px; border-radius:999px; background:#EEF2FF; color:#1D4FE0; font-size:13px; font-weight:500; }
+.outras{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; }
+.outra{ display:flex; flex-direction:column; gap:14px; padding:28px; transition:transform .5s var(--sai); }
+.outra:hover{ transform:translateY(-4px); }
+.outra .detalhe-ico{ width:52px; height:52px; background:#EEF2FF; color:#1D5BFF; box-shadow:none; }
+.outra b{ font-size:21px; font-weight:500; letter-spacing:-.025em; }
+.outra span{ color:var(--texto-2); font-size:15.5px; }
+@media (max-width:860px){ .servicos, .outras{ grid-template-columns:1fr; } }
