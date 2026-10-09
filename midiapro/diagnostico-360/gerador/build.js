@@ -7,6 +7,7 @@ const {
   Header, Footer, PageNumber, PageBreak, LevelFormat, TabStopType,
   PositionalTab, PositionalTabAlignment, PositionalTabRelativeTo, PositionalTabLeader,
   HeadingLevel, TableLayoutType, CharacterSet,
+  HorizontalPositionRelativeFrom, VerticalPositionRelativeFrom, TextWrappingType,
 } = require("docx");
 
 const DIR = path.join(__dirname, "assets");
@@ -491,30 +492,45 @@ const B3 = ["A comunicação entre Direcção e liderança é clara.", "A comuni
 // =====================================================================
 // MONTAGEM
 // =====================================================================
+// Capa: fundo azul ancorado à página (atrás do texto) e conteúdo dentro das margens normais,
+// para a capa ficar alinhada em qualquer leitor (Word, Google Docs, WPS, telemóvel).
+const COVER_MX = 1300, COVER_W = PAGE_W - 2 * COVER_MX;
+const coverBg = fs.readFileSync(path.join(DIR, "cover-bg.png"));
+const coverLine = { style: BorderStyle.SINGLE, size: 4, color: "2A3A8F" };
 const cover = [
-  table([PAGE_W], [row([cell([
-    spacer(900),
-    new Paragraph({ children: [new ImageRun({ type: "png", data: logoWhite, transformation: { width: 190, height: Math.round(190 * LOGO_RATIO) } })], spacing: { after: 0 } }),
-    spacer(2600),
-    P("Briefing Estratégico & Diagnóstico de Liderança", { size: 20, bold: true, color: C.sky, caps: true, spacing: 40, after: 160 }),
-    P("Diagnóstico", { size: 84, bold: true, color: C.white, after: 0, line: 240 }),
-    P("360° Pro", { size: 84, bold: true, color: C.white, after: 240, line: 240 }),
-    P("Guia e formulário de recolha da informação fundamental para a construção da estratégia completa da empresa cliente.", { size: 24, color: "D7DEFF", after: 480, line: 320 }),
-    table([1500, 6000], [
-      ...[["Cliente", "Home Center"], ["Áreas", "Direcção-Geral · Marketing · Comercial · Lojas · Tecnologia · RH & Liderança"], ["Data", "Outubro de 2026"], ["Versão", "1.0 · Confidencial"]].map(([k, v]) => row([
-        cell(P(k, { size: 16, bold: true, color: C.sky, caps: true, spacing: 30, after: 0 }), { w: 1500, borders: { top: NONE, left: NONE, right: NONE, bottom: { style: BorderStyle.SINGLE, size: 4, color: "2A3A8F" } }, margins: { top: 100, bottom: 100, left: 0, right: 100 } }),
-        cell(P(v, { size: 20, color: C.white, after: 0 }), { w: 6000, borders: { top: NONE, left: NONE, right: NONE, bottom: { style: BorderStyle.SINGLE, size: 4, color: "2A3A8F" } }, margins: { top: 100, bottom: 100, left: 100, right: 0 } }),
-      ])),
-    ]),
-    spacer(3000),
-    P("Produzido por **Midia Pro · Comunicação e Imagem**", { size: 18, color: C.white, after: 60 }),
-    P("Av. Vladimir Lenine nº 1895, R/C · Maputo, Moçambique", { size: 17, color: "B9C4F5", after: 30 }),
-    P("+258 85 589 0000 · info@midiapro.co.mz", { size: 17, color: "B9C4F5", after: 0 }),
-  ], {
-    w: PAGE_W, fill: C.deep, borders: allBorders(C.deep),
-    margins: { top: 0, bottom: 0, left: 1300, right: 1300 },
-  })], { height: PAGE_H - 40, rule: HeightRule.EXACT })]),
-  new Paragraph({ children: [], spacing: { before: 0, after: 0, line: 20, lineRule: "exact" } }),
+  new Paragraph({
+    spacing: { before: 0, after: 0 },
+    children: [
+      new ImageRun({
+        type: "png", data: coverBg,
+        transformation: { width: 794, height: 1123 },
+        floating: {
+          horizontalPosition: { relative: HorizontalPositionRelativeFrom.PAGE, offset: 0 },
+          verticalPosition: { relative: VerticalPositionRelativeFrom.PAGE, offset: 0 },
+          behindDocument: true, allowOverlap: true, lockAnchor: true,
+          wrap: { type: TextWrappingType.NONE },
+        },
+      }),
+      new ImageRun({ type: "png", data: logoWhite, transformation: { width: 190, height: Math.round(190 * LOGO_RATIO) } }),
+    ],
+  }),
+  spacer(2400),
+  P("Briefing Estratégico & Diagnóstico de Liderança", { size: 20, bold: true, color: C.sky, caps: true, spacing: 40, after: 160 }),
+  P("Diagnóstico", { size: 84, bold: true, color: C.white, after: 0, line: 240 }),
+  P("360° Pro", { size: 84, bold: true, color: C.white, after: 240, line: 240 }),
+  P("Guia e formulário de recolha da informação fundamental para a construção da estratégia completa da empresa cliente.", { size: 24, color: "D7DEFF", after: 480, line: 320 }),
+  new Table({
+    width: { size: COVER_W, type: WidthType.DXA }, columnWidths: [1700, COVER_W - 1700],
+    indent: { size: 0, type: WidthType.DXA }, layout: TableLayoutType.FIXED, borders: noBorders,
+    rows: [["Cliente", "Home Center"], ["Áreas", "Direcção-Geral · Marketing · Comercial · Lojas · Tecnologia · RH & Liderança"], ["Data", "Outubro de 2026"], ["Versão", "1.0 · Confidencial"]].map(([k, v]) => row([
+      cell(P(k, { size: 16, bold: true, color: C.sky, caps: true, spacing: 30, after: 0 }), { w: 1700, borders: { top: NONE, left: NONE, right: NONE, bottom: coverLine }, margins: { top: 100, bottom: 100, left: 0, right: 100 } }),
+      cell(P(v, { size: 20, color: C.white, after: 0 }), { w: COVER_W - 1700, borders: { top: NONE, left: NONE, right: NONE, bottom: coverLine }, margins: { top: 100, bottom: 100, left: 100, right: 0 } }),
+    ])),
+  }),
+  spacer(2600),
+  P("Produzido por **Midia Pro · Comunicação e Imagem**", { size: 18, color: C.white, after: 60 }),
+  P("Av. Vladimir Lenine nº 1895, R/C · Maputo, Moçambique", { size: 17, color: "B9C4F5", after: 30 }),
+  P("+258 85 589 0000 · info@midiapro.co.mz", { size: 17, color: "B9C4F5", after: 0 }),
 ];
 
 // ---------- Ficha + mapa ----------
@@ -851,7 +867,7 @@ const doc = new Document({
     { reference: "num", levels: [{ level: 0, format: LevelFormat.DECIMAL, text: "%1.", alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 440, hanging: 340 } }, run: { color: C.blue, bold: true, font: FONT } } }] },
   ] },
   sections: [
-    { properties: { page: { size: { width: PAGE_W, height: PAGE_H }, margin: { top: 0, bottom: 0, left: 0, right: 0, header: 0, footer: 0 } } }, children: cover },
+    { properties: { page: { size: { width: PAGE_W, height: PAGE_H }, margin: { top: 1300, bottom: 900, left: COVER_MX, right: COVER_MX, header: 0, footer: 0 } } }, children: cover },
     {
       properties: { page: { size: { width: PAGE_W, height: PAGE_H }, margin: { top: 1150, bottom: 1000, left: MARGIN, right: MARGIN, header: 450, footer: 400 }, pageNumbers: { start: 2 } } },
       headers: { default: header }, footers: { default: footer },
