@@ -38,29 +38,173 @@
     janela.style.setProperty("--sc", (0.93 + 0.07 * p).toFixed(4));
   });
 
-  /* ---------- Experimente: o nome e a cor da empresa na demonstração ---------- */
+  /* ---------- a obra: cada andar, uma área ----------
+     Os andares assentam um a um; depois a obra percorre os andares (o ativo sai como uma gaveta
+     e a lista ao lado abre-se). Pára ao passar o rato; clicar num andar ou na lista escolhe-o. */
+  const predio = $("predio"), lista = $("obra-lista");
+  if(predio && lista){
+    const andares = [...predio.querySelectorAll(".andar")];
+    const itens = [...lista.querySelectorAll(".obra-item")];
+    const estado = $("obra-estado-txt");
+    const NOMES = { 1:"Consultoria Estratégica", 2:"Desenvolvimento Editorial", 3:"Marketing & Vendas", 4:"Desenvolvimento Tecnológico", 5:"Treinamento corporativo" };
+    let atual = 1, roda = 0, parado = false;
+    const escolhe = n => {
+      atual = n;
+      andares.forEach(g => g.classList.toggle("ativo", +g.dataset.andar === n));
+      itens.forEach(li => { const sim = +li.dataset.andar === n; li.classList.toggle("ativo", sim); li.querySelector("button").setAttribute("aria-expanded", String(sim)); });
+      if(estado) estado.textContent = `Andar ${n} de 5 · ${NOMES[n]}`;
+    };
+    const avanca = () => { clearTimeout(roda); if(parado || calmo) return; roda = setTimeout(() => { escolhe(atual % 5 + 1); avanca(); }, 3400); };
+    itens.forEach(li => li.querySelector("button").addEventListener("click", () => { escolhe(+li.dataset.andar); parado = true; clearTimeout(roda); }));
+    andares.forEach(g => g.addEventListener("click", () => { escolhe(+g.dataset.andar); parado = true; clearTimeout(roda); }));
+    const obra = predio.closest(".obra");
+    obra.addEventListener("mouseenter", () => clearTimeout(roda));
+    obra.addEventListener("mouseleave", () => { if(!parado) avanca(); });
+    if(calmo){ escolhe(1); }
+    else {
+      // enquanto os andares assentam, o estado conta a obra
+      for(let k = 1; k <= 5; k++) setTimeout(() => { if(estado && !parado) estado.textContent = `Em construção: andar ${k} de 5`; }, 500 + (k - 1) * 340);
+      setTimeout(() => { if(!parado){ escolhe(1); avanca(); } }, 2900);
+    }
+  }
+
+  /* ---------- Experimente: o nome e a cor da empresa na obra ---------- */
   const campo = $("exp-nome");
   if(campo && janela){
-    const iniciais = t => (t.trim().split(/\s+/).filter(Boolean).slice(0, 2).map(p => p[0]).join("") || "AE").toUpperCase();
+    const placa = $("predio-nome"), topoNome = $("obra-nome");
     const aplicaNome = () => {
       const nome = campo.value.trim() || "A sua empresa";
-      ["demo-nome", "demo-nome-2", "demo-capa"].forEach(id => { const el = $(id); if(el) el.textContent = nome; });
-      $("demo-iniciais").textContent = iniciais(campo.value || "A sua empresa");
+      if(placa){ placa.textContent = nome; placa.style.fontSize = `${Math.max(9, Math.min(15, 230 / Math.max(nome.length, 1)))}px`; }
+      if(topoNome) topoNome.textContent = nome;
     };
     campo.addEventListener("input", aplicaNome);
     const cores = [...document.querySelectorAll(".cores button")];
-    const escolhe = b => {
+    const escolheCor = b => {
       cores.forEach(x => { const sim = x === b; x.setAttribute("aria-checked", String(sim)); x.tabIndex = sim ? 0 : -1; });
       janela.style.setProperty("--m", b.dataset.cor);
     };
     cores.forEach((b, i) => {
       b.tabIndex = i === 0 ? 0 : -1;
-      b.addEventListener("click", () => escolhe(b));
+      b.addEventListener("click", () => escolheCor(b));
       b.addEventListener("keydown", e => {
         const d = { ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1 }[e.key];
-        if(d){ e.preventDefault(); const n = cores[(i + d + cores.length) % cores.length]; escolhe(n); n.focus(); }
+        if(d){ e.preventDefault(); const n = cores[(i + d + cores.length) % cores.length]; escolheCor(n); n.focus(); }
       });
     });
+  }
+
+  /* corre um ciclo só enquanto o elemento está à vista */
+  const aVista = (el, liga, desliga) => {
+    if(!el) return;
+    if(!("IntersectionObserver" in window)){ liga(); return; }
+    new IntersectionObserver(([e]) => { if(e.isIntersecting) liga(); else if(desliga) desliga(); }, { threshold:0.25 }).observe(el);
+  };
+  const contaAte = (el, alvo, dur = 1200, mil = false) => {
+    const de = parseFloat(String(el.textContent).replace(/\./g, "")) || 0; let t0 = 0;
+    const f = t => { if(!t0) t0 = t; const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3), v = Math.round(de + (alvo - de) * e);
+      el.textContent = mil ? v.toLocaleString("pt-PT").replace(/\s/g, ".") : v; if(p < 1) requestAnimationFrame(f); };
+    if(calmo) el.textContent = mil ? alvo.toLocaleString("pt-PT").replace(/\s/g, ".") : alvo; else requestAnimationFrame(f);
+  };
+
+  /* ---------- Editorial: o documento compõe-se e a lista de verificação avança ---------- */
+  const docV = document.querySelector("[data-doc]");
+  if(docV){
+    const DOCS = [
+      { tipo:"Perfil corporativo", pag:"32 páginas", cor:"#1D5BFF", check:["Estrutura e índice", "Argumento comercial", "Design e paginação", "Revisão final"] },
+      { tipo:"Proposta de concurso", pag:"48 páginas", cor:"#0E9F6E", check:["Critérios de avaliação", "Conformidade com o caderno", "Anexos e financeiro", "Guia de submissão"] },
+      { tipo:"Business plan", pag:"40 páginas", cor:"#7357E8", check:["Modelo de negócio e SWOT", "Projeções financeiras", "Plano de marketing", "Pitch deck"] }
+    ];
+    const tipo = docV.querySelector("[data-doc-tipo]"), pag = docV.querySelector("[data-doc-pag]"), frente = docV.querySelector(".frente"), check = docV.querySelector("[data-doc-check]");
+    let k = 0, ciclo = 0, timers = [];
+    const limpa = () => { timers.forEach(clearTimeout); timers = []; };
+    const mostra = () => {
+      limpa();
+      const d = DOCS[k];
+      docV.style.setProperty("--dc", d.cor);
+      pag.textContent = d.pag;
+      check.innerHTML = d.check.map(c => `<li>${c}</li>`).join("");
+      frente.classList.remove("compor"); void frente.offsetWidth; frente.classList.add("compor");
+      if(calmo){ tipo.textContent = d.tipo; [...check.children].forEach(li => li.classList.add("feito")); return; }
+      tipo.textContent = "";
+      [...d.tipo].forEach((c, i) => timers.push(setTimeout(() => { tipo.textContent += c; }, 40 * i)));
+      [...check.children].forEach((li, i) => timers.push(setTimeout(() => li.classList.add("feito"), 900 + i * 650)));
+    };
+    aVista(docV, () => { if(ciclo) return; mostra(); if(!calmo) ciclo = setInterval(() => { k = (k + 1) % DOCS.length; mostra(); }, 5600); },
+                 () => { clearInterval(ciclo); ciclo = 0; });
+  }
+
+  /* ---------- Consultoria: o radar do diagnóstico, antes e depois ---------- */
+  const radarV = document.querySelector("[data-radar]");
+  if(radarV){
+    const V = [[.45,.35,.3,.5,.4,.45], [.85,.8,.74,.82,.86,.76]];
+    const R = 104, C = 150, ang = [0,1,2,3,4,5].map(k => (-90 + 60 * k) * Math.PI / 180);
+    const poli = radarV.querySelector(".radar-poli"), pts = [...radarV.querySelectorAll(".radar-ponto")], nEl = radarV.querySelector("[data-radar-n]");
+    const botoes = [...radarV.querySelectorAll(".radar-abas button")];
+    let cur = V[0].slice(), est = 0, ciclo = 0;
+    const desenha = v => {
+      const xy = v.map((r, k) => [C + R * r * Math.cos(ang[k]), C + R * r * Math.sin(ang[k])]);
+      poli.setAttribute("points", xy.map(p => p.map(n => n.toFixed(1)).join(",")).join(" "));
+      pts.forEach((c, k) => { c.setAttribute("cx", xy[k][0].toFixed(1)); c.setAttribute("cy", xy[k][1].toFixed(1)); });
+    };
+    const vai = e => {
+      est = e; botoes.forEach((b, i) => b.classList.toggle("ativo", i === e));
+      const de = cur.slice(), para = V[e]; let t0 = 0;
+      contaAte(nEl, Math.round(para.reduce((a, b) => a + b) / 6 * 100), 900);
+      if(calmo){ cur = para.slice(); desenha(cur); return; }
+      const f = t => { if(!t0) t0 = t; const p = Math.min(1, (t - t0) / 900), q = 1 - Math.pow(1 - p, 3);
+        cur = de.map((a, i) => a + (para[i] - a) * q); desenha(cur); if(p < 1) requestAnimationFrame(f); };
+      requestAnimationFrame(f);
+    };
+    botoes.forEach((b, i) => { b.tabIndex = 0; b.addEventListener("click", () => { clearInterval(ciclo); ciclo = -1; vai(i); }); });
+    aVista(radarV, () => { if(ciclo) return; if(!calmo) ciclo = setInterval(() => vai(1 - est), 3200); setTimeout(() => vai(1), 600); },
+                   () => { if(ciclo > 0){ clearInterval(ciclo); ciclo = 0; } });
+  }
+
+  /* ---------- Marketing & Vendas: as etapas do funil contam ---------- */
+  const funilV = document.querySelector("[data-funil]");
+  if(funilV){
+    let feito = false;
+    aVista(funilV, () => { if(feito) return; feito = true;
+      funilV.querySelectorAll("[data-vconta]").forEach((b, i) => { b.textContent = "0"; setTimeout(() => contaAte(b, +b.dataset.vconta, 1300, true), i * 220); }); });
+  }
+
+  /* ---------- Tecnologia: os pedidos chegam ao painel sozinhos ---------- */
+  const autoV = document.querySelector("[data-auto]");
+  if(autoV && !calmo){
+    const nEl = autoV.querySelector("[data-auto-n]"), barras = autoV.querySelector("[data-auto-barras]"), linhas = autoV.querySelector("[data-auto-linhas]");
+    const TIPOS = ["Orçamento · registado sozinho", "Suporte · atribuído à equipa", "Encomenda · fatura emitida", "Reunião · agenda marcada"];
+    let pedido = 1042, ciclo = 0;
+    const chega = () => {
+      nEl.textContent = +nEl.textContent + 1;
+      const novas = [...barras.children];
+      novas.forEach((b, i) => b.style.setProperty("--h", i < novas.length - 1 ? getComputedStyle(novas[i + 1]).getPropertyValue("--h") : (.45 + Math.random() * .5).toFixed(2)));
+      const li = document.createElement("li"); li.className = "nova";
+      li.innerHTML = `<span class="ap-tag">Novo</span><b>Pedido #${pedido++}</b><small>${TIPOS[pedido % TIPOS.length]}</small>`;
+      linhas.prepend(li);
+      while(linhas.children.length > 2) linhas.lastElementChild.remove();
+    };
+    aVista(autoV, () => { if(!ciclo) ciclo = setInterval(chega, 2400); }, () => { clearInterval(ciclo); ciclo = 0; });
+  }
+
+  /* ---------- Treinamento: a equipa evolui ---------- */
+  const treinoV = document.querySelector("[data-treino]");
+  if(treinoV){
+    let feito = false; const nEl = treinoV.querySelector("[data-treino-n]");
+    aVista(treinoV, () => { if(feito) return; feito = true; nEl.textContent = "0"; setTimeout(() => contaAte(nEl, 86, 1500), 200); });
+  }
+
+  /* ---------- Bento: o plano de ação avança com a linha de hoje ---------- */
+  const gantt = document.querySelector("[data-gantt]");
+  if(gantt){
+    const marcos = [...gantt.querySelectorAll(".gl-marco")].map(m => [m, parseFloat(m.style.getPropertyValue("--s"))]);
+    const aplica = t => { gantt.style.setProperty("--t", t.toFixed(4)); marcos.forEach(([m, s]) => m.classList.toggle("feito", t >= s)); };
+    if(calmo) aplica(.62);
+    else {
+      let pedido = 0, t0 = 0, visivel = false;
+      const DUR = 9000, PAUSA = 1400;
+      const f = t => { if(!t0) t0 = t; const e = (t - t0) % (DUR + PAUSA); aplica(Math.min(1, e / DUR)); pedido = visivel ? requestAnimationFrame(f) : 0; };
+      aVista(gantt, () => { visivel = true; if(!pedido) pedido = requestAnimationFrame(f); }, () => { visivel = false; });
+    }
   }
 
   /* ---------- faixas de entregáveis: a lista vai duas vezes ---------- */
