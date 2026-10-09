@@ -11,6 +11,19 @@ const {
 } = require("docx");
 
 const DIR = path.join(__dirname, "assets");
+// FORM=1 gera a variante para o PDF interactivo: cada campo leva um marcador invisível
+// [[tipo|nome|valor]] que o make_pdf_form.py converte em campo de formulário.
+const FORM = process.env.FORM === "1";
+const FIELDS = {};
+const fname = (id) => String(id).replace(/[^A-Za-z0-9]+/g, "_").replace(/^_|_$/g, "");
+let autoId = 0;
+function mk(kind, id, value, label) {
+  if (!FORM) return [];
+  const name = fname(id);
+  if (label && !FIELDS[name]) FIELDS[name] = label;
+  return [new TextRun({ text: `[[${kind}|${name}${value !== undefined ? "|" + value : ""}]]`, size: 2, color: "FFFFFF", font: FONT })];
+}
+const plain = (t) => String(t).replace(/\*\*/g, "");
 const OUT = process.argv[2] || path.join(__dirname, "out.docx");
 
 // ---------- Marca ----------
@@ -102,9 +115,13 @@ const row = (cells, o = {}) => new TableRow({
 
 // Tabela de dados com cabeçalho azul
 function dataTable(headers, rows, widths, o = {}) {
+  const tid = o.id || "T" + (++autoId);
   const head = row(headers.map((h, i) => cell(P(h, { size: 17, bold: true, color: C.white, after: 0, keepNext: true }), { w: widths[i], fill: C.navy, borders: allBorders(C.navy) })), { header: true });
   const body = rows.map((r, ri) => row(r.map((v, i) => cell(
-    v instanceof Paragraph ? v : P(v, { size: 18, after: 0, keepNext: o.keep && ri < rows.length - 1, bold: o.boldFirst && i === 0, color: o.boldFirst && i === 0 ? C.navy : C.text }),
+    v instanceof Paragraph ? v
+      : FORM && v === "" ? new Paragraph({ keepNext: o.keep && ri < rows.length - 1, spacing: { after: 0 }, children: mk(o.dd === i ? "D" : "T", `${tid}.r${ri + 1}c${i + 1}`, undefined, `${o.label || tid} · ${plain(r[0]) || "linha " + (ri + 1)} · ${plain(headers[i])}`) })
+      : FORM && v === "□" ? new Paragraph({ alignment: AlignmentType.LEFT, keepNext: o.keep && ri < rows.length - 1, spacing: { after: 0 }, children: [...mk("C", `${tid}.r${ri + 1}c${i + 1}`, undefined, `${plain(r[0])} · ${plain(headers[i])}`), new TextRun({ text: "□", font: FONT, size: 18, color: C.text })] })
+      : P(v, { size: 18, after: 0, keepNext: o.keep && ri < rows.length - 1, bold: o.boldFirst && i === 0, color: o.boldFirst && i === 0 ? C.navy : C.text }),
     { w: widths[i], fill: ri % 2 ? C.tint2 : C.white },
   )), { height: o.rowHeight }));
   return table(widths, [head, ...body]);
@@ -129,11 +146,11 @@ const kv = (k, v) => new Paragraph({
 });
 
 // ---------- Campos do formulário ----------
-const answerBox = (lines = 1, w = W) => table([w], [row([cell(P("", { after: 0 }), {
+const answerBox = (lines = 1, w = W, id, label) => table([w], [row([cell(new Paragraph({ spacing: { after: 0 }, children: mk("T", id || "box" + (++autoId), lines, label) }), {
   w, fill: C.tint2, borders: allBorders(C.line),
 })], { height: 200 + lines * 260 })]);
 
-function optionsGrid(options, symbol, cols) {
+function optionsGrid(options, symbol, cols, id, label) {
   cols = cols || (options.length > 6 ? 3 : 2);
   const cw = Math.floor(W / cols);
   const widths = Array(cols).fill(cw); widths[cols - 1] = W - cw * (cols - 1);
@@ -142,13 +159,19 @@ function optionsGrid(options, symbol, cols) {
     rows.push(row(widths.map((w, j) => {
       const o = options[i + j];
       return cell(o ? new Paragraph({
-        children: [new TextRun({ text: symbol + "  ", font: FONT, size: 22, color: C.navy }), ...runs(o, { size: 18 })],
+        children: [...mk(symbol === "○" ? "R" : "C", symbol === "○" ? id : `${id}.${i + j + 1}`, symbol === "○" ? i + j + 1 : undefined, symbol === "○" ? label : `${label} · ${plain(o)}`), new TextRun({ text: symbol + "  ", font: FONT, size: 22, color: C.navy }), ...runs(o, { size: 18 })],
         spacing: { before: 0, after: 0, line: 264 }, indent: { left: 300, hanging: 300 }, keepNext: i + cols < options.length,
       }) : P("", { after: 0 }), { w, borders: noBorders, margins: { top: 25, bottom: 25, left: 60, right: 80 } });
     })));
   }
   return table(widths, rows);
 }
+
+// "Rótulo: ______" com campo de texto sobre o sublinhado no PDF interactivo
+const lineField = (label, id, o = {}) => new Paragraph({
+  spacing: { before: o.before ?? 60, after: o.after ?? 0 },
+  children: [new TextRun({ text: label + " ", size: o.size || 17, color: C.grey, font: FONT }), ...mk("U", id, undefined, o.tip || label), new TextRun({ text: "_".repeat(o.n || 48), size: o.size || 17, color: C.grey, font: FONT })],
+});
 
 function fieldHead(f) {
   const out = [];
@@ -181,8 +204,8 @@ function fieldHead(f) {
 function field(f) {
   const out = fieldHead(f);
   switch (f.type) {
-    case "choice": out.push(optionsGrid(f.options, "○", f.cols)); if (f.other) out.push(P("Outro / detalhe: ________________________________________________", { size: 17, color: C.grey, before: 60, after: 0 })); break;
-    case "multi": out.push(optionsGrid(f.options, "□", f.cols)); if (f.other) out.push(P("Outro / detalhe: ________________________________________________", { size: 17, color: C.grey, before: 60, after: 0 })); break;
+    case "choice": out.push(optionsGrid(f.options, "○", f.cols, f.id, `${f.id} ${f.label}`)); if (f.other) out.push(lineField("Outro / detalhe:", `${f.id}.outro`, { tip: `${f.id} ${f.label} · outro / detalhe` })); break;
+    case "multi": out.push(optionsGrid(f.options, "□", f.cols, f.id, `${f.id} ${f.label}`)); if (f.other) out.push(lineField("Outro / detalhe:", `${f.id}.outro`, { tip: `${f.id} ${f.label} · outro / detalhe` })); break;
     case "pair": {
       const half = Math.floor((W - 200) / 2);
       out.pop(); // remove spacer duplicado
@@ -191,21 +214,24 @@ function field(f) {
         row([cell(P(f.labels[0], { size: 15, bold: true, color: C.grey, caps: true, after: 0 }), { w: half, borders: noBorders, margins: { top: 0, bottom: 40, left: 0, right: 0 } }),
           cell(P(""), { w: 200, borders: noBorders }),
           cell(P(f.labels[1], { size: 15, bold: true, color: C.grey, caps: true, after: 0 }), { w: W - 200 - half, borders: noBorders, margins: { top: 0, bottom: 40, left: 0, right: 0 } })]),
-        row([cell(P("", { after: 0 }), { w: half, fill: C.tint2 }), cell(P(""), { w: 200, borders: noBorders }), cell(P("", { after: 0 }), { w: W - 200 - half, fill: C.tint2 })], { height: 560 }),
+        row([cell(new Paragraph({ spacing: { after: 0 }, children: mk("T", `${f.id}.a`, 1, `${f.id} ${f.label} · ${plain(f.labels[0])}`) }), { w: half, fill: C.tint2 }), cell(P(""), { w: 200, borders: noBorders }), cell(new Paragraph({ spacing: { after: 0 }, children: mk("T", `${f.id}.b`, 1, `${f.id} ${f.label} · ${plain(f.labels[1])}`) }), { w: W - 200 - half, fill: C.tint2 })], { height: 560 }),
       ]));
       break;
     }
-    case "table": out.push(dataTable(f.headers, f.rows, f.widths, { rowHeight: 330, boldFirst: f.boldFirst, keep: true })); break;
-    case "scale10": out.push(scaleRow(0, 10)); break;
-    default: out.push(answerBox(f.lines || 1));
+    case "table": out.push(dataTable(f.headers, f.rows, f.widths, { rowHeight: 330, boldFirst: f.boldFirst, keep: true, id: f.id, label: `${f.id} ${f.label}` })); break;
+    case "scale10": out.push(scaleRow(0, 10, f.id, `${f.id} ${f.label}`)); break;
+    default: out.push(answerBox(f.lines || 1, W, f.id, `${f.id} ${f.label}`));
   }
   return out;
 }
 
-function scaleRow(a, b) {
+function scaleRow(a, b, id, label) {
   const n = b - a + 1, cw = Math.floor(W / n);
   const widths = Array(n).fill(cw); widths[n - 1] = W - cw * (n - 1);
-  return table(widths, [row(widths.map((w, i) => cell(P(String(a + i), { size: 20, bold: true, color: C.navy, align: AlignmentType.CENTER, after: 0 }), { w, fill: i % 2 ? C.tint2 : C.white, valign: VerticalAlign.CENTER })), { height: 480 })]);
+  return table(widths, [row(widths.map((w, i) => cell(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 0 }, children: [
+    new TextRun({ text: String(a + i), size: 20, bold: true, color: C.navy, font: FONT }),
+    ...(FORM ? [new TextRun({ text: " ", size: 20, font: FONT }), ...mk("R", id, a + i, label), new TextRun({ text: "○", size: 22, color: C.navy, font: FONT })] : []),
+  ] }), { w, fill: i % 2 ? C.tint2 : C.white, valign: VerticalAlign.CENTER, margins: { top: 60, bottom: 60, left: 30, right: 30 } })), { height: 480 })]);
 }
 
 // Escala Likert 1–5
@@ -221,7 +247,7 @@ function likert(items, startNo) {
   ], { header: true });
   const body = items.map((t, i) => row([
     cell(new Paragraph({ children: [new TextRun({ text: `${startNo}.${i + 1}  `, bold: true, color: C.blue, size: 18, font: FONT }), ...runs(t, { size: 18 })], spacing: { after: 0, line: 264 } }), { w: wq, fill: i % 2 ? C.tint2 : C.white, valign: VerticalAlign.CENTER }),
-    ...[1, 2, 3, 4, 5].map(() => cell(P("○", { size: 24, color: C.navy, align: AlignmentType.CENTER, after: 0 }), { w: 760, fill: i % 2 ? C.tint2 : C.white, valign: VerticalAlign.CENTER })),
+    ...[1, 2, 3, 4, 5].map((v) => cell(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 0 }, children: [...mk("R", `${startNo}.${i + 1}`, v, `${startNo}.${i + 1} ${t}`), new TextRun({ text: "○", size: 24, color: C.navy, font: FONT })] }), { w: 760, fill: i % 2 ? C.tint2 : C.white, valign: VerticalAlign.CENTER })),
   ]));
   return table(widths, [head, ...body]);
 }
@@ -234,7 +260,7 @@ const openQ = (id, text, lines = 2, hint) => [
     tabStops: [{ type: TabStopType.LEFT, position: 520 }],
   }),
   ...(hint ? [new Paragraph({ keepNext: true, spacing: { before: 0, after: 60 }, indent: { left: 520 }, children: [new TextRun({ text: "Dica para o entrevistador: ", bold: true, color: C.grey, size: 16, font: FONT }), ...runs(hint, { size: 16, color: C.grey })] })] : []),
-  answerBox(lines),
+  answerBox(lines, W, id, `${id} ${plain(text)}`),
 ];
 
 // Banda de etapa
@@ -542,7 +568,7 @@ const fichaRows = [
 ];
 const ficha = table([3600, W - 3600], fichaRows.map(([k, v], i) => row([
   cell(P(k, { size: 18, bold: true, color: C.navy, after: 0 }), { w: 3600, fill: C.tint, valign: VerticalAlign.CENTER }),
-  cell(P(v, { size: 18, after: 0 }), { w: W - 3600, fill: C.white, valign: VerticalAlign.CENTER }),
+  cell(v === "" && FORM ? new Paragraph({ spacing: { after: 0 }, children: mk("T", `ficha.${i + 1}`, 1, `Ficha · ${k}`) }) : P(v, { size: 18, after: 0 }), { w: W - 3600, fill: C.white, valign: VerticalAlign.CENTER }),
 ], { height: 400 })));
 
 const mapa = dataTable(
@@ -601,6 +627,12 @@ const guia = [
     "**Revisão final.** O ponto focal confirma que todos os campos obrigatórios (*) estão preenchidos e devolve o documento à Midia Pro.",
   ]),
   spacer(120),
+  ...(FORM ? [callout("Como preencher este PDF interactivo", [
+    bullet("Abra o ficheiro no **Adobe Acrobat Reader** (gratuito), no computador ou no telemóvel. No navegador também funciona, mas pode não guardar tudo."),
+    bullet("Clique nas caixas azuis-claras para escrever. Nas opções ○ escolha uma; nas opções □ escolha todas as que se aplicam."),
+    bullet("Clique numa linha do **mapa do diagnóstico** (início do documento) ou use os marcadores laterais para saltar para cada etapa."),
+    bullet("Guarde regularmente (Ficheiro > Guardar). No final, use o botão **Enviar à Midia Pro** na última página, ou envie o PDF guardado para info@midiapro.co.mz."),
+  ], { color: C.navy }), spacer(160)] : []),
   H2("3. Legenda"),
   legend,
   spacer(200),
@@ -676,7 +708,11 @@ const parteB = [
     P("Preencher um exemplar por líder · Respostas confidenciais, consolidadas por dimensão", { size: 17, color: C.sky, after: 0 }),
   ], { w: W, fill: C.navy, borders: allBorders(C.navy), margins: { top: 180, bottom: 180, left: 280, right: 200 } })])]),
   spacer(120),
-  P("Respondente nº ______     Data da entrevista ____/____/______     Entrevistador(a) ___________________________", { size: 17, color: C.grey, after: 120 }),
+  new Paragraph({ spacing: { after: 120 }, children: [
+    new TextRun({ text: "Respondente nº ", size: 17, color: C.grey, font: FONT }), ...mk("U", "B0.respondente", undefined, "Respondente nº"), new TextRun({ text: "________", size: 17, color: C.grey, font: FONT }),
+    new TextRun({ text: "     Data da entrevista ", size: 17, color: C.grey, font: FONT }), ...mk("U", "B0.data", undefined, "Data da entrevista"), new TextRun({ text: "________________", size: 17, color: C.grey, font: FONT }),
+    new TextRun({ text: "     Entrevistador(a) ", size: 17, color: C.grey, font: FONT }), ...mk("U", "B0.entrevistador", undefined, "Entrevistador(a)"), new TextRun({ text: "___________________________", size: 17, color: C.grey, font: FONT }),
+  ] }),
   H3("B1 · Identificação"),
   ...field({ id: "B1.1", label: "Cargo e área / loja", type: "pair", labels: ["Cargo", "Área / Loja"] }),
   ...field({ id: "B1.2", label: "Experiência e equipa", type: "pair", labels: ["Tempo na empresa", "Nº de colaboradores sob a sua responsabilidade"] }),
@@ -716,7 +752,7 @@ const parteB = [
     children: [new TextRun({ text: "B6.5\t", bold: true, color: C.blue, size: 18, font: FONT }), ...runs("Que mudança deveria começar por…", { size: 19 })] }),
   table([2600, W - 2600], ["…pela Direcção", "…pelas lideranças intermédias", "…pelos colaboradores"].map((k) => row([
     cell(P(k, { size: 18, bold: true, color: C.navy, after: 0, keepNext: true }), { w: 2600, fill: C.tint, valign: VerticalAlign.CENTER }),
-    cell(P("", { keepNext: true }), { w: W - 2600, fill: C.tint2 }),
+    cell(new Paragraph({ keepNext: true, spacing: { after: 0 }, children: mk("T", `B6.5.${k.replace(/\W/g, "").slice(0, 12)}`, 2, `B6.5 Que mudança deveria começar ${k}`) }), { w: W - 2600, fill: C.tint2 }),
   ], { height: 700 }))),
   spacer(120),
   H3("B7 · Abertura à mudança"),
@@ -725,8 +761,8 @@ const parteB = [
   ...openQ("B7.3", "Que mudança considera mais urgente na empresa?", 1),
   ...openQ("B7.4", "Que mudança considera menos prioritária neste momento? Porquê?", 1),
   new Paragraph({ keepNext: true, spacing: { before: 160, after: 80 }, indent: { left: 520, hanging: 520 }, tabStops: [{ type: TabStopType.LEFT, position: 520 }],
-    children: [new TextRun({ text: "B7.5\t", bold: true, color: C.blue, size: 18, font: FONT }), ...runs("De 0 a 10, qual é a sua disponibilidade para alterar processos da sua área se os dados demonstrarem que o modelo actual não está a funcionar? (circule)", { size: 19 })] }),
-  scaleRow(0, 10),
+    children: [new TextRun({ text: "B7.5\t", bold: true, color: C.blue, size: 18, font: FONT }), ...runs("De 0 a 10, qual é a sua disponibilidade para alterar processos da sua área se os dados demonstrarem que o modelo actual não está a funcionar? (assinale)", { size: 19 })] }),
+  scaleRow(0, 10, "B7.5", "B7.5 Disponibilidade para alterar processos (0 a 10)"),
   spacer(120),
   H3("B8 · Desafio dos 90 dias"),
   ...openQ("B8.1", "Se amanhã assumisse a Direcção-Geral e tivesse 90 dias para melhorar os resultados, quais seriam as suas três primeiras decisões?", 3),
@@ -734,9 +770,9 @@ const parteB = [
   spacer(200),
   H3("B9 · Quadro do entrevistador (uso Midia Pro)"),
   callout("Evidências vistas durante a entrevista", [
-    optionsGrid(["Metas da equipa", "Relatório de resultados", "Mapa de follow-up", "CRM / Excel / WhatsApp", "Script de vendas", "Nenhuma evidência"], "□", 3),
+    optionsGrid(["Metas da equipa", "Relatório de resultados", "Mapa de follow-up", "CRM / Excel / WhatsApp", "Script de vendas", "Nenhuma evidência"], "□", 3, "B9.evidencias", "B9 Evidências vistas"),
     P("Discrepâncias entre percepção e prática:", { size: 17, bold: true, color: C.navy, before: 140, after: 60 }),
-    answerBox(2, W - 440),
+    answerBox(2, W - 440, "B9.discrepancias", "B9 Discrepâncias entre percepção e prática"),
   ], { color: C.navy }),
 ];
 
@@ -756,7 +792,7 @@ const parteC = [
     ["Gestão por métricas", "20%", "Disponibilidade e utilização de indicadores", "B4 · A04 · A08", ""],
     ["Gestão comercial e follow-up", "20%", "Processo, registo, controlo e continuidade", "B5 · A08", ""],
     ["Cultura e abertura à mudança", "15%", "Aprendizagem, colaboração e implementação", "B6 · B7 · B8", ""],
-  ], [2700, 900, 3138, 1500, 1400], { boldFirst: true, rowHeight: 520 }),
+  ], [2700, 900, 3138, 1500, 1400], { boldFirst: true, rowHeight: 520, id: "C1", dd: 4, label: "C1 Matriz" }),
   spacer(160),
   table([1800, W - 1800], [
     tl("VERDE", C.green, "Prática consolidada: confirmada por processo, registo ou métrica."),
@@ -774,7 +810,7 @@ const parteC = [
     "Integração entre o fluxo digital, as equipas comerciais e as lojas.",
     "Nível de alinhamento e abertura das lideranças intermédias às mudanças propostas.",
     "Distribuição de responsabilidades entre liderança e equipas perante a redução dos resultados.",
-  ].map((h) => [h, "□", "□", "□"]), [5438, 1400, 1400, 1400], { keep: true }),
+  ].map((h) => [h, "□", "□", "□"]), [5438, 1400, 1400, 1400], { keep: true, id: "C2" }),
   spacer(200),
   H2("C3 · Checklist de evidências recebidas"),
   dataTable(["Evidência", "Etapa", "Recebida", "Observações"], [
@@ -790,7 +826,7 @@ const parteC = [
     ["Mapa / registo de follow-up", "A08 · B5", "□", ""],
     ["Script de vendas", "A08", "□", ""],
     ["Lista de sistemas e ferramentas", "A09", "□", ""],
-  ], [4000, 1500, 1100, 3038]),
+  ], [4000, 1500, 1100, 3038], { id: "C3", label: "C3" }),
   spacer(200),
   H2("C4 · Do briefing à estratégia: quem usa o quê"),
   dataTable(["Equipa Midia Pro", "Etapas de referência", "Entregável"], [
@@ -819,9 +855,9 @@ const parteC = [
   spacer(240),
   H2("C6 · Validação"),
   table([Math.floor(W / 2) - 100, 200, W - Math.floor(W / 2) - 100], [row([
-    cell([P("Pelo cliente", { size: 18, bold: true, color: C.navy, after: 160 }), ...["Nome", "Cargo", "Assinatura", "Data"].map((k) => P(k + ": ______________________________", { size: 18, color: C.grey, after: 200 }))], { w: Math.floor(W / 2) - 100, fill: C.tint2, margins: { top: 200, bottom: 120, left: 240, right: 200 } }),
+    cell([P("Pelo cliente", { size: 18, bold: true, color: C.navy, after: 160 }), ...["Nome", "Cargo", "Assinatura", "Data"].map((k) => lineField(k + ":", `C6.cliente.${k}`, { size: 18, n: 30, before: 0, after: 200, tip: `Validação · cliente · ${k}` }))], { w: Math.floor(W / 2) - 100, fill: C.tint2, margins: { top: 200, bottom: 120, left: 240, right: 200 } }),
     cell(P(""), { w: 200, borders: noBorders }),
-    cell([P("Pela Midia Pro", { size: 18, bold: true, color: C.navy, after: 160 }), ...["Nome", "Cargo", "Assinatura", "Data"].map((k) => P(k + ": ______________________________", { size: 18, color: C.grey, after: 200 }))], { w: W - Math.floor(W / 2) - 100, fill: C.tint2, margins: { top: 200, bottom: 120, left: 240, right: 200 } }),
+    cell([P("Pela Midia Pro", { size: 18, bold: true, color: C.navy, after: 160 }), ...["Nome", "Cargo", "Assinatura", "Data"].map((k) => lineField(k + ":", `C6.midiapro.${k}`, { size: 18, n: 30, before: 0, after: 200, tip: `Validação · Midia Pro · ${k}` }))], { w: W - Math.floor(W / 2) - 100, fill: C.tint2, margins: { top: 200, bottom: 120, left: 240, right: 200 } }),
   ])]),
 ];
 
@@ -886,4 +922,8 @@ const doc = new Document({
   ],
 });
 
-Packer.toBuffer(doc).then((buf) => { fs.writeFileSync(OUT, buf); console.log("OK", OUT, buf.length); });
+Packer.toBuffer(doc).then((buf) => {
+  fs.writeFileSync(OUT, buf);
+  if (FORM) fs.writeFileSync(OUT.replace(/\.docx$/, ".fields.json"), JSON.stringify(FIELDS, null, 1));
+  console.log("OK", OUT, buf.length);
+});
