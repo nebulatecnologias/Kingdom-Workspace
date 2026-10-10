@@ -44,7 +44,7 @@ O Training tem como entrada o livro O Bloqueio Invisível e três ofertas: 10X M
 
 ### R04 · Kingdom InCompany: 5 áreas e 3 planos por serviço
 
-A InCompany tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Marketing & Vendas, Desenvolvimento Tecnológico e Assessoria Corporativa. O site oficial é a versão 2, em incompany.kingdomcompny.com. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta. Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da InCompany (R16).
+A InCompany tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Marketing & Vendas, Desenvolvimento Tecnológico e Assessoria Corporativa. O site oficial é a versão 2, em incompany.kingdomcompny.com. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta. Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da InCompany (R16). O Business Plan pertence à Consultoria Estratégica. A Assessoria de Eventos foi eliminada.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -74,7 +74,7 @@ A turma atual do Tracktion (12 pessoas, formato antigo) termina com um último e
 
 ### R21 · Founders: preço e cobrança por turma
 
-Cada turma do Kingdom Founders tem 8 encontros online de cerca de 2 horas, em 4 semanas (2 por semana). Preço: 6.900 MT à vista na inscrição antecipada (primeira semana de inscrições) e 7.800 MT depois. Alternativa: 2 parcelas de 4.200 MT, com a 2.ª paga antes do 3.º encontro; não há 3 parcelas. Sem pagamento não há acesso, cortado no Payflow. Quem deve de uma turma anterior só entra depois de pagar a dívida. Meta da turma 5: 15 pessoas pagas.
+Cada turma do Kingdom Founders tem 8 encontros online de cerca de 2 horas, em 4 semanas (2 por semana). Preço: 6.900 MT à vista na inscrição antecipada (primeira semana de inscrições) e 7.800 MT depois. Alternativa: 2 parcelas de 4.200 MT, com a 2.ª paga antes do 3.º encontro; não há 3 parcelas. Sem pagamento não há acesso, cortado no Payflow. Quem deve de uma turma anterior só entra depois de pagar a dívida. Meta da turma 5: 15 pessoas pagas. A Founders Community é gratuita e separada da Comunidade Tracktion.
 
 *10/10/2026 · Decisão do Shelton*
 
