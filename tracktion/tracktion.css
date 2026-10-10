@@ -138,3 +138,39 @@
   .slider-pe{ flex-direction:column; align-items:flex-start; gap:16px; }
   .miniaturas button{ width:40px; height:40px; }
 }
+
+/* ---------------- Os nossos encontros: as mesmas galerias do site do Training ---------------- */
+.evento{ display:grid; grid-template-columns:minmax(0, .82fr) minmax(0, 1.18fr); gap:clamp(28px, 4vw, 56px); align-items:center; }
+.evento-inverso{ grid-template-columns:minmax(0, 1.18fr) minmax(0, .82fr); }
+.evento-inverso .evento-texto{ order:2; }
+.evento-capa{ display:block; width:64px; height:64px; border-radius:18px; overflow:hidden; box-shadow:0 0 0 1px rgba(244,239,233,.12), 0 14px 28px -14px rgba(0,0,0,.9); }
+.evento-capa img{ width:100%; height:100%; object-fit:cover; }
+.evento-texto h3{ margin:26px 0 0; font-family:var(--serifa); font-style:italic; font-weight:400; font-size:clamp(36px, 4vw, 54px); line-height:1.02; letter-spacing:-.02em; }
+.evento-texto p{ margin:16px 0 28px; color:var(--texto-2); font-size:16px; max-width:46ch; text-wrap:pretty; }
+.evento-texto .btn svg{ width:16px; height:16px; }
+.galeria{ display:grid; gap:12px; }
+.galeria-destaque{ grid-template-columns:1.7fr 1fr; grid-template-rows:repeat(2, minmax(0, 1fr)); aspect-ratio:16 / 11; }
+.galeria-destaque > :first-child{ grid-row:1 / -1; }
+.foto{ position:relative; overflow:hidden; border-radius:var(--raio-lg); background:#05170E; border:0; padding:0; min-height:0; }
+button.foto{ cursor:zoom-in; }
+.foto img{ width:100%; height:100%; object-fit:cover; object-position:50% 30%; transition:transform .9s var(--sai); }
+button.foto:hover img{ transform:scale(1.04); }
+.foto-mais{ position:absolute; inset:0; display:grid; place-items:center; background:rgba(0,14,7,.62); font-size:26px; font-weight:500; letter-spacing:-.03em; color:var(--texto); }
+.foto-aberta{ width:min(1100px, calc(100vw - 32px)); max-height:calc(100dvh - 48px); padding:0; border:0; border-radius:var(--raio-lg); background:#000E07; color:var(--texto); overflow:visible; }
+.foto-aberta::backdrop{ background:rgba(0,8,4,.86); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+.foto-aberta-palco img{ display:block; width:100%; max-height:calc(100dvh - 48px); object-fit:contain; border-radius:var(--raio-lg); }
+.foto-fechar, .foto-nav{ position:absolute; width:46px; height:46px; border-radius:50%; border:0; display:grid; place-items:center; background:rgba(0,14,7,.72); color:var(--texto); box-shadow:inset 0 0 0 1px var(--linha-forte); cursor:pointer; -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
+.foto-fechar svg, .foto-nav svg{ width:20px; height:20px; }
+.foto-fechar{ top:12px; right:12px; }
+.foto-nav{ top:50%; margin-top:-23px; }
+.foto-nav.ant{ left:12px; }
+.foto-nav.seg{ right:12px; }
+.foto-nav[hidden]{ display:none; }
+@media (max-width:1000px){
+  .evento, .evento-inverso{ grid-template-columns:1fr; }
+  .evento-inverso .evento-texto{ order:0; }
+}
+@media (max-width:600px){
+  .galeria-destaque{ aspect-ratio:4 / 3.4; gap:8px; }
+  .foto{ border-radius:var(--raio-md); }
+}

@@ -251,4 +251,48 @@
       }).observe(tela);
     }
   }
+  /* ---------------- Os nossos encontros: galeria e fotografia em grande ----------------
+     As mesmas fotografias da secção do Kingdom Tracktion no site do Training.
+     Para juntar mais, basta acrescentar { src, alt } à lista. */
+  const GALERIAS = {
+    tracktion:[
+      { src:"/img/eventos/tracktion-1.webp", alt:"Convidada a falar num encontro do Kingdom Tracktion" },
+      { src:"/img/eventos/tracktion-2.webp", alt:"Participante a sorrir durante um encontro do Kingdom Tracktion" },
+      { src:"/img/eventos/tracktion-3.webp", alt:"Participante a ouvir durante um encontro do Kingdom Tracktion" }
+    ]
+  };
+  const LUGARES = { tracktion:3 };
+  const dialogo = $("foto-aberta"), palcoFoto = $("foto-aberta-palco");
+  let aberta = { lista:[], i:0 };
+  const pintaAberta = () => {
+    const f = aberta.lista[aberta.i];
+    palcoFoto.innerHTML = `<img src="${esc(f.src)}" alt="${esc(f.alt || `Fotografia ${aberta.i + 1} de ${aberta.lista.length}`)}">`;
+  };
+  if(dialogo && dialogo.showModal){
+    const navega = d => { aberta.i = (aberta.i + d + aberta.lista.length) % aberta.lista.length; pintaAberta(); };
+    dialogo.insertAdjacentHTML("beforeend",
+      `<button type="button" class="foto-nav ant" aria-label="Fotografia anterior">${svg('<path d="M19 12H5M11 6l-6 6 6 6"/>')}</button><button type="button" class="foto-nav seg" aria-label="Fotografia seguinte">${svg('<path d="M5 12h14M13 6l6 6-6 6"/>')}</button>`);
+    dialogo.querySelector(".foto-nav.ant").addEventListener("click", () => navega(-1));
+    dialogo.querySelector(".foto-nav.seg").addEventListener("click", () => navega(1));
+    $("foto-fechar").addEventListener("click", () => dialogo.close());
+    dialogo.addEventListener("click", e => { if(e.target === dialogo) dialogo.close(); });
+    dialogo.addEventListener("keydown", e => { if(e.key === "ArrowRight") navega(1); if(e.key === "ArrowLeft") navega(-1); });
+  }
+  document.querySelectorAll("[data-galeria]").forEach(g => {
+    const lista = GALERIAS[g.dataset.galeria] || [], lugares = LUGARES[g.dataset.galeria] || 3;
+    let html = "";
+    for(let i = 0; i < lugares; i++){
+      const f = lista[i];
+      if(!f) continue;
+      const resto = i === lugares - 1 && lista.length > lugares ? lista.length - lugares : 0;
+      html += `<button type="button" class="foto" data-i="${i}" aria-label="Ver em grande: ${esc(f.alt || `fotografia ${i + 1}`)}${resto ? ` e mais ${resto}` : ""}"><img src="${esc(f.src)}" alt="" loading="lazy">${resto ? `<span class="foto-mais">+${resto}</span>` : ""}</button>`;
+    }
+    g.innerHTML = html;
+    g.querySelectorAll("button.foto").forEach(b => b.addEventListener("click", () => {
+      if(!dialogo || !dialogo.showModal) return window.open(lista[Number(b.dataset.i)].src, "_blank");
+      aberta = { lista, i:Number(b.dataset.i) };
+      dialogo.querySelectorAll(".foto-nav").forEach(n => { n.hidden = lista.length < 2; });
+      pintaAberta(); dialogo.showModal();
+    }));
+  });
 })();
