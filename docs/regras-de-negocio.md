@@ -112,7 +112,7 @@ O Treinamento de Vendas da InCompany dura 3 dias de cerca de 3 horas (9 horas). 
 
 ### R27 · Desenvolvimento Tecnológico: preços de websites e sistemas
 
-Na InCompany, o desenvolvimento de websites custa de 15.000 MT a 65.000 MT. O desenvolvimento de sistemas custa de 95.000 MT a 350.000 MT.
+Na InCompany, o desenvolvimento de websites custa de 15.000 MT a 65.000 MT. O website de 15.000 MT é um one pager feito com skills e modelos, em cerca de 2 horas do Shelton. O desenvolvimento de sistemas custa de 95.000 MT a 350.000 MT.
 
 *10/10/2026 · Decisão do Shelton*
 
