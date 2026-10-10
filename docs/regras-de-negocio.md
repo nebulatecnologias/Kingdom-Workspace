@@ -36,7 +36,7 @@ A InCompany tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, M
 
 ### R16 · Tracktion: 3 meses, 6 pessoas, 12.800 MT por mês
 
-Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas. Cada participante paga 12.800 MT por mês (76.800 MT por mês e 230.400 MT por turma). Inclui, por mês, 1 advising individual de 1 hora e 3 encontros coletivos de cerca de 6 horas. Inclui também o treino da equipa da empresa de cada participante, sobre os pontos levantados no início do programa: 2 equipas por mês, ou seja, uma vez por participante ao longo da turma, com cerca de 2 horas por treino. Com o tempo, o treino passa a ser dado pela equipa do Shelton. O treino é apresentado ao valor da tabela da InCompany (Treinamento de Vendas, 3.500 MT por pessoa). Os advisings e os treinos são gravados e viram conteúdo e portefólio da InCompany.
+Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas. Cada participante paga 12.800 MT por mês (76.800 MT por mês e 230.400 MT por turma). Inclui, por mês, 1 advising individual de 1 hora e 3 encontros coletivos presenciais de 4 horas. Inclui também o treino da equipa da empresa de cada participante, sobre os pontos levantados no início do programa: 2 equipas por mês, ou seja, uma vez por participante ao longo da turma, com cerca de 2 horas por treino. Com o tempo, o treino passa a ser dado pela equipa do Shelton. O treino é apresentado ao valor da tabela da InCompany (Treinamento de Vendas, 3.500 MT por pessoa). Os advisings e os treinos são gravados e viram conteúdo e portefólio da InCompany. Tempo do Shelton: 22 horas por mês, cerca de 3.490 MT por hora (18 horas e 4.270 MT por hora quando a equipa der os treinos).
 
 *10/10/2026 · Decisão do Shelton*
 
