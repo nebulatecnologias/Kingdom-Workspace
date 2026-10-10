@@ -48,7 +48,13 @@ O Business Advising avulso mantém o preço de 2.650 MT por hora, por ser online
 
 ### R18 · Comunidade Tracktion: 1.200 MT por mês depois dos 3 meses
 
-Depois dos 3 meses do Tracktion, os participantes passam a fazer parte da Comunidade Tracktion, que junta todas as turmas. Pagam uma assinatura de 1.200 MT por mês, até dizerem que já não querem continuar. O benefício é uma Kingdom Class online por mês com mentores.
+Depois dos 3 meses do Tracktion, os participantes passam a fazer parte da Comunidade Tracktion, que junta todas as turmas. Ao entrar, assinam um contrato semestral de compromisso de pagamento. A assinatura é de 1.200 MT por mês, cobrada por invoice enviada por email todos os meses. As invoices continuam a ser emitidas, e a dívida acumula, até a pessoa pedir para cancelar. O benefício é uma Kingdom Class online por mês com mentores convidados (sem custo para a Kingdom).
+
+*10/10/2026 · Decisão do Shelton*
+
+### R19 · Turma atual do Tracktion: fecho com um último encontro
+
+A turma atual do Tracktion (12 pessoas, formato antigo) termina com um último encontro presencial. Os advisings individuais continuam. O novo formato (R16) aplica-se às turmas seguintes.
 
 *10/10/2026 · Decisão do Shelton*
 
