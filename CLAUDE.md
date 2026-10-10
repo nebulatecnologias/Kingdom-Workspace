@@ -13,6 +13,15 @@ com cópia em `docs/regras-de-negocio.md`.
 3. Quando o Shelton toma uma decisão de negócio nova, gravá-la como regra (próximo código livre, categoria, peças do mapa afetadas, data e origem) e atualizar `docs/regras-de-negocio.md`.
 4. No início de cada conversa sobre o funil, ler a coleção `alteracoes` com `revisto: false`. São mudanças que ele fez no mapa em peças ligadas a regras. Discutir cada uma e marcá-la `revisto: true`.
 
+## Plano anual
+
+O separador **Plano anual** do Mapa Kingdom é o calendário de marketing de 12 meses. Vive na base de dados do artefacto:
+
+- `ciclos`: uma fase de uma oferta com datas (`fase`: aquecer, vender, entregar, preparar, evento, sempre), com `faixa`, `linha` (a oferta), `inicio`, `fim`, `receita_mes` ou `receita_total`, `anuncios_mes`, `horas_mes`, `regras` e `estado`.
+- `meses`: o foco de marketing de cada mês (id `AAAA-MM`, campos `foco` e `porque`).
+
+Os ciclos em `estado: proposta` são propostas do Claude ainda por decidir. Quando o Shelton confirma um ciclo, passa a `confirmado`. Mudanças em ciclos ligados a regras ficam em `alteracoes` com `no: "ciclo:<id>"`.
+
 ## Notas de trabalho
 
 - Vercel: equipa `team_Ztm4j08esZm62NRjArXDIpQF`. O DNS de kingdomcompny.com está no Wix: subdomínios novos precisam de um CNAME criado pelo Shelton.
