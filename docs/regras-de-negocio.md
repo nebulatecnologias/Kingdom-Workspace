@@ -13,18 +13,32 @@ O núcleo é o Shelton Douglas (O Conselheiro). Os três braços são a Kingdom 
 
 *10/10/2026 · Decisão do Shelton*
 
+### R20 · Jornada entre braços e escada de valor de cada braço
+
+Os braços formam uma jornada. Academy: quem quer ganhar o primeiro dinheiro online (marketing, vendas e inteligência artificial). Training: quem percebe que a técnica não chega e procura desenvolvimento pessoal, mentalidade de empresário, conexão e experiências. InCompany: empresas que querem as soluções da Kingdom, vindas do Training ou do mercado.
+
+Cada braço tem a sua escada de valor:
+
+- Academy: livros → curso Escala 10X → plataforma de cursos.
+- Training: livro O Bloqueio Invisível → curso 10X Mindset → mentoria Kingdom Founders → mastermind Kingdom Tracktion.
+- InCompany: Desenvolvimento Editorial → Consultoria Estratégica → Assessoria → Desenvolvimento Tecnológico.
+
+Os braços servem-se uns aos outros: a Academy dá a área de membros ao Training; o Training dá os treinamentos corporativos à InCompany.
+
+*10/10/2026 · Decisão do Shelton*
+
 ## Ofertas
 
 ### R02 · Os livros são da Academy; quem os promove é o Shelton
 
-O produto, os checkouts e a entrega dos livros ficam na Academy (área de membros). A promoção é feita pelo autor: Reels, stories e anúncios com a identidade do Shelton. Nos sites dos livros: «por Shelton Douglas · uma edição Kingdom Academy».
-Escada de valor: livro → livro com masterclass → Tracktion → Business Advising → InCompany.
+O produto, os checkouts e a entrega de todos os livros ficam na Academy (área de membros). A promoção é feita pelo autor: Reels, stories e anúncios com a identidade do Shelton. Nos sites dos livros: «por Shelton Douglas · uma edição Kingdom Academy».
+O Bloqueio Invisível é a oferta de entrada do Training. A escada de valor de cada braço está na R20.
 
 *10/10/2026 · Proposta do Claude, aceite*
 
 ### R03 · Ofertas do Kingdom Training
 
-O Training tem três ofertas: Kingdom Tracktion (mastermind por candidatura, no formato da R16, seguido da Comunidade Tracktion da R18), Kingdom Founders e 10X Mindset. O site institucional do Training Center fica fora do funil.
+O Training tem como entrada o livro O Bloqueio Invisível e três ofertas: 10X Mindset, Kingdom Founders (mentoria online de 8 encontros em 4 semanas) e Kingdom Tracktion (mastermind por candidatura, no formato da R16, seguido da Comunidade Tracktion da R18). O site institucional do Training Center fica fora do funil.
 
 *10/10/2026 · Decisão do Shelton*
 
