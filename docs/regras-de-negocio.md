@@ -29,7 +29,7 @@ Os braços servem-se uns aos outros: a Academy dá a área de membros ao Trainin
 
 ### R26 · Salário do fundador por etapas
 
-O salário do Shelton é de 100.000 MT por mês nos próximos 3 meses, depois 150.000 MT e depois 250.000 MT.
+O salário do Shelton é de 100.000 MT por mês nos primeiros 3 meses, 150.000 MT nos 3 meses seguintes e depois 250.000 MT. Só passa à etapa seguinte se a faturação dos 3 meses anteriores tiver coberto o novo valor (com a estrutura completa: cerca de 330.000 MT por mês para 100.000, 415.000 para 150.000 e 580.000 para 250.000).
 
 *10/10/2026 · Decisão do Shelton*
 
