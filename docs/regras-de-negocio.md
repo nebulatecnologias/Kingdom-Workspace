@@ -72,6 +72,12 @@ A turma atual do Tracktion (12 pessoas, formato antigo) termina com um último e
 
 *10/10/2026 · Decisão do Shelton*
 
+### R21 · Founders: preço e cobrança por turma
+
+Cada turma do Kingdom Founders tem 8 encontros online de cerca de 2 horas, em 4 semanas (2 por semana). Preço: 6.900 MT à vista na inscrição antecipada (primeira semana de inscrições) e 7.800 MT depois. Alternativa: 2 parcelas de 4.200 MT, com a 2.ª paga antes do 3.º encontro; não há 3 parcelas. Sem pagamento não há acesso, cortado no Payflow. Quem deve de uma turma anterior só entra depois de pagar a dívida. Meta da turma 5: 15 pessoas pagas.
+
+*10/10/2026 · Decisão do Shelton*
+
 ## Funil
 
 ### R05 · O funil tem 7 etapas, e cada cartão é uma só etapa
