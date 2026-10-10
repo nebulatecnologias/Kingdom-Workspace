@@ -44,7 +44,7 @@ O Bloqueio Invisível é a oferta de entrada do Training. A escada de valor de c
 
 ### R03 · Ofertas do Kingdom Training
 
-O Training tem como entrada o livro O Bloqueio Invisível e três ofertas: 10X Mindset, Kingdom Founders (mentoria online de 8 encontros em 4 semanas) e Kingdom Tracktion (mastermind por candidatura, no formato da R16, seguido da Comunidade Tracktion da R18). O site institucional do Training Center fica fora do funil.
+O Training tem como entrada o livro O Bloqueio Invisível e três ofertas: 10X Mindset, Kingdom Founders (mentoria de 8 encontros em 4 semanas, até 6 turmas por ano) e Kingdom Tracktion (mastermind por candidatura, no formato da R16, até 4 turmas por ano). O site institucional do Training Center fica fora do funil.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -56,7 +56,7 @@ A InCompany tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, M
 
 ### R16 · Tracktion: 3 meses, 6 pessoas, 12.800 MT por mês
 
-Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas. Cada participante paga 12.800 MT por mês (76.800 MT por mês e 230.400 MT por turma). Inclui, por mês, 1 advising individual de 1 hora e 1 encontro coletivo presencial de 4 horas, o Kingdom Experience: 3 encontros por turma. Quando o Shelton convida um especialista para partilhar conhecimento, a Kingdom Class acontece dentro do Experience. Inclui também o treino da equipa da empresa de cada participante, sobre os pontos levantados no início do programa: 2 equipas por mês, ou seja, uma vez por participante ao longo da turma, com cerca de 2 horas por treino. Com o tempo, o treino passa a ser dado pela equipa do Shelton. O treino é apresentado ao valor da tabela da InCompany (Treinamento de Vendas, 3.500 MT por pessoa). Os advisings e os treinos são gravados e viram conteúdo e portefólio da InCompany. Tempo do Shelton: 14 horas por mês, cerca de 5.490 MT por hora (10 horas e 7.680 MT por hora quando a equipa der os treinos). No fim dos 3 meses, os participantes passam para a Comunidade Tracktion (R18).
+Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas, com no máximo 4 turmas por ano. Cada participante paga 12.800 MT por mês (76.800 MT por mês e 230.400 MT por turma). Inclui, por mês, 1 advising individual de 1 hora e 1 encontro coletivo presencial de 4 horas, o Kingdom Experience: 3 encontros por turma. Quando o Shelton convida um especialista para partilhar conhecimento, a Kingdom Class acontece dentro do Experience. Inclui também o treino da equipa da empresa de cada participante, sobre os pontos levantados no início do programa: 2 equipas por mês, ou seja, uma vez por participante ao longo da turma, com cerca de 2 horas por treino. Com o tempo, o treino passa a ser dado pela equipa do Shelton. O treino é apresentado ao valor da tabela da InCompany. Os advisings e os treinos são gravados e viram conteúdo e portefólio da InCompany. Tempo do Shelton: 14 horas por mês, cerca de 5.490 MT por hora (10 horas e 7.680 MT por hora quando a equipa der os treinos).
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -66,7 +66,9 @@ O Business Advising avulso mantém o preço de 2.650 MT por hora, por ser online
 
 *10/10/2026 · Decisão do Shelton*
 
-### R18 · Comunidade Tracktion: 1.200 MT por mês depois dos 3 meses
+### R18 · Comunidade Tracktion (arquivada: não existe)
+
+*Arquivada a 10/10/2026 por decisão do Shelton. Texto original:*
 
 Depois dos 3 meses do Tracktion, os participantes passam a fazer parte da Comunidade Tracktion, que junta todas as turmas. Ao entrar, assinam um contrato semestral de compromisso de pagamento, que se renova automaticamente por mais 6 meses. A assinatura é de 1.200 MT por mês, cobrada por invoice enviada por email todos os meses. As invoices continuam a ser emitidas, e a dívida acumula, até a pessoa pedir para cancelar. O benefício é uma Kingdom Class online por mês com mentores convidados (sem custo para a Kingdom).
 
@@ -80,7 +82,7 @@ A turma atual do Tracktion (12 pessoas, formato antigo) termina com um último e
 
 ### R21 · Founders: preço e cobrança por turma
 
-Cada turma do Kingdom Founders tem 8 encontros de cerca de 2 horas, em 4 semanas (2 por semana). O primeiro encontro é presencial e só entra quem já pagou; os outros são online. Preço: 6.900 MT à vista na inscrição antecipada (primeira semana de inscrições) e 7.800 MT depois. Alternativa: 2 parcelas de 4.200 MT, com a 2.ª paga antes do 3.º encontro; não há 3 parcelas. Sem pagamento não há acesso, cortado no Payflow. Quem deve de uma turma anterior só entra depois de pagar a dívida. Meta da turma 5: 15 pessoas pagas. A Founders Community é gratuita e separada da Comunidade Tracktion.
+Cada turma do Kingdom Founders tem 8 encontros de cerca de 2 horas, em 4 semanas (2 por semana), com no máximo 6 turmas por ano. O primeiro encontro é presencial e só entra quem já pagou; os outros são online. Preço: 6.900 MT à vista na inscrição antecipada (primeira semana de inscrições) e 7.800 MT depois. Alternativa: 2 parcelas de 4.200 MT, com a 2.ª paga antes do 3.º encontro; não há 3 parcelas. Sem pagamento não há acesso, cortado no Payflow. Quem deve de uma turma anterior só entra depois de pagar a dívida. Meta da turma 5: 15 pessoas pagas. A Founders Community é gratuita.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -99,6 +101,12 @@ Livros: 325 MT. Livro + masterclass: 947 MT. Todos os cursos gravados custam 1.3
 ### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas
 
 O Treinamento de Vendas da InCompany dura 3 dias de cerca de 3 horas (9 horas). Custa 26.500 MT por empresa até 10 pessoas; cada pessoa a mais paga 3.500 MT. Cumpre o piso da R22 com 10% de comissão.
+
+*10/10/2026 · Decisão do Shelton*
+
+### R27 · Desenvolvimento Tecnológico: preços de websites e sistemas
+
+Na InCompany, o desenvolvimento de websites custa de 15.000 MT a 65.000 MT. O desenvolvimento de sistemas custa de 95.000 MT a 350.000 MT.
 
 *10/10/2026 · Decisão do Shelton*
 
