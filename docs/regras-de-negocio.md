@@ -27,6 +27,12 @@ Os braços servem-se uns aos outros: a Academy dá a área de membros ao Trainin
 
 *10/10/2026 · Decisão do Shelton*
 
+### R26 · Salário do fundador por etapas
+
+O salário do Shelton é de 100.000 MT por mês nos próximos 3 meses, depois 150.000 MT e depois 250.000 MT.
+
+*10/10/2026 · Decisão do Shelton*
+
 ## Ofertas
 
 ### R02 · Os livros são da Academy; quem os promove é o Shelton
@@ -74,13 +80,25 @@ A turma atual do Tracktion (12 pessoas, formato antigo) termina com um último e
 
 ### R21 · Founders: preço e cobrança por turma
 
-Cada turma do Kingdom Founders tem 8 encontros online de cerca de 2 horas, em 4 semanas (2 por semana). Preço: 6.900 MT à vista na inscrição antecipada (primeira semana de inscrições) e 7.800 MT depois. Alternativa: 2 parcelas de 4.200 MT, com a 2.ª paga antes do 3.º encontro; não há 3 parcelas. Sem pagamento não há acesso, cortado no Payflow. Quem deve de uma turma anterior só entra depois de pagar a dívida. Meta da turma 5: 15 pessoas pagas. A Founders Community é gratuita e separada da Comunidade Tracktion.
+Cada turma do Kingdom Founders tem 8 encontros de cerca de 2 horas, em 4 semanas (2 por semana). O primeiro encontro é presencial e só entra quem já pagou; os outros são online. Preço: 6.900 MT à vista na inscrição antecipada (primeira semana de inscrições) e 7.800 MT depois. Alternativa: 2 parcelas de 4.200 MT, com a 2.ª paga antes do 3.º encontro; não há 3 parcelas. Sem pagamento não há acesso, cortado no Payflow. Quem deve de uma turma anterior só entra depois de pagar a dívida. Meta da turma 5: 15 pessoas pagas. A Founders Community é gratuita e separada da Comunidade Tracktion.
 
 *10/10/2026 · Decisão do Shelton*
 
 ### R22 · Piso de preço: 2.650 MT por hora ao vivo do Shelton
 
 Nenhuma oferta paga menos de 2.650 MT por cada hora do Shelton ao vivo. Preço mínimo = horas do Shelton × 2.650 MT + custos diretos. É um piso, não um alvo: as ofertas em grupo devem ficar acima dele.
+
+*10/10/2026 · Decisão do Shelton*
+
+### R23 · Preços das ofertas de entrada e da Academy
+
+Livros: 325 MT. Livro + masterclass: 947 MT. Curso Escala 10X (gravado): 1.200 MT. 10X Mindset (curso gravado): 1.350 MT. Plataforma de cursos da Kingdom Academy: 450 MT por mês.
+
+*10/10/2026 · Decisão do Shelton*
+
+### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas
+
+O Treinamento de Vendas da InCompany dura 3 dias de cerca de 3 horas (9 horas). Custa 26.500 MT por empresa até 10 pessoas; cada pessoa a mais paga 3.500 MT. Cumpre o piso da R22 com 10% de comissão.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -147,6 +165,12 @@ Não se gasta em anúncios sem o Pixel da Meta instalado nos sites e sem uma com
 ### R15 · Founders Podcast: co-produção InCompany e Mídia Pro
 
 O podcast do Shelton é uma co-produção da Kingdom InCompany com a Mídia Pro, o estúdio que patrocina a gravação. É o motor de conteúdo do núcleo: dá autoridade, alcance e um canal para vender as ofertas.
+
+*10/10/2026 · Decisão do Shelton*
+
+### R24 · Que ofertas levam anúncios
+
+Todas as ofertas de entrada levam anúncios de vendas (livros, livro + masterclass, Escala 10X, 10X Mindset, plataforma). O Kingdom Founders também. O Business Advising vende-se com anúncios de reconhecimento e de visitas ao perfil do Shelton, não com anúncios de venda direta. Custo de venda de referência: 30% em anúncios e 10% de comissão.
 
 *10/10/2026 · Decisão do Shelton*
 
