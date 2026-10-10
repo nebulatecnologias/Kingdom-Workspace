@@ -66,9 +66,9 @@ Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas, com no máximo 4 t
 
 *10/10/2026 · Decisão do Shelton*
 
-### R17 · Advising avulso: 2.650 MT por hora, online
+### R17 · Business Advising no piso: 2.650 MT por hora online, 5.800 MT presencial
 
-O Business Advising avulso mantém o preço de 2.650 MT por hora, por ser online. Fecha direto no site (R08).
+O Business Advising fica no piso da R22. Online: 2.650 MT por hora. Presencial: 5.800 MT até 2 horas (2 × 2.650 MT mais cerca de 500 MT de deslocação). Fecha direto no site (R08).
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -104,15 +104,21 @@ Livros: 325 MT. Livro + masterclass: 947 MT. Todos os cursos gravados custam 1.3
 
 *10/10/2026 · Decisão do Shelton*
 
-### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas
+### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas, depois 32.000
 
-O Treinamento de Vendas da InCompany dura 3 dias de cerca de 3 horas (9 horas). Custa 26.500 MT por empresa até 10 pessoas; cada pessoa a mais paga 3.500 MT. Cumpre o piso da R22 com 10% de comissão.
+O Treinamento de Vendas da InCompany dura 3 dias de cerca de 3 horas (9 horas). Custa 26.500 MT por empresa até 10 pessoas nas 3 primeiras empresas, para ganhar portefólio; depois passa a 32.000 MT, para cobrir a preparação. Cada pessoa a mais paga 3.500 MT.
 
 *10/10/2026 · Decisão do Shelton*
 
 ### R27 · Desenvolvimento Tecnológico: preços de websites e sistemas
 
 Na InCompany, o desenvolvimento de websites custa de 15.000 MT a 65.000 MT. O website de 15.000 MT é um one pager feito com skills e modelos, em cerca de 2 horas do Shelton. O desenvolvimento de sistemas custa de 95.000 MT a 350.000 MT.
+
+*10/10/2026 · Decisão do Shelton*
+
+### R29 · Preços da InCompany
+
+Perfil Corporativo: 9.500 MT. Propostas Comerciais e de Concursos: 18.500 MT. Business Plan (Consultoria Estratégica): 32.500 MT; passa a 45.000 MT se levar mais de 11 horas do Shelton. MediaTrack: em média 25.000 MT por mês (15.000 a 35.000), contrato mínimo de 3 meses e pagamento antes de cada mês. Websites e sistemas têm manutenção mensal obrigatória: a partir de 1.500 MT por mês nos websites e 5.000 MT por mês nos sistemas. Expert Led Growth 65.200 MT, Brand 121 135.000 MT e Gestão Comercial e Marketing 45.000 MT mantêm-se até haver horas reais medidas.
 
 *10/10/2026 · Decisão do Shelton*
 
