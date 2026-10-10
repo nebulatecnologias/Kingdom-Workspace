@@ -33,6 +33,12 @@ O salário do Shelton é de 100.000 MT por mês nos primeiros 3 meses, 150.000 M
 
 *10/10/2026 · Decisão do Shelton*
 
+### R28 · Quem entrega a InCompany
+
+No primeiro trimestre, o Shelton entrega pessoalmente a maioria dos serviços da InCompany, com inteligência artificial. Depois, a entrega passa para a equipa e para subcontratados. Preços médios de referência para o plano: MediaTrack 25.000 MT por cliente por mês, website 15.000 MT, sistema 95.000 MT.
+
+*10/10/2026 · Decisão do Shelton*
+
 ## Ofertas
 
 ### R02 · Os livros são da Academy; quem os promove é o Shelton
