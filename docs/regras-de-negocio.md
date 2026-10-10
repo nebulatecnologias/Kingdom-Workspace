@@ -94,6 +94,12 @@ Não se gasta em anúncios sem o Pixel da Meta instalado nos sites e sem uma com
 
 *10/10/2026 · Proposta do Claude, aceite*
 
+### R15 · Founders Podcast: co-produção InCompany e Mídia Pro
+
+O podcast do Shelton é uma co-produção da Kingdom InCompany com a Mídia Pro, o estúdio que patrocina a gravação. É o motor de conteúdo do núcleo: dá autoridade, alcance e um canal para vender as ofertas.
+
+*10/10/2026 · Decisão do Shelton*
+
 ## Marca e sites
 
 ### R14 · Cores e estilo de cada peça
