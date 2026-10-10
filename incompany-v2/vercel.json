@@ -1,1 +1,4 @@
-{"cleanUrls":true,"trailingSlash":false}
+{"cleanUrls":true,"trailingSlash":false,"redirects":[
+ {"source":"/servicos/desenvolvimento-editorial/business-plan","destination":"/servicos/consultoria-estrategica/business-plan","permanent":true},
+ {"source":"/servicos/assessoria-corporativa/assessoria-de-eventos","destination":"/servicos/assessoria-corporativa","permanent":true}
+]}
