@@ -56,7 +56,7 @@
     conversa:'<path d="M21 12a8 8 0 0 1-11.5 7.2L4 20.5l1.3-5A8 8 0 1 1 21 12z"/>'
   };
   const DETALHES = [
-    [["mesa", "Mesa estratégica", "uma por mês, no Google Meet"], ["um", "Advising individual", "online ou presencial, todos os meses"], ["local", "Encontro colectivo", "presencial, todos os meses"],
+    [["mesa", "Kingdom Class", "especialistas convidados"], ["um", "Advising individual", "uma hora, todos os meses"], ["local", "Encontro colectivo", "presencial, três por mês"],
      ["conversa", "Experiências reais", "contadas por quem as viveu"], ["estrela", "Convidados especiais", "só para membros"], ["pasta", "Oportunidades de negócio", "entre membros"]],
     [["escudo", "Validação de decisões", "antes de arriscar"], ["rede", "Networking estratégico", "parcerias qualificadas"], ["olho", "Bastidores empresariais", "de quem já cresceu"],
      ["etiqueta", "Descontos no ecossistema", "em serviços de parceiros"], ["equipa", "Treino da equipa", "com o Training"], ["conversa", "Proximidade contínua", "entre encontros"]]
