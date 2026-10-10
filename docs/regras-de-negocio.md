@@ -78,6 +78,12 @@ Cada turma do Kingdom Founders tem 8 encontros online de cerca de 2 horas, em 4 
 
 *10/10/2026 · Decisão do Shelton*
 
+### R22 · Piso de preço: 2.650 MT por hora ao vivo do Shelton
+
+Nenhuma oferta paga menos de 2.650 MT por cada hora do Shelton ao vivo. Preço mínimo = horas do Shelton × 2.650 MT + custos diretos. É um piso, não um alvo: as ofertas em grupo devem ficar acima dele.
+
+*10/10/2026 · Decisão do Shelton*
+
 ## Funil
 
 ### R05 · O funil tem 7 etapas, e cada cartão é uma só etapa
