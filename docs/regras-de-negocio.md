@@ -24,13 +24,25 @@ Escada de valor: livro → livro com masterclass → Tracktion → Business Advi
 
 ### R03 · Ofertas do Kingdom Training
 
-O Training tem três ofertas: Kingdom Tracktion (mastermind por candidatura), Kingdom Founders e 10X Mindset. O site institucional do Training Center fica fora do funil.
+O Training tem três ofertas: Kingdom Tracktion (mastermind por candidatura, no formato da R16), Kingdom Founders e 10X Mindset. O site institucional do Training Center fica fora do funil.
 
 *10/10/2026 · Decisão do Shelton*
 
 ### R04 · Kingdom InCompany: 5 áreas e 3 planos por serviço
 
-A InCompany tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Marketing & Vendas, Desenvolvimento Tecnológico e Assessoria Corporativa. O site oficial é a versão 2, em incompany.kingdomcompny.com. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta.
+A InCompany tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Marketing & Vendas, Desenvolvimento Tecnológico e Assessoria Corporativa. O site oficial é a versão 2, em incompany.kingdomcompny.com. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta. Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da InCompany (R16).
+
+*10/10/2026 · Decisão do Shelton*
+
+### R16 · Tracktion: 3 meses, 6 pessoas, 12.800 MT por mês
+
+Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas. Cada participante paga 12.800 MT por mês (76.800 MT por mês e 230.400 MT por turma). Inclui, por mês, 1 advising individual de 1 hora e 3 encontros coletivos. Inclui também o treino da equipa da empresa de cada participante, sobre os pontos levantados no início do programa: 2 equipas por mês, ou seja, uma vez por participante ao longo da turma. O treino é apresentado ao valor da tabela da InCompany (Treinamento de Vendas, 3.500 MT por pessoa). Os advisings e os treinos são gravados e viram conteúdo e portefólio da InCompany.
+
+*10/10/2026 · Decisão do Shelton*
+
+### R17 · Advising avulso: 2.650 MT por hora, online
+
+O Business Advising avulso mantém o preço de 2.650 MT por hora, por ser online. Fecha direto no site (R08).
 
 *10/10/2026 · Decisão do Shelton*
 
