@@ -122,6 +122,24 @@ Perfil Corporativo: 9.500 MT. Propostas Comerciais e de Concursos: 18.500 MT. Bu
 
 *10/10/2026 · Decisão do Shelton*
 
+### R30 · One pager: âmbito fechado por 15.000 MT
+
+**Inclui:**
+
+- 1 página feita a partir de um modelo Kingdom, com até 7 secções: abertura com a promessa e o botão principal, serviços ou solução, prova (até 3 testemunhos ou logótipos), oferta ou preços, até 5 perguntas frequentes, contacto final e rodapé.
+- Textos escritos por nós a partir de um questionário de 10 perguntas que o cliente responde antes de começarmos. O cliente envia logótipo, cores, até 8 fotografias e contactos.
+- Botões para WhatsApp, chamada, email, formulário ou link de pagamento.
+- Versão para telemóvel e computador, título, descrição e imagem de partilha.
+- Publicação num subdomínio Kingdom ou no domínio do cliente (o cliente compra o domínio; nós ligamos).
+- 1 ronda de revisões com até 10 alterações numa única lista, pedida até 5 dias depois da entrega.
+- Prazo: 48 horas úteis depois de recebermos os materiais e o pagamento.
+- Pagamento: 100% antes de começar.
+- Manutenção obrigatória de 1.500 MT por mês: alojamento, certificado de segurança, suporte e até 2 pequenas alterações por mês.
+
+**Não inclui:** mais páginas, blog, loja, área de membros ou segunda língua (passa a website de 35.000 a 65.000 MT); integrações por API, sistemas ou automações; fotografia, vídeo, logótipo ou identidade visual; domínio e email profissional; anúncios e gestão de redes (MediaTrack). Ronda de revisões a mais: 1.500 MT. Sem materiais em 10 dias, o projeto entra na fila outra vez.
+
+*10/10/2026 · Proposta do Claude, a pedido do Shelton*
+
 ## Funil
 
 ### R05 · O funil tem 7 etapas, e cada cartão é uma só etapa
