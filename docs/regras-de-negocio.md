@@ -92,7 +92,7 @@ Nenhuma oferta paga menos de 2.650 MT por cada hora do Shelton ao vivo. Preço m
 
 ### R23 · Preços das ofertas de entrada e da Academy
 
-Livros: 325 MT. Livro + masterclass: 947 MT. Curso Escala 10X (gravado): 1.200 MT. 10X Mindset (curso gravado): 1.350 MT. Plataforma de cursos da Kingdom Academy: 450 MT por mês.
+Livros: 325 MT. Livro + masterclass: 947 MT. Todos os cursos gravados custam 1.350 MT (Escala 10X, 10X Mindset e os que vierem). Plataforma de cursos da Kingdom Academy: 450 MT por mês.
 
 *10/10/2026 · Decisão do Shelton*
 
