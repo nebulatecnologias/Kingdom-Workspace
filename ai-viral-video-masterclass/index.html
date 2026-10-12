@@ -175,12 +175,12 @@
   .modules li{ display:grid; grid-template-columns:52px 1fr; gap:6px 14px; padding-block:18px; border-bottom:1px solid var(--line); }
   .modules li:first-child{ border-top:1px solid var(--line); }
   .mod-n{ font-family:var(--font-display); font-weight:800; font-size:22px; color:var(--lime); line-height:1.2; font-variant-numeric:tabular-nums; }
-  .modules h3{ font-size:17px; font-weight:700; line-height:1.3; }
+  .modules h3{ font-size:20px; font-weight:700; line-height:1.3; }
   .modules p{ color:var(--ink-soft); font-size:14.5px; margin-top:4px; }
   .features{ display:flex; flex-direction:column; gap:14px; }
   .feature{ display:flex; gap:16px; padding:20px; }
   .feature .effect-icon{ width:42px; height:42px; }
-  .feature h3{ font-size:17px; font-weight:700; }
+  .feature h3{ font-size:20px; font-weight:700; }
   .feature p{ color:var(--ink-soft); font-size:14.5px; margin-top:4px; }
   .who-title{ font-size:24px; font-weight:800; text-align:center; margin:64px 0 24px; }
   .who-grid{ display:grid; gap:16px; }
@@ -218,16 +218,13 @@
       radial-gradient(120% 80% at 80% 0%, rgba(189,242,74,.22), transparent 60%),
       linear-gradient(160deg, #1E2318, #0E100B 70%);
   }
-  .cover::after{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
-    background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size:28px 28px; mask-image:linear-gradient(180deg, #000 0%, transparent 85%); -webkit-mask-image:linear-gradient(180deg, #000 0%, transparent 85%); }
   .cover-art{ position:absolute; top:18%; right:14%; width:46%; aspect-ratio:1/1; color:var(--lime); opacity:.95; }
   .cover-art svg{ width:100%; height:100%; }
   .cover .chip{ position:absolute; top:14px; left:14px; }
   .cover-kicker{ font-size:11px; font-weight:800; letter-spacing:.14em; color:var(--lime); text-transform:uppercase; }
   .cover-title{ font-family:var(--font-display); font-weight:800; font-size:22px; line-height:1.05; letter-spacing:-.02em; text-transform:uppercase; margin-top:6px; text-wrap:balance; }
   .bonus-body{ padding:20px; display:flex; flex-direction:column; flex:1; }
-  .bonus-body h3{ font-size:17px; font-weight:700; line-height:1.3; }
+  .bonus-body h3{ font-size:20px; font-weight:700; line-height:1.3; }
   .bonus-body p{ color:var(--ink-soft); font-size:14.5px; margin-top:8px; flex:1; }
   .bonus-foot{ margin-top:16px; padding-top:16px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:14px; color:var(--ink-soft); }
   .bonus-total{ max-width:560px; margin:44px auto 0; padding:28px; text-align:center; border:2px dashed rgba(189,242,74,.55); }
@@ -294,7 +291,7 @@
   .foot-grid{ display:grid; gap:32px; }
   @media (min-width:640px){ .foot-grid{ grid-template-columns:1fr 1fr; } }
   @media (min-width:960px){ .foot-grid{ grid-template-columns:1.4fr 1fr 1fr 1.4fr; } }
-  .foot-grid h4{ font-family:var(--font-body); font-size:14px; font-weight:800; margin-bottom:12px; letter-spacing:0; }
+  .foot-h{ font-weight:800; color:var(--ink) !important; margin-bottom:12px; }
   .foot-grid p, .foot-grid li{ color:var(--ink-soft); }
   .foot-grid li{ padding-block:4px; }
   .foot-grid a{ text-decoration:none; }
@@ -823,7 +820,7 @@
         <p style="margin-top:10px">An online video course on the AI edits behind viral short-form video.</p>
       </div>
       <div>
-        <h4>Site</h4>
+        <p class="foot-h">Site</p>
         <ul>
           <li><a href="#top">Home</a></li>
           <li><a href="#pricing">Pricing</a></li>
@@ -832,7 +829,7 @@
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <p class="foot-h">Legal</p>
         <ul>
           <li><a href="#terms">Terms of Use</a></li>
           <li><a href="#privacy">Privacy Policy</a></li>
@@ -840,7 +837,7 @@
         </ul>
       </div>
       <div>
-        <h4>About</h4>
+        <p class="foot-h">About</p>
         <p>AI Viral Video Masterclass is a brand of Shelton Douglas Group (Pty) Ltd (Reg. 2025/432920/07), Midrand, South Africa.</p>
       </div>
     </div>

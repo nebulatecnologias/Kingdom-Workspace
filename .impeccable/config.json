@@ -89,6 +89,24 @@
         ],
         "createdAt": "2026-09-23T18:07:04.184Z",
         "reason": "assistant judgement: false positive — table-wrap sits flush in the card by design while each th/td carries 16px padding (same pattern as the reviewed prototype)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "ai-viral-video-masterclass/index.html"
+        ],
+        "createdAt": "2026-10-12T15:22:37.946Z",
+        "reason": "Claude: padding is on the inner .wrap / padding-block (72px sections, 18px module rows, centred seal); verified in rendered screenshots"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "ai-viral-video-masterclass/index.html"
+        ],
+        "createdAt": "2026-10-12T15:22:37.964Z",
+        "reason": "Claude: chip reproduces the user's supplied PDF design (AI_Viral_Video_Masterclass.pdf hero)"
       }
     ]
   }
