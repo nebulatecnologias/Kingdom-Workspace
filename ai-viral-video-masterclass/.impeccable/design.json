@@ -1,0 +1,502 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T00:00:00Z",
+  "title": "Design System: AI Viral Video Masterclass",
+  "extensions": {
+    "colorMeta": {
+      "monitor-black": {
+        "role": "neutral",
+        "displayName": "Monitor Black",
+        "canonical": "#0A0B08",
+        "tonalRamp": [
+          "oklch(15% 0.008 120)",
+          "oklch(25% 0.008 120)",
+          "oklch(38% 0.008 120)",
+          "oklch(50% 0.008 120)",
+          "oklch(62% 0.008 120)",
+          "oklch(74% 0.008 120)",
+          "oklch(85% 0.008 120)",
+          "oklch(95% 0.008 120)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#121410",
+        "tonalRamp": [
+          "oklch(15% 0.01 120)",
+          "oklch(25% 0.01 120)",
+          "oklch(38% 0.01 120)",
+          "oklch(50% 0.01 120)",
+          "oklch(62% 0.01 120)",
+          "oklch(74% 0.01 120)",
+          "oklch(85% 0.01 120)",
+          "oklch(95% 0.01 120)"
+        ]
+      },
+      "panel-2": {
+        "role": "neutral",
+        "displayName": "Panel 2",
+        "canonical": "#171A13",
+        "tonalRamp": [
+          "oklch(15% 0.012 120)",
+          "oklch(25% 0.012 120)",
+          "oklch(38% 0.012 120)",
+          "oklch(50% 0.012 120)",
+          "oklch(62% 0.012 120)",
+          "oklch(74% 0.012 120)",
+          "oklch(85% 0.012 120)",
+          "oklch(95% 0.012 120)"
+        ]
+      },
+      "panel-3": {
+        "role": "neutral",
+        "displayName": "Panel 3",
+        "canonical": "#1F2319",
+        "tonalRamp": [
+          "oklch(15% 0.016 120)",
+          "oklch(25% 0.016 120)",
+          "oklch(38% 0.016 120)",
+          "oklch(50% 0.016 120)",
+          "oklch(62% 0.016 120)",
+          "oklch(74% 0.016 120)",
+          "oklch(85% 0.016 120)",
+          "oklch(95% 0.016 120)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#F1F4EA",
+        "tonalRamp": [
+          "oklch(15% 0.015 120)",
+          "oklch(25% 0.015 120)",
+          "oklch(38% 0.015 120)",
+          "oklch(50% 0.015 120)",
+          "oklch(62% 0.015 120)",
+          "oklch(74% 0.015 120)",
+          "oklch(85% 0.015 120)",
+          "oklch(95% 0.015 120)"
+        ]
+      },
+      "soft": {
+        "role": "neutral",
+        "displayName": "Soft Sage",
+        "canonical": "#A9AF9D",
+        "tonalRamp": [
+          "oklch(15% 0.025 120)",
+          "oklch(25% 0.025 120)",
+          "oklch(38% 0.025 120)",
+          "oklch(50% 0.025 120)",
+          "oklch(62% 0.025 120)",
+          "oklch(74% 0.025 120)",
+          "oklch(85% 0.025 120)",
+          "oklch(95% 0.025 120)"
+        ]
+      },
+      "mute": {
+        "role": "neutral",
+        "displayName": "Mute Sage",
+        "canonical": "#8C9283",
+        "tonalRamp": [
+          "oklch(15% 0.02 120)",
+          "oklch(25% 0.02 120)",
+          "oklch(38% 0.02 120)",
+          "oklch(50% 0.02 120)",
+          "oklch(62% 0.02 120)",
+          "oklch(74% 0.02 120)",
+          "oklch(85% 0.02 120)",
+          "oklch(95% 0.02 120)"
+        ]
+      },
+      "playhead-lime": {
+        "role": "primary",
+        "displayName": "Playhead Lime",
+        "canonical": "#C2F24B",
+        "tonalRamp": [
+          "oklch(15% 0.19 125)",
+          "oklch(25% 0.19 125)",
+          "oklch(38% 0.19 125)",
+          "oklch(50% 0.19 125)",
+          "oklch(62% 0.19 125)",
+          "oklch(74% 0.19 125)",
+          "oklch(85% 0.19 125)",
+          "oklch(95% 0.19 125)"
+        ]
+      },
+      "playhead-lime-hover": {
+        "role": "primary",
+        "displayName": "Lime Hover",
+        "canonical": "#CEF865",
+        "tonalRamp": [
+          "oklch(15% 0.19 125)",
+          "oklch(25% 0.19 125)",
+          "oklch(38% 0.19 125)",
+          "oklch(50% 0.19 125)",
+          "oklch(62% 0.19 125)",
+          "oklch(74% 0.19 125)",
+          "oklch(85% 0.19 125)",
+          "oklch(95% 0.19 125)"
+        ]
+      },
+      "playhead-lime-deep": {
+        "role": "primary",
+        "displayName": "Lime Deep",
+        "canonical": "#A6D82C",
+        "tonalRamp": [
+          "oklch(15% 0.19 125)",
+          "oklch(25% 0.19 125)",
+          "oklch(38% 0.19 125)",
+          "oklch(50% 0.19 125)",
+          "oklch(62% 0.19 125)",
+          "oklch(74% 0.19 125)",
+          "oklch(85% 0.19 125)",
+          "oklch(95% 0.19 125)"
+        ]
+      },
+      "lime-wash": {
+        "role": "primary",
+        "displayName": "Lime Wash",
+        "canonical": "rgba(194,242,75,.09)",
+        "tonalRamp": [
+          "oklch(15% 0.19 125)",
+          "oklch(25% 0.19 125)",
+          "oklch(38% 0.19 125)",
+          "oklch(50% 0.19 125)",
+          "oklch(62% 0.19 125)",
+          "oklch(74% 0.19 125)",
+          "oklch(85% 0.19 125)",
+          "oklch(95% 0.19 125)"
+        ]
+      },
+      "lime-line": {
+        "role": "primary",
+        "displayName": "Lime Line",
+        "canonical": "rgba(194,242,75,.45)",
+        "tonalRamp": [
+          "oklch(15% 0.19 125)",
+          "oklch(25% 0.19 125)",
+          "oklch(38% 0.19 125)",
+          "oklch(50% 0.19 125)",
+          "oklch(62% 0.19 125)",
+          "oklch(74% 0.19 125)",
+          "oklch(85% 0.19 125)",
+          "oklch(95% 0.19 125)"
+        ]
+      },
+      "rec-red": {
+        "role": "tertiary",
+        "displayName": "REC Red",
+        "canonical": "#F0414E",
+        "tonalRamp": [
+          "oklch(15% 0.2 22)",
+          "oklch(25% 0.2 22)",
+          "oklch(38% 0.2 22)",
+          "oklch(50% 0.2 22)",
+          "oklch(62% 0.2 22)",
+          "oklch(74% 0.2 22)",
+          "oklch(85% 0.2 22)",
+          "oklch(95% 0.2 22)"
+        ]
+      },
+      "rec-red-deep": {
+        "role": "tertiary",
+        "displayName": "REC Red Deep",
+        "canonical": "#7E121B",
+        "tonalRamp": [
+          "oklch(15% 0.2 22)",
+          "oklch(25% 0.2 22)",
+          "oklch(38% 0.2 22)",
+          "oklch(50% 0.2 22)",
+          "oklch(62% 0.2 22)",
+          "oklch(74% 0.2 22)",
+          "oklch(85% 0.2 22)",
+          "oklch(95% 0.2 22)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "rgba(220,240,180,.09)",
+        "tonalRamp": [
+          "oklch(15% 0.05 120)",
+          "oklch(25% 0.05 120)",
+          "oklch(38% 0.05 120)",
+          "oklch(50% 0.05 120)",
+          "oklch(62% 0.05 120)",
+          "oklch(74% 0.05 120)",
+          "oklch(85% 0.05 120)",
+          "oklch(95% 0.05 120)"
+        ]
+      },
+      "line-2": {
+        "role": "neutral",
+        "displayName": "Line 2",
+        "canonical": "rgba(220,240,180,.16)",
+        "tonalRamp": [
+          "oklch(15% 0.05 120)",
+          "oklch(25% 0.05 120)",
+          "oklch(38% 0.05 120)",
+          "oklch(50% 0.05 120)",
+          "oklch(62% 0.05 120)",
+          "oklch(74% 0.05 120)",
+          "oklch(85% 0.05 120)",
+          "oklch(95% 0.05 120)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline and final call; uppercase, second line lime."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section heads, uppercase, one lime accent phrase."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card, plan, module, bonus and modal titles (19-28px)."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Plan and pop-up prices, value-stack total."
+      },
+      "timecode": {
+        "displayName": "Timecode",
+        "purpose": "Countdown, monitor counter, clip metadata; tabular."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default copy in Soft."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Section intro, max 58ch (46ch in hero at 19px)."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tags, clip chips, frame labels, spec labels; annotates objects, never an eyebrow."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lift",
+        "value": "0 18px 40px -18px rgba(0,0,0,.85)",
+        "purpose": "Monitor, phone frames, recommended plan, toast."
+      },
+      {
+        "name": "button-press",
+        "value": "0 14px 28px -14px rgba(0,0,0,.9), inset 0 -3px 0 rgba(0,0,0,.14)",
+        "purpose": "Lime buttons only."
+      },
+      {
+        "name": "knob",
+        "value": "0 10px 24px -8px rgba(0,0,0,.8)",
+        "purpose": "Playhead knob."
+      },
+      {
+        "name": "sheet",
+        "value": "0 -20px 60px -20px rgba(0,0,0,.9)",
+        "purpose": "Pop-up sheets and sticky mobile bar."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "All transforms: button lift, knob scale, card lift, sheet rise, toast."
+      },
+      {
+        "name": "hover",
+        "value": ".2s",
+        "purpose": "Button and colour state changes."
+      },
+      {
+        "name": "card-lift",
+        "value": ".3s, translateY(-6px)",
+        "purpose": "Bonus card hover."
+      },
+      {
+        "name": "sheet-rise",
+        "value": ".45s, translateY(40px) to 0",
+        "purpose": "Pop-up entry."
+      },
+      {
+        "name": "rec-blink",
+        "value": "1.2s steps(1) infinite",
+        "purpose": "REC dot."
+      },
+      {
+        "name": "swap-wipe",
+        "value": "5s alternate infinite",
+        "purpose": "Object-swap loop wipe."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Stops demo loops, blink and transitions; smooth scroll off."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "brand",
+        "value": "600px"
+      },
+      {
+        "name": "bonus-2col",
+        "value": "640px"
+      },
+      {
+        "name": "gutter",
+        "value": "768px"
+      },
+      {
+        "name": "grids",
+        "value": "820px"
+      },
+      {
+        "name": "plans",
+        "value": "860px"
+      },
+      {
+        "name": "section",
+        "value": "900px"
+      },
+      {
+        "name": "hero",
+        "value": "960px"
+      },
+      {
+        "name": "timeline",
+        "value": "980px"
+      },
+      {
+        "name": "bonus-4col",
+        "value": "1080px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Lime pressable key for every buy action.",
+      "html": "<button class=\"ds-btn ds-btn-lime\">Get instant access <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/></svg></button>",
+      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;border-radius:14px;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.2;transition:transform .2s var(--ease),background-color .2s ease,border-color .2s ease;} .ds-btn:hover{transform:translateY(-2px);} .ds-btn:active{transform:scale(.97);} .ds-btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-btn svg{transition:transform .2s var(--ease);} .ds-btn:hover svg{transform:translateX(4px);} .ds-btn-lime{background:var(--lime);color:var(--lime-ink);box-shadow:0 14px 28px -14px rgba(0,0,0,.9),inset 0 -3px 0 rgba(0,0,0,.14);} .ds-btn-lime:hover{background:#CEF865;} "
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary choice: Basic plan, pop-up refusal.",
+      "html": "<button class=\"ds-btn ds-btn-ghost\">Get the Basic Plan</button>",
+      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;border-radius:14px;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.2;transition:transform .2s var(--ease),background-color .2s ease,border-color .2s ease;} .ds-btn:hover{transform:translateY(-2px);} .ds-btn:active{transform:scale(.97);} .ds-btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-btn svg{transition:transform .2s var(--ease);} .ds-btn:hover svg{transform:translateX(4px);} .ds-btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line-2);} .ds-btn-ghost:hover{border-color:var(--lime);}"
+    },
+    {
+      "name": "Tags",
+      "kind": "chip",
+      "refersTo": "tag-lime",
+      "description": "Uppercase object labels: solid lime status, lime outline, dim outline.",
+      "html": "<div class=\"ds-row\"><span class=\"ds-tag ds-tag-lime\">Best value</span><span class=\"ds-tag ds-tag-line\">Free today</span><span class=\"ds-tag ds-tag-dim\">PDF</span></div>",
+      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-row{display:flex;gap:8px;padding:16px;background:var(--bg);font-family:var(--body);} .ds-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;padding:5px 9px;line-height:1.2;} .ds-tag-lime{background:var(--lime);color:var(--lime-ink);} .ds-tag-line{border:1px solid var(--lime-line);color:var(--lime);} .ds-tag-dim{border:1px solid var(--line-2);color:var(--soft);}"
+    },
+    {
+      "name": "Countdown Bar",
+      "kind": "nav",
+      "refersTo": "timecode-digits",
+      "description": "Sticky top bar with tabular timecode digits in a lime chip.",
+      "html": "<div class=\"ds-bar\"><b>Today only: Premium R299</b><span class=\"ds-tc\"><span class=\"ds-digits\">05:42:17</span></span><a href=\"#\">Get it now</a></div>",
+      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-bar{display:flex;align-items:center;justify-content:center;gap:14px;padding:9px 16px;background:var(--panel);color:var(--ink);border-bottom:1px solid var(--line-2);font-family:var(--body);font-size:13px;} .ds-bar b{font-family:var(--display);font-weight:700;letter-spacing:.04em;} .ds-tc{font-family:var(--display);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.06em;} .ds-digits{background:var(--lime);color:var(--lime-ink);border-radius:6px;padding:2px 8px;} .ds-bar a{color:var(--lime);font-weight:800;} .ds-bar a:focus-visible{outline:3px solid var(--lime);outline-offset:3px;}"
+    },
+    {
+      "name": "Preview Monitor",
+      "kind": "custom",
+      "refersTo": "preview-monitor",
+      "description": "Signature before/after scrub frame with REC chrome, lime playhead, safe-area brackets.",
+      "html": "<div class=\"ds-mon\"><div class=\"ds-chrome\"><span><i class=\"ds-rec\"></i>PREVIEW</span><span class=\"ds-tcn\">00:00:05:12</span></div><div class=\"ds-scrub\"><div class=\"ds-after\"></div><div class=\"ds-before\"></div><div class=\"ds-safe\"><i></i><i></i><i></i><i></i></div><div class=\"ds-head\"><span class=\"ds-flag\"></span><span class=\"ds-knob\"></span></div><p class=\"ds-cap\">Grey sedan in a garage &rarr; <b>black supercar at golden hour</b></p></div><div class=\"ds-seg\"><button>Before</button><button aria-pressed=\"true\">Split</button><button>After</button></div></div>",
+      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-mon{max-width:320px;padding:16px;background:var(--bg);font-family:var(--body);color:var(--ink);} .ds-chrome{display:flex;justify-content:space-between;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--soft);padding:0 4px 10px;font-family:var(--display);font-variant-numeric:tabular-nums;} .ds-chrome span{display:inline-flex;align-items:center;gap:8px;} .ds-tcn{color:var(--ink);} .ds-rec{width:8px;height:8px;border-radius:50%;background:var(--rec);display:inline-block;} .ds-scrub{position:relative;aspect-ratio:440/512;border-radius:var(--r-lg);overflow:hidden;background:var(--panel-3);border:1px solid var(--line-2);box-shadow:0 18px 40px -18px rgba(0,0,0,.85);} .ds-after{position:absolute;inset:0;background:linear-gradient(160deg,#F2A45B,#3B2A4A);} .ds-before{position:absolute;inset:0;background:linear-gradient(160deg,#5A5E57,#2A2C28);clip-path:inset(0 50% 0 0);} .ds-safe{position:absolute;inset:14px;} .ds-safe i{position:absolute;width:18px;height:18px;border:0 solid rgba(255,255,255,.7);} .ds-safe i:nth-child(1){top:0;left:0;border-top-width:2px;border-left-width:2px;} .ds-safe i:nth-child(2){top:0;right:0;border-top-width:2px;border-right-width:2px;} .ds-safe i:nth-child(3){bottom:0;left:0;border-bottom-width:2px;border-left-width:2px;} .ds-safe i:nth-child(4){bottom:0;right:0;border-bottom-width:2px;border-right-width:2px;} .ds-head{position:absolute;top:0;bottom:0;left:50%;width:0;} .ds-head::before{content:'';position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:var(--lime);} .ds-flag{position:absolute;top:-1px;left:0;transform:translateX(-50%);width:18px;height:14px;background:var(--lime);clip-path:polygon(0 0,100% 0,100% 60%,50% 100%,0 60%);} .ds-knob{position:absolute;top:50%;left:0;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:var(--lime);box-shadow:0 10px 24px -8px rgba(0,0,0,.8);transition:transform .2s var(--ease);} .ds-scrub:hover .ds-knob{transform:scale(1.1);} .ds-cap{position:absolute;left:0;right:0;bottom:0;margin:0;padding:56px 20px 22px;background:linear-gradient(0deg,rgba(5,6,4,.88),transparent);font-size:14px;font-weight:600;} .ds-cap b{color:var(--lime);} .ds-seg{display:inline-flex;margin-top:12px;background:var(--panel-2);border:1px solid var(--line-2);border-radius:12px;padding:3px;} .ds-seg button{min-height:40px;padding:8px 14px;border:0;border-radius:9px;background:transparent;color:var(--soft);font:700 13px var(--body);cursor:pointer;} .ds-seg button[aria-pressed=true]{background:var(--panel-3);color:var(--ink);} .ds-seg button:focus-visible{outline:3px solid var(--lime);outline-offset:2px;}"
+    },
+    {
+      "name": "Module Timeline",
+      "kind": "custom",
+      "refersTo": "panel-card",
+      "description": "Vertical track with lime fill, square clip markers and numbered clip chips.",
+      "html": "<ol class=\"ds-tl\"><span class=\"ds-fill\"></span><li><h3><span class=\"ds-clip\">01</span>Setup and tools</h3><p>Accounts, apps and settings.</p></li><li><h3><span class=\"ds-clip\">02</span>Shooting clips that work</h3><p>Light, framing and movement.</p></li></ol>",
+      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-tl{position:relative;list-style:none;margin:0;padding:16px 16px 16px 50px;background:var(--bg);color:var(--ink);font-family:var(--body);} .ds-tl::before{content:'';position:absolute;left:25px;top:22px;bottom:22px;width:2px;background:var(--line-2);} .ds-fill{position:absolute;left:25px;top:22px;width:2px;height:50%;background:var(--lime);} .ds-tl li{position:relative;padding-bottom:28px;} .ds-tl li:last-child{padding-bottom:0;} .ds-tl li::before{content:'';position:absolute;left:-31px;top:5px;width:14px;height:14px;border-radius:4px;background:var(--bg);border:2px solid var(--lime);} .ds-tl h3{margin:0;display:flex;gap:12px;font:700 22px/1.05 var(--display);letter-spacing:-.015em;} .ds-clip{font:800 12px/1.4 var(--body);letter-spacing:.06em;background:var(--lime);color:var(--lime-ink);border-radius:6px;padding:3px 8px;} .ds-tl p{margin:6px 0 0;color:var(--soft);}"
+    },
+    {
+      "name": "Export Summary",
+      "kind": "card",
+      "refersTo": "export-summary",
+      "description": "Value stack styled as a render dialog with tabular amounts and lime total.",
+      "html": "<div class=\"ds-exp\"><div class=\"ds-exp-h\"><span>Export summary</span><span>Premium</span></div><ul><li><span>AI Viral Video Masterclass</span><em>R600</em></li><li><span>Environment Prompts Pack</span><em>R149</em></li></ul><div class=\"ds-exp-f\"><div class=\"ds-r\"><span>Total value</span><s>R1,126</s></div><div class=\"ds-r\"><span>Your price today</span><b>R299</b></div></div></div>",
+      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-exp{max-width:420px;border-radius:var(--r-lg);border:1px solid var(--line-2);background:var(--panel-2);overflow:hidden;color:var(--ink);font-family:var(--body);} .ds-exp-h{display:flex;justify-content:space-between;padding:14px 22px;border-bottom:1px solid var(--line);background:var(--panel-3);font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--soft);text-transform:uppercase;} .ds-exp ul{list-style:none;margin:0;padding:10px 22px;} .ds-exp li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px dashed var(--line-2);} .ds-exp li:last-child{border-bottom:0;} .ds-exp li span{color:var(--soft);} .ds-exp em{font-style:normal;font-weight:700;font-variant-numeric:tabular-nums;} .ds-exp-f{padding:20px 22px 24px;border-top:1px solid var(--line-2);display:grid;gap:6px;} .ds-r{display:flex;justify-content:space-between;align-items:baseline;} .ds-r s{color:var(--mute);} .ds-r b{font:900 44px/1 var(--display);color:var(--lime);font-variant-numeric:tabular-nums;}"
+    },
+    {
+      "name": "Recommended Plan",
+      "kind": "card",
+      "refersTo": "plan-recommended",
+      "description": "Premium plan card: 2px lime border, lime-wash gradient, lifted.",
+      "html": "<div class=\"ds-plan\"><div class=\"ds-top\"><h3>Premium</h3><span class=\"ds-tagl\">Best value</span></div><p class=\"ds-sub\">Full course plus 4 bonuses</p><div class=\"ds-price\"><span class=\"ds-amt\">R299</span><s>R600</s></div><button class=\"ds-btn ds-btn-lime\">Get Premium Now <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/></svg></button></div>",
+      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;border-radius:14px;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.2;transition:transform .2s var(--ease),background-color .2s ease,border-color .2s ease;} .ds-btn:hover{transform:translateY(-2px);} .ds-btn:active{transform:scale(.97);} .ds-btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-btn svg{transition:transform .2s var(--ease);} .ds-btn:hover svg{transform:translateX(4px);} .ds-btn-lime{background:var(--lime);color:var(--lime-ink);box-shadow:0 14px 28px -14px rgba(0,0,0,.9),inset 0 -3px 0 rgba(0,0,0,.14);} .ds-btn-lime:hover{background:#CEF865;} .ds-btn-lime{width:100%;margin-top:18px;} .ds-plan{max-width:360px;padding:30px 26px;border-radius:var(--r-lg);border:2px solid var(--lime);background:linear-gradient(180deg,var(--lime-wash),var(--panel) 45%),var(--panel);box-shadow:0 18px 40px -18px rgba(0,0,0,.85);color:var(--ink);font-family:var(--body);} .ds-top{display:flex;justify-content:space-between;align-items:center;} .ds-plan h3{margin:0;font:800 26px/1.05 var(--display);text-transform:uppercase;letter-spacing:-.015em;} .ds-tagl{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;padding:5px 9px;background:var(--lime);color:var(--lime-ink);} .ds-sub{color:var(--soft);font-size:14.5px;margin:6px 0 0;} .ds-price{margin-top:26px;display:flex;align-items:flex-end;gap:12px;} .ds-amt{font:900 56px/.9 var(--display);letter-spacing:-.04em;} .ds-price s{color:var(--mute);font-size:18px;}"
+    },
+    {
+      "name": "Upgrade Pop-up",
+      "kind": "custom",
+      "refersTo": "modal-sheet",
+      "description": "Bottom sheet on mobile, centred dialog on desktop; lime price and button, ghost refusal.",
+      "html": "<div class=\"ds-modal\"><button class=\"ds-x\" aria-label=\"Close\">&times;</button><h2>Get <span>Premium</span> for less</h2><p>All 4 bonuses for a one-time price.</p><div class=\"ds-mp\"><b>R249</b><s>R299</s></div><button class=\"ds-btn ds-btn-lime\">Yes, upgrade me <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/></svg></button><button class=\"ds-btn ds-btn-ghost\">No thanks, keep Basic</button></div>",
+      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;border-radius:14px;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.2;transition:transform .2s var(--ease),background-color .2s ease,border-color .2s ease;} .ds-btn:hover{transform:translateY(-2px);} .ds-btn:active{transform:scale(.97);} .ds-btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-btn svg{transition:transform .2s var(--ease);} .ds-btn:hover svg{transform:translateX(4px);} .ds-btn-lime{background:var(--lime);color:var(--lime-ink);box-shadow:0 14px 28px -14px rgba(0,0,0,.9),inset 0 -3px 0 rgba(0,0,0,.14);} .ds-btn-lime:hover{background:#CEF865;} .ds-btn{width:100%;margin-top:12px;} .ds-btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line-2);font-family:var(--body);font-weight:600;font-size:14.5px;} .ds-btn-ghost:hover{border-color:var(--lime);} .ds-modal{position:relative;max-width:420px;padding:34px;border-radius:26px;border:1px solid var(--line-2);background:var(--panel);box-shadow:0 -20px 60px -20px rgba(0,0,0,.9);color:var(--ink);font-family:var(--body);} .ds-x{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:transparent;color:var(--soft);font-size:22px;cursor:pointer;} .ds-x:hover{background:var(--panel-3);color:var(--ink);} .ds-x:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-modal h2{margin:0;padding-right:30px;font:800 28px/1.1 var(--display);text-transform:uppercase;letter-spacing:-.02em;} .ds-modal h2 span{color:var(--lime);} .ds-modal p{color:var(--soft);margin:12px 0 0;font-size:15.5px;} .ds-mp{display:flex;align-items:baseline;gap:12px;margin-top:20px;} .ds-mp b{font:900 46px/1 var(--display);color:var(--lime);letter-spacing:-.03em;} .ds-mp s{color:var(--mute);font-size:18px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Editing Suite",
+    "overview": "The page is an editor's workspace seen at night: a near-black monitor ground, a few stepped panel greys for chrome, and one lime signal that behaves like the playhead. Wherever lime appears, something can be acted on or something is \"live\" (the scrub line, the buy button, the timecode digits, the filled stretch of the module track). Proof is presented as the effect running in an editor frame, not as a picture beside a feature list.\n\nThe world borrows real editor chrome and uses it as its component vocabulary: a preview monitor with a REC dot and running timecode, safe-area corner brackets on vertical frames, a draggable playhead with a flag and round knob, track lanes with square clip markers, a clip-metadata strip, an \"export summary\" for the value stack. Type is heavy, uppercase Poppins shouting the headline the way a thumbnail would, set against calm Manrope body copy in a soft sage grey. Density is generous between sections (80/120px) and tight inside editor chrome.\n\nFlat by default: depth comes from the three stepped panels and hairline sage-tinted borders, with a single deep, downward shadow reserved for the objects you would pick up (monitor, phone, recommended plan, toast).",
+    "keyCharacteristics": [
+      "Near-black ground (#0A0B08) with three stepped panel tones; no light mode.",
+      "Lime is the playhead and the action colour; red is the recording light only.",
+      "Heavy uppercase Poppins display, Manrope body, tabular timecodes.",
+      "Editor chrome as components: monitor, playhead, safe-area brackets, track lanes, timecode, export summary.",
+      "Hairline borders over shadows; one deep shadow for lifted objects."
+    ],
+    "rules": [
+      {
+        "name": "The Playhead Rule",
+        "body": "Lime means \"act here\" or \"this is live\". It is never a decorative fill for a whole section or a paragraph colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Red Light Rule",
+        "body": "Red appears only as the recording dot and pain markers. It never colours a button, price or urgency banner.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Clock Rule",
+        "body": "Anything that counts, ticks or totals uses tabular numerals so the digits do not jitter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline First Rule",
+        "body": "Separate with a 1px Line before reaching for a shadow; a shadow means \"you can pick this up\".",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep the ground Monitor Black (#0A0B08) and step depth through Panel, Panel 2, Panel 3.",
+      "**Do** reserve Playhead Lime for actions, live indicators and one accent phrase per headline.",
+      "**Do** present proof as an effect running inside editor chrome (monitor, frames, playhead, safe-area brackets).",
+      "**Do** set every counting number in tabular figures.",
+      "**Do** give every animated demo a reduced-motion fallback and a keyboard path.",
+      "**Do** keep lime buttons at 54px minimum height with Monitor Black text."
+    ],
+    "donts": [
+      "**Don't** use REC Red for buttons, prices or urgency banners; it is the recording light.",
+      "**Don't** add a light theme or white cards; the world is a dark editor.",
+      "**Don't** put uppercase label text above headlines as eyebrows; labels belong to objects (frames, tags, chrome).",
+      "**Don't** reach for shadows to separate sections; use Line hairlines and panel steps.",
+      "**Don't** show a static hero image with feature cards where an interactive effect demo can carry the proof."
+    ]
+  }
+}
