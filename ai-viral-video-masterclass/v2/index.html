@@ -23,9 +23,12 @@
        #CHECKOUT_UPGRADE  -> R249 one-time Premium offer (upgrade pop-up and exit pop-up)
      Until they are set, the buttons show a short notice instead of leaving the page.
   2. Student screenshots. Search for "STUDENT SCREENSHOT" and replace each placeholder
-     with a real, unedited message shared with permission.
+     with a real, unedited message shared with permission, then remove "hidden" from
+     <section id="students">. The section stays hidden until then.
   3. Your own demo clips (optional). Search for "DEMO CLIP".
   4. Pixels (optional). Fill META_PIXEL_ID / TIKTOK_PIXEL_ID at the bottom.
+  5. Seller details. The footer and legal pages name Shelton Douglas Group (Pty) Ltd,
+     Reg. 2025/432920/07, and its contact details. Confirm they apply to this product.
   ==============================================================
 -->
 
@@ -68,7 +71,7 @@
   @media (min-width:900px){ .sec{ padding-block:120px; } }
   .sec + .sec{ border-top:1px solid var(--line); }
   .sec.alt{ background:var(--panel); }
-  .h2{ font-size:clamp(32px,5.4vw,58px); font-weight:800; }
+  .h2{ font-size:clamp(30px,5vw,56px); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; }
   .h2 em{ font-style:normal; color:var(--lime); }
   .lede{ color:var(--soft); font-size:18px; max-width:58ch; margin-top:18px; }
   .sec-head{ margin-bottom:48px; max-width:820px; }
@@ -97,20 +100,15 @@
   @media (prefers-reduced-motion:no-preference){ .rec-dot{ animation:blink 1.2s steps(1) infinite; } }
   @keyframes blink{ 50%{ opacity:.25; } }
 
-  /* Reveal: visible by default, JS opts in */
-  .rv{ transition:opacity .8s var(--ease), transform .8s var(--ease), clip-path .9s var(--ease); }
-  .rv.prep{ opacity:0; transform:translateY(22px); }
-  .rv.in{ opacity:1; transform:none; }
-  .wipe.prep{ clip-path:inset(0 100% 0 0); opacity:1; transform:none; }
-  .wipe.in{ clip-path:inset(0 0 0 0); }
 
   /* ---------- Countdown bar ---------- */
-  .bar{ position:sticky; top:env(safe-area-inset-top,0px); z-index:50; background:var(--rec-dk); color:#fff; border-bottom:1px solid rgba(255,255,255,.08); }
+  .bar{ position:sticky; top:env(safe-area-inset-top,0px); z-index:50; background:var(--panel); color:var(--ink); border-bottom:1px solid var(--line-2); }
+  .bar .digits{ background:var(--lime); color:var(--lime-ink); }
   .bar .wrap{ display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:4px 14px; padding-block:9px; font-size:13px; text-align:center; }
   .bar b{ font-family:var(--display); font-weight:700; letter-spacing:.04em; }
   .tc{ display:inline-flex; align-items:center; gap:8px; font-family:var(--display); font-weight:700; font-variant-numeric:tabular-nums; letter-spacing:.06em; }
   .tc .digits{ background:rgba(0,0,0,.35); border-radius:6px; padding:2px 8px; }
-  .bar a{ font-weight:800; color:#fff; }
+  .bar a{ font-weight:800; color:var(--lime); }
 
   /* ---------- Hero ---------- */
   .top{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:18px; }
@@ -163,7 +161,7 @@
   .safe i:nth-child(2){ top:0; right:0; border-top-width:2px; border-right-width:2px; }
   .safe i:nth-child(3){ bottom:0; left:0; border-bottom-width:2px; border-left-width:2px; }
   .safe i:nth-child(4){ bottom:0; right:0; border-bottom-width:2px; border-right-width:2px; }
-  .scrub .cap{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:56px 20px 22px; background:linear-gradient(0deg, rgba(5,6,4,.88), transparent); font-size:14px; font-weight:600; pointer-events:none; }
+  .scrub .cap{ position:absolute; left:0; right:0; bottom:0; z-index:3; padding:56px 20px 22px; background:linear-gradient(0deg, rgba(5,6,4,.88), transparent); font-size:14px; font-weight:600; pointer-events:none; }
   .scrub .cap b{ color:var(--lime); }
   .scrub-ctrl{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px; }
   .scrub-ctrl p{ font-size:13px; color:var(--soft); }
@@ -177,6 +175,7 @@
   @media (min-width:900px){ .spec dl{ grid-template-columns:repeat(5,minmax(0,1fr)); } }
   .spec div{ padding:20px 18px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); min-width:0; }
   @media (min-width:900px){ .spec div{ border-bottom:0; } .spec div:last-child{ border-right:0; } }
+  @media (max-width:899px){ .spec div:last-child{ grid-column:1 / -1; border-right:0; border-bottom:0; } }
   .spec dt{ font-size:11.5px; font-weight:800; letter-spacing:.12em; color:var(--mute); text-transform:uppercase; }
   .spec dd{ margin:4px 0 0; font-family:var(--display); font-weight:700; font-size:18px; }
   .spec dd b{ color:var(--lime); }
@@ -203,11 +202,19 @@
   .fx h3{ font-size:28px; font-weight:800; text-transform:uppercase; letter-spacing:-.02em; }
   .fx h3 span{ color:var(--lime); }
   .fx > p{ color:var(--soft); }
-  .swaps{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
-  .swaps li{ background:var(--panel-2); border:1px solid var(--line); border-radius:12px; padding:14px; font-size:14px; min-width:0; }
-  .swaps b{ display:block; font-family:var(--display); font-size:15px; }
+  .swaps{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:20px; border-top:1px solid var(--line); }
+  .swaps li{ display:flex; gap:12px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); font-size:14px; min-width:0; }
+  .swaps b{ display:block; font-family:var(--display); font-size:15px; line-height:1.3; }
   .swaps span{ color:var(--soft); }
-  .swaps svg{ width:22px; height:22px; color:var(--lime); margin-bottom:8px; }
+  .swaps svg{ width:22px; height:22px; color:var(--lime); flex-shrink:0; }
+  .loop{ position:relative; aspect-ratio:1/1; border-radius:16px; overflow:hidden; border:1px solid var(--line-2); background:var(--panel-3); }
+  .loop img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 45%; }
+  .loop .b{ clip-path:inset(0 50% 0 0); }
+  .loop .ln{ position:absolute; top:0; bottom:0; left:50%; width:3px; margin-left:-1.5px; background:var(--lime); }
+  .loop .lbl{ position:absolute; left:12px; bottom:12px; z-index:2; font-size:11.5px; font-weight:800; letter-spacing:.08em; background:rgba(5,6,4,.8); color:var(--ink); padding:5px 9px; border-radius:7px; }
+  @media (prefers-reduced-motion:no-preference){ .loop .b{ animation:lw 5s var(--ease) infinite alternate; } .loop .ln{ animation:ll 5s var(--ease) infinite alternate; } }
+  @keyframes lw{ 0%,15%{ clip-path:inset(0 0 0 0); } 85%,100%{ clip-path:inset(0 100% 0 0); } }
+  @keyframes ll{ 0%,15%{ left:100%; } 85%,100%{ left:0%; } }
   .ex{ font-size:14.5px; padding:14px 16px; border-radius:12px; background:var(--lime-wash); border:1px solid var(--lime-line); margin-top:auto; }
   .ex b{ color:var(--lime); }
 
@@ -221,6 +228,7 @@
   .mt-arrow svg{ width:26px; height:26px; }
   .mt-ctrl{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; }
   .mt-ctrl .btn{ min-height:48px; padding:12px 20px; font-size:15px; }
+  #mt-btn .ic-pause{ display:none; } #mt-btn[aria-pressed="true"] .ic-pause{ display:inline; } #mt-btn[aria-pressed="true"] .ic-play{ display:none; }
   .mt-ctrl p{ font-size:13.5px; color:var(--soft); flex:1; min-width:180px; }
 
   /* Figures */
@@ -228,7 +236,7 @@
   .fig.skel .bone{ stroke:#E8ECDF; stroke-width:2.2; }
   .fig.skel .joint{ fill:var(--lime); }
   .fig.skel .headc{ fill:none; stroke:#E8ECDF; stroke-width:2.2; }
-  .fig.char .bone{ stroke:var(--lime); stroke-width:7; }
+  .fig.char .bone{ stroke:var(--lime); stroke-width:4.6; }
   .fig.char .headc{ fill:var(--lime); }
   .fig.char .joint{ display:none; }
   .fig .p{ transform-box:view-box; }
@@ -265,11 +273,11 @@
   .tl li:last-child{ padding-bottom:0; }
   .tl li::before{ content:""; position:absolute; left:-31px; top:5px; width:14px; height:14px; border-radius:4px; background:var(--bg); border:2px solid var(--lime); }
   .alt .tl li::before{ background:var(--panel); }
-  .tl .m{ font-family:var(--display); font-weight:800; font-size:12.5px; letter-spacing:.12em; color:var(--lime); }
-  .tl h3{ font-size:22px; font-weight:700; margin-top:2px; letter-spacing:-.015em; }
+  .tl h3{ font-size:22px; font-weight:700; letter-spacing:-.015em; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .tl .clip{ font-size:12px; font-weight:800; letter-spacing:.06em; background:var(--lime); color:var(--lime-ink); border-radius:6px; padding:3px 8px; line-height:1.4; }
   .tl p{ color:var(--soft); margin-top:6px; max-width:58ch; }
-  .kit{ display:flex; flex-direction:column; gap:12px; }
-  .kit li{ display:flex; gap:14px; align-items:flex-start; padding:18px; border:1px solid var(--line); border-radius:var(--r); background:var(--panel-2); }
+  .kit{ display:flex; flex-direction:column; border-top:1px solid var(--line); }
+  .kit li{ display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line); }
   .kit svg{ width:22px; height:22px; color:var(--lime); flex-shrink:0; margin-top:2px; }
   .kit b{ display:block; font-family:var(--display); font-size:16.5px; font-weight:700; line-height:1.3; }
   .kit span{ color:var(--soft); font-size:14.5px; }
@@ -281,7 +289,7 @@
   .who > div:last-child{ border-bottom:0; }
   .who h3{ font-size:22px; font-weight:800; text-transform:uppercase; }
   .who p{ color:var(--soft); margin-top:10px; }
-  .who-h{ text-align:center; font-size:clamp(24px,3.4vw,34px); font-weight:800; margin-top:80px; }
+  .who-h{ text-align:center; font-size:clamp(24px,3.4vw,34px); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; margin-top:80px; }
   .who-h + .who{ margin-top:28px; }
 
   /* ---------- Pain / turn ---------- */
@@ -321,8 +329,8 @@
   .cover .art{ position:absolute; right:20px; bottom:20px; width:30%; color:var(--lime); }
   @media (min-width:640px){ .cover{ aspect-ratio:4/5; } .cover .art{ position:static; width:50%; align-self:center; } }
   .cover .art svg{ width:100%; height:auto; }
-  .cover .t{ font-family:var(--display); font-weight:900; font-size:clamp(22px,2.2vw,26px); line-height:.98; letter-spacing:-.025em; text-transform:uppercase; }
-  .cover .t span{ display:block; color:var(--lime); font-size:12px; letter-spacing:.08em; margin-bottom:6px; }
+  .cover .t{ font-family:var(--display); font-weight:900; font-size:clamp(20px,2vw,23px); line-height:1; letter-spacing:-.02em; text-transform:uppercase; max-width:68%; }
+  @media (min-width:640px){ .cover .t{ max-width:none; } }
   .bonus-body{ padding:20px; display:flex; flex-direction:column; flex:1; gap:10px; }
   .bonus-body h3{ font-size:19px; font-weight:700; line-height:1.25; letter-spacing:-.01em; }
   .bonus-body p{ color:var(--soft); font-size:15px; flex:1; }
@@ -349,7 +357,7 @@
   .plan{ position:relative; display:flex; flex-direction:column; padding:30px 26px; border-radius:var(--r-lg); background:var(--panel); border:1px solid var(--line-2); }
   .plan.pro{ border:2px solid var(--lime); background:linear-gradient(180deg, var(--lime-wash), var(--panel) 45%); box-shadow:var(--shadow); order:-1; }
   @media (min-width:860px){ .plan.pro{ order:0; } }
-  .plan .ribbon{ position:absolute; top:-14px; left:24px; }
+  .plan-top{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
   .plan h3{ font-size:26px; font-weight:800; text-transform:uppercase; letter-spacing:-.015em; }
   .plan .sub{ color:var(--soft); font-size:14.5px; margin-top:6px; }
   .plan ul{ margin-top:22px; display:flex; flex-direction:column; gap:11px; flex:1; font-size:15.5px; }
@@ -375,10 +383,8 @@
   .seal svg{ width:100%; height:100%; }
   .seal .n{ position:absolute; inset:0; display:grid; place-items:center; text-align:center; font-family:var(--display); line-height:1; }
   .seal .n b{ font-size:56px; font-weight:900; display:block; }
-  .seal .n span{ font-size:11px; font-weight:800; letter-spacing:.18em; display:block; margin-top:4px; color:var(--ink); }
-  @media (prefers-reduced-motion:no-preference){ .seal .ring{ animation:spin 24s linear infinite; transform-origin:50% 50%; transform-box:fill-box; } }
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-  .guar h2{ font-size:clamp(28px,4vw,40px); font-weight:800; }
+  .seal .n span{ font-size:12px; font-weight:800; letter-spacing:.14em; display:block; margin-top:4px; color:var(--ink); }
+  .guar h2{ font-size:clamp(28px,4vw,40px); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; }
   .guar p{ color:var(--soft); margin-top:14px; max-width:60ch; }
   .guar p.k{ color:var(--ink); font-weight:700; }
 
@@ -437,7 +443,7 @@
   .modal-x{ position:absolute; top:12px; right:12px; width:44px; height:44px; border-radius:50%; display:grid; place-items:center; color:var(--soft); text-decoration:none; border:0; background:transparent; cursor:pointer; }
   .modal-x:hover{ background:var(--panel-3); color:var(--ink); }
   .modal-x svg{ width:20px; height:20px; }
-  .modal h2{ font-size:28px; font-weight:800; line-height:1.1; margin-top:14px; padding-right:30px; text-transform:uppercase; letter-spacing:-.02em; }
+  .modal h2{ font-size:28px; font-weight:800; line-height:1.1; margin-top:0; padding-right:30px; text-transform:uppercase; letter-spacing:-.02em; }
   .modal h2 span{ color:var(--lime); }
   .modal p{ color:var(--soft); margin-top:12px; font-size:15.5px; }
   .modal p strong{ color:var(--ink); }
@@ -475,7 +481,6 @@
 
   @media (prefers-reduced-motion:reduce){
     html{ scroll-behavior:auto; }
-    .rv,.rv.prep,.wipe.prep{ opacity:1 !important; transform:none !important; clip-path:none !important; transition:none !important; }
     .dance *{ animation:none !important; }
     .btn,.bonus,.sticky,.toast{ transition:none !important; }
   }
@@ -562,19 +567,20 @@
   </section>
 
   <!-- ============ STUDENT PROOF ============ -->
-  <section class="sec" id="students" aria-labelledby="proof-h">
+  <!-- Hidden until real student screenshots are added: remove the "hidden" attribute below once the three slots hold real messages. -->
+  <section class="sec" id="students" aria-labelledby="proof-h" hidden>
     <div class="wrap">
-      <div class="sec-head c rv">
+      <div class="sec-head c">
         <h2 class="h2" id="proof-h">See What <em>Students</em> Are Saying</h2>
-        <p class="lede">Real messages from people who took the course.</p>
+        <p class="lede">Messages from students, shared with their permission.</p>
       </div>
       <div class="proof-grid">
         <!-- STUDENT SCREENSHOT 1: replace the .todo block with <img src="..." alt="Message from [name]: ..."> -->
-        <figure class="phone rv" style="margin:0"><div class="phone-screen"><div class="todo"><span class="bub m"></span><span class="bub me"></span><span class="bub s"></span><span class="bub me"></span><p>Student screenshot 1</p></div></div></figure>
+        <figure class="phone" style="margin:0"><div class="phone-screen"><div class="todo"><span class="bub m"></span><span class="bub me"></span><span class="bub s"></span><span class="bub me"></span><p>Student screenshot 1</p></div></div></figure>
         <!-- STUDENT SCREENSHOT 2 -->
-        <figure class="phone rv" style="margin:0"><div class="phone-screen"><div class="todo"><span class="bub s"></span><span class="bub me"></span><span class="bub m"></span><p>Student screenshot 2</p></div></div></figure>
+        <figure class="phone" style="margin:0"><div class="phone-screen"><div class="todo"><span class="bub s"></span><span class="bub me"></span><span class="bub m"></span><p>Student screenshot 2</p></div></div></figure>
         <!-- STUDENT SCREENSHOT 3 -->
-        <figure class="phone rv" style="margin:0"><div class="phone-screen"><div class="todo"><span class="bub me"></span><span class="bub m"></span><span class="bub s"></span><span class="bub me"></span><p>Student screenshot 3</p></div></div></figure>
+        <figure class="phone" style="margin:0"><div class="phone-screen"><div class="todo"><span class="bub me"></span><span class="bub m"></span><span class="bub s"></span><span class="bub me"></span><p>Student screenshot 3</p></div></div></figure>
       </div>
     </div>
   </section>
@@ -582,13 +588,13 @@
   <!-- ============ THE TWO EFFECTS ============ -->
   <section class="sec alt" id="effects" aria-labelledby="fx-h">
     <div class="wrap">
-      <div class="sec-head rv">
+      <div class="sec-head">
         <h2 class="h2" id="fx-h">Two Effects Behind the Edits <em>Everyone Keeps Sharing</em></h2>
         <p class="lede">Each one is taught start to finish, from the raw clip on your phone to an export ready for TikTok, Reels and Shorts.</p>
       </div>
 
       <div class="fx-grid">
-        <article class="fx rv">
+        <article class="fx">
           <h3>Object <span>Swap</span></h3>
           <p>Replace anything in your footage. The new object keeps the lighting, reflections and camera movement of the original shot, so it looks like it was really there.</p>
           <ul class="swaps">
@@ -597,10 +603,11 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M5 20V9l4-3v14"/><path d="M13 20V4l6 4v12"/></svg><b>A background</b><span>Garage → skyline</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="4"/><path d="M12 4v2M4.9 7l1.4 1.4M19.1 7l-1.4 1.4M2 14h2M20 14h2M3 20h18"/></svg><b>A whole sky</b><span>Grey → golden hour</span></li>
           </ul>
-          <p class="ex">Try it on the preview at the top of the page: <b>drag the playhead</b> across the clip.</p>
+          <div class="loop" id="swap-loop" role="img" aria-label="Looping demo: the garage clip turns into the supercar shot" hidden><span class="lbl">AUTO PREVIEW</span></div>
+          <p class="ex">Want to control it? <b>Drag the playhead</b> on the preview at the top of the page.</p>
         </article>
 
-        <article class="fx rv">
+        <article class="fx">
           <h3>Motion <span>Transfer</span></h3>
           <p>Take the movement from one video, like a dance, a walk or a trend, and apply it to a different person, character or photo, frame by frame.</p>
           <div class="mt" id="mt">
@@ -622,10 +629,10 @@
             </div>
             <div class="mt-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
             <div class="mt-frame">
-              <div class="lbl"><span>Your photo</span><span data-mt-state>Still</span></div>
+              <div class="lbl"><span>Character</span><span data-mt-state>Still</span></div>
               <svg class="fig char" id="mt-char" viewBox="0 0 100 110" aria-hidden="true">
                 <g class="p body">
-                  <circle class="headc" cx="50" cy="19" r="9"/>
+                  <circle class="headc" cx="50" cy="17" r="7"/>
                   <path class="bone" d="M50 30 V70"/>
                   <g class="p uaL"><path class="bone" d="M50 34 V48"/><g class="p faL"><path class="bone" d="M50 48 V61"/></g></g>
                   <g class="p uaR"><path class="bone" d="M50 34 V48"/><g class="p faR"><path class="bone" d="M50 48 V61"/></g></g>
@@ -638,10 +645,10 @@
           </div>
           <div class="mt-ctrl">
             <button type="button" class="btn btn-lime" id="mt-btn" aria-pressed="false">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 4 14 8-14 8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="ic-play" d="m6 4 14 8-14 8z"/><path class="ic-pause" d="M8 5v14M16 5v14"/></svg>
               <span>Apply the motion</span>
             </button>
-            <p>A still photo of you → doing this week's trending dance. Illustration of the technique.</p>
+            <p>A still photo of you → doing this week's trending dance. A diagram of the technique.</p>
           </div>
         </article>
       </div>
@@ -657,7 +664,7 @@
   <!-- ============ INSIDE: MODULES TIMELINE ============ -->
   <section class="sec" id="inside" aria-labelledby="in-h">
     <div class="wrap">
-      <div class="sec-head rv">
+      <div class="sec-head">
         <h2 class="h2" id="in-h">Take a Look <em>Inside</em> the Masterclass</h2>
         <p class="lede">Six modules, in the order you'll use them. Watch on your phone or computer, at your own pace.</p>
       </div>
@@ -665,15 +672,15 @@
       <div class="tl-grid">
         <ol class="tl" id="tl">
           <span class="fill" aria-hidden="true"></span>
-          <li class="rv"><p class="m">MODULE 1</p><h3>Setup and tools</h3><p>The AI video tools used in the course, what each one is best at, and how to set up your accounts on a budget.</p></li>
-          <li class="rv"><p class="m">MODULE 2</p><h3>Shooting clips that work</h3><p>How to film source footage on a phone so the AI has clean edges, steady motion and good light to work with.</p></li>
-          <li class="rv"><p class="m">MODULE 3</p><h3>Object swap, step by step</h3><p>Masking, prompting and matching light so the swapped object looks like it was really there.</p></li>
-          <li class="rv"><p class="m">MODULE 4</p><h3>Motion transfer, step by step</h3><p>Picking a reference video, mapping the movement and fixing hands, faces and flicker.</p></li>
-          <li class="rv"><p class="m">MODULE 5</p><h3>Editing for retention</h3><p>Before/after reveals, timing the cut to the beat, captions and sound so viewers watch to the end.</p></li>
-          <li class="rv"><p class="m">MODULE 6</p><h3>Posting and growing</h3><p>Formats, hooks and posting routines for TikTok, Reels and Shorts, plus ways to sell these edits to clients.</p></li>
+          <li><h3><span class="clip tnum">M01</span>Setup and tools</h3><p>The AI video tools used in the course, what each one is best at, and how to set up your accounts on a budget.</p></li>
+          <li><h3><span class="clip tnum">M02</span>Shooting clips that work</h3><p>How to film source footage on a phone so the AI has clean edges, steady motion and good light to work with.</p></li>
+          <li><h3><span class="clip tnum">M03</span>Object swap, step by step</h3><p>Masking, prompting and matching light so the swapped object looks like it was really there.</p></li>
+          <li><h3><span class="clip tnum">M04</span>Motion transfer, step by step</h3><p>Picking a reference video, mapping the movement and fixing hands, faces and flicker.</p></li>
+          <li><h3><span class="clip tnum">M05</span>Editing for retention</h3><p>Before/after reveals, timing the cut to the beat, captions and sound so viewers watch to the end.</p></li>
+          <li><h3><span class="clip tnum">M06</span>Posting and growing</h3><p>Formats, hooks and posting routines for TikTok, Reels and Shorts, plus ways to sell these edits to clients.</p></li>
         </ol>
 
-        <div class="rv">
+        <div>
           <h3 class="kit-title">What comes with every plan</h3>
           <ul class="kit">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m10 8.5 5 2.5-5 2.5z"/></svg><div><b>Step-by-step video lessons</b><span>For object swap and motion transfer, start to finish.</span></div></li>
@@ -685,8 +692,8 @@
         </div>
       </div>
 
-      <h2 class="who-h rv">No Editing Background Needed</h2>
-      <div class="who rv">
+      <h2 class="who-h">No Editing Background Needed</h2>
+      <div class="who">
         <div><h3>Creators</h3><p>You want content that gets shared, without spending hours in complex editing software.</p></div>
         <div><h3>Freelance editors</h3><p>You want a new service to offer brands and influencers who are asking for AI edits.</p></div>
         <div><h3>Small businesses</h3><p>You want product videos that look like big-budget ads, made from footage you already have.</p></div>
@@ -697,20 +704,20 @@
   <!-- ============ PAIN + BEFORE/AFTER YOU ============ -->
   <section class="sec alt" aria-labelledby="pain-h">
     <div class="wrap">
-      <div class="sec-head rv">
+      <div class="sec-head">
         <h2 class="h2" id="pain-h">Does This Sound <em>Familiar?</em></h2>
       </div>
       <ul class="pain">
-        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>You post every week, but your videos get scrolled past in the first second.</li>
-        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>You see AI edits going viral and have no idea how they're made.</li>
-        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Editing software feels complicated, and one short video eats your whole evening.</li>
-        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>You tried AI tools, but the results looked fake: flicker, melted hands, wrong lighting.</li>
-        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Brands and clients ask for AI edits, and you can't offer them yet.</li>
-        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Your product videos look cheap next to the big-budget ads in the same feed.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>You post every week, but your videos get scrolled past in the first second.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>You see AI edits going viral and have no idea how they're made.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Editing software feels complicated, and one short video eats your whole evening.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>You tried AI tools, but the results looked fake: flicker, melted hands, wrong lighting.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Brands and clients ask for AI edits, and you can't offer them yet.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Your product videos look cheap next to the big-budget ads in the same feed.</li>
       </ul>
 
       <div class="vs">
-        <div class="without rv">
+        <div class="without">
           <h3>Without the course</h3>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg>Guessing prompts and getting fake-looking results</li>
@@ -719,7 +726,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg>Watching other people's edits go viral</li>
           </ul>
         </div>
-        <div class="with rv">
+        <div class="with">
           <h3><span class="rec-dot" aria-hidden="true"></span>With the masterclass</h3>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Copy-paste prompt templates that match the light</li>
@@ -735,11 +742,11 @@
   <!-- ============ IS THIS FOR YOU ============ -->
   <section class="sec" aria-labelledby="fit-h">
     <div class="wrap">
-      <div class="sec-head c rv">
+      <div class="sec-head c">
         <h2 class="h2" id="fit-h">Is This Masterclass <em>Right for You?</em></h2>
       </div>
       <div class="fit">
-        <div class="rv">
+        <div>
           <h3>It's perfect if you…</h3>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Create content for TikTok, Reels or Shorts</li>
@@ -750,7 +757,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Prefer to learn on your phone, at your own pace</li>
           </ul>
         </div>
-        <div class="no rv">
+        <div class="no">
           <h3>It may not be for you if…</h3>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>You want a traditional film-editing course on Premiere or DaVinci</li>
@@ -766,63 +773,59 @@
   <!-- ============ BONUSES + EXPORT SUMMARY ============ -->
   <section class="sec alt" id="bonuses" aria-labelledby="bonus-h">
     <div class="wrap">
-      <div class="sec-head c rv">
+      <div class="sec-head c">
         <h2 class="h2" id="bonus-h">Get These 4 Bonuses <em>FREE Today</em></h2>
         <p class="lede">Included with the Premium plan, at no extra cost.</p>
       </div>
 
       <div class="bonus-grid">
-        <article class="bonus rv">
+        <article class="bonus">
           <div class="cover">
             <div class="row"><span class="tag tag-lime">Bonus 1</span><span class="file">.PROMPTS</span></div>
             <div class="art" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 50 22 28l10 12 8-9 20 19z"/><circle cx="46" cy="16" r="6"/><path d="M4 57h56"/></svg></div>
-            <p class="t"><span>Prompt pack</span>Environ&shy;ments</p>
+            <h3 class="t">Environment Prompts Pack</h3>
           </div>
           <div class="bonus-body">
-            <h3>Environment Prompts Pack</h3>
             <p>Ready-to-copy prompts for cinematic backgrounds: golden-hour skylines, neon streets, luxury interiors, beaches, deserts and studios.</p>
             <div class="bonus-foot"><span><s>R149</s> value</span><span class="tag tag-line">Free today</span></div>
           </div>
         </article>
-        <article class="bonus rv">
+        <article class="bonus">
           <div class="cover">
             <div class="row"><span class="tag tag-lime">Bonus 2</span><span class="file">.PROMPTS</span></div>
             <div class="art" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="20" r="10"/><path d="M12 58v-4a20 20 0 0 1 40 0v4"/><path d="M52 6l2 4 4 2-4 2-2 4-2-4-4-2 4-2z"/></svg></div>
-            <p class="t"><span>Prompt pack</span>Characters</p>
+            <h3 class="t">Character Prompts Pack</h3>
           </div>
           <div class="bonus-body">
-            <h3>Character Prompts Pack</h3>
             <p>Prompts to create characters and keep the same face, outfit and style consistent from one shot to the next.</p>
             <div class="bonus-foot"><span><s>R149</s> value</span><span class="tag tag-line">Free today</span></div>
           </div>
         </article>
-        <article class="bonus rv">
+        <article class="bonus">
           <div class="cover">
             <div class="row"><span class="tag tag-lime">Bonus 3</span><span class="file">.REFS</span></div>
             <div class="art" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="22" height="22" rx="3"/><rect x="36" y="6" width="22" height="22" rx="3"/><rect x="6" y="36" width="22" height="22" rx="3"/><rect x="36" y="36" width="22" height="22" rx="3"/><path d="m14 13 7 4-7 4z"/><path d="m44 43 7 4-7 4z"/></svg></div>
-            <p class="t"><span>Reference pack</span>Viral Visuals</p>
+            <h3 class="t">Viral Visual References Pack</h3>
           </div>
           <div class="bonus-body">
-            <h3>Viral Visual References Pack</h3>
             <p>A curated library of viral AI edits, sorted by effect, hook and transition, so you always know what to make next.</p>
             <div class="bonus-foot"><span><s>R129</s> value</span><span class="tag tag-line">Free today</span></div>
           </div>
         </article>
-        <article class="bonus rv">
+        <article class="bonus">
           <div class="cover">
             <div class="row"><span class="tag tag-lime">Bonus 4</span><span class="file">.PDF</span></div>
             <div class="art" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h32l12 12v40H10z"/><path d="M42 6v12h12"/><circle cx="32" cy="32" r="7"/><path d="M20 52a12 12 0 0 1 24 0"/></svg></div>
-            <p class="t"><span>E-book</span>AI Influencer</p>
+            <h3 class="t">E-book: How to Create an AI Influencer</h3>
           </div>
           <div class="bonus-body">
-            <h3>E-book: How to Create an AI Influencer</h3>
             <p>Design an AI influencer persona, keep their look consistent across posts and turn them into content brands can sponsor.</p>
             <div class="bonus-foot"><span><s>R99</s> value</span><span class="tag tag-line">Free today</span></div>
           </div>
         </article>
       </div>
 
-      <div class="export rv">
+      <div class="export">
         <div class="export-head"><span>Export summary · Premium</span><span class="tc"><span class="rec-dot" aria-hidden="true"></span>Ready</span></div>
         <ul>
           <li><span><b>AI Viral Video Masterclass</b>, all 6 modules</span><em>R300</em></li>
@@ -869,8 +872,7 @@
 
         <!-- PREMIUM -->
         <div class="plan pro">
-          <span class="tag tag-lime ribbon">Most popular · Best value</span>
-          <h3 style="margin-top:6px">Premium</h3>
+          <div class="plan-top"><h3>Premium</h3><span class="tag tag-lime">Best value</span></div>
           <p class="sub">The full course plus 4 bonuses worth R526.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Everything in Basic</li>
@@ -899,10 +901,10 @@
   <!-- ============ GUARANTEE ============ -->
   <section class="sec alt" aria-labelledby="g-h">
     <div class="wrap">
-      <div class="guar rv">
+      <div class="guar">
         <div class="seal" aria-hidden="true">
-          <svg viewBox="0 0 160 160"><g class="ring"><circle cx="80" cy="80" r="74" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 7"/></g><circle cx="80" cy="80" r="62" fill="none" stroke="currentColor" stroke-width="3"/></svg>
-          <div class="n"><div><b>7</b><span>DAY GUARANTEE</span></div></div>
+          <svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 7"/><circle cx="80" cy="80" r="62" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+          <div class="n"><div><b>7</b><span>DAYS</span></div></div>
         </div>
         <div>
           <h2 id="g-h">Try It for 7 Days. Love It or Get <span style="color:var(--lime)">Every Rand Back.</span></h2>
@@ -935,8 +937,8 @@
   <!-- ============ FINAL CTA ============ -->
   <section class="sec alt final" aria-labelledby="final-h">
     <div class="wrap">
-      <h2 id="final-h" class="rv">Make Your First <span>Viral Edit</span> This Week</h2>
-      <p class="rv">Learn object swap and motion transfer step by step, with lifetime access and a 7-day money-back guarantee.</p>
+      <h2 id="final-h">Make Your First <span>Viral Edit</span> This Week</h2>
+      <p>Learn object swap and motion transfer step by step, with lifetime access and a 7-day money-back guarantee.</p>
       <a href="#pricing" class="btn btn-lime btn-xl" data-cta="final">Get instant access
         <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
       </a>
@@ -975,7 +977,6 @@
   <a href="#pricing" class="modal-bg" data-close aria-label="Close this offer" tabindex="-1"></a>
   <div class="modal-panel">
     <a href="#pricing" class="modal-x" data-close aria-label="Close this offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
-    <span class="tag tag-lime">One-time offer</span>
     <h2 id="upgrade-h">Wait! Get Premium for <span>R249</span></h2>
     <p>You're one click away from the Basic plan. Because you're buying today, you can get the complete Premium plan, normally R600, for <strong>only R50 more than Basic</strong>, with all four bonuses.</p>
     <ul>
@@ -997,7 +998,6 @@
   <div class="modal-bg" data-close></div>
   <div class="modal-panel">
     <button type="button" class="modal-x" data-close aria-label="Close this offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
-    <span class="tag tag-lime">Before you go</span>
     <h2 id="leaving-h">Leaving? Take Premium for <span>R249</span></h2>
     <p>Get the full masterclass <strong>plus all 4 bonuses</strong> for R249 instead of R600. This price is for this visit only.</p>
     <ul>
@@ -1262,6 +1262,16 @@
     }, 700);
   }
 
+  /* ---------- Object swap loop: reuse the hero frames ---------- */
+  var loop = document.getElementById("swap-loop");
+  if (loop) {
+    var a = scrub.querySelector(".after").cloneNode(), bf = scrub.querySelector(".before").cloneNode(), ln = document.createElement("span");
+    [a, bf].forEach(function(im){ im.removeAttribute("fetchpriority"); im.alt = ""; im.className = im === bf ? "b" : "a"; });
+    ln.className = "ln";
+    loop.insertBefore(ln, loop.firstChild); loop.insertBefore(bf, ln); loop.insertBefore(a, bf);
+    loop.hidden = false;
+  }
+
   /* ---------- Motion transfer demo ---------- */
   var mtBtn = document.getElementById("mt-btn"), mtChar = document.getElementById("mt-char");
   var mtSkel = document.querySelector("#mt .skel"), mtState = document.querySelector("[data-mt-state]");
@@ -1365,16 +1375,6 @@
     po.observe(pricing);
   }
 
-  /* ---------- Reveal (fails open, below the fold only) ---------- */
-  if ("IntersectionObserver" in window && !reduce) {
-    var els = Array.prototype.filter.call(document.querySelectorAll(".rv"), function(el){ return el.getBoundingClientRect().top > innerHeight; });
-    els.forEach(function(el){ el.classList.add("prep"); });
-    var io = new IntersectionObserver(function(en){
-      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.remove("prep"); x.target.classList.add("in"); io.unobserve(x.target); } });
-    }, { threshold:.12, rootMargin:"0px 0px -40px 0px" });
-    els.forEach(function(el){ io.observe(el); });
-    setTimeout(function(){ document.querySelectorAll(".rv.prep").forEach(function(el){ el.classList.remove("prep"); el.classList.add("in"); }); }, 3000);
-  }
 })();
 </script>
 </body>

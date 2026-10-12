@@ -22,6 +22,6 @@ STORY: In one viewport the visitor drags a garage clip into a supercar shot and 
 
 FIRST VIEWPORT: Desktop: left 55% headline "SWAP OBJECT & MOTION TRANSFER" (lime second line), one-sentence promise, lime "Get instant access" button with price anchor R299/R600 beside it, trust row. Right 45%: a 4:5 vertical Reel frame holding the before/after scrub slider with a lime playhead handle, timecode and caption. Mobile: headline, slider frame, then CTA, all inside the first 1.4 screens. Sticky countdown bar on top styled as a timecode.
 
-FORM: Video-editor timeline (preview monitor + scrub + tracks), position 1 on the ordered list; surface extension of the PDF world, no concept roll (structure pinned by the user); seed key: none, code-led, no image generation available.
+FORM: Video-editor timeline (preview monitor + scrub + tracks), position 1 on my ordered list. The user pinned structure (Little Believers) and palette (PDF black + lime), not this form: the editing-suite form is the builder's pick, not a rolled concept; seed key: none (concept-seed not run), code-led, no image generation available.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
