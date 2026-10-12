@@ -107,6 +107,33 @@
         ],
         "createdAt": "2026-10-12T15:22:37.964Z",
         "reason": "Claude: chip reproduces the user's supplied PDF design (AI_Viral_Video_Masterclass.pdf hero)"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "ai-viral-video-masterclass/v2/index.html"
+        ],
+        "createdAt": "2026-10-12T15:48:37.011Z",
+        "reason": "Claude: the preview monitor (.scrub) and motion-demo frames intentionally clip their images and playhead to the rounded frame; nothing in them needs to escape"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "ai-viral-video-masterclass/v2/index.html"
+        ],
+        "createdAt": "2026-10-12T15:51:49.311Z",
+        "reason": "Claude: padding lives on inner .wrap / padding-block (80-120px sections), and .mt-frame children are absolutely inset; verified in desktop and mobile captures"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "ai-viral-video-masterclass/v2/index.html"
+        ],
+        "createdAt": "2026-10-12T15:51:49.330Z",
+        "reason": "Claude: the blinking dot is the camera REC light of the editing-suite direction (surface brief OWN-WORLD), stepped blink, disabled under prefers-reduced-motion"
       }
     ]
   }
