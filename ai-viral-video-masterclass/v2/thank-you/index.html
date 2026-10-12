@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You're In | AI Viral Video Masterclass</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0B08">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230A0B08%22/><path d=%22M38 28v44l36-22z%22 fill=%22%23C2F24B%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!--
+  Post-purchase page. Set it as the success / redirect URL of each Payflow checkout:
+    Basic   R199 -> https://aiviralvideo.learnwithversus.com/thank-you/?plan=basic
+    Premium R299 -> https://aiviralvideo.learnwithversus.com/thank-you/?plan=premium
+    Offer   R249 -> https://aiviralvideo.learnwithversus.com/thank-you/?plan=oto
+  Optional: add &order=<order id> so a refresh or revisit never counts the same order twice.
+  Purchase fires only when ?plan= is one of the three values above.
+-->
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '927138150224416');
+fbq('track', 'PageView');
+(function(){
+  var PLANS = {
+    basic:   { name:"AI Viral Video Masterclass: Basic",   value:199 },
+    premium: { name:"AI Viral Video Masterclass: Premium", value:299 },
+    oto:     { name:"AI Viral Video Masterclass: Premium (R249 one-time offer)", value:249 },
+    upgrade: { name:"AI Viral Video Masterclass: Premium (R249 one-time offer)", value:249 }
+  };
+  var q = new URLSearchParams(location.search);
+  var plan = (q.get("plan") || "").toLowerCase(), info = PLANS[plan];
+  if (!info) return;
+  var order = q.get("order") || q.get("transaction") || "";
+  var key = "avm_purchase_" + plan + "_" + (order || "noorder");
+  var done = null;
+  try { done = localStorage.getItem(key); } catch(e) {}
+  if (done) return;
+  var opts = order ? { eventID: "purchase-" + order } : undefined;
+  fbq("track", "Purchase", { value:info.value, currency:"ZAR", content_name:info.name, content_ids:[plan === "upgrade" ? "oto" : plan], content_type:"product", num_items:1 }, opts);
+  try { localStorage.setItem(key, String(Date.now())); } catch(e) {}
+})();
+</script>
+<!-- End Meta Pixel -->
+
+<style>
+  :root{ --bg:#0A0B08; --panel:#121410; --ink:#F1F4EA; --soft:#A9AF9D; --lime:#C2F24B; --lime-ink:#0A0B08; --line:rgba(220,240,180,.16); color-scheme:dark; }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif; line-height:1.6; display:grid; place-items:center; padding:32px 20px; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--lime); color:var(--lime-ink); }
+  main{ width:100%; max-width:560px; text-align:center; }
+  .mark{ width:84px; height:84px; margin:0 auto 28px; border-radius:24px; background:var(--lime); color:var(--lime-ink); display:grid; place-items:center; }
+  .mark svg{ width:42px; height:42px; }
+  h1{ font-family:'Poppins', system-ui, sans-serif; font-weight:900; text-transform:uppercase; letter-spacing:-.035em; line-height:.95; font-size:clamp(44px,11vw,72px); margin:0; }
+  h1 span{ color:var(--lime); }
+  p{ color:var(--soft); font-size:17px; margin:18px auto 0; max-width:46ch; }
+  p strong{ color:var(--ink); }
+  .steps{ text-align:left; margin:32px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
+  .steps li{ display:flex; gap:14px; padding:16px 4px; border-bottom:1px solid var(--line); color:var(--soft); }
+  .steps b{ font-family:'Poppins', system-ui, sans-serif; color:var(--lime); flex-shrink:0; }
+  a.back{ display:inline-flex; align-items:center; justify-content:center; min-height:52px; margin-top:32px; padding:14px 26px; border-radius:14px; border:1.5px solid var(--line); color:var(--ink); text-decoration:none; font-weight:700; }
+  a.back:hover{ border-color:var(--lime); }
+  :focus-visible{ outline:3px solid var(--lime); outline-offset:3px; }
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=927138150224416&ev=PageView&noscript=1"></noscript>
+<main>
+  <div class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+  <h1>You're <span>In.</span></h1>
+  <p>Thank you for joining the <strong>AI Viral Video Masterclass</strong>. Your login to the members area is on its way to your email.</p>
+  <ol class="steps">
+    <li><b>1</b><span>Open the email with your access details. It can take a few minutes.</span></li>
+    <li><b>2</b><span>Can't find it? Check your spam and promotions folders.</span></li>
+    <li><b>3</b><span>Still nothing after 15 minutes? Email <strong>contact@sheltondouglas.co.za</strong> or WhatsApp <strong>+27 78 448 6040</strong>.</span></li>
+  </ol>
+  <a class="back" href="/">Back to the course page</a>
+</main>
+</body>
+</html>
