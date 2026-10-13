@@ -1,0 +1,559 @@
+{
+ "url": "http://localhost:8765/",
+ "finalUrl": "http://localhost:8765/",
+ "capturedAt": "2026-10-13T06:26:25.318Z",
+ "viewport": {
+  "w": 1920,
+  "h": 1080
+ },
+ "docHeight": 8782,
+ "name": "O Conselheiro — início",
+ "title": "O Conselheiro — Advising Estratégico | Shelton Douglas",
+ "description": "Advising estratégico para empreendedores, líderes e especialistas que precisam de clareza, estrutura e um plano de ação executável. Conduzido por Shelton Douglas — O Conselheiro, Kingdom Company.",
+ "tagline": "Para quem precisa de menos informação e mais clareza.",
+ "lang": "pt",
+ "themeColorMeta": null,
+ "colorSchemeMeta": null,
+ "manifest": null,
+ "copy": {
+  "h1": [
+   "Para quem precisa de menos informação e mais clareza."
+  ],
+  "h2": [
+   "Trazer clareza sobre o que está a acontecer e construir um caminho prático para avançar.",
+   "A Tríade da Clareza",
+   "Três fases, um documento final acionável",
+   "Para quem é — e para quem não é",
+   "As sessões são conduzidas pessoalmente por Shelton Douglas.",
+   "Escolha o formato da sua sessão",
+   "Pronto para ter clareza sobre o próximo passo?"
+  ],
+  "h3": [
+   "Enxergar, decidir e executar — nesta ordem.",
+   "Métodos autorais",
+   "Onde está, para onde vai, por onde começa",
+   "Raio-X",
+   "Advising",
+   "Plano",
+   "É para si se…",
+   "Não é para si se…"
+  ],
+  "heroLine": "Para quem precisa de menos informação e mais clareza.",
+  "ctas": [
+   {
+    "text": "Agendar sessão",
+    "bg": "#ffffff",
+    "color": "#000000",
+    "border": null,
+    "radius": 33554400,
+    "filled": true,
+    "inHeader": true,
+    "inHero": true,
+    "top": 29,
+    "w": 146,
+    "h": 40
+   },
+   {
+    "text": "Agendar uma sessão",
+    "bg": "#c7f534",
+    "color": "#000000",
+    "border": null,
+    "radius": 33554400,
+    "filled": true,
+    "inHeader": false,
+    "inHero": true,
+    "top": 873,
+    "w": 241,
+    "h": 56
+   },
+   {
+    "text": "Começar agora",
+    "bg": "#000000",
+    "color": "#ffffff",
+    "border": null,
+    "radius": 33554400,
+    "filled": true,
+    "inHeader": false,
+    "inHero": false,
+    "top": 4511,
+    "w": 331,
+    "h": 52
+   },
+   {
+    "text": "comercial@kingdomcompany.co.za",
+    "bg": "#c7f534",
+    "color": "#000000",
+    "border": null,
+    "radius": 33554400,
+    "filled": true,
+    "inHeader": false,
+    "inHero": false,
+    "top": 8148,
+    "w": 351,
+    "h": 56
+   }
+  ],
+  "nav": [
+   "O Conselheiro.",
+   "Metodologia",
+   "Programa",
+   "Para Quem É",
+   "O Conselheiro",
+   "Como Funciona"
+  ],
+  "sentences": [
+   "Advising para empreendedores, líderes e especialistas que se sentem estagnados, sobrecarregados ou sem clareza sobre o próximo passo, seja no negócio, na carreira ou nos seus projetos.",
+   "O papel do Advisor é definir o que precisa de ser resolvido primeiro e dar o suporte especializado necessário para tomar melhores decisões, criando maior autonomia, performance e sustentabilidade.",
+   "Todo empreendedor, para alcançar qualquer resultado consistente, precisa de três clarezas essenciais.",
+   "Enxergar com precisão onde está, compreender qual é o caminho certo a seguir e saber com exatidão o que fazer, em que ordem e em que momento.",
+   "Baseados em conhecimento tácito, inspirados nas experiências, histórias e trajetórias reais do advisor. Mentoria prática e enraizada na realidade vivida.",
+   "O diferencial está em ir além das técnicas convencionais de gestão: resultados sustentáveis nascem quando empreendedor e empreendimento crescem juntos.",
+   "A sessão começa com um Raio-X da situação atual, passa pela identificação dos gargalos e culmina num plano de ação com prioridades e próximos passos claros.",
+   "Levantamento da situação atual (pessoa, negócio ou equipa)."
+  ]
+ },
+ "colors": {
+  "theme": "dark",
+  "monochrome": false,
+  "ground": [
+   {
+    "hex": "#070706",
+    "share": 0.906,
+    "sources": [
+     "pixels",
+     "dom"
+    ]
+   }
+  ],
+  "ink": {
+   "hex": "#ffffff",
+   "contrastOnGround": 20.15,
+   "source": "computed colour of the largest heading (h1 \"Para quem precisa de menos informação e mais clareza.\", 96px)"
+  },
+  "inkSoft": {
+   "hex": "#a3a3a3",
+   "contrastOnGround": 7.99,
+   "note": "body copy"
+  },
+  "accentCandidates": {
+   "note": "saturated colours sampled from imagery (a CSS/DOM accent exists, these are extra)",
+   "items": [
+    {
+     "hex": "#c6f337",
+     "file": "screens/03.jpg",
+     "share": 0.02197,
+     "sharePct": 2.2
+    },
+    {
+     "hex": "#97b538",
+     "file": "screens/06.jpg",
+     "share": 0.00395,
+     "sharePct": 0.4
+    },
+    {
+     "hex": "#748b2c",
+     "file": "screens/01.jpg",
+     "share": 0.00112,
+     "sharePct": 0.11
+    },
+    {
+     "hex": "#536b19",
+     "file": "screens/03.jpg",
+     "share": 0.00038,
+     "sharePct": 0.04
+    }
+   ]
+  },
+  "inkMuted": {
+   "hex": "#8a8a8a",
+   "contrastOnGround": 5.84
+  },
+  "accents": [
+   {
+    "hex": "#c7f534",
+    "role": "accent (primary)",
+    "score": 61,
+    "sources": [
+     "button",
+     "background",
+     "text",
+     "screenshot pixels"
+    ]
+   },
+   {
+    "hex": "#ffffff",
+    "role": "accent 2",
+    "score": 30,
+    "sources": [
+     "CTA background"
+    ]
+   }
+  ],
+  "ctaBg": "#ffffff",
+  "link": "#a3a3a3",
+  "palette": [
+   {
+    "hex": "#070706",
+    "role": "ground (dark theme)",
+    "share": 0.906
+   },
+   {
+    "hex": "#ffffff",
+    "role": "ink (headline / logo ink)",
+    "contrast": 20.2
+   },
+   {
+    "hex": "#a3a3a3",
+    "role": "ink-soft (body copy)",
+    "contrast": 8
+   },
+   {
+    "hex": "#8a8a8a",
+    "role": "ink muted",
+    "contrast": 5.8
+   },
+   {
+    "hex": "#c7f534",
+    "role": "accent (primary)",
+    "sources": [
+     "button",
+     "background",
+     "text",
+     "screenshot pixels"
+    ]
+   }
+  ],
+  "pixelPalette": [
+   {
+    "hex": "#070706",
+    "share": 0.886
+   },
+   {
+    "hex": "#222320",
+    "share": 0.051
+   },
+   {
+    "hex": "#393939",
+    "share": 0.018
+   },
+   {
+    "hex": "#525251",
+    "share": 0.006
+   },
+   {
+    "hex": "#171b0a",
+    "share": 0.006
+   },
+   {
+    "hex": "#c6f237",
+    "share": 0.006
+   },
+   {
+    "hex": "#465618",
+    "share": 0.005
+   },
+   {
+    "hex": "#6b6b6b",
+    "share": 0.004
+   },
+   {
+    "hex": "#8a8a8a",
+    "share": 0.003
+   },
+   {
+    "hex": "#fcfcfc",
+    "share": 0.002
+   }
+  ],
+  "domBackgrounds": [
+   {
+    "hex": "#000000",
+    "share": 0.742
+   },
+   {
+    "hex": "#0b0b0b",
+    "share": 0.123
+   },
+   {
+    "hex": "#0c0c0c",
+    "share": 0.027
+   },
+   {
+    "hex": "#3a3a3a",
+    "share": 0.021
+   },
+   {
+    "hex": "#151515",
+    "share": 0.021
+   },
+   {
+    "hex": "#050505",
+    "share": 0.021
+   },
+   {
+    "hex": "#141414",
+    "share": 0.018
+   },
+   {
+    "hex": "#c7f534",
+    "share": 0.011
+   },
+   {
+    "hex": "#0a0a0a",
+    "share": 0.01
+   },
+   {
+    "hex": "#ccf233",
+    "share": 0.001
+   }
+  ],
+  "textColors": [
+   {
+    "hex": "#a3a3a3",
+    "share": 0.461
+   },
+   {
+    "hex": "#ffffff",
+    "share": 0.39
+   },
+   {
+    "hex": "#8a8a8a",
+    "share": 0.086
+   },
+   {
+    "hex": "#000000",
+    "share": 0.039
+   },
+   {
+    "hex": "#c7f534",
+    "share": 0.025
+   }
+  ],
+  "cssVars": []
+ },
+ "fonts": {
+  "roles": {
+   "heading": {
+    "family": "Onest, system-ui, sans-serif",
+    "weight": "600",
+    "size": "96px",
+    "style": "normal",
+    "letterSpacing": "-4.32px",
+    "lineHeight": "91.2px",
+    "textTransform": "none",
+    "color": "#ffffff",
+    "primaryFamily": "Onest",
+    "file": "fonts/onest-300-900-2.woff2",
+    "fileWeight": "300 900"
+   },
+   "body": {
+    "family": "Onest, system-ui, sans-serif",
+    "weight": "400",
+    "size": "20px",
+    "style": "normal",
+    "letterSpacing": "normal",
+    "lineHeight": "32.5px",
+    "textTransform": "none",
+    "color": "#a3a3a3",
+    "primaryFamily": "Onest",
+    "file": "fonts/onest-300-900-2.woff2",
+    "fileWeight": "300 900"
+   },
+   "button": {
+    "family": "Onest, system-ui, sans-serif",
+    "weight": "600",
+    "size": "14px",
+    "style": "normal",
+    "letterSpacing": "normal",
+    "lineHeight": "20px",
+    "textTransform": "none",
+    "color": "#000000",
+    "primaryFamily": "Onest",
+    "file": "fonts/onest-300-900-2.woff2",
+    "fileWeight": "300 900"
+   },
+   "nav": {
+    "family": "Onest, system-ui, sans-serif",
+    "weight": "400",
+    "size": "16px",
+    "style": "normal",
+    "letterSpacing": "normal",
+    "lineHeight": "24px",
+    "textTransform": "none",
+    "color": "#ffffff",
+    "primaryFamily": "Onest",
+    "file": "fonts/onest-300-900-2.woff2",
+    "fileWeight": "300 900"
+   }
+  },
+  "faces": [
+   {
+    "family": "Onest",
+    "weight": "300 900",
+    "style": "normal",
+    "url": "https://fonts.gstatic.com/s/onest/v11/gNMKW3F-SZuj7xnx-HYoEoeyxMI.woff2",
+    "file": "fonts/onest-300-900.woff2",
+    "bytes": 18164,
+    "used": false,
+    "range": "U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AE, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F8D0-1F8D8, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FAC6, U+1FAC8, U+1FACC-1FADD, U+1FADF-1FAEB, U+1FAEF-1FAFA, U+1FB00-1FBFF"
+   },
+   {
+    "family": "Onest",
+    "weight": "300 900",
+    "style": "normal",
+    "url": "https://fonts.gstatic.com/s/onest/v11/gNMKW3F-SZuj7xmf-HYoEoey.woff2",
+    "file": "fonts/onest-300-900-2.woff2",
+    "bytes": 33808,
+    "used": false,
+    "range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+   },
+   {
+    "family": null,
+    "weight": "400",
+    "style": "normal",
+    "url": "https://fonts.gstatic.com/s/onest/v11/gNMKW3F-SZuj7xmf-HY.woff2",
+    "file": "fonts/gnmkw3f-szuj7xmf-hy-400.woff2",
+    "bytes": 33760,
+    "used": true
+   }
+  ],
+  "loadedByPage": [
+   {
+    "family": "Onest",
+    "weight": "300 900",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Onest",
+    "weight": "300 900",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Onest",
+    "weight": "300 900",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Onest",
+    "weight": "300 900",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Onest",
+    "weight": "300 900",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Onest",
+    "weight": "300 900",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Onest",
+    "weight": "300 900",
+    "style": "normal",
+    "status": "loaded"
+   }
+  ],
+  "mostUsed": [
+   {
+    "key": "Onest|400",
+    "weight": 91480
+   },
+   {
+    "key": "Onest|600",
+    "weight": 29619
+   },
+   {
+    "key": "Onest|500",
+    "weight": 2126
+   }
+  ],
+  "platformFonts": {
+   "h1": [
+    {
+     "family": "Onest",
+     "custom": true,
+     "glyphs": 49
+    }
+   ],
+   "body": [
+    {
+     "family": "Onest",
+     "custom": true,
+     "glyphs": 182
+    }
+   ]
+  }
+ },
+ "logo": {
+  "file": "logo/logo.svg",
+  "kind": "svg",
+  "source": "inline svg (home-link,header,top)",
+  "fills": [
+   "#000000"
+  ],
+  "onDark": false,
+  "favicon": null,
+  "appIcon": null,
+  "text": {
+   "text": "Metodologia",
+   "font": "Onest, system-ui, sans-serif",
+   "weight": "400",
+   "size": "14px",
+   "color": "#a3a3a3"
+  },
+  "candidates": [
+   {
+    "score": 9,
+    "why": [
+     "home-link",
+     "header",
+     "top"
+    ],
+    "members": [
+     "svg 18x18"
+    ],
+    "lockup": false
+   }
+  ]
+ },
+ "ogImage": null,
+ "screens": [
+  {
+   "file": "screens/01.jpg",
+   "scrollY": 0
+  },
+  {
+   "file": "screens/02.jpg",
+   "scrollY": 1540
+  },
+  {
+   "file": "screens/03.jpg",
+   "scrollY": 3081
+  },
+  {
+   "file": "screens/04.jpg",
+   "scrollY": 4621
+  },
+  {
+   "file": "screens/05.jpg",
+   "scrollY": 6162
+  },
+  {
+   "file": "screens/06.jpg",
+   "scrollY": 7702
+  }
+ ],
+ "media": [],
+ "mediaDropped": [],
+ "warnings": [
+  "favicon fetch failed (http://localhost:8765/favicon.ico): HTTP 404"
+ ]
+}
