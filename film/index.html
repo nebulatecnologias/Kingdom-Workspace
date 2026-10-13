@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>O Conselheiro: lançamento</title>
+<meta name="viewport" content="width=1080, height=1920">
+<!-- Filme vertical 1080x1920, 20 s, 30 fps. Interface reconstruída a partir do site em produção
+     (site.css + cafe.css do commit eb70daa): Raio-X rápido, janela do plano, janela da sessão, fecho com horizonte e selo. -->
+<style>
+@font-face { font-family: "Google Sans"; src: url("./assets/fonts/GoogleSans-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+/* ACENTO = laranja #FF5E1E: "o que importa agora" (o sinal marcado, o vértice de maior pressão, a prioridade 1, a luz do horizonte). Um elemento por plano. */
+:root {
+  --preto: #2D1E17; --cafe: #49372D; --cafe-escuro: #30211a; --offwhite: #EDE6DC;
+  --laranja: #FF5E1E;
+  --texto: #F3EEE6; --texto-2: #d8ccbf; --texto-3: #b5a291; --t: 237,230,220;
+  --font: "Google Sans", system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+#main { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--preto); color: var(--texto);
+  font-family: var(--font); font-weight: 400; -webkit-font-smoothing: antialiased; }
+.scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+.line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: pre; font-weight: 500; letter-spacing: -.04em; color: var(--texto); }
+.line > * { will-change: transform; }
+
+/* ---------- céu (B1 e fecho) ---------- */
+.ceu { position: absolute; left: 0; top: -80px; width: 1080px; height: 2080px; }
+.ceu circle { fill: #F3EEE6; }
+.nevoa { position: absolute; left: 50%; bottom: -620px; width: 2300px; height: 1150px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255,94,30,.30), rgba(73,55,45,.35) 55%, transparent); filter: blur(14px); }
+
+/* ---------- página clara (B2-B3): .claro do site ---------- */
+#s2 { background: var(--offwhite); }
+#cam2 { position: absolute; left: 0; top: 0; width: 372px; height: 1700px; transform-origin: 0 0; }
+.grelha { position: absolute; left: -420px; top: -500px; width: 1212px; height: 2700px;
+  background-image: linear-gradient(rgba(45,30,23,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(45,30,23,.08) 1px, transparent 1px);
+  background-size: 64px 64px; background-position: 4px 4px; }
+.luz { position: absolute; left: -300px; top: -200px; width: 980px; height: 1200px;
+  background: radial-gradient(closest-side, rgba(255,94,30,.10), rgba(73,55,45,.06) 55%, transparent); filter: blur(30px); }
+.claro { --texto: #2D1E17; --texto-2: #56463c; --texto-3: #6e5d52; --t: 45,30,23; color: var(--texto); }
+.cartao { position: absolute; border-radius: 30px; border: 1px solid rgba(45,30,23,.12); background: linear-gradient(135deg, #f4efe8, #e3dacd); overflow: hidden;
+  box-shadow: 0 30px 70px -40px rgba(45,30,23,.45); }
+.legenda { position: absolute; left: 28px; top: 26px; font-size: 14px; line-height: 22px; color: var(--texto-2); }
+.sintoma { position: absolute; left: 28px; height: 44px; }
+.sintoma span { position: absolute; left: 0; top: 0; display: inline-flex; align-items: center; gap: 9px; height: 44px; padding: 0 16px; border-radius: 999px; white-space: nowrap;
+  border: 1px solid rgba(45,30,23,.22); font-size: 14.5px; color: var(--texto-2); background: rgba(244,239,232,.0); }
+.sintoma span::before { content: ""; width: 14px; height: 14px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px rgba(45,30,23,.35); flex: none; }
+.sintoma span.on { background: var(--cafe); color: #F3EEE6; border-color: var(--cafe); }
+.sintoma span.on::before { background: var(--laranja); box-shadow: inset 0 0 0 3px var(--cafe), 0 0 0 1.5px var(--laranja); }
+#cursor { position: absolute; left: 0; top: 0; width: 14px; height: 21px; z-index: 5; overflow: visible; filter: drop-shadow(0 2px 3px rgba(45,30,23,.35)); }
+
+/* janelas café dentro da página clara (cafe.css: .claro .janela.vidro, .claro .teste-resultado.vidro) */
+.janela { --texto: #F3EEE6; --texto-2: #d8ccbf; --texto-3: #b5a291; --t: 237,230,220;
+  position: absolute; left: 10px; width: 352px; border-radius: 22px; overflow: hidden; color: var(--texto);
+  background: linear-gradient(135deg, #49372D, #30211a); border: 1px solid rgba(45,30,23,.5); box-shadow: 0 40px 110px -40px rgba(45,30,23,.65); }
+.janela-topo { display: flex; align-items: center; gap: 12px; height: 48px; padding: 0 16px; border-bottom: 1px solid rgba(237,230,220,.1); white-space: nowrap; }
+.pontos { display: flex; gap: 7px; }
+.pontos i { width: 11px; height: 11px; border-radius: 50%; background: rgba(237,230,220,.2); }
+.pontos i:first-child { background: var(--laranja); }
+.janela-titulo { font-size: 13.5px; color: var(--texto-2); }
+.janela-titulo b { font-weight: 500; color: #fff; }
+.etiqueta { position: relative; margin-left: auto; width: 66px; height: 26px; }
+.etiqueta span { position: absolute; right: 0; top: 0; height: 26px; line-height: 26px; padding: 0 11px; font-size: 12px; color: var(--texto-3); border-radius: 999px; box-shadow: inset 0 0 0 1px rgba(237,230,220,.14); }
+.corpo { position: absolute; left: 18px; right: 18px; }
+.radar { position: absolute; left: 0; top: 0; width: 316px; height: 222px; overflow: visible; }
+.areas { position: absolute; left: 0; width: 316px; list-style: none; }
+.areas li { position: absolute; left: 0; width: 316px; height: 36px; }
+.areas .rot { display: flex; justify-content: space-between; font-size: 14px; line-height: 22px; color: var(--texto-2); }
+.areas .rot b { position: relative; font-weight: 500; color: var(--texto); font-variant-numeric: tabular-nums; width: 46px; height: 22px; }
+.areas .rot b span { position: absolute; right: 0; top: 0; }
+.barrinha { display: block; margin-top: 7px; height: 6px; border-radius: 99px; background: rgba(237,230,220,.09); overflow: hidden; }
+.barrinha i { display: block; height: 100%; width: 100%; border-radius: inherit; background: #EDE6DC; transform-origin: left; }
+.por-onde { position: absolute; left: 0; width: 316px; border-radius: 16px; padding: 18px 20px; background: rgba(237,230,220,.03); box-shadow: inset 0 0 0 1px rgba(237,230,220,.12); }
+.por-onde small { position: relative; display: block; height: 20px; font-size: 12.5px; line-height: 20px; color: var(--texto-3); margin-bottom: 6px; }
+.por-onde small span { position: absolute; left: 0; top: 0; white-space: nowrap; }
+.por-onde p { font-size: 15.5px; line-height: 1.55; color: var(--texto); }
+.painel { position: absolute; left: 18px; right: 18px; border-radius: 16px; padding: 20px; background: rgba(237,230,220,.03); box-shadow: inset 0 0 0 1px rgba(237,230,220,.12); }
+.painel-titulo { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--texto-3); margin-bottom: 16px; }
+.painel-titulo b { font-weight: 500; color: var(--texto); font-size: 14.5px; }
+.passos { list-style: none; position: relative; height: 230px; }
+.passos li { position: absolute; left: 0; right: 0; height: 68px; display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 12px;
+  background: rgba(237,230,220,.03); box-shadow: inset 0 0 0 1px rgba(237,230,220,.09); }
+.caixa { position: relative; width: 18px; height: 18px; border-radius: 6px; box-shadow: inset 0 0 0 1.5px rgba(237,230,220,.35); flex: none; margin-top: 2px; }
+.caixa .feito { position: absolute; inset: 0; border-radius: 6px; background: var(--laranja); display: grid; place-items: center; }
+.caixa .feito svg { width: 12px; height: 12px; color: #2D1E17; }
+.passos li .txt { font-size: 14px; color: var(--texto); line-height: 1.4; white-space: nowrap; }
+.passos li small { display: block; font-size: 12.5px; color: var(--texto-3); margin-top: 2px; }
+
+/* ---------- fecho (B4 e B6): .fecho do site ---------- */
+#s4 { background: var(--preto); border-top: 1px solid rgba(237,230,220,.1); }
+#w4 { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.nascer { position: absolute; left: 50%; top: 1150px; width: 2400px; height: 1300px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255,94,30,.55), rgba(110,55,30,.42) 50%, transparent); filter: blur(12px); }
+.horizonte, .aro, .aro-luz { position: absolute; left: -760px; top: 1480px; width: 2600px; height: 2600px; border-radius: 50%; }
+.horizonte { border-top: 2px solid rgba(237,230,220,.45); box-shadow: 0 -40px 120px -24px rgba(255,94,30,.22); background: var(--preto); }
+.aro, .aro-luz { --a: 0deg;
+  -webkit-mask-image: conic-gradient(from 0deg at 50% 50%, #000 0deg, #000 var(--a), transparent calc(var(--a) + 14deg), transparent calc(346deg - var(--a)), #000 calc(360deg - var(--a)));
+          mask-image: conic-gradient(from 0deg at 50% 50%, #000 0deg, #000 var(--a), transparent calc(var(--a) + 14deg), transparent calc(346deg - var(--a)), #000 calc(360deg - var(--a))); }
+.aro { border-top: 4px solid var(--laranja); }
+.aro-luz { box-shadow: 0 -34px 110px -16px rgba(255,94,30,.95); }
+
+/* ---------- sessão (B5): .sessao-janela do site, em formato vertical ---------- */
+#s5 { background: radial-gradient(120% 70% at 30% 20%, #4a372c 0%, #2D1E17 60%); }
+#cam5 { position: absolute; left: 0; top: 0; width: 400px; height: 620px; transform-origin: 0 0; }
+.sessao { position: absolute; left: 0; top: 0; width: 400px; height: 590px; border-radius: 16px; overflow: hidden;
+  background: rgba(48,33,26,.55); border: 1px solid rgba(237,230,220,.16); box-shadow: 0 40px 110px -40px rgba(0,0,0,.6); }
+.sessao .janela-topo { height: 44px; padding: 0 16px; }
+.sessao-tempo { margin-left: auto; font-size: 13px; color: var(--texto-2); display: inline-flex; gap: 8px; align-items: center; }
+.sessao-tempo::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--laranja); }
+.ecra { position: absolute; left: 14px; top: 58px; width: 372px; height: 465px; border-radius: 12px; overflow: hidden; background: #1f140f; }
+.ecra img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 26% 30%; }
+.ecra small { position: absolute; left: 10px; bottom: 8px; font-size: 12px; color: #fff; padding: 3px 9px; border-radius: 99px; background: rgba(0,0,0,.55); }
+.tu { position: absolute; right: 12px; bottom: 12px; width: 104px; height: 130px; border-radius: 10px; background: linear-gradient(135deg, #49372D, #30211a);
+  box-shadow: inset 0 0 0 1px rgba(237,230,220,.18), 0 10px 30px -10px rgba(0,0,0,.6); display: grid; place-items: center; }
+.tu .inicial { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-size: 16px; box-shadow: inset 0 0 0 1px rgba(237,230,220,.22); color: var(--texto-2); }
+.tu small { left: 6px; bottom: 6px; font-size: 10.5px; padding: 2px 7px; }
+.fases { position: absolute; left: 14px; right: 14px; top: 537px; }
+.pista { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 4px; }
+.seg { height: 6px; border-radius: 99px; background: rgba(237,230,220,.1); overflow: hidden; }
+.seg i { display: block; height: 100%; background: #EDE6DC; transform-origin: left; }
+.nomes { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 4px; font-size: 12px; color: var(--texto-3); margin-top: 8px; }
+
+/* ---------- selo (B6) ---------- */
+#selo { position: absolute; left: 330px; top: 520px; width: 420px; height: 420px; }
+#anel { position: absolute; inset: 0; background: url("./assets/img/logo-offwhite.png") center/100% 100% no-repeat;
+  -webkit-mask-image: radial-gradient(circle closest-side at 50% 50%, transparent 0 74%, #000 75.5%); mask-image: radial-gradient(circle closest-side at 50% 50%, transparent 0 74%, #000 75.5%); }
+.metade { position: absolute; inset: 0; width: 420px; height: 420px; overflow: visible; }
+.metade path { fill: #F3EEE6; }
+</style>
+</head>
+<body>
+<div id="main">
+
+  <!-- ============ B1 GANCHO (0-84) ============ -->
+  <section id="s1" class="scene">
+    <svg id="ceu1" class="ceu" viewBox="0 0 1080 2080"></svg>
+    <div class="nevoa" id="nevoa1"></div>
+    <div class="line" id="h1a" style="top:736px;font-size:100px;line-height:112px">Talvez o teu problema</div>
+    <div class="line" id="h1b" style="top:848px;font-size:100px;line-height:112px">não seja falta de</div>
+    <div class="line" id="h1c" style="top:960px;font-size:100px;line-height:112px">conhecimento.</div>
+  </section>
+
+  <!-- ============ B2-B3 (84-348) página clara, e B4/B6 (324-600) fecho escuro, num só rolar ============ -->
+  <div id="rolo" style="position:absolute;left:0;top:0;width:1080px;height:3840px">
+    <section id="s2" class="scene claro" data-ui="captured">
+      <div id="cam2">
+        <div class="grelha"></div><div class="luz"></div>
+
+        <div class="cartao" style="left:-10px;top:0;width:392px;height:492px">
+          <div class="legenda">O que se aplica a ti?</div>
+          <label class="sintoma" style="top:60px"><span>As vendas não avançam</span></label>
+          <label class="sintoma" style="top:112px"><span>A equipa não entrega como deveria</span></label>
+          <label class="sintoma" id="c2" style="top:164px"><span>O negócio depende demasiado de mim</span><span class="on" id="c2on">O negócio depende demasiado de mim</span></label>
+          <label class="sintoma" id="c3" style="top:216px"><span>Os processos estão desorganizados</span><span class="on" id="c3on">Os processos estão desorganizados</span></label>
+          <label class="sintoma" id="c4" style="top:268px"><span>Estou sobrecarregado</span><span class="on" id="c4on">Estou sobrecarregado</span></label>
+          <label class="sintoma" style="top:320px"><span>Tenho uma ideia e não sei por onde começar</span></label>
+          <label class="sintoma" style="top:372px"><span>Tenho conhecimento e não sei monetizá-lo</span></label>
+          <label class="sintoma" style="top:424px"><span>Tenho uma decisão importante pendente</span></label>
+        </div>
+
+        <!-- resultado do Raio-X: a janela café do site -->
+        <div class="janela" style="top:520px;height:760px">
+          <div class="janela-topo">
+            <span class="pontos"><i></i><i></i><i></i></span>
+            <span class="janela-titulo">Raio-X · <b>O teu negócio</b></span>
+            <span class="etiqueta"><span id="sin2">2 sinais</span><span id="sin3">3 sinais</span></span>
+          </div>
+          <div class="corpo" style="top:66px">
+            <svg class="radar" viewBox="-52 -16 304 214">
+              <g fill="none" stroke="rgba(237,230,220,.13)">
+                <polygon points="100.0,20.0 176.1,75.3 147.0,164.7 53.0,164.7 23.9,75.3"/>
+                <polygon points="100.0,40.0 157.1,81.5 135.3,148.5 64.7,148.5 42.9,81.5"/>
+                <polygon points="100.0,60.0 138.0,87.6 123.5,132.4 76.5,132.4 62.0,87.6"/>
+                <polygon points="100.0,80.0 119.0,93.8 111.8,116.2 88.2,116.2 81.0,93.8"/>
+                <path d="M100 100 100 20M100 100 176.1 75.3M100 100 147 164.7M100 100 53 164.7M100 100 23.9 75.3"/>
+              </g>
+              <polygon id="area" points="100,100 100,100 100,100 100,100 100,100" fill="rgba(237,230,220,.16)" stroke="#EDE6DC" stroke-width="1.8" stroke-linejoin="round"/>
+              <circle id="vertice" cx="53" cy="164.7" r="4.2" fill="#FF5E1E"/>
+              <g fill="#d8ccbf" font-size="13" font-family="Google Sans, sans-serif">
+                <text x="100" y="4" text-anchor="middle">Vendas</text>
+                <text x="186" y="72">Equipa</text>
+                <text x="156" y="186">Processos</text>
+                <text x="44" y="186" text-anchor="end">Delegação</text>
+                <text x="14" y="72" text-anchor="end">Direcção</text>
+              </g>
+            </svg>
+            <ul class="areas" style="top:236px">
+              <li style="top:0"><div class="rot">Vendas<b><span>0%</span></b></div><span class="barrinha"><i id="b0"></i></span></li>
+              <li style="top:46px"><div class="rot">Equipa<b><span>17%</span></b></div><span class="barrinha"><i id="b1"></i></span></li>
+              <li style="top:92px"><div class="rot">Processos<b><span id="p2a">50%</span><span id="p2b">67%</span></b></div><span class="barrinha"><i id="b2"></i></span></li>
+              <li style="top:138px"><div class="rot">Delegação<b><span id="p3a">67%</span><span id="p3b">100%</span></b></div><span class="barrinha"><i id="b3"></i></span></li>
+              <li style="top:184px"><div class="rot">Direcção<b><span id="p4a">0%</span><span id="p4b">17%</span></b></div><span class="barrinha"><i id="b4"></i></span></li>
+            </ul>
+            <div class="por-onde" style="top:472px;height:204px">
+              <small><span id="po2">Maior pressão: Delegação (67%)</span><span id="po3">Maior pressão: Delegação (100%)</span></small>
+              <p>Começaríamos pela tua dependência da operação: o que só tu podes fazer, o que pode ser delegado e por onde começar a sair.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- o plano: a janela "Advising · Plano de acção" do topo do site -->
+        <div class="janela" id="plano" style="top:1310px;height:372px">
+          <div class="janela-topo">
+            <span class="pontos"><i></i><i></i><i></i></span>
+            <span class="janela-titulo">Advising · Plano de acção</span>
+          </div>
+          <div class="painel" style="top:66px;height:288px">
+            <div class="painel-titulo"><b>Plano</b><span>Por ordem</span></div>
+            <ul class="passos">
+              <li id="pa" style="top:0"><span class="caixa"><span class="feito" id="feito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span class="txt">Tirar o dono da operação diária<small>Semanas 1 e 2 · Responsável: direcção</small></span></li>
+              <li id="pb" style="top:78px"><span class="caixa"></span><span class="txt">Documentar os três processos-chave<small>Semanas 3 e 4 · Responsável: operações</small></span></li>
+              <li id="pc" style="top:156px"><span class="caixa"></span><span class="txt">Metas e indicadores por pessoa<small>Mês 2 · Responsável: equipa</small></span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="cursor"><svg id="seta" viewBox="0 0 14 21" style="position:absolute;left:0;top:0;width:14px;height:21px;overflow:visible;transform-origin:0 0"><path d="M0.6 0.6 L0.6 17.2 L4.9 13.3 L7.8 20 L10.6 18.8 L7.7 12.2 L13.4 12.2 Z" fill="#2D1E17" stroke="#F3EEE6" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
+      </div>
+    </section>
+
+    <section id="s4" class="scene" style="top:1920px">
+      <div id="w4">
+        <svg id="ceu4" class="ceu" viewBox="0 0 1080 2080"></svg>
+        <div class="nascer" id="nascer"></div>
+        <div class="horizonte"></div>
+        <div class="aro-luz" id="aroLuz"></div>
+        <div class="aro" id="aro"></div>
+        <div class="line" id="h4a" style="top:860px;font-size:80px;line-height:92px">Uma sessão pode</div>
+        <div class="line" id="h4b" style="top:955px;font-size:80px;line-height:92px">mudar a forma como</div>
+        <div class="line" id="h4c" style="top:1050px;font-size:80px;line-height:92px">vês o teu negócio.</div>
+      </div>
+      <!-- B6: selo e frase final, no mesmo mundo -->
+      <div id="selo">
+        <div id="anel"></div>
+        <svg class="metade" id="mU" viewBox="0 0 360 360"><path d="M184 60 L203 151 L298 176 L181 176 L181 68 Z"/></svg>
+        <svg class="metade" id="mL" viewBox="0 0 360 360"><path d="M175 298 L156 207 L61 182 L178 182 L178 290 Z"/></svg>
+      </div>
+      <div class="line" id="h6a" style="top:1040px;font-size:72px;line-height:84px">Para quem precisa de</div>
+      <div class="line" id="h6b" style="top:1124px;font-size:72px;line-height:84px">menos informação</div>
+      <div class="line" id="h6c" style="top:1208px;font-size:72px;line-height:84px;color:var(--texto-3)">e mais clareza.</div>
+    </section>
+  </div>
+
+  <!-- ============ B5 SESSÃO (444-510) ============ -->
+  <section id="s5" class="scene" data-ui="captured">
+    <div id="cam5">
+      <div class="sessao">
+        <div class="janela-topo">
+          <span class="pontos"><i></i><i></i><i></i></span>
+          <span class="janela-titulo">Sessão de Advising</span>
+          <span class="sessao-tempo">1 a 2 horas</span>
+        </div>
+        <div class="ecra">
+          <img src="./assets/img/shelton.jpg" alt="">
+          <small>Shelton Douglas</small>
+          <div class="tu"><span class="inicial">Tu</span><small style="position:absolute">Tu</small></div>
+        </div>
+        <div class="fases">
+          <div class="pista"><span class="seg"><i id="f1"></i></span><span class="seg"><i id="f2"></i></span><span class="seg"><i id="f3"></i></span></div>
+          <div class="nomes"><span>Raio-X</span><span>Advising</span><span>Plano</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="./runtime/vendor/gsap.min.js"></script>
+<script src="./runtime/motion.js"></script>
+<script>
+/* CONTRATO DE SEEK: tudo o que se vê é função pura de t. Só Motion.* e um renderizador próprio puro (radar, céu) ligado a __seek. */
+const M = Motion.film({ fps: 30, duration: 20, width: 1080, height: 1920, clock: 'smooth' });
+const ACC = '#FF5E1E';
+
+/* ---------- céu determinístico (semente fixa) ---------- */
+function prng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+function estrelas(id, seed, n) {
+  const r = prng(seed), svg = document.getElementById(id); let h = '';
+  for (let i = 0; i < n; i++) { const big = r() < .12; h += `<circle cx="${(r() * 1080).toFixed(1)}" cy="${(r() * 2080).toFixed(1)}" r="${(big ? 1.6 + r() * .9 : .6 + r() * .8).toFixed(2)}" opacity="${(big ? .55 + r() * .35 : .18 + r() * .4).toFixed(2)}"/>`; }
+  svg.innerHTML = h;
+}
+estrelas('ceu1', 7, 170); estrelas('ceu4', 7, 170);   // a mesma noite no início e no fim
+
+/* ========== B1 GANCHO 0-84: "Talvez o teu problema não seja falta de conhecimento." ========== */
+M.show('#s1', 0, 84);
+M.drift('#ceu1', { prop: 'y', from: 0, to: -26, start: 0, end: 84 });
+M.kf('#nevoa1', 'opacity', [[0, .55], [84, .8]]);
+M.words('#h1a', { at: 1, mech: 'rise', dist: 54, frames: 13, gaps: [5, 4, 5], words: (i) => (i === 0 ? { from: { y: 54, scale: 1.04 } } : null) });
+M.words('#h1b', { at: 21, mech: 'rise', dist: 54, frames: 13, gaps: [4, 5, 4] });
+M.words('#h1c', { at: 41, mech: 'rise', dist: 64, frames: 16, words: [{ scale: 1.06 }] });
+M.kf('#s1', 'scale', [[0, 1], [84, 1.035]], { ease: 'gentleIn' });   // nunca parado; acelera para o corte
+
+/* ========== B2 VIRAGEM 84-150: o Raio-X rápido do site ========== */
+M.cut(84, { hide: ['#s1'], show: ['#rolo'] });
+M.hide('#rolo', 0); M.show('#rolo', 84);
+// câmara: a página em escala de site, ampliada pela câmara (texto 14.5 px x 2.9 = 42 px)
+M.camera('#cam2', [
+  [84,  { scale: 2.9,  x: 0.6,  y: 210 }],
+  [148, { scale: 2.9,  x: 0.6,  y: 96 }, 'cruise'],
+  [170, { scale: 2.7,  x: 37.8, y: -1092 }, 'whip'],
+  [214, { scale: 2.7,  x: 37.8, y: -1748 }, 'softInOut'],
+  [246, { scale: 2.7,  x: 37.8, y: -1960 }, 'glide'],
+  [270, { scale: 2.75, x: 28.5, y: -3146 }, 'whip'],
+  [324, { scale: 2.8,  x: 19.2, y: -3256 }, 'cruise']
+], { origin: '0% 0%' });
+
+// cursor: entra grande e já em movimento, pousa antes de cada clique
+M.cursor('#cursor', { keys: [
+  [84, 300, 470, 2.2, -16], [102, 120, 192, 1, 0],
+  [106, 120, 192, 1, 0],    [121, 128, 244, 1, 0],
+  [126, 128, 244, 1, 0],    [141, 112, 296, 1, 0],
+  [146, 112, 296, 1, 0],    [164, 470, 300, 1.3, -8]
+], ease: 'glide' });
+M.press('#seta', '#c2', { at: 106, lag: 1, frames: 3, cursorDepth: .82, targetDepth: .94 });
+M.press('#seta', '#c3', { at: 126, lag: 1, frames: 3, cursorDepth: .82, targetDepth: .94 });
+M.press('#seta', '#c4', { at: 146, lag: 1, frames: 3, cursorDepth: .82, targetDepth: .94 });
+M.show('#c2on', 108); M.show('#c3on', 128); M.show('#c4on', 148);
+M.hide('#cursor', 164);
+
+/* ========== B3 PROVA 150-324: radar -> maior pressão -> plano por ordem ========== */
+M.show('#sin2', 0, 148); M.show('#sin3', 148);
+M.show('#p2a', 0, 150); M.show('#p2b', 150);
+M.show('#p3a', 0, 150); M.show('#p3b', 150);
+M.show('#p4a', 0, 150); M.show('#p4b', 150);
+M.show('#po2', 0, 150); M.show('#po3', 150);
+// barras: estado com 2 sinais -> 3 sinais (valores reais do site.js: PESOS dono, processos, sobrecarga)
+const B2 = [0, .167, .5, .667, 0], B3 = [0, .167, .667, 1, .167];
+B3.forEach((v, i) => M.kf('#b' + i, 'scaleX', [[0, B2[i]], [150, B2[i]], [172, v, 'softLand']]));
+// vértice de maior pressão (Delegação): o acento aparece quando o radar chega
+M.enter('#vertice', { at: 170, frames: 9, ease: 'softLand', from: { scale: 2.6 } });
+M.hide('#vertice', 0); M.show('#vertice', 170);
+// plano por ordem
+M.cascade(['#pa', '#pb', '#pc'], { at: 258, gaps: [4, 4], fn: (el, f) => M.enter(el, { at: f, frames: 12, ease: 'softLand', from: { y: 22 } }) });
+M.hide('#feito', 0); M.show('#feito', 290);
+M.enter('#feito', { at: 290, frames: 8, ease: 'softLand', from: { scale: 1.45 } });
+M.mark(290, 'press', 'prioridade 1');
+
+/* ========== rolar 324-348: a página sobe e entra o fecho, como no site ========== */
+M.kf('#rolo', 'y', [[324, 0], [348, -1920, 'softInOut']]);
+M.hide('#s2', 348);
+M.mark(324, 'whip', 'rolar para o fecho');
+
+/* ========== B4 HERÓI 348-444: o horizonte acende ========== */
+M.drift('#ceu4', { prop: 'y', from: 0, to: -40, start: 324, end: 600 });
+M.kf('#nascer', 'opacity', [[324, .45], [356, .45], [392, 1, 'softLand'], [600, .9]]);
+M.kf('#aro', '--a', [[0, 0], [356, 0], [394, 64, 'softLand'], [600, 70]], { fmt: v => v + 'deg' });
+M.kf('#aroLuz', '--a', [[0, 0], [356, 0], [394, 64, 'softLand'], [600, 70]], { fmt: v => v + 'deg' });
+M.kf('#aroLuz', 'opacity', [[0, 0], [356, 0], [364, 1], [420, .7], [600, .6]]);
+M.mark(356, 'show', 'horizonte acende');
+M.words('#h4a', { at: 352, mech: 'rise', dist: 48, frames: 13, gaps: [5, 5] });
+M.words('#h4b', { at: 368, mech: 'rise', dist: 48, frames: 13, gaps: [4, 5, 5] });
+M.words('#h4c', { at: 388, mech: 'rise', dist: 48, frames: 14, gaps: [5, 5, 6] });
+// mergulho na luz do horizonte, a acelerar para o corte
+M.camera('#w4', [[420, { scale: 1 }], [444, { scale: 1.55 }, 'gentleIn'], [444, { scale: 1 }], [600, { scale: 1 }]], { origin: '540px 1500px' });
+M.hide('#h4a', 444); M.hide('#h4b', 444); M.hide('#h4c', 444);
+
+/* ========== B5 SESSÃO 444-510: a pessoa ========== */
+M.hide('#s5', 0); M.show('#s5', 444, 510);
+M.cut(444, { show: ['#s5'] });
+M.camera('#cam5', [
+  [444, { scale: 3.35, x: -120, y: -40 }],
+  [458, { scale: 2.6, x: 20, y: 192 }, 'softLand'],
+  [510, { scale: 2.72, x: -31, y: 144 }, 'cruise']
+], { origin: '0% 0%' });
+M.kf('#f1', 'scaleX', [[0, 0], [446, 0], [464, 1, 'softInOut']]);
+M.kf('#f2', 'scaleX', [[0, 0], [464, 0], [484, 1, 'softInOut']]);
+M.kf('#f3', 'scaleX', [[0, 0], [484, 0], [503, 1, 'softInOut']]);
+
+/* ========== B6 SELO 510-600: as duas metades encaixam; a frase final ========== */
+M.cut(510, { hide: ['#s5'] });
+M.hide('#selo', 0); M.show('#selo', 510);
+M.enter('#mU', { at: 510, frames: 15, ease: 'softLand', from: { y: -760 }, smear: { axis: 'y', px: 34, frames: 4 } });
+M.enter('#mL', { at: 510, frames: 15, ease: 'softLand', from: { y: 760 }, smear: { axis: 'y', px: 34, frames: 4 } });
+M.mark(525, 'snap', 'selo encaixa');
+M.kf('#anel', 'rotation', [[0, -48], [510, -48], [540, 0, 'softLand'], [600, 18]]);
+M.kf('#anel', 'scale', [[0, 1.14], [510, 1.14], [536, 1, 'softLand']]);
+M.words('#h6a', { at: 528, mech: 'rise', dist: 44, frames: 13, gaps: [4, 4, 4] });
+M.words('#h6b', { at: 544, mech: 'rise', dist: 44, frames: 13, gaps: [5] });
+M.words('#h6c', { at: 554, mech: 'rise', dist: 44, frames: 14, gaps: [4, 5] });
+M.kf('#selo', 'scale', [[526, 1], [600, .94]], { ease: 'cruise' });   // o fim fica mais pequeno, ainda vivo
+
+/* ---------- renderizador próprio, puro: o polígono do radar (fórmula do site.js) ---------- */
+const area = document.getElementById('area');
+const R2 = [0, .167, .5, .667, 0], R3 = [0, .167, .667, 1, .167];
+const ponto = (i, v) => { const a = (-90 + 72 * i) * Math.PI / 180, r = 80 * Math.max(v, .04); return (100 + r * Math.cos(a)).toFixed(1) + ',' + (100 + r * Math.sin(a)).toFixed(1); };
+const ease = Motion.ease.softLand;
+function radar(fr) {
+  const k = fr <= 150 ? 0 : fr >= 168 ? 1 : ease((fr - 150) / 18);
+  area.setAttribute('points', R3.map((v, i) => ponto(i, R2[i] + (v - R2[i]) * k)).join(' '));
+}
+const baseSeek = window.__seek;
+window.__seek = t => { baseSeek(t); radar(Math.floor(Math.max(0, Math.min(20, t)) * 30 + 1e-6)); };
+
+window.__ready = Motion.loaded().then(() => { window.__seek(0); if (/selftest/.test(location.search)) { const r = Motion.selfTest(M, { samples: 24 }); document.documentElement.setAttribute("data-selftest", JSON.stringify({ ok: r.ok, samples: r.samples, elements: r.elements, mismatches: r.mismatches.slice(0, 3) })); } });
+</script>
+</body>
+</html>

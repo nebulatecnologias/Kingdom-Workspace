@@ -89,6 +89,78 @@
         ],
         "createdAt": "2026-09-23T18:07:04.184Z",
         "reason": "assistant judgement: false positive — table-wrap sits flush in the card by design while each th/td carries 16px padding (same pattern as the reviewed prototype)"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "film/index.html"
+        ],
+        "createdAt": "2026-10-13T07:49:19.376Z",
+        "reason": "Faithful rebuild of the live O Conselheiro site's own components (site.css/cafe.css, commit eb70daa) inside a fixed video stage; restyling the client's UI in the film would misrepresent it (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "film/index.html"
+        ],
+        "createdAt": "2026-10-13T07:49:19.391Z",
+        "reason": "Faithful rebuild of the live O Conselheiro site's own components (site.css/cafe.css, commit eb70daa) inside a fixed video stage; restyling the client's UI in the film would misrepresent it (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "film/index.html"
+        ],
+        "createdAt": "2026-10-13T07:49:19.404Z",
+        "reason": "Faithful rebuild of the live O Conselheiro site's own components (site.css/cafe.css, commit eb70daa) inside a fixed video stage; restyling the client's UI in the film would misrepresent it (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "film/index.html"
+        ],
+        "createdAt": "2026-10-13T07:49:19.418Z",
+        "reason": "Faithful rebuild of the live O Conselheiro site's own components (site.css/cafe.css, commit eb70daa) inside a fixed video stage; restyling the client's UI in the film would misrepresent it (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "film/index.html"
+        ],
+        "createdAt": "2026-10-13T07:49:19.432Z",
+        "reason": "Faithful rebuild of the live O Conselheiro site's own components (site.css/cafe.css, commit eb70daa) inside a fixed video stage; restyling the client's UI in the film would misrepresent it (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "film/index.html"
+        ],
+        "createdAt": "2026-10-13T07:49:19.445Z",
+        "reason": "Faithful rebuild of the live O Conselheiro site's own components (site.css/cafe.css, commit eb70daa) inside a fixed video stage; restyling the client's UI in the film would misrepresent it (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "film/index.html"
+        ],
+        "createdAt": "2026-10-13T07:49:19.460Z",
+        "reason": "Faithful rebuild of the live O Conselheiro site's own components (site.css/cafe.css, commit eb70daa) inside a fixed video stage; restyling the client's UI in the film would misrepresent it (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "film/index.html"
+        ],
+        "createdAt": "2026-10-13T07:49:19.473Z",
+        "reason": "Faithful rebuild of the live O Conselheiro site's own components (site.css/cafe.css, commit eb70daa) inside a fixed video stage; restyling the client's UI in the film would misrepresent it (Claude's judgement, disclosed to user)"
       }
     ]
   }

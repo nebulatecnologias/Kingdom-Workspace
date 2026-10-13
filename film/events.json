@@ -1,0 +1,9 @@
+[
+ {"t": 3.53, "sfx": "audio/sfx/clique.mp3", "gain": -12},
+ {"t": 4.20, "sfx": "audio/sfx/clique.mp3", "gain": -12},
+ {"t": 4.87, "sfx": "audio/sfx/clique.mp3", "gain": -11},
+ {"t": 9.67, "sfx": "audio/sfx/visto.mp3", "gain": -8},
+ {"t": 10.78, "sfx": "audio/sfx/rolar.mp3", "gain": -12},
+ {"t": 11.84, "sfx": "audio/sfx/horizonte.mp3", "gain": -4},
+ {"t": 17.47, "sfx": "audio/sfx/encaixe.mp3", "gain": -3}
+]

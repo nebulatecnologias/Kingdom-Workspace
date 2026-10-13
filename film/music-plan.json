@@ -1,0 +1,10 @@
+{
+ "positive_global_styles": ["warm minimal cinematic score", "felt piano", "soft analog pad", "subtle warm low bass", "100 bpm", "intimate", "calm and confident", "premium documentary"],
+ "negative_global_styles": ["vocals", "epic trailer drums", "EDM", "risers", "corporate ukulele", "bright synth lead", "glitch"],
+ "sections": [
+  {"section_name": "Pergunta", "positive_local_styles": ["very sparse", "single low felt piano notes", "soft room tone", "quiet"], "negative_local_styles": ["drums", "melody"], "duration_ms": 3000, "lines": []},
+  {"section_name": "Raio-X", "positive_local_styles": ["gentle muted piano ostinato", "light ticking pulse", "soft bass enters", "slowly building curiosity"], "negative_local_styles": ["loud drums", "big build"], "duration_ms": 8200, "lines": []},
+  {"section_name": "Horizonte", "positive_local_styles": ["near silence at first", "then warm sustained pad chord blooms", "low bass swell", "spacious"], "negative_local_styles": ["percussion", "busy melody"], "duration_ms": 3600, "lines": []},
+  {"section_name": "Pessoa e selo", "positive_local_styles": ["warm resolving piano chords", "soft pad", "calm resolution", "ends gently on the tonic"], "negative_local_styles": ["drums", "fade into silence early"], "duration_ms": 5200, "lines": []}
+ ]
+}

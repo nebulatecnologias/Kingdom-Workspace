@@ -1,0 +1,7 @@
+[
+ {"id": "clique", "prompt": "single soft muted mouse click on a trackpad, close, dry, quiet, no reverb", "seconds": 0.5},
+ {"id": "visto", "prompt": "soft pencil tick on paper, one short check mark stroke, close and dry", "seconds": 0.6},
+ {"id": "rolar", "prompt": "gentle soft air whoosh, smooth fast page scroll, warm and subtle", "seconds": 1.0},
+ {"id": "horizonte", "prompt": "deep warm low cinematic swell, soft sub bass bloom like sunrise, gentle, no impact crack", "seconds": 2.5},
+ {"id": "encaixe", "prompt": "two solid metal pieces locking together, satisfying soft precise click, small and elegant, short tail", "seconds": 0.8}
+]

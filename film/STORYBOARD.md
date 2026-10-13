@@ -1,6 +1,13 @@
-# O Conselheiro: filme de lançamento (20 s), storyboard para aprovação (v2)
+# O Conselheiro: filme de lançamento (20 s), storyboard (v3, aprovado e em produção)
 
-Estado: **ideia e storyboard, à espera de aprovação. A produção ainda não começou.**
+Estado: **aprovado e produzido.** Decisões do utilizador: formato **vertical 9:16 (1080×1920)**, **sem voz**, frase final **"Para quem precisa de menos informação e mais clareza."**
+
+Mudanças em relação à v2, por causa dessas decisões:
+- B4 passa a usar a frase que o site põe sobre o horizonte, *"Uma sessão pode mudar a forma como vês o teu negócio."*, porque o H1 fica reservado para o fim.
+- B5 divide-se em sessão (14,8–17,0 s) e selo + frase final (17,0–20,0 s).
+- O Raio-X usa o resultado real da ferramenta do site para os três sinais: "Maior pressão: Delegação (100%)" e "Começaríamos pela tua dependência da operação…".
+- O horizonte é desenhado como no site (linha e luz), não em 3D, para manter um único estilo de desenho.
+- O "Tu" da sessão passa a imagem-em-imagem, como numa chamada no telemóvel.
 
 Fonte da marca: **o site em produção.** O HTML publicado em oconselheiro.kingdomcompny.com (deploy `dpl_5EgkeHzdBDqeJbvA4S1MUCu5eirc`, commit `eb70daa`) é igual byte a byte ao que capturei a partir desse commit. Captura em `film/brand/`: board, 6 ecrãs, Google Sans, selo, fotografias do Shelton. A v1 deste storyboard partia de uma versão antiga do site (preto e verde-lima) e foi descartada.
 
