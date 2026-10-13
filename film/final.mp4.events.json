@@ -1,0 +1,644 @@
+[
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "show",
+  "label": "#s1"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#rolo"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "show",
+  "label": "#sin2"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "show",
+  "label": "#p2a"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "show",
+  "label": "#p3a"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "show",
+  "label": "#p4a"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "show",
+  "label": "#po2"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#vertice"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#feito"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#s5"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#selo"
+ },
+ {
+  "t": 0.0333,
+  "frame": 1,
+  "type": "enter",
+  "label": "Talvez"
+ },
+ {
+  "t": 0.0333,
+  "frame": 1,
+  "type": "word",
+  "label": "Talvez"
+ },
+ {
+  "t": 0.2,
+  "frame": 6,
+  "type": "enter",
+  "label": "o"
+ },
+ {
+  "t": 0.2,
+  "frame": 6,
+  "type": "word",
+  "label": "o"
+ },
+ {
+  "t": 0.3333,
+  "frame": 10,
+  "type": "enter",
+  "label": "teu"
+ },
+ {
+  "t": 0.3333,
+  "frame": 10,
+  "type": "word",
+  "label": "teu"
+ },
+ {
+  "t": 0.5,
+  "frame": 15,
+  "type": "enter",
+  "label": "problema"
+ },
+ {
+  "t": 0.5,
+  "frame": 15,
+  "type": "word",
+  "label": "problema"
+ },
+ {
+  "t": 0.7,
+  "frame": 21,
+  "type": "enter",
+  "label": "não"
+ },
+ {
+  "t": 0.7,
+  "frame": 21,
+  "type": "word",
+  "label": "não"
+ },
+ {
+  "t": 0.8333,
+  "frame": 25,
+  "type": "enter",
+  "label": "seja"
+ },
+ {
+  "t": 0.8333,
+  "frame": 25,
+  "type": "word",
+  "label": "seja"
+ },
+ {
+  "t": 1,
+  "frame": 30,
+  "type": "enter",
+  "label": "falta"
+ },
+ {
+  "t": 1,
+  "frame": 30,
+  "type": "word",
+  "label": "falta"
+ },
+ {
+  "t": 1.1333,
+  "frame": 34,
+  "type": "enter",
+  "label": "de"
+ },
+ {
+  "t": 1.1333,
+  "frame": 34,
+  "type": "word",
+  "label": "de"
+ },
+ {
+  "t": 1.3667,
+  "frame": 41,
+  "type": "enter",
+  "label": "conhecimento."
+ },
+ {
+  "t": 1.3667,
+  "frame": 41,
+  "type": "word",
+  "label": "conhecimento."
+ },
+ {
+  "t": 2.8,
+  "frame": 84,
+  "type": "cut",
+  "label": "hide #s1 show #rolo"
+ },
+ {
+  "t": 2.8,
+  "frame": 84,
+  "type": "show",
+  "label": "#rolo"
+ },
+ {
+  "t": 3.5333,
+  "frame": 106,
+  "type": "press",
+  "label": "#c2"
+ },
+ {
+  "t": 3.6,
+  "frame": 108,
+  "type": "show",
+  "label": "#c2on"
+ },
+ {
+  "t": 4.2,
+  "frame": 126,
+  "type": "press",
+  "label": "#c3"
+ },
+ {
+  "t": 4.2667,
+  "frame": 128,
+  "type": "show",
+  "label": "#c3on"
+ },
+ {
+  "t": 4.8667,
+  "frame": 146,
+  "type": "press",
+  "label": "#c4"
+ },
+ {
+  "t": 4.9333,
+  "frame": 148,
+  "type": "show",
+  "label": "#c4on"
+ },
+ {
+  "t": 4.9333,
+  "frame": 148,
+  "type": "show",
+  "label": "#sin3"
+ },
+ {
+  "t": 5,
+  "frame": 150,
+  "type": "show",
+  "label": "#p2b"
+ },
+ {
+  "t": 5,
+  "frame": 150,
+  "type": "show",
+  "label": "#p3b"
+ },
+ {
+  "t": 5,
+  "frame": 150,
+  "type": "show",
+  "label": "#p4b"
+ },
+ {
+  "t": 5,
+  "frame": 150,
+  "type": "show",
+  "label": "#po3"
+ },
+ {
+  "t": 5.4667,
+  "frame": 164,
+  "type": "hide",
+  "label": "#cursor"
+ },
+ {
+  "t": 5.6667,
+  "frame": 170,
+  "type": "enter",
+  "label": "#vertice"
+ },
+ {
+  "t": 5.6667,
+  "frame": 170,
+  "type": "show",
+  "label": "#vertice"
+ },
+ {
+  "t": 8.6,
+  "frame": 258,
+  "type": "enter",
+  "label": "#pa"
+ },
+ {
+  "t": 8.6,
+  "frame": 258,
+  "type": "cascade",
+  "label": "#pa"
+ },
+ {
+  "t": 8.7333,
+  "frame": 262,
+  "type": "enter",
+  "label": "#pb"
+ },
+ {
+  "t": 8.7333,
+  "frame": 262,
+  "type": "cascade",
+  "label": "#pb"
+ },
+ {
+  "t": 8.8667,
+  "frame": 266,
+  "type": "enter",
+  "label": "#pc"
+ },
+ {
+  "t": 8.8667,
+  "frame": 266,
+  "type": "cascade",
+  "label": "#pc"
+ },
+ {
+  "t": 9.6667,
+  "frame": 290,
+  "type": "show",
+  "label": "#feito"
+ },
+ {
+  "t": 9.6667,
+  "frame": 290,
+  "type": "enter",
+  "label": "#feito"
+ },
+ {
+  "t": 9.6667,
+  "frame": 290,
+  "type": "press",
+  "label": "prioridade 1"
+ },
+ {
+  "t": 10.8,
+  "frame": 324,
+  "type": "whip",
+  "label": "rolar para o fecho"
+ },
+ {
+  "t": 11.6,
+  "frame": 348,
+  "type": "hide",
+  "label": "#s2"
+ },
+ {
+  "t": 11.7333,
+  "frame": 352,
+  "type": "enter",
+  "label": "Uma"
+ },
+ {
+  "t": 11.7333,
+  "frame": 352,
+  "type": "word",
+  "label": "Uma"
+ },
+ {
+  "t": 11.8667,
+  "frame": 356,
+  "type": "show",
+  "label": "horizonte acende"
+ },
+ {
+  "t": 11.9,
+  "frame": 357,
+  "type": "enter",
+  "label": "sessão"
+ },
+ {
+  "t": 11.9,
+  "frame": 357,
+  "type": "word",
+  "label": "sessão"
+ },
+ {
+  "t": 12.0667,
+  "frame": 362,
+  "type": "enter",
+  "label": "pode"
+ },
+ {
+  "t": 12.0667,
+  "frame": 362,
+  "type": "word",
+  "label": "pode"
+ },
+ {
+  "t": 12.2667,
+  "frame": 368,
+  "type": "enter",
+  "label": "mudar"
+ },
+ {
+  "t": 12.2667,
+  "frame": 368,
+  "type": "word",
+  "label": "mudar"
+ },
+ {
+  "t": 12.4,
+  "frame": 372,
+  "type": "enter",
+  "label": "a"
+ },
+ {
+  "t": 12.4,
+  "frame": 372,
+  "type": "word",
+  "label": "a"
+ },
+ {
+  "t": 12.5667,
+  "frame": 377,
+  "type": "enter",
+  "label": "forma"
+ },
+ {
+  "t": 12.5667,
+  "frame": 377,
+  "type": "word",
+  "label": "forma"
+ },
+ {
+  "t": 12.7333,
+  "frame": 382,
+  "type": "enter",
+  "label": "como"
+ },
+ {
+  "t": 12.7333,
+  "frame": 382,
+  "type": "word",
+  "label": "como"
+ },
+ {
+  "t": 12.9333,
+  "frame": 388,
+  "type": "enter",
+  "label": "vês"
+ },
+ {
+  "t": 12.9333,
+  "frame": 388,
+  "type": "word",
+  "label": "vês"
+ },
+ {
+  "t": 13.1,
+  "frame": 393,
+  "type": "enter",
+  "label": "o"
+ },
+ {
+  "t": 13.1,
+  "frame": 393,
+  "type": "word",
+  "label": "o"
+ },
+ {
+  "t": 13.2667,
+  "frame": 398,
+  "type": "enter",
+  "label": "teu"
+ },
+ {
+  "t": 13.2667,
+  "frame": 398,
+  "type": "word",
+  "label": "teu"
+ },
+ {
+  "t": 13.4667,
+  "frame": 404,
+  "type": "enter",
+  "label": "negócio."
+ },
+ {
+  "t": 13.4667,
+  "frame": 404,
+  "type": "word",
+  "label": "negócio."
+ },
+ {
+  "t": 14.8,
+  "frame": 444,
+  "type": "hide",
+  "label": "#h4a"
+ },
+ {
+  "t": 14.8,
+  "frame": 444,
+  "type": "hide",
+  "label": "#h4b"
+ },
+ {
+  "t": 14.8,
+  "frame": 444,
+  "type": "hide",
+  "label": "#h4c"
+ },
+ {
+  "t": 14.8,
+  "frame": 444,
+  "type": "show",
+  "label": "#s5"
+ },
+ {
+  "t": 14.8,
+  "frame": 444,
+  "type": "cut",
+  "label": "show #s5"
+ },
+ {
+  "t": 17,
+  "frame": 510,
+  "type": "cut",
+  "label": "hide #s5"
+ },
+ {
+  "t": 17,
+  "frame": 510,
+  "type": "show",
+  "label": "#selo"
+ },
+ {
+  "t": 17,
+  "frame": 510,
+  "type": "enter",
+  "label": "#mU"
+ },
+ {
+  "t": 17,
+  "frame": 510,
+  "type": "enter",
+  "label": "#mL"
+ },
+ {
+  "t": 17.5,
+  "frame": 525,
+  "type": "snap",
+  "label": "selo encaixa"
+ },
+ {
+  "t": 17.6,
+  "frame": 528,
+  "type": "enter",
+  "label": "Para"
+ },
+ {
+  "t": 17.6,
+  "frame": 528,
+  "type": "word",
+  "label": "Para"
+ },
+ {
+  "t": 17.7333,
+  "frame": 532,
+  "type": "enter",
+  "label": "quem"
+ },
+ {
+  "t": 17.7333,
+  "frame": 532,
+  "type": "word",
+  "label": "quem"
+ },
+ {
+  "t": 17.8667,
+  "frame": 536,
+  "type": "enter",
+  "label": "precisa"
+ },
+ {
+  "t": 17.8667,
+  "frame": 536,
+  "type": "word",
+  "label": "precisa"
+ },
+ {
+  "t": 18,
+  "frame": 540,
+  "type": "enter",
+  "label": "de"
+ },
+ {
+  "t": 18,
+  "frame": 540,
+  "type": "word",
+  "label": "de"
+ },
+ {
+  "t": 18.1333,
+  "frame": 544,
+  "type": "enter",
+  "label": "menos"
+ },
+ {
+  "t": 18.1333,
+  "frame": 544,
+  "type": "word",
+  "label": "menos"
+ },
+ {
+  "t": 18.3,
+  "frame": 549,
+  "type": "enter",
+  "label": "informação"
+ },
+ {
+  "t": 18.3,
+  "frame": 549,
+  "type": "word",
+  "label": "informação"
+ },
+ {
+  "t": 18.4667,
+  "frame": 554,
+  "type": "enter",
+  "label": "e"
+ },
+ {
+  "t": 18.4667,
+  "frame": 554,
+  "type": "word",
+  "label": "e"
+ },
+ {
+  "t": 18.6,
+  "frame": 558,
+  "type": "enter",
+  "label": "mais"
+ },
+ {
+  "t": 18.6,
+  "frame": 558,
+  "type": "word",
+  "label": "mais"
+ },
+ {
+  "t": 18.7667,
+  "frame": 563,
+  "type": "enter",
+  "label": "clareza."
+ },
+ {
+  "t": 18.7667,
+  "frame": 563,
+  "type": "word",
+  "label": "clareza."
+ }
+]
