@@ -1,18 +1,18 @@
 {
- "url": "http://localhost:8765/",
- "finalUrl": "http://localhost:8765/",
- "capturedAt": "2026-10-13T06:26:25.318Z",
+ "url": "http://localhost:8766/",
+ "finalUrl": "http://localhost:8766/",
+ "capturedAt": "2026-10-13T06:36:35.460Z",
  "viewport": {
   "w": 1920,
   "h": 1080
  },
- "docHeight": 8782,
- "name": "O Conselheiro — início",
- "title": "O Conselheiro — Advising Estratégico | Shelton Douglas",
- "description": "Advising estratégico para empreendedores, líderes e especialistas que precisam de clareza, estrutura e um plano de ação executável. Conduzido por Shelton Douglas — O Conselheiro, Kingdom Company.",
+ "docHeight": 17342,
+ "name": "Advising com O Conselheiro",
+ "title": "Advising com O Conselheiro | Shelton Douglas",
+ "description": "Sessão estratégica e personalizada com Shelton Douglas, O Conselheiro, para identificar o que está a bloquear o teu negócio e definir o que fazer a seguir. Online ou presencial em Maputo.",
  "tagline": "Para quem precisa de menos informação e mais clareza.",
  "lang": "pt",
- "themeColorMeta": null,
+ "themeColorMeta": "#EDE6DC",
  "colorSchemeMeta": null,
  "manifest": null,
  "copy": {
@@ -20,96 +20,126 @@
    "Para quem precisa de menos informação e mais clareza."
   ],
   "h2": [
-   "Trazer clareza sobre o que está a acontecer e construir um caminho prático para avançar.",
+   "Faz o teu Raio-X rápido.",
+   "Talvez o teu problema não seja falta de conhecimento.",
+   "Não precisas de mais uma formação.",
    "A Tríade da Clareza",
-   "Três fases, um documento final acionável",
-   "Para quem é — e para quem não é",
-   "As sessões são conduzidas pessoalmente por Shelton Douglas.",
-   "Escolha o formato da sua sessão",
-   "Pronto para ter clareza sobre o próximo passo?"
+   "Uma sessão. Três fases. Um plano para executar.",
+   "Este Advising é para ti se…",
+   "O que sai da sessão, em cada momento.",
+   "Shelton Douglas",
+   "Empreendedores que confiam na expertise do Conselheiro",
+   "Não é para toda a gente.",
+   "Como acontece",
+   "Escolhe a forma de fazer o teu Advising"
   ],
   "h3": [
-   "Enxergar, decidir e executar — nesta ordem.",
-   "Métodos autorais",
-   "Onde está, para onde vai, por onde começa",
+   "É para esses momentos que existe o Advising.",
    "Raio-X",
    "Advising",
    "Plano",
-   "É para si se…",
-   "Não é para si se…"
+   "O objectivo não é dar-te mais informação. É reduzir a confusão.",
+   "Conduzida pessoalmente, do diagnóstico ao plano.",
+   "Métodos autorais",
+   "Onde estás, para onde vais, por onde começas."
   ],
   "heroLine": "Para quem precisa de menos informação e mais clareza.",
   "ctas": [
    {
-    "text": "Agendar sessão",
-    "bg": "#ffffff",
-    "color": "#000000",
+    "text": "Marcar Advising",
+    "bg": "#ff5e1e",
+    "color": "#2d1e17",
     "border": null,
-    "radius": 33554400,
+    "radius": 999,
     "filled": true,
     "inHeader": true,
     "inHero": true,
-    "top": 29,
-    "w": 146,
-    "h": 40
+    "top": 14,
+    "w": 147,
+    "h": 44
    },
    {
-    "text": "Agendar uma sessão",
-    "bg": "#c7f534",
-    "color": "#000000",
+    "text": "Quero marcar o meu Advising",
+    "bg": "#ff5e1e",
+    "color": "#2d1e17",
     "border": null,
-    "radius": 33554400,
+    "radius": 999,
     "filled": true,
     "inHeader": false,
     "inHero": true,
-    "top": 873,
-    "w": 241,
-    "h": 56
+    "top": 585,
+    "w": 298,
+    "h": 54
    },
    {
-    "text": "Começar agora",
-    "bg": "#000000",
-    "color": "#ffffff",
+    "text": "Ver como funciona",
+    "bg": "#ff5e1e",
+    "color": "#2d1e17",
     "border": null,
-    "radius": 33554400,
+    "radius": 999,
     "filled": true,
     "inHeader": false,
     "inHero": false,
-    "top": 4511,
-    "w": 331,
-    "h": 52
+    "top": 3152,
+    "w": 193,
+    "h": 44
    },
    {
-    "text": "comercial@kingdomcompany.co.za",
-    "bg": "#c7f534",
-    "color": "#000000",
+    "text": "Exemplo 2: A equipa não entrega.",
+    "bg": "#ff5e1e",
+    "color": "#2d1e17",
     "border": null,
-    "radius": 33554400,
+    "radius": 99,
     "filled": true,
     "inHeader": false,
     "inHero": false,
-    "top": 8148,
-    "w": 351,
-    "h": 56
+    "top": 9814,
+    "w": 28,
+    "h": 8
+   },
+   {
+    "text": "Marcar Advising Presencial",
+    "bg": "#ff5e1e",
+    "color": "#2d1e17",
+    "border": null,
+    "radius": 999,
+    "filled": true,
+    "inHeader": false,
+    "inHero": false,
+    "top": 14239,
+    "w": 408,
+    "h": 54
+   },
+   {
+    "text": "Marcar o meu Advising",
+    "bg": "#ff5e1e",
+    "color": "#2d1e17",
+    "border": null,
+    "radius": 999,
+    "filled": true,
+    "inHeader": false,
+    "inHero": false,
+    "top": 16735,
+    "w": 248,
+    "h": 54
    }
   ],
   "nav": [
-   "O Conselheiro.",
-   "Metodologia",
-   "Programa",
-   "Para Quem É",
+   "Método",
+   "Para quem é",
    "O Conselheiro",
-   "Como Funciona"
+   "Investimento",
+   "Perguntas"
   ],
   "sentences": [
-   "Advising para empreendedores, líderes e especialistas que se sentem estagnados, sobrecarregados ou sem clareza sobre o próximo passo, seja no negócio, na carreira ou nos seus projetos.",
-   "O papel do Advisor é definir o que precisa de ser resolvido primeiro e dar o suporte especializado necessário para tomar melhores decisões, criando maior autonomia, performance e sustentabilidade.",
-   "Todo empreendedor, para alcançar qualquer resultado consistente, precisa de três clarezas essenciais.",
-   "Enxergar com precisão onde está, compreender qual é o caminho certo a seguir e saber com exatidão o que fazer, em que ordem e em que momento.",
-   "Baseados em conhecimento tácito, inspirados nas experiências, histórias e trajetórias reais do advisor. Mentoria prática e enraizada na realidade vivida.",
-   "O diferencial está em ir além das técnicas convencionais de gestão: resultados sustentáveis nascem quando empreendedor e empreendimento crescem juntos.",
-   "A sessão começa com um Raio-X da situação atual, passa pela identificação dos gargalos e culmina num plano de ação com prioridades e próximos passos claros.",
-   "Levantamento da situação atual (pessoa, negócio ou equipa)."
+   "Uma sessão estratégica e personalizada com Shelton Douglas, O Conselheiro, para identificar o que está a bloquear o teu negócio, projecto ou carreira e definir com clareza o que fazer a seguir.",
+   "Tirar o dono da operação diária Semanas 1 e 2 · Responsável: direcção",
+   "Documentar os três processos-chave Semanas 3 e 4 · Responsável: operações",
+   "Metas e indicadores por pessoa Mês 2 · Responsável: equipa",
+   "Marca o que estás a viver hoje e vê onde está a maior pressão. Não é um diagnóstico: é o ponto de partida para a conversa na sessão.",
+   "Marca pelo menos um sinal ao lado para veres onde está a maior pressão.",
+   "Já leste. Já estudaste. Já tentaste diferentes estratégias. Já tens experiência.",
+   "Mas continuas sem conseguir responder com clareza:"
   ]
  },
  "colors": {
@@ -117,8 +147,16 @@
   "monochrome": false,
   "ground": [
    {
-    "hex": "#070706",
-    "share": 0.906,
+    "hex": "#2d1e17",
+    "share": 0.592,
+    "sources": [
+     "dom",
+     "pixels"
+    ]
+   },
+   {
+    "hex": "#ece5db",
+    "share": 0.322,
     "sources": [
      "pixels",
      "dom"
@@ -126,284 +164,369 @@
    }
   ],
   "ink": {
-   "hex": "#ffffff",
-   "contrastOnGround": 20.15,
-   "source": "computed colour of the largest heading (h1 \"Para quem precisa de menos informação e mais clareza.\", 96px)"
+   "hex": "#f3eee6",
+   "contrastOnGround": 13.88,
+   "source": "most used text colour (no heading colour found)"
   },
   "inkSoft": {
-   "hex": "#a3a3a3",
-   "contrastOnGround": 7.99,
+   "hex": "#d8ccbf",
+   "contrastOnGround": 10.16,
    "note": "body copy"
   },
   "accentCandidates": {
    "note": "saturated colours sampled from imagery (a CSS/DOM accent exists, these are extra)",
    "items": [
     {
-     "hex": "#c6f337",
-     "file": "screens/03.jpg",
-     "share": 0.02197,
-     "sharePct": 2.2
-    },
-    {
-     "hex": "#97b538",
-     "file": "screens/06.jpg",
-     "share": 0.00395,
-     "sharePct": 0.4
-    },
-    {
-     "hex": "#748b2c",
+     "hex": "#fd5d1d",
      "file": "screens/01.jpg",
-     "share": 0.00112,
-     "sharePct": 0.11
+     "share": 0.00904,
+     "sharePct": 0.9
     },
     {
-     "hex": "#536b19",
-     "file": "screens/03.jpg",
-     "share": 0.00038,
-     "sharePct": 0.04
+     "hex": "#692705",
+     "file": "screens/04.jpg",
+     "share": 0.00214,
+     "sharePct": 0.21
+    },
+    {
+     "hex": "#774a36",
+     "file": "screens/04.jpg",
+     "share": 0.00213,
+     "sharePct": 0.21
+    },
+    {
+     "hex": "#c94b1b",
+     "file": "screens/06.jpg",
+     "share": 0.00115,
+     "sharePct": 0.11
     }
    ]
   },
   "inkMuted": {
-   "hex": "#8a8a8a",
-   "contrastOnGround": 5.84
+   "hex": "#b5a291",
+   "contrastOnGround": 6.52
   },
   "accents": [
    {
-    "hex": "#c7f534",
+    "hex": "#ff5e1e",
     "role": "accent (primary)",
-    "score": 61,
+    "score": 252,
     "sources": [
+     "CTA background",
      "button",
-     "background",
-     "text",
-     "screenshot pixels"
-    ]
-   },
-   {
-    "hex": "#ffffff",
-    "role": "accent 2",
-    "score": 30,
-    "sources": [
-     "CTA background"
+     "screenshot pixels",
+     "background"
     ]
    }
   ],
-  "ctaBg": "#ffffff",
-  "link": "#a3a3a3",
+  "ctaBg": "#ff5e1e",
+  "link": "#2d1e17",
   "palette": [
    {
-    "hex": "#070706",
+    "hex": "#2d1e17",
     "role": "ground (dark theme)",
-    "share": 0.906
+    "share": 0.592
    },
    {
-    "hex": "#ffffff",
-    "role": "ink (headline / logo ink)",
-    "contrast": 20.2
+    "hex": "#ece5db",
+    "role": "surface/ground 2",
+    "share": 0.322
    },
    {
-    "hex": "#a3a3a3",
+    "hex": "#f3eee6",
+    "role": "ink (main text)",
+    "contrast": 13.9
+   },
+   {
+    "hex": "#d8ccbf",
     "role": "ink-soft (body copy)",
-    "contrast": 8
+    "contrast": 10.2
    },
    {
-    "hex": "#8a8a8a",
+    "hex": "#b5a291",
     "role": "ink muted",
-    "contrast": 5.8
+    "contrast": 6.5
    },
    {
-    "hex": "#c7f534",
+    "hex": "#ff5e1e",
     "role": "accent (primary)",
     "sources": [
+     "CTA background",
      "button",
-     "background",
-     "text",
-     "screenshot pixels"
+     "screenshot pixels",
+     "background"
     ]
    }
   ],
   "pixelPalette": [
    {
-    "hex": "#070706",
-    "share": 0.886
+    "hex": "#2e1f18",
+    "share": 0.497
    },
    {
-    "hex": "#222320",
-    "share": 0.051
+    "hex": "#ece5db",
+    "share": 0.362
    },
    {
-    "hex": "#393939",
+    "hex": "#46352c",
+    "share": 0.055
+   },
+   {
+    "hex": "#5b4c43",
     "share": 0.018
    },
    {
-    "hex": "#525251",
+    "hex": "#d5ccc2",
+    "share": 0.015
+   },
+   {
+    "hex": "#100805",
+    "share": 0.012
+   },
+   {
+    "hex": "#bbb2a9",
+    "share": 0.011
+   },
+   {
+    "hex": "#71645b",
+    "share": 0.007
+   },
+   {
+    "hex": "#8a7e76",
     "share": 0.006
    },
    {
-    "hex": "#171b0a",
+    "hex": "#a59c93",
     "share": 0.006
-   },
-   {
-    "hex": "#c6f237",
-    "share": 0.006
-   },
-   {
-    "hex": "#465618",
-    "share": 0.005
-   },
-   {
-    "hex": "#6b6b6b",
-    "share": 0.004
-   },
-   {
-    "hex": "#8a8a8a",
-    "share": 0.003
-   },
-   {
-    "hex": "#fcfcfc",
-    "share": 0.002
    }
   ],
   "domBackgrounds": [
    {
-    "hex": "#000000",
-    "share": 0.742
+    "hex": "#2d1e17",
+    "share": 0.67
    },
    {
-    "hex": "#0b0b0b",
-    "share": 0.123
+    "hex": "#ede6dc",
+    "share": 0.282
    },
    {
-    "hex": "#0c0c0c",
-    "share": 0.027
+    "hex": "#49372d",
+    "share": 0.017
    },
    {
-    "hex": "#3a3a3a",
-    "share": 0.021
+    "hex": "#30211a",
+    "share": 0.014
    },
    {
-    "hex": "#151515",
-    "share": 0.021
+    "hex": "#f4efe8",
+    "share": 0.007
    },
    {
-    "hex": "#050505",
-    "share": 0.021
+    "hex": "#e3dacd",
+    "share": 0.004
    },
    {
-    "hex": "#141414",
-    "share": 0.018
+    "hex": "#1f140f",
+    "share": 0.003
    },
    {
-    "hex": "#c7f534",
-    "share": 0.011
+    "hex": "#ff5e1e",
+    "share": 0.002
    },
    {
-    "hex": "#0a0a0a",
-    "share": 0.01
+    "hex": "#3a2b23",
+    "share": 0.001
    },
    {
-    "hex": "#ccf233",
+    "hex": "#5b463a",
     "share": 0.001
    }
   ],
   "textColors": [
    {
-    "hex": "#a3a3a3",
-    "share": 0.461
+    "hex": "#d8ccbf",
+    "share": 0.32
    },
    {
-    "hex": "#ffffff",
-    "share": 0.39
+    "hex": "#56463c",
+    "share": 0.247
    },
    {
-    "hex": "#8a8a8a",
-    "share": 0.086
+    "hex": "#f3eee6",
+    "share": 0.226
    },
    {
-    "hex": "#000000",
+    "hex": "#2d1e17",
+    "share": 0.119
+   },
+   {
+    "hex": "#b5a291",
     "share": 0.039
    },
    {
-    "hex": "#c7f534",
-    "share": 0.025
+    "hex": "#ede6dc",
+    "share": 0.023
+   },
+   {
+    "hex": "#6e5d52",
+    "share": 0.021
+   },
+   {
+    "hex": "#4a3a30",
+    "share": 0.002
    }
   ],
-  "cssVars": []
+  "cssVars": [
+   {
+    "name": "--preto",
+    "value": "#2D1E17",
+    "hex": "#2d1e17"
+   },
+   {
+    "name": "--cartao-a",
+    "value": "#49372D",
+    "hex": "#49372d"
+   },
+   {
+    "name": "--cartao-b",
+    "value": "#30211a",
+    "hex": "#30211a"
+   },
+   {
+    "name": "--texto",
+    "value": "#F3EEE6",
+    "hex": "#f3eee6"
+   },
+   {
+    "name": "--texto-2",
+    "value": "#d8ccbf",
+    "hex": "#d8ccbf"
+   },
+   {
+    "name": "--texto-3",
+    "value": "#b5a291",
+    "hex": "#b5a291"
+   },
+   {
+    "name": "--branco",
+    "value": "#fff",
+    "hex": "#ffffff"
+   },
+   {
+    "name": "--acento",
+    "value": "#EDE6DC",
+    "hex": "#ede6dc"
+   },
+   {
+    "name": "--sobre-acento",
+    "value": "#2D1E17",
+    "hex": "#2d1e17"
+   },
+   {
+    "name": "--offwhite",
+    "value": "#EDE6DC",
+    "hex": "#ede6dc"
+   },
+   {
+    "name": "--laranja",
+    "value": "#FF5E1E",
+    "hex": "#ff5e1e"
+   },
+   {
+    "name": "--laranja-claro",
+    "value": "#ff7a45",
+    "hex": "#ff7a45"
+   },
+   {
+    "name": "--cafe",
+    "value": "#49372D",
+    "hex": "#49372d"
+   },
+   {
+    "name": "--cafe-claro",
+    "value": "#5b463a",
+    "hex": "#5b463a"
+   },
+   {
+    "name": "--cafe-escuro",
+    "value": "#3a2b23",
+    "hex": "#3a2b23"
+   }
+  ]
  },
  "fonts": {
   "roles": {
    "heading": {
-    "family": "Onest, system-ui, sans-serif",
-    "weight": "600",
-    "size": "96px",
+    "family": "\"Google Sans\", \"Product Sans\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+    "weight": "500",
+    "size": "84px",
     "style": "normal",
-    "letterSpacing": "-4.32px",
-    "lineHeight": "91.2px",
+    "letterSpacing": "-3.36px",
+    "lineHeight": "85.68px",
     "textTransform": "none",
-    "color": "#ffffff",
-    "primaryFamily": "Onest",
-    "file": "fonts/onest-300-900-2.woff2",
-    "fileWeight": "300 900"
+    "color": "#2d1e17",
+    "primaryFamily": "Google Sans",
+    "file": "fonts/google-sans-500-2.woff2",
+    "fileWeight": "500"
    },
    "body": {
-    "family": "Onest, system-ui, sans-serif",
+    "family": "\"Google Sans\", \"Product Sans\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
     "weight": "400",
-    "size": "20px",
+    "size": "19px",
     "style": "normal",
     "letterSpacing": "normal",
-    "lineHeight": "32.5px",
+    "lineHeight": "31.35px",
     "textTransform": "none",
-    "color": "#a3a3a3",
-    "primaryFamily": "Onest",
-    "file": "fonts/onest-300-900-2.woff2",
-    "fileWeight": "300 900"
+    "color": "#56463c",
+    "primaryFamily": "Google Sans",
+    "file": "fonts/google-sans-500-2.woff2",
+    "fileWeight": "500"
    },
    "button": {
-    "family": "Onest, system-ui, sans-serif",
-    "weight": "600",
-    "size": "14px",
+    "family": "\"Google Sans\", \"Product Sans\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+    "weight": "500",
+    "size": "14.5px",
     "style": "normal",
-    "letterSpacing": "normal",
-    "lineHeight": "20px",
+    "letterSpacing": "-0.145px",
+    "lineHeight": "23.2px",
     "textTransform": "none",
-    "color": "#000000",
-    "primaryFamily": "Onest",
-    "file": "fonts/onest-300-900-2.woff2",
-    "fileWeight": "300 900"
+    "color": "#2d1e17",
+    "primaryFamily": "Google Sans",
+    "file": "fonts/google-sans-500-2.woff2",
+    "fileWeight": "500"
    },
    "nav": {
-    "family": "Onest, system-ui, sans-serif",
+    "family": "\"Google Sans\", \"Product Sans\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
     "weight": "400",
     "size": "16px",
     "style": "normal",
     "letterSpacing": "normal",
-    "lineHeight": "24px",
+    "lineHeight": "25.6px",
     "textTransform": "none",
-    "color": "#ffffff",
-    "primaryFamily": "Onest",
-    "file": "fonts/onest-300-900-2.woff2",
-    "fileWeight": "300 900"
+    "color": "#2d1e17",
+    "primaryFamily": "Google Sans",
+    "file": "fonts/google-sans-500-2.woff2",
+    "fileWeight": "500"
    }
   },
   "faces": [
    {
-    "family": "Onest",
-    "weight": "300 900",
+    "family": "Google Sans",
+    "weight": "500",
     "style": "normal",
-    "url": "https://fonts.gstatic.com/s/onest/v11/gNMKW3F-SZuj7xnx-HYoEoeyxMI.woff2",
-    "file": "fonts/onest-300-900.woff2",
-    "bytes": 18164,
+    "url": "https://fonts.gstatic.com/s/googlesans/v71/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPlwUvbQoi-Entw.woff2",
+    "file": "fonts/google-sans-500.woff2",
+    "bytes": 20452,
     "used": false,
     "range": "U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AE, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F8D0-1F8D8, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FAC6, U+1FAC8, U+1FACC-1FADD, U+1FADF-1FAEB, U+1FAEF-1FAFA, U+1FB00-1FBFF"
    },
    {
-    "family": "Onest",
-    "weight": "300 900",
+    "family": "Google Sans",
+    "weight": "500",
     "style": "normal",
-    "url": "https://fonts.gstatic.com/s/onest/v11/gNMKW3F-SZuj7xmf-HYoEoey.woff2",
-    "file": "fonts/onest-300-900-2.woff2",
-    "bytes": 33808,
+    "url": "https://fonts.gstatic.com/s/googlesans/v71/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvbQoi-E.woff2",
+    "file": "fonts/google-sans-500-2.woff2",
+    "bytes": 35852,
     "used": false,
     "range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
    },
@@ -411,114 +534,548 @@
     "family": null,
     "weight": "400",
     "style": "normal",
-    "url": "https://fonts.gstatic.com/s/onest/v11/gNMKW3F-SZuj7xmf-HY.woff2",
-    "file": "fonts/gnmkw3f-szuj7xmf-hy-400.woff2",
-    "bytes": 33760,
+    "url": "https://fonts.gstatic.com/s/googlesans/v71/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvQ.woff2",
+    "file": "fonts/4uasrenhsxjlgdugo1oiljfc6l-24rlck1yo-iqc-400.woff2",
+    "bytes": 35968,
     "used": true
    }
   ],
   "loadedByPage": [
    {
-    "family": "Onest",
-    "weight": "300 900",
+    "family": "Google Sans",
+    "weight": "400",
     "style": "normal",
     "status": "unloaded"
    },
    {
-    "family": "Onest",
-    "weight": "300 900",
+    "family": "Google Sans",
+    "weight": "400",
     "style": "normal",
     "status": "unloaded"
    },
    {
-    "family": "Onest",
-    "weight": "300 900",
+    "family": "Google Sans",
+    "weight": "400",
     "style": "normal",
     "status": "unloaded"
    },
    {
-    "family": "Onest",
-    "weight": "300 900",
+    "family": "Google Sans",
+    "weight": "400",
     "style": "normal",
     "status": "unloaded"
    },
    {
-    "family": "Onest",
-    "weight": "300 900",
+    "family": "Google Sans",
+    "weight": "400",
     "style": "normal",
     "status": "unloaded"
    },
    {
-    "family": "Onest",
-    "weight": "300 900",
+    "family": "Google Sans",
+    "weight": "400",
     "style": "normal",
     "status": "unloaded"
    },
    {
-    "family": "Onest",
-    "weight": "300 900",
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "400",
     "style": "normal",
     "status": "loaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "500",
+    "style": "normal",
+    "status": "loaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
+   },
+   {
+    "family": "Google Sans",
+    "weight": "700",
+    "style": "normal",
+    "status": "unloaded"
    }
   ],
   "mostUsed": [
    {
-    "key": "Onest|400",
-    "weight": 91480
+    "key": "Google Sans|400",
+    "weight": 178237
    },
    {
-    "key": "Onest|600",
-    "weight": 29619
-   },
-   {
-    "key": "Onest|500",
-    "weight": 2126
+    "key": "Google Sans|500",
+    "weight": 76576
    }
   ],
   "platformFonts": {
    "h1": [
     {
-     "family": "Onest",
+     "family": "Google Sans 18pt",
      "custom": true,
-     "glyphs": 49
+     "glyphs": 51
     }
    ],
    "body": [
     {
-     "family": "Onest",
+     "family": "Google Sans 18pt",
      "custom": true,
-     "glyphs": 182
+     "glyphs": 189
     }
    ]
   }
  },
  "logo": {
-  "file": "logo/logo.svg",
-  "kind": "svg",
-  "source": "inline svg (home-link,header,top)",
-  "fills": [
-   "#000000"
-  ],
-  "onDark": false,
-  "favicon": null,
+  "file": "logo/logo.png",
+  "kind": "raster",
+  "source": "img http://localhost:8766/img/logo-castanho.png",
+  "fills": [],
+  "onDark": null,
+  "favicon": "logo/favicon.png",
   "appIcon": null,
   "text": {
-   "text": "Metodologia",
-   "font": "Onest, system-ui, sans-serif",
+   "text": "Método",
+   "font": "\"Google Sans\", \"Product Sans\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
    "weight": "400",
-   "size": "14px",
-   "color": "#a3a3a3"
+   "size": "14.5px",
+   "color": "#56463c"
   },
   "candidates": [
    {
-    "score": 9,
+    "score": 16,
     "why": [
+     "logo-attr",
      "home-link",
      "header",
      "top"
     ],
     "members": [
-     "svg 18x18"
+     "img 38x38 http://localhost:8766/img/logo-castanho.png"
+    ],
+    "lockup": false
+   },
+   {
+    "score": 5,
+    "why": [
+     "logo-attr",
+     "home-link"
+    ],
+    "members": [
+     "img 38x38 http://localhost:8766/img/logo-offwhite.png"
+    ],
+    "lockup": false
+   },
+   {
+    "score": 4,
+    "why": [
+     "home-link"
+    ],
+    "members": [
+     "svg 17x17"
+    ],
+    "lockup": false
+   },
+   {
+    "score": 4,
+    "why": [
+     "logo-attr"
+    ],
+    "members": [
+     "img 90x90 http://localhost:8766/img/logo-offwhite.png"
     ],
     "lockup": false
    }
@@ -532,28 +1089,38 @@
   },
   {
    "file": "screens/02.jpg",
-   "scrollY": 1540
+   "scrollY": 3252
   },
   {
    "file": "screens/03.jpg",
-   "scrollY": 3081
+   "scrollY": 6505
   },
   {
    "file": "screens/04.jpg",
-   "scrollY": 4621
+   "scrollY": 9757
   },
   {
    "file": "screens/05.jpg",
-   "scrollY": 6162
+   "scrollY": 13010
   },
   {
    "file": "screens/06.jpg",
-   "scrollY": 7702
+   "scrollY": 16262
   }
  ],
  "media": [],
- "mediaDropped": [],
+ "mediaDropped": [
+  {
+   "capturedAs": "media/01.jpg",
+   "kind": "canvas",
+   "w": 1920,
+   "h": 908,
+   "src": null,
+   "reason": "blank (pixel std-dev 1.47)"
+  }
+ ],
  "warnings": [
-  "favicon fetch failed (http://localhost:8765/favicon.ico): HTTP 404"
+  "og:image fetch failed: fetch failed",
+  "dropped a blank canvas 1920x908 (captured as media/01.jpg, pixel std-dev 1.47); media/ is renumbered"
  ]
 }

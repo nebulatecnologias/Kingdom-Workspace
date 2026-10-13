@@ -1,54 +1,52 @@
-# O Conselheiro: filme de lançamento (20 s), storyboard para aprovação
+# O Conselheiro: filme de lançamento (20 s), storyboard para aprovação (v2)
 
 Estado: **ideia e storyboard, à espera de aprovação. A produção ainda não começou.**
-Fonte da marca: o código da landing page em `site/` (o mesmo conteúdo de oconselheiro.kingdomcompny.com), servido localmente e capturado em `film/brand/` (`board.png`, 6 ecrãs, fonte Onest, logótipo).
+
+Fonte da marca: **o site em produção.** O HTML publicado em oconselheiro.kingdomcompny.com (deploy `dpl_5EgkeHzdBDqeJbvA4S1MUCu5eirc`, commit `eb70daa`) é igual byte a byte ao que capturei a partir desse commit. Captura em `film/brand/`: board, 6 ecrãs, Google Sans, selo, fotografias do Shelton. A v1 deste storyboard partia de uma versão antiga do site (preto e verde-lima) e foi descartada.
 
 ---
 
 ## 1. PAGE
 
-- **Problema:** o empreendedor tem informação a mais e prioridades a menos. Vê todos os problemas ao mesmo tempo e não sabe por qual começar.
-- **Público:** donos de PME, líderes e especialistas em Moçambique e na lusofonia. Veem o filme no telemóvel (feed do Instagram/LinkedIn/WhatsApp), muitas vezes sem som.
-- **Objetivo:** dar a conhecer o Advising com O Conselheiro e levar a pessoa a agendar uma sessão.
-- **Emoção:** começa sobrecarregado ("isto sou eu") e acaba aliviado e orientado ("há uma ordem, há um primeiro passo").
+- **Problema:** o empreendedor já leu, estudou e experimentou, e continua sem saber o que o está a travar nem por onde começar.
+- **Público:** donos de pequenas e médias empresas, líderes e especialistas em Maputo e na lusofonia. Veem no telemóvel (Instagram, WhatsApp, LinkedIn), muitas vezes sem som.
+- **Objetivo:** dar a conhecer o Advising com O Conselheiro e levar a pessoa a marcar uma sessão.
+- **Emoção:** começa saturado e cético ("mais um curso?") e acaba aliviado e orientado ("há uma ordem, e alguém a faz comigo").
 
-**A verdade única:** o serviço não acrescenta informação. Retira-a até restar o que importa, e decide a ordem. Está na frase da própria marca: *"Para quem precisa de menos informação e mais clareza."*
+**A verdade única:** a sessão não acrescenta informação. Diz-te por onde começar. É a frase do site: *"O objectivo não é dar-te mais informação. É reduzir a confusão."*
 
 ---
 
-## 2. Inventário da marca
+## 2. Inventário da marca (site em produção)
 
 | Olhar para | O que lá está | O que dá ao filme |
 |---|---|---|
-| Forma do logótipo | estrela de quatro pontas (preta num quadrado verde-lima). Quatro direções: "onde está, para onde vai, por onde começa" | a estrela é o **olho** do conselheiro: os braços horizontais esticam-se e tornam-se a linha do Raio-X |
-| Controlo principal | não é software, é uma sessão. O gesto é **escolher o que vem primeiro** | a causa e o efeito do filme: uma lista que muda de ordem |
-| Material próprio | a lista real de gargalos do site (11 frases); o horizonte do planeta com aro verde no hero; o grão de ruído do site | o fundo e a matéria do primeiro ato; o mundo do segundo ato |
-| Verbo | enxergar, decidir, executar ("nesta ordem") | Raio-X (enxergar), reordenar (decidir), ponto de partida (executar) |
-| Momento de sucesso | "O que resolver primeiro para destravar o resto" (fase 3, Plano) | o clímax é a lista ordenada, com o primeiro passo marcado |
-| Voz | direta, calma, adulta, sem promessas de motivação ("não é para si se procura apenas motivação momentânea") | nada de slogans; frases do próprio site |
-| Lógica de cor | cinzento = "informação" (o "menos informação" do H1 é cinzento); verde-lima `#c7f534` = "clareza" | **o acento tem um único significado: clareza.** Só fica verde o que já está claro |
-| Tipografia | Onest 600 nos títulos, 400 no texto, tracking apertado | a única família do filme |
-| O que nunca fariam | barulho, glitch, euforia de "coach", ostentação | ritmo calmo, uma única pancada sonora, final pequeno |
+| Logótipo | **selo circular**: estrela de quatro pontas feita de **duas metades** em L que se encaixam ao centro, com "O CONSELHEIRO · SHELTON DOUGLAS" à volta | duas metades que se juntam = a sessão (Shelton + tu). O selo fecha o filme por encaixe, não por aparecer |
+| Controlo principal | o **Raio-X rápido** do site: "O que se aplica a ti?", com 8 sinais para marcar → radar → "Por onde começar" | a causa e o efeito do filme: marcar sinais e ver a pressão a mostrar o primeiro passo |
+| Material próprio | a janela "Advising · Plano de acção" (radar Raio-X, barras de pressão: Delegação 85 %, Processos 70 %…; Plano "Por ordem"); a janela "Sessão de Advising" (Shelton \| Tu, barra Raio-X → Advising → Plano); a fotografia do Shelton; o **horizonte com aro laranja** e o céu estrelado da secção final; o papel off-white com grelha do topo | os mundos e as provas do filme, todos reais |
+| Verbo | ver, decidir, avançar ("onde estás, para onde vais, por onde começas") | marcar → ordenar → começar |
+| Momento de sucesso | "Por ordem: 1. Tirar o dono da operação diária · Semanas 1 e 2 · Responsável: direcção" | a prova central do filme |
+| Voz | trata por **tu**, frases curtas e diretas, ortografia pré-acordo ("acção", "direcção", "projecto") | todo o texto do filme sai do site, com a mesma ortografia |
+| Cor | castanho `#2D1E17` / café `#49372D` (escuro), off-white `#EDE6DC` (claro); **laranja `#FF5E1E` só em botões e pequenos sinais** | o laranja tem **um só significado: o que importa agora** (o sinal marcado, a prioridade 1, a luz do horizonte) |
+| Tipo | Google Sans 500 nos títulos, 400 no texto, tracking apertado | a única família do filme |
+| O que nunca fariam | euforia de coach, promessas de motivação ("Não é uma conversa motivacional"), barulho | ritmo calmo, uma pancada sonora, final pequeno |
 
 ---
 
 ## 3. A ideia
 
-**Primeira ideia (posta de lado):** uma peça de xadrez, uma bússola ou uma lâmpada da "clareza" sobre fundo escuro. É a fantasia da categoria e serve a qualquer consultora.
+**Primeira ideia (posta de lado):** uma bússola ou uma lâmpada sobre "caos para ordem". Serve a qualquer consultora.
 
 **Outras três, de tipos diferentes:**
+1. **Documentário de uma tarefa real, a escolhida.** Um empreendedor faz o Raio-X rápido do próprio site: marca três sinais, o radar inclina-se e o plano diz o que vem primeiro. Depois vemos quem está do outro lado da sessão e o selo fecha-se.
+2. **Subtração tipográfica** (a ideia da v1): os gargalos enchem o ecrã e são apagados. Fica abaixo da escolhida porque o site agora tem uma ferramenta real que faz exatamente isso, e mostrar a ferramenta vale mais do que a metáfora.
+3. **Ensaio "Não é para toda a gente"**: a lista do site lida com humor seco. Rejeitada porque abre um lançamento a afastar pessoas.
 
-1. **Subtração (filme de um só caso), a escolhida.** O ecrã enche-se com os gargalos reais de um empreendedor. A estrela do logótipo faz o Raio-X, apaga o ruído, sobram três. A ordem muda: o problema mais barulhento não é o primeiro. O filme é a frase da marca, encenada.
-2. **Ensaio tipográfico "Para quem não é".** A lista "Não é para si se…" lida com humor seco: cada desculpa é riscada. É fiel à voz, mas abre o lançamento a afastar pessoas e é só tipo, sem mundo.
-3. **Documentário da marcação.** O interruptor real Online/Presencial, a duração de 1 a 2 h, o documento final. Rejeitada porque o produto é a sessão, não o site, e a interface de marcação é genérica.
+**Escolha e porquê, numa linha:** é a única em que o espectador vê o serviço a funcionar com a interface verdadeira do site (os sinais, o radar, o plano por ordem, a sessão com o Shelton) e acaba no selo, cujas duas metades encaixadas são a própria ideia de sessão.
 
-(Um plano fixo de uma sessão real com o Shelton foi excluído: não há fotografias e não se geram pessoas apresentadas como reais.)
+**Teste de tapar o logótipo:** a ferramenta Raio-X, o plano "Por ordem", a fotografia do Shelton, o horizonte laranja do site e o selo de duas metades são todos desta marca. Uma concorrente não tem nenhum deles.
 
-**Escolha e porquê, numa linha:** a subtração é a única que encena literalmente a promessa da marca ("menos informação, mais clareza"), usa o seu material real (a lista de gargalos, o horizonte do hero, a estrela, o verde com significado) e mostra o que o conselheiro faz que um curso não faz: **diz por onde começar, e muitas vezes não é o óbvio.**
-
-**Teste de tapar o logótipo:** com outra marca, perde-se a estrela que vê, o horizonte, a regra cinzento-informação/verde-clareza e as frases. Fica só "caos para ordem", que é da categoria. A posse está nesses quatro elementos, por isso nenhum deles é opcional.
-
-**O caso concreto (ilustrativo, declarado no NOTE.md):** sobram três gargalos: *Vendas estagnadas*, *Dependência excessiva do dono* e *Processos desestruturados*. No ruído inicial, "Vendas estagnadas" é o maior e o mais claro (o sintoma que grita). Na reordenação desce para 3.º e "Processos desestruturados", o mais discreto, sobe para 1.º. É o "identifica o que muitas vezes não é evidente" da citação do site.
+**O caso:** usa o exemplo que o próprio site mostra no topo. Sinais "O negócio depende demasiado de mim", "Os processos estão desorganizados" e "Estou sobrecarregado"; pressão maior em Delegação; prioridade 1 "Tirar o dono da operação diária". O site identifica-o como "Exemplo ilustrativo". No filme não há aviso no ecrã, e isso fica declarado no NOTE.md.
 
 ---
 
@@ -56,92 +54,90 @@ Fonte da marca: o código da landing page em `site/` (o mesmo conteúdo de ocons
 
 | Campo | Decisão |
 |---|---|
-| Formato | 1920×1080, 30 fps, 600 frames (20,0 s), com som. *(Ver pergunta A: 9:16 para redes?)* |
-| Forma | subtração / caso único; rejeitadas: ensaio "para quem não é" e demo de marcação (razões acima) |
-| Relógio | suave (30 fps) |
-| Gramática de movimento | shutter blur na render final (`--shutter 180`), sem smear |
-| Tipo | Onest. Ruído 2,5–6 % H (400); três sobreviventes 5,5 % H (500); legenda 3 % H (400); "Menos informação." 7 % H (600, cinzento); "Mais clareza." 11 % H (600, lima); wordmark ~0,25 W |
-| Acento | `#c7f534` = **clareza** (o que já foi visto e decidido). Nunca decorativo |
-| Segunda cor | nenhuma. Branco = em foco, cinzento `#8a8a8a`/`#a3a3a3` = informação |
-| Objeto transportado | a estrela de 4 pontas: Raio-X (largura total) → marcador do 1.º passo (pequena) → luz que cai no horizonte → logótipo. Muda de papel em cada costura e nunca fica parada |
-| Cursor | nenhum (não há interface para clicar) |
-| Momento herói | frame ~435 (14,5 s, 72 %), descrito abaixo |
-| Overshoot | nenhum. Uma única pancada sonora |
-| Orçamento de importância | 5 beats, 1 de importância 3 (20 %): o B3 (a reordenação). O herói visual (B4) é importância 2 em significado e recebe o trabalho mais difícil |
+| Formato | 1920×1080, 30 fps, 600 frames (20,0 s), com som. *(Pergunta A: também 9:16?)* |
+| Forma | documentário de uma tarefa → afirmação → pessoa → selo. Rejeitadas: subtração e "não é para toda a gente" |
+| Relógio | suave, 30 fps |
+| Gramática de movimento | shutter blur na render final (`--shutter 180`); o scroll entre secções com desfoque de movimento real |
+| Tipo | Google Sans. Interface a tamanho real (15–17 px) ampliada pela câmara até ≥4 % H; afirmações 9 % H (500); "Mais clareza." 11 % H; selo ~0,22 W |
+| Acento | `#FF5E1E` = **o que importa agora**. Um elemento laranja por plano |
+| Objeto transportado | **o sinal laranja**: visto num quadrado marcado (B2) → no ponto mais alto do radar (B3) → no visto da prioridade 1 (B3) → na luz do horizonte (B4) → na luz quente das lâmpadas da fotografia (B5). Muda de papel em cada costura |
+| Cursor | uma seta vetorial castanha-escura no papel claro, só no B2 (pousa antes de clicar e o clique encolhe 2–3 frames) |
+| Momento herói | frame ~390 (13,0 s, 65 %), descrito abaixo |
+| Overshoot | nenhum. Uma pancada sonora (o encaixe do selo) |
+| Importância | 5 beats, 1 de importância 3 (o B3, a ordem) = 20 % |
 
 **Mundo por ato**
 
 | Ato | Fundo | Luz | Profundidade | Textura | Som |
 |---|---|---|---|---|---|
-| 1 (B1–B3, 0–11,5 s) | quase-preto `#070706` do site, com as partículas de estrelas do hero | nenhuma no início; depois a estrela é a **única fonte de luz**, uma lâmina horizontal verde que ilumina de branco o que toca | três planos de frases: perto (grandes, desfocadas, a passar), meio (legíveis), longe (pequenas, esbatidas) | o ruído fractal do site como grão | um murmúrio de cliques secos e densos que se esvazia à medida que as frases saem |
-| 2 (B4–B5, 11,5–20 s) | o **horizonte do planeta** do hero do site (esfera escura com aro fino) num campo de estrelas | aro verde-lima que nasce onde a estrela toca e percorre o arco (varrimento de luz, uma só vez) | planeta em primeiro plano, estrelas ao fundo com paralaxe lenta | grão fino | 0,6 s de silêncio, uma nota grave quando o aro acende, cama calma até ao fim |
+| Abertura (B1) | castanho `#2D1E17` com o céu de estrelas do site | uma névoa laranja muito baixa, abaixo do enquadramento: o horizonte ainda escondido | estrelas a duas distâncias, paralaxe lenta | grão fino | quase silêncio, um tom grave contínuo |
+| Ferramenta (B2–B3) | o **papel off-white com grelha** do topo do site; os cartões de vidro claro do Raio-X e a janela castanha do plano por cima | luz suave de cima à esquerda; sombra de contacto real sob as janelas (como no site) | papel ao fundo, janela no meio, cursor à frente; profundidade de campo gasta uma vez na passagem do radar para o plano | papel e grão | cliques secos da interface, pulso leve |
+| Clareza (B4) | o **céu estrelado e o horizonte do planeta** da secção final do site | o aro laranja do horizonte, que acende a partir do centro e corre para as pontas | planeta à frente, estrelas atrás | grão | 0,6 s de silêncio, depois uma nota grave quando o aro acende |
+| Pessoa e selo (B5) | a **fotografia do Shelton** (lâmpadas quentes, ripas de madeira) dentro da janela "Sessão de Advising"; depois o castanho escuro | as lâmpadas da fotografia | fotografia a avançar devagar; selo em primeiro plano | a da fotografia | cama calma; o encaixe metálico e seco do selo |
 
-**Momento herói (frame ~435, 14,5 s):** a curva escura do planeta ocupa o terço inferior; o aro verde-lima acaba de acender e ainda corre para as pontas; ao centro, acima do horizonte, "Menos informação." em cinzento e, por baixo, maior, "Mais clareza." em lima. Uma fonte de luz, uma superfície com volume, uma coisa a acontecer. Feito como esfera 3D real (`hero3d`) com aro por fresnel, para que o arco tenha volume e não seja um gradiente plano.
+**Momento herói (frame ~390, 13,0 s):** a curva escura do planeta no terço inferior, o aro laranja a correr para as pontas, estrelas, e ao centro "Menos informação." em off-white-acinzentado e, por baixo, maior, "Mais clareza.". É a imagem final do site, em movimento e com volume: esfera 3D (`hero3d`) com aro por fresnel, não um gradiente plano.
 
 ---
 
 ## 5. Beats
 
-**B1 — gancho (0,0–3,5 s · frames 0–105 · importância 2)**
-- **Compra:** o espectador reconhece a própria cabeça: todos os problemas ao mesmo tempo, nenhum por ordem.
-- **Imagem com o texto tapado:** um campo escuro e granulado atravessado por linhas cinzentas a três profundidades, as de perto desfocadas e rápidas, as de longe lentas.
-- **Texto no ecrã:** os 11 gargalos reais do site, repetidos e sobrepostos. "Vendas estagnadas" é o maior e o mais claro.
-- **Movimento:** o filme abre já em movimento; as filas derivam em sentidos opostos (o marquee do site, mas em todo o ecrã e em profundidade); a densidade aumenta até 3,2 s.
-- **Saída / costura:** a estrela entra pelo topo **já em movimento**, com os braços horizontais a esticarem-se até à largura do ecrã.
+**B1 — gancho (0,0–2,8 s · frames 0–84 · importância 2)**
+- **Compra:** o espectador sente-se apanhado: o problema dele talvez não seja saber pouco.
+- **Imagem com o texto tapado:** céu castanho-escuro com estrelas a derivar e um brilho laranja quase invisível no fundo do enquadramento.
+- **Texto:** *"Talvez o teu problema não seja falta de conhecimento."* (H2 do site), palavra a palavra ao ritmo da fala (5–6 frames), a chegar de ligeiramente maior.
+- **Saída / costura:** quando "conhecimento" assenta, corte seco a meio do movimento para a ferramenta, com o cursor já a deslizar.
 
-**B2 — viragem: Raio-X (3,5–7,0 s · 105–210 · importância 2)**
-- **Compra:** alguém olhou para tudo e viu o que importa.
-- **Imagem com o texto tapado:** uma lâmina horizontal de luz verde desce pelo ecrã; acima dela, quase nada; abaixo, ainda o ruído.
-- **Movimento:** a estrela-linha desce (desaceleração longa). Cada frase que toca é lida: a maioria perde foco e afunda para trás (escala para baixo, desfoque, cinzento mais escuro, sai); três ficam nítidas e brancas.
-- **Texto:** nenhum novo.
-- **Costura:** quando a lâmina sai por baixo, os braços recolhem e a estrela encolhe para o tamanho de um marcador, ao lado das três frases que ficaram.
+**B2 — viragem: o Raio-X (2,8–6,3 s · 84–189 · importância 2)**
+- **Compra:** em vez de mais um curso, começas por dizer onde estás.
+- **Imagem com o texto tapado:** um cartão claro de vidro, de perto e cortado pela borda do enquadramento, com caixas de seleção; um cursor escuro a marcar; quadrados que ficam laranja.
+- **Interface real:** "O que se aplica a ti?". O cursor marca "O negócio depende demasiado de mim", "Os processos estão desorganizados" e "Estou sobrecarregado". O contador "0 sinais" passa a 1, 2 e 3, um passo por clique.
+- **Costura:** ao terceiro clique, a câmara desliza para a direita, para o radar que já começou a crescer.
 
-**B3 — prova: a ordem (7,0–11,5 s · 210–345 · importância 3, "o ponto")**
-- **Compra:** o conselheiro decide por onde começar, e não é o óbvio.
-- **Imagem com o texto tapado:** três linhas brancas centradas, ampliadas pela câmara (≥0,55 W), uma a trocar de lugar com outra, e uma estrela verde pequena a marcar a de cima.
-- **Movimento:** 0,8 s de respiração (as três linhas paradas, só o grão vivo). Depois "Vendas estagnadas" desce para o fundo e "Processos desestruturados" sobe para o topo; a estrela fixa-se à esquerda dela e a frase fica verde-lima (a primeira coisa clara). Push-in lento da câmara.
-- **Texto:** as três frases e, por baixo, pequena e cinzenta, a frase real do site: *"O que resolver primeiro para desbloquear o resto."* (ver pergunta C).
-- **Costura:** a estrela solta-se da lista e **cai**; a câmara inclina-se para baixo e segue-a.
+**B3 — prova: por onde começar (6,3–10,8 s · 189–324 · importância 3, "o ponto")**
+- **Compra:** a sessão diz-te o que resolver primeiro, por ordem, com prazo e responsável.
+- **Imagem com o texto tapado:** o polígono do radar a esticar-se para um vértice; depois uma lista de três linhas em que a primeira recebe um visto laranja.
+- **Movimento:** o radar inclina-se para "Delegação" e o vértice acende laranja. Respiração de 0,6 s. Foco de câmara para o painel "Plano · Por ordem" da janela "Advising · Plano de acção". As três prioridades entram por ordem e o visto da 1 fica laranja: **"Tirar o dono da operação diária · Semanas 1 e 2 · Responsável: direcção"**.
+- **Costura:** a página **rola** para cima com desfoque de movimento, como no site, e o papel claro dá lugar ao céu escuro da secção final.
 
-**B4 — herói: clareza (11,5–16,5 s · 345–495 · importância 2)**
-- **Compra:** o resultado não é mais informação, é clareza; a promessa da marca, dita depois de ter sido mostrada.
-- **Imagem com o texto tapado:** o planeta do hero do site sobe ao enquadramento; a estrela pousa no topo do arco e o aro verde acende a partir desse ponto e corre para as duas pontas.
-- **Movimento:** inclinação da câmara para baixo (a lista sai por cima, ainda em movimento); a estrela toca o horizonte a 13,0 s; 0,6 s de silêncio antes; o aro acende a 13,6 s. As palavras chegam ao ritmo da fala (4–6 frames entre palavras), a descer de ligeiramente maiores: "Menos informação." (13,9 s), "Mais clareza." (14,6 s).
-- **Texto:** *Menos informação.* / *Mais clareza.* (a frase do H1 do site, partida em duas).
-- **Costura:** as palavras sobem e saem com aceleração; a luz do aro concentra-se no ponto central.
+**B4 — herói: menos informação, mais clareza (10,8–15,3 s · 324–459 · importância 2)**
+- **Compra:** o que levas da sessão não é mais informação, é clareza. É a promessa da marca, dita depois de ter sido mostrada.
+- **Imagem com o texto tapado:** o planeta sobe ao enquadramento e o aro laranja acende a partir do centro e corre para as pontas.
+- **Movimento:** fim do rolar (a desacelerar); 0,6 s de quase silêncio; o aro acende a 12,0 s. As palavras entram ao ritmo da fala: "Menos informação." (12,4 s), "Mais clareza." (13,0 s).
+- **Texto:** *Menos informação. / Mais clareza.* (H1 do site, partido em dois).
+- **Costura:** a câmara mergulha devagar para o brilho laranja do horizonte e faz um corte por semelhança para as lâmpadas quentes da fotografia do Shelton, na mesma posição e com a mesma cor.
 
-**B5 — CTA (16,5–20,0 s · 495–600 · 17,5 % do filme)**
-- **Compra:** o espectador sabe quem é e o que fazer a seguir.
-- **Imagem com o texto tapado:** no ponto onde a luz se concentrou, o quadrado lima com a estrela preta sobe do horizonte; o aro respira devagar.
-- **Movimento:** o logótipo chega de ~3× para o tamanho final (desaceleração, sem salto); o wordmark "O Conselheiro." desliza de trás do quadrado; uma linha pequena por baixo. Final calmo, mais pequeno do que o início; o aro continua vivo durante a pausa final (≤1,4 s).
-- **Texto:** *O Conselheiro.* + *Agende a sua sessão. Online ou em Maputo.* (ver pergunta C).
+**B5 — pessoa e CTA (15,3–20,0 s · 459–600 · 23,5 % do filme)**
+- **Compra:** do outro lado está uma pessoa, o Shelton, e marcar é o passo seguinte.
+- **Imagem com o texto tapado:** a fotografia do Shelton dentro da janela "Sessão de Advising", ao lado do quadro "Tu", com a barra Raio-X → Advising → Plano a encher até ao fim. Depois o selo, sobre o castanho.
+- **Movimento:** avanço lento sobre a fotografia (2,4 s) enquanto a barra chega a "Plano". Corte em movimento: as duas metades da estrela entram, uma pela esquerda (o lado do Shelton) e outra pela direita (o lado do "Tu"), e encaixam ao centro. O anel de texto do selo roda 20° até assentar. Pausa final de ~1,0 s com as estrelas vivas.
+- **Texto:** UI real "Sessão de Advising · 1 a 2 horas", "Shelton Douglas", "Tu". No fim, o selo e uma linha: *"Online ou presencial em Maputo."* (ver pergunta C).
 
 **Verificações já feitas no papel**
-- G1 (prova legível): as três frases a 5,5 % H, lista ≥0,55 W, ampliada pela câmara. A legenda tem 3 % H, abaixo de 0,04 H, mas é texto de apoio e não a prova. As frases do ruído são de propósito ilegíveis em parte (são textura).
-- G3: CTA 3,5 s = 17,5 % (≤25 %); pausa final planeada de ~1,0 s.
-- G4: um herói por frame (B1 é textura sem herói até a estrela entrar; daí em diante, uma coisa acesa de cada vez).
-- Cromo de página: nenhum. Sem nome no canto, contadores, rótulos "Raio-X" ou fases numeradas, barras, URL ou botão no fim.
+- G1: a interface aparece sempre ampliada pela câmara (texto ≥4 % H, fragmento ≥0,55 W ou cortado pela borda), sem aumentar o tamanho da letra da UI.
+- G3: o CTA dura 4,7 s = 23,5 % (≤25 %); pausa final planeada de ~1,0 s.
+- G4: um herói por plano. No B5, o quadro do Shelton é dominante (o "Tu" é um quadro vazio e mais pequeno).
+- Cromo de página: nenhum. A barra de navegação do site, os rótulos "Exemplo ilustrativo", o URL e os botões ficam de fora. O contador "3 sinais" é UI real do produto, não um contador de capítulos.
 
 ---
 
 ## 6. Som
 
-- **Recomendação: sem locução.** Música + efeitos desenhados, porque o filme vai ser visto sobretudo sem som e lê-se sozinho. Há um risco real de sotaque brasileiro nas vozes da ElevenLabs (os modelos não distinguem pt-PT de pt-BR de forma fiável), e a chave atual só permite vozes pré-definidas.
-- **Música:** pulso mínimo e escuro que perde camadas à medida que o Raio-X apaga as frases. Silêncio antes do aro. Uma nota grave quando acende. Cama calma no fim. Alvo de −14 LUFS.
-- **Efeitos:** murmúrio de cliques (B1), um sopro tonal no varrimento (B2), um "tic" seco na troca de ordem (B3), a pancada do horizonte (B4).
+- **Recomendação: sem locução.** Música e efeitos desenhados, porque o filme vai ser visto sobretudo sem som e lê-se sozinho. As vozes da ElevenLabs tendem para o sotaque brasileiro. A alternativa forte seria a **voz do próprio Shelton** a dizer a frase do B1, gravada por ele.
+- **Música:** cama quente e calma (piano abafado e graves suaves) que se abre quando o plano se ordena, faz silêncio antes do horizonte e dá uma nota grave quando o aro acende. Alvo de −14 LUFS.
+- **Efeitos:** três cliques secos (B2), um "tic" no visto da prioridade 1 (B3), o sopro do rolar, o encaixe do selo (a única pancada).
 
 ---
 
 ## 7. O que é real e o que é ilustrativo
 
-- **Real (do site):** os 11 gargalos, "O que resolver primeiro para destravar o resto", o H1 "menos informação e mais clareza", a estrela, o quadrado lima, a Onest, as cores, o horizonte do planeta, o grão, "Online / presencial em Maputo".
-- **Ilustrativo:** o caso dos três gargalos e a sua ordem (plausível, não é um cliente real). Declarado no NOTE.md, nunca no ecrã.
-- **Construído:** o planeta em 3D, inspirado no hero do site.
+- **Real (site em produção):** todas as frases, a interface do Raio-X, a janela do plano, a janela da sessão, a fotografia do Shelton, o selo, as cores, a Google Sans, o céu e o horizonte.
+- **Ilustrativo:** o caso (sinais, Delegação 85 % e plano). É o exemplo que o site marca como "Exemplo ilustrativo". Fica declarado no NOTE.md, não no ecrã.
+- **Construído:** o planeta em 3D e a animação da interface, refeitos a partir do CSS do site.
 
 ---
 
 ## 8. Decisões que preciso de si antes da produção
 
-- **A. Formato:** 16:9 (1920×1080, por omissão), 9:16 vertical (Reels/Stories/WhatsApp Status) ou ambos.
-- **B. Locução:** sem voz (recomendado) ou com voz em pt-PT. Com voz, faço primeiro uma amostra para aprovar o sotaque.
-- **C. pt-PT vs. texto do site:** o site diz "destravar" (mais brasileiro). Proponho "desbloquear" no filme. A linha final "Agende a sua sessão. Online ou em Maputo." é minha, a partir dos dados do site.
+- **A. Formato:** 16:9 (por omissão), 9:16 vertical (Reels/Stories/Status) ou ambos.
+- **B. Voz:** sem voz (recomendado), voz da ElevenLabs em pt-PT (com amostra primeiro) ou a voz do Shelton gravada por ele.
+- **C. Linha final:** "Online ou presencial em Maputo." ou uma frase de chamada do site ("Marcar o meu Advising" ou "Uma sessão pode mudar a forma como vês o teu negócio.").
