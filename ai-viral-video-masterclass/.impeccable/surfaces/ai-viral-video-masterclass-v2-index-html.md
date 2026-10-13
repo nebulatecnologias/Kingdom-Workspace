@@ -9,14 +9,14 @@ related_targets: []
 
 Scope: single-file sales page, Persuade mode. Visitor: creator, freelancer or small-business owner from a short-form ad, on a phone. Action: buy now, Premium preferred (Basic → R249 upgrade pop-up; exit-intent pop-up offers the same R249).
 Proof: PDF before/after artwork, interactive demos of both effects, slots for real student screenshots and the user's own demo clips. No invented claims.
-Constraints: black + lime from the PDF; Little Believers section order and pop-ups; English, rand; no em-dashes; works without JS.
+Constraints: light white-ground system (user, replaces the PDF black ground), lime kept as the brand action colour; Little Believers section order and pop-ups; English, rand; no em-dashes; works without JS.
 Unresolved: checkout links, real testimonials, own demo clips, seller entity confirmation.
 
 ## Direction contract
 
 THESIS: The page is an editing timeline you scrub, not a brochure. It refuses the category default of a static hero image plus feature cards: every proof is the effect running under the visitor's thumb.
 
-OWN-WORLD: Near-black monitor ground (#0A0B08), lime (#C2F24B) as the playhead and every action, red only for the record/urgency dot. Heavy uppercase Poppins display, Manrope body, tabular timecodes. Components borrow editor chrome: playhead handles, track lanes, timecode counters, frame brackets, REC dot, safe-area corners on vertical frames.
+OWN-WORLD: (Replaced on the user's request: light, trust-first, white background.) White ground (#FFFFFF), pale sage alt bands (#F4F7EF), white cards with a tight two-layer shadow, near-black ink (#11160D). Dark green (#3A7A0C) for text accents, icons, focus and the timeline; lime (#C2F24B) only as fills: buttons, chips, the timecode chip, and a highlighter band behind key heading words. Red only for the REC dot and pain icons. Demo frames and bonus covers stay dark as screens. Heavy uppercase Poppins display, Manrope body, tabular timecodes.
 
 STORY: In one viewport the visitor drags a garage clip into a supercar shot and understands the offer. Then sees motion transfer run, reads student proof, the six modules as a timeline track, the four bonuses, the value stack, and buys Premium with the upgrade and exit offers as safety nets.
 
