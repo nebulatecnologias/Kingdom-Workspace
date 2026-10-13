@@ -1,270 +1,300 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-12T00:00:00Z",
+  "generatedAt": "2026-10-13T10:03:36Z",
   "title": "Design System: AI Viral Video Masterclass",
   "extensions": {
     "colorMeta": {
-      "monitor-black": {
+      "white": {
         "role": "neutral",
-        "displayName": "Monitor Black",
-        "canonical": "#0A0B08",
+        "displayName": "White",
+        "canonical": "#FFFFFF",
         "tonalRamp": [
-          "oklch(15% 0.008 120)",
-          "oklch(25% 0.008 120)",
-          "oklch(38% 0.008 120)",
-          "oklch(50% 0.008 120)",
-          "oklch(62% 0.008 120)",
-          "oklch(74% 0.008 120)",
-          "oklch(85% 0.008 120)",
-          "oklch(95% 0.008 120)"
+          "oklch(15% 0.000 125)",
+          "oklch(25% 0.000 125)",
+          "oklch(38% 0.000 125)",
+          "oklch(50% 0.000 125)",
+          "oklch(62% 0.000 125)",
+          "oklch(74% 0.000 125)",
+          "oklch(85% 0.000 125)",
+          "oklch(95% 0.000 125)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "oklch(15% 0.000 125)",
+          "oklch(25% 0.000 125)",
+          "oklch(38% 0.000 125)",
+          "oklch(50% 0.000 125)",
+          "oklch(62% 0.000 125)",
+          "oklch(74% 0.000 125)",
+          "oklch(85% 0.000 125)",
+          "oklch(95% 0.000 125)"
         ]
       },
       "panel": {
         "role": "neutral",
         "displayName": "Panel",
-        "canonical": "#121410",
+        "canonical": "#F4F7EF",
         "tonalRamp": [
-          "oklch(15% 0.01 120)",
-          "oklch(25% 0.01 120)",
-          "oklch(38% 0.01 120)",
-          "oklch(50% 0.01 120)",
-          "oklch(62% 0.01 120)",
-          "oklch(74% 0.01 120)",
-          "oklch(85% 0.01 120)",
-          "oklch(95% 0.01 120)"
+          "oklch(15% 0.011 123)",
+          "oklch(25% 0.011 123)",
+          "oklch(38% 0.011 123)",
+          "oklch(50% 0.011 123)",
+          "oklch(62% 0.011 123)",
+          "oklch(74% 0.011 123)",
+          "oklch(85% 0.011 123)",
+          "oklch(95% 0.011 123)"
         ]
       },
       "panel-2": {
         "role": "neutral",
         "displayName": "Panel 2",
-        "canonical": "#171A13",
+        "canonical": "#F8FAF5",
         "tonalRamp": [
-          "oklch(15% 0.012 120)",
-          "oklch(25% 0.012 120)",
-          "oklch(38% 0.012 120)",
-          "oklch(50% 0.012 120)",
-          "oklch(62% 0.012 120)",
-          "oklch(74% 0.012 120)",
-          "oklch(85% 0.012 120)",
-          "oklch(95% 0.012 120)"
+          "oklch(15% 0.007 124)",
+          "oklch(25% 0.007 124)",
+          "oklch(38% 0.007 124)",
+          "oklch(50% 0.007 124)",
+          "oklch(62% 0.007 124)",
+          "oklch(74% 0.007 124)",
+          "oklch(85% 0.007 124)",
+          "oklch(95% 0.007 124)"
         ]
       },
       "panel-3": {
         "role": "neutral",
         "displayName": "Panel 3",
-        "canonical": "#1F2319",
+        "canonical": "#EAF0E1",
         "tonalRamp": [
-          "oklch(15% 0.016 120)",
-          "oklch(25% 0.016 120)",
-          "oklch(38% 0.016 120)",
-          "oklch(50% 0.016 120)",
-          "oklch(62% 0.016 120)",
-          "oklch(74% 0.016 120)",
-          "oklch(85% 0.016 120)",
-          "oklch(95% 0.016 120)"
+          "oklch(15% 0.021 125)",
+          "oklch(25% 0.021 125)",
+          "oklch(38% 0.021 125)",
+          "oklch(50% 0.021 125)",
+          "oklch(62% 0.021 125)",
+          "oklch(74% 0.021 125)",
+          "oklch(85% 0.021 125)",
+          "oklch(95% 0.021 125)"
         ]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Ink",
-        "canonical": "#F1F4EA",
+        "canonical": "#11160D",
         "tonalRamp": [
-          "oklch(15% 0.015 120)",
-          "oklch(25% 0.015 120)",
-          "oklch(38% 0.015 120)",
-          "oklch(50% 0.015 120)",
-          "oklch(62% 0.015 120)",
-          "oklch(74% 0.015 120)",
-          "oklch(85% 0.015 120)",
-          "oklch(95% 0.015 120)"
+          "oklch(15% 0.019 132)",
+          "oklch(25% 0.019 132)",
+          "oklch(38% 0.019 132)",
+          "oklch(50% 0.019 132)",
+          "oklch(62% 0.019 132)",
+          "oklch(74% 0.019 132)",
+          "oklch(85% 0.019 132)",
+          "oklch(95% 0.019 132)"
         ]
       },
       "soft": {
         "role": "neutral",
-        "displayName": "Soft Sage",
-        "canonical": "#A9AF9D",
+        "displayName": "Soft",
+        "canonical": "#4A5344",
         "tonalRamp": [
-          "oklch(15% 0.025 120)",
-          "oklch(25% 0.025 120)",
-          "oklch(38% 0.025 120)",
-          "oklch(50% 0.025 120)",
-          "oklch(62% 0.025 120)",
-          "oklch(74% 0.025 120)",
-          "oklch(85% 0.025 120)",
-          "oklch(95% 0.025 120)"
+          "oklch(15% 0.027 133)",
+          "oklch(25% 0.027 133)",
+          "oklch(38% 0.027 133)",
+          "oklch(50% 0.027 133)",
+          "oklch(62% 0.027 133)",
+          "oklch(74% 0.027 133)",
+          "oklch(85% 0.027 133)",
+          "oklch(95% 0.027 133)"
         ]
       },
       "mute": {
         "role": "neutral",
-        "displayName": "Mute Sage",
-        "canonical": "#8C9283",
+        "displayName": "Mute",
+        "canonical": "#646C5E",
         "tonalRamp": [
-          "oklch(15% 0.02 120)",
-          "oklch(25% 0.02 120)",
-          "oklch(38% 0.02 120)",
-          "oklch(50% 0.02 120)",
-          "oklch(62% 0.02 120)",
-          "oklch(74% 0.02 120)",
-          "oklch(85% 0.02 120)",
-          "oklch(95% 0.02 120)"
+          "oklch(15% 0.024 132)",
+          "oklch(25% 0.024 132)",
+          "oklch(38% 0.024 132)",
+          "oklch(50% 0.024 132)",
+          "oklch(62% 0.024 132)",
+          "oklch(74% 0.024 132)",
+          "oklch(85% 0.024 132)",
+          "oklch(95% 0.024 132)"
         ]
       },
-      "playhead-lime": {
+      "lime": {
         "role": "primary",
         "displayName": "Playhead Lime",
         "canonical": "#C2F24B",
         "tonalRamp": [
-          "oklch(15% 0.19 125)",
-          "oklch(25% 0.19 125)",
-          "oklch(38% 0.19 125)",
-          "oklch(50% 0.19 125)",
-          "oklch(62% 0.19 125)",
-          "oklch(74% 0.19 125)",
-          "oklch(85% 0.19 125)",
-          "oklch(95% 0.19 125)"
+          "oklch(15% 0.060 124)",
+          "oklch(25% 0.195 124)",
+          "oklch(38% 0.195 124)",
+          "oklch(50% 0.195 124)",
+          "oklch(62% 0.195 124)",
+          "oklch(74% 0.195 124)",
+          "oklch(85% 0.195 124)",
+          "oklch(95% 0.060 124)"
         ]
       },
-      "playhead-lime-hover": {
+      "lime-hover": {
         "role": "primary",
         "displayName": "Lime Hover",
         "canonical": "#CEF865",
         "tonalRamp": [
-          "oklch(15% 0.19 125)",
-          "oklch(25% 0.19 125)",
-          "oklch(38% 0.19 125)",
-          "oklch(50% 0.19 125)",
-          "oklch(62% 0.19 125)",
-          "oklch(74% 0.19 125)",
-          "oklch(85% 0.19 125)",
-          "oklch(95% 0.19 125)"
+          "oklch(15% 0.060 123)",
+          "oklch(25% 0.179 123)",
+          "oklch(38% 0.179 123)",
+          "oklch(50% 0.179 123)",
+          "oklch(62% 0.179 123)",
+          "oklch(74% 0.179 123)",
+          "oklch(85% 0.179 123)",
+          "oklch(95% 0.060 123)"
         ]
       },
-      "playhead-lime-deep": {
+      "lime-ink": {
         "role": "primary",
-        "displayName": "Lime Deep",
-        "canonical": "#A6D82C",
+        "displayName": "Lime Ink",
+        "canonical": "#0E1209",
         "tonalRamp": [
-          "oklch(15% 0.19 125)",
-          "oklch(25% 0.19 125)",
-          "oklch(38% 0.19 125)",
-          "oklch(50% 0.19 125)",
-          "oklch(62% 0.19 125)",
-          "oklch(74% 0.19 125)",
-          "oklch(85% 0.19 125)",
-          "oklch(95% 0.19 125)"
+          "oklch(15% 0.019 128)",
+          "oklch(25% 0.019 128)",
+          "oklch(38% 0.019 128)",
+          "oklch(50% 0.019 128)",
+          "oklch(62% 0.019 128)",
+          "oklch(74% 0.019 128)",
+          "oklch(85% 0.019 128)",
+          "oklch(95% 0.019 128)"
         ]
       },
       "lime-wash": {
         "role": "primary",
         "displayName": "Lime Wash",
-        "canonical": "rgba(194,242,75,.09)",
+        "canonical": "rgba(194,242,75,.22)",
         "tonalRamp": [
-          "oklch(15% 0.19 125)",
-          "oklch(25% 0.19 125)",
-          "oklch(38% 0.19 125)",
-          "oklch(50% 0.19 125)",
-          "oklch(62% 0.19 125)",
-          "oklch(74% 0.19 125)",
-          "oklch(85% 0.19 125)",
-          "oklch(95% 0.19 125)"
+          "oklch(15% 0.060 124)",
+          "oklch(25% 0.195 124)",
+          "oklch(38% 0.195 124)",
+          "oklch(50% 0.195 124)",
+          "oklch(62% 0.195 124)",
+          "oklch(74% 0.195 124)",
+          "oklch(85% 0.195 124)",
+          "oklch(95% 0.060 124)"
         ]
       },
       "lime-line": {
         "role": "primary",
         "displayName": "Lime Line",
-        "canonical": "rgba(194,242,75,.45)",
+        "canonical": "rgba(58,122,12,.35)",
         "tonalRamp": [
-          "oklch(15% 0.19 125)",
-          "oklch(25% 0.19 125)",
-          "oklch(38% 0.19 125)",
-          "oklch(50% 0.19 125)",
-          "oklch(62% 0.19 125)",
-          "oklch(74% 0.19 125)",
-          "oklch(85% 0.19 125)",
-          "oklch(95% 0.19 125)"
+          "oklch(15% 0.060 136)",
+          "oklch(25% 0.149 136)",
+          "oklch(38% 0.149 136)",
+          "oklch(50% 0.149 136)",
+          "oklch(62% 0.149 136)",
+          "oklch(74% 0.149 136)",
+          "oklch(85% 0.149 136)",
+          "oklch(95% 0.060 136)"
+        ]
+      },
+      "trust-green": {
+        "role": "secondary",
+        "displayName": "Trust Green",
+        "canonical": "#3A7A0C",
+        "tonalRamp": [
+          "oklch(15% 0.060 136)",
+          "oklch(25% 0.149 136)",
+          "oklch(38% 0.149 136)",
+          "oklch(50% 0.149 136)",
+          "oklch(62% 0.149 136)",
+          "oklch(74% 0.149 136)",
+          "oklch(85% 0.149 136)",
+          "oklch(95% 0.060 136)"
         ]
       },
       "rec-red": {
         "role": "tertiary",
         "displayName": "REC Red",
-        "canonical": "#F0414E",
+        "canonical": "#E0313E",
         "tonalRamp": [
-          "oklch(15% 0.2 22)",
-          "oklch(25% 0.2 22)",
-          "oklch(38% 0.2 22)",
-          "oklch(50% 0.2 22)",
-          "oklch(62% 0.2 22)",
-          "oklch(74% 0.2 22)",
-          "oklch(85% 0.2 22)",
-          "oklch(95% 0.2 22)"
+          "oklch(15% 0.060 23)",
+          "oklch(25% 0.209 23)",
+          "oklch(38% 0.209 23)",
+          "oklch(50% 0.209 23)",
+          "oklch(62% 0.209 23)",
+          "oklch(74% 0.209 23)",
+          "oklch(85% 0.209 23)",
+          "oklch(95% 0.060 23)"
         ]
       },
-      "rec-red-deep": {
-        "role": "tertiary",
-        "displayName": "REC Red Deep",
-        "canonical": "#7E121B",
+      "screen": {
+        "role": "neutral",
+        "displayName": "Screen",
+        "canonical": "#0B0D09",
         "tonalRamp": [
-          "oklch(15% 0.2 22)",
-          "oklch(25% 0.2 22)",
-          "oklch(38% 0.2 22)",
-          "oklch(50% 0.2 22)",
-          "oklch(62% 0.2 22)",
-          "oklch(74% 0.2 22)",
-          "oklch(85% 0.2 22)",
-          "oklch(95% 0.2 22)"
+          "oklch(15% 0.009 129)",
+          "oklch(25% 0.009 129)",
+          "oklch(38% 0.009 129)",
+          "oklch(50% 0.009 129)",
+          "oklch(62% 0.009 129)",
+          "oklch(74% 0.009 129)",
+          "oklch(85% 0.009 129)",
+          "oklch(95% 0.009 129)"
         ]
       },
       "line": {
         "role": "neutral",
         "displayName": "Line",
-        "canonical": "rgba(220,240,180,.09)",
+        "canonical": "rgba(17,22,13,.09)",
         "tonalRamp": [
-          "oklch(15% 0.05 120)",
-          "oklch(25% 0.05 120)",
-          "oklch(38% 0.05 120)",
-          "oklch(50% 0.05 120)",
-          "oklch(62% 0.05 120)",
-          "oklch(74% 0.05 120)",
-          "oklch(85% 0.05 120)",
-          "oklch(95% 0.05 120)"
+          "oklch(15% 0.019 132)",
+          "oklch(25% 0.019 132)",
+          "oklch(38% 0.019 132)",
+          "oklch(50% 0.019 132)",
+          "oklch(62% 0.019 132)",
+          "oklch(74% 0.019 132)",
+          "oklch(85% 0.019 132)",
+          "oklch(95% 0.019 132)"
         ]
       },
       "line-2": {
         "role": "neutral",
         "displayName": "Line 2",
-        "canonical": "rgba(220,240,180,.16)",
+        "canonical": "rgba(17,22,13,.16)",
         "tonalRamp": [
-          "oklch(15% 0.05 120)",
-          "oklch(25% 0.05 120)",
-          "oklch(38% 0.05 120)",
-          "oklch(50% 0.05 120)",
-          "oklch(62% 0.05 120)",
-          "oklch(74% 0.05 120)",
-          "oklch(85% 0.05 120)",
-          "oklch(95% 0.05 120)"
+          "oklch(15% 0.019 132)",
+          "oklch(25% 0.019 132)",
+          "oklch(38% 0.019 132)",
+          "oklch(50% 0.019 132)",
+          "oklch(62% 0.019 132)",
+          "oklch(74% 0.019 132)",
+          "oklch(85% 0.019 132)",
+          "oklch(95% 0.019 132)"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero headline and final call; uppercase, second line lime."
+        "purpose": "Hero headline and final call; second line on the lime highlighter band."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section heads, uppercase, one lime accent phrase."
+        "purpose": "Uppercase section heads with one highlighted phrase."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Card, plan, module, bonus and modal titles (19-28px)."
+        "purpose": "Card, plan, module and pop-up headings; accent word in Trust Green."
       },
       "price": {
         "displayName": "Price",
-        "purpose": "Plan and pop-up prices, value-stack total."
+        "purpose": "Plan prices (56px Ink), pop-up prices (46px) and today total in Trust Green."
       },
       "timecode": {
         "displayName": "Timecode",
-        "purpose": "Countdown, monitor counter, clip metadata; tabular."
+        "purpose": "Countdown digits in a 6px chip; tabular."
       },
       "body": {
         "displayName": "Body",
@@ -272,55 +302,50 @@
       },
       "lede": {
         "displayName": "Lede",
-        "purpose": "Section intro, max 58ch (46ch in hero at 19px)."
+        "purpose": "Section and hero intros, max 46-58ch."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Tags, clip chips, frame labels, spec labels; annotates objects, never an eyebrow."
+        "purpose": "Tags, frame labels, spec terms, export header; never an eyebrow."
       }
     },
     "shadows": [
       {
+        "name": "card",
+        "value": "0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10)",
+        "purpose": "Every white card, plan, export summary and guarantee panel."
+      },
+      {
         "name": "lift",
-        "value": "0 18px 40px -18px rgba(0,0,0,.85)",
-        "purpose": "Monitor, phone frames, recommended plan, toast."
+        "value": "0 22px 46px -26px rgba(25,40,10,.32)",
+        "purpose": "Hero banner image, phone frames, recommended plan, toast."
       },
       {
         "name": "button-press",
-        "value": "0 14px 28px -14px rgba(0,0,0,.9), inset 0 -3px 0 rgba(0,0,0,.14)",
+        "value": "0 12px 24px -14px rgba(58,122,12,.6), inset 0 -3px 0 rgba(0,0,0,.10)",
         "purpose": "Lime buttons only."
-      },
-      {
-        "name": "knob",
-        "value": "0 10px 24px -8px rgba(0,0,0,.8)",
-        "purpose": "Playhead knob."
-      },
-      {
-        "name": "sheet",
-        "value": "0 -20px 60px -20px rgba(0,0,0,.9)",
-        "purpose": "Pop-up sheets and sticky mobile bar."
       }
     ],
     "motion": [
       {
         "name": "ease",
         "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "All transforms: button lift, knob scale, card lift, sheet rise, toast."
+        "purpose": "All transforms: button lift, card lift, sheet rise, toast, wipe."
       },
       {
         "name": "hover",
         "value": ".2s",
-        "purpose": "Button and colour state changes."
+        "purpose": "Button lift 2px, arrow nudge 4px, colour and border changes."
       },
       {
         "name": "card-lift",
-        "value": ".3s, translateY(-6px)",
+        "value": ".3s translateY(-6px)",
         "purpose": "Bonus card hover."
       },
       {
         "name": "sheet-rise",
-        "value": ".45s, translateY(40px) to 0",
-        "purpose": "Pop-up entry."
+        "value": ".45s from translateY(40px) and opacity 0",
+        "purpose": "Pop-up entrance."
       },
       {
         "name": "rec-blink",
@@ -330,15 +355,19 @@
       {
         "name": "swap-wipe",
         "value": "5s alternate infinite",
-        "purpose": "Object-swap loop wipe."
+        "purpose": "Object-swap before/after loop."
       },
       {
         "name": "reduced-motion",
         "value": "prefers-reduced-motion: reduce",
-        "purpose": "Stops demo loops, blink and transitions; smooth scroll off."
+        "purpose": "Disables blink, wipe, dance, transitions and smooth scroll."
       }
     ],
     "breakpoints": [
+      {
+        "name": "swaps-2col",
+        "value": "520px"
+      },
       {
         "name": "brand",
         "value": "600px"
@@ -382,89 +411,94 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Lime pressable key for every buy action.",
-      "html": "<button class=\"ds-btn ds-btn-lime\">Get instant access <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/></svg></button>",
-      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;border-radius:14px;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.2;transition:transform .2s var(--ease),background-color .2s ease,border-color .2s ease;} .ds-btn:hover{transform:translateY(-2px);} .ds-btn:active{transform:scale(.97);} .ds-btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-btn svg{transition:transform .2s var(--ease);} .ds-btn:hover svg{transform:translateX(4px);} .ds-btn-lime{background:var(--lime);color:var(--lime-ink);box-shadow:0 14px 28px -14px rgba(0,0,0,.9),inset 0 -3px 0 rgba(0,0,0,.14);} .ds-btn-lime:hover{background:#CEF865;} "
+      "description": "Lime pressable key for every buy action; Lime Ink Poppins text, green-tinted press shadow.",
+      "html": "<a href=\"#\" class=\"ds-btn ds-btn-lime\">Get instant access <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/></svg></a>",
+      "css": ":host{ --bg:#FFFFFF; --panel:#F4F7EF; --panel-2:#F8FAF5; --panel-3:#EAF0E1; --card:#FFFFFF; --ink:#11160D; --soft:#4A5344; --mute:#646C5E; --lime:#C2F24B; --lime-ink:#0E1209; --lime-wash:rgba(194,242,75,.22); --lime-line:rgba(58,122,12,.35); --green:#3A7A0C; --rec:#E0313E; --screen:#0B0D09; --line:rgba(17,22,13,.09); --line-2:rgba(17,22,13,.16); --shadow:0 22px 46px -26px rgba(25,40,10,.32); --shadow-sm:0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10); --ease:cubic-bezier(.16,1,.3,1); } .ds-btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:54px; padding:15px 26px; border-radius:14px; border:0; cursor:pointer; font-family:'Poppins', system-ui, sans-serif; font-weight:700; font-size:16px; line-height:1.2; text-decoration:none; transition:transform .2s var(--ease), background-color .2s ease, border-color .2s ease; } .ds-btn svg{ transition:transform .2s var(--ease); } .ds-btn-lime{ background:var(--lime); color:var(--lime-ink); box-shadow:0 12px 24px -14px rgba(58,122,12,.6), inset 0 -3px 0 rgba(0,0,0,.10); } .ds-btn-lime:hover{ background:#CEF865; transform:translateY(-2px); } .ds-btn-lime:hover svg{ transform:translateX(4px); } .ds-btn:active{ transform:scale(.97); } .ds-btn:focus-visible{ outline:3px solid var(--green); outline-offset:3px; }"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Secondary choice: Basic plan, pop-up refusal.",
-      "html": "<button class=\"ds-btn ds-btn-ghost\">Get the Basic Plan</button>",
-      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;border-radius:14px;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.2;transition:transform .2s var(--ease),background-color .2s ease,border-color .2s ease;} .ds-btn:hover{transform:translateY(-2px);} .ds-btn:active{transform:scale(.97);} .ds-btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-btn svg{transition:transform .2s var(--ease);} .ds-btn:hover svg{transform:translateX(4px);} .ds-btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line-2);} .ds-btn-ghost:hover{border-color:var(--lime);}"
+      "description": "Secondary choice: transparent with a Line 2 border; border turns Trust Green on hover.",
+      "html": "<a href=\"#\" class=\"ds-btn-ghost\">Get the course</a>",
+      "css": ":host{ --bg:#FFFFFF; --panel:#F4F7EF; --panel-2:#F8FAF5; --panel-3:#EAF0E1; --card:#FFFFFF; --ink:#11160D; --soft:#4A5344; --mute:#646C5E; --lime:#C2F24B; --lime-ink:#0E1209; --lime-wash:rgba(194,242,75,.22); --lime-line:rgba(58,122,12,.35); --green:#3A7A0C; --rec:#E0313E; --screen:#0B0D09; --line:rgba(17,22,13,.09); --line-2:rgba(17,22,13,.16); --shadow:0 22px 46px -26px rgba(25,40,10,.32); --shadow-sm:0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10); --ease:cubic-bezier(.16,1,.3,1); } .ds-btn-ghost{ display:inline-flex; align-items:center; justify-content:center; min-height:54px; padding:15px 26px; border-radius:14px; background:transparent; color:var(--ink); border:1.5px solid var(--line-2); font-family:'Poppins', system-ui, sans-serif; font-weight:700; font-size:16px; text-decoration:none; transition:transform .2s var(--ease), border-color .2s ease; } .ds-btn-ghost:hover{ border-color:var(--green); transform:translateY(-2px); } .ds-btn-ghost:active{ transform:scale(.97); } .ds-btn-ghost:focus-visible{ outline:3px solid var(--green); outline-offset:3px; }"
     },
     {
       "name": "Tags",
       "kind": "chip",
       "refersTo": "tag-lime",
-      "description": "Uppercase object labels: solid lime status, lime outline, dim outline.",
-      "html": "<div class=\"ds-row\"><span class=\"ds-tag ds-tag-lime\">Best value</span><span class=\"ds-tag ds-tag-line\">Free today</span><span class=\"ds-tag ds-tag-dim\">PDF</span></div>",
-      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-row{display:flex;gap:8px;padding:16px;background:var(--bg);font-family:var(--body);} .ds-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;padding:5px 9px;line-height:1.2;} .ds-tag-lime{background:var(--lime);color:var(--lime-ink);} .ds-tag-line{border:1px solid var(--lime-line);color:var(--lime);} .ds-tag-dim{border:1px solid var(--line-2);color:var(--soft);}"
+      "description": "Uppercase labels: solid lime for status, Lime Line outline with Trust Green text for savings, dim outline in Soft.",
+      "html": "<div class=\"ds-tags\"><span class=\"ds-tag ds-tag-lime\">Best value</span><span class=\"ds-tag ds-tag-line\">Free today</span><span class=\"ds-tag ds-tag-dim\">Basic</span><span class=\"ds-tag ds-tag-dim\"><span class=\"ds-rec\"></span>Ready</span></div>",
+      "css": ":host{ --bg:#FFFFFF; --panel:#F4F7EF; --panel-2:#F8FAF5; --panel-3:#EAF0E1; --card:#FFFFFF; --ink:#11160D; --soft:#4A5344; --mute:#646C5E; --lime:#C2F24B; --lime-ink:#0E1209; --lime-wash:rgba(194,242,75,.22); --lime-line:rgba(58,122,12,.35); --green:#3A7A0C; --rec:#E0313E; --screen:#0B0D09; --line:rgba(17,22,13,.09); --line-2:rgba(17,22,13,.16); --shadow:0 22px 46px -26px rgba(25,40,10,.32); --shadow-sm:0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10); --ease:cubic-bezier(.16,1,.3,1); } .ds-tags{ display:flex; flex-wrap:wrap; gap:10px; font-family:'Manrope', system-ui, sans-serif; } .ds-tag{ display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border-radius:8px; padding:5px 9px; line-height:1.2; } .ds-tag-lime{ background:var(--lime); color:var(--lime-ink); } .ds-tag-line{ border:1px solid var(--lime-line); color:var(--green); } .ds-tag-dim{ border:1px solid var(--line-2); color:var(--soft); } .ds-rec{ width:8px; height:8px; border-radius:50%; background:var(--rec); animation:ds-blink 1.2s steps(1) infinite; } @keyframes ds-blink{ 50%{ opacity:.25; } } @media (prefers-reduced-motion:reduce){ .ds-rec{ animation:none; } }"
     },
     {
       "name": "Countdown Bar",
       "kind": "nav",
-      "refersTo": "timecode-digits",
-      "description": "Sticky top bar with tabular timecode digits in a lime chip.",
-      "html": "<div class=\"ds-bar\"><b>Today only: Premium R299</b><span class=\"ds-tc\"><span class=\"ds-digits\">05:42:17</span></span><a href=\"#\">Get it now</a></div>",
-      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-bar{display:flex;align-items:center;justify-content:center;gap:14px;padding:9px 16px;background:var(--panel);color:var(--ink);border-bottom:1px solid var(--line-2);font-family:var(--body);font-size:13px;} .ds-bar b{font-family:var(--display);font-weight:700;letter-spacing:.04em;} .ds-tc{font-family:var(--display);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.06em;} .ds-digits{background:var(--lime);color:var(--lime-ink);border-radius:6px;padding:2px 8px;} .ds-bar a{color:var(--lime);font-weight:800;} .ds-bar a:focus-visible{outline:3px solid var(--lime);outline-offset:3px;}"
+      "refersTo": "countdown-bar",
+      "description": "Sticky Panel strip: notice, REC dot with lime timecode chip, Trust Green link.",
+      "html": "<div class=\"ds-bar\"><b>TODAY'S PRICE ENDS AT 11:59 PM</b><span class=\"ds-tc\"><span class=\"ds-rec\"></span><span class=\"ds-digits\">04:12:37</span></span><a href=\"#\">See the offer</a></div>",
+      "css": ":host{ --bg:#FFFFFF; --panel:#F4F7EF; --panel-2:#F8FAF5; --panel-3:#EAF0E1; --card:#FFFFFF; --ink:#11160D; --soft:#4A5344; --mute:#646C5E; --lime:#C2F24B; --lime-ink:#0E1209; --lime-wash:rgba(194,242,75,.22); --lime-line:rgba(58,122,12,.35); --green:#3A7A0C; --rec:#E0313E; --screen:#0B0D09; --line:rgba(17,22,13,.09); --line-2:rgba(17,22,13,.16); --shadow:0 22px 46px -26px rgba(25,40,10,.32); --shadow-sm:0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10); --ease:cubic-bezier(.16,1,.3,1); } .ds-bar{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:4px 14px; padding:9px 20px; background:var(--panel); color:var(--ink); border-bottom:1px solid var(--line-2); font-family:'Manrope', system-ui, sans-serif; font-size:13px; } .ds-bar b{ font-family:'Poppins', system-ui, sans-serif; font-weight:700; letter-spacing:.04em; } .ds-tc{ display:inline-flex; align-items:center; gap:8px; font-family:'Poppins', system-ui, sans-serif; font-weight:700; font-variant-numeric:tabular-nums; letter-spacing:.06em; } .ds-digits{ background:var(--lime); color:var(--lime-ink); border-radius:6px; padding:2px 8px; } .ds-rec{ width:8px; height:8px; border-radius:50%; background:var(--rec); } .ds-bar a{ font-weight:800; color:var(--green); text-underline-offset:3px; } .ds-bar a:hover{ color:var(--ink); } .ds-bar a:focus-visible{ outline:3px solid var(--green); outline-offset:3px; border-radius:8px; }"
     },
     {
-      "name": "Preview Monitor",
+      "name": "Highlighted Headline",
       "kind": "custom",
-      "refersTo": "preview-monitor",
-      "description": "Signature before/after scrub frame with REC chrome, lime playhead, safe-area brackets.",
-      "html": "<div class=\"ds-mon\"><div class=\"ds-chrome\"><span><i class=\"ds-rec\"></i>PREVIEW</span><span class=\"ds-tcn\">00:00:05:12</span></div><div class=\"ds-scrub\"><div class=\"ds-after\"></div><div class=\"ds-before\"></div><div class=\"ds-safe\"><i></i><i></i><i></i><i></i></div><div class=\"ds-head\"><span class=\"ds-flag\"></span><span class=\"ds-knob\"></span></div><p class=\"ds-cap\">Grey sedan in a garage &rarr; <b>black supercar at golden hour</b></p></div><div class=\"ds-seg\"><button>Before</button><button aria-pressed=\"true\">Split</button><button>After</button></div></div>",
-      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-mon{max-width:320px;padding:16px;background:var(--bg);font-family:var(--body);color:var(--ink);} .ds-chrome{display:flex;justify-content:space-between;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--soft);padding:0 4px 10px;font-family:var(--display);font-variant-numeric:tabular-nums;} .ds-chrome span{display:inline-flex;align-items:center;gap:8px;} .ds-tcn{color:var(--ink);} .ds-rec{width:8px;height:8px;border-radius:50%;background:var(--rec);display:inline-block;} .ds-scrub{position:relative;aspect-ratio:440/512;border-radius:var(--r-lg);overflow:hidden;background:var(--panel-3);border:1px solid var(--line-2);box-shadow:0 18px 40px -18px rgba(0,0,0,.85);} .ds-after{position:absolute;inset:0;background:linear-gradient(160deg,#F2A45B,#3B2A4A);} .ds-before{position:absolute;inset:0;background:linear-gradient(160deg,#5A5E57,#2A2C28);clip-path:inset(0 50% 0 0);} .ds-safe{position:absolute;inset:14px;} .ds-safe i{position:absolute;width:18px;height:18px;border:0 solid rgba(255,255,255,.7);} .ds-safe i:nth-child(1){top:0;left:0;border-top-width:2px;border-left-width:2px;} .ds-safe i:nth-child(2){top:0;right:0;border-top-width:2px;border-right-width:2px;} .ds-safe i:nth-child(3){bottom:0;left:0;border-bottom-width:2px;border-left-width:2px;} .ds-safe i:nth-child(4){bottom:0;right:0;border-bottom-width:2px;border-right-width:2px;} .ds-head{position:absolute;top:0;bottom:0;left:50%;width:0;} .ds-head::before{content:'';position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:var(--lime);} .ds-flag{position:absolute;top:-1px;left:0;transform:translateX(-50%);width:18px;height:14px;background:var(--lime);clip-path:polygon(0 0,100% 0,100% 60%,50% 100%,0 60%);} .ds-knob{position:absolute;top:50%;left:0;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:var(--lime);box-shadow:0 10px 24px -8px rgba(0,0,0,.8);transition:transform .2s var(--ease);} .ds-scrub:hover .ds-knob{transform:scale(1.1);} .ds-cap{position:absolute;left:0;right:0;bottom:0;margin:0;padding:56px 20px 22px;background:linear-gradient(0deg,rgba(5,6,4,.88),transparent);font-size:14px;font-weight:600;} .ds-cap b{color:var(--lime);} .ds-seg{display:inline-flex;margin-top:12px;background:var(--panel-2);border:1px solid var(--line-2);border-radius:12px;padding:3px;} .ds-seg button{min-height:40px;padding:8px 14px;border:0;border-radius:9px;background:transparent;color:var(--soft);font:700 13px var(--body);cursor:pointer;} .ds-seg button[aria-pressed=true]{background:var(--panel-3);color:var(--ink);} .ds-seg button:focus-visible{outline:3px solid var(--lime);outline-offset:2px;}"
+      "refersTo": "headline",
+      "description": "Uppercase Poppins 900 section head; the accent phrase stays Ink over a lime highlighter band.",
+      "html": "<h2 class=\"ds-h2\">Choose Your <em>Plan</em></h2>",
+      "css": ":host{ --bg:#FFFFFF; --panel:#F4F7EF; --panel-2:#F8FAF5; --panel-3:#EAF0E1; --card:#FFFFFF; --ink:#11160D; --soft:#4A5344; --mute:#646C5E; --lime:#C2F24B; --lime-ink:#0E1209; --lime-wash:rgba(194,242,75,.22); --lime-line:rgba(58,122,12,.35); --green:#3A7A0C; --rec:#E0313E; --screen:#0B0D09; --line:rgba(17,22,13,.09); --line-2:rgba(17,22,13,.16); --shadow:0 22px 46px -26px rgba(25,40,10,.32); --shadow-sm:0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10); --ease:cubic-bezier(.16,1,.3,1); } .ds-h2{ margin:0; font-family:'Poppins', system-ui, sans-serif; font-size:clamp(30px,5vw,56px); font-weight:900; line-height:1.05; letter-spacing:-.03em; text-transform:uppercase; color:var(--ink); } .ds-h2 em{ font-style:normal; color:var(--ink); background-image:linear-gradient(transparent 58%, var(--lime) 58%, var(--lime) 92%, transparent 92%); -webkit-box-decoration-break:clone; box-decoration-break:clone; padding-inline:.05em; }"
     },
     {
-      "name": "Module Timeline",
-      "kind": "custom",
-      "refersTo": "panel-card",
-      "description": "Vertical track with lime fill, square clip markers and numbered clip chips.",
-      "html": "<ol class=\"ds-tl\"><span class=\"ds-fill\"></span><li><h3><span class=\"ds-clip\">01</span>Setup and tools</h3><p>Accounts, apps and settings.</p></li><li><h3><span class=\"ds-clip\">02</span>Shooting clips that work</h3><p>Light, framing and movement.</p></li></ol>",
-      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-tl{position:relative;list-style:none;margin:0;padding:16px 16px 16px 50px;background:var(--bg);color:var(--ink);font-family:var(--body);} .ds-tl::before{content:'';position:absolute;left:25px;top:22px;bottom:22px;width:2px;background:var(--line-2);} .ds-fill{position:absolute;left:25px;top:22px;width:2px;height:50%;background:var(--lime);} .ds-tl li{position:relative;padding-bottom:28px;} .ds-tl li:last-child{padding-bottom:0;} .ds-tl li::before{content:'';position:absolute;left:-31px;top:5px;width:14px;height:14px;border-radius:4px;background:var(--bg);border:2px solid var(--lime);} .ds-tl h3{margin:0;display:flex;gap:12px;font:700 22px/1.05 var(--display);letter-spacing:-.015em;} .ds-clip{font:800 12px/1.4 var(--body);letter-spacing:.06em;background:var(--lime);color:var(--lime-ink);border-radius:6px;padding:3px 8px;} .ds-tl p{margin:6px 0 0;color:var(--soft);}"
-    },
-    {
-      "name": "Export Summary",
+      "name": "Card",
       "kind": "card",
-      "refersTo": "export-summary",
-      "description": "Value stack styled as a render dialog with tabular amounts and lime total.",
-      "html": "<div class=\"ds-exp\"><div class=\"ds-exp-h\"><span>Export summary</span><span>Premium</span></div><ul><li><span>AI Viral Video Masterclass</span><em>R600</em></li><li><span>Environment Prompts Pack</span><em>R149</em></li></ul><div class=\"ds-exp-f\"><div class=\"ds-r\"><span>Total value</span><s>R1,126</s></div><div class=\"ds-r\"><span>Your price today</span><b>R299</b></div></div></div>",
-      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-exp{max-width:420px;border-radius:var(--r-lg);border:1px solid var(--line-2);background:var(--panel-2);overflow:hidden;color:var(--ink);font-family:var(--body);} .ds-exp-h{display:flex;justify-content:space-between;padding:14px 22px;border-bottom:1px solid var(--line);background:var(--panel-3);font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--soft);text-transform:uppercase;} .ds-exp ul{list-style:none;margin:0;padding:10px 22px;} .ds-exp li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px dashed var(--line-2);} .ds-exp li:last-child{border-bottom:0;} .ds-exp li span{color:var(--soft);} .ds-exp em{font-style:normal;font-weight:700;font-variant-numeric:tabular-nums;} .ds-exp-f{padding:20px 22px 24px;border-top:1px solid var(--line-2);display:grid;gap:6px;} .ds-r{display:flex;justify-content:space-between;align-items:baseline;} .ds-r s{color:var(--mute);} .ds-r b{font:900 44px/1 var(--display);color:var(--lime);font-variant-numeric:tabular-nums;}"
+      "refersTo": "card",
+      "description": "White 24px card with hairline border and tight two-layer shadow; Trust Green checks and title accent.",
+      "html": "<article class=\"ds-card\"><h3>Object <span>Swap</span></h3><p>Replace anything in your footage while keeping the lighting and camera movement.</p><ul><li><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>Cars and objects</li><li><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>Outfits and backgrounds</li></ul></article>",
+      "css": ":host{ --bg:#FFFFFF; --panel:#F4F7EF; --panel-2:#F8FAF5; --panel-3:#EAF0E1; --card:#FFFFFF; --ink:#11160D; --soft:#4A5344; --mute:#646C5E; --lime:#C2F24B; --lime-ink:#0E1209; --lime-wash:rgba(194,242,75,.22); --lime-line:rgba(58,122,12,.35); --green:#3A7A0C; --rec:#E0313E; --screen:#0B0D09; --line:rgba(17,22,13,.09); --line-2:rgba(17,22,13,.16); --shadow:0 22px 46px -26px rgba(25,40,10,.32); --shadow-sm:0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10); --ease:cubic-bezier(.16,1,.3,1); } .ds-card{ max-width:420px; background:var(--card); border:1px solid var(--line); border-radius:24px; box-shadow:var(--shadow-sm); padding:26px; font-family:'Manrope', system-ui, sans-serif; color:var(--ink); transition:transform .3s var(--ease), border-color .3s ease; } .ds-card:hover{ transform:translateY(-6px); border-color:var(--lime-line); } .ds-card h3{ margin:0; font-family:'Poppins', system-ui, sans-serif; font-size:28px; font-weight:800; text-transform:uppercase; letter-spacing:-.02em; line-height:1.05; } .ds-card h3 span{ color:var(--green); } .ds-card p{ color:var(--soft); margin:14px 0 0; line-height:1.6; } .ds-card ul{ list-style:none; margin:14px 0 0; padding:0; } .ds-card li{ display:flex; gap:12px; padding:8px 0; color:var(--soft); } .ds-card li svg{ color:var(--green); flex-shrink:0; }"
     },
     {
       "name": "Recommended Plan",
       "kind": "card",
       "refersTo": "plan-recommended",
-      "description": "Premium plan card: 2px lime border, lime-wash gradient, lifted.",
-      "html": "<div class=\"ds-plan\"><div class=\"ds-top\"><h3>Premium</h3><span class=\"ds-tagl\">Best value</span></div><p class=\"ds-sub\">Full course plus 4 bonuses</p><div class=\"ds-price\"><span class=\"ds-amt\">R299</span><s>R600</s></div><button class=\"ds-btn ds-btn-lime\">Get Premium Now <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/></svg></button></div>",
-      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;border-radius:14px;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.2;transition:transform .2s var(--ease),background-color .2s ease,border-color .2s ease;} .ds-btn:hover{transform:translateY(-2px);} .ds-btn:active{transform:scale(.97);} .ds-btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-btn svg{transition:transform .2s var(--ease);} .ds-btn:hover svg{transform:translateX(4px);} .ds-btn-lime{background:var(--lime);color:var(--lime-ink);box-shadow:0 14px 28px -14px rgba(0,0,0,.9),inset 0 -3px 0 rgba(0,0,0,.14);} .ds-btn-lime:hover{background:#CEF865;} .ds-btn-lime{width:100%;margin-top:18px;} .ds-plan{max-width:360px;padding:30px 26px;border-radius:var(--r-lg);border:2px solid var(--lime);background:linear-gradient(180deg,var(--lime-wash),var(--panel) 45%),var(--panel);box-shadow:0 18px 40px -18px rgba(0,0,0,.85);color:var(--ink);font-family:var(--body);} .ds-top{display:flex;justify-content:space-between;align-items:center;} .ds-plan h3{margin:0;font:800 26px/1.05 var(--display);text-transform:uppercase;letter-spacing:-.015em;} .ds-tagl{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;padding:5px 9px;background:var(--lime);color:var(--lime-ink);} .ds-sub{color:var(--soft);font-size:14.5px;margin:6px 0 0;} .ds-price{margin-top:26px;display:flex;align-items:flex-end;gap:12px;} .ds-amt{font:900 56px/.9 var(--display);letter-spacing:-.04em;} .ds-price s{color:var(--mute);font-size:18px;}"
+      "description": "Premium plan: 2px Trust Green border, Lime Wash gradient, Lift shadow, 56px Ink price.",
+      "html": "<div class=\"ds-plan\"><div class=\"ds-plan-top\"><h3>Premium</h3><span class=\"ds-tag\">Best value</span></div><ul><li><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>Full course, 6 modules</li><li><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg><span><b>4 bonuses</b> included</span></li></ul><div class=\"ds-price\"><span class=\"ds-amt\">R299</span><s>R600</s></div><a href=\"#\" class=\"ds-btn\">Get Premium</a></div>",
+      "css": ":host{ --bg:#FFFFFF; --panel:#F4F7EF; --panel-2:#F8FAF5; --panel-3:#EAF0E1; --card:#FFFFFF; --ink:#11160D; --soft:#4A5344; --mute:#646C5E; --lime:#C2F24B; --lime-ink:#0E1209; --lime-wash:rgba(194,242,75,.22); --lime-line:rgba(58,122,12,.35); --green:#3A7A0C; --rec:#E0313E; --screen:#0B0D09; --line:rgba(17,22,13,.09); --line-2:rgba(17,22,13,.16); --shadow:0 22px 46px -26px rgba(25,40,10,.32); --shadow-sm:0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10); --ease:cubic-bezier(.16,1,.3,1); } .ds-plan{ max-width:420px; padding:30px 26px; border-radius:24px; border:2px solid var(--green); background:linear-gradient(180deg, var(--lime-wash), var(--card) 45%); box-shadow:var(--shadow); font-family:'Manrope', system-ui, sans-serif; color:var(--ink); } .ds-plan-top{ display:flex; justify-content:space-between; align-items:center; gap:12px; } .ds-plan h3{ margin:0; font-family:'Poppins', system-ui, sans-serif; font-size:26px; font-weight:800; text-transform:uppercase; letter-spacing:-.015em; } .ds-tag{ background:var(--lime); color:var(--lime-ink); font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border-radius:8px; padding:5px 9px; } .ds-plan ul{ list-style:none; padding:0; margin:22px 0 0; display:flex; flex-direction:column; gap:11px; font-size:15.5px; } .ds-plan li{ display:flex; gap:11px; } .ds-plan li svg{ color:var(--green); flex-shrink:0; } .ds-plan li b{ color:var(--green); } .ds-price{ margin-top:26px; display:flex; align-items:flex-end; gap:12px; } .ds-amt{ font-family:'Poppins', system-ui, sans-serif; font-weight:900; font-size:56px; line-height:.9; letter-spacing:-.04em; font-variant-numeric:tabular-nums; } .ds-price s{ color:var(--mute); font-size:18px; } .ds-btn{ display:flex; align-items:center; justify-content:center; margin-top:18px; min-height:62px; border-radius:16px; background:var(--lime); color:var(--lime-ink); font-family:'Poppins', system-ui, sans-serif; font-weight:700; font-size:18px; text-decoration:none; box-shadow:0 12px 24px -14px rgba(58,122,12,.6), inset 0 -3px 0 rgba(0,0,0,.10); transition:transform .2s var(--ease), background-color .2s ease; } .ds-btn:hover{ background:#CEF865; transform:translateY(-2px); } .ds-btn:focus-visible{ outline:3px solid var(--green); outline-offset:3px; }"
     },
     {
-      "name": "Upgrade Pop-up",
+      "name": "Export Summary",
       "kind": "custom",
-      "refersTo": "modal-sheet",
-      "description": "Bottom sheet on mobile, centred dialog on desktop; lime price and button, ghost refusal.",
-      "html": "<div class=\"ds-modal\"><button class=\"ds-x\" aria-label=\"Close\">&times;</button><h2>Get <span>Premium</span> for less</h2><p>All 4 bonuses for a one-time price.</p><div class=\"ds-mp\"><b>R249</b><s>R299</s></div><button class=\"ds-btn ds-btn-lime\">Yes, upgrade me <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/></svg></button><button class=\"ds-btn ds-btn-ghost\">No thanks, keep Basic</button></div>",
-      "css": ":host{--bg:#0A0B08;--panel:#121410;--panel-2:#171A13;--panel-3:#1F2319;--ink:#F1F4EA;--soft:#A9AF9D;--mute:#8C9283;--lime:#C2F24B;--lime-ink:#0A0B08;--lime-wash:rgba(194,242,75,.09);--lime-line:rgba(194,242,75,.45);--rec:#F0414E;--line:rgba(220,240,180,.09);--line-2:rgba(220,240,180,.16);--display:'Poppins',ui-rounded,system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--r:16px;--r-lg:24px;--ease:cubic-bezier(.16,1,.3,1);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;border-radius:14px;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.2;transition:transform .2s var(--ease),background-color .2s ease,border-color .2s ease;} .ds-btn:hover{transform:translateY(-2px);} .ds-btn:active{transform:scale(.97);} .ds-btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-btn svg{transition:transform .2s var(--ease);} .ds-btn:hover svg{transform:translateX(4px);} .ds-btn-lime{background:var(--lime);color:var(--lime-ink);box-shadow:0 14px 28px -14px rgba(0,0,0,.9),inset 0 -3px 0 rgba(0,0,0,.14);} .ds-btn-lime:hover{background:#CEF865;} .ds-btn{width:100%;margin-top:12px;} .ds-btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line-2);font-family:var(--body);font-weight:600;font-size:14.5px;} .ds-btn-ghost:hover{border-color:var(--lime);} .ds-modal{position:relative;max-width:420px;padding:34px;border-radius:26px;border:1px solid var(--line-2);background:var(--panel);box-shadow:0 -20px 60px -20px rgba(0,0,0,.9);color:var(--ink);font-family:var(--body);} .ds-x{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:transparent;color:var(--soft);font-size:22px;cursor:pointer;} .ds-x:hover{background:var(--panel-3);color:var(--ink);} .ds-x:focus-visible{outline:3px solid var(--lime);outline-offset:3px;} .ds-modal h2{margin:0;padding-right:30px;font:800 28px/1.1 var(--display);text-transform:uppercase;letter-spacing:-.02em;} .ds-modal h2 span{color:var(--lime);} .ds-modal p{color:var(--soft);margin:12px 0 0;font-size:15.5px;} .ds-mp{display:flex;align-items:baseline;gap:12px;margin-top:20px;} .ds-mp b{font:900 46px/1 var(--display);color:var(--lime);letter-spacing:-.03em;} .ds-mp s{color:var(--mute);font-size:18px;}"
+      "refersTo": "export-summary",
+      "description": "Value stack as a render dialog: Panel 3 header, dashed rows with tabular amounts, Trust Green today total.",
+      "html": "<div class=\"ds-export\"><div class=\"ds-export-head\"><span>Export summary · Premium</span><span>Ready</span></div><ul><li><span><b>Full course</b>, 6 modules</span><em>R600</em></li><li><span><b>Bonus 1</b>, Environment Prompts</span><em>R149</em></li></ul><div class=\"ds-export-foot\"><div class=\"ds-row\"><span>Total value</span><s>R826</s></div><div class=\"ds-row\"><span>Today</span><span class=\"ds-today\">R299</span></div></div></div>",
+      "css": ":host{ --bg:#FFFFFF; --panel:#F4F7EF; --panel-2:#F8FAF5; --panel-3:#EAF0E1; --card:#FFFFFF; --ink:#11160D; --soft:#4A5344; --mute:#646C5E; --lime:#C2F24B; --lime-ink:#0E1209; --lime-wash:rgba(194,242,75,.22); --lime-line:rgba(58,122,12,.35); --green:#3A7A0C; --rec:#E0313E; --screen:#0B0D09; --line:rgba(17,22,13,.09); --line-2:rgba(17,22,13,.16); --shadow:0 22px 46px -26px rgba(25,40,10,.32); --shadow-sm:0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10); --ease:cubic-bezier(.16,1,.3,1); } .ds-export{ max-width:560px; border-radius:24px; border:1px solid var(--line-2); background:var(--card); box-shadow:var(--shadow-sm); overflow:hidden; font-family:'Manrope', system-ui, sans-serif; color:var(--ink); } .ds-export-head{ display:flex; justify-content:space-between; gap:12px; padding:14px 22px; border-bottom:1px solid var(--line); background:var(--panel-3); font-size:12px; font-weight:800; letter-spacing:.1em; color:var(--soft); text-transform:uppercase; } .ds-export ul{ list-style:none; margin:0; padding:10px 22px; } .ds-export li{ display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px dashed var(--line-2); } .ds-export li:last-child{ border-bottom:0; } .ds-export li span{ color:var(--soft); } .ds-export li b{ color:var(--ink); } .ds-export li em{ font-style:normal; font-weight:700; font-variant-numeric:tabular-nums; } .ds-export-foot{ padding:20px 22px 24px; border-top:1px solid var(--line-2); display:grid; gap:6px; } .ds-row{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; } .ds-row s{ color:var(--mute); } .ds-today{ font-family:'Poppins', system-ui, sans-serif; font-weight:900; font-size:44px; line-height:1; color:var(--green); font-variant-numeric:tabular-nums; }"
+    },
+    {
+      "name": "Demo Screen",
+      "kind": "custom",
+      "refersTo": "demo-screen",
+      "description": "Dark Screen frame that keeps effect demos reading as footage; light labels, lime wipe line.",
+      "html": "<div class=\"ds-screen\"><div class=\"ds-lbl\"><span>Reference</span><span>Still</span></div><span class=\"ds-ln\"></span><span class=\"ds-floor\"></span></div>",
+      "css": ":host{ --bg:#FFFFFF; --panel:#F4F7EF; --panel-2:#F8FAF5; --panel-3:#EAF0E1; --card:#FFFFFF; --ink:#11160D; --soft:#4A5344; --mute:#646C5E; --lime:#C2F24B; --lime-ink:#0E1209; --lime-wash:rgba(194,242,75,.22); --lime-line:rgba(58,122,12,.35); --green:#3A7A0C; --rec:#E0313E; --screen:#0B0D09; --line:rgba(17,22,13,.09); --line-2:rgba(17,22,13,.16); --shadow:0 22px 46px -26px rgba(25,40,10,.32); --shadow-sm:0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10); --ease:cubic-bezier(.16,1,.3,1); } .ds-screen{ position:relative; width:240px; aspect-ratio:3/4; border-radius:16px; border:1px solid var(--line-2); background:var(--screen); overflow:hidden; font-family:'Manrope', system-ui, sans-serif; } .ds-lbl{ position:absolute; top:10px; left:10px; right:10px; display:flex; justify-content:space-between; font-size:11.5px; font-weight:800; letter-spacing:.08em; color:#C3CAB6; text-transform:uppercase; } .ds-ln{ position:absolute; top:0; bottom:0; left:50%; width:3px; margin-left:-1.5px; background:var(--lime); animation:ds-wipe 5s var(--ease) infinite alternate; } .ds-floor{ position:absolute; left:12%; right:12%; bottom:9%; height:1px; background:rgba(255,255,255,.16); } @keyframes ds-wipe{ 0%,15%{ left:100%; } 85%,100%{ left:0%; } } @media (prefers-reduced-motion:reduce){ .ds-ln{ animation:none; } }"
     }
   ],
   "narrative": {
-    "northStar": "The Editing Suite",
-    "overview": "The page is an editor's workspace seen at night: a near-black monitor ground, a few stepped panel greys for chrome, and one lime signal that behaves like the playhead. Wherever lime appears, something can be acted on or something is \"live\" (the scrub line, the buy button, the timecode digits, the filled stretch of the module track). Proof is presented as the effect running in an editor frame, not as a picture beside a feature list.\n\nThe world borrows real editor chrome and uses it as its component vocabulary: a preview monitor with a REC dot and running timecode, safe-area corner brackets on vertical frames, a draggable playhead with a flag and round knob, track lanes with square clip markers, a clip-metadata strip, an \"export summary\" for the value stack. Type is heavy, uppercase Poppins shouting the headline the way a thumbnail would, set against calm Manrope body copy in a soft sage grey. Density is generous between sections (80/120px) and tight inside editor chrome.\n\nFlat by default: depth comes from the three stepped panels and hairline sage-tinted borders, with a single deep, downward shadow reserved for the objects you would pick up (monitor, phone, recommended plan, toast).",
+    "northStar": "The Daylight Editing Suite",
+    "overview": "The page is an editing suite with the lights on. A white ground, soft sage panels and dark green-black ink make it read as calm and safe to buy from; the editor vocabulary survives as structure (a sticky countdown with timecode digits, a clip-metadata strip, a module track with clip markers, an \"export summary\" for the value stack) rather than as a dark room. Lime stays the action colour, but on white it can no longer carry text, so a deep Trust Green takes over every small accent, icon, link and focus ring, while lime is spent on surfaces: buttons, chips, and a highlighter band laid behind the key words of a headline.\n\nDarkness is kept only where it means \"this is a screen\": the motion-transfer demo frames and the bonus covers sit on near-black Screen panels, so the effects still look like footage. Proof leads with the user's banner image in the hero and the effect demos below it. Type is heavy uppercase Poppins at thumbnail volume over quiet Manrope body copy in Soft. Sections breathe (80/120px) and alternate white and Panel.\n\nDepth is light and tidy: white cards with a tight two-layer shadow and a hairline border, a deeper soft green-tinted lift reserved for the objects you would pick up.",
     "keyCharacteristics": [
-      "Near-black ground (#0A0B08) with three stepped panel tones; no light mode.",
-      "Lime is the playhead and the action colour; red is the recording light only.",
+      "White ground (#FFFFFF) with Panel sage for alternate sections, bars and strips; white cards on both.",
+      "Lime is a surface colour (buttons, chips, highlighter band); Trust Green is the text-and-icon accent.",
+      "Near-black Screen panels only for demo frames and bonus covers.",
       "Heavy uppercase Poppins display, Manrope body, tabular timecodes.",
-      "Editor chrome as components: monitor, playhead, safe-area brackets, track lanes, timecode, export summary.",
-      "Hairline borders over shadows; one deep shadow for lifted objects."
+      "Hairline borders plus a tight card shadow; one soft lift for picked-up objects."
     ],
     "rules": [
       {
-        "name": "The Playhead Rule",
-        "body": "Lime means \"act here\" or \"this is live\". It is never a decorative fill for a whole section or a paragraph colour.",
+        "name": "The Surface-Not-Text Rule",
+        "body": "Lime is never a text or icon colour on white. If a lime-family accent must be read, it is Trust Green; lime appears only as a fill under Ink or Lime Ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Highlighter Rule",
+        "body": "Headline accent words stay Ink and get a lime band from 58% to 92% of the line height (`linear-gradient(transparent 58%, lime 58%, lime 92%, transparent 92%)`, cloned across line breaks). One accent phrase per headline.",
         "section": "colors"
       },
       {
@@ -473,30 +507,36 @@
         "section": "colors"
       },
       {
+        "name": "The Screen Rule",
+        "body": "Dark appears only inside things that represent footage (demo frames, bonus covers). Sections, cards, bars and pop-ups are light.",
+        "section": "colors"
+      },
+      {
         "name": "The Tabular Clock Rule",
         "body": "Anything that counts, ticks or totals uses tabular numerals so the digits do not jitter.",
         "section": "typography"
       },
       {
-        "name": "The Hairline First Rule",
-        "body": "Separate with a 1px Line before reaching for a shadow; a shadow means \"you can pick this up\".",
+        "name": "The Tight Shadow Rule",
+        "body": "Cards get the Card shadow and a hairline, never a large blur; a long soft shadow means \"you can pick this up\".",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** keep the ground Monitor Black (#0A0B08) and step depth through Panel, Panel 2, Panel 3.",
-      "**Do** reserve Playhead Lime for actions, live indicators and one accent phrase per headline.",
-      "**Do** present proof as an effect running inside editor chrome (monitor, frames, playhead, safe-area brackets).",
-      "**Do** set every counting number in tabular figures.",
-      "**Do** give every animated demo a reduced-motion fallback and a keyboard path.",
-      "**Do** keep lime buttons at 54px minimum height with Monitor Black text."
+      "Do keep the ground White (#FFFFFF) and alternate sections on Panel; keep cards white with the Card shadow and a hairline.",
+      "Do use Trust Green for any accent that must be read (icons, links, prices, focus) and lime only as a fill under Ink or Lime Ink.",
+      "Do mark one headline phrase per heading with the lime highlighter band, text staying Ink.",
+      "Do keep demos and bonus covers on Screen so the effects read as footage.",
+      "Do set every counting number in tabular figures.",
+      "Do give every animated demo a reduced-motion fallback and a keyboard path.",
+      "Do keep lime buttons at 54px minimum height with Lime Ink text."
     ],
     "donts": [
-      "**Don't** use REC Red for buttons, prices or urgency banners; it is the recording light.",
-      "**Don't** add a light theme or white cards; the world is a dark editor.",
-      "**Don't** put uppercase label text above headlines as eyebrows; labels belong to objects (frames, tags, chrome).",
-      "**Don't** reach for shadows to separate sections; use Line hairlines and panel steps.",
-      "**Don't** show a static hero image with feature cards where an interactive effect demo can carry the proof."
+      "Don't set lime text or lime icons on white; it fails contrast.",
+      "Don't use REC Red for buttons, prices or urgency banners; it is the recording light.",
+      "Don't put dark backgrounds on sections, cards, bars or pop-ups; dark is for screens only.",
+      "Don't put uppercase label text above headlines as eyebrows; labels belong to objects (frames, tags, chrome).",
+      "Don't use large, dark or black shadows on cards; use the Card shadow and Line hairlines."
     ]
   }
 }

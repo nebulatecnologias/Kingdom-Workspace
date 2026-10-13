@@ -34,8 +34,8 @@ Two named effects taught from the raw clip on your phone to an export ready for 
 
 ## Brand Commitments
 
-- Visual identity from the user's PDF (AI_Viral_Video_Masterclass.pdf): near-black ground, lime green accent, heavy uppercase Poppins display. The user confirmed for v2: keep black + lime.
-- Page structure follows the user's Little Believers sales page (promo countdown, hero, stats, testimonials, inside, pain, fit, bonuses, pricing, guarantee, FAQ, final CTA, legal pages, sticky mobile CTA, upgrade pop-up on Basic).
+- Visual identity: the user's PDF (AI_Viral_Video_Masterclass.pdf) set black + lime and heavy uppercase Poppins. On 13 Oct 2026 the user replaced the dark ground: the page must be light, white background, and convey security. Lime stays as the brand action colour; DESIGN.md records the current system.
+- Page structure follows the user's Little Believers sales page (promo countdown, hero, stats, testimonials, inside, pain, fit, bonuses, pricing, guarantee, FAQ, final CTA, legal pages, upgrade pop-up on Basic). The user removed the floating mobile buy bar and the price line under the hero button, and replaced the hero preview with their banner image.
 - No em-dashes in visible copy (Kingdom house style).
 
 ## Evidence on Hand

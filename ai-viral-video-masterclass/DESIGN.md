@@ -1,23 +1,25 @@
 ---
 name: AI Viral Video Masterclass
-description: A sales page built as an editing suite; near-black monitor ground, lime playhead for every action.
+description: A sales page built as a bright, trustworthy editing suite; white ground, dark ink, lime only for actions and highlights, dark screens for the demos.
 colors:
-  monitor-black: "#0A0B08"
-  panel: "#121410"
-  panel-2: "#171A13"
-  panel-3: "#1F2319"
-  ink: "#F1F4EA"
-  soft: "#A9AF9D"
-  mute: "#8C9283"
-  playhead-lime: "#C2F24B"
-  playhead-lime-hover: "#CEF865"
-  playhead-lime-deep: "#A6D82C"
-  lime-wash: "rgba(194,242,75,.09)"
-  lime-line: "rgba(194,242,75,.45)"
-  rec-red: "#F0414E"
-  rec-red-deep: "#7E121B"
-  line: "rgba(220,240,180,.09)"
-  line-2: "rgba(220,240,180,.16)"
+  white: "#FFFFFF"
+  card: "#FFFFFF"
+  panel: "#F4F7EF"
+  panel-2: "#F8FAF5"
+  panel-3: "#EAF0E1"
+  ink: "#11160D"
+  soft: "#4A5344"
+  mute: "#646C5E"
+  lime: "#C2F24B"
+  lime-hover: "#CEF865"
+  lime-ink: "#0E1209"
+  lime-wash: "rgba(194,242,75,.22)"
+  lime-line: "rgba(58,122,12,.35)"
+  trust-green: "#3A7A0C"
+  rec-red: "#E0313E"
+  screen: "#0B0D09"
+  line: "rgba(17,22,13,.09)"
+  line-2: "rgba(17,22,13,.16)"
 typography:
   display:
     fontFamily: "Poppins, ui-rounded, system-ui, -apple-system, 'Segoe UI', sans-serif"
@@ -43,7 +45,6 @@ typography:
     fontWeight: 900
     lineHeight: 0.9
     letterSpacing: "-0.04em"
-    fontFeature: "\"tnum\""
   timecode:
     fontFamily: "Poppins, ui-rounded, system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: "13px"
@@ -89,16 +90,16 @@ spacing:
   stack: "18px"
 components:
   button-primary:
-    backgroundColor: "{colors.playhead-lime}"
-    textColor: "{colors.monitor-black}"
+    backgroundColor: "{colors.lime}"
+    textColor: "{colors.lime-ink}"
     rounded: "{rounded.button}"
     padding: "15px 26px"
     height: "54px"
   button-primary-hover:
-    backgroundColor: "{colors.playhead-lime-hover}"
+    backgroundColor: "{colors.lime-hover}"
   button-primary-xl:
-    backgroundColor: "{colors.playhead-lime}"
-    textColor: "{colors.monitor-black}"
+    backgroundColor: "{colors.lime}"
+    textColor: "{colors.lime-ink}"
     rounded: "{rounded.r}"
     padding: "15px 34px"
     height: "62px"
@@ -109,52 +110,48 @@ components:
     padding: "15px 26px"
     height: "54px"
   tag-lime:
-    backgroundColor: "{colors.playhead-lime}"
-    textColor: "{colors.monitor-black}"
+    backgroundColor: "{colors.lime}"
+    textColor: "{colors.lime-ink}"
     typography: "{typography.label}"
     rounded: "{rounded.tag}"
     padding: "5px 9px"
   tag-line:
     backgroundColor: "transparent"
-    textColor: "{colors.playhead-lime}"
+    textColor: "{colors.trust-green}"
     typography: "{typography.label}"
     rounded: "{rounded.tag}"
     padding: "5px 9px"
   timecode-digits:
-    backgroundColor: "{colors.playhead-lime}"
-    textColor: "{colors.monitor-black}"
+    backgroundColor: "{colors.lime}"
+    textColor: "{colors.lime-ink}"
     typography: "{typography.timecode}"
     rounded: "{rounded.chip}"
     padding: "2px 8px"
-  segmented-control:
-    backgroundColor: "{colors.panel-2}"
-    textColor: "{colors.soft}"
-    rounded: "{rounded.inset}"
-    padding: "3px"
-  segmented-control-active:
-    backgroundColor: "{colors.panel-3}"
-    textColor: "{colors.ink}"
-  preview-monitor:
-    backgroundColor: "{colors.panel-3}"
-    rounded: "{rounded.r-lg}"
-    width: "470px"
-  panel-card:
+  countdown-bar:
     backgroundColor: "{colors.panel}"
+    textColor: "{colors.ink}"
+    padding: "9px 20px"
+  card:
+    backgroundColor: "{colors.card}"
     textColor: "{colors.ink}"
     rounded: "{rounded.r-lg}"
     padding: "{spacing.card-pad}"
+  demo-screen:
+    backgroundColor: "{colors.screen}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.r}"
   plan-recommended:
-    backgroundColor: "{colors.panel}"
+    backgroundColor: "{colors.card}"
     textColor: "{colors.ink}"
     rounded: "{rounded.r-lg}"
     padding: "30px 26px"
   export-summary:
-    backgroundColor: "{colors.panel-2}"
+    backgroundColor: "{colors.card}"
     textColor: "{colors.ink}"
     rounded: "{rounded.r-lg}"
     width: "720px"
   modal-sheet:
-    backgroundColor: "{colors.panel}"
+    backgroundColor: "{colors.card}"
     textColor: "{colors.ink}"
     rounded: "{rounded.sheet}"
     padding: "34px"
@@ -165,60 +162,70 @@ components:
 
 ## Overview
 
-**Creative North Star: "The Editing Suite"**
+**Creative North Star: "The Daylight Editing Suite"**
 
-The page is an editor's workspace seen at night: a near-black monitor ground, a few stepped panel greys for chrome, and one lime signal that behaves like the playhead. Wherever lime appears, something can be acted on or something is "live" (the scrub line, the buy button, the timecode digits, the filled stretch of the module track). Proof is presented as the effect running in an editor frame, not as a picture beside a feature list.
+The page is an editing suite with the lights on. A white ground, soft sage panels and dark green-black ink make it read as calm and safe to buy from; the editor vocabulary survives as structure (a sticky countdown with timecode digits, a clip-metadata strip, a module track with clip markers, an "export summary" for the value stack) rather than as a dark room. Lime stays the action colour, but on white it can no longer carry text, so a deep Trust Green takes over every small accent, icon, link and focus ring, while lime is spent on surfaces: buttons, chips, and a highlighter band laid behind the key words of a headline.
 
-The world borrows real editor chrome and uses it as its component vocabulary: a preview monitor with a REC dot and running timecode, safe-area corner brackets on vertical frames, a draggable playhead with a flag and round knob, track lanes with square clip markers, a clip-metadata strip, an "export summary" for the value stack. Type is heavy, uppercase Poppins shouting the headline the way a thumbnail would, set against calm Manrope body copy in a soft sage grey. Density is generous between sections (80/120px) and tight inside editor chrome.
+Darkness is kept only where it means "this is a screen": the motion-transfer demo frames and the bonus covers sit on near-black Screen panels, so the effects still look like footage. Proof leads with the user's banner image in the hero and the effect demos below it. Type is heavy uppercase Poppins at thumbnail volume over quiet Manrope body copy in Soft. Sections breathe (80/120px) and alternate white and Panel.
 
-Flat by default: depth comes from the three stepped panels and hairline sage-tinted borders, with a single deep, downward shadow reserved for the objects you would pick up (monitor, phone, recommended plan, toast).
+Depth is light and tidy: white cards with a tight two-layer shadow and a hairline border, a deeper soft green-tinted lift reserved for the objects you would pick up.
 
 **Key Characteristics:**
-- Near-black ground (#0A0B08) with three stepped panel tones; no light mode.
-- Lime is the playhead and the action colour; red is the recording light only.
+- White ground (#FFFFFF) with Panel sage for alternate sections, bars and strips; white cards on both.
+- Lime is a surface colour (buttons, chips, highlighter band); Trust Green is the text-and-icon accent.
+- Near-black Screen panels only for demo frames and bonus covers.
 - Heavy uppercase Poppins display, Manrope body, tabular timecodes.
-- Editor chrome as components: monitor, playhead, safe-area brackets, track lanes, timecode, export summary.
-- Hairline borders over shadows; one deep shadow for lifted objects.
+- Hairline borders plus a tight card shadow; one soft lift for picked-up objects.
 
 ## Colors
 
-A night-mode editor palette: warm-green-tinted blacks and sage greys carrying a single acid-lime signal and a rare recording red.
+A daylight sage palette: white and pale green-grey grounds, green-black ink, one acid-lime surface signal, one deep green for legible accents, and a rare recording red.
 
 ### Primary
-- **Playhead Lime** (playhead-lime): every primary action, the scrub line and knob, the module-track fill and clip markers, timecode digits in the countdown bar, the second line of the hero headline and `em` accent words in section heads, checkmark icons. Hover lifts to **Lime Hover** (playhead-lime-hover). Text on lime is always Monitor Black.
-- **Lime Wash** (lime-wash) and **Lime Line** (lime-line): the tinted fill and border of "with this" states: the recommended plan's top gradient, the "with the masterclass" comparison card, the example callout under each effect, an opened FAQ toggle, the "Free today" outline tag.
+- **Playhead Lime** (lime): primary buttons, solid tags ("Best value", "Bonus 1"), module clip chips, the countdown timecode digits, the brand mark tile, the swap-loop wipe line, the motion figure, and the highlighter band behind headline accent words. Hover lifts to **Lime Hover** (lime-hover). Text on lime is always **Lime Ink** (lime-ink).
+- **Lime Wash** (lime-wash) and **Lime Line** (lime-line): the tinted fill and green-tinted border of "with this" states: the recommended plan and "with the masterclass" card top gradients, the example callout under each effect, an opened FAQ toggle, the outline tags, a hovered bonus card.
+
+### Secondary
+- **Trust Green** (trust-green): every lime-family accent that must be read on white: check and feature icons, the accent word in card titles, links, "today" totals and pop-up prices, the module-track fill and marker borders, the guarantee seal, the 2px border of the recommended plan, ghost-button hover border, and the 3px focus ring.
 
 ### Tertiary
-- **REC Red** (rec-red): the blinking recording dot in editor chrome and the pain-point icons. Nothing else. Its deep shade (rec-red-deep) is reserved for dark red fills.
+- **REC Red** (rec-red): the blinking recording dot and the pain-point icons. Nothing else.
 
 ### Neutral
-- **Monitor Black** (monitor-black): page ground and the ink on lime surfaces.
-- **Panel / Panel 2 / Panel 3** (panel, panel-2, panel-3): stepped chrome. Panel for alternate sections, cards, plans and modals; Panel 2 for nested containers (export summary, segmented control, sticky bar, fit cards); Panel 3 for the topmost chrome (export header, active segment, image placeholder).
-- **Ink** (ink): headlines and emphasised body.
-- **Soft** (soft): default body and lede text, captions, chrome labels.
-- **Mute** (mute): struck-through anchor prices, disabled plan features, metadata `dt` labels, legal fine print.
-- **Line / Line 2** (line, line-2): sage-tinted hairlines. Line divides sections and list rows; Line 2 outlines containers, frames and ghost buttons.
+- **White** (white) and **Card** (card): page ground and every card, plan, sheet and summary.
+- **Panel** (panel): alternate sections, the sticky countdown bar, the spec strip, phone frames.
+- **Panel 2** (panel-2): phone screens and the final-section timecode chip.
+- **Panel 3** (panel-3): the export summary header, neutral timecode chips, image placeholders, close-button hover, scrollbar thumb.
+- **Screen** (screen): demo frames and bonus covers; labels on it are light (#FFFFFF, #C3CAB6, #F1F4EA).
+- **Ink** (ink): headlines, emphasised body, and text on highlighter bands.
+- **Soft** (soft): default body and lede text, captions.
+- **Mute** (mute): struck anchor prices, excluded plan features, spec `dt` labels, fine print.
+- **Line / Line 2** (line, line-2): ink-tinted hairlines. Line divides sections and list rows and borders cards; Line 2 outlines frames, the hero image, plans, ghost buttons and the export summary.
 
 ### Named Rules
-**The Playhead Rule.** Lime means "act here" or "this is live". It is never a decorative fill for a whole section or a paragraph colour.
+**The Surface-Not-Text Rule.** Lime is never a text or icon colour on white. If a lime-family accent must be read, it is Trust Green; lime appears only as a fill under Ink or Lime Ink.
+
+**The Highlighter Rule.** Headline accent words stay Ink and get a lime band from 58% to 92% of the line height (`linear-gradient(transparent 58%, lime 58%, lime 92%, transparent 92%)`, cloned across line breaks). One accent phrase per headline.
 
 **The Red Light Rule.** Red appears only as the recording dot and pain markers. It never colours a button, price or urgency banner.
+
+**The Screen Rule.** Dark appears only inside things that represent footage (demo frames, bonus covers). Sections, cards, bars and pop-ups are light.
 
 ## Typography
 
 **Display Font:** Poppins 600-900 (fallback ui-rounded, system-ui)
 **Body Font:** Manrope 400-800 (fallback system-ui, Roboto)
 
-**Character:** A thumbnail-loud display face, uppercase and tightly tracked, paired with a quiet, slightly technical grotesque. Numbers that tick (timecodes, prices, value stack) are always tabular.
+**Character:** A thumbnail-loud display face, uppercase and tightly tracked, paired with a quiet, slightly technical grotesque. Numbers that tick are tabular.
 
 ### Hierarchy
-- **Display** (900, clamp(44px, 7.4vw, 86px), 0.9, -0.04em, uppercase): hero headline and the final call (which scales to 96px). Second line in lime; an ampersand set at half size in Soft.
-- **Headline** (900, clamp(30px, 5vw, 56px), 1.05, -0.03em, uppercase): section heads; one or two words picked out in lime.
-- **Title** (700-800, 19-28px, uppercase for effect, plan, audience and modal titles; sentence case for module and bonus titles): card and row headings.
-- **Price** (900, 56px on plans, 46px in pop-ups, 44px "today" total, -0.04em): the number is the headline of its card.
-- **Timecode** (Poppins 700, 13px, 0.06em, tabular): countdown, monitor counter, clip metadata.
+- **Display** (900, clamp(44px, 7.4vw, 86px), 0.9, -0.04em, uppercase): hero headline and the final call (scales to 96px). Second line carries the highlighter band; the ampersand is set at half size in Soft.
+- **Headline** (900, clamp(30px, 5vw, 56px), 1.05, -0.03em, uppercase): section heads; one phrase highlighted. The guarantee head runs 28-40px.
+- **Title** (700-800, 19-28px, uppercase for effect, plan, audience, comparison and pop-up titles; sentence case for module and bonus titles): card and row headings. Accent word in Trust Green.
+- **Price** (900, 56px on plans, 46px in pop-ups, 34-44px "today" total, -0.03 to -0.04em): the number is the headline of its card; pop-up and total prices in Trust Green, plan prices in Ink.
+- **Timecode** (Poppins 700, 13px, 0.06em, tabular): countdown digits.
 - **Body** (Manrope 400, 16px, 1.6): default copy in Soft; ledes at 18-19px, max 46-58ch; FAQ answers max 65ch.
-- **Label** (Manrope 800, 11.5-12px, 0.08-0.12em, uppercase): tags, clip markers, frame labels, spec `dt`, export header. Labels annotate an object; they never sit above a headline as an eyebrow.
+- **Label** (Manrope 800, 11.5-12px, 0.08-0.12em, uppercase): tags, frame labels, spec `dt`, export header, cover file types. Labels annotate an object; they never sit above a headline as an eyebrow.
 
 ### Named Rules
 **The Tabular Clock Rule.** Anything that counts, ticks or totals uses tabular numerals so the digits do not jitter.
@@ -227,84 +234,84 @@ A night-mode editor palette: warm-green-tinted blacks and sage greys carrying a 
 
 A centred 1200px container with 20px gutters (32px from 768px). Sections stack with 80px vertical padding (120px from 900px), separated by a 1px Line border; alternate sections step to Panel. Section heads carry a 48px gap to content, max 820px wide, left-aligned in narrative sections and centred for offer sections.
 
-The hero is a two-area grid: title and body on the left (1.12fr), the preview monitor on the right (0.88fr, max 470px), 64px column gap from 960px. On mobile the order is title, monitor, body so the scrub sits inside the first screen and a half. Content grids collapse to one column below 820-980px; bonuses go 1, 2, then 4 across (640px, 1080px). The proof row becomes a horizontal snap scroller on mobile. A fixed sticky CTA bar appears on mobile only (below 768px); the countdown bar is sticky on top at all widths.
+The hero is a two-area grid from 960px: title and body on the left (0.92fr), the banner image on the right (1.08fr), 56px column gap. On mobile the order is title, image, body, and the buy row and trust line centre with a full-width (max 420px) button. A five-cell spec strip on Panel follows (two columns on mobile, last cell spanning). Content grids collapse to one column below 820-980px; bonuses go 1, 2, then 4 across (640px, 1080px). The proof row is a horizontal snap scroller on mobile. The countdown bar is sticky at the top at all widths; there is no floating mobile buy bar.
 
-Breakpoints used: 600, 640, 768, 820, 860, 900, 960, 980, 1080px.
+Breakpoints used: 520, 600, 640, 768, 820, 860, 900, 960, 980, 1080px.
 
 ## Elevation & Depth
 
-Tonal layering first: Monitor Black, then Panel, Panel 2, Panel 3, each bounded by sage hairlines. Shadows are deep, soft and downward, used only on objects that read as physically lifted.
+A light hybrid: tonal steps (White, Panel, Panel 3) and hairlines carry structure, and every card carries a tight, barely-there two-layer shadow so white cards still separate from white ground. A deeper, soft, green-tinted lift is reserved for objects that read as physically raised.
 
 ### Shadow Vocabulary
-- **Lift** (`box-shadow: 0 18px 40px -18px rgba(0,0,0,.85)`): the preview monitor, phone frames, the recommended plan, the toast.
-- **Button press** (`box-shadow: 0 14px 28px -14px rgba(0,0,0,.9), inset 0 -3px 0 rgba(0,0,0,.14)`): lime buttons only; the inset bottom edge gives a pressable key.
-- **Knob** (`box-shadow: 0 10px 24px -8px rgba(0,0,0,.8)`): the playhead knob.
-- **Sheet** (`box-shadow: 0 -20px 60px -20px rgba(0,0,0,.9)`): pop-up sheets and the sticky mobile bar, casting upward.
+- **Card** (`box-shadow: 0 1px 2px rgba(17,22,13,.06), 0 4px 10px -4px rgba(17,22,13,.10)`): effect cards, comparison and fit cards, bonus cards, plans, export summary, guarantee panel.
+- **Lift** (`box-shadow: 0 22px 46px -26px rgba(25,40,10,.32)`): the hero banner image, phone frames, the recommended plan, the toast.
+- **Button press** (`box-shadow: 0 12px 24px -14px rgba(58,122,12,.6), inset 0 -3px 0 rgba(0,0,0,.10)`): lime buttons only; a green glow under a pressable key.
 
 ### Named Rules
-**The Hairline First Rule.** Separate with a 1px Line before reaching for a shadow; a shadow means "you can pick this up".
+**The Tight Shadow Rule.** Cards get the Card shadow and a hairline, never a large blur; a long soft shadow means "you can pick this up".
 
 ## Shapes
 
-Soft, rounded rectangles throughout, with radii stepping by object size: 6px for timecode digits and clip markers, 8px for tags and the focus ring, 12px for insets and the segmented control, 14px for buttons (16px for XL), 16px for demo frames, 24px for cards, monitor, plans and export summary, 26px for pop-up sheets (top corners only on mobile), 34px for phone frames. Circles are reserved for the playhead knob, REC dot and pop-up close. Module markers on the track are 14px squares at 4px radius, like clip blocks. The playhead flag is a pentagon pointer. Vertical frames carry four 18px L-shaped safe-area brackets at 14px inset.
+Soft rounded rectangles throughout, radii stepping by object size: 6px for timecode digits and clip chips, 7px for the brand tile and frame labels, 8px for tags and the focus ring, 9px for FAQ toggles, 12px for callouts and the toast, 14px for buttons (16px for XL), 16px for demo frames and the swap loop, 24px for cards, plans, hero image and export summary, 26px for pop-up sheets (top corners only on mobile), 34px for phone frames. Circles are reserved for the REC dot and the pop-up close. Module markers on the track are 14px squares at 4px radius, like clip blocks.
 
 ## Components
 
 ### Buttons
 Chunky, pressable keys.
-- **Shape:** gently rounded (14px; 16px for XL), min height 54px (62px XL, 44px in the top bar).
-- **Primary:** Playhead Lime with Monitor Black Poppins 700 text, 15px 26px padding, optional trailing arrow icon and a small Manrope sub-line.
-- **Hover / Focus:** lifts 2px, background to Lime Hover, arrow nudges 4px right; press scales to 0.97. Focus is a 3px lime outline at 3px offset.
-- **Ghost:** transparent with 1.5px Line 2 border and Ink text; border turns lime on hover. Used for secondary choices (Basic plan, "no thanks" in pop-ups).
+- **Shape:** gently rounded (14px; 16px for XL), min height 54px (62px XL, 44px in the top row and legal pages).
+- **Primary:** Lime with Lime Ink Poppins 700 text, 15px 26px padding, optional trailing arrow and a small Manrope sub-line, Button press shadow.
+- **Hover / Focus:** lifts 2px, background to Lime Hover, arrow nudges 4px right; press scales to 0.97. Focus is a 3px Trust Green outline at 3px offset.
+- **Ghost:** transparent with a 1.5px Line 2 border and Ink text; border turns Trust Green on hover. Used for the top-row "Get the course", the Basic plan and pop-up refusals (set in Manrope 600 there).
 
 ### Tags
-- **Style:** 12px uppercase Manrope 800, 0.08em, 8px radius, 5px 9px padding. Solid lime (status: "Best value", "Bonus 1"), lime outline ("Free today", savings), or dim outline in Soft.
-- **REC dot:** 8px red circle blinking at 1.2s steps, paired with a chrome label.
+- **Style:** 12px uppercase Manrope 800, 0.08em, 8px radius, 5px 9px padding. Solid lime with Lime Ink (status: "Best value", "Bonus 1"), Lime Line outline with Trust Green text ("Free today", savings), or dim Line 2 outline in Soft.
+- **REC dot:** 8px red circle blinking at 1.2s steps (static under reduced motion), paired with a timecode or label.
 
-### Timecode
-Poppins 700 tabular digits in a 6px-radius chip: lime chip in the countdown bar, Panel 3 or Panel 2 chip elsewhere.
-
-### Preview Monitor (signature)
-A chrome row (REC dot + "PREVIEW" left, running timecode right) above a 24px-radius vertical frame on Panel 3 with Line 2 border and Lift shadow. Inside: after image under a before image clipped at the playhead position; a 3px lime playhead line with a pentagon flag at top and a 52px lime knob at centre (scales 1.1 while dragging); safe-area brackets; a bottom caption on a dark gradient with the result in lime. A full-frame invisible range input drives it, so it works by keyboard; focus outlines the whole frame. Below: a hint line and a Before / Split / After segmented control (Panel 2 track, Panel 3 active segment).
-
-### Motion Demo Frames
-Side-by-side 3:4 frames on near-black, 16px radius, uppercase frame labels top-left, a floor hairline, joined by a lime arrow. Source figure is a pale skeleton with lime joints; target is a solid lime figure. A play/pause button drives the loop. The object-swap loop is a 1:1 frame wiping between states with a lime line on a 5s alternate cycle. All motion respects reduced-motion.
-
-### Module Timeline
-A vertical track: 2px Line 2 rail with a lime fill that grows with scroll, square lime-bordered clip markers per module, and a solid lime "clip" chip holding each module number before the title.
+### Countdown Bar
+Sticky Panel strip with a Line 2 bottom border: bold uppercase Poppins notice, REC dot plus lime timecode chip, and a Trust Green link. Elsewhere the timecode chip is Panel 3 (pop-ups) or Panel 2 with a Line 2 border (final section).
 
 ### Cards / Containers
 - **Corner Style:** 24px.
-- **Background:** Panel (Panel 2 for fit cards and the export summary).
-- **Shadow Strategy:** none at rest; see Elevation.
-- **Border:** 1px Line; Line 2 for frames. Positive "with" cards add a lime-wash top gradient and Lime Line border.
-- **Internal Padding:** 26-34px. Bonus cards lift 6px and pick up a Lime Line border on hover.
+- **Background:** Card white on both White and Panel sections.
+- **Shadow Strategy:** Card shadow; see Elevation.
+- **Border:** 1px Line (Line 2 for plans, guarantee, export summary). Positive "with" cards add a Lime Wash top gradient and Lime Line border.
+- **Internal Padding:** 26-34px (20px in bonus bodies). Bonus cards lift 6px and pick up a Lime Line border on hover.
+
+### Demo Screens (signature)
+The effects stay footage. Motion transfer: two 3:4 Screen frames, 16px radius, Line 2 border, light uppercase labels top-left, a faint floor hairline, joined by a Trust Green arrow; the source is a pale skeleton with lime joints, the target a solid lime figure, driven by a play/pause button. Object swap: a 1:1 frame wiping between before and after with a 3px lime line on a 5s alternate cycle and a dark translucent corner label. Bonus covers: Screen panels with masked artwork, a dark bottom gradient, a lime tag and file type in the top row, and an uppercase Poppins 900 title in light text. All motion respects reduced motion.
+
+### Module Timeline
+A vertical track: 2px Line 2 rail with a Trust Green fill that grows with scroll, 14px square markers with a 2px Trust Green border on the section ground, and a solid lime clip chip holding each module number before the title.
 
 ### Export Summary
-The value stack as a render dialog: Panel 3 header with uppercase label text, rows split by dashed Line 2 with tabular amounts right-aligned, struck total in Mute and the "today" total in 44px lime Poppins 900, then a full-width XL lime button.
+The value stack as a render dialog: white card, Line 2 border, Card shadow; Panel 3 header with uppercase label text and a "Ready" REC indicator; rows split by dashed Line 2 with tabular amounts right-aligned; struck total in Mute and the "today" total in Trust Green Poppins 900; then a full-width XL lime button.
 
 ### Plans
-Two cards; the recommended plan has a 2px lime border, lime-wash gradient, Lift shadow, a solid "Best value" tag, and sits first on mobile. Price at 56px with struck anchor in Mute; excluded features in Mute.
+Two white cards; the recommended plan has a 2px Trust Green border, Lime Wash gradient, Lift shadow, a solid "Best value" tag, and sits first on mobile. Price at 56px Ink with struck anchor in Mute; excluded features in Mute; included-feature checks in Trust Green.
 
 ### Pop-ups
-Bottom sheets on mobile (26px top corners, rising 40px over 0.45s), centred 480px dialogs from 640px. Panel background, Line 2 border, Sheet shadow, 82% black scrim, 44px circular close. Uppercase title with lime keyword, lime 46px price, lime primary button then a Manrope ghost refusal, and a small countdown chip. Work without JS via `:target`.
+Bottom sheets on mobile (26px top corners, rising 40px over 0.45s), centred 480px dialogs from 640px. White card, Line 2 border, ink scrim at 55% (`rgba(17,22,13,.55)`), 44px circular close that fills Panel 3 on hover. Uppercase title with a Trust Green keyword, Trust Green 46px price, lime primary button then a Manrope ghost refusal, and a small countdown chip. They work without JS via `:target`.
 
 ### Navigation
-No menu: a brand lockup (26px lime rounded square with play glyph, wordmark with lime half) and a compact lime button. The sticky countdown bar on Panel sits above it.
+No menu: a brand lockup (26px lime rounded tile with play glyph, wordmark with the second half in Trust Green) and a compact ghost button. The sticky countdown bar sits above it.
+
+### Thank-you Page
+The post-purchase page reuses the same tokens on a single centred 560px column: a Display headline with a highlighted word, Soft body, numbered steps on Line hairlines with Trust Green numerals, and a ghost-style back link.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep the ground Monitor Black (#0A0B08) and step depth through Panel, Panel 2, Panel 3.
-- **Do** reserve Playhead Lime for actions, live indicators and one accent phrase per headline.
-- **Do** present proof as an effect running inside editor chrome (monitor, frames, playhead, safe-area brackets).
+- **Do** keep the ground White (#FFFFFF) and alternate sections on Panel; keep cards white with the Card shadow and a hairline.
+- **Do** use Trust Green for any accent that must be read (icons, links, prices, focus) and lime only as a fill under Ink or Lime Ink.
+- **Do** mark one headline phrase per heading with the lime highlighter band, text staying Ink.
+- **Do** keep demos and bonus covers on Screen so the effects read as footage.
 - **Do** set every counting number in tabular figures.
 - **Do** give every animated demo a reduced-motion fallback and a keyboard path.
-- **Do** keep lime buttons at 54px minimum height with Monitor Black text.
+- **Do** keep lime buttons at 54px minimum height with Lime Ink text.
 
 ### Don't:
+- **Don't** set lime text or lime icons on white; it fails contrast.
 - **Don't** use REC Red for buttons, prices or urgency banners; it is the recording light.
-- **Don't** add a light theme or white cards; the world is a dark editor.
+- **Don't** put dark backgrounds on sections, cards, bars or pop-ups; dark is for screens only.
 - **Don't** put uppercase label text above headlines as eyebrows; labels belong to objects (frames, tags, chrome).
-- **Don't** reach for shadows to separate sections; use Line hairlines and panel steps.
-- **Don't** show a static hero image with feature cards where an interactive effect demo can carry the proof.
+- **Don't** use large, dark or black shadows on cards; use the Card shadow and Line hairlines.
