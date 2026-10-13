@@ -384,8 +384,7 @@
   .final .clock .digits{ color:var(--ink); background:var(--panel-2); border:1px solid var(--line-2); }
 
   /* ---------- Footer ---------- */
-  footer{ border-top:1px solid var(--line); padding-block:52px 130px; font-size:14px; }
-  @media (min-width:768px){ footer{ padding-bottom:52px; } }
+  footer{ border-top:1px solid var(--line); padding-block:52px; font-size:14px; }
   .foot{ display:grid; gap:32px; }
   @media (min-width:640px){ .foot{ grid-template-columns:1fr 1fr; } }
   @media (min-width:980px){ .foot{ grid-template-columns:1.4fr 1fr 1fr 1.4fr; } }
@@ -395,15 +394,6 @@
   .foot a{ text-decoration:none; } .foot a:hover{ color:var(--lime); }
   .foot-b{ margin-top:36px; padding-top:22px; border-top:1px solid var(--line); color:var(--mute); font-size:12.5px; }
 
-  /* ---------- Sticky mobile CTA ---------- */
-  .sticky{ position:fixed; left:0; right:0; bottom:0; z-index:45; padding:0 12px calc(12px + env(safe-area-inset-bottom,0px)); transform:translateY(130%); transition:transform .4s var(--ease); }
-  .sticky.show{ transform:none; }
-  @media (min-width:768px){ .sticky{ display:none; } }
-  .sticky-in{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 10px 10px 16px; background:var(--panel-2); border:1px solid var(--line-2); border-radius:18px; box-shadow:0 -12px 40px -14px rgba(0,0,0,.9); }
-  .sticky-in p{ font-size:12px; color:var(--soft); line-height:1.25; }
-  .sticky-in b{ font-family:var(--display); font-size:19px; color:var(--ink); }
-  .sticky-in s{ font-size:12.5px; color:var(--mute); margin-left:4px; }
-  .sticky-in .btn{ min-height:48px; padding:10px 18px; font-size:15px; }
 
   /* ---------- Pop-ups ---------- */
   .modal{ position:fixed; inset:0; z-index:70; display:none; align-items:flex-end; justify-content:center; }
@@ -449,14 +439,13 @@
   .legal .btn{ min-height:44px; padding:10px 18px; font-size:14px; }
 
   /* ---------- Toast ---------- */
-  .toast{ position:fixed; left:50%; bottom:100px; z-index:80; transform:translate(-50%, calc(100% + 160px)); visibility:hidden; transition:transform .35s var(--ease), visibility 0s linear .35s; background:var(--ink); color:var(--bg); padding:12px 18px; border-radius:12px; font-size:14px; font-weight:700; max-width:calc(100vw - 32px); text-align:center; box-shadow:var(--shadow); }
+  .toast{ position:fixed; left:50%; bottom:28px; z-index:80; transform:translate(-50%, calc(100% + 160px)); visibility:hidden; transition:transform .35s var(--ease), visibility 0s linear .35s; background:var(--ink); color:var(--bg); padding:12px 18px; border-radius:12px; font-size:14px; font-weight:700; max-width:calc(100vw - 32px); text-align:center; box-shadow:var(--shadow); }
   .toast.show{ transform:translate(-50%,0); visibility:visible; transition:transform .35s var(--ease); }
-  @media (min-width:768px){ .toast{ bottom:28px; } }
 
   @media (prefers-reduced-motion:reduce){
     html{ scroll-behavior:auto; }
     .dance *{ animation:none !important; }
-    .btn,.bonus,.sticky,.toast{ transition:none !important; }
+    .btn,.bonus,.toast{ transition:none !important; }
   }
 </style>
 <!-- Meta Pixel -->
@@ -930,14 +919,6 @@ fbq('track', 'PageView');
   </div>
 </footer>
 
-<!-- ============ STICKY MOBILE CTA ============ -->
-<div class="sticky" id="sticky-cta">
-  <div class="sticky-in">
-    <div><p>Premium + 4 bonuses</p><b>R299</b><s>R600</s></div>
-    <a href="#pricing" class="btn btn-lime">Get the Course</a>
-  </div>
-</div>
-
 <!-- ============ UPGRADE POP-UP (Basic button) ============ -->
 <div class="modal" id="upgrade" role="dialog" aria-modal="true" aria-labelledby="upgrade-h">
   <a href="#pricing" class="modal-bg" data-close aria-label="Close this offer" tabindex="-1"></a>
@@ -1268,12 +1249,10 @@ fbq('track', 'PageView');
   }
   window.addEventListener("hashchange", syncLegal); syncLegal();
 
-  /* ---------- Sticky CTA + timeline progress ---------- */
-  var sticky = document.getElementById("sticky-cta"), hero = document.querySelector(".hero"), pricing = document.getElementById("pricing");
+  /* ---------- Timeline progress ---------- */
+  var pricing = document.getElementById("pricing");
   var tl = document.getElementById("tl");
   function onScroll(){
-    var r = pricing.getBoundingClientRect();
-    sticky.classList.toggle("show", hero.getBoundingClientRect().bottom < 0 && !(r.top < innerHeight && r.bottom > 0));
     var tr = tl.getBoundingClientRect();
     var p = Math.max(0, Math.min(1, (innerHeight * .6 - tr.top) / tr.height));
     tl.style.setProperty("--p", p.toFixed(3));
