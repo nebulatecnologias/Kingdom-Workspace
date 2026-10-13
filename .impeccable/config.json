@@ -89,6 +89,51 @@
         ],
         "createdAt": "2026-09-23T18:07:04.184Z",
         "reason": "assistant judgement: false positive — table-wrap sits flush in the card by design while each th/td carries 16px padding (same pattern as the reviewed prototype)"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "content/carrosseis/01-medo-procrastinar/carrossel.html"
+        ],
+        "createdAt": "2026-10-13T16:01:04.135Z",
+        "reason": "Kingdom InCompany design system (kingdom-onepager references/design-system.md) mandates Space Grotesk as the only typeface"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "content/carrosseis/01-medo-procrastinar/carrossel.html"
+        ],
+        "createdAt": "2026-10-13T16:01:04.152Z",
+        "reason": "Kingdom InCompany design system section 5 defines the orange .glow backdrop as one of the brand's two atmosphere devices"
+      },
+      {
+        "rule": "extreme-negative-tracking",
+        "value": "*",
+        "files": [
+          "content/carrosseis/01-medo-procrastinar/carrossel.html"
+        ],
+        "createdAt": "2026-10-13T16:01:04.165Z",
+        "reason": "Kingdom design system: negative tracking (-0.06em) on display sizes is the brand signature; flagged text is 70px display type in a 1080px Instagram slide"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "content/carrosseis/01-medo-procrastinar/carrossel.html"
+        ],
+        "createdAt": "2026-10-13T16:01:04.179Z",
+        "reason": "Flagged lines are 70px display lines in a 1080px Instagram slide; body copy uses 1.3+"
+      },
+      {
+        "rule": "oversized-h1",
+        "value": "*",
+        "files": [
+          "content/carrosseis/01-medo-procrastinar/carrossel.html"
+        ],
+        "createdAt": "2026-10-13T16:01:04.195Z",
+        "reason": "Carousel cover hook on a 1080x1350 canvas (renders ~41px on a phone); the full-sentence hook is the approved copy"
       }
     ]
   }
