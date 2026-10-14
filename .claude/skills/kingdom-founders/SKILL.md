@@ -88,7 +88,8 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 2. O Claude lê as linhas em "Brainstorming" sem Pilar e preenche **Pilar, Funil, Série, Formato, Categoria, Assunto** e a **Data de Publicação** (só seg/qua/sex, respeitando a alternância de formatos, 30/40/30 nos pilares, 40/40/20 no funil e nunca dois estilos C seguidos). Não publica nada nem muda o Status para Publicado.
 3. As copies seguem o conteúdo das referências (não inventar temas fora delas); o calendário-modelo da Linha Editorial é só exemplo.
 4. Copy: um documento Claude Docs por post (Ficha, Slides ou Arte, Legenda, Notas para o design), por semana de publicação. Só depois de o utilizador aprovar é que o link de cada documento vai para a coluna **Script** da linha no Notion. Nesse momento o Status passa de "Brainstorming" para "Em Produção" (fase de design). Sem créditos ao autor da referência (decisão do utilizador, 14/10/2026).
-5. Links do YouTube/Instagram/LinkedIn não abrem neste ambiente: usar o título, o texto da página no Notion e o que o utilizador escrever; se faltar contexto, perguntar.
+5. **Imagens geradas (ChatGPT):** cada linha tem a coluna **Prompt de Imagem**. O Claude escreve-a (em português, pronta a colar) e o utilizador gera a imagem no ChatGPT, que lê o Notion. Estrutura fixa: onde entra (CAPA/slide), "Cria uma fotografia editorial fotorrealista", formato (4:5 1080x1350, ou 1:1 1080x1080 na capa estilo B com foto em cima), cena concreta ligada ao tema do post (empreendedor moçambicano, ação, objetos), estilo (escuro, luz âmbar, sombras profundas), composição (rosto no terço superior e zona escura onde entra o texto), lente/grão, "aparência real", "sem texto, sem logótipos, sem marcas de água". Layouts só de texto levam "Sem imagem: …". Posts de conversão preferem foto real das sessões. Prompts de posts sem copy ficam "[Provisório]" e são revistos quando a copy é escrita. Até a imagem chegar, o design leva placeholder.
+6. Links do YouTube/Instagram/LinkedIn não abrem neste ambiente: usar o título, o texto da página no Notion e o que o utilizador escrever; se faltar contexto, perguntar.
 
 ## Escrita dos carrosséis (padrão do utilizador)
 
@@ -122,6 +123,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.11 | Coluna "Prompt de Imagem" no Notion para gerar imagens no ChatGPT. |
 | 14/10/2026 | 1.10 | Regra de entrega: visão geral para aprovação antes dos PNG. |
 | 14/10/2026 | 1.9 | Design da semana 1; fotos só com placeholder até o utilizador as enviar. |
 | 14/10/2026 | 1.8 | Modelo de escrita de meio de funil gravado (modelo-meio-de-funil.md), a partir do carrossel "Quem sou eu?" aprovado. |
