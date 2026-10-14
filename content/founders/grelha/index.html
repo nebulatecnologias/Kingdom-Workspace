@@ -60,6 +60,9 @@ p{ margin:0; }
 .state{ position:absolute; right:6px; bottom:6px; font-size:9px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:2px 6px; border-radius:4px; }
 .state.done{ background:#2A6B42; color:#fff; } .state.plan{ background:#F4EFE4; color:#16140F; } .state.open{ background:#7E4710; color:#fff; }
 .tile.reel .mock{ background:repeating-linear-gradient(45deg,#3a3631 0 6px,#33302b 6px 12px); color:#d9d2c4; justify-content:center; align-items:center; text-align:center; }
+.round{ grid-column:1/-1; display:flex; flex-direction:column; gap:2px; padding:14px 12px 10px; background:var(--surface); border-top:1px solid var(--line); }
+.round strong{ font-family:var(--display); font-weight:400; font-size:22px; line-height:1.1; color:var(--gold); }
+.round span{ font-size:12px; color:var(--muted); }
 .rowmark{ grid-column:1/-1; display:flex; justify-content:space-between; align-items:center; padding:6px 10px; font-size:11px; color:var(--muted); background:var(--bg); }
 .rowmark .bal{ display:inline-flex; gap:4px; align-items:center; }
 .sw{ width:10px; height:12px; border-radius:2px; display:inline-block; border:1px solid var(--line); }
@@ -119,7 +122,9 @@ p{ margin:0; }
       <h2>Regras da grelha</h2>
       <ul class="rules">
         <li>Cada linha (uma semana) mistura foto, preto e branco. Nunca três escuros seguidos.</li>
-        <li>As linhas alternam o padrão: foto · branco · foto, depois branco · foto · branco. Visto de longe, cria um xadrez suave.</li>
+        <li>Cada ronda de 12 posts (4 linhas) tem o seu padrão, para o feed não ficar previsível.</li>
+        <li>Ronda 1 (19/10 a 13/11), xadrez: as linhas alternam foto · branco · foto e branco · foto · branco.</li>
+        <li>Ronda 2 (16/11 a 11/12), faixa central: a coluna do meio é toda branca (as quartas de Espiritualidade); nas laterais, capas com foto e estáticos a preto.</li>
         <li>Capas de carrossel são sempre foto. O fundo dos estáticos escolhe-se para fechar o padrão.</li>
         <li>As vagas de Espiritualidade (18/11, 25/11, 02/12, 09/12) esperam referências do Manus.</li>
       </ul>
@@ -148,17 +153,22 @@ const POSTS=[
  {d:'2026-11-16',t:'Como vencer (em qualquer coisa)',k:'C',tone:'photo',s:'plan'},
  {d:'2026-11-18',t:'Vaga de Espiritualidade',k:'S',tone:'light',s:'open'},
  {d:'2026-11-20',t:'Alavancagem e foco',k:'C',tone:'photo',s:'plan'},
- {d:'2026-11-23',t:'Detox de dopamina',k:'S',tone:'light',s:'plan'},
- {d:'2026-11-25',t:'Vaga de Espiritualidade',k:'S',tone:'dark',s:'open'},
- {d:'2026-11-27',t:'Cansado de estar sem dinheiro?',k:'S',tone:'light',s:'plan'},
+ {d:'2026-11-23',t:'Detox de dopamina',k:'S',tone:'dark',s:'plan'},
+ {d:'2026-11-25',t:'Vaga de Espiritualidade',k:'S',tone:'light',s:'open'},
+ {d:'2026-11-27',t:'Cansado de estar sem dinheiro?',k:'S',tone:'dark',s:'plan'},
  {d:'2026-11-30',t:'Monk mode',k:'C',tone:'photo',s:'plan'},
  {d:'2026-12-02',t:'Vaga de Espiritualidade',k:'S',tone:'light',s:'open'},
  {d:'2026-12-04',t:'Dentro da Founders · o barco certo',k:'C',tone:'photo',s:'plan'},
- {d:'2026-12-07',t:'Começa como peão',k:'S',tone:'light',s:'plan'},
- {d:'2026-12-09',t:'Vaga de Espiritualidade',k:'S',tone:'dark',s:'open'},
- {d:'2026-12-11',t:'Dentro da Founders · plano do primeiro milhão',k:'S',tone:'light',s:'plan'},
+ {d:'2026-12-07',t:'Começa como peão',k:'S',tone:'dark',s:'plan'},
+ {d:'2026-12-09',t:'Vaga de Espiritualidade',k:'S',tone:'light',s:'open'},
+ {d:'2026-12-11',t:'Dentro da Founders · plano do primeiro milhão',k:'S',tone:'dark',s:'plan'},
 ];
-const KEY='kf-grelha-tones-v1';
+const ROUNDS=[
+ {n:1,name:'Ronda 1 · xadrez',desc:'As linhas alternam foto · branco · foto e branco · foto · branco.'},
+ {n:2,name:'Ronda 2 · faixa central',desc:'A coluna do meio é toda branca; nas laterais, capas com foto e estáticos a preto.'},
+];
+const roundOf=d=>{ const i=POSTS.findIndex(p=>p.d===d); return i<0?null:Math.floor(i/12); };
+const KEY='kf-grelha-tones-v2';
 let tones={}; try{ tones=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ tones={}; }
 const save=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(tones)); }catch(e){} };
 const toneOf=p=>tones[p.d]||p.tone;
@@ -174,7 +184,14 @@ function render(){
   const g=document.getElementById('grid'); g.innerHTML='';
   let items=POSTS.slice(); if(showReels) items=items.concat(reelsBetween());
   items.sort((a,b)=>b.d.localeCompare(a.d));
+  let lastRound=null;
   items.forEach((p,i)=>{
+    const r=p.reel?lastRound:roundOf(p.d);
+    if(!p.reel && r!==lastRound && ROUNDS[r]){
+      const h=document.createElement('div'); h.className='round';
+      h.innerHTML='<strong>'+ROUNDS[r].name+'</strong><span>'+ROUNDS[r].desc+'</span>';
+      g.appendChild(h); lastRound=r;
+    }
     if(i%3===0){
       const row=items.slice(i,i+3).filter(x=>!x.reel);
       const m=document.createElement('div'); m.className='rowmark';
