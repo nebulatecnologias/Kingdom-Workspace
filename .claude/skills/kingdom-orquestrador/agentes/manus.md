@@ -22,4 +22,4 @@ Colar como tarefa agendada no Manus (sugestão: segunda e quinta, 07:00 de Maput
 
 **Se não conseguires escrever no Notion:** cria uma folha na pasta da Drive "REFERENCIAS - MANUS 2.0" com as colunas Titulo do Conteúdo | Resumo da Ideia | Principais Ensinamentos | Referência; o Claude importa-a.
 
-**Qualidade:** só referências reais e verificáveis; resumos fiéis ao conteúdo (não inventar); nada de "enriquecer rápido" nem promessas de resultados.
+**Qualidade:** só referências reais e verificáveis; resumos fiéis ao conteúdo (não inventar); nada de "enriquecer rápido" nem promessas de resultados. Se não conseguires aceder ao conteúdo do vídeo (sem transcrição nem fonte fiável), não o incluas: troca-o por outro. Evita vídeos de estilo de vida, ostentação ou temas pessoais do autor.
