@@ -38,7 +38,8 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 - Arquétipo **Mago** (transformação) com voz de **Sábio** (princípio e método), toque de Governante.
 - Sempre **"tu"**, português de Moçambique/Portugal (equipa, telemóvel, "estás a construir"). Direto, profundo, fé prática, exigente.
-- Usar: founder, bloqueios invisíveis, execução, identidade, propósito, princípios do Reino, mentalidade de governo, clareza, estrutura.
+- **"Founder" não é o leitor:** a pessoa só passa a ser founder depois de entrar na mentoria. Na copy, tratar o leitor por "tu" e, quando for preciso nomear, "empreendedor", "quem empreende" ou "dono de negócio". "Founder" só para membros da mentoria e no nome da marca.
+- Usar: bloqueios invisíveis, execução, identidade, propósito, princípios do Reino, mentalidade de governo, clareza, estrutura.
 - Evitar: enriquecer rápido, fórmula mágica, segredo, resultados garantidos, jargão em inglês, tom de sermão ou culpa. Versículos sempre com referência correta e no contexto.
 - Frases-assinatura: "Não basta ter uma visão. Precisas de te tornar capaz de a carregar." · "Os mesmos desafios. Uma pessoa diferente a enfrentá-los." · "20% é o método. 80% é a tua execução."
 
@@ -103,6 +104,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.5 | Leitor não é "founder" (só os membros da mentoria); usar "tu" ou "empreendedor". |
 | 14/10/2026 | 1.4 | Vermelho só quando necessário; dados do The Legacy não se usam (edição especial passada). |
 | 14/10/2026 | 1.3 | Padrão de escrita dos carrosséis (narrativa com frases-ponte); copy em Claude Docs; sem créditos às referências. |
 | 14/10/2026 | 1.2 | 12 referências Myles Munroe (Manus 2.0) no Notion, agendadas de 19/10 a 13/11/2026: pilares 4/5/3, funil 5/5/2. |
