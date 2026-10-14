@@ -59,6 +59,37 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 .save svg{ width:28px; height:28px; }
 .handle.c{ left:0; right:0; text-align:center; }
 
+/* v3 (ref. ETER): slides claros, títulos serif/caixa alta, pontes em caixa alta, grão nas fotos */
+.post.w{ background:#F5F2EC; color:#121212; }
+.w .num{ color:#8A8580; }
+.w .handle{ color:rgba(0,0,0,.45); }
+.wcol{ position:absolute; left:96px; right:128px; top:150px; bottom:140px; display:flex; flex-direction:column; justify-content:center; gap:44px; }
+.hs{ font-family:var(--serif); font-weight:400; font-size:104px; line-height:.98; letter-spacing:-0.025em; color:#121212; }
+.hs i{ font-style:italic; color:#9C7A3C; }
+.hc{ font-weight:900; font-size:76px; line-height:.96; letter-spacing:-0.04em; text-transform:uppercase; color:#121212; }
+.hc span{ color:#9C7A3C; }
+.bp{ font-size:38px; line-height:1.38; letter-spacing:-0.01em; color:#3A3835; }
+.bp b{ font-weight:700; color:#121212; }
+.cb{ font-weight:900; font-size:44px; line-height:1.02; letter-spacing:-0.025em; text-transform:uppercase; color:#121212; }
+.cb span{ color:#9C7A3C; }
+.wcol.dk .hs,.wcol.dk .cb{ color:#fff; } .wcol.dk .hs i,.wcol.dk .cb span{ color:var(--gold); }
+.wcol.dk .bp{ color:rgba(255,255,255,.82); } .wcol.dk .bp b{ color:#fff; }
+.sub.sf{ font-family:var(--serif); font-size:46px; line-height:1.12; letter-spacing:-0.01em; font-weight:400; color:rgba(255,255,255,.92); }
+.sub.sf i{ font-style:italic; color:var(--gold); }
+.inset{ position:relative; height:430px; overflow:hidden; border-radius:6px; }
+.inset img{ width:100%; height:100%; object-fit:cover; }
+.vz{ font-size:82px; line-height:1.02; }
+.vref{ margin-top:-24px; font-size:24px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:#9C7A3C; }
+.scenes.l{ margin-top:0; } .scenes.l .scene{ border-color:rgba(0,0,0,.12); background:#fff; }
+.scenes.l .scene span{ color:#9C7A3C; } .scenes.l .scene svg{ color:rgba(0,0,0,.35); } .scenes.l .scene p{ color:#121212; }
+.scenes.l .scene p.red{ color:#C8412F; }
+.chart.l{ margin-top:0; } .chart.l .ax{ fill:#8A8580; } .chart.l .lb.g{ fill:#9C7A3C; } .chart.l .lb.w{ fill:#121212; }
+.tags.d{ margin:0; } .tags.d span{ background:#121212; color:#F5F2EC; box-shadow:0 10px 26px rgba(0,0,0,.18); }
+.vs.l{ margin-top:0; } .vs.l .vh{ color:#8A8580; border-color:rgba(0,0,0,.15); } .vs.l .vh.g{ color:#9C7A3C; border-color:rgba(156,122,60,.5); }
+.vs.l .vo{ color:rgba(0,0,0,.45); text-decoration-color:rgba(0,0,0,.3); }
+.vs.l .vn{ color:#121212; background:#fff; border-color:rgba(156,122,60,.45); } .vs.l .vn b{ color:#9C7A3C; }
+.vs.l svg{ color:#9C7A3C; }
+.grain::after{ content:""; position:absolute; inset:0; pointer-events:none; opacity:.22; mix-blend-mode:overlay; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>"); }
 /* Elementos visuais dos carrosséis */
 .bgph{ position:absolute; inset:0; }
 .bgph img{ width:100%; height:100%; object-fit:cover; }
@@ -112,132 +143,130 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
   <symbol id="bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3.5h12v17l-6-4.2-6 4.2v-17Z"/></symbol>
 </svg>
 
-<!-- ============ 19/10 · Carrossel · Quem sou eu? (5 Perguntas 1/5) · Estilo A · 10 slides ============ -->
-<section class="post" data-file="2026-10-19-quem-sou-eu/01.png">
+<!-- ============ 19/10 · Carrossel · Quem sou eu? (5 Perguntas 1/5) · 10 slides · v3: fundo claro + fotos (ref. ETER) ============ -->
+<section class="post grain" data-file="2026-10-19-quem-sou-eu/01.png">
   <div class="photo"><img src="img/2026-10-19-capa.jpg" alt="" style="object-position:50% 8%"></div>
   <div class="num">01</div>
   <div class="cover-a ttl" style="--ts:92px;font-weight:700;bottom:262px">
     <div class="t1">Se um mês mau te faz</div>
     <div>duvidar de quem és, o</div>
     <div><span class="it">problema</span> não é o mês.</div>
-    <p class="sub" style="font-weight:400">É uma pergunta que nunca respondeste antes de empreender. E enquanto ela ficar sem resposta, o teu negócio vai continuar a <b>pagar o preço…</b></p>
+    <p class="sub sf">Há uma pergunta que nunca respondeste. E o teu negócio <i>paga o preço.</i></p>
   </div>
   <div class="cta-foot">Arraste para entender</div>
 </section>
 
-<section class="post" data-file="2026-10-19-quem-sou-eu/02.png">
-  <div class="glow"></div><div class="num">02</div>
-  <div class="content">
-    <p class="lead">A pergunta é esta: <b>quem sou eu?</b></p>
-    <p class="p">Parece simples. Tão simples que quase ninguém pára para lhe responder.</p>
-    <p class="bridge">Mas repara no que acontece quando não tens resposta:</p>
+<section class="post w" data-file="2026-10-19-quem-sou-eu/02.png">
+  <div class="num">02</div>
+  <div class="wcol" style="justify-content:space-between">
+    <p class="hs" style="font-size:120px">A pergunta é esta: <i>quem sou eu?</i></p>
+    <p class="bp" style="font-size:48px;line-height:1.3">Parece simples. Tão simples que quase nenhum empreendedor pára para lhe responder antes de abrir o negócio.</p>
+    <p class="cb">Mas repara no que acontece quando <span>não tens resposta:</span></p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-19-quem-sou-eu/03.png">
-  <div class="glow"></div><div class="num">03</div>
-  <div class="content">
-    <p class="lead" style="font-size:50px">Sem resposta, tudo vira um julgamento:</p>
-    <div class="scenes">
+<section class="post w" data-file="2026-10-19-quem-sou-eu/03.png">
+  <div class="num">03</div>
+  <div class="wcol">
+    <p class="hc" style="font-size:64px">Sem resposta, tudo vira um <span>julgamento:</span></p>
+    <div class="scenes l">
       <div class="scene"><span>Mês mau</span><svg><use href="#arrow-long"/></svg><p class="red">um veredicto sobre o teu valor</p></div>
       <div class="scene"><span>Crítica</span><svg><use href="#arrow-long"/></svg><p>confirma um rótulo antigo</p></div>
       <div class="scene"><span>Conquista</span><svg><use href="#arrow-long"/></svg><p>dura pouco, nunca é suficiente</p></div>
     </div>
-    <p class="p" style="margin-top:44px">Sem identidade, o negócio passa a carregar <b>um peso que não é dele.</b></p>
-    <p class="bridge">E o motivo é que a maioria de nós aprendeu a responder a esta pergunta da forma errada:</p>
+    <p class="bp">Sem identidade, o negócio passa a carregar <b>um peso que não é dele.</b></p>
+    <p class="cb">E o motivo é que a maioria de nós aprendeu a responder <span>da forma errada:</span></p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-19-quem-sou-eu/04.png">
-  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-end;padding-bottom:150px"><b>Foto de fundo</b><span>Empreendedor sozinho numa loja fechada à noite, à direita, luz âmbar de um candeeiro (prompt no Notion)</span></div></div>
-  <div class="bgfade" style="background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.82) 55%,rgba(0,0,0,.45) 100%)"></div>
+<section class="post w" data-file="2026-10-19-quem-sou-eu/04.png">
   <div class="num">04</div>
-  <div class="content" style="right:300px">
-    <div class="ttl" style="--ts:76px"><div class="t1">Tu não és</div><div>o que <span class="it">fazes.</span></div></div>
-    <p class="p">Quando alguém te pergunta quem és, a resposta costuma ser uma profissão: sou empresário, sou consultor, tenho uma loja.</p>
-    <p class="p">Mas isso é o que fazes. <b>Não é quem és.</b></p>
-    <p class="bridge">E quando a identidade fica presa à atividade…</p>
+  <div class="wcol">
+    <p class="hc">Tu não és o que <span>fazes.</span></p>
+    <div class="inset"><div class="ph" style="inset:0"><b>Foto</b><span>Empreendedor sozinho na loja fechada à noite, luz âmbar de um candeeiro (prompt no Notion, formato 3:2)</span></div></div>
+    <p class="bp">Quando alguém te pergunta quem és, a resposta costuma ser uma profissão: sou empresário, sou consultor, tenho uma loja. Mas isso é o que fazes. <b>Não é quem és.</b></p>
+    <p class="cb">E quando a identidade fica presa <span>à atividade…</span></p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-19-quem-sou-eu/05.png">
-  <div class="glow"></div><div class="num">05</div>
-  <div class="content">
-    <p class="lead">…o teu valor sobe e desce com a <b>faturação.</b></p>
-    <svg class="chart" viewBox="0 0 856 430" aria-hidden="true">
-      <line x1="0" y1="400" x2="856" y2="400" stroke="rgba(255,255,255,.25)" stroke-width="2"/>
+<section class="post w" data-file="2026-10-19-quem-sou-eu/05.png">
+  <div class="num">05</div>
+  <div class="wcol">
+    <p class="hs" style="font-size:84px">…o teu valor sobe e desce com a <i>faturação.</i></p>
+    <svg class="chart l" viewBox="0 0 856 430" aria-hidden="true">
+      <line x1="0" y1="400" x2="856" y2="400" stroke="rgba(0,0,0,.2)" stroke-width="2"/>
       <text x="0" y="428" class="ax">Faturação, mês a mês</text>
-      <path d="M0 300 C70 300 90 120 170 110 S270 330 340 340 S450 70 520 80 S640 360 700 350 S800 200 856 210" fill="none" stroke="url(#gl)" stroke-width="6" stroke-linecap="round"/>
-      <defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#E9CF8F"/><stop offset="1" stop-color="#C9A45C"/></linearGradient></defs>
-      <circle cx="522" cy="80" r="12" fill="#000" stroke="#E9CF8F" stroke-width="5"/>
-      <circle cx="338" cy="340" r="12" fill="#000" stroke="rgba(255,255,255,.6)" stroke-width="5"/>
+      <path d="M0 300 C70 300 90 120 170 110 S270 330 340 340 S450 70 520 80 S640 360 700 350 S800 200 856 210" fill="none" stroke="#9C7A3C" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="522" cy="80" r="12" fill="#F5F2EC" stroke="#9C7A3C" stroke-width="5"/>
+      <circle cx="338" cy="340" r="12" fill="#F5F2EC" stroke="#121212" stroke-width="5"/>
       <text x="548" y="62" class="lb g">“Sou capaz.”</text>
       <text x="364" y="372" class="lb w">“Sou uma fraude.”</text>
     </svg>
-    <p class="p" style="margin-top:34px">Num bom mês, sentes-te capaz. <b>Num mau mês, sentes-te uma fraude.</b></p>
-    <p class="bridge">E há outra forma de responder mal a esta pergunta…</p>
+    <p class="bp">Num bom mês, sentes-te capaz. <b>Num mau mês, sentes-te uma fraude.</b></p>
+    <p class="cb">E há outra forma de responder mal <span>a esta pergunta…</span></p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-19-quem-sou-eu/06.png">
-  <div class="glow"></div><div class="num">06</div>
-  <div class="content">
-    <div class="ttl" style="--ts:76px"><div class="t1">Tu não és o que</div><div><span class="it">disseram</span> de ti.</div></div>
-    <div class="tags"><span style="--r:-2deg">Não tens perfil para isso.</span><span style="--r:1.5deg;margin-left:90px">Começa mais pequeno.</span><span style="--r:-1deg;margin-left:30px">Isso não é para pessoas como tu.</span></div>
-    <p class="p">Frases ditas por pais, professores, chefes ou por ti mesmo, que se tornaram teto. Um rótulo descreve uma opinião. <b>Não define quem és.</b></p>
-    <p class="bridge">Então, se não és o que fazes nem o que disseram de ti, quem és?</p>
+<section class="post w" data-file="2026-10-19-quem-sou-eu/06.png">
+  <div class="num">06</div>
+  <div class="wcol">
+    <p class="hs">Tu não és o que <i>disseram</i> de ti.</p>
+    <div class="tags d"><span style="--r:-2deg">Não tens perfil para isso.</span><span style="--r:1.5deg;margin-left:90px">Começa mais pequeno.</span><span style="--r:-1deg;margin-left:30px">Isso não é para pessoas como tu.</span></div>
+    <p class="bp">Frases ditas por pais, professores, chefes ou por ti mesmo, que se tornaram teto. Um rótulo descreve uma opinião. <b>Não define quem és.</b></p>
+    <p class="cb">Então, se não és o que fazes nem o que disseram de ti, <span>quem és?</span></p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-19-quem-sou-eu/07.png">
-  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-end;padding-bottom:150px"><b>Foto de fundo</b><span>Homem de olhos fechados e rosto erguido sob um feixe de luz quente vindo de cima, à direita, sala escura (prompt no Notion)</span></div></div>
-  <div class="bgfade" style="background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.82) 55%,rgba(0,0,0,.45) 100%)"></div>
+<section class="post grain" data-file="2026-10-19-quem-sou-eu/07.png">
+  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-start;padding-top:120px"><b>Foto</b><span>Homem de olhos fechados e rosto erguido sob um feixe de luz quente vindo de cima (prompt no Notion)</span></div></div>
+  <div class="bgfade" style="background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.92) 70%,#000 100%)"></div>
   <div class="num">07</div>
-  <div class="content" style="right:300px">
-    <div class="ttl" style="--ts:76px"><div class="t1">Tu és quem</div><div>Deus diz que <span class="it">és.</span></div></div>
-    <p class="p">A tua identidade não nasce no mercado nem na opinião dos outros. <b>Nasce em quem te criou.</b></p>
-    <p class="bridge">E isso está escrito logo no início:</p>
+  <div class="wcol dk" style="justify-content:flex-end">
+    <p class="hs">Tu és quem Deus diz que&nbsp;<i>és.</i></p>
+    <p class="bp">A tua identidade não nasce no mercado nem na opinião dos outros. <b>Nasce em quem te criou.</b></p>
+    <p class="cb">E isso está escrito <span>logo no início:</span></p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-19-quem-sou-eu/08.png">
-  <div class="glow"></div><div class="num">08</div>
-  <div class="content">
-    <p class="verse" style="margin-top:0;font-size:52px;line-height:1.3">“E criou Deus o homem à sua imagem; à imagem de Deus o criou.”<span class="ref">Génesis 1:27</span></p>
-    <p class="p" style="margin-top:48px">É a única identidade que nenhum resultado te pode dar e <b>nenhum fracasso te pode tirar.</b></p>
-    <p class="bridge">E quando isto fica claro, a forma como empreendes muda:</p>
+<section class="post w" data-file="2026-10-19-quem-sou-eu/08.png">
+  <div class="num">08</div>
+  <div class="wcol">
+    <p class="hs vz">“E criou Deus o homem à sua imagem; à imagem de Deus o <i>criou.</i>”</p>
+    <p class="vref">Génesis 1:27</p>
+    <p class="bp">É a única identidade que nenhum resultado te pode dar e <b>nenhum fracasso te pode tirar.</b></p>
+    <p class="cb">E quando isto fica claro, a forma como <span>empreendes muda:</span></p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-19-quem-sou-eu/09.png">
-  <div class="glow low"></div><div class="num">09</div>
-  <div class="content">
-    <p class="lead" style="font-size:50px">Quando sabes quem és, tudo muda de lugar:</p>
-    <div class="vs">
+<section class="post w" data-file="2026-10-19-quem-sou-eu/09.png">
+  <div class="num">09</div>
+  <div class="wcol">
+    <p class="hc" style="font-size:64px">Quando sabes quem és, tudo <span>muda de lugar:</span></p>
+    <div class="vs l">
       <div class="vh">Sem identidade</div><div></div><div class="vh g">Com identidade</div>
       <div class="vo">Vender para provar o teu valor</div><svg><use href="#chev"/></svg><div class="vn">Vender para <b>servir</b></div>
       <div class="vo">Crítica é sentença</div><svg><use href="#chev"/></svg><div class="vn">Crítica é <b>informação</b></div>
       <div class="vo">Mês mau é veredicto</div><svg><use href="#chev"/></svg><div class="vn">Mês mau é <b>problema para resolver</b></div>
     </div>
-    <p class="p" style="margin-top:44px">A identidade não te tira os desafios. Dá-te chão firme para os enfrentar.</p>
-    <p class="bridge">Mas “quem sou eu?” é só o começo…</p>
+    <p class="bp">A identidade não te tira os desafios. Dá-te chão firme para os enfrentar.</p>
+    <p class="cb">Mas “quem sou eu?” <span>é só o começo…</span></p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-19-quem-sou-eu/10.png">
-  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-start;padding-top:70px"><b>Foto de fundo</b><span>Corredor escuro com cinco portas, a primeira aberta com luz âmbar a sair (prompt no Notion)</span></div></div>
-  <div class="bgfade" style="background:radial-gradient(70% 60% at 50% 50%,rgba(0,0,0,.9),rgba(0,0,0,.6))"></div>
+<section class="post grain" data-file="2026-10-19-quem-sou-eu/10.png">
+  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-start;padding-top:70px"><b>Foto</b><span>Corredor escuro com cinco portas, a primeira entreaberta com luz âmbar (prompt no Notion)</span></div></div>
+  <div class="bgfade" style="background:radial-gradient(75% 62% at 50% 52%,rgba(0,0,0,.9),rgba(0,0,0,.55))"></div>
   <div class="cta">
     <img class="logo" src="../../brand/founders/assets/kingdom-founders-simbolo.svg" alt="Kingdom Founders">
-    <div class="ttl" style="--ts:70px"><div class="t1">Esta é só a</div><div><span class="it">primeira</span> de cinco perguntas.</div></div>
+    <p class="hs" style="color:#fff;text-align:center">Esta é só a <i>primeira</i> de cinco perguntas.</p>
     <ul class="qlist"><li>De onde venho?</li><li>Porque estou aqui?</li><li>O que consigo fazer?</li><li>Para onde vou?</li></ul>
     <p class="p">Guarda este post e visita o nosso perfil para descobrires a resposta às outras quatro.</p>
     <span class="save"><svg><use href="#bookmark"/></svg>Guarda para não perderes</span>
