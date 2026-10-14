@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Design System: Kingdom Training</title>
+<link rel="stylesheet" href="../base.css">
+<style>
+/* Kingdom Training: editorial e quente, a partir do post "Mentoria Kingdom Founders" do @kingdomtraining.center.
+   Títulos em Google Sans Black, caixa alta; uma palavra de destaque em Playfair Display itálico dourado. */
+:root{
+  --bg:#0D1517; --raise:#142024; --gold:#C9A35F; --gold-dim:rgba(201,163,95,.16);
+  --cream:#F4EEE3; --text:rgba(244,238,227,.74); --muted:rgba(244,238,227,.45); --line:rgba(244,238,227,.12);
+  --pad:88px;
+}
+.art{ background:var(--bg); color:var(--cream); }
+.grid{ position:absolute; inset:0; background-image:linear-gradient(90deg,rgba(244,238,227,.045) 1px,transparent 1px),linear-gradient(180deg,rgba(244,238,227,.045) 1px,transparent 1px); background-size:90px 90px; }
+.warm{ position:absolute; inset:0; background:radial-gradient(70% 45% at 50% 0%,rgba(201,163,95,.22),transparent 70%); }
+.num{ position:absolute; left:0; right:0; top:72px; text-align:center; font-size:34px; color:var(--muted); letter-spacing:.02em; }
+.num b{ color:var(--cream); font-weight:400; }
+.title .it{ font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:500; text-transform:none; letter-spacing:-0.01em; color:var(--gold); }
+.lead{ font-size:42px; line-height:1.3; letter-spacing:-0.02em; color:var(--text); }
+.lead strong{ color:var(--cream); font-weight:400; }
+.body{ position:absolute; left:var(--pad); right:var(--pad); top:230px; }
+.label{ font-size:28px; color:var(--gold); margin-bottom:36px; display:flex; align-items:center; gap:16px; }
+.label::before{ content:""; width:48px; height:2px; background:var(--gold); }
+h2.title{ font-size:72px; }
+.handle{ position:absolute; left:var(--pad); bottom:72px; font-size:26px; color:var(--muted); }
+.go{ position:absolute; right:var(--pad); bottom:68px; display:inline-flex; align-items:center; gap:18px; font-size:28px; color:var(--cream); }
+.go svg{ width:72px; height:24px; color:var(--gold); }
+/* capa */
+.ph{ position:absolute; inset:0; background:
+   radial-gradient(60% 40% at 35% 30%,rgba(120,150,150,.45),transparent 70%),
+   radial-gradient(50% 35% at 75% 25%,rgba(201,163,95,.35),transparent 70%),
+   linear-gradient(180deg,#2B3A3C,#1A2628); }
+.ph span{ position:absolute; left:0; right:0; top:330px; text-align:center; font-size:30px; color:rgba(244,238,227,.4); letter-spacing:.04em; }
+.ph-tint{ position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,21,23,.55) 0%,rgba(13,21,23,0) 18%,rgba(13,21,23,.15) 40%,rgba(13,21,23,.85) 60%,#0D1517 76%); }
+.cover .body{ top:auto; bottom:190px; left:60px; right:60px; text-align:center; }
+.cover h1.title{ font-size:100px; line-height:1.0; }
+/* slide interno */
+.items{ margin-top:48px; list-style:none; }
+.items li{ display:grid; grid-template-columns:90px 1fr; gap:24px; padding:26px 0; border-top:1px solid var(--line); }
+.items li:last-child{ border-bottom:1px solid var(--line); }
+.items .n{ font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:52px; color:var(--gold); line-height:1; }
+.items h3{ font-size:38px; font-weight:400; color:var(--cream); margin-bottom:8px; letter-spacing:-0.02em; }
+.items p{ font-size:32px; color:var(--text); line-height:1.3; }
+/* estatico */
+.static .body{ top:auto; bottom:240px; text-align:center; left:80px; right:80px; }
+.static h2.title{ font-size:94px; }
+.quote{ font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:200px; line-height:.6; color:var(--gold); margin-bottom:30px; }
+.sep{ width:90px; height:2px; background:var(--gold); margin:50px auto 40px; }
+/* cta */
+.ctas{ margin-top:60px; display:flex; flex-direction:column; gap:22px; }
+.cta{ border:1px solid rgba(201,163,95,.35); border-radius:24px; padding:34px 40px; background:rgba(20,32,36,.8); font-size:36px; line-height:1.3; color:var(--text); }
+.cta strong{ color:var(--cream); font-weight:400; }
+.tag{ border:1px solid var(--gold); color:var(--gold); border-radius:999px; padding:2px 20px 4px; white-space:nowrap; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="long" viewBox="0 0 72 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h66M58 4l10 8-10 8"/></symbol>
+</svg>
+
+<!-- 1. Capa de carrossel -->
+<section class="art cover">
+  <div class="ph"><span>FOTO REAL DE EVENTO OU MENTORIA</span></div>
+  <div class="ph-tint"></div><div class="grid"></div>
+  <div class="num"><b>01</b></div>
+  <div class="body">
+    <h1 class="title">5 competências que vão blindar a sua <span class="it">liderança</span></h1>
+    <p class="lead" style="margin-top:34px">O que separa os líderes que crescem em 2026 dos que ficam para trás.</p>
+  </div>
+  <div class="handle">@kingdomtraining.center</div>
+  <div class="go">Arraste <svg><use href="#long"/></svg></div>
+</section>
+
+<!-- 2. Slide interno -->
+<section class="art">
+  <div class="warm"></div><div class="grid"></div>
+  <div class="num"><b>03</b> / 07</div>
+  <div class="body">
+    <div class="label">Competência 1 e 2</div>
+    <h2 class="title">Liderar na <span class="it">incerteza</span></h2>
+    <ul class="items">
+      <li><span class="n">01</span><div><h3>Liderança adaptativa</h3><p>Decidir com informação incompleta e corrigir o rumo depressa.</p></div></li>
+      <li><span class="n">02</span><div><h3>Equipas conectadas</h3><p>Confiança e clareza, mesmo com pessoas em lugares diferentes.</p></div></li>
+    </ul>
+  </div>
+  <div class="handle">@kingdomtraining.center</div>
+  <div class="go">Arraste <svg><use href="#long"/></svg></div>
+</section>
+
+<!-- 3. Estático -->
+<section class="art static">
+  <div class="warm"></div><div class="grid"></div>
+  <div class="body">
+    <div class="quote">“</div>
+    <h2 class="title">Agenda cheia não é sinal de <span class="it">importância</span></h2>
+    <div class="sep"></div>
+    <p class="lead">Muita gente confunde estar ocupado com estar a avançar.</p>
+  </div>
+  <div class="handle">@kingdomtraining.center</div>
+</section>
+
+<!-- 4. Último slide (CTA) -->
+<section class="art">
+  <div class="warm"></div><div class="grid"></div>
+  <div class="num"><b>07</b> / 07</div>
+  <div class="body">
+    <div class="label">Para levar consigo</div>
+    <h2 class="title">Qual destas competências vai <span class="it">treinar</span> primeiro?</h2>
+    <div class="ctas">
+      <div class="cta"><strong>Guarde este post</strong> para rever com a sua equipa.</div>
+      <div class="cta">Comente <span class="tag">EU VOU LIDERAR</span> e diga qual escolheu.</div>
+    </div>
+  </div>
+  <div class="handle">@kingdomtraining.center</div>
+</section>
+</body>
+</html>

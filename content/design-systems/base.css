@@ -1,0 +1,8 @@
+/* Base comum aos design systems das marcas Kingdom: fontes e moldura dos artboards 1080x1350. */
+@font-face{ font-family:'Google Sans'; font-weight:400 700; font-display:block; src:url(fonts/google-sans-latin.woff2) format('woff2'); }
+@font-face{ font-family:'Google Sans Flex'; font-weight:900; font-display:block; src:url(fonts/google-sans-flex-900-latin.woff2) format('woff2'); }
+@font-face{ font-family:'Playfair Display'; font-style:italic; font-weight:500; font-display:block; src:url(fonts/playfair-display-500-italic-latin.woff2) format('woff2'); }
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ background:#2a2a2a; font-family:'Google Sans',Arial,sans-serif; -webkit-font-smoothing:antialiased; display:flex; gap:40px; padding:40px; width:max-content; }
+.art{ position:relative; width:1080px; height:1350px; overflow:hidden; flex:0 0 auto; }
+.title{ font-family:'Google Sans Flex','Google Sans',Arial,sans-serif; font-weight:900; text-transform:uppercase; letter-spacing:-0.035em; line-height:1.04; text-wrap:balance; }

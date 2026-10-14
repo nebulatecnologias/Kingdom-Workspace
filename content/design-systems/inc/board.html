@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Design System: Kingdom InCompany</title>
+<link rel="stylesheet" href="../base.css">
+<style>
+/* Kingdom InCompany: escuro, laranja, Google Sans Black nos títulos (caixa alta), Regular no texto. */
+:root{
+  --bg:#0C0C0F; --raise:#131317; --accent:#FF6000; --accent-dim:rgba(255,96,0,.14);
+  --white:#FFFFFF; --text:rgba(255,255,255,.72); --muted:rgba(255,255,255,.45); --line:rgba(255,255,255,.11);
+  --pad:88px;
+}
+.art{ background:var(--bg); color:var(--white); }
+.grid{ position:absolute; inset:0; background-image:linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(180deg,rgba(255,255,255,.05) 1px,transparent 1px); background-size:72px 72px;
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.3) 55%,rgba(0,0,0,.8)); }
+.glow{ position:absolute; border-radius:50%; filter:blur(110px); background:radial-gradient(circle,rgba(255,96,0,.36),rgba(255,96,0,.06) 55%,transparent 75%); }
+.top{ position:absolute; left:var(--pad); right:var(--pad); top:84px; display:flex; justify-content:space-between; align-items:center; font-size:26px; }
+.brand{ display:flex; align-items:center; gap:14px; }
+.brand svg{ width:38px; height:38px; color:var(--accent); }
+.brand b{ color:var(--accent); font-weight:400; }
+.count{ color:var(--muted); font-size:24px; } .count b{ color:var(--white); font-weight:400; }
+.body{ position:absolute; left:var(--pad); right:var(--pad); top:230px; }
+.eyebrow{ display:inline-flex; align-items:center; gap:16px; font-size:28px; color:var(--accent); margin-bottom:40px; }
+.eyebrow::before{ content:""; width:12px; height:12px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 7px var(--accent-dim); }
+h2.title{ font-size:68px; }
+.acc{ color:var(--accent); }
+.lead{ font-size:42px; line-height:1.3; letter-spacing:-0.02em; color:var(--text); }
+.lead strong{ color:var(--white); font-weight:400; }
+.foot{ position:absolute; left:var(--pad); right:var(--pad); bottom:72px; display:flex; justify-content:space-between; align-items:center; font-size:30px; color:#D2D2D2; }
+.go{ display:inline-flex; align-items:center; gap:18px; font-size:28px; color:var(--white); margin-left:auto; }
+.go svg{ width:72px; height:24px; color:var(--accent); }
+/* capa */
+.photo{ position:absolute; inset:0; }
+.photo img{ width:100%; height:100%; object-fit:cover; filter:grayscale(.25) contrast(1.06) brightness(.92); }
+.photo .tint{ position:absolute; inset:0; background:radial-gradient(55% 35% at 100% 0%,rgba(255,96,0,.3),transparent 70%),
+  linear-gradient(180deg,rgba(12,12,15,.6) 0%,rgba(12,12,15,0) 16%,rgba(12,12,15,.1) 42%,rgba(12,12,15,.8) 60%,#0C0C0F 74%); }
+.cover .body{ top:auto; bottom:168px; left:64px; right:64px; text-align:center; }
+.cover h1.title{ font-size:92px; }
+.strike{ position:relative; color:rgba(255,255,255,.45); white-space:nowrap; }
+.strike::after{ content:""; position:absolute; left:-3%; right:-3%; top:52%; height:8px; background:var(--accent); border-radius:8px; transform:rotate(-4deg); }
+/* lista */
+.steps{ margin-top:44px; list-style:none; counter-reset:s; }
+.steps li{ display:flex; gap:30px; align-items:center; padding:20px 0; border-top:1px solid var(--line); font-size:40px; letter-spacing:-0.02em; }
+.steps li:last-child{ border-bottom:1px solid var(--line); }
+.steps li::before{ counter-increment:s; content:"0" counter(s); flex:0 0 72px; color:var(--accent); font-size:40px; }
+/* estatico */
+.static .body{ top:auto; bottom:250px; }
+.static h2.title{ font-size:96px; }
+.rule{ width:120px; height:8px; background:var(--accent); border-radius:8px; margin:56px 0 40px; }
+.sign{ position:absolute; left:var(--pad); right:var(--pad); bottom:72px; display:flex; justify-content:space-between; font-size:26px; color:var(--muted); }
+/* cta */
+.cards{ margin-top:56px; display:flex; flex-direction:column; gap:24px; }
+.card{ display:flex; gap:30px; align-items:flex-start; border:1px solid var(--line); border-radius:28px; background:rgba(19,19,23,.86); padding:36px 40px; }
+.card .ic{ flex:0 0 76px; height:76px; border-radius:22px; background:var(--accent-dim); color:var(--accent); display:flex; align-items:center; justify-content:center; }
+.card .ic svg{ width:34px; height:34px; }
+.card p{ font-size:36px; line-height:1.3; color:var(--text); } .card p strong{ color:var(--white); font-weight:400; }
+.pill{ background:var(--accent); color:#010104; border-radius:999px; padding:2px 20px 4px; white-space:nowrap; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="crown" viewBox="0 0 24 24" fill="currentColor"><path d="M4 8.5 8 11l4-6 4 6 4-2.5V17H4V8.5Z"/><path d="M4 19h16v1.6H4z"/></symbol>
+  <symbol id="long" viewBox="0 0 72 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h66M58 4l10 8-10 8"/></symbol>
+  <symbol id="save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3.5h12v17l-6-4.2-6 4.2v-17Z"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5.5h16v10.5H10l-5 4v-4H4V5.5Z"/></symbol>
+</svg>
+
+<!-- 1. Capa de carrossel -->
+<section class="art cover">
+  <div class="photo"><img src="foto-exemplo.jpg" alt=""><div class="tint"></div></div>
+  <div class="grid"></div>
+  <div class="top"><span>@perfil</span><span class="count"><b>01</b> / 07</span></div>
+  <div class="body">
+    <h1 class="title">Você não está procrastinando porque é <span class="strike">preguiçoso.</span></h1>
+    <p class="lead" style="margin-top:32px">Na maioria das vezes, você está com <span class="acc">medo de começar.</span><br>E esse medo tem nome.</p>
+  </div>
+  <div class="foot"><span class="go">Arraste <svg><use href="#long"/></svg></span></div>
+</section>
+
+<!-- 2. Slide interno -->
+<section class="art">
+  <div class="grid"></div><div class="glow" style="width:700px;height:700px;left:560px;top:-320px"></div>
+  <div class="top"><span class="brand"><svg><use href="#crown"/></svg><span>Kingdom <b>In</b>Company</span></span><span class="count"><b>05</b> / 07</span></div>
+  <div class="body">
+    <div class="eyebrow">Plano de 10 minutos</div>
+    <h2 class="title">Faça isso hoje</h2>
+    <ol class="steps"><li>Escolha uma tarefa que vem adiando.</li><li>Marque 10 minutos no relógio.</li><li>Afaste o telemóvel.</li><li>Comece, mesmo com medo.</li></ol>
+    <p class="lead" style="margin-top:40px">Não precisa terminar tudo hoje. <strong>Cada começo conta.</strong></p>
+  </div>
+  <div class="foot"><span>E dá para começar ainda hoje.</span><span class="go">Arraste <svg><use href="#long"/></svg></span></div>
+</section>
+
+<!-- 3. Estático -->
+<section class="art static">
+  <div class="grid"></div><div class="glow" style="width:800px;height:800px;left:-200px;top:-300px"></div>
+  <div class="top"><span class="brand"><svg><use href="#crown"/></svg><span>Kingdom <b>In</b>Company</span></span></div>
+  <div class="body">
+    <h2 class="title">Agenda cheia não é sinal de <span class="acc">importância.</span></h2>
+    <div class="rule"></div>
+    <p class="lead">Estar ocupado não é o mesmo que avançar. <strong>Proteja o tempo do que move o negócio.</strong></p>
+  </div>
+  <div class="sign"><span>@perfil</span><span>Assessoria e treinamento empresarial</span></div>
+</section>
+
+<!-- 4. Último slide (CTA) -->
+<section class="art">
+  <div class="grid"></div><div class="glow" style="width:900px;height:900px;left:380px;top:-380px"></div>
+  <div class="top"><span class="brand"><svg><use href="#crown"/></svg><span>Kingdom <b>In</b>Company</span></span><span class="count"><b>07</b> / 07</span></div>
+  <div class="body">
+    <div class="eyebrow">Antes de sair</div>
+    <h2 class="title">O medo pode até aparecer. <span class="acc">Mas não decide por você.</span></h2>
+    <div class="cards">
+      <div class="card"><span class="ic"><svg><use href="#save"/></svg></span><p><strong>Salve este post</strong> para reler quando estiver adiando algo importante.</p></div>
+      <div class="card"><span class="ic"><svg><use href="#chat"/></svg></span><p>Comente <span class="pill">EU VOU COMEÇAR</span> e diga qual tarefa começa hoje.</p></div>
+    </div>
+  </div>
+  <div class="sign"><span>@perfil</span><span>Kingdom InCompany</span></div>
+</section>
+</body>
+</html>
