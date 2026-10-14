@@ -12,6 +12,8 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 | O quê | Onde |
 |---|---|
 | Documento-base (Drive) | SOCIAL MEDIA - OPUS 5 / 01. Kingdom Founders / 00. Base Estratégica / "Base Estratégica \| Kingdom Founders \| v1.0" (Doc `15TJbxYRbhuyFaQGEl0xiMKqVBaN2d-kCaDc_NJuH6Ms`, pasta `1xSW5azBBy-Czj77TGsP4Buv-3ho4Gitj`) |
+| Linha Editorial (Drive) | mesma pasta: "APROVADO \| Linha Editorial \| Kingdom Founders \| v1.0" (Doc `128aSadxDIsg6UybvOLol45WunMvivGO5hHtb2yGO5hs`) |
+| Ideias de Conteúdo (Notion) | base de dados `22a60e2fbe2b408d900a68bccda89351`, data source `collection://0027e540-aab6-46d9-bfe7-7b20c5df80c7`; vistas tabela, "Por estado" e "Calendário". Cópia da base do utilizador "📒 Ideias de Conteúdo" (`2e129df4bfa883f994480163262aea94`) com Pilar, Funil e Série a mais |
 | Raiz Social Media (Drive) | `1xxX_1mQbos3R2JX6upSJLtgz9fTCdG_X`; pasta da marca `18RrVtaT7qhpdTwllDvF3jd_vLBKVFvLo` |
 | Brand Book (27 páginas) | `content/brand/founders/brand-book.html` → `Kingdom-Founders-Brand-Book.pdf` |
 | Tokens e fontes | `content/brand/founders/brand.css` |
@@ -56,6 +58,20 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 - Post 1080×1350: margens laterais 90 px, número centrado a 92 px do topo, foto nos primeiros 1060 px com rosto no terço superior, texto a partir de 55% da altura até 240 px do fundo, máx. 45 palavras por slide. Caixa alta só no estilo C, chamada e etiquetas.
 - Fotografia: pessoas reais das sessões, ambiente escuro, luz âmbar, olhar fora da câmara. Nunca banco de imagens nem texto sobre rostos.
 
+## Linha editorial (aprovada a 14/10/2026)
+
+- 6 publicações/semana. A equipa (Claude) produz **seg, qua, sex**: semana ímpar Carrossel-Estático-Carrossel, semana par Estático-Carrossel-Estático. Os **3 Reels** são do Shelton: deixar os dias vazios, não criar linhas nem copy para eles.
+- Funil sempre **40% topo / 40% meio / 20% fundo** (em cada 10: 4/4/2). Topo = alcance; meio = autoridade, educativo denso; fundo = conversão para a aplicação.
+- Séries fixas: Bloqueios Invisíveis (DP, meio, carrossel A), Princípios do Reino (Esp, topo, estático A), Prosperidade com Princípios (Esp, meio, carrossel B), Mentalidade de Governo (Neg, meio, carrossel B), Verdade Incómoda (topo, estático C), Dentro da Founders (fundo).
+- Versículos: Almeida Revista e Corrigida, com referência. Depoimentos só reais e autorizados.
+
+## Fluxo das referências (Notion)
+
+1. O utilizador adiciona referências na base "Ideias de Conteúdo · Kingdom Founders" (Conteúdo, Referência, às vezes Assunto/Formato).
+2. O Claude lê as linhas em "Brainstorming" sem Pilar e preenche **Pilar, Funil, Série, Formato, Categoria, Assunto** e a **Data de Publicação** (só seg/qua/sex, respeitando a alternância de formatos, 30/40/30 nos pilares, 40/40/20 no funil e nunca dois estilos C seguidos). Não publica nada nem muda o Status para Publicado.
+3. As copies seguem o conteúdo das referências (não inventar temas fora delas); o calendário-modelo da Linha Editorial é só exemplo.
+4. Links do YouTube/Instagram/LinkedIn não abrem neste ambiente: usar o título, o texto da página no Notion e o que o utilizador escrever; se faltar contexto, perguntar.
+
 ## Instagram
 
 - @kingdomfounderss · "KINGDOM FOUNDERS | MENTORIA" · Formação · founders.kingdomcompny.com.
@@ -73,4 +89,5 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.1 | Linha editorial aprovada; base Notion "Ideias de Conteúdo · Kingdom Founders" criada para as referências. |
 | 14/10/2026 | 1.0 | Base aprovada: marca, avatar, Mago com voz de Sábio, pilares 30/40/30, estilos A/B/C, perfil Instagram, símbolo SVG. |
