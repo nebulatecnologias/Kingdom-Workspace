@@ -80,6 +80,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito que conhecias" e "O que é a mentoria Kingdom Founders". Vale sobretudo para os educativos de meio de funil.
 
+- **Gancho que quebra o scroll.** O título da capa (e do estático) prende-se a uma **dor**, um **desejo** ou uma **dúvida** que o conteúdo resolve: cenas concretas do leitor ("Se um mês mau te faz duvidar de quem és…", "Se o teu negócio para quando tu paras…"), perguntas incómodas ou uma afirmação que contraria o que ele pensa. Nunca um título descritivo ("5 elementos da liderança"). Na copy, indicar o tipo de gancho e propor 2 alternativas nas notas. O estático leva gancho em cima e o versículo/texto por baixo.
 - **Narrativa, não frases soltas.** O carrossel é um texto contínuo, cortado em slides. Cada slide fecha com uma **frase-ponte** isolada que abre o seguinte: "Mas o motivo foi forte demais para ignorar…", "E a pergunta que sempre vinha era:", "E a decisão chegou.", "Através de uma combinação entre". O slide seguinte começa a responder a essa ponte.
 - **Arco:** gancho na capa com um laço aberto → identificação (situações ou perguntas em que o leitor se reconhece) → tensão/custo do problema → a virada (a afirmação central, em destaque) → o nome do conceito ou a causa real (causa vs efeito) → o desenvolvimento por pontos → aplicação ou convite.
 - **Resumir sem matar o desenvolvimento:** cada ensinamento da referência ganha explicação e consequência, não só um título.
@@ -104,6 +105,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.6 | Ganchos ligados a dor, desejo ou dúvida, com 2 alternativas por post. |
 | 14/10/2026 | 1.5 | Leitor não é "founder" (só os membros da mentoria); usar "tu" ou "empreendedor". |
 | 14/10/2026 | 1.4 | Vermelho só quando necessário; dados do The Legacy não se usam (edição especial passada). |
 | 14/10/2026 | 1.3 | Padrão de escrita dos carrosséis (narrativa com frases-ponte); copy em Claude Docs; sem créditos às referências. |
