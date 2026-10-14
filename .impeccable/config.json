@@ -143,6 +143,51 @@
         ],
         "createdAt": "2026-10-14T05:50:38.159Z",
         "reason": "user confirmed: asked for all titles in uppercase; flagged elements are the slide-2 fear lines and slide-3 quote, which are display titles, not body text"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "content/design-systems/inc/board.html"
+        ],
+        "createdAt": "2026-10-14T08:55:53.159Z",
+        "reason": "Artboards 1080x1350 are full-bleed by design; their children are absolutely positioned with an 88px inset"
+      },
+      {
+        "rule": "oversized-h1",
+        "value": "*",
+        "files": [
+          "content/design-systems/inc/board.html"
+        ],
+        "createdAt": "2026-10-14T08:55:53.173Z",
+        "reason": "Carousel cover hook on a 1080x1350 canvas (~41px on a phone), same treatment the user approved in Carrossel 1"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "content/design-systems/trn/board.html"
+        ],
+        "createdAt": "2026-10-14T08:55:53.187Z",
+        "reason": "Artboards 1080x1350 are full-bleed by design; their children are absolutely positioned with an 88px inset"
+      },
+      {
+        "rule": "oversized-h1",
+        "value": "*",
+        "files": [
+          "content/design-systems/trn/board.html"
+        ],
+        "createdAt": "2026-10-14T08:55:53.200Z",
+        "reason": "Carousel cover hook on a 1080x1350 canvas (~41px on a phone), same treatment the user approved in Carrossel 1"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "content/design-systems/inc/board.html"
+        ],
+        "createdAt": "2026-10-14T08:55:53.213Z",
+        "reason": "Kingdom InCompany design system defines the orange glow backdrop; user approved it in Carrossel 1"
       }
     ]
   }
