@@ -21,7 +21,7 @@ const open = async (file, viewport) => {
 };
 if (what.includes('templates')) {
   mkdirSync(path.join(dir, 'templates'), { recursive: true });
-  const page = await open('templates.html', { width: 4700, height: 1430 });
+  const page = await open('templates.html', { width: 8000, height: 1430 });
   const posts = await page.$$('.post');
   for (let i = 0; i < posts.length; i++) await posts[i].screenshot({ path: path.join(dir, 'templates', `${String(i + 1).padStart(2, '0')}.png`) });
   await page.close();
