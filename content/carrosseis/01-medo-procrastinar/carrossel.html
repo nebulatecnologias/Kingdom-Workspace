@@ -15,16 +15,8 @@
   src:url(fonts/google-sans-latin.woff2) format('woff2');
 }
 @font-face{
-  font-family:'Barlow Condensed'; font-style:normal; font-weight:700; font-display:block;
-  src:url(fonts/barlow-condensed-700-latin.woff2) format('woff2');
-}
-@font-face{
-  font-family:'Crimson Pro'; font-style:normal; font-weight:400; font-display:block;
-  src:url(fonts/crimson-pro-latin.woff2) format('woff2');
-}
-@font-face{
-  font-family:'Crimson Pro'; font-style:italic; font-weight:400; font-display:block;
-  src:url(fonts/crimson-pro-italic-latin.woff2) format('woff2');
+  font-family:'Google Sans Flex'; font-style:normal; font-weight:900; font-display:block;
+  src:url(fonts/google-sans-flex-900-latin.woff2) format('woff2');
 }
 :root{
   --bg:#0C0C0F; --bg-raise:#131317; --bg-raise-2:#1A1A20; --black:#010104;
@@ -32,8 +24,7 @@
   --white:#FFFFFF; --grey:#D2D2D2; --muted:rgba(255,255,255,.58); --muted-2:rgba(255,255,255,.38);
   --line:rgba(255,255,255,.11); --line-soft:rgba(255,255,255,.06);
   --font:'Google Sans', Arial, sans-serif;
-  --display:'Barlow Condensed', 'Arial Narrow', sans-serif;  /* titulos: caixa alta, condensado */
-  --serif:'Crimson Pro', Georgia, serif;                        /* subtitulos */
+  --display:'Google Sans Flex', 'Google Sans', Arial, sans-serif;  /* titulos: Black, caixa alta */
   --pad:88px;
 }
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -65,13 +56,13 @@ body{ width:7560px; height:1350px; overflow:hidden; font-family:var(--font); col
 .eyebrow::before{ content:""; width:12px; height:12px; border-radius:50%; background:var(--accent);
   box-shadow:0 0 0 7px var(--accent-dim); }
 
-h1,h2{ font-family:var(--display); font-weight:700; letter-spacing:-0.01em; text-transform:uppercase; color:var(--white); }
-h1{ font-size:124px; line-height:.98; }
-h2{ font-size:92px; line-height:.98; }
+h1,h2{ font-family:var(--display); font-weight:900; letter-spacing:-0.035em; text-transform:uppercase; text-wrap:balance; color:var(--white); }
+h1{ font-size:96px; line-height:1; }
+h2{ font-size:66px; line-height:1.04; }
 .acc{ color:var(--accent); }
-.lead{ font-family:var(--serif); font-size:48px; line-height:1.2; letter-spacing:0; color:rgba(255,255,255,.72); font-weight:400; }
+.lead{ font-size:42px; line-height:1.3; letter-spacing:-0.02em; color:rgba(255,255,255,.72); font-weight:400; }
 .lead strong{ color:var(--white); font-weight:400; }
-.lead .acc{ font-style:italic; color:var(--accent); white-space:nowrap; }
+.lead .acc{ color:var(--accent); white-space:nowrap; }
 .small{ font-size:38px; line-height:1.35; letter-spacing:-0.02em; color:var(--muted); }
 .small strong{ color:var(--white); font-weight:400; }
 
@@ -90,11 +81,11 @@ h2{ font-size:92px; line-height:.98; }
 
 /* slide 2: os quatro medos */
 .fears{ display:flex; flex-direction:column; gap:18px; margin-bottom:56px; }
-.fears li{ list-style:none; font-family:var(--serif); font-size:70px; line-height:1.05; letter-spacing:-0.01em; font-weight:400; }
+.fears li{ list-style:none; font-size:62px; line-height:1.1; letter-spacing:-0.03em; font-weight:400; }
 .fears li span{ color:var(--muted-2); }
 
 /* slide 3: a mentira */
-.quote{ font-family:var(--serif); font-style:italic; font-size:136px; line-height:1; letter-spacing:-0.02em; font-weight:400; margin:34px 0 56px;
+.quote{ font-size:118px; line-height:1.02; letter-spacing:-0.045em; font-weight:400; margin:34px 0 56px;
   padding:42px 0 46px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 .quote .q{ color:var(--accent); }
 
@@ -154,8 +145,8 @@ h2{ font-size:92px; line-height:.98; }
     radial-gradient(55% 35% at 100% 0%, rgba(255,96,0,.3), transparent 70%),
     linear-gradient(180deg, rgba(12,12,15,.6) 0%, rgba(12,12,15,0) 16%, rgba(12,12,15,.1) 42%, rgba(12,12,15,.8) 60%, #0C0C0F 74%),
     linear-gradient(90deg, transparent 88%, #0C0C0F 100%); }
-.slide.cover .body{ top:auto; bottom:190px; }
-.slide.cover h1{ font-size:118px; line-height:.98; }
+.slide.cover .body{ top:auto; bottom:168px; left:64px; right:64px; text-align:center; }
+.slide.cover h1{ font-size:92px; line-height:1.04; }
 .handle{ font-size:28px; letter-spacing:-0.01em; color:var(--white); }
 </style>
 </head>
@@ -190,7 +181,7 @@ h2{ font-size:92px; line-height:.98; }
     </div>
     <div class="body">
       <h1>Você não está procrastinando porque é <span class="strike">preguiçoso.</span></h1>
-      <p class="lead" style="margin-top:40px">Na maioria das vezes, você está com <strong class="acc">medo de começar.</strong><br>E esse medo tem nome.</p>
+      <p class="lead" style="margin-top:32px">Na maioria das vezes, você está com <strong class="acc">medo de começar.</strong><br>E esse medo tem nome.</p>
     </div>
     <div class="foot">
       <div class="go"><span>Arraste</span><svg><use href="#i-long"/></svg></div>
@@ -266,7 +257,7 @@ h2{ font-size:92px; line-height:.98; }
     </div>
     <div class="body">
       <div class="eyebrow">O método</div>
-      <h2 style="font-size:88px">A resposta precisa ser <span class="acc">pequena o suficiente</span> para não assustar.</h2>
+      <h2 style="font-size:64px">A resposta precisa ser <span class="acc">pequena o suficiente</span> para não assustar.</h2>
       <div class="pairs">
         <div class="pair"><span class="no">Não escreva o projeto inteiro.</span><span class="arr"><svg><use href="#i-arrow"/></svg></span><span class="yes">Escreva o primeiro parágrafo.</span></div>
         <div class="pair"><span class="no">Não estude três horas.</span><span class="arr"><svg><use href="#i-arrow"/></svg></span><span class="yes">Estude dez minutos.</span></div>
