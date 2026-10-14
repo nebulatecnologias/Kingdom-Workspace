@@ -71,8 +71,19 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 1. As referências chegam por duas vias: folhas do Manus 2.0 na pasta "REFERENCIAS - MANUS 2.0" (o Claude copia-as para o Notion, completando as linhas que o utilizador já tenha começado em vez de as duplicar) ou o utilizador adiciona-as diretamente na base "Ideias de Conteúdo · Kingdom Founders" (título na coluna "Titulo do Conteúdo", Referência, às vezes Assunto/Formato), com **Resumo da Ideia** (2 a 3 frases) e **Principais Ensinamentos** (3 a 5, um por linha). Estas duas colunas são a fonte principal da copy; se estiverem vazias, pedir ao utilizador antes de escrever.
 2. O Claude lê as linhas em "Brainstorming" sem Pilar e preenche **Pilar, Funil, Série, Formato, Categoria, Assunto** e a **Data de Publicação** (só seg/qua/sex, respeitando a alternância de formatos, 30/40/30 nos pilares, 40/40/20 no funil e nunca dois estilos C seguidos). Não publica nada nem muda o Status para Publicado.
 3. As copies seguem o conteúdo das referências (não inventar temas fora delas); o calendário-modelo da Linha Editorial é só exemplo.
-4. Copy: um documento Claude Docs por post (Ficha, Slides ou Arte, Legenda, Notas para o design), por semana de publicação. Só depois de o utilizador aprovar é que o link de cada documento vai para a coluna **Script** da linha no Notion. Legendas terminam com "Inspirado no ensino do Dr. Myles Munroe." quando a referência é dele (a confirmar pelo utilizador).
+4. Copy: um documento Claude Docs por post (Ficha, Slides ou Arte, Legenda, Notas para o design), por semana de publicação. Só depois de o utilizador aprovar é que o link de cada documento vai para a coluna **Script** da linha no Notion. Sem créditos ao autor da referência (decisão do utilizador, 14/10/2026).
 5. Links do YouTube/Instagram/LinkedIn não abrem neste ambiente: usar o título, o texto da página no Notion e o que o utilizador escrever; se faltar contexto, perguntar.
+
+## Escrita dos carrosséis (padrão do utilizador)
+
+Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito que conhecias" e "O que é a mentoria Kingdom Founders". Vale sobretudo para os educativos de meio de funil.
+
+- **Narrativa, não frases soltas.** O carrossel é um texto contínuo, cortado em slides. Cada slide fecha com uma **frase-ponte** isolada que abre o seguinte: "Mas o motivo foi forte demais para ignorar…", "E a pergunta que sempre vinha era:", "E a decisão chegou.", "Através de uma combinação entre". O slide seguinte começa a responder a essa ponte.
+- **Arco:** gancho na capa com um laço aberto → identificação (situações ou perguntas em que o leitor se reconhece) → tensão/custo do problema → a virada (a afirmação central, em destaque) → o nome do conceito ou a causa real (causa vs efeito) → o desenvolvimento por pontos → aplicação ou convite.
+- **Resumir sem matar o desenvolvimento:** cada ensinamento da referência ganha explicação e consequência, não só um título.
+- **Ritmo:** parágrafos de 1 a 3 frases, frases curtas, ponte sozinha na última linha. Os slides de texto podem passar das 45 palavras (60 a 90 é normal); o corpo desce para 30 a 32 px.
+- **Destaques:** a frase central de cada slide em dourado (negrito na copy). Nos carrosséis de referência a dor aparece em vermelho; no feed da Founders usar só dourado salvo indicação contrária.
+- **CTA de meio de funil:** guardar, partilhar ou comentar com uma pergunta concreta; sem botão de aplicação.
 
 ## Instagram
 
@@ -91,6 +102,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.3 | Padrão de escrita dos carrosséis (narrativa com frases-ponte); copy em Claude Docs; sem créditos às referências. |
 | 14/10/2026 | 1.2 | 12 referências Myles Munroe (Manus 2.0) no Notion, agendadas de 19/10 a 13/11/2026: pilares 4/5/3, funil 5/5/2. |
 | 14/10/2026 | 1.1 | Linha editorial aprovada; base Notion "Ideias de Conteúdo · Kingdom Founders" criada para as referências. |
 | 14/10/2026 | 1.0 | Base aprovada: marca, avatar, Mago com voz de Sábio, pilares 30/40/30, estilos A/B/C, perfil Instagram, símbolo SVG. |
