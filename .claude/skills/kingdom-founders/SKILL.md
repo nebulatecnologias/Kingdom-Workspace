@@ -61,6 +61,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
   - **C Cartão claro:** fundo branco, Aptos Regular caixa alta + destaque Aptos Black (`.card-c`), à esquerda, botão dourado. Para ganchos diretos sem foto.
 - Post 1080×1350: margens laterais 90 px, número centrado a 92 px do topo, foto nos primeiros 1060 px com rosto no terço superior, texto a partir de 55% da altura até 240 px do fundo, máx. 45 palavras por slide. Caixa alta só no estilo C, chamada e etiquetas.
 - **Capa com foto (padrão aprovado a 14/10/2026, capa de 19/10 "Quem sou eu?"):** foto nos primeiros 1060 px com o rosto no terço superior; título em **Aptos Bold** (700) a ~92 px, centrado, 3 linhas curtas; a primeira linha em Névoa e as outras em branco; **Instrument Serif itálico dourado na palavra-chave do gancho** (a que nomeia a dor ou a virada, ex.: "*problema*"), não necessariamente a última palavra; subtítulo de 2 a 3 linhas a 34 px logo por baixo (34 px de distância) com o laço aberto e o fim a branco semibold; título e subtítulo como um bloco, a 262 px do fundo; "ARRASTE PARA ENTENDER" a 84 px do fundo. Código de referência: `content/founders/semana-01/index.html`, slide `2026-10-19-quem-sou-eu/01.png`.
+- **Estático de frase única (regra do utilizador, 14/10/2026; aplica-se a Princípios do Reino e a estáticos de frase):** a arte tem **uma só frase**, sem etiqueta ("Princípios do Reino" sai), sem título + versículo + aplicação. Estilo das referências em `content/brand/founders/referencias-frases/` (01 a 04): afirmação direta e provocadora, em frase corrida, 1 a 3 frases curtas, até ~25 palavras, que contraria o que o leitor pensa e fecha com uma viragem ("Vem por último."). Design: fundo preto com luz âmbar no topo, Aptos Regular branco a ~92 px alinhado à esquerda, a frase final numa linha própria em Aptos SemiBold dourado, símbolo pequeno em baixo. O versículo e a referência passam para a legenda. Exemplo aprovado: 21/10 "Se Deus só fica com o tempo que sobra, Ele não vem primeiro na tua vida. Vem por último."
 - **Nunca usar fotos que o utilizador não enviou para o post** (nem as do site): deixar placeholder (`.ph` com a descrição da foto pretendida) até ele as enviar.
 - Fotografia: pessoas reais das sessões, ambiente escuro, luz âmbar, olhar fora da câmara. Nunca banco de imagens nem texto sobre rostos.
 
@@ -80,7 +81,7 @@ Referências do utilizador em `content/brand/founders/referencias-imagem/` (01 c
 
 - 6 publicações/semana. A equipa (Claude) produz **seg, qua, sex**: semana ímpar Carrossel-Estático-Carrossel, semana par Estático-Carrossel-Estático. Os **3 Reels** são do Shelton: deixar os dias vazios, não criar linhas nem copy para eles.
 - Funil sempre **40% topo / 40% meio / 20% fundo** (em cada 10: 4/4/2). Topo = alcance; meio = autoridade, educativo denso; fundo = conversão para a aplicação.
-- Séries fixas: Bloqueios Invisíveis (DP, meio, carrossel A), Princípios do Reino (Esp, topo, estático A), Prosperidade com Princípios (Esp, meio, carrossel B), Mentalidade de Governo (Neg, meio, carrossel B), Verdade Incómoda (topo, estático C), Dentro da Founders (fundo).
+- Séries fixas: Bloqueios Invisíveis (DP, meio, carrossel A), Princípios do Reino (Esp, topo, estático de frase única), Prosperidade com Princípios (Esp, meio, carrossel B), Mentalidade de Governo (Neg, meio, carrossel B), Verdade Incómoda (topo, estático C), Dentro da Founders (fundo).
 - Versículos: Almeida Revista e Corrigida, com referência. Depoimentos só reais e autorizados.
 
 ## Notas de séries
@@ -139,6 +140,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.17 | Estáticos de frase única: sem etiqueta, uma só frase provocadora, versículo na legenda (referências em referencias-frases). |
 | 14/10/2026 | 1.16 | Padrão da capa com foto: título Aptos Bold ~92 px, Instrument Serif na palavra-chave, bloco título+subtítulo a 262 px do fundo. |
 | 14/10/2026 | 1.15 | Carrosséis com 10 slides: texto dividido (25 a 50 palavras por slide) com pontes novas; corpo 42 px. Modelo de meio de funil atualizado. |
 | 14/10/2026 | 1.14 | Sem Drive para imagens: ChatGPT gera e avisa, utilizador envia ao Claude, PNG finais entregues no chat. |

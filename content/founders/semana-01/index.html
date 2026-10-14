@@ -59,6 +59,9 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 .save svg{ width:28px; height:28px; }
 .handle.c{ left:0; right:0; text-align:center; }
 
+/* Estático de frase única (sem etiqueta, sem versículo na arte) */
+.frase{ position:absolute; left:100px; right:100px; top:0; bottom:0; display:flex; align-items:center; font-size:92px; line-height:1.1; letter-spacing:-0.035em; font-weight:400; color:var(--white); }
+.frase b{ display:block; margin-top:40px; font-weight:600; color:var(--gold); }
 /* Estático Princípios do Reino */
 .reino{ position:absolute; left:110px; right:110px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 .label{ font-size:24px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
@@ -193,14 +196,7 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 <!-- ============ 21/10 · Estático · Princípios do Reino ============ -->
 <section class="post" data-file="2026-10-21-buscai-primeiro-o-reino/01.png">
   <div class="glow"></div>
-  <div class="reino">
-    <div class="label">Princípios do Reino</div>
-    <div class="rule"></div>
-    <div class="ttl" style="--ts:80px"><div class="t1">A tua agenda revela</div><div>o que vem <span class="it">primeiro</span></div><div>na tua vida.</div></div>
-    <p class="verse2">“Mas, buscai primeiro o Reino de Deus, e a sua justiça, e todas estas coisas vos serão acrescentadas.”</p>
-    <p class="ref2">Mateus 6:33</p>
-    <p class="apply">Não é fazer menos. É pôr <b>a ordem certa.</b></p>
-  </div>
+  <div class="frase"><p>Se Deus só fica com o tempo que sobra, Ele não vem primeiro na tua vida. <b>Vem por último.</b></p></div>
   <img class="sym" src="../../brand/founders/assets/kingdom-founders-simbolo.svg" alt="">
 </section>
 
