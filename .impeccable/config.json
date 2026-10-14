@@ -188,6 +188,69 @@
         ],
         "createdAt": "2026-10-14T08:55:53.213Z",
         "reason": "Kingdom InCompany design system defines the orange glow backdrop; user approved it in Carrossel 1"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "content/brand/founders/brand-book.html"
+        ],
+        "createdAt": "2026-10-14T10:00:52.805Z",
+        "reason": "user confirmed: user specified Instrument Serif (with Aptos) as the Kingdom Founders brand fonts"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "content/brand/founders/brand-book.html"
+        ],
+        "createdAt": "2026-10-14T10:00:52.819Z",
+        "reason": "Full-bleed 1920x1080 pages and 1080x1350 posts; children are absolutely positioned with their own insets"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "content/brand/founders/brand-book.html"
+        ],
+        "createdAt": "2026-10-14T10:00:52.831Z",
+        "reason": "Flagged lines are large display serif quotes/verses (64-74px); body text uses 1.38-1.5"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "content/brand/founders/templates.html"
+        ],
+        "createdAt": "2026-10-14T10:00:52.846Z",
+        "reason": "user confirmed: user specified Instrument Serif (with Aptos) as the Kingdom Founders brand fonts"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "content/brand/founders/templates.html"
+        ],
+        "createdAt": "2026-10-14T10:00:52.861Z",
+        "reason": "Full-bleed 1920x1080 pages and 1080x1350 posts; children are absolutely positioned with their own insets"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "content/brand/founders/templates.html"
+        ],
+        "createdAt": "2026-10-14T10:00:52.877Z",
+        "reason": "Flagged lines are large display serif quotes/verses (64-74px); body text uses 1.38-1.5"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "content/brand/founders/brand-book.html"
+        ],
+        "createdAt": "2026-10-14T10:00:52.890Z",
+        "reason": "Flagged text is a short uppercase eyebrow label, the brand book's own label style"
       }
     ]
   }

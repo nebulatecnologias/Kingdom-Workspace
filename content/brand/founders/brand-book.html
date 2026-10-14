@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="pt-MZ">
+<head>
+<meta charset="utf-8">
+<title>Kingdom Founders: Brand Book</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+/* Brand Book Kingdom Founders: páginas 1920x1080, exportadas para PDF por render.mjs. */
+@page{ size:1920px 1080px; margin:0; }
+html,body{ background:#222; }
+.page{ position:relative; width:1920px; height:1080px; overflow:hidden; background:var(--ink); color:var(--white); padding:150px 140px 120px; page-break-after:always; break-after:page; }
+.page.sand{ background:var(--sand); color:var(--ink); }
+.page.black{ background:var(--black); }
+.hd{ position:absolute; left:140px; right:140px; top:56px; display:flex; justify-content:space-between; font-size:18px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.42); }
+.sand .hd{ color:rgba(12,12,15,.5); }
+.hd b{ color:var(--gold); font-weight:600; }
+.sand .hd b{ color:#8C6A2E; }
+h1{ font-family:var(--serif); font-weight:400; font-size:104px; line-height:1; letter-spacing:-0.015em; }
+h2{ font-family:var(--serif); font-weight:400; font-size:72px; line-height:1.04; letter-spacing:-0.01em; }
+.h3{ font-weight:600; font-size:30px; letter-spacing:-0.01em; margin-bottom:14px; }
+.lede{ font-size:32px; line-height:1.42; color:rgba(255,255,255,.78); max-width:1150px; margin-top:34px; }
+.sand .lede{ color:rgba(12,12,15,.72); }
+p,li{ font-size:24px; line-height:1.5; color:rgba(255,255,255,.76); }
+.sand p,.sand li{ color:rgba(12,12,15,.74); }
+.k{ font-size:17px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:18px; }
+.sand .k{ color:#8C6A2E; }
+.grid{ display:grid; gap:48px; margin-top:70px; }
+.g2{ grid-template-columns:1fr 1fr; } .g3{ grid-template-columns:repeat(3,1fr); } .g4{ grid-template-columns:repeat(4,1fr); }
+.card{ background:var(--surface); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:40px; }
+.sand .card{ background:rgba(255,255,255,.5); border-color:rgba(12,12,15,.08); }
+ul.clean{ list-style:none; } ul.clean li{ padding:10px 0 10px 30px; position:relative; }
+ul.clean li::before{ content:""; position:absolute; left:0; top:24px; width:12px; height:1.5px; background:var(--gold); }
+.yes li::before{ background:#7FB77E; } .no li::before{ background:#D9776C; }
+.big{ font-family:var(--serif); font-size:150px; line-height:.9; color:var(--gold); }
+.tag{ display:inline-block; border:1px solid rgba(194,157,90,.5); color:var(--gold-light); border-radius:999px; padding:10px 22px; font-size:22px; margin:0 10px 14px 0; }
+.foot{ position:absolute; left:140px; right:140px; bottom:48px; font-size:16px; color:rgba(255,255,255,.35); letter-spacing:.04em; }
+.sand .foot{ color:rgba(12,12,15,.45); }
+.quote{ font-family:var(--serif); font-size:64px; line-height:1.12; color:var(--white); max-width:1400px; }
+/* capa e aberturas */
+.cover{ padding:0; }
+.cover img.bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.55; }
+.cover .shade{ position:absolute; inset:0; background:linear-gradient(90deg,rgba(12,12,15,.95) 0%,rgba(12,12,15,.75) 45%,rgba(12,12,15,.2) 100%), linear-gradient(180deg,rgba(122,74,18,.35),rgba(0,0,0,0) 40%); }
+.cover .in{ position:absolute; left:140px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; }
+.opener .num{ font-family:var(--serif); font-style:italic; font-size:360px; line-height:.8; color:var(--gold); }
+.opener h1{ font-size:150px; margin-top:30px; }
+/* cores */
+.sw{ border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.1); }
+.sw .c{ height:260px; } .sw .t{ padding:24px 26px; background:var(--surface); }
+.sw .t b{ display:block; font-size:24px; font-weight:600; color:var(--white); margin-bottom:6px; }
+.sw .t span{ display:block; font-size:18px; line-height:1.5; color:rgba(255,255,255,.6); }
+.ratio{ display:flex; height:70px; border-radius:14px; overflow:hidden; margin-top:56px; }
+.ratio div{ display:flex; align-items:center; padding-left:22px; font-size:20px; font-weight:600; }
+/* tipografia */
+.spec{ display:grid; grid-template-columns:1fr 1.1fr; gap:80px; margin-top:60px; align-items:start; }
+.anno{ border-left:2px solid var(--gold); padding-left:28px; margin-bottom:34px; }
+.anno b{ display:block; font-size:24px; font-weight:600; color:var(--white); }
+.anno span{ font-size:20px; color:rgba(255,255,255,.6); line-height:1.5; display:block; }
+/* modelos */
+.shots{ display:flex; gap:36px; margin-top:60px; }
+.shots figure{ flex:1; } .shots img{ width:100%; border-radius:14px; display:block; }
+.shots figcaption{ font-size:20px; color:rgba(255,255,255,.6); margin-top:14px; }
+/* tricotomia */
+.tri{ position:relative; width:760px; height:700px; }
+.tri .circ{ position:absolute; width:440px; height:440px; border-radius:50%; border:2px solid var(--gold); display:flex; align-items:center; justify-content:center; text-align:center; padding:70px; background:rgba(194,157,90,.06); }
+.tri .circ b{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:40px; color:var(--gold-light); line-height:1.1; }
+.tri .core{ position:absolute; left:380px; top:330px; transform:translate(-50%,-50%); font-size:17px; line-height:1.3; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); font-weight:700; text-align:center; background:var(--gold); border-radius:999px; padding:14px 26px; white-space:nowrap; }
+table.tt{ width:100%; border-collapse:collapse; margin-top:50px; }
+table.tt td{ padding:18px 24px; font-size:23px; line-height:1.4; border-bottom:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.78); vertical-align:top; }
+table.tt th{ text-align:left; padding:0 24px 18px; font-size:17px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+table.tt td:nth-child(2){ color:var(--white); }
+.wrong{ position:relative; }
+.wrong::after{ content:"✕"; position:absolute; right:16px; top:12px; width:44px; height:44px; border-radius:50%; background:#D9776C; color:#fff; font-size:24px; display:flex; align-items:center; justify-content:center; }
+</style>
+</head>
+<body>
+
+<!-- 01 CAPA -->
+<section class="page cover">
+  <img class="bg" src="assets/01_hero-bg-img.webp" alt="">
+  <div class="shade"></div>
+  <div class="in">
+    <img src="assets/02_hero-logo.png" alt="Kingdom Founders" style="width:150px;height:150px">
+    <div class="k" style="margin-top:70px;font-size:22px">Kingdom Founders · Mentoria Kingdom Founders</div>
+    <h1 style="font-size:220px;line-height:.9">Brand <span class="it">Book</span></h1>
+    <p class="lede" style="max-width:900px">Identidade, voz e sistema visual para tudo o que a Kingdom Founders publica.</p>
+    <p style="margin-top:60px;color:rgba(255,255,255,.5)">Versão 1.0 · Outubro de 2026 · Kingdom Company</p>
+  </div>
+</section>
+
+<!-- 02 INDICE -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>Índice</span></div>
+  <h1>Índice</h1>
+  <div class="grid g3" style="margin-top:90px;gap:70px">
+    <div><div class="big">01</div><div class="h3" style="margin-top:20px">A marca</div><p>Essência · Oferta central · Metodologia da Tricotomia · Avatar · Para quem é · Transformação</p></div>
+    <div><div class="big">02</div><div class="h3" style="margin-top:20px">Personalidade</div><p>Arquétipo · Tom de voz · Vocabulário e frases-assinatura · Pilares de conteúdo</p></div>
+    <div><div class="big">03</div><div class="h3" style="margin-top:20px">Identidade visual</div><p>Logótipo · Cores · Tipografia · Regras de texto · Fotografia · Grelha do post · Modelos · Fazer e não fazer · Checklist</p></div>
+  </div>
+</section>
+
+<!-- 03 ABERTURA 01 -->
+<section class="page black opener">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>01 · A marca</span></div>
+  <div style="position:absolute;left:140px;top:240px">
+    <div class="num">01</div>
+    <h1>A <span class="it">marca</span></h1>
+  </div>
+  <p class="quote" style="position:absolute;left:1000px;right:140px;top:420px;font-size:56px">“O negócio que estás a construir exige uma versão de ti que ainda estás a <span class="it">tornar-te.</span>”</p>
+</section>
+
+<!-- 04 ESSENCIA -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>01 · Essência</span></div>
+  <h1>A pessoa por trás do <span class="it">negócio</span></h1>
+  <p class="lede">A Kingdom Founders não existe para dar mais informação. Existe para transformar quem és, alinhar o que estás a construir e desenvolver a estrutura necessária para sustentar o crescimento.</p>
+  <div class="grid g4" style="margin-top:80px">
+    <div class="card"><div class="k">O que é</div><p>Mentoria de 4 semanas para founders, criada pela Kingdom Company e conduzida por Shelton Douglas.</p></div>
+    <div class="card"><div class="k">Propósito</div><p>Ativar a identidade, governar as emoções, potenciar o propósito e transformar o negócio.</p></div>
+    <div class="card"><div class="k">Crença central</div><p>Os maiores bloqueios de um founder são invisíveis. Mais conhecimento técnico não os resolve.</p></div>
+    <div class="card"><div class="k">Promessa</div><p>Transformar bloqueios em clareza, disciplina, posicionamento e execução.</p></div>
+  </div>
+  <div class="foot">Fonte: founders.kingdomcompny.com</div>
+</section>
+
+<!-- 05 OFERTA -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>01 · Oferta central</span></div>
+  <h1>Oferta <span class="it">central</span></h1>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1.6fr;gap:56px;margin-top:80px;align-items:start">
+    <div><div class="big">8</div><div class="h3" style="margin-top:20px">Sessões ao vivo</div><p>Terças e quintas, 19h30, Google Meet privado, até 1h45.</p></div>
+    <div><div class="big">4</div><div class="h3" style="margin-top:20px">Semanas</div><p>Para identificar, trabalhar e consolidar novos padrões.</p></div>
+    <div><div class="big">33</div><div class="h3" style="margin-top:20px">Vagas por turma</div><p>Proximidade e uma rede de founders com ambição semelhante.</p></div>
+    <div class="card"><div class="k">Bónus do ecossistema Kingdom</div>
+      <ul class="clean"><li>1 ano na plataforma de cursos online</li><li>Destaque de 1 ano no marketplace de soluções</li><li>Acesso prioritário ao Mastermind Kingdom Tracktion</li><li>Templates de marketing, vendas e gestão</li><li>Founders Community depois da mentoria</li></ul></div>
+  </div>
+  <p class="lede" style="margin-top:70px;font-size:28px"><b style="color:var(--gold-light);font-weight:600">A entrada é por aplicação, não por pagamento.</b> Todo o conteúdo leva a uma ação: "Fazer a minha aplicação".</p>
+</section>
+
+<!-- 06 TRICOTOMIA -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>01 · Metodologia</span></div>
+  <div style="display:grid;grid-template-columns:1fr 820px;gap:60px">
+    <div>
+      <h1>A Metodologia da <span class="it">Tricotomia</span></h1>
+      <p class="lede">Resultados sustentáveis nascem do alinhamento entre três esferas. Quando uma está desalinhada, mais conhecimento técnico raramente resolve o problema.</p>
+      <div style="margin-top:56px">
+        <div class="anno"><b>01 Espiritualidade</b><span>Alinha-te com o propósito. Princípios para governar as decisões e a fé no centro do que se constrói.</span></div>
+        <div class="anno"><b>02 Desenvolvimento pessoal</b><span>Transforma aquilo que te trava: identidade, disciplina e inteligência emocional.</span></div>
+        <div class="anno"><b>03 Performance no negócio</b><span>Transforma clareza em resultados: posicionamento, marketing, vendas, gestão e estrutura.</span></div>
+      </div>
+    </div>
+    <div class="tri" style="margin-top:40px">
+      <div class="circ" style="left:160px;top:0;padding:40px 70px 170px"><b>Espiritualidade</b></div>
+      <div class="circ" style="left:0;top:260px;padding:150px 170px 40px 40px"><b>Desenvolvimento pessoal</b></div>
+      <div class="circ" style="left:320px;top:260px;padding:150px 40px 40px 170px"><b>Performance no negócio</b></div>
+      <div class="core" style="top:396px">Founder alinhado</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 AVATAR -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>01 · Avatar</span></div>
+  <h2>O founder que <span class="it">sabe</span> o que fazer, mas não avança</h2>
+  <div class="grid" style="grid-template-columns:1fr 1.3fr 1fr;margin-top:60px">
+    <div class="card"><div class="k">Quem é</div><p>Empreendedor moçambicano, com negócio ou projeto (mesmo em fase de ideia). Consome conteúdo e cursos. Tem fé ou procura propósito. Quer crescer no espiritual, no emocional e no negócio.</p></div>
+    <div class="card"><div class="k">Os sinais que vive</div><ul class="clean">
+      <li>Planeia, mas adia na hora de executar.</li>
+      <li>Sem ele, as vendas abrandam e tudo trava.</li>
+      <li>Trabalha muito, sem controlo das finanças.</li>
+      <li>Evita aparecer por medo do julgamento.</li>
+      <li>Procura validação antes de agir.</li>
+      <li>Meses bons seguidos de recuos sem explicação.</li></ul></div>
+    <div class="card"><div class="k">O que deseja</div><p>Clareza para decidir, disciplina para terminar o que começa, confiança para se posicionar, um negócio que não dependa só dele e fé, propósito e negócio alinhados.</p></div>
+  </div>
+  <div style="margin-top:40px"><div class="k">Bloqueios invisíveis</div>
+    <span class="tag">Perfeccionismo</span><span class="tag">Síndrome do impostor</span><span class="tag">Bloqueio de execução</span><span class="tag">Bloqueio de autoimagem</span><span class="tag">Necessidade de aprovação</span><span class="tag">Medo de rejeição</span><span class="tag">Mentalidade de escassez</span><span class="tag">Crenças limitantes</span><span class="tag">Autossabotagem</span></div>
+</section>
+
+<!-- 08 PARA QUEM -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>01 · Para quem é</span></div>
+  <h1>Esta mentoria não é para <span class="it">toda a gente</span></h1>
+  <p class="lede">Damos o método e acompanhamos de perto: isso é 20% do caminho. Os outros 80% são a execução de cada founder. O conteúdo atrai quem executa e afasta quem procura atalhos.</p>
+  <div class="grid g2" style="margin-top:60px">
+    <div class="card"><div class="k" style="color:#9CCB9B">Para quem é</div><ul class="clean yes">
+      <li>Quer resultados concretos, não mais conteúdo.</li><li>Aceita sair da zona de conforto.</li><li>Tem um negócio ou projeto, mesmo em fase de ideia.</li><li>Quer crescer nas três esferas em conjunto.</li><li>Aplica o que aprende entre sessões.</li></ul></div>
+    <div class="card"><div class="k" style="color:#E59A90">Para quem não é</div><ul class="clean no">
+      <li>Quer enriquecer da noite para o dia.</li><li>Espera uma fórmula mágica.</li><li>Quer assistir sem executar.</li><li>Não quer olhar com honestidade para os bloqueios emocionais e espirituais.</li></ul></div>
+  </div>
+</section>
+
+<!-- 09 TRANSFORMACAO -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>01 · Transformação</span></div>
+  <h2>Os mesmos desafios. Uma pessoa <span class="it">diferente</span> a enfrentá-los.</h2>
+  <table class="tt">
+    <tr><th>Antes da Kingdom Founders</th><th>Depois da Kingdom Founders</th></tr>
+    <tr><td>Sabe o que fazer, mas continua a adiar.</td><td>Transforma clareza em decisão e decisão em execução.</td></tr>
+    <tr><td>Começa projetos sem consistência.</td><td>Tem disciplina para terminar o que começa.</td></tr>
+    <tr><td>Tem medo de aparecer e posicionar-se.</td><td>Comunica com confiança e assume o posicionamento.</td></tr>
+    <tr><td>O negócio depende demasiado de si.</td><td>Cria processos para o negócio não depender de cada movimento seu.</td></tr>
+    <tr><td>Tenta resolver tudo sozinho.</td><td>Tem acompanhamento e uma comunidade de founders.</td></tr>
+    <tr><td>Falta clareza sobre o propósito.</td><td>Alinha fé, propósito e negócio para construir com direção.</td></tr>
+  </table>
+</section>
+
+<!-- 10 ABERTURA 02 + ARQUETIPO -->
+<section class="page black">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>02 · Personalidade</span></div>
+  <div class="k">02 · Arquétipo</div>
+  <h1>O <span class="it">Mago</span>, com a voz do Sábio</h1>
+  <div class="grid g2" style="margin-top:70px;gap:70px">
+    <div><div class="big" style="font-size:110px">Mago</div><div class="h3" style="margin-top:24px">Arquétipo principal: transformação</div>
+      <p>A marca promete mudar a pessoa, não acrescentar informação: "transformar quem és", "a tua identidade é ativada". O Mago revela o que está invisível (os bloqueios) e torna possível o que parecia travado.</p>
+      <p style="margin-top:18px;color:var(--gold-light)">No conteúdo: antes e depois, revelações, viradas de mentalidade, histórias de founders transformados.</p></div>
+    <div><div class="big" style="font-size:110px">Sábio</div><div class="h3" style="margin-top:24px">Arquétipo secundário: princípio e método</div>
+      <p>A transformação assenta num método (Tricotomia), em princípios do Reino e em 6 anos de experiência. O Sábio ensina com clareza, diagnostica com honestidade e fundamenta na Bíblia.</p>
+      <p style="margin-top:18px;color:var(--gold-light)">No conteúdo: princípios, versículos explicados, diagnósticos, frameworks práticos.</p></div>
+  </div>
+  <div class="foot" style="color:rgba(255,255,255,.45)">Proposta deduzida do site. Toque de Governante: "mentalidade de governo", estrutura e liderança.</div>
+</section>
+
+<!-- 11 TOM DE VOZ -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>02 · Tom de voz</span></div>
+  <h1>Tom de <span class="it">voz</span></h1>
+  <p class="lede">Falamos com o founder por "tu", como um mentor que acredita nele e por isso não lhe facilita a vida.</p>
+  <div class="grid g4" style="margin-top:60px;gap:32px">
+    <div class="card"><div class="k">Direto</div><p><b style="color:#fff;font-weight:600">É:</b> claro, sem rodeios.<br><b style="color:#fff;font-weight:600">Não é:</b> agressivo ou frio.</p><p style="margin-top:16px;color:var(--gold-light)">"Vamos ser diretos."</p></div>
+    <div class="card"><div class="k">Profundo</div><p><b style="color:#fff;font-weight:600">É:</b> vai à raiz, nomeia o invisível.<br><b style="color:#fff;font-weight:600">Não é:</b> superficial ou motivacional vazio.</p><p style="margin-top:16px;color:var(--gold-light)">"Como tomar paracetamol para curar a malária."</p></div>
+    <div class="card"><div class="k">Fé prática</div><p><b style="color:#fff;font-weight:600">É:</b> fé aplicada a decisões e negócio.<br><b style="color:#fff;font-weight:600">Não é:</b> sermão ou religiosidade.</p><p style="margin-top:16px;color:var(--gold-light)">"Coloca a tua fé no centro daquilo que estás a construir."</p></div>
+    <div class="card"><div class="k">Exigente</div><p><b style="color:#fff;font-weight:600">É:</b> responsabiliza para a execução.<br><b style="color:#fff;font-weight:600">Não é:</b> promessas fáceis.</p><p style="margin-top:16px;color:var(--gold-light)">"20% é o método. 80% é a tua execução."</p></div>
+  </div>
+  <p style="margin-top:44px">Português de Moçambique e de Portugal: <b style="color:#fff;font-weight:600">tu</b>, equipa, telemóvel, "estás a construir". Frases curtas. Metáforas do dia a dia moçambicano.</p>
+</section>
+
+<!-- 12 VOCABULARIO -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>02 · Vocabulário</span></div>
+  <h1>Palavras e <span class="it">frases-assinatura</span></h1>
+  <div class="grid" style="grid-template-columns:1fr 1fr 1.4fr;margin-top:60px">
+    <div class="card"><div class="k">Usar</div><span class="tag">founder</span><span class="tag">bloqueios invisíveis</span><span class="tag">execução</span><span class="tag">identidade</span><span class="tag">propósito</span><span class="tag">princípios do Reino</span><span class="tag">mentalidade de governo</span><span class="tag">tricotomia</span><span class="tag">clareza</span><span class="tag">estrutura</span></div>
+    <div class="card"><div class="k" style="color:#E59A90">Evitar</div><ul class="clean no"><li>"Enriquecer rápido", "dinheiro fácil"</li><li>"Fórmula mágica", "segredo"</li><li>Promessas de resultado garantido</li><li>Jargão em inglês quando há palavra portuguesa</li><li>Tom de sermão ou de culpa</li></ul></div>
+    <div class="card"><div class="k">Frases-assinatura</div><ul class="clean">
+      <li>Os maiores bloqueios de um founder são invisíveis.</li>
+      <li>Não basta ter uma visão. Precisas de te tornar capaz de a carregar.</li>
+      <li>Os mesmos desafios. Uma pessoa diferente a enfrentá-los.</li>
+      <li>O problema nunca foi falta de informação.</li>
+      <li>20% é o método. 80% é a tua execução.</li></ul></div>
+  </div>
+</section>
+
+<!-- 13 PILARES -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>02 · Pilares de conteúdo</span></div>
+  <h1>Pilares de <span class="it">conteúdo</span></h1>
+  <p class="lede" style="font-size:28px">Os três pilares espelham a Tricotomia. Em cada semana, os três aparecem; nenhum pilar fica mais de uma semana sem publicação.</p>
+  <div class="grid g3" style="margin-top:50px;gap:36px">
+    <div class="card"><div class="k">Pilar 1 · cerca de 30%</div><div class="h3" style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:44px;color:var(--gold-light)">Espiritualidade</div>
+      <p><b style="color:#fff;font-weight:600">Princípios do Reino</b> e <b style="color:#fff;font-weight:600">prosperidade e crescimento à luz da Bíblia</b>.</p>
+      <p style="margin-top:14px">Temas: identidade, mordomia, diligência, governo, generosidade, propósito.</p>
+      <p style="margin-top:14px;color:var(--gold-light)">Ex.: "Confia ao Senhor as tuas obras" aplicado ao planeamento do negócio.</p></div>
+    <div class="card"><div class="k">Pilar 2 · cerca de 35%</div><div class="h3" style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:44px;color:var(--gold-light)">Desenvolvimento Pessoal</div>
+      <p>Os bloqueios invisíveis e como os vencer.</p>
+      <p style="margin-top:14px">Temas: procrastinação, perfeccionismo, síndrome do impostor, medo de aparecer, disciplina, inteligência emocional.</p>
+      <p style="margin-top:14px;color:var(--gold-light)">Ex.: "Sabes o que fazer, mas continuas a adiar."</p></div>
+    <div class="card"><div class="k">Pilar 3 · cerca de 35%</div><div class="h3" style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:44px;color:var(--gold-light)">Negócios</div>
+      <p>Performance: transformar clareza em resultados.</p>
+      <p style="margin-top:14px">Temas: oferta, posicionamento, vendas, finanças, processos, equipa, IA nos negócios.</p>
+      <p style="margin-top:14px;color:var(--gold-light)">Ex.: "O teu negócio para quando tu paras?"</p></div>
+  </div>
+</section>
+
+<!-- 14 ABERTURA 03 + LOGO -->
+<section class="page black">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Logótipo</span></div>
+  <div class="k">03 · Identidade visual</div>
+  <h1>O <span class="it">símbolo</span></h1>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-top:70px">
+    <div style="background:#000;border:1px solid rgba(255,255,255,.1);border-radius:20px;height:420px;display:flex;align-items:center;justify-content:center"><img src="assets/02_hero-logo.png" alt="" style="width:240px"></div>
+    <div style="background:var(--sand);border-radius:20px;height:420px;display:flex;align-items:center;justify-content:center"><img src="assets/02_hero-logo.png" alt="" style="width:240px;filter:brightness(.55) saturate(1.2)"></div>
+    <div style="position:relative;background:#000;border:1px solid rgba(255,255,255,.1);border-radius:20px;height:420px;display:flex;align-items:center;justify-content:center">
+      <div style="position:relative;padding:60px;border:1.5px dashed rgba(194,157,90,.6)"><img src="assets/02_hero-logo.png" alt="" style="width:160px;display:block"></div></div>
+  </div>
+  <div class="grid g3" style="margin-top:28px;gap:40px">
+    <p><b style="color:#fff;font-weight:600">Principal:</b> dourado sobre preto. É a versão dos posts.</p>
+    <p><b style="color:#fff;font-weight:600">Sobre fundo claro:</b> dourado escurecido sobre areia.</p>
+    <p><b style="color:#fff;font-weight:600">Área de proteção:</b> 1/3 da largura do símbolo à volta. Mínimo 48 px num post.</p>
+  </div>
+  <div class="foot" style="color:rgba(255,255,255,.45)">Ficheiros extraídos do site (PNG). Para impressão, pedir o original em vetor (SVG ou AI).</div>
+</section>
+
+<!-- 15 LOGO INCORRETO -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Logótipo</span></div>
+  <h2>Usos <span class="it">incorretos</span></h2>
+  <div class="grid g4" style="margin-top:70px;gap:32px">
+    <div class="card wrong" style="height:330px;display:flex;align-items:center;justify-content:center"><img src="assets/02_hero-logo.png" alt="" style="width:150px;height:150px;transform:scaleX(1.5)"></div>
+    <div class="card wrong" style="height:330px;display:flex;align-items:center;justify-content:center"><img src="assets/02_hero-logo.png" alt="" style="width:150px;filter:hue-rotate(160deg) saturate(2)"></div>
+    <div class="card wrong" style="height:330px;display:flex;align-items:center;justify-content:center;background:var(--gold)"><img src="assets/02_hero-logo.png" alt="" style="width:150px"></div>
+    <div class="card wrong" style="height:330px;display:flex;align-items:center;justify-content:center"><img src="assets/02_hero-logo.png" alt="" style="width:150px;filter:drop-shadow(0 0 22px #C29D5A) drop-shadow(8px 8px 0 #fff)"></div>
+  </div>
+  <div class="grid g4" style="margin-top:24px;gap:32px">
+    <p>Não esticar nem deformar.</p><p>Não mudar a cor.</p><p>Não usar sobre dourado ou fundos sem contraste.</p><p>Não aplicar sombras, brilhos ou contornos.</p>
+  </div>
+</section>
+
+<!-- 16 CORES -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Cores</span></div>
+  <h1>Cores</h1>
+  <div class="grid" style="grid-template-columns:repeat(6,1fr);gap:24px;margin-top:60px">
+    <div class="sw"><div class="c" style="background:#C29D5A"></div><div class="t"><b>Dourado Founders</b><span>#C29D5A · RGB 194 157 90</span><span>Palavra emocional, símbolo, detalhes</span></div></div>
+    <div class="sw"><div class="c" style="background:#D6B87B"></div><div class="t"><b>Dourado claro</b><span>#D6B87B · RGB 214 184 123</span><span>Realces sobre foto escura</span></div></div>
+    <div class="sw"><div class="c" style="background:#E8D9B8"></div><div class="t"><b>Areia</b><span>#E8D9B8 · RGB 232 217 184</span><span>Fundos claros e documentos</span></div></div>
+    <div class="sw"><div class="c" style="background:#000000;border-bottom:1px solid rgba(255,255,255,.1)"></div><div class="t"><b>Preto</b><span>#000000 · RGB 0 0 0</span><span>Base de todos os posts</span></div></div>
+    <div class="sw"><div class="c" style="background:#CBC8C8"></div><div class="t"><b>Névoa</b><span>#CBC8C8 · RGB 203 200 200</span><span>Linha de abertura do título, número</span></div></div>
+    <div class="sw"><div class="c" style="background:#FFFFFF"></div><div class="t"><b>Branco</b><span>#FFFFFF · RGB 255 255 255</span><span>Linha principal e texto</span></div></div>
+  </div>
+  <div class="ratio"><div style="flex:68;background:#000;border:1px solid rgba(255,255,255,.1)">Preto 68%</div><div style="flex:20;background:#fff;color:#0C0C0F">Branco 20%</div><div style="flex:7;background:#CBC8C8;color:#0C0C0F">Névoa</div><div style="flex:5;background:#C29D5A;color:#0C0C0F;padding-left:12px">5%</div></div>
+  <p style="margin-top:22px">O dourado é escasso de propósito: uma palavra por título, o símbolo e pequenos detalhes. A luz âmbar vem da fotografia, não de fundos coloridos.</p>
+</section>
+
+<!-- 17 TIPOGRAFIA -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Tipografia</span></div>
+  <h1>Tipografia</h1>
+  <div class="spec">
+    <div>
+      <div style="font-weight:600;font-size:150px;line-height:1;letter-spacing:-0.035em">Aptos</div>
+      <p style="margin-top:10px">Regular · <b style="font-weight:600;color:#fff">SemiBold</b> · <b style="font-weight:700;color:#fff">Bold</b></p>
+      <p style="font-size:30px;margin-top:20px;color:#fff;letter-spacing:-0.01em">Aa Bb Cc Çç Ãã Éé 0123456789</p>
+      <div style="font-family:var(--serif);font-style:italic;font-size:124px;line-height:1;color:var(--gold);margin-top:56px;white-space:nowrap">Instrument Serif</div>
+      <p style="margin-top:6px">Italic · apenas na palavra emocional do título</p>
+      <p style="font-family:var(--serif);font-style:italic;font-size:40px;margin-top:20px;color:var(--gold-light)">empreendedores, propósito, tornar-te</p>
+    </div>
+    <div>
+      <div class="anno"><b>Abertura do título</b><span>Aptos SemiBold · 84 px · Névoa #CBC8C8 · espaçamento −3,5%</span></div>
+      <div class="anno"><b>Linha principal</b><span>Aptos SemiBold · 84 px · Branco · espaçamento −3,5%</span></div>
+      <div class="anno"><b>Palavra emocional</b><span>Instrument Serif Italic · 112 px · Dourado #C29D5A · ligeiramente maior que o título</span></div>
+      <div class="anno"><b>Subtítulo</b><span>Aptos Regular · 36 px · Branco 86% · destaque em Aptos Bold Branco</span></div>
+      <div class="anno"><b>Chamada e etiquetas</b><span>Aptos Regular · 24 px · caixa alta · espaçamento +6% a +18%</span></div>
+      <div class="anno"><b>Número do slide</b><span>Aptos Bold · 48 px · Névoa · centrado no topo</span></div>
+    </div>
+  </div>
+  <div class="foot">Neste PDF provisório a Aptos aparece substituída pela Inter. A versão final usa os ficheiros oficiais da Aptos. Tamanhos para posts de 1080 px de largura.</div>
+</section>
+
+<!-- 18 REGRAS DE TEXTO -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Regras de texto</span></div>
+  <h2>A anatomia do <span class="it">título</span></h2>
+  <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:90px;margin-top:60px;align-items:center">
+    <div style="background:#000;border-radius:20px;padding:70px 40px;text-align:center">
+      <div style="font-weight:600;font-size:76px;line-height:1;letter-spacing:-0.035em;color:var(--mist)">Depois de</div>
+      <div style="font-weight:600;font-size:76px;line-height:1;letter-spacing:-0.035em">treinar centenas de</div>
+      <div class="it" style="font-size:100px;line-height:.95">empreendedores</div>
+      <p style="font-size:30px;margin-top:30px;color:rgba(255,255,255,.86)">Descobrimos as causas que impedem pessoas talentosas como tu de <b style="color:#fff">prosperar financeiramente.</b></p>
+    </div>
+    <ul class="clean" style="font-size:24px">
+      <li><b style="color:#fff;font-weight:600">3 tempos:</b> abertura em névoa, frase principal em branco, palavra emocional em dourado itálico.</li>
+      <li><b style="color:#fff;font-weight:600">Maiúsculas e minúsculas</b> nos títulos. Caixa alta só na chamada ("ARRASTE PARA ENTENDER") e nas etiquetas.</li>
+      <li><b style="color:#fff;font-weight:600">Uma só palavra emocional</b> por título, a que carrega o sentido.</li>
+      <li><b style="color:#fff;font-weight:600">Subtítulo</b> com no máximo 2 linhas e um destaque em Bold.</li>
+      <li><b style="color:#fff;font-weight:600">Revisão obrigatória.</b> A referência original tinha "Centenasde" e "esses foram as a principal causas": cada post passa pela checklist da página 23.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 19 FOTOGRAFIA -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Fotografia</span></div>
+  <h1>Fotografia</h1>
+  <div style="display:grid;grid-template-columns:1.25fr .7fr 1fr;gap:40px;margin-top:60px;align-items:start">
+    <img src="assets/01_hero-bg-img.webp" alt="" style="width:100%;height:440px;object-fit:cover;border-radius:20px">
+    <img src="assets/06_shelton-douglas.webp" alt="" style="width:100%;height:440px;object-fit:cover;border-radius:20px">
+    <div>
+      <div class="k">Direção</div>
+      <ul class="clean"><li>Pessoas reais das sessões e da comunidade, nunca banco de imagens.</li><li>Momentos de escuta, reflexão e decisão; olhar fora da câmara.</li><li>Ambiente escuro com luz quente âmbar.</li><li>Shelton Douglas em retrato sóbrio, roupa escura.</li></ul>
+    </div>
+  </div>
+  <div class="grid g3" style="margin-top:44px;gap:40px">
+    <p><b style="color:#fff;font-weight:600">Tratamento:</b> sombras pretas, realces âmbar, pele natural. Ligeira dessaturação dos verdes e azuis.</p>
+    <p><b style="color:#fff;font-weight:600">Nos posts:</b> brilho âmbar no topo e degradê para preto a partir de metade da imagem, onde entra o texto.</p>
+    <p><b style="color:#fff;font-weight:600">Evitar:</b> fotos claras e planas, sorrisos posados para a câmara, texto por cima de rostos.</p>
+  </div>
+</section>
+
+<!-- 20 GRELHA -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Grelha do post</span></div>
+  <div style="display:grid;grid-template-columns:auto 1fr;gap:90px">
+    <div style="position:relative;width:640px;height:800px">
+      <img src="templates/01.png" alt="" style="width:640px;height:800px;border-radius:12px;display:block">
+      <div style="position:absolute;left:0;right:0;top:44px;height:40px;border:1.5px dashed #9CCB9B"></div>
+      <div style="position:absolute;left:53px;right:53px;top:420px;height:250px;border:1.5px dashed var(--gold)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:36px;height:30px;border:1.5px dashed #8FB3E0"></div>
+      <div style="position:absolute;left:0;top:0;width:53px;height:800px;background:rgba(217,119,108,.18)"></div>
+      <div style="position:absolute;right:0;top:0;width:53px;height:800px;background:rgba(217,119,108,.18)"></div>
+    </div>
+    <div>
+      <h2>Grelha do <span class="it">post</span></h2>
+      <p class="lede" style="font-size:26px">Formato 1080 × 1350 px (4:5). Tudo centrado no eixo vertical.</p>
+      <div style="margin-top:40px">
+        <div class="anno" style="border-color:#9CCB9B"><b>Número</b><span>Centrado, a 92 px do topo.</span></div>
+        <div class="anno"><b>Foto</b><span>Ocupa os primeiros 1060 px; rosto principal no terço superior.</span></div>
+        <div class="anno"><b>Bloco de texto</b><span>Centrado, a partir de 55% da altura; termina a 240 px do fundo.</span></div>
+        <div class="anno" style="border-color:#D9776C"><b>Margens laterais</b><span>90 px de cada lado. Nenhum texto entra nesta zona.</span></div>
+        <div class="anno" style="border-color:#8FB3E0"><b>Chamada</b><span>"ARRASTE PARA ENTENDER", a 84 px do fundo.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 MODELOS -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Modelos</span></div>
+  <h2>Modelos de <span class="it">post</span></h2>
+  <div class="shots">
+    <figure><img src="templates/01.png" alt=""><figcaption>Capa de carrossel</figcaption></figure>
+    <figure><img src="templates/02.png" alt=""><figcaption>Slide interno</figcaption></figure>
+    <figure><img src="templates/03.png" alt=""><figcaption>Estático: Princípios do Reino</figcaption></figure>
+    <figure><img src="templates/04.png" alt=""><figcaption>Último slide com CTA</figcaption></figure>
+  </div>
+</section>
+
+<!-- 22 FAZER / NAO FAZER -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Fazer e não fazer</span></div>
+  <h1>Fazer e <span class="it">não fazer</span></h1>
+  <div class="grid g2" style="margin-top:60px">
+    <div class="card"><div class="k" style="color:#9CCB9B">Fazer</div><ul class="clean yes">
+      <li>Fotos reais, escuras e quentes.</li><li>Título em 3 tempos, centrado.</li><li>Uma palavra emocional em dourado itálico.</li><li>Falar por "tu" e nomear o bloqueio.</li><li>Terminar com um próximo passo claro.</li><li>Rever ortografia antes de publicar.</li></ul></div>
+    <div class="card"><div class="k" style="color:#E59A90">Não fazer</div><ul class="clean no">
+      <li>Títulos inteiros em caixa alta ou em itálico.</li><li>Mais de uma cor de destaque.</li><li>Fundos coloridos, gradientes vivos ou neon.</li><li>Promessas de dinheiro fácil.</li><li>Versículos fora de contexto ou sem referência.</li><li>Mais de 45 palavras num slide.</li></ul></div>
+  </div>
+</section>
+
+<!-- 23 CHECKLIST -->
+<section class="page">
+  <div class="hd"><span><b>Kingdom Founders</b> · Brand Book</span><span>03 · Checklist</span></div>
+  <h1>Checklist antes de <span class="it">publicar</span></h1>
+  <div class="grid g3" style="margin-top:60px;gap:40px">
+    <div class="card"><div class="k">Mensagem</div><ul class="clean"><li>Liga-se a um dos 3 pilares.</li><li>Nomeia um bloqueio ou um princípio.</li><li>Fala por "tu".</li><li>Termina com ação: guardar, comentar ou aplicar.</li></ul></div>
+    <div class="card"><div class="k">Texto</div><ul class="clean"><li>Sem erros de ortografia ou de espaços.</li><li>Versículos com referência correta.</li><li>Título em 3 tempos, uma palavra dourada.</li><li>No máximo 45 palavras por slide.</li></ul></div>
+    <div class="card"><div class="k">Visual</div><ul class="clean"><li>Foto real com tratamento âmbar.</li><li>Texto fora das margens de 90 px.</li><li>Nada por cima de rostos.</li><li>Fontes Aptos e Instrument Serif.</li></ul></div>
+  </div>
+</section>
+
+<!-- 24 CONTRACAPA -->
+<section class="page black" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+  <img src="assets/02_hero-logo.png" alt="Kingdom Founders" style="width:160px">
+  <p class="quote" style="margin-top:70px;font-size:60px">Porque não basta ter uma visão.<br>Precisas de te tornar capaz de a <span class="it">carregar.</span></p>
+  <p style="margin-top:70px;color:rgba(255,255,255,.55)">founders.kingdomcompny.com · comercial@kingdomcompny.com</p>
+  <p style="color:rgba(255,255,255,.4);font-size:18px;margin-top:8px">© 2026 Kingdom Company · Mentoria Kingdom Founders, por Shelton Douglas</p>
+</section>
+</body>
+</html>
