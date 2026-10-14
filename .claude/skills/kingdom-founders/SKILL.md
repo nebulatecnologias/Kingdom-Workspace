@@ -63,6 +63,18 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 - **Nunca usar fotos que o utilizador não enviou para o post** (nem as do site): deixar placeholder (`.ph` com a descrição da foto pretendida) até ele as enviar.
 - Fotografia: pessoas reais das sessões, ambiente escuro, luz âmbar, olhar fora da câmara. Nunca banco de imagens nem texto sobre rostos.
 
+## Direção das imagens geradas (IA)
+
+Referências do utilizador em `content/brand/founders/referencias-imagem/` (01 cercada de câmaras, 02 imóvel na multidão em desfoque, 03 editorial de escritório, 04 buraco da fechadura, 05 silhuetas). O que têm em comum e o que os prompts devem pedir:
+
+- **Metáfora visual da mensagem do post**, não uma cena literal: câmaras e telemóveis = julgamento dos outros; multidão em desfoque de movimento à volta de alguém imóvel = firmeza no meio do ruído; silhuetas sem rosto = opiniões/rótulos; buraco da fechadura, porta entreaberta, um só candeeiro numa sala escura = introspeção e revelação; mãos a entrar no enquadramento = dependência.
+- **Um único sujeito nítido**, muitas vezes a olhar para a câmara, expressão contida; o resto desfocado, em silhueta ou em penumbra.
+- **Qualidade de campanha editorial/moda:** cinematográfica, fotorrealista, grão de película 35 mm, pretos profundos, muito espaço negativo.
+- **Luz da marca:** fundo escuro com uma luz quente âmbar (focos, candeeiro, porta); luz fria só se o conceito pedir (flashes de câmaras).
+- Sujeitos negros moçambicanos com aparência real; roupa elegante (fato, gola alta, blazer).
+- Composição para o layout: rosto/sujeito no terço superior e zona escura limpa onde entra o texto; formato do modelo (4:5, ou 1:1 na capa B com foto).
+- Sempre "sem texto, sem logótipos, sem marcas de água".
+
 ## Linha editorial (aprovada a 14/10/2026)
 
 - 6 publicações/semana. A equipa (Claude) produz **seg, qua, sex**: semana ímpar Carrossel-Estático-Carrossel, semana par Estático-Carrossel-Estático. Os **3 Reels** são do Shelton: deixar os dias vazios, não criar linhas nem copy para eles.
@@ -123,6 +135,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.12 | Direção das imagens IA a partir das 5 referências do utilizador (metáfora visual, campanha editorial). |
 | 14/10/2026 | 1.11 | Coluna "Prompt de Imagem" no Notion para gerar imagens no ChatGPT. |
 | 14/10/2026 | 1.10 | Regra de entrega: visão geral para aprovação antes dos PNG. |
 | 14/10/2026 | 1.9 | Design da semana 1; fotos só com placeholder até o utilizador as enviar. |
