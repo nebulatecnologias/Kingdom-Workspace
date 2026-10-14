@@ -89,7 +89,7 @@ Referências do utilizador em `content/brand/founders/referencias-imagem/` (01 c
 
 - 6 publicações/semana. A equipa (Claude) produz **seg, qua, sex**: semana ímpar Carrossel-Estático-Carrossel, semana par Estático-Carrossel-Estático. Os **3 Reels** são do Shelton: deixar os dias vazios, não criar linhas nem copy para eles.
 - Funil sempre **40% topo / 40% meio / 20% fundo** (em cada 10: 4/4/2). Topo = alcance; meio = autoridade, educativo denso; fundo = conversão para a aplicação.
-- Séries fixas: Bloqueios Invisíveis (DP, meio, carrossel A), Princípios do Reino (Esp, topo, estático de frase única), Prosperidade com Princípios (Esp, meio, carrossel B), Mentalidade de Governo (Neg, meio, carrossel B), Verdade Incómoda (topo, estático C), Dentro da Founders (fundo).
+- Séries fixas: Bloqueios Invisíveis (DP, meio, carrossel A), Princípios do Reino (Esp, topo, estático de frase única), Prosperidade com Princípios (Esp, meio, carrossel B), Mentalidade de Governo (Neg, meio, carrossel B), Verdade Incómoda (topo, estático de frase única Neg/DP), Dentro da Founders (fundo).
 - Versículos: Almeida Revista e Corrigida, com referência. Depoimentos só reais e autorizados.
 
 ## Notas de séries
