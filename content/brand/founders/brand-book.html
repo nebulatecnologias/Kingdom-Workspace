@@ -15,8 +15,9 @@ html,body{ background:#222; }
 .sand .hd{ color:rgba(12,12,15,.5); }
 .hd b{ color:var(--gold); font-weight:600; }
 .sand .hd b{ color:#8C6A2E; }
-h1{ font-family:var(--serif); font-weight:400; font-size:104px; line-height:1; letter-spacing:-0.015em; }
-h2{ font-family:var(--serif); font-weight:400; font-size:72px; line-height:1.04; letter-spacing:-0.01em; }
+h1,h2,.quote{ font-family:var(--sans); font-weight:600; letter-spacing:-0.08em; font-kerning:normal; }
+h1{ font-size:92px; line-height:calc(92px * .886); }
+h2{ font-size:66px; line-height:calc(66px * .886); }
 .h3{ font-weight:600; font-size:30px; letter-spacing:-0.01em; margin-bottom:14px; }
 .lede{ font-size:32px; line-height:1.42; color:rgba(255,255,255,.78); max-width:1150px; margin-top:34px; }
 .sand .lede{ color:rgba(12,12,15,.72); }
@@ -31,18 +32,18 @@ p,li{ font-size:24px; line-height:1.5; color:rgba(255,255,255,.76); }
 ul.clean{ list-style:none; } ul.clean li{ padding:10px 0 10px 30px; position:relative; }
 ul.clean li::before{ content:""; position:absolute; left:0; top:24px; width:12px; height:1.5px; background:var(--gold); }
 .yes li::before{ background:#7FB77E; } .no li::before{ background:#D9776C; }
-.big{ font-family:var(--serif); font-size:150px; line-height:.9; color:var(--gold); }
+.big{ font-family:var(--serif); font-style:italic; font-size:150px; line-height:.9; letter-spacing:-0.08em; color:var(--gold); }
 .tag{ display:inline-block; border:1px solid rgba(194,157,90,.5); color:var(--gold-light); border-radius:999px; padding:10px 22px; font-size:22px; margin:0 10px 14px 0; }
 .foot{ position:absolute; left:140px; right:140px; bottom:48px; font-size:16px; color:rgba(255,255,255,.35); letter-spacing:.04em; }
 .sand .foot{ color:rgba(12,12,15,.45); }
-.quote{ font-family:var(--serif); font-size:64px; line-height:1.12; color:var(--white); max-width:1400px; }
+.quote{ font-size:60px; line-height:calc(60px * .886); color:var(--white); max-width:1400px; }
 /* capa e aberturas */
 .cover{ padding:0; }
 .cover img.bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.55; }
 .cover .shade{ position:absolute; inset:0; background:linear-gradient(90deg,rgba(12,12,15,.95) 0%,rgba(12,12,15,.75) 45%,rgba(12,12,15,.2) 100%), linear-gradient(180deg,rgba(122,74,18,.35),rgba(0,0,0,0) 40%); }
 .cover .in{ position:absolute; left:140px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; }
-.opener .num{ font-family:var(--serif); font-style:italic; font-size:360px; line-height:.8; color:var(--gold); }
-.opener h1{ font-size:150px; margin-top:30px; }
+.opener .num{ font-family:var(--serif); font-style:italic; font-size:360px; line-height:.8; letter-spacing:-0.08em; color:var(--gold); }
+.opener h1{ font-size:140px; line-height:calc(140px * .886); margin-top:30px; }
 /* cores */
 .sw{ border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.1); }
 .sw .c{ height:260px; } .sw .t{ padding:24px 26px; background:var(--surface); }
@@ -62,7 +63,7 @@ ul.clean li::before{ content:""; position:absolute; left:0; top:24px; width:12px
 /* tricotomia */
 .tri{ position:relative; width:760px; height:700px; }
 .tri .circ{ position:absolute; width:440px; height:440px; border-radius:50%; border:2px solid var(--gold); display:flex; align-items:center; justify-content:center; text-align:center; padding:70px; background:rgba(194,157,90,.06); }
-.tri .circ b{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:40px; color:var(--gold-light); line-height:1.1; }
+.tri .circ b{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:42px; letter-spacing:-0.04em; color:var(--gold-light); line-height:1.05; }
 .tri .core{ position:absolute; left:380px; top:330px; transform:translate(-50%,-50%); font-size:17px; line-height:1.3; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); font-weight:700; text-align:center; background:var(--gold); border-radius:999px; padding:14px 26px; white-space:nowrap; }
 table.tt{ width:100%; border-collapse:collapse; margin-top:50px; }
 table.tt td{ padding:18px 24px; font-size:23px; line-height:1.4; border-bottom:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.78); vertical-align:top; }
@@ -81,7 +82,7 @@ table.tt td:nth-child(2){ color:var(--white); }
   <div class="in">
     <img src="assets/02_hero-logo.png" alt="Kingdom Founders" style="width:150px;height:150px">
     <div class="k" style="margin-top:70px;font-size:22px">Kingdom Founders · Mentoria Kingdom Founders</div>
-    <h1 style="font-size:220px;line-height:.9">Brand <span class="it">Book</span></h1>
+    <h1 style="font-size:200px;line-height:calc(200px * .886)">Brand <span class="it">Book</span></h1>
     <p class="lede" style="max-width:900px">Identidade, voz e sistema visual para tudo o que a Kingdom Founders publica.</p>
     <p style="margin-top:60px;color:rgba(255,255,255,.5)">Versão 1.0 · Outubro de 2026 · Kingdom Company</p>
   </div>
@@ -105,7 +106,7 @@ table.tt td:nth-child(2){ color:var(--white); }
     <div class="num">01</div>
     <h1>A <span class="it">marca</span></h1>
   </div>
-  <p class="quote" style="position:absolute;left:1000px;right:140px;top:420px;font-size:56px">“O negócio que estás a construir exige uma versão de ti que ainda estás a <span class="it">tornar-te.</span>”</p>
+  <p class="quote" style="position:absolute;left:1000px;right:140px;top:420px;font-size:58px;line-height:calc(58px * .886)">“O negócio que estás a construir exige uma versão de ti que ainda estás a <span class="it">tornar-te.</span>”</p>
 </section>
 
 <!-- 04 ESSENCIA -->
@@ -257,15 +258,15 @@ table.tt td:nth-child(2){ color:var(--white); }
   <h1>Pilares de <span class="it">conteúdo</span></h1>
   <p class="lede" style="font-size:28px">Os três pilares espelham a Tricotomia. Em cada semana, os três aparecem; nenhum pilar fica mais de uma semana sem publicação.</p>
   <div class="grid g3" style="margin-top:50px;gap:36px">
-    <div class="card"><div class="k">Pilar 1 · cerca de 30%</div><div class="h3" style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:44px;color:var(--gold-light)">Espiritualidade</div>
+    <div class="card"><div class="k">Pilar 1 · cerca de 30%</div><div class="h3" style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:46px;letter-spacing:-0.06em;color:var(--gold-light)">Espiritualidade</div>
       <p><b style="color:#fff;font-weight:600">Princípios do Reino</b> e <b style="color:#fff;font-weight:600">prosperidade e crescimento à luz da Bíblia</b>.</p>
       <p style="margin-top:14px">Temas: identidade, mordomia, diligência, governo, generosidade, propósito.</p>
       <p style="margin-top:14px;color:var(--gold-light)">Ex.: "Confia ao Senhor as tuas obras" aplicado ao planeamento do negócio.</p></div>
-    <div class="card"><div class="k">Pilar 2 · cerca de 35%</div><div class="h3" style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:44px;color:var(--gold-light)">Desenvolvimento Pessoal</div>
+    <div class="card"><div class="k">Pilar 2 · cerca de 35%</div><div class="h3" style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:46px;letter-spacing:-0.06em;color:var(--gold-light)">Desenvolvimento Pessoal</div>
       <p>Os bloqueios invisíveis e como os vencer.</p>
       <p style="margin-top:14px">Temas: procrastinação, perfeccionismo, síndrome do impostor, medo de aparecer, disciplina, inteligência emocional.</p>
       <p style="margin-top:14px;color:var(--gold-light)">Ex.: "Sabes o que fazer, mas continuas a adiar."</p></div>
-    <div class="card"><div class="k">Pilar 3 · cerca de 35%</div><div class="h3" style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:44px;color:var(--gold-light)">Negócios</div>
+    <div class="card"><div class="k">Pilar 3 · cerca de 35%</div><div class="h3" style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:46px;letter-spacing:-0.06em;color:var(--gold-light)">Negócios</div>
       <p>Performance: transformar clareza em resultados.</p>
       <p style="margin-top:14px">Temas: oferta, posicionamento, vendas, finanças, processos, equipa, IA nos negócios.</p>
       <p style="margin-top:14px;color:var(--gold-light)">Ex.: "O teu negócio para quando tu paras?"</p></div>
@@ -328,23 +329,23 @@ table.tt td:nth-child(2){ color:var(--white); }
   <h1>Tipografia</h1>
   <div class="spec">
     <div>
-      <div style="font-weight:600;font-size:150px;line-height:1;letter-spacing:-0.035em">Aptos</div>
+      <div style="font-weight:600;font-size:150px;line-height:1;letter-spacing:-0.08em">Aptos</div>
       <p style="margin-top:10px">Regular · <b style="font-weight:600;color:#fff">SemiBold</b> · <b style="font-weight:700;color:#fff">Bold</b></p>
       <p style="font-size:30px;margin-top:20px;color:#fff;letter-spacing:-0.01em">Aa Bb Cc Çç Ãã Éé 0123456789</p>
-      <div style="font-family:var(--serif);font-style:italic;font-size:124px;line-height:1;color:var(--gold);margin-top:56px;white-space:nowrap">Instrument Serif</div>
-      <p style="margin-top:6px">Italic · apenas na palavra emocional do título</p>
-      <p style="font-family:var(--serif);font-style:italic;font-size:40px;margin-top:20px;color:var(--gold-light)">empreendedores, propósito, tornar-te</p>
+      <div style="font-family:var(--serif);font-style:italic;font-size:132px;line-height:1;letter-spacing:-0.08em;word-spacing:0.12em;color:var(--gold);margin-top:56px;white-space:nowrap">Instrument Serif</div>
+      <p style="margin-top:6px">Sempre em itálico · só na palavra emocional</p>
+      <p style="font-family:var(--serif);font-style:italic;font-size:42px;letter-spacing:-0.08em;word-spacing:0.12em;margin-top:20px;color:var(--gold-light)">empreendedores, propósito, tornar-te</p>
     </div>
     <div>
-      <div class="anno"><b>Abertura do título</b><span>Aptos SemiBold · 84 px · Névoa #CBC8C8 · espaçamento −3,5%</span></div>
-      <div class="anno"><b>Linha principal</b><span>Aptos SemiBold · 84 px · Branco · espaçamento −3,5%</span></div>
-      <div class="anno"><b>Palavra emocional</b><span>Instrument Serif Italic · 112 px · Dourado #C29D5A · ligeiramente maior que o título</span></div>
+      <div class="anno"><b>Abertura do título</b><span>Aptos SemiBold · 84 px · entrelinha 74 px · tracking −80 · kerning ótico · Névoa #CBC8C8</span></div>
+      <div class="anno"><b>Linha principal</b><span>Aptos SemiBold · 84 px · entrelinha 74 px · tracking −80 · Branco</span></div>
+      <div class="anno"><b>Palavra emocional</b><span>Instrument Serif, sempre Italic · 98 px (1,17× a Aptos) · mesma entrelinha (74 px) · tracking −80 · Dourado #C29D5A</span></div>
       <div class="anno"><b>Subtítulo</b><span>Aptos Regular · 36 px · Branco 86% · destaque em Aptos Bold Branco</span></div>
       <div class="anno"><b>Chamada e etiquetas</b><span>Aptos Regular · 24 px · caixa alta · espaçamento +6% a +18%</span></div>
       <div class="anno"><b>Número do slide</b><span>Aptos Bold · 48 px · Névoa · centrado no topo</span></div>
     </div>
   </div>
-  <div class="foot">Neste PDF provisório a Aptos aparece substituída pela Inter. A versão final usa os ficheiros oficiais da Aptos. Tamanhos para posts de 1080 px de largura.</div>
+  <div class="foot">Referência no Photoshop: Aptos SemiBold 24,45 pt e Instrument Serif Italic 28,59 pt, entrelinha 21,67 pt, tracking −80. Neste PDF provisório a Aptos aparece substituída pela Inter. Tamanhos para posts de 1080 px de largura.</div>
 </section>
 
 <!-- 18 REGRAS DE TEXTO -->
@@ -353,15 +354,13 @@ table.tt td:nth-child(2){ color:var(--white); }
   <h2>A anatomia do <span class="it">título</span></h2>
   <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:90px;margin-top:60px;align-items:center">
     <div style="background:#000;border-radius:20px;padding:70px 40px;text-align:center">
-      <div style="font-weight:600;font-size:76px;line-height:1;letter-spacing:-0.035em;color:var(--mist)">Depois de</div>
-      <div style="font-weight:600;font-size:76px;line-height:1;letter-spacing:-0.035em">treinar centenas de</div>
-      <div class="it" style="font-size:100px;line-height:.95">empreendedores</div>
+      <div class="ttl" style="--ts:76px"><div style="color:var(--mist)">Depois de</div><div>treinar centenas de</div><div class="it">empreendedores</div></div>
       <p style="font-size:30px;margin-top:30px;color:rgba(255,255,255,.86)">Descobrimos as causas que impedem pessoas talentosas como tu de <b style="color:#fff">prosperar financeiramente.</b></p>
     </div>
     <ul class="clean" style="font-size:24px">
       <li><b style="color:#fff;font-weight:600">3 tempos:</b> abertura em névoa, frase principal em branco, palavra emocional em dourado itálico.</li>
       <li><b style="color:#fff;font-weight:600">Maiúsculas e minúsculas</b> nos títulos. Caixa alta só na chamada ("ARRASTE PARA ENTENDER") e nas etiquetas.</li>
-      <li><b style="color:#fff;font-weight:600">Uma só palavra emocional</b> por título, a que carrega o sentido.</li>
+      <li><b style="color:#fff;font-weight:600">Uma só palavra emocional</b> por título, sempre em Instrument Serif itálico. A Instrument Serif nunca se usa direita.</li><li><b style="color:#fff;font-weight:600">Entrelinha apertada e tracking −80</b> nas duas fontes, para o título ler como um bloco.</li>
       <li><b style="color:#fff;font-weight:600">Subtítulo</b> com no máximo 2 linhas e um destaque em Bold.</li>
       <li><b style="color:#fff;font-weight:600">Revisão obrigatória.</b> A referência original tinha "Centenasde" e "esses foram as a principal causas": cada post passa pela checklist da página 23.</li>
     </ul>
@@ -433,7 +432,7 @@ table.tt td:nth-child(2){ color:var(--white); }
     <div class="card"><div class="k" style="color:#9CCB9B">Fazer</div><ul class="clean yes">
       <li>Fotos reais, escuras e quentes.</li><li>Título em 3 tempos, centrado.</li><li>Uma palavra emocional em dourado itálico.</li><li>Falar por "tu" e nomear o bloqueio.</li><li>Terminar com um próximo passo claro.</li><li>Rever ortografia antes de publicar.</li></ul></div>
     <div class="card"><div class="k" style="color:#E59A90">Não fazer</div><ul class="clean no">
-      <li>Títulos inteiros em caixa alta ou em itálico.</li><li>Mais de uma cor de destaque.</li><li>Fundos coloridos, gradientes vivos ou neon.</li><li>Promessas de dinheiro fácil.</li><li>Versículos fora de contexto ou sem referência.</li><li>Mais de 45 palavras num slide.</li></ul></div>
+      <li>Títulos inteiros em caixa alta ou em itálico.</li><li>Instrument Serif sem itálico.</li><li>Mais de uma cor de destaque.</li><li>Fundos coloridos, gradientes vivos ou neon.</li><li>Promessas de dinheiro fácil.</li><li>Versículos fora de contexto ou sem referência.</li><li>Mais de 45 palavras num slide.</li></ul></div>
   </div>
 </section>
 
@@ -451,7 +450,7 @@ table.tt td:nth-child(2){ color:var(--white); }
 <!-- 24 CONTRACAPA -->
 <section class="page black" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
   <img src="assets/02_hero-logo.png" alt="Kingdom Founders" style="width:160px">
-  <p class="quote" style="margin-top:70px;font-size:60px">Porque não basta ter uma visão.<br>Precisas de te tornar capaz de a <span class="it">carregar.</span></p>
+  <p class="quote" style="margin-top:70px">Porque não basta ter uma visão.<br>Precisas de te tornar capaz de a <span class="it">carregar.</span></p>
   <p style="margin-top:70px;color:rgba(255,255,255,.55)">founders.kingdomcompny.com · comercial@kingdomcompny.com</p>
   <p style="color:rgba(255,255,255,.4);font-size:18px;margin-top:8px">© 2026 Kingdom Company · Mentoria Kingdom Founders, por Shelton Douglas</p>
 </section>

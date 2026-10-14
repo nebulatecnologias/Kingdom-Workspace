@@ -17,9 +17,8 @@ body{ background:#333; display:flex; gap:40px; padding:40px; width:max-content; 
 .warm{ position:absolute; inset:0; background:radial-gradient(80% 40% at 50% 0%, rgba(122,74,18,.55), rgba(0,0,0,0) 70%); }
 .num{ position:absolute; left:0; right:0; top:92px; font-weight:700; font-size:48px; letter-spacing:-0.01em; color:var(--mist); }
 .block{ position:absolute; left:90px; right:90px; }
-.t1{ font-weight:600; font-size:84px; line-height:1.0; letter-spacing:-0.035em; color:var(--mist); }
-.t2{ font-weight:600; font-size:84px; line-height:1.0; letter-spacing:-0.035em; color:var(--white); }
-.t3{ font-size:112px; line-height:.95; margin-top:-4px; }
+.t1{ color:var(--mist); }
+.t2{ color:var(--white); }
 .sub{ font-size:36px; line-height:1.32; letter-spacing:-0.015em; color:rgba(255,255,255,.86); margin:34px auto 0; max-width:860px; }
 .sub b{ font-weight:700; color:var(--white); }
 .cta{ position:absolute; left:0; right:0; bottom:84px; font-size:24px; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.9); }
@@ -31,7 +30,7 @@ body{ background:#333; display:flex; gap:40px; padding:40px; width:max-content; 
 .list li{ display:grid; grid-template-columns:90px 1fr; align-items:baseline; padding:24px 0; border-top:1px solid rgba(255,255,255,.12); font-size:36px; line-height:1.3; color:rgba(255,255,255,.86); }
 .list li:last-child{ border-bottom:1px solid rgba(255,255,255,.12); }
 .list .n{ font-family:var(--serif); font-style:italic; font-size:56px; color:var(--gold); }
-.verse{ font-family:var(--serif); font-size:74px; line-height:1.08; color:var(--white); letter-spacing:-0.01em; }
+.verse{ color:var(--white); }
 .ref{ font-size:26px; letter-spacing:.12em; text-transform:uppercase; color:var(--mist); margin-top:40px; }
 .logo{ width:120px; height:120px; margin:0 auto; display:block; }
 .pill{ display:inline-block; margin-top:56px; border:1.5px solid var(--gold); color:var(--gold); border-radius:999px; padding:20px 44px; font-size:30px; font-weight:600; letter-spacing:.02em; }
@@ -44,11 +43,11 @@ body{ background:#333; display:flex; gap:40px; padding:40px; width:max-content; 
 <section class="post">
   <div class="photo"><img src="assets/01_hero-bg-img.webp" alt="" style="object-position:14% 40%"></div>
   <div class="num">01</div>
-  <div class="block" style="bottom:240px">
+  <div class="block ttl" style="bottom:240px;--ts:84px">
     <div class="t1">Depois de</div>
     <div class="t2">treinar centenas de</div>
-    <div class="t3 it">empreendedores</div>
-    <p class="sub">Descobrimos as causas que impedem pessoas talentosas como tu de <b>prosperar financeiramente.</b></p>
+    <div class="it">empreendedores</div>
+    <p class="sub" style="font-weight:400;letter-spacing:-0.015em;line-height:1.32;font-size:36px">Descobrimos as causas que impedem pessoas talentosas como tu de <b>prosperar financeiramente.</b></p>
   </div>
   <div class="cta">Arraste para entender</div>
 </section>
@@ -60,8 +59,7 @@ body{ background:#333; display:flex; gap:40px; padding:40px; width:max-content; 
   <div class="block" style="top:270px">
     <div class="label">Bloqueio 1</div>
     <div class="rule"></div>
-    <div class="t2" style="font-size:80px">Sabes o que fazer,</div>
-    <div class="t3 it" style="font-size:104px">mas continuas a adiar</div>
+    <div class="ttl" style="--ts:80px"><div class="t2">Sabes o que fazer,</div><div class="t2">mas continuas a <span class="it">adiar</span></div></div>
     <ul class="list">
       <li><span class="n">01</span><span>Fazes planos e listas, mas na hora de executar encontras sempre uma razão para amanhã.</span></li>
       <li><span class="n">02</span><span>O problema não é falta de informação. É o bloqueio por trás da decisão.</span></li>
@@ -76,7 +74,7 @@ body{ background:#333; display:flex; gap:40px; padding:40px; width:max-content; 
   <div class="block" style="top:330px">
     <div class="label">Princípios do Reino</div>
     <div class="rule"></div>
-    <p class="verse">“Confia ao Senhor as tuas obras, e os teus <span class="it">pensamentos</span> serão estabelecidos.”</p>
+    <p class="verse ttl" style="--ts:66px">“Confia ao Senhor as tuas obras, e os teus <span class="it">pensamentos</span> serão estabelecidos.”</p>
     <p class="ref">Provérbios 16:3</p>
     <p class="body" style="margin-top:64px">Antes de planear o próximo passo do teu negócio, <b>entrega-o.</b></p>
   </div>
@@ -87,8 +85,7 @@ body{ background:#333; display:flex; gap:40px; padding:40px; width:max-content; 
   <div class="warm"></div>
   <div class="block" style="top:300px">
     <img class="logo" src="assets/02_hero-logo.png" alt="Kingdom Founders">
-    <div class="t2" style="font-size:76px;margin-top:70px">Não basta ter uma visão.</div>
-    <div class="t3 it" style="font-size:100px">Precisas de te tornar capaz de a carregar.</div>
+    <div class="ttl" style="--ts:72px;margin-top:70px"><div class="t1">Não basta ter uma visão.</div><div class="t2">Precisas de te tornar</div><div class="t2">capaz de a <span class="it">carregar.</span></div></div>
     <div class="pill">Faz a tua aplicação: link na bio</div>
     <p class="small">Mentoria Kingdom Founders · Apenas 33 vagas por turma</p>
   </div>

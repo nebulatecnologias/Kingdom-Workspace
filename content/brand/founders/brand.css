@@ -22,4 +22,9 @@
 }
 *{ box-sizing:border-box; margin:0; padding:0; }
 body{ font-family:var(--sans); -webkit-font-smoothing:antialiased; }
-.it{ font-family:var(--serif); font-style:italic; font-weight:400; color:var(--gold); letter-spacing:-0.01em; }
+/* Títulos (especificação do Photoshop): Aptos SemiBold 24,45 pt, entrelinha 21,67 pt, tracking -80, kerning ótico.
+   A palavra emocional vai em Instrument Serif SEMPRE em itálico, 28,59 pt (1,169x), mesma entrelinha e tracking.
+   Uso: <div class="ttl" style="--ts:84px">…<span class="it">palavra</span></div>; --ts é o tamanho da Aptos. */
+.ttl{ --ts:84px; font-family:var(--sans); font-weight:600; font-size:var(--ts); line-height:calc(var(--ts) * 0.886); letter-spacing:-0.08em; font-kerning:normal; }
+.it{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:1.169em; letter-spacing:-0.08em; word-spacing:0.1em; color:var(--gold); }
+.ttl{ word-spacing:0.04em; }
