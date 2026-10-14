@@ -29,6 +29,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 ## Marca
 
+- Os carrosséis "The Legacy" (1 imersão + 7 sessões, 70+ alunos, NPS 93) são de uma edição especial passada: não usar esses dados.
 - Mentoria de 4 semanas, 8 sessões ao vivo (ter e qui, 19h30, Google Meet), 33 vagas por turma. Entrada por **aplicação**, não por pagamento: toda a CTA leva a "Faz a tua aplicação" / link na bio.
 - Crença central: "os maiores bloqueios de um founder são invisíveis". Metodologia da **Tricotomia**: Espiritualidade, Desenvolvimento pessoal, Performance no negócio.
 - Avatar: empreendedor moçambicano que sabe o que fazer mas não avança (adia, negócio depende dele, medo de aparecer, procura validação, meses bons e recuos). Bloqueios: perfeccionismo, síndrome do impostor, execução, autoimagem, aprovação, rejeição, escassez, crenças limitantes, autossabotagem.
@@ -82,7 +83,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 - **Arco:** gancho na capa com um laço aberto → identificação (situações ou perguntas em que o leitor se reconhece) → tensão/custo do problema → a virada (a afirmação central, em destaque) → o nome do conceito ou a causa real (causa vs efeito) → o desenvolvimento por pontos → aplicação ou convite.
 - **Resumir sem matar o desenvolvimento:** cada ensinamento da referência ganha explicação e consequência, não só um título.
 - **Ritmo:** parágrafos de 1 a 3 frases, frases curtas, ponte sozinha na última linha. Os slides de texto podem passar das 45 palavras (60 a 90 é normal); o corpo desce para 30 a 32 px.
-- **Destaques:** a frase central de cada slide em dourado (negrito na copy). Nos carrosséis de referência a dor aparece em vermelho; no feed da Founders usar só dourado salvo indicação contrária.
+- **Destaques:** a frase central de cada slide em dourado (negrito na copy). Vermelho só quando necessário: no máximo uma frase de dor por carrossel (o problema que o leitor sente), nunca em títulos nem em mais de um slide; indicar na copy em "Notas para o design".
 - **CTA de meio de funil:** guardar, partilhar ou comentar com uma pergunta concreta; sem botão de aplicação.
 
 ## Instagram
@@ -102,6 +103,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.4 | Vermelho só quando necessário; dados do The Legacy não se usam (edição especial passada). |
 | 14/10/2026 | 1.3 | Padrão de escrita dos carrosséis (narrativa com frases-ponte); copy em Claude Docs; sem créditos às referências. |
 | 14/10/2026 | 1.2 | 12 referências Myles Munroe (Manus 2.0) no Notion, agendadas de 19/10 a 13/11/2026: pilares 4/5/3, funil 5/5/2. |
 | 14/10/2026 | 1.1 | Linha editorial aprovada; base Notion "Ideias de Conteúdo · Kingdom Founders" criada para as referências. |
