@@ -21,6 +21,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 | Modelos de post (7) | `content/brand/founders/templates.html` → `templates/01–07.png` |
 | Símbolo vetorial | `content/brand/founders/assets/kingdom-founders-simbolo{,-preto,-branco}.svg` (reconstruído do PNG do site; validar com designer antes de impressão grande) |
 | Fotos do site | `content/brand/founders/assets/01_hero-bg-img.webp`, `06_shelton-douglas.webp` |
+| Posts por semana | `content/founders/semana-NN/index.html` (cada `.post` com `data-file`) → `node content/founders/render-posts.mjs semana-NN` gera `semana-NN/png/<data>-<slug>/NN.png`; `visao-geral.png` para revisão |
 | Render | `node content/brand/founders/render.mjs [templates] [book]` (Playwright; usa `/opt/pw-browsers/chromium`) |
 
 **Fontes Aptos:** licença Microsoft, fora do git (`.gitignore`). Antes de renderizar, descarregar da Drive (pasta `aptos-font` dentro de SOCIAL MEDIA - OPUS 5) os `.ttf` light, regular (`aptos.ttf`), semibold, bold e black para `content/brand/founders/fonts/`. Sem eles o render cai na Inter e o resultado está errado. Instrument Serif e Inter já estão no repositório.
@@ -59,6 +60,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
   - **B Contraste de peso:** Aptos Light + destaque Aptos Bold (`.wt`); botão dourado `.go-pill`. Para listas e carrosséis educativos com foto.
   - **C Cartão claro:** fundo branco, Aptos Regular caixa alta + destaque Aptos Black (`.card-c`), à esquerda, botão dourado. Para ganchos diretos sem foto.
 - Post 1080×1350: margens laterais 90 px, número centrado a 92 px do topo, foto nos primeiros 1060 px com rosto no terço superior, texto a partir de 55% da altura até 240 px do fundo, máx. 45 palavras por slide. Caixa alta só no estilo C, chamada e etiquetas.
+- **Nunca usar fotos que o utilizador não enviou para o post** (nem as do site): deixar placeholder (`.ph` com a descrição da foto pretendida) até ele as enviar.
 - Fotografia: pessoas reais das sessões, ambiente escuro, luz âmbar, olhar fora da câmara. Nunca banco de imagens nem texto sobre rostos.
 
 ## Linha editorial (aprovada a 14/10/2026)
@@ -119,6 +121,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.9 | Design da semana 1; fotos só com placeholder até o utilizador as enviar. |
 | 14/10/2026 | 1.8 | Modelo de escrita de meio de funil gravado (modelo-meio-de-funil.md), a partir do carrossel "Quem sou eu?" aprovado. |
 | 14/10/2026 | 1.7 | Nota da série 5 Perguntas; post de 19/10 passa a ser 1/5 (identidade). |
 | 14/10/2026 | 1.6 | Ganchos ligados a dor, desejo ou dúvida, com 2 alternativas por post. |

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-MZ">
+<head>
+<meta charset="utf-8">
+<title>Kingdom Founders: semana 1 (19 a 23/10/2026)</title>
+<link rel="stylesheet" href="../../brand/founders/brand.css">
+<style>
+/* Posts da semana 1. Copy aprovada nos documentos Claude Docs ligados na coluna Script do Notion. */
+:root{ --red:#E0574B; --A:'../../brand/founders/assets/'; }
+body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; width:calc(1080px * 4 + 40px * 5); }
+.post{ position:relative; width:1080px; height:1350px; overflow:hidden; background:var(--black); color:var(--white); }
+.glow{ position:absolute; inset:0; background:radial-gradient(75% 36% at 50% 0%, rgba(122,74,18,.6), rgba(0,0,0,0) 72%); }
+.glow.low{ background:radial-gradient(60% 40% at 0% 100%, rgba(122,74,18,.55), rgba(0,0,0,0) 70%), radial-gradient(70% 30% at 50% 0%, rgba(122,74,18,.35), rgba(0,0,0,0) 72%); }
+.num{ position:absolute; left:0; right:0; top:72px; text-align:center; font-weight:700; font-size:34px; letter-spacing:-0.01em; color:var(--mist); }
+.handle{ position:absolute; left:100px; bottom:66px; font-size:24px; color:rgba(255,255,255,.55); }
+.next{ position:absolute; right:44px; top:calc(50% - 34px); width:68px; height:68px; border-radius:50%; background:linear-gradient(135deg,var(--gold-light),var(--gold)); display:flex; align-items:center; justify-content:center; }
+.next svg{ width:26px; height:26px; color:#000; }
+
+/* Slides de texto: bloco à esquerda, centrado na vertical */
+.content{ position:absolute; left:96px; right:128px; top:140px; bottom:130px; display:flex; flex-direction:column; justify-content:center; }
+.t1{ color:var(--mist); }
+.p{ font-size:35px; line-height:1.4; letter-spacing:-0.01em; color:rgba(255,255,255,.8); margin-top:26px; }
+.p b{ font-weight:600; color:var(--gold-light); }
+.p .red{ color:var(--red); font-weight:600; }
+.lead{ font-size:46px; line-height:1.25; font-weight:600; letter-spacing:-0.03em; color:var(--white); margin-top:0; }
+.lead b{ color:var(--gold); font-weight:600; }
+.bridge{ margin-top:48px; font-size:35px; line-height:1.35; font-weight:600; letter-spacing:-0.01em; color:var(--gold); }
+.ttl + .p{ margin-top:40px; }
+.wt + .p{ margin-top:40px; }
+.quotes{ margin-top:40px; display:flex; flex-direction:column; gap:14px; }
+.quotes span{ font-weight:300; font-size:42px; letter-spacing:-0.03em; color:var(--white); }
+.quotes span::before{ content:"“"; color:var(--gold); } .quotes span::after{ content:"”"; color:var(--gold); }
+.verse{ margin-top:32px; padding-left:28px; border-left:3px solid var(--gold); font-size:35px; line-height:1.4; color:var(--white); }
+.verse .ref{ display:block; margin-top:12px; font-size:21px; letter-spacing:.16em; text-transform:uppercase; color:var(--mist); }
+
+/* Placeholder de foto: substituir pela foto real quando o utilizador a enviar */
+.ph{ position:absolute; background:repeating-linear-gradient(135deg,#1b1b1e 0 22px,#202024 22px 44px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; }
+.ph::before{ content:""; position:absolute; inset:28px; border:2px dashed rgba(203,200,200,.35); border-radius:6px; }
+.ph b{ font-size:26px; letter-spacing:.2em; text-transform:uppercase; color:var(--mist); font-weight:600; }
+.ph span{ font-size:24px; line-height:1.4; color:rgba(203,200,200,.75); max-width:640px; }
+/* Capa estilo A (foto + título em baixo) */
+.photo{ position:absolute; inset:0 0 auto 0; height:1060px; }
+.photo img{ width:100%; height:100%; object-fit:cover; }
+.photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(122,74,18,.5) 0%, rgba(122,74,18,.14) 22%, rgba(0,0,0,0) 40%), linear-gradient(180deg, rgba(0,0,0,0) 42%, rgba(0,0,0,.78) 72%, #000 100%); }
+.cover-a{ position:absolute; left:90px; right:90px; bottom:200px; text-align:center; }
+.cover-a .sub{ font-size:34px; line-height:1.34; letter-spacing:-0.015em; color:rgba(255,255,255,.86); margin:34px auto 0; max-width:860px; }
+.cover-a .sub b{ font-weight:600; color:var(--white); }
+.cta-foot{ position:absolute; left:0; right:0; bottom:84px; text-align:center; font-size:24px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.9); }
+
+/* CTA */
+.cta{ position:absolute; left:110px; right:110px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.cta .logo{ width:104px; height:104px; margin-bottom:64px; }
+.cta .p{ text-align:center; max-width:820px; }
+.qlist{ list-style:none; margin-top:44px; width:100%; max-width:760px; }
+.qlist li{ padding:22px 0; border-top:1px solid rgba(255,255,255,.12); font-size:36px; color:var(--mist); letter-spacing:-0.015em; }
+.qlist li:last-child{ border-bottom:1px solid rgba(255,255,255,.12); }
+.save{ display:inline-flex; align-items:center; gap:14px; margin-top:44px; font-size:28px; font-weight:600; color:var(--gold); }
+.save svg{ width:28px; height:28px; }
+.handle.c{ left:0; right:0; text-align:center; }
+
+/* Estático Princípios do Reino */
+.reino{ position:absolute; left:110px; right:110px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.label{ font-size:24px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+.rule{ width:64px; height:2px; background:var(--gold); margin:34px auto 48px; }
+.reino .verse2{ margin-top:56px; font-size:33px; line-height:1.42; color:rgba(255,255,255,.88); max-width:820px; }
+.reino .ref2{ margin-top:22px; font-size:22px; letter-spacing:.16em; text-transform:uppercase; color:var(--mist); }
+.reino .apply{ margin-top:60px; font-size:36px; line-height:1.3; letter-spacing:-0.02em; color:rgba(255,255,255,.82); }
+.reino .apply b{ font-weight:700; color:var(--white); }
+.sym{ position:absolute; left:calc(50% - 30px); bottom:70px; width:60px; height:60px; opacity:.9; }
+
+/* Estilo B */
+.wt b{ color:var(--white); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="arrow-long" viewBox="0 0 76 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9h70M64 2l8 7-8 7"/></symbol>
+  <symbol id="bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3.5h12v17l-6-4.2-6 4.2v-17Z"/></symbol>
+</svg>
+
+<!-- ============ 19/10 · Carrossel · Quem sou eu? (5 Perguntas 1/5) · Estilo A ============ -->
+<section class="post" data-file="2026-10-19-quem-sou-eu/01.png">
+  <div class="ph" style="inset:0 0 auto 0;height:1060px;justify-content:flex-start;padding-top:250px"><b>Foto</b><span>Pessoa real de uma sessão, de perfil ou a olhar para baixo, pensativa. Ambiente escuro, luz âmbar, rosto no terço superior.</span></div>
+  <div style="position:absolute;inset:0 0 auto 0;height:1060px;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.8) 78%,#000 100%)"></div>
+  <div class="num">01</div>
+  <div class="cover-a ttl" style="--ts:70px">
+    <div class="t1">Se um mês mau te faz</div>
+    <div>duvidar de quem és, o problema</div>
+    <div>não é o <span class="it">mês.</span></div>
+    <p class="sub" style="font-weight:400">É uma pergunta que nunca respondeste antes de empreender. E enquanto ela ficar sem resposta, o teu negócio vai continuar a <b>pagar o preço…</b></p>
+  </div>
+  <div class="cta-foot">Arraste para entender</div>
+</section>
+
+<section class="post" data-file="2026-10-19-quem-sou-eu/02.png">
+  <div class="glow"></div><div class="num">02</div>
+  <div class="content">
+    <p class="lead">A pergunta é esta: <b>quem sou eu?</b></p>
+    <p class="p">Parece simples. Mas repara no que acontece quando não tens resposta: <span class="red">cada mês mau parece um veredicto sobre o teu valor</span>, cada crítica confirma um rótulo antigo e cada conquista dura pouco, porque nunca é suficiente.</p>
+    <p class="p">Sem identidade, o negócio passa a carregar <b>um peso que não é dele.</b></p>
+    <p class="bridge">E o motivo é que a maioria de nós aprendeu a responder a esta pergunta da forma errada:</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-19-quem-sou-eu/03.png">
+  <div class="glow"></div><div class="num">03</div>
+  <div class="content">
+    <div class="ttl" style="--ts:76px"><div class="t1">Tu não és</div><div>o que <span class="it">fazes.</span></div></div>
+    <p class="p">Quando alguém te pergunta quem és, a resposta costuma ser uma profissão: sou empresário, sou consultor, tenho uma loja.</p>
+    <p class="p">Mas isso é o que fazes. Não é quem és.</p>
+    <p class="p">Quando a identidade fica presa à atividade, o teu valor sobe e desce com a faturação. Num bom mês, sentes-te capaz. <b>Num mau mês, sentes-te uma fraude.</b></p>
+    <p class="bridge">E há outra forma de responder mal a esta pergunta…</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-19-quem-sou-eu/04.png">
+  <div class="glow"></div><div class="num">04</div>
+  <div class="content">
+    <div class="ttl" style="--ts:76px"><div class="t1">Tu não és o que</div><div><span class="it">disseram</span> de ti.</div></div>
+    <div class="quotes"><span>Não tens perfil para isso.</span><span>Começa mais pequeno.</span><span>Isso não é para pessoas como tu.</span></div>
+    <p class="p">Frases ditas por pais, professores, chefes ou por ti mesmo, que se tornaram teto. Muitos empreendedores constroem o negócio inteiro à volta delas sem perceber.</p>
+    <p class="p">Um rótulo descreve uma opinião. <b>Não define quem és.</b></p>
+    <p class="bridge">Então, se não és o que fazes nem o que disseram de ti, quem és?</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-19-quem-sou-eu/05.png">
+  <div class="glow"></div><div class="num">05</div>
+  <div class="content">
+    <div class="ttl" style="--ts:76px"><div class="t1">Tu és quem</div><div>Deus diz que <span class="it">és.</span></div></div>
+    <p class="p">A tua identidade não nasce no mercado nem na opinião dos outros. Nasce em quem te criou.</p>
+    <p class="verse">“E criou Deus o homem à sua imagem; à imagem de Deus o criou.”<span class="ref">Génesis 1:27</span></p>
+    <p class="p">É a única identidade que nenhum resultado te pode dar e <b>nenhum fracasso te pode tirar.</b></p>
+    <p class="bridge">E quando isto fica claro, a forma como empreendes muda:</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-19-quem-sou-eu/06.png">
+  <div class="glow low"></div><div class="num">06</div>
+  <div class="content">
+    <p class="lead">Quando sabes quem és, deixas de vender para provar o teu valor e passas a <b>vender para servir.</b></p>
+    <p class="p">Uma crítica passa a ser informação, não sentença.</p>
+    <p class="p">Um mês mau passa a ser um problema para resolver, <b>não um veredicto sobre ti.</b></p>
+    <p class="p">A identidade não te tira os desafios. Dá-te chão firme para os enfrentar.</p>
+    <p class="bridge">Mas “quem sou eu?” é só o começo…</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-19-quem-sou-eu/07.png">
+  <div class="glow"></div>
+  <div class="cta">
+    <img class="logo" src="../../brand/founders/assets/kingdom-founders-simbolo.svg" alt="Kingdom Founders">
+    <div class="ttl" style="--ts:70px"><div class="t1">Esta é só a</div><div><span class="it">primeira</span> de cinco perguntas.</div></div>
+    <ul class="qlist"><li>De onde venho?</li><li>Porque estou aqui?</li><li>O que consigo fazer?</li><li>Para onde vou?</li></ul>
+    <p class="p">Guarda este post e visita o nosso perfil para descobrires a resposta às outras quatro.</p>
+    <span class="save"><svg><use href="#bookmark"/></svg>Guarda para não perderes</span>
+  </div>
+  <div class="handle c">@kingdomfounderss</div>
+</section>
+
+<!-- ============ 21/10 · Estático · Princípios do Reino ============ -->
+<section class="post" data-file="2026-10-21-buscai-primeiro-o-reino/01.png">
+  <div class="glow"></div>
+  <div class="reino">
+    <div class="label">Princípios do Reino</div>
+    <div class="rule"></div>
+    <div class="ttl" style="--ts:80px"><div class="t1">A tua agenda revela</div><div>o que vem <span class="it">primeiro</span></div><div>na tua vida.</div></div>
+    <p class="verse2">“Mas, buscai primeiro o Reino de Deus, e a sua justiça, e todas estas coisas vos serão acrescentadas.”</p>
+    <p class="ref2">Mateus 6:33</p>
+    <p class="apply">Não é fazer menos. É pôr <b>a ordem certa.</b></p>
+  </div>
+  <img class="sym" src="../../brand/founders/assets/kingdom-founders-simbolo.svg" alt="">
+</section>
+
+<!-- ============ 23/10 · Carrossel · Liderança não é cargo · Estilo B ============ -->
+<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/01.png">
+  <div class="ph" style="left:0;top:0;width:1080px;height:1080px;justify-content:flex-start;padding-top:240px"><b>Foto</b><span>Shelton ou um empreendedor real no trabalho, sozinho, sobrecarregado ou a decidir. Ambiente escuro, luz âmbar, rosto no terço superior.</span></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 16%,rgba(0,0,0,0) 44%,rgba(0,0,0,.86) 66%,#000 78%)"></div>
+  <div style="position:absolute;left:90px;top:56px;font-size:24px;color:rgba(255,255,255,.85)">@kingdomfounderss</div>
+  <div style="position:absolute;right:90px;top:56px;font-size:24px;color:rgba(255,255,255,.85)">01</div>
+  <div class="wt" style="position:absolute;left:80px;right:80px;bottom:250px;font-size:84px;text-align:center">Se o teu negócio <b>para</b> quando tu paras, não tens uma equipa. Tens <b>dependentes.</b></div>
+  <div style="position:absolute;left:0;right:0;bottom:150px;text-align:center"><span class="go-pill"><svg><use href="#arrow-long"/></svg></span></div>
+</section>
+
+<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/02.png">
+  <div class="glow"></div><div class="num">02</div>
+  <div class="content">
+    <p class="lead">E isso raramente é culpa de quem trabalha contigo.</p>
+    <p class="p">Repara no teu dia: <span class="red">pessoas à espera de ordens, decisões acumuladas na tua secretária</span>, o telemóvel a tocar mesmo quando estás de férias. <b>Tudo passa por ti.</b></p>
+    <p class="p">A conclusão costuma ser “preciso de contratar melhor”. Mas contratar mais pessoas não resolve um problema que começa antes delas.</p>
+    <p class="bridge">Começa na forma como aprendeste a ver a liderança:</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/03.png">
+  <div class="glow"></div><div class="num">03</div>
+  <div class="content">
+    <div class="wt" style="font-size:84px">Liderança não é <b>cargo.</b></div>
+    <p class="p">Muitos empreendedores acreditam que liderar começa quando têm um título: diretor, gerente, CEO. Até lá, executam.</p>
+    <p class="p">O problema é que o título só te dá o direito de mandar. E pessoas que só obedecem fazem o mínimo e ficam à espera da próxima ordem.</p>
+    <p class="p"><b>O cargo dá-te autoridade no papel. Não te dá liderança.</b></p>
+    <p class="bridge">E há outra ideia que nos prende ainda mais…</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/04.png">
+  <div class="glow"></div><div class="num">04</div>
+  <div class="content">
+    <div class="wt" style="font-size:84px">Liderança não começa quando tiveres <b>equipa.</b></div>
+    <div class="quotes"><span>Quando tiver cinco pessoas, começo a pensar como líder.</span></div>
+    <p class="p">Até lá, fazes tudo sozinho, decides tudo sozinho e resolves tudo sozinho.</p>
+    <p class="p">Quando a equipa finalmente chega, encontra alguém que nunca aprendeu a liderar. <b>Só aprendeu a executar.</b></p>
+    <p class="bridge">Então, se a liderança não vem do cargo nem do tamanho da equipa, de onde vem?</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/05.png">
+  <div class="glow"></div><div class="num">05</div>
+  <div class="content">
+    <div class="wt" style="font-size:84px">Liderança começa na <b>mente.</b></div>
+    <p class="p">Antes de liderar pessoas, lideras os teus pensamentos. Quem pensa como empregado espera instruções. Quem pensa como vítima culpa as circunstâncias. <b>Quem pensa como governo assume a responsabilidade pelo que acontece.</b></p>
+    <p class="verse">“E não sede conformados com este mundo, mas sede transformados pela renovação do vosso entendimento.”<span class="ref">Romanos 12:2</span></p>
+    <p class="p">Todos temos capacidade de influenciar. A questão é se decidimos pensar como quem a usa.</p>
+    <p class="bridge">E quando pensas assim, a forma como lideras muda, mesmo que ainda trabalhes sozinho:</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/06.png">
+  <div class="glow low"></div><div class="num">06</div>
+  <div class="content">
+    <p class="p" style="margin-top:0">Deixas de perguntar <b>“de quem é a culpa?”</b> e passas a perguntar <b>“o que posso mudar?”</b>.</p>
+    <p class="p">Deixas de dar ordens e passas a explicar o porquê, porque quem lidera dá significado ao trabalho dos outros.</p>
+    <p class="p">Deixas de medir o teu valor pelo que fazes e passas a medi-lo pelo que os outros conseguem fazer sem ti.</p>
+    <p class="lead" style="margin-top:44px">É assim que um negócio deixa de <b>depender de ti.</b></p>
+    <p class="bridge">E tudo começa numa decisão que podes tomar hoje…</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/07.png">
+  <div class="glow"></div>
+  <div class="cta">
+    <img class="logo" src="../../brand/founders/assets/kingdom-founders-simbolo.svg" alt="Kingdom Founders">
+    <div class="wt" style="font-size:84px">Liderança é <b>mentalidade de governo.</b></div>
+    <p class="p" style="margin-top:44px">Não esperes pelo cargo nem pela equipa para começares a pensar como líder. Começa hoje, com as pessoas e as decisões que já tens.</p>
+    <p class="p">Guarda este post e partilha com o teu sócio ou com quem trabalha contigo.</p>
+    <span class="save"><svg><use href="#bookmark"/></svg>Guarda e partilha</span>
+  </div>
+  <div class="handle c">@kingdomfounderss</div>
+</section>
+</body>
+</html>
