@@ -269,6 +269,24 @@
         ],
         "createdAt": "2026-10-14T10:01:44.417Z",
         "reason": "Provisional fallback for Aptos (user-specified brand font) until the Aptos files are provided; Inter is also the font of the Founders website"
+      },
+      {
+        "rule": "extreme-negative-tracking",
+        "value": "*",
+        "files": [
+          "content/brand/founders/templates.html"
+        ],
+        "createdAt": "2026-10-14T10:11:00.431Z",
+        "reason": "user confirmed: user specified tracking -80 (-0.08em) for Aptos SemiBold and Instrument Serif Italic titles (Photoshop character panel screenshots)"
+      },
+      {
+        "rule": "extreme-negative-tracking",
+        "value": "*",
+        "files": [
+          "content/brand/founders/brand-book.html"
+        ],
+        "createdAt": "2026-10-14T10:11:00.447Z",
+        "reason": "user confirmed: user specified tracking -80 (-0.08em) for Aptos SemiBold and Instrument Serif Italic titles (Photoshop character panel screenshots)"
       }
     ]
   }
