@@ -75,7 +75,7 @@ Correr por esta ordem; no máximo 3 copies e 3 designs por execução para caber
 | Peça | Para quê | Estado |
 |---|---|---|
 | Colunas e Status no Notion (Responsável, Notas de Revisão, Visão Geral, Última Ação, Prompt de Imagem) | Quadro de sincronização | Feito (14/10/2026) |
-| Rotina agendada do Claude (Claude Code na web) com os conectores Notion, Google Drive (só leitura: fontes e folhas do Manus) e Claude Docs, e a skill no ramo que a rotina usa | Claude corre o ciclo sozinho e notifica o utilizador no fim | Por criar (confirmar horários) |
+| Rotina agendada do Claude: "Kingdom Founders · ciclo de produção de posts" (`trig_019piDHZEnaYnspK6vDZPJah`), 07:45, 12:45 e 17:45 de Maputo, todos os dias, na sessão principal do utilizador (`session_01RgmbLLVHoJT5B4GNygU6zs`, ramo `claude/inspiring-planck-n6uxg2`) | Claude corre o ciclo sozinho e responde no mesmo chat onde o utilizador envia imagens e baixa os PNG | Feito (14/10/2026) |
 | Manus: tarefa agendada com `agentes/manus.md` e acesso ao Notion (ou à pasta de referências) | Referências entram sozinhas | Por configurar no Manus |
 | ChatGPT: projeto com `agentes/chatgpt.md` e conector do Notion | Gera as imagens pendentes e avisa | Por configurar no ChatGPT |
 
