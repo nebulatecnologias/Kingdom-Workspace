@@ -96,6 +96,9 @@ Referências do utilizador em `content/brand/founders/referencias-imagem/` (01 c
 
 ## Fluxo das referências (Notion)
 
+O processo completo entre agentes (estados, responsáveis, rotina) está na skill **kingdom-orquestrador**; esta secção define as regras de conteúdo de cada passo.
+
+
 1. As referências chegam por duas vias: folhas do Manus 2.0 na pasta "REFERENCIAS - MANUS 2.0" (o Claude copia-as para o Notion, completando as linhas que o utilizador já tenha começado em vez de as duplicar) ou o utilizador adiciona-as diretamente na base "Ideias de Conteúdo · Kingdom Founders" (título na coluna "Titulo do Conteúdo", Referência, às vezes Assunto/Formato), com **Resumo da Ideia** (2 a 3 frases) e **Principais Ensinamentos** (3 a 5, um por linha). Estas duas colunas são a fonte principal da copy; se estiverem vazias, pedir ao utilizador antes de escrever.
 2. O Claude lê as linhas em "Brainstorming" sem Pilar e preenche **Pilar, Funil, Série, Formato, Categoria, Assunto** e a **Data de Publicação** (só seg/qua/sex, respeitando a alternância de formatos, 30/40/30 nos pilares, 40/40/20 no funil e nunca dois estilos C seguidos). Não publica nada nem muda o Status para Publicado.
 3. As copies seguem o conteúdo das referências (não inventar temas fora delas); o calendário-modelo da Linha Editorial é só exemplo.
@@ -135,6 +138,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.13 | Orquestrador entre Manus, Claude, ChatGPT e utilizador (skill kingdom-orquestrador); estados novos no Notion; pasta "01. Produção de Posts" na Drive. |
 | 14/10/2026 | 1.12 | Direção das imagens IA a partir das 5 referências do utilizador (metáfora visual, campanha editorial). |
 | 14/10/2026 | 1.11 | Coluna "Prompt de Imagem" no Notion para gerar imagens no ChatGPT. |
 | 14/10/2026 | 1.10 | Regra de entrega: visão geral para aprovação antes dos PNG. |
