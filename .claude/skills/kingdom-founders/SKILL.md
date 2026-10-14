@@ -116,7 +116,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 - **Narrativa, não frases soltas.** O carrossel é um texto contínuo, cortado em slides. Cada slide fecha com uma **frase-ponte** isolada que abre o seguinte: "Mas o motivo foi forte demais para ignorar…", "E a pergunta que sempre vinha era:", "E a decisão chegou.", "Através de uma combinação entre". O slide seguinte começa a responder a essa ponte.
 - **Arco:** gancho na capa com um laço aberto → identificação (situações ou perguntas em que o leitor se reconhece) → tensão/custo do problema → a virada (a afirmação central, em destaque) → o nome do conceito ou a causa real (causa vs efeito) → o desenvolvimento por pontos → aplicação ou convite.
 - **Resumir sem matar o desenvolvimento:** cada ensinamento da referência ganha explicação e consequência, não só um título.
-- **Ritmo:** parágrafos de 1 a 3 frases, frases curtas, ponte sozinha na última linha. Os slides de texto podem passar das 45 palavras (60 a 90 é normal); o corpo desce para 30 a 32 px.
+- **Ritmo e tamanho:** carrosséis com **10 slides** (regra do utilizador, 14/10/2026). Parágrafos de 1 a 3 frases, ponte sozinha na última linha, cerca de 25 a 50 palavras por slide de texto; se passar disso, divide em dois slides ligados por uma ponte. No design, corpo a 42 px, frase principal a 58 px, versículo em destaque a 52 px.
 - **Destaques:** a frase central de cada slide em dourado (negrito na copy). Vermelho só quando necessário: no máximo uma frase de dor por carrossel (o problema que o leitor sente), nunca em títulos nem em mais de um slide; indicar na copy em "Notas para o design".
 - **CTA de meio de funil:** guardar, partilhar ou comentar com uma pergunta concreta; sem botão de aplicação.
 
@@ -138,6 +138,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.15 | Carrosséis com 10 slides: texto dividido (25 a 50 palavras por slide) com pontes novas; corpo 42 px. Modelo de meio de funil atualizado. |
 | 14/10/2026 | 1.14 | Sem Drive para imagens: ChatGPT gera e avisa, utilizador envia ao Claude, PNG finais entregues no chat. |
 | 14/10/2026 | 1.13 | Orquestrador entre Manus, Claude, ChatGPT e utilizador (skill kingdom-orquestrador); estados novos no Notion. |
 | 14/10/2026 | 1.12 | Direção das imagens IA a partir das 5 referências do utilizador (metáfora visual, campanha editorial). |
