@@ -60,6 +60,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
   - **B Contraste de peso:** Aptos Light + destaque Aptos Bold (`.wt`); botão dourado `.go-pill`. Para listas e carrosséis educativos com foto.
   - **C Cartão claro:** fundo branco, Aptos Regular caixa alta + destaque Aptos Black (`.card-c`), à esquerda, botão dourado. Para ganchos diretos sem foto.
 - Post 1080×1350: margens laterais 90 px, número centrado a 92 px do topo, foto nos primeiros 1060 px com rosto no terço superior, texto a partir de 55% da altura até 240 px do fundo, máx. 45 palavras por slide. Caixa alta só no estilo C, chamada e etiquetas.
+- **Capa com foto (padrão aprovado a 14/10/2026, capa de 19/10 "Quem sou eu?"):** foto nos primeiros 1060 px com o rosto no terço superior; título em **Aptos Bold** (700) a ~92 px, centrado, 3 linhas curtas; a primeira linha em Névoa e as outras em branco; **Instrument Serif itálico dourado na palavra-chave do gancho** (a que nomeia a dor ou a virada, ex.: "*problema*"), não necessariamente a última palavra; subtítulo de 2 a 3 linhas a 34 px logo por baixo (34 px de distância) com o laço aberto e o fim a branco semibold; título e subtítulo como um bloco, a 262 px do fundo; "ARRASTE PARA ENTENDER" a 84 px do fundo. Código de referência: `content/founders/semana-01/index.html`, slide `2026-10-19-quem-sou-eu/01.png`.
 - **Nunca usar fotos que o utilizador não enviou para o post** (nem as do site): deixar placeholder (`.ph` com a descrição da foto pretendida) até ele as enviar.
 - Fotografia: pessoas reais das sessões, ambiente escuro, luz âmbar, olhar fora da câmara. Nunca banco de imagens nem texto sobre rostos.
 
@@ -138,6 +139,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.16 | Padrão da capa com foto: título Aptos Bold ~92 px, Instrument Serif na palavra-chave, bloco título+subtítulo a 262 px do fundo. |
 | 14/10/2026 | 1.15 | Carrosséis com 10 slides: texto dividido (25 a 50 palavras por slide) com pontes novas; corpo 42 px. Modelo de meio de funil atualizado. |
 | 14/10/2026 | 1.14 | Sem Drive para imagens: ChatGPT gera e avisa, utilizador envia ao Claude, PNG finais entregues no chat. |
 | 14/10/2026 | 1.13 | Orquestrador entre Manus, Claude, ChatGPT e utilizador (skill kingdom-orquestrador); estados novos no Notion. |
