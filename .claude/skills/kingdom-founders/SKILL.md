@@ -88,6 +88,8 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 ## Escrita dos carrosséis (padrão do utilizador)
 
+**Meio de funil: seguir sempre o modelo aprovado em [`modelo-meio-de-funil.md`](modelo-meio-de-funil.md)** (regras + texto completo do carrossel "Quem sou eu?"). Ler antes de escrever qualquer carrossel educativo/aprofundado.
+
 Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito que conhecias" e "O que é a mentoria Kingdom Founders". Vale sobretudo para os educativos de meio de funil.
 
 - **Gancho que quebra o scroll.** O título da capa (e do estático) prende-se a uma **dor**, um **desejo** ou uma **dúvida** que o conteúdo resolve: cenas concretas do leitor ("Se um mês mau te faz duvidar de quem és…", "Se o teu negócio para quando tu paras…"), perguntas incómodas ou uma afirmação que contraria o que ele pensa. Nunca um título descritivo ("5 elementos da liderança"). Na copy, indicar o tipo de gancho e propor 2 alternativas nas notas. O estático leva gancho em cima e o versículo/texto por baixo.
@@ -115,6 +117,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.8 | Modelo de escrita de meio de funil gravado (modelo-meio-de-funil.md), a partir do carrossel "Quem sou eu?" aprovado. |
 | 14/10/2026 | 1.7 | Nota da série 5 Perguntas; post de 19/10 passa a ser 1/5 (identidade). |
 | 14/10/2026 | 1.6 | Ganchos ligados a dor, desejo ou dúvida, com 2 alternativas por post. |
 | 14/10/2026 | 1.5 | Leitor não é "founder" (só os membros da mentoria); usar "tu" ou "empreendedor". |
