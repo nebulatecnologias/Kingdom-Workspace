@@ -76,6 +76,19 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 .vs.l .vo{ color:rgba(0,0,0,.45); text-decoration-color:rgba(0,0,0,.3); }
 .vs.l .vn{ color:#121212; background:#fff; border-color:rgba(156,122,60,.45); } .vs.l .vn b{ color:#9C7A3C; }
 .vs.l svg{ color:#9C7A3C; }
+.hub{ display:block; width:100%; height:auto; margin-top:30px; overflow:visible; }
+.hub .nd{ font-size:26px; font-weight:600; fill:rgba(255,255,255,.88); }
+.hub .tu{ font-size:46px; font-weight:900; fill:#000; letter-spacing:.02em; }
+.tl{ margin-top:36px; display:flex; flex-direction:column; gap:22px; border-left:2px solid rgba(214,175,98,.4); padding-left:34px; }
+.tl div{ position:relative; }
+.tl div::before{ content:""; position:absolute; left:-44px; top:8px; width:18px; height:18px; border-radius:50%; background:#000; border:3px solid var(--gold); }
+.tl div.end::before{ background:var(--gold); }
+.tl span{ font-size:22px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
+.tl p{ margin-top:6px; font-size:38px; line-height:1.3; color:rgba(255,255,255,.82); }
+.tl p b{ color:var(--gold-light); font-weight:600; }
+.scenes.l .scene.hi{ border-color:rgba(156,122,60,.6); background:rgba(156,122,60,.1); } .scenes.l .scene.hi p{ font-weight:600; }
+.w .wt{ color:#121212; } .w .wt b{ color:#121212; }
+.w .quotes span::before,.w .quotes span::after{ color:#9C7A3C; }
 .grain::after{ content:""; position:absolute; inset:0; pointer-events:none; opacity:.2; mix-blend-mode:overlay; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>"); }
 /* Elementos visuais dos carrosséis */
 .bgph{ position:absolute; inset:0; }
@@ -263,8 +276,8 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
   <div class="frase-esp"><div><p>Deixa de correr atrás das coisas. Busca primeiro o Reino de Deus, e as coisas vão <b>correr atrás de ti.</b></p><span>@kingdomfounderss</span></div></div>
 </section>
 
-<!-- ============ 23/10 · Carrossel · Liderança não é cargo · Estilo B · 10 slides ============ -->
-<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/01.png">
+<!-- ============ 23/10 · Carrossel · Liderança não é cargo · Estilo B · 10 slides · fotos em 01, 04, 07, 10 · claros 03, 06, 08 ============ -->
+<section class="post grain" data-file="2026-10-23-lideranca-nao-e-cargo/01.png">
   <img src="img/2026-10-23-capa.jpg" alt="" style="position:absolute;left:0;top:0;width:1080px;height:1080px;object-fit:cover">
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 16%,rgba(0,0,0,0) 44%,rgba(0,0,0,.86) 66%,#000 78%)"></div>
   <div style="position:absolute;left:90px;top:56px;font-size:24px;color:rgba(255,255,255,.85)">@kingdomfounderss</div>
@@ -277,16 +290,22 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
   <div class="glow"></div><div class="num">02</div>
   <div class="content">
     <p class="lead">E isso raramente é culpa de quem trabalha contigo.</p>
-    <p class="p">Repara no teu dia: <span class="red">pessoas à espera de ordens, decisões acumuladas na tua secretária</span>, o telemóvel a tocar mesmo quando estás de férias. <b>Tudo passa por ti.</b></p>
+    <svg class="hub" viewBox="0 0 856 500" aria-hidden="true">
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#D6AF62"/></marker>
+      <radialGradient id="hg"><stop offset="0" stop-color="#E9CF8F"/><stop offset="1" stop-color="#C9A45C"/></radialGradient></defs>
+      <line x1="428" y1="80" x2="428" y2="164" stroke="rgba(214,175,98,.55)" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#ah)"/><rect x="361" y="24" width="134" height="52" rx="26" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)"/><text x="428" y="59" text-anchor="middle" class="nd">Equipa</text><line x1="648" y1="160" x2="509" y2="222" stroke="rgba(214,175,98,.55)" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#ah)"/><rect x="632" y="124" width="164" height="52" rx="26" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)"/><text x="714" y="159" text-anchor="middle" class="nd">Clientes</text><line x1="648" y1="340" x2="509" y2="278" stroke="rgba(214,175,98,.55)" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#ah)"/><rect x="632" y="324" width="164" height="52" rx="26" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)"/><text x="714" y="359" text-anchor="middle" class="nd">Decisões</text><line x1="428" y1="420" x2="428" y2="336" stroke="rgba(214,175,98,.55)" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#ah)"/><rect x="331" y="424" width="194" height="52" rx="26" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)"/><text x="428" y="459" text-anchor="middle" class="nd">Pagamentos</text><line x1="208" y1="340" x2="347" y2="278" stroke="rgba(214,175,98,.55)" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#ah)"/><rect x="53" y="324" width="179" height="52" rx="26" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)"/><text x="142" y="359" text-anchor="middle" class="nd">Problemas</text><line x1="208" y1="160" x2="347" y2="222" stroke="rgba(214,175,98,.55)" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#ah)"/><rect x="53" y="124" width="179" height="52" rx="26" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)"/><text x="142" y="159" text-anchor="middle" class="nd">Telemóvel</text>
+      <circle cx="428" cy="250" r="82" fill="url(#hg)"/><text x="428" y="266" text-anchor="middle" class="tu">TU</text>
+    </svg>
+    <p class="p" style="margin-top:20px">Até nas férias, <span class="red">tudo passa por ti.</span></p>
     <p class="bridge">E quando tudo passa por ti, a conclusão costuma ser esta:</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/03.png">
-  <div class="glow"></div><div class="num">03</div>
+<section class="post w" data-file="2026-10-23-lideranca-nao-e-cargo/03.png">
+  <div class="num">03</div>
   <div class="content">
-    <div class="quotes" style="margin-top:0"><span>Preciso de contratar melhor.</span></div>
+    <div class="quotes" style="margin-top:0"><span style="font-size:72px;color:#121212">Preciso de contratar melhor.</span></div>
     <p class="p">Mas contratar mais pessoas não resolve um problema que <b>começa antes delas.</b></p>
     <p class="bridge">Começa na forma como aprendeste a ver a liderança:</p>
   </div>
@@ -297,8 +316,8 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
   <div class="glow"></div><div class="num">04</div>
   <div class="content">
     <div class="wt" style="font-size:84px">Liderança não é <b>cargo.</b></div>
-    <p class="p">Muitos empreendedores acreditam que liderar começa quando têm um título: diretor, gerente, CEO. Até lá, executam.</p>
-    <p class="p">Mas o título só te dá o direito de mandar. E pessoas que só obedecem fazem o mínimo e ficam à espera da próxima ordem.</p>
+    <div class="inset" style="margin-top:36px;height:330px"><div class="ph" style="inset:0"><b>Foto</b><span>Cadeira de diretor vazia num escritório escuro, luz âmbar (prompt no Notion, formato 3:2)</span></div></div>
+    <p class="p">Muitos empreendedores acreditam que liderar começa com um título: diretor, gerente, CEO. Mas o título só te dá o direito de mandar.</p>
     <p class="p"><b>O cargo dá-te autoridade no papel. Não te dá liderança.</b></p>
     <p class="bridge">E há outra ideia que nos prende ainda mais…</p>
   </div>
@@ -308,41 +327,56 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 <section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/05.png">
   <div class="glow"></div><div class="num">05</div>
   <div class="content">
-    <div class="wt" style="font-size:84px">Liderança não começa quando tiveres <b>equipa.</b></div>
-    <div class="quotes"><span>Quando tiver cinco pessoas, começo a pensar como líder.</span></div>
-    <p class="p">Até lá, fazes tudo sozinho, decides tudo sozinho e resolves tudo sozinho. Quando a equipa finalmente chega, encontra alguém que nunca aprendeu a liderar. <b>Só aprendeu a executar.</b></p>
+    <div class="wt" style="font-size:80px">Liderança não começa quando tiveres <b>equipa.</b></div>
+    <div class="quotes" style="margin-top:30px"><span style="font-size:40px">Quando tiver cinco pessoas, começo a pensar como líder.</span></div>
+    <div class="tl">
+      <div><span>Até lá</span><p>Fazes tudo, decides tudo e resolves tudo sozinho.</p></div>
+      <div><span>Depois</span><p>A equipa finalmente chega.</p></div>
+      <div class="end"><span>Resultado</span><p>Encontra alguém que nunca aprendeu a liderar. <b>Só aprendeu a executar.</b></p></div>
+    </div>
     <p class="bridge">Então, se a liderança não vem do cargo nem do tamanho da equipa, de onde vem?</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/06.png">
-  <div class="glow"></div><div class="num">06</div>
+<section class="post w" data-file="2026-10-23-lideranca-nao-e-cargo/06.png">
+  <div class="num">06</div>
   <div class="content">
     <div class="wt" style="font-size:84px">Liderança começa na <b>mente.</b></div>
-    <p class="p">Antes de liderar pessoas, lideras os teus pensamentos. Quem pensa como empregado espera instruções. Quem pensa como vítima culpa as circunstâncias.</p>
-    <p class="p"><b>Quem pensa como governo assume a responsabilidade pelo que acontece.</b></p>
+    <p class="p">Antes de liderar pessoas, lideras os teus pensamentos.</p>
+    <div class="scenes l" style="margin-top:34px">
+      <div class="scene"><span>Empregado</span><svg><use href="#arrow-long"/></svg><p>espera instruções</p></div>
+      <div class="scene"><span>Vítima</span><svg><use href="#arrow-long"/></svg><p>culpa as circunstâncias</p></div>
+      <div class="scene hi"><span>Governo</span><svg><use href="#arrow-long"/></svg><p>assume a responsabilidade pelo que acontece</p></div>
+    </div>
     <p class="bridge">Por isso a mudança começa no entendimento:</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/07.png">
-  <div class="glow"></div><div class="num">07</div>
-  <div class="content">
+<section class="post grain" data-file="2026-10-23-lideranca-nao-e-cargo/07.png">
+  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-start;padding-top:130px"><b>Foto de fundo</b><span>Homem a abrir as cortinas de uma sala escura para a luz quente da manhã (prompt no Notion)</span></div></div>
+  <div class="bgfade" style="background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 38%,rgba(0,0,0,.92) 64%,#000 100%)"></div>
+  <div class="num">07</div>
+  <div class="content" style="justify-content:flex-end">
     <p class="verse" style="margin-top:0;font-size:52px;line-height:1.3">“E não sede conformados com este mundo, mas sede transformados pela renovação do vosso entendimento.”<span class="ref">Romanos 12:2</span></p>
-    <p class="p" style="margin-top:48px">Todos temos capacidade de influenciar. A questão é se decidimos <b>pensar como quem a&nbsp;usa.</b></p>
-    <p class="bridge">E quando pensas assim, a forma como lideras muda, mesmo que ainda trabalhes sozinho:</p>
+    <p class="p">Todos temos capacidade de influenciar. A questão é se decidimos <b>pensar como quem a&nbsp;usa.</b></p>
+    <p class="bridge">E quando pensas assim, a forma como lideras muda:</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/08.png">
-  <div class="glow low"></div><div class="num">08</div>
+<section class="post w" data-file="2026-10-23-lideranca-nao-e-cargo/08.png">
+  <div class="num">08</div>
   <div class="content">
-    <p class="p" style="margin-top:0">Deixas de perguntar <b>“de quem é a culpa?”</b> e passas a perguntar <b>“o que posso mudar?”</b>.</p>
-    <p class="p">Deixas de dar ordens e passas a explicar o porquê, porque quem lidera dá significado ao trabalho dos outros.</p>
-    <p class="bridge">E há uma terceira mudança, talvez a mais importante:</p>
+    <p class="lead" style="font-size:50px">Mesmo que ainda trabalhes sozinho:</p>
+    <div class="vs l">
+      <div class="vh">Deixas de</div><div></div><div class="vh g">Passas a</div>
+      <div class="vo">Perguntar “de quem é a culpa?”</div><svg><use href="#chev"/></svg><div class="vn">Perguntar <b>“o que posso mudar?”</b></div>
+      <div class="vo">Dar ordens</div><svg><use href="#chev"/></svg><div class="vn">Explicar <b>o porquê</b></div>
+      <div class="vo">Medir o teu valor pelo que fazes</div><svg><use href="#chev"/></svg><div class="vn">Medi-lo pelo que <b>os outros fazem sem ti</b></div>
+    </div>
+    <p class="bridge">E essa última mudança muda tudo:</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
@@ -350,15 +384,16 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 <section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/09.png">
   <div class="glow low"></div><div class="num">09</div>
   <div class="content">
-    <p class="p" style="margin-top:0">Deixas de medir o teu valor pelo que fazes e passas a medi-lo pelo que <b>os outros conseguem fazer sem ti.</b></p>
-    <p class="lead" style="margin-top:44px">É assim que um negócio deixa de <b>depender de ti.</b></p>
+    <p class="lead">É assim que um negócio deixa de <b>depender de ti.</b></p>
+    <p class="p">Quem lidera dá significado ao trabalho dos outros. E as pessoas que entendem o porquê não ficam à espera da próxima ordem.</p>
     <p class="bridge">E tudo começa numa decisão que podes tomar hoje…</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
-<section class="post" data-file="2026-10-23-lideranca-nao-e-cargo/10.png">
-  <div class="glow"></div>
+<section class="post grain" data-file="2026-10-23-lideranca-nao-e-cargo/10.png">
+  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-start;padding-top:70px"><b>Foto de fundo</b><span>Equipa a trabalhar à volta de uma mesa, o líder ao fundo a observar, luz âmbar (prompt no Notion)</span></div></div>
+  <div class="bgfade" style="background:radial-gradient(75% 62% at 50% 52%,rgba(0,0,0,.9),rgba(0,0,0,.55))"></div>
   <div class="cta">
     <img class="logo" src="../../brand/founders/assets/kingdom-founders-simbolo.svg" alt="Kingdom Founders">
     <div class="wt" style="font-size:84px">Liderança é <b>mentalidade de governo.</b></div>
