@@ -78,6 +78,8 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
   5. Para onde vou? (destino)
   Cada post foca só a sua pergunta e o CTA pede para guardar e visitar o perfil para as restantes. As perguntas 2 a 5 ainda não têm data; cuidado para não repetir o Génesis 1:27 do post 1 (para a origem, preferir Jeremias 1:5). Encaixar nas próximas semanas sem quebrar 30/40/30 e 40/40/20.
 
+- **Liderança pessoal** (referência "Discovering Your Personal Leadership", youtube ueA073Q6a88): o post de 23/10 trata só "liderança não é cargo, é mentalidade". Responsabilidade, visão, influência e "desenvolver pessoas" ficam disponíveis para posts próprios de Negócios (Mentalidade de Governo).
+
 ## Fluxo das referências (Notion)
 
 1. As referências chegam por duas vias: folhas do Manus 2.0 na pasta "REFERENCIAS - MANUS 2.0" (o Claude copia-as para o Notion, completando as linhas que o utilizador já tenha começado em vez de as duplicar) ou o utilizador adiciona-as diretamente na base "Ideias de Conteúdo · Kingdom Founders" (título na coluna "Titulo do Conteúdo", Referência, às vezes Assunto/Formato), com **Resumo da Ideia** (2 a 3 frases) e **Principais Ensinamentos** (3 a 5, um por linha). Estas duas colunas são a fonte principal da copy; se estiverem vazias, pedir ao utilizador antes de escrever.
