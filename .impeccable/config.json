@@ -134,6 +134,15 @@
         ],
         "createdAt": "2026-10-13T16:01:04.195Z",
         "reason": "Carousel cover hook on a 1080x1350 canvas (renders ~41px on a phone); the full-sentence hook is the approved copy"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "content/carrosseis/01-medo-procrastinar/carrossel.html"
+        ],
+        "createdAt": "2026-10-14T05:50:38.159Z",
+        "reason": "user confirmed: asked for all titles in uppercase; flagged elements are the slide-2 fear lines and slide-3 quote, which are display titles, not body text"
       }
     ]
   }
