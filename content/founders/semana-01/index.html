@@ -59,6 +59,30 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 .save svg{ width:28px; height:28px; }
 .handle.c{ left:0; right:0; text-align:center; }
 
+/* Elementos visuais dos carrosséis */
+.bgph{ position:absolute; inset:0; }
+.bgph img{ width:100%; height:100%; object-fit:cover; }
+.bgfade{ position:absolute; inset:0; }
+.scenes{ margin-top:40px; display:flex; flex-direction:column; gap:18px; }
+.scene{ display:grid; grid-template-columns:220px 60px 1fr; align-items:center; gap:20px; padding:26px 30px; border:1px solid rgba(214,175,98,.32); border-radius:16px; background:rgba(255,255,255,.035); }
+.scene span{ font-size:26px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
+.scene svg{ width:60px; height:18px; color:rgba(255,255,255,.45); }
+.scene p{ font-size:36px; line-height:1.25; letter-spacing:-0.01em; color:var(--white); }
+.scene p.red{ color:var(--red); font-weight:600; }
+.chart{ display:block; width:100%; height:auto; margin-top:40px; overflow:visible; }
+.chart .ax{ font-size:22px; letter-spacing:.12em; text-transform:uppercase; fill:var(--mist); }
+.chart .lb{ font-size:34px; font-weight:600; }
+.chart .lb.g{ fill:var(--gold-light); } .chart .lb.w{ fill:rgba(255,255,255,.75); }
+.tags{ margin:44px 0 10px; display:flex; flex-direction:column; align-items:flex-start; gap:18px; }
+.tags span{ transform:rotate(var(--r)); padding:16px 28px; border-radius:12px; background:#F2EFEA; color:#141414; font-size:36px; font-weight:600; letter-spacing:-0.015em; box-shadow:0 10px 30px rgba(0,0,0,.5); }
+.tags span::before{ content:"“"; } .tags span::after{ content:"”"; }
+.vs{ margin-top:40px; display:grid; grid-template-columns:1fr 44px 1fr; align-items:center; column-gap:18px; row-gap:16px; }
+.vh{ font-size:24px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--mist); padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,.18); }
+.vh.g{ color:var(--gold); border-color:rgba(214,175,98,.5); }
+.vo{ font-size:32px; line-height:1.25; color:rgba(255,255,255,.5); text-decoration:line-through; text-decoration-color:rgba(255,255,255,.3); }
+.vn{ font-size:34px; line-height:1.25; color:var(--white); padding:18px 22px; border-radius:14px; background:rgba(214,175,98,.12); border:1px solid rgba(214,175,98,.35); }
+.vn b{ color:var(--gold-light); font-weight:600; }
+.vs svg{ width:30px; height:30px; color:var(--gold); }
 /* Estático de frase · Espiritualidade (caixa alta, partilhável) */
 .frase-esp{ position:absolute; left:100px; right:100px; top:0; bottom:0; display:flex; align-items:center; }
 .frase-esp p{ font-size:84px; line-height:1.06; letter-spacing:-0.02em; font-weight:700; text-transform:uppercase; color:var(--white); }
@@ -114,17 +138,23 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 <section class="post" data-file="2026-10-19-quem-sou-eu/03.png">
   <div class="glow"></div><div class="num">03</div>
   <div class="content">
-    <p class="lead"><span style="color:var(--red)">Cada mês mau parece um veredicto sobre o teu valor.</span></p>
-    <p class="p">Cada crítica confirma um rótulo antigo. E cada conquista dura pouco, porque nunca é suficiente.</p>
-    <p class="p">Sem identidade, o negócio passa a carregar <b>um peso que não é dele.</b></p>
+    <p class="lead" style="font-size:50px">Sem resposta, tudo vira um julgamento:</p>
+    <div class="scenes">
+      <div class="scene"><span>Mês mau</span><svg><use href="#arrow-long"/></svg><p class="red">um veredicto sobre o teu valor</p></div>
+      <div class="scene"><span>Crítica</span><svg><use href="#arrow-long"/></svg><p>confirma um rótulo antigo</p></div>
+      <div class="scene"><span>Conquista</span><svg><use href="#arrow-long"/></svg><p>dura pouco, nunca é suficiente</p></div>
+    </div>
+    <p class="p" style="margin-top:44px">Sem identidade, o negócio passa a carregar <b>um peso que não é dele.</b></p>
     <p class="bridge">E o motivo é que a maioria de nós aprendeu a responder a esta pergunta da forma errada:</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
 <section class="post" data-file="2026-10-19-quem-sou-eu/04.png">
-  <div class="glow"></div><div class="num">04</div>
-  <div class="content">
+  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-end;padding-bottom:150px"><b>Foto de fundo</b><span>Empreendedor sozinho numa loja fechada à noite, à direita, luz âmbar de um candeeiro (prompt no Notion)</span></div></div>
+  <div class="bgfade" style="background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.82) 55%,rgba(0,0,0,.45) 100%)"></div>
+  <div class="num">04</div>
+  <div class="content" style="right:300px">
     <div class="ttl" style="--ts:76px"><div class="t1">Tu não és</div><div>o que <span class="it">fazes.</span></div></div>
     <p class="p">Quando alguém te pergunta quem és, a resposta costuma ser uma profissão: sou empresário, sou consultor, tenho uma loja.</p>
     <p class="p">Mas isso é o que fazes. <b>Não é quem és.</b></p>
@@ -137,8 +167,17 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
   <div class="glow"></div><div class="num">05</div>
   <div class="content">
     <p class="lead">…o teu valor sobe e desce com a <b>faturação.</b></p>
-    <p class="p">Num bom mês, sentes-te capaz.</p>
-    <p class="p"><b>Num mau mês, sentes-te uma fraude.</b></p>
+    <svg class="chart" viewBox="0 0 856 430" aria-hidden="true">
+      <line x1="0" y1="400" x2="856" y2="400" stroke="rgba(255,255,255,.25)" stroke-width="2"/>
+      <text x="0" y="428" class="ax">Faturação, mês a mês</text>
+      <path d="M0 300 C70 300 90 120 170 110 S270 330 340 340 S450 70 520 80 S640 360 700 350 S800 200 856 210" fill="none" stroke="url(#gl)" stroke-width="6" stroke-linecap="round"/>
+      <defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#E9CF8F"/><stop offset="1" stop-color="#C9A45C"/></linearGradient></defs>
+      <circle cx="522" cy="80" r="12" fill="#000" stroke="#E9CF8F" stroke-width="5"/>
+      <circle cx="338" cy="340" r="12" fill="#000" stroke="rgba(255,255,255,.6)" stroke-width="5"/>
+      <text x="548" y="62" class="lb g">“Sou capaz.”</text>
+      <text x="364" y="372" class="lb w">“Sou uma fraude.”</text>
+    </svg>
+    <p class="p" style="margin-top:34px">Num bom mês, sentes-te capaz. <b>Num mau mês, sentes-te uma fraude.</b></p>
     <p class="bridge">E há outra forma de responder mal a esta pergunta…</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
@@ -148,7 +187,7 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
   <div class="glow"></div><div class="num">06</div>
   <div class="content">
     <div class="ttl" style="--ts:76px"><div class="t1">Tu não és o que</div><div><span class="it">disseram</span> de ti.</div></div>
-    <div class="quotes"><span>Não tens perfil para isso.</span><span>Começa mais pequeno.</span><span>Isso não é para pessoas como tu.</span></div>
+    <div class="tags"><span style="--r:-2deg">Não tens perfil para isso.</span><span style="--r:1.5deg;margin-left:90px">Começa mais pequeno.</span><span style="--r:-1deg;margin-left:30px">Isso não é para pessoas como tu.</span></div>
     <p class="p">Frases ditas por pais, professores, chefes ou por ti mesmo, que se tornaram teto. Um rótulo descreve uma opinião. <b>Não define quem és.</b></p>
     <p class="bridge">Então, se não és o que fazes nem o que disseram de ti, quem és?</p>
   </div>
@@ -156,8 +195,10 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 </section>
 
 <section class="post" data-file="2026-10-19-quem-sou-eu/07.png">
-  <div class="glow"></div><div class="num">07</div>
-  <div class="content">
+  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-end;padding-bottom:150px"><b>Foto de fundo</b><span>Homem de olhos fechados e rosto erguido sob um feixe de luz quente vindo de cima, à direita, sala escura (prompt no Notion)</span></div></div>
+  <div class="bgfade" style="background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.82) 55%,rgba(0,0,0,.45) 100%)"></div>
+  <div class="num">07</div>
+  <div class="content" style="right:300px">
     <div class="ttl" style="--ts:76px"><div class="t1">Tu és quem</div><div>Deus diz que <span class="it">és.</span></div></div>
     <p class="p">A tua identidade não nasce no mercado nem na opinião dos outros. <b>Nasce em quem te criou.</b></p>
     <p class="bridge">E isso está escrito logo no início:</p>
@@ -178,16 +219,22 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 <section class="post" data-file="2026-10-19-quem-sou-eu/09.png">
   <div class="glow low"></div><div class="num">09</div>
   <div class="content">
-    <p class="lead">Deixas de vender para provar o teu valor e passas a <b>vender para servir.</b></p>
-    <p class="p">Uma crítica passa a ser informação, não sentença. Um mês mau passa a ser um problema para resolver, <b>não um veredicto sobre&nbsp;ti.</b></p>
-    <p class="p">A identidade não te tira os desafios. Dá-te chão firme para os enfrentar.</p>
+    <p class="lead" style="font-size:50px">Quando sabes quem és, tudo muda de lugar:</p>
+    <div class="vs">
+      <div class="vh">Sem identidade</div><div></div><div class="vh g">Com identidade</div>
+      <div class="vo">Vender para provar o teu valor</div><svg><use href="#chev"/></svg><div class="vn">Vender para <b>servir</b></div>
+      <div class="vo">Crítica é sentença</div><svg><use href="#chev"/></svg><div class="vn">Crítica é <b>informação</b></div>
+      <div class="vo">Mês mau é veredicto</div><svg><use href="#chev"/></svg><div class="vn">Mês mau é <b>problema para resolver</b></div>
+    </div>
+    <p class="p" style="margin-top:44px">A identidade não te tira os desafios. Dá-te chão firme para os enfrentar.</p>
     <p class="bridge">Mas “quem sou eu?” é só o começo…</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
 
 <section class="post" data-file="2026-10-19-quem-sou-eu/10.png">
-  <div class="glow"></div>
+  <div class="bgph"><div class="ph" style="inset:0;justify-content:flex-start;padding-top:70px"><b>Foto de fundo</b><span>Corredor escuro com cinco portas, a primeira aberta com luz âmbar a sair (prompt no Notion)</span></div></div>
+  <div class="bgfade" style="background:radial-gradient(70% 60% at 50% 50%,rgba(0,0,0,.9),rgba(0,0,0,.6))"></div>
   <div class="cta">
     <img class="logo" src="../../brand/founders/assets/kingdom-founders-simbolo.svg" alt="Kingdom Founders">
     <div class="ttl" style="--ts:70px"><div class="t1">Esta é só a</div><div><span class="it">primeira</span> de cinco perguntas.</div></div>
