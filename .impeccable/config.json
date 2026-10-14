@@ -332,6 +332,15 @@
         ],
         "createdAt": "2026-10-14T13:03:53.191Z",
         "reason": "user confirmed: user specified Instrument Serif (with Aptos) as the Kingdom Founders brand fonts"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "content/founders/semana-01/index.html"
+        ],
+        "createdAt": "2026-10-14T19:24:32.740Z",
+        "reason": "Estático de frase de Espiritualidade em caixa alta por pedido do utilizador (referências @mentedesucessoo); texto curto de ~20 palavras, não é corpo longo."
       }
     ]
   }
