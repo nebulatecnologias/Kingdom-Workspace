@@ -287,6 +287,15 @@
         ],
         "createdAt": "2026-10-14T10:11:00.447Z",
         "reason": "user confirmed: user specified tracking -80 (-0.08em) for Aptos SemiBold and Instrument Serif Italic titles (Photoshop character panel screenshots)"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "content/brand/founders/templates.html"
+        ],
+        "createdAt": "2026-10-14T10:16:17.566Z",
+        "reason": "user confirmed: style C (uppercase title card) reproduces a reference the user supplied as a style they use"
       }
     ]
   }
