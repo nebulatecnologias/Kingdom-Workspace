@@ -138,7 +138,8 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
-| 14/10/2026 | 1.13 | Orquestrador entre Manus, Claude, ChatGPT e utilizador (skill kingdom-orquestrador); estados novos no Notion; pasta "01. Produção de Posts" na Drive. |
+| 14/10/2026 | 1.14 | Sem Drive para imagens: ChatGPT gera e avisa, utilizador envia ao Claude, PNG finais entregues no chat. |
+| 14/10/2026 | 1.13 | Orquestrador entre Manus, Claude, ChatGPT e utilizador (skill kingdom-orquestrador); estados novos no Notion; pasta imagens e PNG entregues no chat, sem Drive. |
 | 14/10/2026 | 1.12 | Direção das imagens IA a partir das 5 referências do utilizador (metáfora visual, campanha editorial). |
 | 14/10/2026 | 1.11 | Coluna "Prompt de Imagem" no Notion para gerar imagens no ChatGPT. |
 | 14/10/2026 | 1.10 | Regra de entrega: visão geral para aprovação antes dos PNG. |
