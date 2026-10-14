@@ -67,7 +67,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 ## Fluxo das referências (Notion)
 
-1. O utilizador adiciona referências na base "Ideias de Conteúdo · Kingdom Founders" (Conteúdo, Referência, às vezes Assunto/Formato).
+1. O utilizador adiciona referências na base "Ideias de Conteúdo · Kingdom Founders" (Conteúdo, Referência, às vezes Assunto/Formato), com **Resumo da Ideia** (2 a 3 frases) e **Principais Ensinamentos** (3 a 5, um por linha). Estas duas colunas são a fonte principal da copy; se estiverem vazias, pedir ao utilizador antes de escrever.
 2. O Claude lê as linhas em "Brainstorming" sem Pilar e preenche **Pilar, Funil, Série, Formato, Categoria, Assunto** e a **Data de Publicação** (só seg/qua/sex, respeitando a alternância de formatos, 30/40/30 nos pilares, 40/40/20 no funil e nunca dois estilos C seguidos). Não publica nada nem muda o Status para Publicado.
 3. As copies seguem o conteúdo das referências (não inventar temas fora delas); o calendário-modelo da Linha Editorial é só exemplo.
 4. Links do YouTube/Instagram/LinkedIn não abrem neste ambiente: usar o título, o texto da página no Notion e o que o utilizador escrever; se faltar contexto, perguntar.
