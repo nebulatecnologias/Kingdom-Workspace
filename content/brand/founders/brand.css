@@ -1,8 +1,9 @@
 /* Kingdom Founders: tokens partilhados pelo Brand Book e pelos modelos de post.
-   Aptos é a fonte oficial; enquanto os ficheiros não estiverem em fonts/, a Inter substitui-a. */
-@font-face{ font-family:'Aptos'; font-weight:400; src:local('Aptos'), url(fonts/aptos.ttf) format('truetype'); }
-@font-face{ font-family:'Aptos'; font-weight:600; src:local('Aptos SemiBold'), local('Aptos-SemiBold'), url(fonts/aptos-semibold.ttf) format('truetype'); }
-@font-face{ font-family:'Aptos'; font-weight:700; src:local('Aptos Bold'), local('Aptos-Bold'), url(fonts/aptos-bold.ttf) format('truetype'); }
+   Aptos (Microsoft) é a fonte oficial: os .ttf vêm da Drive (SOCIAL MEDIA - OPUS 5/aptos-font) e não vão para o git.
+   A Inter só entra se os ficheiros faltarem. */
+@font-face{ font-family:'Aptos'; font-weight:400; font-display:block; src:local('Aptos'), url(fonts/aptos.ttf) format('truetype'); }
+@font-face{ font-family:'Aptos'; font-weight:600; font-display:block; src:local('Aptos SemiBold'), local('Aptos-SemiBold'), url(fonts/aptos-semibold.ttf) format('truetype'); }
+@font-face{ font-family:'Aptos'; font-weight:700; font-display:block; src:local('Aptos Bold'), local('Aptos-Bold'), url(fonts/aptos-bold.ttf) format('truetype'); }
 @font-face{ font-family:'Inter'; font-weight:300 800; font-display:block; src:url(fonts/inter-variable.woff2) format('woff2'); }
 @font-face{ font-family:'Instrument Serif'; font-style:italic; font-weight:400; font-display:block; src:url(fonts/instrument-serif-italic.woff2) format('woff2'); }
 @font-face{ font-family:'Instrument Serif'; font-style:normal; font-weight:400; font-display:block; src:url(fonts/instrument-serif-regular.woff2) format('woff2'); }
