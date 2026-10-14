@@ -68,6 +68,16 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 - Séries fixas: Bloqueios Invisíveis (DP, meio, carrossel A), Princípios do Reino (Esp, topo, estático A), Prosperidade com Princípios (Esp, meio, carrossel B), Mentalidade de Governo (Neg, meio, carrossel B), Verdade Incómoda (topo, estático C), Dentro da Founders (fundo).
 - Versículos: Almeida Revista e Corrigida, com referência. Depoimentos só reais e autorizados.
 
+## Notas de séries
+
+- **Série 5 Perguntas** (da referência "How To Know The Purpose Of Your Life", Myles Munroe, youtube gTgcGlnK1kk). Um carrossel por pergunta, Desenvolvimento Pessoal, meio de funil, estilo A:
+  1. Quem sou? (identidade): 19/10/2026, escrito.
+  2. De onde venho? (origem)
+  3. Porque estou aqui? (propósito; emprego ≠ propósito)
+  4. O que consigo fazer? (potencial; recuperar sonhos e agir)
+  5. Para onde vou? (destino)
+  Cada post foca só a sua pergunta e o CTA pede para guardar e visitar o perfil para as restantes. As perguntas 2 a 5 ainda não têm data; cuidado para não repetir o Génesis 1:27 do post 1 (para a origem, preferir Jeremias 1:5). Encaixar nas próximas semanas sem quebrar 30/40/30 e 40/40/20.
+
 ## Fluxo das referências (Notion)
 
 1. As referências chegam por duas vias: folhas do Manus 2.0 na pasta "REFERENCIAS - MANUS 2.0" (o Claude copia-as para o Notion, completando as linhas que o utilizador já tenha começado em vez de as duplicar) ou o utilizador adiciona-as diretamente na base "Ideias de Conteúdo · Kingdom Founders" (título na coluna "Titulo do Conteúdo", Referência, às vezes Assunto/Formato), com **Resumo da Ideia** (2 a 3 frases) e **Principais Ensinamentos** (3 a 5, um por linha). Estas duas colunas são a fonte principal da copy; se estiverem vazias, pedir ao utilizador antes de escrever.
@@ -105,6 +115,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.7 | Nota da série 5 Perguntas; post de 19/10 passa a ser 1/5 (identidade). |
 | 14/10/2026 | 1.6 | Ganchos ligados a dor, desejo ou dúvida, com 2 alternativas por post. |
 | 14/10/2026 | 1.5 | Leitor não é "founder" (só os membros da mentoria); usar "tu" ou "empreendedor". |
 | 14/10/2026 | 1.4 | Vermelho só quando necessário; dados do The Legacy não se usam (edição especial passada). |
