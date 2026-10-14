@@ -114,6 +114,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 - Uma etapa de cada vez; só avançar com aprovação explícita. Referências de conteúdo vêm do utilizador ou do Manus 2.0 (pasta na Drive); o Manus v1 automático foi abandonado por baixa qualidade e o Manus não gera copy.
 - Pastas na Drive só se criam quando a etapa que as usa estiver definida.
+- **Entrega de design (regra do utilizador):** primeiro enviar só a `visao-geral.png` (todas as peças lado a lado) para aprovação. Os PNG finais para baixar só se enviam depois de o utilizador aprovar essa visão geral. Vale também para correções: nova visão geral primeiro, PNG depois.
 - O conector Drive não envia ficheiros grandes (PDF, PNG): entregar no chat e o utilizador coloca-os na Drive.
 - Antes de entregar: rever ortografia (a referência original tinha "Centenasde"), aplicar a checklist do Brand Book e ver o render.
 
@@ -121,6 +122,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.10 | Regra de entrega: visão geral para aprovação antes dos PNG. |
 | 14/10/2026 | 1.9 | Design da semana 1; fotos só com placeholder até o utilizador as enviar. |
 | 14/10/2026 | 1.8 | Modelo de escrita de meio de funil gravado (modelo-meio-de-funil.md), a partir do carrossel "Quem sou eu?" aprovado. |
 | 14/10/2026 | 1.7 | Nota da série 5 Perguntas; post de 19/10 passa a ser 1/5 (identidade). |
