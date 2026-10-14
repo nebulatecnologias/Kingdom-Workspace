@@ -69,6 +69,7 @@ Correr por esta ordem; no máximo 3 copies e 3 designs por execução para caber
 6. **Design** (Imagem Pronta ou Copy Aprovada sem imagem): montar o post em `content/founders/semana-NN/index.html` com os modelos da marca (fontes Aptos descarregadas da Drive, pasta aptos-font), `node content/founders/render-posts.mjs semana-NN`, gerar e rever a visão geral, **enviar só a visão geral no chat**, link da sessão em Visão Geral, Status Design para Aprovar, Responsável Utilizador. Commit e push do HTML/PNG.
 7. **Rever design** a partir das Notas de Revisão (nova visão geral no chat).
 8. **Entregar** (Design Aprovado): enviar no chat os PNG finais (1080×1350, por ordem) e a legenda; Status Pronto para Publicar, Responsável Utilizador.
+8b. **Grelha do feed:** depois de entregar PNG finais ou de planear posts novos, atualizar a maquete `content/founders/grelha/index.html` (miniatura 432×540 em `grelha/img/`, entrada em `POSTS` com o fundo `photo`/`dark`/`light`) e republicá-la no mesmo artefacto (https://claude.ai/artifact/8v6fjKWCQiGscdyWvHd8ku). Escolher o fundo dos estáticos para manter o padrão em xadrez: cada linha mistura foto, preto e branco.
 9. **Resumo final** da execução (o que avançou, o que espera pelo utilizador, erros) na resposta da sessão.
 
 ## O que tem de existir para correr sozinho
