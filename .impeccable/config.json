@@ -251,6 +251,24 @@
         ],
         "createdAt": "2026-10-14T10:00:52.890Z",
         "reason": "Flagged text is a short uppercase eyebrow label, the brand book's own label style"
+      },
+      {
+        "rule": "overused-font",
+        "value": "instrument serif",
+        "files": [
+          "content/brand/founders/brand.css"
+        ],
+        "createdAt": "2026-10-14T10:01:44.400Z",
+        "reason": "user confirmed: user specified Instrument Serif as a Kingdom Founders brand font"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "content/brand/founders/brand.css"
+        ],
+        "createdAt": "2026-10-14T10:01:44.417Z",
+        "reason": "Provisional fallback for Aptos (user-specified brand font) until the Aptos files are provided; Inter is also the font of the Founders website"
       }
     ]
   }
