@@ -296,6 +296,42 @@
         ],
         "createdAt": "2026-10-14T10:16:17.566Z",
         "reason": "user confirmed: style C (uppercase title card) reproduces a reference the user supplied as a style they use"
+      },
+      {
+        "rule": "extreme-negative-tracking",
+        "value": "*",
+        "files": [
+          "content/founders/semana-01/index.html"
+        ],
+        "createdAt": "2026-10-14T13:03:41.108Z",
+        "reason": "user confirmed: user specified tracking -80 (-0.08em) for Aptos SemiBold and Instrument Serif Italic titles (Kingdom Founders brand spec)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "content/founders/semana-01/index.html"
+        ],
+        "createdAt": "2026-10-14T13:03:41.126Z",
+        "reason": "False positive: 1080x1350 full-bleed posts; children are absolutely positioned with their own 90-130px insets, verified in rendered PNGs"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "content/founders/semana-01/index.html"
+        ],
+        "createdAt": "2026-10-14T13:03:41.145Z",
+        "reason": "Display titles use the user-specified brand leading (0.886x, Photoshop spec 21.67/24.45pt); body text is 1.4 and lead lines 1.3, verified in renders"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "content/founders/semana-01/index.html"
+        ],
+        "createdAt": "2026-10-14T13:03:53.191Z",
+        "reason": "user confirmed: user specified Instrument Serif (with Aptos) as the Kingdom Founders brand fonts"
       }
     ]
   }
