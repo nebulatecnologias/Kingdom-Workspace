@@ -14,6 +14,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 | Documento-base (Drive) | SOCIAL MEDIA - OPUS 5 / 01. Kingdom Founders / 00. Base Estratégica / "Base Estratégica \| Kingdom Founders \| v1.0" (Doc `15TJbxYRbhuyFaQGEl0xiMKqVBaN2d-kCaDc_NJuH6Ms`, pasta `1xSW5azBBy-Czj77TGsP4Buv-3ho4Gitj`) |
 | Linha Editorial (Drive) | mesma pasta: "APROVADO \| Linha Editorial \| Kingdom Founders \| v1.0" (Doc `128aSadxDIsg6UybvOLol45WunMvivGO5hHtb2yGO5hs`) |
 | Ideias de Conteúdo (Notion) | base de dados `22a60e2fbe2b408d900a68bccda89351`, data source `collection://0027e540-aab6-46d9-bfe7-7b20c5df80c7`; vistas tabela, "Por estado" e "Calendário". Cópia da base do utilizador "📒 Ideias de Conteúdo" (`2e129df4bfa883f994480163262aea94`) com Pilar, Funil e Série a mais |
+| Referências Manus 2.0 (Drive) | pasta "REFERENCIAS - MANUS 2.0" (`1nqqySy9i7FuLJWky5jMHo-qovqi6eHFP`): folhas com Titulo do Conteúdo, Resumo da Ideia, Principais Ensinamentos, Referência. Ler como CSV (`download_file_content`, `text/csv`) e passar para o Notion |
 | Raiz Social Media (Drive) | `1xxX_1mQbos3R2JX6upSJLtgz9fTCdG_X`; pasta da marca `18RrVtaT7qhpdTwllDvF3jd_vLBKVFvLo` |
 | Brand Book (27 páginas) | `content/brand/founders/brand-book.html` → `Kingdom-Founders-Brand-Book.pdf` |
 | Tokens e fontes | `content/brand/founders/brand.css` |
@@ -67,7 +68,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 ## Fluxo das referências (Notion)
 
-1. O utilizador adiciona referências na base "Ideias de Conteúdo · Kingdom Founders" (Conteúdo, Referência, às vezes Assunto/Formato), com **Resumo da Ideia** (2 a 3 frases) e **Principais Ensinamentos** (3 a 5, um por linha). Estas duas colunas são a fonte principal da copy; se estiverem vazias, pedir ao utilizador antes de escrever.
+1. As referências chegam por duas vias: folhas do Manus 2.0 na pasta "REFERENCIAS - MANUS 2.0" (o Claude copia-as para o Notion, completando as linhas que o utilizador já tenha começado em vez de as duplicar) ou o utilizador adiciona-as diretamente na base "Ideias de Conteúdo · Kingdom Founders" (título na coluna "Titulo do Conteúdo", Referência, às vezes Assunto/Formato), com **Resumo da Ideia** (2 a 3 frases) e **Principais Ensinamentos** (3 a 5, um por linha). Estas duas colunas são a fonte principal da copy; se estiverem vazias, pedir ao utilizador antes de escrever.
 2. O Claude lê as linhas em "Brainstorming" sem Pilar e preenche **Pilar, Funil, Série, Formato, Categoria, Assunto** e a **Data de Publicação** (só seg/qua/sex, respeitando a alternância de formatos, 30/40/30 nos pilares, 40/40/20 no funil e nunca dois estilos C seguidos). Não publica nada nem muda o Status para Publicado.
 3. As copies seguem o conteúdo das referências (não inventar temas fora delas); o calendário-modelo da Linha Editorial é só exemplo.
 4. Links do YouTube/Instagram/LinkedIn não abrem neste ambiente: usar o título, o texto da página no Notion e o que o utilizador escrever; se faltar contexto, perguntar.
@@ -80,7 +81,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 ## Processo de trabalho com o utilizador
 
-- Uma etapa de cada vez; só avançar com aprovação explícita. Referências de conteúdo vêm do utilizador (o Manus foi abandonado por baixa qualidade).
+- Uma etapa de cada vez; só avançar com aprovação explícita. Referências de conteúdo vêm do utilizador ou do Manus 2.0 (pasta na Drive); o Manus v1 automático foi abandonado por baixa qualidade e o Manus não gera copy.
 - Pastas na Drive só se criam quando a etapa que as usa estiver definida.
 - O conector Drive não envia ficheiros grandes (PDF, PNG): entregar no chat e o utilizador coloca-os na Drive.
 - Antes de entregar: rever ortografia (a referência original tinha "Centenasde"), aplicar a checklist do Brand Book e ver o render.
@@ -89,5 +90,6 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 14/10/2026 | 1.2 | 12 referências Myles Munroe (Manus 2.0) no Notion, agendadas de 19/10 a 13/11/2026: pilares 4/5/3, funil 5/5/2. |
 | 14/10/2026 | 1.1 | Linha editorial aprovada; base Notion "Ideias de Conteúdo · Kingdom Founders" criada para as referências. |
 | 14/10/2026 | 1.0 | Base aprovada: marca, avatar, Mago com voz de Sábio, pilares 30/40/30, estilos A/B/C, perfil Instagram, símbolo SVG. |
