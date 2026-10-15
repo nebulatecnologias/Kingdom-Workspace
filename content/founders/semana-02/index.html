@@ -140,6 +140,27 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 .orb .nd{ font-size:24px; font-weight:600; letter-spacing:.1em; fill:#121212; }
 .orb .tu{ font-size:38px; font-weight:900; fill:#000; letter-spacing:.06em; }
 .scenes.wide .scene{ grid-template-columns:340px 60px 1fr; } .scenes.wide .scene span{ font-size:24px; letter-spacing:.12em; }
+/* 28/10 · slide 03: barras em pares (ganhou de um lado, perdeu do outro) */
+.pairs{ margin-top:48px; height:470px; display:flex; justify-content:space-between; align-items:flex-end; padding:0 34px; border-bottom:2px solid rgba(0,0,0,.18); }
+.pair{ display:flex; gap:16px; align-items:flex-end; }
+.bar{ position:relative; width:96px; border-radius:10px 10px 0 0; background:linear-gradient(180deg,#D6AF62,#9C7A3C); }
+.bar.lo{ background:#2A2724; } .bar.lo.red{ background:#C8412F; }
+.bar i{ position:absolute; left:50%; bottom:calc(100% + 12px); transform:translateX(-50%); white-space:nowrap; font-style:normal; font-size:28px; font-weight:600; letter-spacing:-0.01em; color:#121212; }
+.bar.red i{ color:#C8412F; }
+.bar u{ position:absolute; left:50%; top:calc(100% + 16px); transform:translateX(-50%); white-space:nowrap; text-decoration:none; font-size:19px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#8A8580; }
+/* 28/10 · slide 08: uma mudança por esfera */
+.swaps{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.swap{ padding:30px 30px 34px; border-radius:18px; background:#fff; border:1px solid rgba(0,0,0,.1); display:flex; flex-direction:column; }
+.swap.dk{ background:#121212; border-color:#121212; }
+.swap .tg{ display:flex; justify-content:space-between; align-items:baseline; font-size:20px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#9C7A3C; }
+.swap .tg em{ font-style:normal; font-size:52px; font-weight:300; letter-spacing:-0.04em; color:rgba(156,122,60,.55); }
+.swap .old{ margin-top:18px; font-size:26px; line-height:1.3; color:rgba(0,0,0,.42); text-decoration:line-through; text-decoration-color:rgba(0,0,0,.3); }
+.swap .new{ margin-top:auto; padding-top:22px; border-top:1px solid rgba(156,122,60,.35); font-size:36px; line-height:1.18; letter-spacing:-0.02em; font-weight:600; color:#121212; }
+.swap .new b{ color:#9C7A3C; font-weight:600; }
+.swap.dk .old{ color:rgba(255,255,255,.45); text-decoration-color:rgba(255,255,255,.35); }
+.swap.dk .new{ color:#fff; border-color:rgba(214,175,98,.4); } .swap.dk .new b{ color:var(--gold); }
+.swap.dk .tg{ color:var(--gold); } .swap.dk .tg em{ color:rgba(214,175,98,.6); }
+.swap .gap{ height:26px; }
 </style>
 </head>
 <body>
@@ -181,13 +202,13 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 <section class="post w" data-file="2026-10-28-prosperidade-divina/03.png"><div class="num">03</div>
   <div class="content">
     <p class="lead" style="font-size:50px">Conheces quem ganhou de um lado e perdeu do outro:</p>
-    <div class="scenes l wide">
-      <div class="scene"><span>Saldo cheio</span><svg><use href="#arrow-long"/></svg><p class="red">lar falido</p></div>
-      <div class="scene"><span>Negócio a crescer</span><svg><use href="#arrow-long"/></svg><p>saúde a cair</p></div>
-      <div class="scene"><span>Agenda lotada</span><svg><use href="#arrow-long"/></svg><p>alma vazia</p></div>
+    <div class="pairs">
+      <div class="pair"><div class="bar" style="height:360px"><i>cheio</i><u>Saldo</u></div><div class="bar lo red" style="height:46px"><i>falido</i><u>Lar</u></div></div>
+      <div class="pair"><div class="bar" style="height:330px"><i>a crescer</i><u>Negócio</u></div><div class="bar lo" style="height:70px"><i>a cair</i><u>Saúde</u></div></div>
+      <div class="pair"><div class="bar" style="height:390px"><i>lotada</i><u>Agenda</u></div><div class="bar lo" style="height:34px"><i>vazia</i><u>Alma</u></div></div>
     </div>
-    <p class="p" style="margin-top:44px">Prosperaram numa área e <b>faliram nas outras.</b></p>
-    <p class="bridge">E isso acontece porque aprendemos a ver a prosperidade da forma errada:</p>
+    <p class="p" style="margin-top:84px">Prosperaram numa área e <b>faliram nas outras.</b></p>
+    <p class="bridge" style="margin-top:44px">E isso acontece porque aprendemos a ver a prosperidade da forma errada:</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>
@@ -250,14 +271,13 @@ body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; 
 <section class="post w" data-file="2026-10-28-prosperidade-divina/08.png">
   <div class="num">08</div>
   <div class="content">
-    <div class="vs l" style="margin-top:0">
-      <div class="vh">Deixas de</div><div></div><div class="vh g">Passas a</div>
-      <div class="vo">Ganhar dinheiro para depois cuidar da alma</div><svg><use href="#chev"/></svg><div class="vn"><b>Cuidar da alma</b> enquanto ganhas</div>
-      <div class="vo">Sacrificar a saúde pelo dinheiro</div><svg><use href="#chev"/></svg><div class="vn"><b>Proteger a saúde</b> como um ativo</div>
-      <div class="vo">Manter relações por interesse</div><svg><use href="#chev"/></svg><div class="vn">Escolher <b>relações que constroem</b></div>
-      <div class="vo">Gastar tudo o que entra</div><svg><use href="#chev"/></svg><div class="vn"><b>Administrar</b> com sabedoria</div>
+    <div class="swaps">
+      <div class="swap dk"><div class="tg">Almática<em>01</em></div><p class="old">Ganhar dinheiro para depois cuidar da alma</p><div class="gap"></div><p class="new"><b>Cuidar da alma</b> enquanto ganhas</p></div>
+      <div class="swap"><div class="tg">Física<em>02</em></div><p class="old">Sacrificar a saúde pelo dinheiro</p><div class="gap"></div><p class="new"><b>Proteger a saúde</b> como um ativo</p></div>
+      <div class="swap"><div class="tg">Relacional<em>03</em></div><p class="old">Manter relações por interesse</p><div class="gap"></div><p class="new">Escolher <b>relações que constroem</b></p></div>
+      <div class="swap"><div class="tg">Material<em>04</em></div><p class="old">Gastar tudo o que entra</p><div class="gap"></div><p class="new"><b>Administrar</b> com sabedoria</p></div>
     </div>
-    <p class="bridge">E há uma pergunta que te mostra por onde começar:</p>
+    <p class="bridge" style="margin-top:48px">E há uma pergunta que te mostra por onde começar:</p>
   </div>
   <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
 </section>

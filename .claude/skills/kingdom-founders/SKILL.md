@@ -64,6 +64,7 @@ Aprovada pelo utilizador a 14/10/2026. É a fonte de verdade para tudo o que se 
 - **Design dos carrosséis (aprovado a 14/10/2026 no 19/10 "Quem sou eu?"; referência de desempenho em `content/brand/founders/referencias-carrossel/eter/`):**
   - **Foto a cada 3 slides:** 01 (capa), 04, 07 e 10. Alternar foto inserida no slide (04, formato 3:2, `.inset`) e foto de fundo com o texto por baixo (07, 10 com gradiente para preto). Fotos com grão de película leve (`.grain`). Sem foto do utilizador: placeholder + prompt no Notion.
   - **Elementos visuais em pelo menos 30% dos slides** (3 de 10), que mostram o que o texto diz: cartões de causa → efeito (`.scenes`), gráfico (`.chart`), etiquetas/rótulos (`.tags`), comparação antes/depois (`.vs`), diagrama, linha do tempo.
+  - **Variar a estrutura dos elementos visuais (pedido do utilizador, 15/10/2026):** não repetir o mesmo componente do carrossel anterior nem dos dois antes. Antes de desenhar, ver que componentes usaram os últimos carrosséis e escolher outros: barras em pares (`.pairs`), cartões em grelha 2×2 por esfera (`.swaps`), diagrama de órbita (`.orb`), hub, linha do tempo, gráfico, etiquetas, comparação, cartões causa → efeito.
   - **No máximo 3 slides com fundo claro** (`.post.w`, #F7F5F1) para quebrar o padrão, de preferência os que têm elementos visuais e nunca seguidos; os outros em preto. Nos claros as cores invertem (texto preto, dourado escuro #9C7A3C) e as fontes são as mesmas.
   - **Fontes sempre as do padrão** (títulos estilo A/B em Aptos com a palavra-chave em Instrument Serif itálico dourado, corpo Aptos, pontes em dourado sem caixa alta). Não copiar as fontes das referências.
   - **Caracteres nos 3 primeiros slides** (o que aumenta o envolvimento na referência): slide 1 até ~130, slide 2 até ~200, slide 3 até ~380 (contar todo o texto visível, menos número, @ e "arraste"). Quando não der, não forçar.
@@ -150,6 +151,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 15/10/2026 | 1.23 | Variar a estrutura dos elementos visuais entre carrosséis (não repetir os componentes dos dois anteriores). |
 | 14/10/2026 | 1.22 | Padrão de fundos muda a cada ronda de 12 posts (ronda 1 xadrez, ronda 2 faixa central). |
 | 14/10/2026 | 1.21 | Estáticos em fundo branco alternados com os pretos para equilibrar o feed. |
 | 14/10/2026 | 1.20 | Frases dos estáticos com sabedoria (paradoxo, medida concreta, contraste, exemplo bíblico); nada de lugares-comuns. |
