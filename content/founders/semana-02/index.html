@@ -5,25 +5,284 @@
 <title>Kingdom Founders: semana 2 (26 a 30/10/2026)</title>
 <link rel="stylesheet" href="../../brand/founders/brand.css">
 <style>
-/* Posts da semana 2. Copy nos documentos Claude Docs ligados na coluna Script do Notion. */
+/* Posts da semana 2. Copy nos documentos Claude Docs ligados na coluna Script do Notion. Estilos partilhados com a semana 1. */
+:root{ --red:#E0574B; --A:'../../brand/founders/assets/'; }
 body{ background:#2a2a2a; display:flex; flex-wrap:wrap; gap:40px; padding:40px; width:calc(1080px * 4 + 40px * 5); }
 .post{ position:relative; width:1080px; height:1350px; overflow:hidden; background:var(--black); color:var(--white); }
 .glow{ position:absolute; inset:0; background:radial-gradient(75% 36% at 50% 0%, rgba(122,74,18,.6), rgba(0,0,0,0) 72%); }
-.sym{ position:absolute; left:calc(50% - 30px); bottom:70px; width:60px; height:60px; opacity:.9; }
-/* Estático de frase única · Negócios e DP */
+.glow.low{ background:radial-gradient(60% 40% at 0% 100%, rgba(122,74,18,.55), rgba(0,0,0,0) 70%), radial-gradient(70% 30% at 50% 0%, rgba(122,74,18,.35), rgba(0,0,0,0) 72%); }
+.num{ position:absolute; left:0; right:0; top:72px; text-align:center; font-weight:700; font-size:34px; letter-spacing:-0.01em; color:var(--mist); }
+.handle{ position:absolute; left:100px; bottom:66px; font-size:24px; color:rgba(255,255,255,.55); }
+.next{ position:absolute; right:44px; top:calc(50% - 34px); width:68px; height:68px; border-radius:50%; background:linear-gradient(135deg,var(--gold-light),var(--gold)); display:flex; align-items:center; justify-content:center; }
+.next svg{ width:26px; height:26px; color:#000; }
+
+/* Slides de texto: bloco à esquerda, centrado na vertical */
+.content{ position:absolute; left:96px; right:128px; top:140px; bottom:130px; display:flex; flex-direction:column; justify-content:center; }
+.t1{ color:var(--mist); }
+.p{ font-size:42px; line-height:1.38; letter-spacing:-0.01em; color:rgba(255,255,255,.8); margin-top:26px; }
+.p b{ font-weight:600; color:var(--gold-light); }
+.p .red{ color:var(--red); font-weight:600; }
+.lead{ font-size:58px; line-height:1.24; font-weight:600; letter-spacing:-0.03em; color:var(--white); margin-top:0; }
+.lead b{ color:var(--gold); font-weight:600; }
+.bridge{ margin-top:56px; font-size:42px; line-height:1.35; font-weight:600; letter-spacing:-0.01em; color:var(--gold); }
+.ttl + .p{ margin-top:40px; }
+.wt + .p{ margin-top:40px; }
+.quotes{ margin-top:40px; display:flex; flex-direction:column; gap:14px; }
+.quotes span{ font-weight:300; font-size:48px; letter-spacing:-0.03em; color:var(--white); }
+.quotes span::before{ content:"“"; color:var(--gold); } .quotes span::after{ content:"”"; color:var(--gold); }
+.verse{ margin-top:36px; font-size:42px; line-height:1.4; color:var(--white); }
+.verse::before{ content:""; display:block; width:56px; height:2px; background:var(--gold); margin-bottom:22px; }
+.verse .ref{ display:block; margin-top:12px; font-size:21px; letter-spacing:.16em; text-transform:uppercase; color:var(--mist); }
+
+/* Placeholder de foto: substituir pela foto real quando o utilizador a enviar */
+.ph{ position:absolute; background:repeating-linear-gradient(135deg,#1b1b1e 0 22px,#202024 22px 44px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; }
+.ph::before{ content:""; position:absolute; inset:28px; border:2px dashed rgba(203,200,200,.35); border-radius:6px; }
+.ph b{ font-size:26px; letter-spacing:.2em; text-transform:uppercase; color:var(--mist); font-weight:600; }
+.ph span{ font-size:24px; line-height:1.4; color:rgba(203,200,200,.75); max-width:640px; }
+/* Capa estilo A (foto + título em baixo) */
+.photo{ position:absolute; inset:0 0 auto 0; height:1060px; }
+.photo img{ width:100%; height:100%; object-fit:cover; }
+.photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(122,74,18,.5) 0%, rgba(122,74,18,.14) 22%, rgba(0,0,0,0) 40%), linear-gradient(180deg, rgba(0,0,0,0) 42%, rgba(0,0,0,.78) 72%, #000 100%); }
+.cover-a{ position:absolute; left:90px; right:90px; bottom:200px; text-align:center; }
+.cover-a .sub{ font-size:34px; line-height:1.34; letter-spacing:-0.015em; color:rgba(255,255,255,.86); margin:34px auto 0; max-width:860px; }
+.cover-a .sub b{ font-weight:600; color:var(--white); }
+.cta-foot{ position:absolute; left:0; right:0; bottom:84px; text-align:center; font-size:24px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.9); }
+
+/* CTA */
+.cta{ position:absolute; left:110px; right:110px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.cta .logo{ width:104px; height:104px; margin-bottom:64px; }
+.cta .p{ text-align:center; max-width:820px; }
+.qlist{ list-style:none; margin-top:44px; width:100%; max-width:760px; }
+.qlist li{ padding:22px 0; border-top:1px solid rgba(255,255,255,.12); font-size:36px; color:var(--mist); letter-spacing:-0.015em; }
+.qlist li:last-child{ border-bottom:1px solid rgba(255,255,255,.12); }
+.save{ display:inline-flex; align-items:center; gap:14px; margin-top:44px; font-size:28px; font-weight:600; color:var(--gold); }
+.save svg{ width:28px; height:28px; }
+.handle.c{ left:0; right:0; text-align:center; }
+
+/* Slides claros (máx. 3 por carrossel, para quebrar o padrão): mesmas fontes, cores invertidas */
+.post.w{ background:#F7F5F1; color:#121212; }
+.w .num{ color:#8A8580; } .w .handle{ color:rgba(0,0,0,.45); }
+.w .lead{ color:#121212; } .w .lead b{ color:#9C7A3C; }
+.w .p{ color:#3A3835; } .w .p b{ color:#9C7A3C; }
+.w .bridge{ color:#9C7A3C; }
+.w .ttl .t1{ color:#8A8580; } .w .ttl{ color:#121212; } .w .it{ color:#9C7A3C; }
+.inset{ position:relative; height:380px; overflow:hidden; border-radius:6px; }
+.inset img{ width:100%; height:100%; object-fit:cover; }
+.scenes.l .scene{ border-color:rgba(0,0,0,.12); background:#fff; }
+.scenes.l .scene span{ color:#9C7A3C; } .scenes.l .scene svg{ color:rgba(0,0,0,.35); } .scenes.l .scene p{ color:#121212; }
+.scenes.l .scene p.red{ color:#C8412F; }
+.chart.l .ax{ fill:#8A8580; } .chart.l .lb.g{ fill:#9C7A3C; } .chart.l .lb.w{ fill:#121212; }
+.vs.l .vh{ color:#8A8580; border-color:rgba(0,0,0,.15); } .vs.l .vh.g{ color:#9C7A3C; border-color:rgba(156,122,60,.5); }
+.vs.l .vo{ color:rgba(0,0,0,.45); text-decoration-color:rgba(0,0,0,.3); }
+.vs.l .vn{ color:#121212; background:#fff; border-color:rgba(156,122,60,.45); } .vs.l .vn b{ color:#9C7A3C; }
+.vs.l svg{ color:#9C7A3C; }
+.hub{ display:block; width:100%; height:auto; margin-top:30px; overflow:visible; }
+.hub .nd{ font-size:26px; font-weight:600; fill:rgba(255,255,255,.88); }
+.hub .tu{ font-size:46px; font-weight:900; fill:#000; letter-spacing:.02em; }
+.tl{ margin-top:36px; display:flex; flex-direction:column; gap:22px; border-left:2px solid rgba(214,175,98,.4); padding-left:34px; }
+.tl div{ position:relative; }
+.tl div::before{ content:""; position:absolute; left:-44px; top:8px; width:18px; height:18px; border-radius:50%; background:#000; border:3px solid var(--gold); }
+.tl div.end::before{ background:var(--gold); }
+.tl span{ font-size:22px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
+.tl p{ margin-top:6px; font-size:38px; line-height:1.3; color:rgba(255,255,255,.82); }
+.tl p b{ color:var(--gold-light); font-weight:600; }
+.scenes.l .scene.hi{ border-color:rgba(156,122,60,.6); background:rgba(156,122,60,.1); } .scenes.l .scene.hi p{ font-weight:600; }
+.w .wt{ color:#121212; } .w .wt b{ color:#121212; }
+.w .quotes span::before,.w .quotes span::after{ color:#9C7A3C; }
+.grain::after{ content:""; position:absolute; inset:0; pointer-events:none; opacity:.2; mix-blend-mode:overlay; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>"); }
+/* Elementos visuais dos carrosséis */
+.bgph{ position:absolute; inset:0; }
+.bgph img{ width:100%; height:100%; object-fit:cover; }
+.bgfade{ position:absolute; inset:0; }
+.scenes{ margin-top:40px; display:flex; flex-direction:column; gap:18px; }
+.scene{ display:grid; grid-template-columns:220px 60px 1fr; align-items:center; gap:20px; padding:26px 30px; border:1px solid rgba(214,175,98,.32); border-radius:16px; background:rgba(255,255,255,.035); }
+.scene span{ font-size:26px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
+.scene svg{ width:60px; height:18px; color:rgba(255,255,255,.45); }
+.scene p{ font-size:36px; line-height:1.25; letter-spacing:-0.01em; color:var(--white); }
+.scene p.red{ color:var(--red); font-weight:600; }
+.chart{ display:block; width:100%; height:auto; margin-top:40px; overflow:visible; }
+.chart .ax{ font-size:22px; letter-spacing:.12em; text-transform:uppercase; fill:var(--mist); }
+.chart .lb{ font-size:34px; font-weight:600; }
+.chart .lb.g{ fill:var(--gold-light); } .chart .lb.w{ fill:rgba(255,255,255,.75); }
+.tags{ margin:44px 0 10px; display:flex; flex-direction:column; align-items:flex-start; gap:18px; }
+.tags span{ transform:rotate(var(--r)); padding:16px 28px; border-radius:12px; background:#F2EFEA; color:#141414; font-size:36px; font-weight:600; letter-spacing:-0.015em; box-shadow:0 10px 30px rgba(0,0,0,.5); }
+.tags span::before{ content:"“"; } .tags span::after{ content:"”"; }
+.vs{ margin-top:40px; display:grid; grid-template-columns:1fr 44px 1fr; align-items:center; column-gap:18px; row-gap:16px; }
+.vh{ font-size:24px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--mist); padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,.18); }
+.vh.g{ color:var(--gold); border-color:rgba(214,175,98,.5); }
+.vo{ font-size:32px; line-height:1.25; color:rgba(255,255,255,.5); text-decoration:line-through; text-decoration-color:rgba(255,255,255,.3); }
+.vn{ font-size:34px; line-height:1.25; color:var(--white); padding:18px 22px; border-radius:14px; background:rgba(214,175,98,.12); border:1px solid rgba(214,175,98,.35); }
+.vn b{ color:var(--gold-light); font-weight:600; }
+.vs svg{ width:30px; height:30px; color:var(--gold); }
+/* Estático de frase · Espiritualidade (caixa alta, partilhável) */
+.frase-esp{ position:absolute; left:100px; right:100px; top:0; bottom:0; display:flex; align-items:center; }
+.frase-esp p{ font-size:84px; line-height:1.06; letter-spacing:-0.02em; font-weight:700; text-transform:uppercase; color:var(--white); }
+.frase-esp b{ font-weight:700; color:var(--gold); }
+.frase-esp span{ display:block; margin-top:34px; font-size:30px; color:rgba(255,255,255,.75); }
+/* Estático de frase única (sem etiqueta, sem versículo na arte) */
 .frase{ position:absolute; left:100px; right:100px; top:0; bottom:0; display:flex; align-items:center; font-size:92px; line-height:1.1; letter-spacing:-0.035em; font-weight:400; color:var(--white); }
 .frase b{ display:block; margin-top:40px; font-weight:600; color:var(--gold); }
-/* Versão clara (equilíbrio do feed): mesmas fontes, cores invertidas */
-.post.w{ background:#F7F5F1; color:#121212; }
+/* Estático Princípios do Reino */
+.reino{ position:absolute; left:110px; right:110px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.label{ font-size:24px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+.rule{ width:64px; height:2px; background:var(--gold); margin:34px auto 48px; }
+.reino .verse2{ margin-top:56px; font-size:33px; line-height:1.42; color:rgba(255,255,255,.88); max-width:820px; }
+.reino .ref2{ margin-top:22px; font-size:22px; letter-spacing:.16em; text-transform:uppercase; color:var(--mist); }
+.reino .apply{ margin-top:60px; font-size:36px; line-height:1.3; letter-spacing:-0.02em; color:rgba(255,255,255,.82); }
+.reino .apply b{ font-weight:700; color:var(--white); }
+.sym{ position:absolute; left:calc(50% - 30px); bottom:70px; width:60px; height:60px; opacity:.9; }
+
+/* Estilo B */
+.wt b{ color:var(--white); }
 .w .frase{ color:#121212; } .w .frase b{ color:#9C7A3C; }
+/* Diagrama das esferas (claro) */
+.orb .pl{ fill:#fff; stroke:rgba(156,122,60,.55); stroke-width:2; }
+.orb .nd{ font-size:24px; font-weight:600; letter-spacing:.1em; fill:#121212; }
+.orb .tu{ font-size:38px; font-weight:900; fill:#000; letter-spacing:.06em; }
+.scenes.wide .scene{ grid-template-columns:340px 60px 1fr; } .scenes.wide .scene span{ font-size:24px; letter-spacing:.12em; }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="arrow-long" viewBox="0 0 76 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9h70M64 2l8 7-8 7"/></symbol>
+  <symbol id="bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3.5h12v17l-6-4.2-6 4.2v-17Z"/></symbol>
+</svg>
 
 <!-- ============ 26/10 · Estático · Dentro da Founders · frase única (DP) ============ -->
 <section class="post w" data-file="2026-10-26-a-disciplina-da-visao/01.png">
   <div class="frase"><p>Quem tem uma visão diz não a muitas oportunidades boas. <b>Porque já viu uma&nbsp;melhor.</b></p></div>
   <img class="sym" src="../../brand/founders/assets/kingdom-founders-simbolo.svg" alt="">
+</section>
+
+<!-- ============ 28/10 · Carrossel · Prosperidade divina · capa padrão 19/10 + interior estilo B · 10 slides · fotos em 01, 04, 07, 10 · claros 03, 06, 08 ============ -->
+<section class="post grain" data-file="2026-10-28-prosperidade-divina/01.png">
+  <div class="photo"><img src="img/2026-10-28-capa.jpg" alt="" style="object-position:50% 0%"></div>
+  <div class="num">01</div>
+  <div class="cover-a ttl" style="--ts:92px;font-weight:700;bottom:262px">
+    <div class="t1">Podes ter dinheiro</div>
+    <div>na conta e continuar</div>
+    <div><span class="it">pobre.</span></div>
+    <p class="sub" style="font-weight:400">Porque a prosperidade que Deus tem para ti <b>não cabe só na conta bancária.</b></p>
+  </div>
+  <div class="cta-foot">Arraste para entender</div>
+</section>
+
+<section class="post" data-file="2026-10-28-prosperidade-divina/02.png">
+  <div class="glow"></div><div class="num">02</div>
+  <div class="content">
+    <p class="lead">Muitos empreendedores medem a vida por um só número: <b>o saldo.</b></p>
+    <p class="p">Quando sobe, está tudo bem. Quando desce, <b>tudo desaba.</b></p>
+    <p class="bridge">Mas o saldo só conta uma parte da história:</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post w" data-file="2026-10-28-prosperidade-divina/03.png"><div class="num">03</div>
+  <div class="content">
+    <p class="lead" style="font-size:50px">Conheces quem ganhou de um lado e perdeu do outro:</p>
+    <div class="scenes l wide">
+      <div class="scene"><span>Saldo cheio</span><svg><use href="#arrow-long"/></svg><p class="red">lar falido</p></div>
+      <div class="scene"><span>Negócio a crescer</span><svg><use href="#arrow-long"/></svg><p>saúde a cair</p></div>
+      <div class="scene"><span>Agenda lotada</span><svg><use href="#arrow-long"/></svg><p>alma vazia</p></div>
+    </div>
+    <p class="p" style="margin-top:44px">Prosperaram numa área e <b>faliram nas outras.</b></p>
+    <p class="bridge">E isso acontece porque aprendemos a ver a prosperidade da forma errada:</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-28-prosperidade-divina/04.png">
+  <div class="glow"></div><div class="num">04</div>
+  <div class="content">
+    <div class="wt" style="font-size:84px">Prosperidade não é só <b>dinheiro.</b></div>
+    <div class="inset" style="margin-top:36px;height:340px"><img src="img/2026-10-28-s04-mesa.jpg" alt="" style="object-position:50% 22%"></div>
+    <p class="p">O dinheiro é um recurso. Importante, mas é só uma parte da prosperidade que Deus te dá.</p>
+    <p class="p">Quem o põe no centro da vida acaba por <b>sacrificar todas as outras</b> para o proteger.</p>
+    <p class="bridge">E há outro engano, ainda mais comum…</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-28-prosperidade-divina/05.png">
+  <div class="glow"></div><div class="num">05</div>
+  <div class="content">
+    <div class="wt" style="font-size:84px">Prosperidade não é <b>depois.</b></div>
+    <div class="quotes" style="margin-top:36px"><span style="font-size:42px;line-height:1.3">Primeiro ganho dinheiro. Depois cuido da saúde, da família, de Deus.</span></div>
+    <p class="p" style="margin-top:36px">Mas o depois raramente chega. E quando chega, encontra <b>relações e saúde que já não esperam.</b></p>
+    <p class="bridge">Então, se a prosperidade não é só dinheiro nem é depois, o que é?</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post w" data-file="2026-10-28-prosperidade-divina/06.png"><div class="num">06</div>
+  <div class="content">
+    <div class="wt" style="font-size:80px">A prosperidade de Deus é <b>inteira.</b></div>
+    <svg class="hub orb" viewBox="0 0 856 500" aria-hidden="true">
+      <polygon points="428,58 675,196 581,420 275,420 181,196" fill="none" stroke="rgba(156,122,60,.5)" stroke-width="2.5" stroke-dasharray="7 8"/>
+      <g stroke="rgba(156,122,60,.35)" stroke-width="2"><line x1="428" y1="250" x2="428" y2="58"/><line x1="428" y1="250" x2="675" y2="196"/><line x1="428" y1="250" x2="581" y2="420"/><line x1="428" y1="250" x2="275" y2="420"/><line x1="428" y1="250" x2="181" y2="196"/></g>
+      <rect class="pl" x="313" y="30" width="230" height="56" rx="28"/><text x="428" y="67" text-anchor="middle" class="nd">ESPIRITUAL</text>
+      <rect class="pl" x="565" y="168" width="220" height="56" rx="28"/><text x="675" y="205" text-anchor="middle" class="nd">ALMÁTICA</text>
+      <rect class="pl" x="481" y="392" width="200" height="56" rx="28"/><text x="581" y="429" text-anchor="middle" class="nd">FÍSICA</text>
+      <rect class="pl" x="155" y="392" width="240" height="56" rx="28"/><text x="275" y="429" text-anchor="middle" class="nd">RELACIONAL</text>
+      <rect class="pl" x="71" y="168" width="220" height="56" rx="28"/><text x="181" y="205" text-anchor="middle" class="nd">MATERIAL</text>
+      <circle cx="428" cy="250" r="76" fill="url(#hg2)"/><text x="428" y="263" text-anchor="middle" class="tu">DEUS</text>
+      <defs><radialGradient id="hg2"><stop offset="0" stop-color="#E9CF8F"/><stop offset="1" stop-color="#C9A45C"/></radialGradient></defs>
+    </svg>
+    <p class="p" style="margin-top:30px">As cinco esferas prosperam juntas, <b>não à vez.</b></p>
+    <p class="bridge">A Bíblia junta-as numa só frase:</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post grain" data-file="2026-10-28-prosperidade-divina/07.png">
+  <div class="ph" style="inset:0"><b>Foto · slide 07</b><span>Mulher de olhos fechados junto a uma janela ao amanhecer (prompt no Notion)</span></div>
+  <div class="bgfade" style="background:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.62) 42%,rgba(0,0,0,0) 70%)"></div>
+  <div class="num">07</div>
+  <div class="content" style="right:330px">
+    <p class="verse" style="margin-top:0;font-size:52px;line-height:1.3">“Amado, desejo que te vá bem em todas as coisas, e que tenhas saúde, assim como bem vai a tua alma.”<span class="ref">3 João 1:2</span></p>
+    <p class="p" style="margin-top:44px">A prosperidade divina começa na alma e <b>estende-se a tudo o resto.</b></p>
+    <p class="bridge">E quando vês a prosperidade assim, a forma como conduzes a tua vida muda:</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post w" data-file="2026-10-28-prosperidade-divina/08.png">
+  <div class="num">08</div>
+  <div class="content">
+    <div class="vs l" style="margin-top:0">
+      <div class="vh">Deixas de</div><div></div><div class="vh g">Passas a</div>
+      <div class="vo">Ganhar dinheiro para depois cuidar da alma</div><svg><use href="#chev"/></svg><div class="vn"><b>Cuidar da alma</b> enquanto ganhas</div>
+      <div class="vo">Sacrificar a saúde pelo dinheiro</div><svg><use href="#chev"/></svg><div class="vn"><b>Proteger a saúde</b> como um ativo</div>
+      <div class="vo">Manter relações por interesse</div><svg><use href="#chev"/></svg><div class="vn">Escolher <b>relações que constroem</b></div>
+      <div class="vo">Gastar tudo o que entra</div><svg><use href="#chev"/></svg><div class="vn"><b>Administrar</b> com sabedoria</div>
+    </div>
+    <p class="bridge">E há uma pergunta que te mostra por onde começar:</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post" data-file="2026-10-28-prosperidade-divina/09.png">
+  <div class="glow low"></div><div class="num">09</div>
+  <div class="content">
+    <p class="lead" style="font-size:66px">Em que esfera estás a <b>empobrecer</b> enquanto o saldo cresce?</p>
+    <p class="p" style="margin-top:40px">A resposta é o teu ponto de partida. <b>Prosperar de verdade é crescer em todas, ao mesmo ritmo.</b></p>
+    <p class="bridge">E isto não se resolve uma vez. Revê-se todos os meses…</p>
+  </div>
+  <div class="next"><svg><use href="#chev"/></svg></div><div class="handle">@kingdomfounderss</div>
+</section>
+
+<section class="post grain" data-file="2026-10-28-prosperidade-divina/10.png">
+  <div class="ph" style="inset:0"><b>Foto · slide 10</b><span>Pai de mão dada com a filha ao fim da tarde (prompt no Notion)</span></div>
+  <div class="bgfade" style="background:radial-gradient(75% 62% at 50% 52%,rgba(0,0,0,.9),rgba(0,0,0,.55))"></div>
+  <div class="cta">
+    <img class="logo" src="../../brand/founders/assets/kingdom-founders-simbolo.svg" alt="Kingdom Founders">
+    <div class="wt" style="font-size:84px">Prosperar é crescer <b>por inteiro.</b></div>
+    <p class="p" style="margin-top:44px">Guarda este post e revê as cinco esferas no fim de cada mês.</p>
+    <p class="p">Comenta: em qual delas estás a crescer&nbsp;menos?</p>
+    <span class="save"><svg><use href="#bookmark"/></svg>Guarda para rever</span>
+  </div>
+  <div class="handle c">@kingdomfounderss</div>
 </section>
 
 <!-- ============ 30/10 · Estático · Verdade Incómoda · frase única (Negócios) ============ -->
