@@ -14,10 +14,9 @@ Regras de marca, voz, design e escrita: skill **kingdom-founders** (ler antes de
 | Marca | Base Notion (data source) | Referências Manus (Drive) | Skill de marca |
 |---|---|---|---|
 | Kingdom Founders | `collection://0027e540-aab6-46d9-bfe7-7b20c5df80c7` (base `22a60e2fbe2b408d900a68bccda89351`) | "REFERENCIAS - MANUS 2.0" `1nqqySy9i7FuLJWky5jMHo-qovqi6eHFP` | kingdom-founders |
+| Kingdom InCompany | Por configurar (15/10/2026: o utilizador vai montá-la noutro chat) | | kingdom-incompany (por criar) |
 
 Para replicar noutra marca seguir [`replicar-marca.md`](replicar-marca.md): o que se reaproveita, o que se decide de novo com o utilizador e por que ordem. Cada marca tem a sua skill, a sua base no Notion, o seu ramo, a sua sessão e a sua rotina.
-
-| Kingdom InCompany | Por configurar (15/10/2026: o utilizador vai montá-la noutro chat) | | kingdom-incompany (por criar) |
 
 ## Papéis
 
