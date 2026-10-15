@@ -14,6 +14,18 @@ Faz a tua aplicação no link da bio.
 
 #KingdomFounders #Visão #Empreendedorismo #Moçambique #Liderança #FéENegócios
 
+## Quarta, 28/10 · Carrossel · Prosperidade divina (10 slides)
+
+Podes ter dinheiro na conta e continuar pobre.
+
+Muitos empreendedores medem a vida pelo saldo. E enquanto o negócio cresce, a saúde, a família e a alma ficam para depois. Só que o depois raramente chega.
+
+A prosperidade que Deus tem para ti é inteira: espiritual, almática, física, relacional e material. E as esferas prosperam juntas, não à vez. “Amado, desejo que te vá bem em todas as coisas, e que tenhas saúde, assim como bem vai a tua alma.” (3 João 1:2)
+
+Guarda este post para rever as cinco esferas no fim de cada mês. E comenta: em qual delas estás a crescer menos?
+
+#KingdomFounders #ProsperidadeComPrincípios #ProsperidadeDivina #FéENegócios #Empreendedorismo #Moçambique
+
 ## Sexta, 30/10 · Estático · Autoridade é serviço
 
 A autoridade é medida pelo número de pessoas a quem consegues servir.
