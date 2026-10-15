@@ -1,0 +1,38 @@
+/* Kingdom InCompany: tokens partilhados pelo Brand Book e pelos modelos de post.
+   Base visual: o site oficial (incompany.kingdomcompny.com, versão 2): azul-noite, azul-real, ciano e branco fosco.
+   Google Sans (Google Fonts, licença OFL) em fonts/, variável 400 a 700, com itálico. */
+@font-face{ font-family:'Google Sans'; font-style:normal; font-weight:400 700; font-display:block; src:url(fonts/GoogleSans-Variable.woff2) format('woff2'); }
+@font-face{ font-family:'Google Sans'; font-style:italic; font-weight:400 700; font-display:block; src:url(fonts/GoogleSans-Italic-Variable.woff2) format('woff2'); }
+
+:root{
+  --noite:#020A2E;      /* Azul-noite: base dos posts escuros */
+  --noite-2:#0C1D5E;    /* Azul-noite claro: cartões sobre escuro */
+  --real:#1D5BFF;       /* Azul-real: cor da marca, destaque e elementos sólidos */
+  --real-escuro:#1D4FE0;/* Azul-real para texto pequeno sobre claro */
+  --ciano:#8FE2FF;      /* Ciano: destaque de texto e linhas sobre escuro */
+  --fosco:#F4F4F2;      /* Branco fosco: base dos posts claros */
+  --tinta:#0A1240;      /* Tinta: texto sobre claro */
+  --tinta-2:#47507A;    /* Texto secundário sobre claro */
+  --tinta-3:#5B6390;    /* Abertura do título sobre claro, legendas */
+  --nevoa:#96A3D2;      /* Abertura do título sobre escuro */
+  --nevoa-2:#C6D0F2;    /* Texto secundário sobre escuro */
+  --branco:#FFFFFF;
+  --marca:linear-gradient(160deg,#4A7DFF 0%,#1D5BFF 55%,#0B33C9 100%);
+  --sans:'Google Sans','Product Sans','Segoe UI',Roboto,Arial,sans-serif;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:var(--sans); -webkit-font-smoothing:antialiased; font-kerning:normal; }
+
+/* Título em dois tempos: abertura leve (400, cor secundária) e frase principal (600), com UMA expressão em azul.
+   Uso: <h1 class="ttl" style="--ts:84px"><span class="ab">Abertura</span> frase <em>destaque</em></h1> */
+.ttl{ --ts:84px; font-weight:600; font-size:var(--ts); line-height:1.04; letter-spacing:-0.035em; }
+.ttl .ab{ display:block; font-weight:400; }
+.ttl em{ font-style:normal; color:var(--real); }
+.escuro .ttl em{ color:var(--ciano); }
+
+/* Sinal: a coroa do site dentro de um quadrado arredondado com o gradiente da marca. */
+.sinal{ display:inline-grid; place-items:center; border-radius:28%; background:var(--marca); color:#fff; }
+.sinal svg{ width:56%; height:56%; }
+.wordmark{ font-weight:500; letter-spacing:-0.02em; }
+.wordmark b{ font-weight:600; color:var(--real); }
+.escuro .wordmark b{ color:var(--ciano); }

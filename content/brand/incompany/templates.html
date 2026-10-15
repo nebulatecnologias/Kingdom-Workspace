@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-MZ">
+<head>
+<meta charset="utf-8">
+<title>Kingdom InCompany: modelos de post (proposta)</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+/* Proposta da etapa 2: 7 modelos 1080x1350. Textos de exemplo, sem números nem depoimentos. */
+body{ background:#2a2d3a; display:flex; gap:40px; padding:40px; width:max-content; }
+.post{ position:relative; width:1080px; height:1350px; overflow:hidden; background:var(--fosco); color:var(--tinta); }
+.post.escuro{ background:var(--noite); color:var(--branco); }
+.post.azul{ background:var(--marca); color:var(--branco); }
+/* grelha fina, como no site e nas referências */
+.grelha{ position:absolute; inset:0; background-image:linear-gradient(90deg,rgba(10,18,64,.055) 1px,transparent 1px),linear-gradient(180deg,rgba(10,18,64,.055) 1px,transparent 1px); background-size:54px 54px; background-position:-1px -1px; }
+.escuro .grelha{ background-image:linear-gradient(90deg,rgba(220,230,255,.06) 1px,transparent 1px),linear-gradient(180deg,rgba(220,230,255,.06) 1px,transparent 1px); -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.35) 60%,#000 100%); }
+.azul .grelha{ background-image:linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(180deg,rgba(255,255,255,.08) 1px,transparent 1px); }
+.luz{ position:absolute; width:900px; height:900px; border-radius:50%; filter:blur(120px); background:radial-gradient(circle,rgba(29,91,255,.55),rgba(29,91,255,.08) 55%,transparent 72%); }
+/* topo e rodapé */
+.topo,.rodape{ position:absolute; left:90px; right:90px; display:flex; justify-content:space-between; align-items:center; font-size:26px; }
+.topo{ top:76px; }
+.rodape{ bottom:70px; color:var(--tinta-3); }
+.escuro .rodape,.azul .rodape{ color:var(--nevoa-2); }
+.marca-l{ display:flex; align-items:center; gap:16px; }
+.marca-l .sinal{ width:46px; height:46px; }
+.cont{ color:var(--tinta-3); font-variant-numeric:tabular-nums; }
+.cont b{ color:var(--tinta); font-weight:500; }
+.escuro .cont{ color:var(--nevoa); } .escuro .cont b{ color:#fff; }
+.seta{ display:flex; align-items:center; gap:16px; color:var(--tinta); }
+.escuro .seta,.azul .seta{ color:#fff; }
+.seta svg{ width:76px; height:24px; color:var(--real); }
+.escuro .seta svg{ color:var(--ciano); }
+.etq{ display:inline-flex; align-items:center; gap:14px; font-size:26px; font-weight:500; color:var(--real-escuro); background:rgba(29,91,255,.08); border-radius:999px; padding:12px 26px 12px 20px; }
+.etq::before{ content:""; width:12px; height:12px; border-radius:50%; background:var(--real); }
+.escuro .etq{ color:var(--ciano); background:rgba(143,226,255,.08); }
+.escuro .etq::before{ background:var(--ciano); }
+.bloco{ position:absolute; left:90px; right:90px; }
+.centro{ text-align:center; }
+.ttl{ color:var(--tinta); text-wrap:balance; }
+.lead,.grande,.pergunta{ text-wrap:pretty; }
+.ttl .ab{ color:var(--tinta-3); }
+.escuro .ttl,.azul .ttl{ color:#fff; }
+.escuro .ttl .ab{ color:var(--nevoa); }
+.lead{ font-size:38px; line-height:1.35; letter-spacing:-0.015em; color:var(--tinta-2); }
+.lead b{ font-weight:600; color:var(--tinta); }
+.escuro .lead{ color:var(--nevoa-2); } .escuro .lead b{ color:#fff; }
+.pergunta{ font-size:34px; font-weight:500; letter-spacing:-0.015em; color:var(--tinta); }
+.pergunta u{ text-decoration-color:var(--real); text-decoration-thickness:4px; text-underline-offset:10px; }
+
+/* 1 · matriz 2x2 */
+.matriz{ position:absolute; left:150px; top:470px; width:820px; height:600px; }
+.matriz .eixo-y{ position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--tinta); }
+.matriz .eixo-x{ position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--tinta); }
+.matriz .eixo-y::before{ content:""; position:absolute; top:-6px; left:-8px; border:9px solid transparent; border-bottom:14px solid var(--tinta); border-top:0; }
+.matriz .eixo-x::after{ content:""; position:absolute; right:-6px; top:-8px; border:9px solid transparent; border-left:14px solid var(--tinta); border-right:0; }
+.quad{ position:absolute; width:calc(50% - 30px); height:calc(50% - 30px); padding:30px 32px; border-radius:24px; background:#fff; box-shadow:0 1px 2px rgba(10,18,64,.05),0 16px 34px -18px rgba(10,18,64,.25); }
+.quad b{ display:block; font-size:34px; font-weight:600; letter-spacing:-0.02em; }
+.quad span{ text-wrap:pretty; display:block; margin-top:10px; font-size:24px; line-height:1.35; color:var(--tinta-2); }
+.quad.q1{ right:0; top:0; background:var(--marca); color:#fff; } .quad.q1 span{ color:rgba(255,255,255,.85); }
+.quad.q2{ left:40px; top:0; } .quad.q3{ right:0; bottom:40px; } .quad.q4{ left:40px; bottom:40px; }
+.rot-y{ position:absolute; left:84px; top:770px; transform:translate(-50%,-50%) rotate(-90deg); font-size:22px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta-3); }
+.rot-x{ position:absolute; left:150px; right:110px; top:1092px; text-align:center; font-size:22px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta-3); }
+
+/* 3 · método em fluxo */
+.fluxo{ position:absolute; left:90px; right:90px; top:640px; }
+.fluxo .linha{ position:absolute; left:42px; top:42px; bottom:42px; width:3px; background:linear-gradient(180deg,var(--real),var(--ciano)); }
+.passo{ position:relative; display:grid; grid-template-columns:84px 1fr; gap:34px; align-items:center; margin-bottom:34px; }
+.passo i{ width:84px; height:84px; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:32px; font-weight:600; background:var(--noite); color:var(--ciano); box-shadow:inset 0 0 0 2px rgba(143,226,255,.5); }
+.passo.ativo i{ background:var(--marca); color:#fff; box-shadow:none; }
+.passo div{ background:rgba(12,29,94,.55); border:1px solid rgba(220,230,255,.1); border-radius:22px; padding:22px 30px; }
+.passo b{ display:block; font-size:34px; font-weight:600; letter-spacing:-0.02em; }
+.passo span{ display:block; font-size:25px; color:var(--nevoa-2); margin-top:4px; }
+
+/* 4 · funil */
+.funil{ position:absolute; left:140px; right:140px; top:500px; }
+.faixa{ margin:0 auto 14px; height:118px; border-radius:20px; display:flex; align-items:center; justify-content:space-between; padding:0 40px; background:#fff; box-shadow:0 1px 2px rgba(10,18,64,.05),0 14px 30px -18px rgba(10,18,64,.25); }
+.faixa b{ font-size:32px; font-weight:600; letter-spacing:-0.02em; }
+.faixa span{ font-size:24px; color:var(--tinta-2); text-align:right; }
+.faixa.f1{ width:100%; } .faixa.f2{ width:88%; } .faixa.f3{ width:76%; } .faixa.f4{ width:64%; background:var(--marca); color:#fff; } .faixa.f4 span{ color:rgba(255,255,255,.85); }
+
+/* 5 · frase-assinatura */
+.azul .grande{ font-size:96px; font-weight:600; line-height:1.03; letter-spacing:-0.04em; }
+.azul .grande span{ color:rgba(255,255,255,.62); font-weight:400; }
+.regua{ width:120px; height:8px; border-radius:8px; background:#fff; margin:60px 0 0; }
+
+/* 6 · pessoa */
+.foto{ position:absolute; inset:0 0 auto 0; height:860px; overflow:hidden; }
+.ph{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; background:repeating-linear-gradient(135deg,#0C1D5E 0 22px,#0a1850 22px 44px); color:var(--nevoa-2); font-size:28px; text-align:center; padding:0 160px; }
+.ph b{ font-size:22px; letter-spacing:.2em; text-transform:uppercase; color:var(--ciano); font-weight:600; }
+.foto::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(2,10,46,.55) 0%,rgba(2,10,46,0) 22%,rgba(2,10,46,0) 55%,var(--noite) 100%); }
+.nome{ display:inline-flex; align-items:center; gap:18px; margin-bottom:34px; font-size:28px; }
+.nome b{ font-weight:600; } .nome span{ color:var(--nevoa); }
+.nome::before{ content:""; width:44px; height:3px; background:var(--ciano); border-radius:3px; }
+
+/* 7 · CTA */
+.acoes{ margin-top:60px; display:flex; flex-direction:column; gap:22px; }
+.acao{ display:flex; gap:28px; align-items:center; background:#fff; border-radius:26px; padding:30px 36px; box-shadow:0 1px 2px rgba(10,18,64,.05),0 16px 34px -18px rgba(10,18,64,.25); }
+.acao .ic{ flex:0 0 76px; height:76px; border-radius:22px; display:grid; place-items:center; background:rgba(29,91,255,.1); color:var(--real); }
+.acao .ic svg{ width:34px; height:34px; }
+.acao p{ font-size:32px; line-height:1.3; color:var(--tinta-2); } .acao p b{ color:var(--tinta); font-weight:600; }
+.acao.prim{ background:var(--marca); } .acao.prim p,.acao.prim p b{ color:#fff; } .acao.prim .ic{ background:rgba(255,255,255,.16); color:#fff; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="coroa" viewBox="0 0 24 24" fill="currentColor"><path d="M4 8.5 8 11l4-6 4 6 4-2.5V17H4V8.5Z"/><path d="M4 19h16v1.6H4z"/></symbol>
+  <symbol id="seta" viewBox="0 0 76 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h70M62 3l10 9-10 9"/></symbol>
+  <symbol id="guardar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></symbol>
+  <symbol id="partilhar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v14"/></symbol>
+  <symbol id="calendario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+</svg>
+
+<!-- 01 · Modelo mental, claro: matriz 2x2 (Estratégia e Gestão) -->
+<section class="post" data-file="01-modelo-mental-matriz">
+  <div class="grelha"></div>
+  <div class="topo"><div class="marca-l"><span class="sinal"><svg><use href="#coroa"/></svg></span><span class="wordmark">Kingdom <b>In</b>Company</span></div><span class="cont">Modelo mental</span></div>
+  <div class="bloco centro" style="top:178px"><h1 class="ttl" style="--ts:76px"><span class="ab">A matriz que separa</span><em>urgente</em> de importante</h1></div>
+  <div class="matriz">
+    <div class="eixo-y"></div><div class="eixo-x"></div>
+    <div class="quad q1"><b>Fazer agora</b><span>Urgente e importante. Crises e prazos que mexem no resultado.</span></div>
+    <div class="quad q2"><b>Agendar</b><span>Importante, sem urgência. Onde nasce o crescimento.</span></div>
+    <div class="quad q3"><b>Delegar</b><span>Urgente, pouco importante. Outra pessoa resolve.</span></div>
+    <div class="quad q4"><b>Eliminar</b><span>Nem urgente, nem importante. Só ocupa a agenda.</span></div>
+  </div>
+  <div class="rot-y">Importância</div><div class="rot-x">Urgência</div>
+  <div class="bloco centro" style="top:1150px"><p class="pergunta">Em que quadrante passa <u>a sua semana?</u></p></div>
+  <div class="rodape"><span>@kingdomincompany</span><span>Estratégia e Gestão</span></div>
+</section>
+
+<!-- 02 · Capa de carrossel teórico, escuro (Pessoas e Liderança) -->
+<section class="post escuro" data-file="02-capa-escura">
+  <div class="luz" style="right:-420px;top:-460px"></div><div class="grelha"></div>
+  <div class="topo"><div class="marca-l"><span class="sinal"><svg><use href="#coroa"/></svg></span><span class="wordmark">Kingdom <b>In</b>Company</span></div><span class="cont"><b>01</b> / 07</span></div>
+  <div class="bloco" style="bottom:300px">
+    <span class="etq">Pessoas e Liderança</span>
+    <h1 class="ttl" style="--ts:92px;margin-top:44px"><span class="ab">Se a equipa espera por si</span>para decidir, o problema <em>não é a equipa.</em></h1>
+    <p class="lead" style="margin-top:44px">É a forma como as decisões estão desenhadas. <b>E isso tem solução.</b></p>
+  </div>
+  <div class="rodape"><span>@kingdomincompany</span><span class="seta">Arraste<svg><use href="#seta"/></svg></span></div>
+</section>
+
+<!-- 03 · Método da marca, escuro: fluxo em 4 fases -->
+<section class="post escuro" data-file="03-metodo-fluxo">
+  <div class="luz" style="left:-500px;bottom:-520px"></div><div class="grelha"></div>
+  <div class="topo"><div class="marca-l"><span class="sinal"><svg><use href="#coroa"/></svg></span><span class="wordmark">Kingdom <b>In</b>Company</span></div><span class="cont"><b>04</b> / 07</span></div>
+  <div class="bloco" style="top:220px">
+    <span class="etq">O método</span>
+    <h1 class="ttl" style="--ts:80px;margin-top:40px"><span class="ab">Quatro fases.</span>Do diagnóstico <em>à autonomia.</em></h1>
+  </div>
+  <div class="fluxo"><div class="linha"></div>
+    <div class="passo"><i>1</i><div><b>Diagnóstico</b><span>O que trava o crescimento, com números.</span></div></div>
+    <div class="passo"><i>2</i><div><b>Estratégia</b><span>Metas, prazos e responsáveis.</span></div></div>
+    <div class="passo"><i>3</i><div><b>Implementação</b><span>Execução lado a lado com a equipa.</span></div></div>
+    <div class="passo ativo"><i>4</i><div><b>Autonomia</b><span>A equipa continua sem nós.</span></div></div>
+  </div>
+  <div class="rodape"><span>@kingdomincompany</span><span class="seta">Arraste<svg><use href="#seta"/></svg></span></div>
+</section>
+
+<!-- 04 · Modelo mental, claro: funil (Marketing e Vendas) -->
+<section class="post" data-file="04-modelo-mental-funil">
+  <div class="grelha"></div>
+  <div class="topo"><div class="marca-l"><span class="sinal"><svg><use href="#coroa"/></svg></span><span class="wordmark">Kingdom <b>In</b>Company</span></div><span class="cont">Modelo mental</span></div>
+  <div class="bloco centro" style="top:178px"><h1 class="ttl" style="--ts:76px"><span class="ab">O funil mostra</span>onde se perdem <em>as suas vendas</em></h1></div>
+  <div class="funil">
+    <div class="faixa f1"><b>Visitantes</b><span>Quem conhece a empresa?</span></div>
+    <div class="faixa f2"><b>Contactos</b><span>Quem levanta a mão?</span></div>
+    <div class="faixa f3"><b>Propostas</b><span>Quem recebe um preço?</span></div>
+    <div class="faixa f4"><b>Clientes</b><span>Quem fecha?</span></div>
+  </div>
+  <div class="bloco centro" style="top:1080px"><p class="lead">Se não sabe <b>quantos passam de uma etapa para a outra</b>, ainda não tem um processo de vendas.</p></div>
+  <div class="rodape"><span>@kingdomincompany</span><span>Marketing e Vendas</span></div>
+</section>
+
+<!-- 05 · Frase-assinatura, cartão azul -->
+<section class="post azul" data-file="05-frase-azul">
+  <div class="grelha"></div>
+  <div class="topo"><div class="marca-l"><span class="sinal" style="background:rgba(255,255,255,.16)"><svg><use href="#coroa"/></svg></span><span class="wordmark" style="color:#fff">Kingdom <b style="color:#fff">In</b>Company</span></div></div>
+  <div class="bloco" style="bottom:300px">
+    <p class="grande"><span>Uma empresa não cresce</span> além da estrutura que a sustenta.</p>
+    <div class="regua"></div>
+  </div>
+  <div class="rodape"><span>@kingdomincompany</span><span>Assessoria empresarial</span></div>
+</section>
+
+<!-- 06 · Pessoa: Shelton ou Domingas (foto real enviada pelo utilizador) -->
+<section class="post escuro" data-file="06-pessoa">
+  <div class="foto"><div class="ph"><b>Foto real</b>Retrato do Shelton Douglas ou da Domingas Trindade em contexto de trabalho, luz natural, olhar fora da câmara</div></div>
+  <div class="topo" style="z-index:2"><div class="marca-l"><span class="sinal"><svg><use href="#coroa"/></svg></span><span class="wordmark">Kingdom <b>In</b>Company</span></div><span class="cont"><b>01</b> / 07</span></div>
+  <div class="bloco" style="bottom:200px">
+    <div class="nome"><b>Shelton Douglas</b><span>CEO, Kingdom Company</span></div>
+    <h1 class="ttl" style="--ts:80px"><span class="ab">O que procuramos</span>no primeiro <em>diagnóstico</em></h1>
+  </div>
+  <div class="rodape"><span>@kingdomincompany</span><span class="seta">Arraste<svg><use href="#seta"/></svg></span></div>
+</section>
+
+<!-- 07 · Último slide com CTA, claro -->
+<section class="post" data-file="07-cta">
+  <div class="grelha"></div>
+  <div class="topo"><div class="marca-l"><span class="sinal"><svg><use href="#coroa"/></svg></span><span class="wordmark">Kingdom <b>In</b>Company</span></div><span class="cont"><b>07</b> / 07</span></div>
+  <div class="bloco" style="top:250px">
+    <span class="etq">Antes de sair</span>
+    <h1 class="ttl" style="--ts:84px;margin-top:44px"><span class="ab">Estrutura não se improvisa.</span>Constrói-se <em>andar a andar.</em></h1>
+    <div class="acoes">
+      <div class="acao"><span class="ic"><svg><use href="#guardar"/></svg></span><p><b>Guarde este post</b> para rever com a sua equipa.</p></div>
+      <div class="acao"><span class="ic"><svg><use href="#partilhar"/></svg></span><p><b>Partilhe</b> com o sócio que precisa de o ler.</p></div>
+      <div class="acao prim"><span class="ic"><svg><use href="#calendario"/></svg></span><p><b>Agende uma conversa</b> com um especialista. Link na bio.</p></div>
+    </div>
+  </div>
+  <div class="rodape"><span>@kingdomincompany</span><span>Kingdom InCompany</span></div>
+</section>
+</body>
+</html>
