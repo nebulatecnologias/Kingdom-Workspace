@@ -4,6 +4,8 @@ Aprovado pelo utilizador a 14/10/2026 ("Ficou perfeito") no carrossel "Quem sou 
 
 ## Regras do modelo
 
+0. **Antes de tudo, as regras "Escrever para uma pessoa" da `SKILL.md` (16/10/2026):** leitor com até 4 funcionários, uma Dor, Desejo ou Dúvida principal por post, o carrossel como história em que o leitor é a personagem principal, pontes pensadas do início ao fim e nenhuma frase que deixe no ar "de quê? o quê? como?". O texto do 19/10 abaixo continua a valer pela estrutura; o do 02/11 ("Este é o jeito errado de preparar um plano de negócio para 2027", https://claude.ai/code/artifact/8b9a0201-bc03-48de-89fb-7e9a4ae154ab) é a referência de como escrever.
+
 1. **Uma ideia por carrossel.** O post desenvolve uma só pergunta ou um só conceito, do início ao fim. Se a referência tiver várias ideias grandes, vira série (um post por ideia) em vez de as encaixar todas. Saltar de tema a meio (ex.: começar em identidade e passar para propósito) quebra a narrativa: foi o erro corrigido na versão aprovada.
 2. **Gancho na capa** ligado a uma dor, um desejo ou uma dúvida concreta do leitor, em segunda pessoa ("Se um mês mau te faz duvidar de quem és, o problema não é o mês."). Por baixo, duas linhas que abrem um laço e não o fecham.
 3. **Texto contínuo cortado em slides.** Cada slide termina com uma frase-ponte isolada que o slide seguinte responde ("E o motivo é que…:", "E há outra forma de responder mal a esta pergunta…", "Então, …, quem és?", "E quando isto fica claro, … muda:", "Mas … é só o começo…").

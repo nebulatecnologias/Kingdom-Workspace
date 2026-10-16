@@ -119,6 +119,20 @@ O processo completo entre agentes (estados, responsáveis, rotina) está na skil
 5. **Imagens geradas (ChatGPT):** cada linha tem a coluna **Prompt de Imagem**. O Claude escreve-a (em português, pronta a colar) e o utilizador gera a imagem no ChatGPT, que lê o Notion. Estrutura fixa: onde entra (CAPA/slide), "Cria uma fotografia editorial fotorrealista", formato (4:5 1080x1350, ou 1:1 1080x1080 na capa estilo B com foto em cima), cena concreta ligada ao tema do post (empreendedor moçambicano, ação, objetos), estilo (escuro, luz âmbar, sombras profundas), composição (rosto no terço superior e zona escura onde entra o texto), lente/grão, "aparência real", "sem texto, sem logótipos, sem marcas de água". Layouts só de texto levam "Sem imagem: …". Posts de conversão preferem foto real das sessões. Prompts de posts sem copy ficam "[Provisório]" e são revistos quando a copy é escrita. Até a imagem chegar, o design leva placeholder.
 6. Links do YouTube/Instagram/LinkedIn não abrem neste ambiente: usar o título, o texto da página no Notion e o que o utilizador escrever; se faltar contexto, perguntar.
 
+## Escrever para uma pessoa (regras do utilizador, 16/10/2026; valem para carrosséis, estáticos e legendas)
+
+Feedback que deu origem a estas regras: as copies "ficaram genéricas, o texto não está a falar com uma pessoa, está a expressar ideias". Exemplo do erro: "E quem vive a reagir nunca tem tempo para construir." Fica a pergunta: tempo para construir o quê? A reagir de quê?
+
+1. **Leitor:** o pequeno empreendedor, dono de um negócio com até 4 funcionários. Não é preciso ser hiper-específico, mas cada post sabe de quem fala e resolve **principalmente uma Dor, um Desejo ou uma Dúvida**, escrita como o leitor já a pensa (ex.: dúvida "Como faço um plano para 2027 que não fique esquecido na gaveta em março?"). Escrever na Ficha: Leitor, Foco principal e A história.
+2. **O carrossel é uma história e o leitor é a personagem principal**, com início, meio e fim. As pontes pensam-se desde o início do post, não slide a slide: cada ponte é o pensamento ou a pergunta seguinte do leitor, não uma fórmula. Ajuda ter um elemento que abre e fecha a história (ex.: o caderno onde ele escreve as metas no slide 02 e que volta a pegar no CTA).
+3. **Teste "de quê? o quê? como?":** nenhuma frase deixa essa pergunta no ar. Uma ideia abstrata (reagir, mudança, destino, capacidade, prioridade) vem sempre com a situação concreta do dia a dia do leitor no mesmo slide: o cliente que atrasa o pagamento, o funcionário que falta, o telemóvel que não para, a proposta que fica para amanhã, o plano que acaba na gaveta.
+   - Antes: "E quem vive a reagir nunca tem tempo para construir."
+   - Depois: "Abres o telemóvel às 7h e já há um cliente a reclamar, um fornecedor atrasado, um funcionário que não apareceu. Quando dás por ti são 18h. Resolveste tudo… e a proposta para aquele cliente novo ficou outra vez para amanhã."
+4. **Frases de efeito** podem ficar quando reforçam uma ideia que o slide já mostrou ("Um plano que só funciona quando tudo corre bem não é um plano. É uma esperança."); nunca no lugar da explicação.
+5. **Fluidez:** o texto lê-se como uma conversa com uma pessoa, não como uma lista de afirmações.
+6. **Checklist antes de entregar, slide a slide:** o leitor vê-se aqui? Há alguma frase que serviria a qualquer página? Fica alguma pergunta sem resposta? A ponte é o que ele pensaria a seguir?
+7. **Modelo aprovado:** carrossel de 02/11/2026 "Este é o jeito errado de preparar um plano de negócio para 2027" (https://claude.ai/code/artifact/8b9a0201-bc03-48de-89fb-7e9a4ae154ab).
+
 ## Escrita dos carrosséis (padrão do utilizador)
 
 **Meio de funil: seguir sempre o modelo aprovado em [`modelo-meio-de-funil.md`](modelo-meio-de-funil.md)** (regras + texto completo do carrossel "Quem sou eu?"). Ler antes de escrever qualquer carrossel educativo/aprofundado.
@@ -151,6 +165,7 @@ Tirado dos carrosséis "Decidi acabar com a mentoria Kingdom Founders do jeito q
 
 | Data | Versão | Mudança |
 |---|---|---|
+| 16/10/2026 | 1.24 | Escrever para uma pessoa: leitor até 4 funcionários, uma dor/desejo/dúvida principal por post, carrossel como história com o leitor como personagem, teste "de quê? o quê? como?". Modelo: 02/11. |
 | 15/10/2026 | 1.23 | Variar a estrutura dos elementos visuais entre carrosséis (não repetir os componentes dos dois anteriores). |
 | 14/10/2026 | 1.22 | Padrão de fundos muda a cada ronda de 12 posts (ronda 1 xadrez, ronda 2 faixa central). |
 | 14/10/2026 | 1.21 | Estáticos em fundo branco alternados com os pretos para equilibrar o feed. |
