@@ -36,7 +36,8 @@
       if(typeof window.fbq !== "function") return;
       var cartao = a.closest(".plano"), v = cartao && cartao.querySelector("[data-valor]");
       var dados = { content_name: a.textContent.trim(), currency: "MZN" };
-      if(v) dados.value = +v.getAttribute("data-valor");
+      if(a.hasAttribute("data-pixel-valor")) dados.value = +a.getAttribute("data-pixel-valor");
+      else if(v) dados.value = +v.getAttribute("data-valor");
       window.fbq("track", "InitiateCheckout", dados);
     });
   });
