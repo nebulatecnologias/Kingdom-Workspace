@@ -110,6 +110,12 @@ Os sites dos livros (Escala Previsível, O Bloqueio Invisível, O Criativo que A
 
 *18/10/2026 · Decisão do Shelton*
 
+### R32 · Escala Previsível: garantia de 7 dias
+
+Quem compra no site do Escala Previsível (Playbook ou pacote completo) tem 7 dias de garantia: se pedir dentro desse prazo, recebe o valor de volta. O site mostra a garantia junto ao preço e nas perguntas frequentes.
+
+*18/10/2026 · Decisão do Shelton*
+
 ### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas, depois 32.000
 
 O Treinamento de Vendas da InCompany dura 3 dias de cerca de 3 horas (9 horas). Custa 26.500 MT por empresa até 10 pessoas nas 3 primeiras empresas, para ganhar portefólio; depois passa a 32.000 MT, para cobrir a preparação. Cada pessoa a mais paga 3.500 MT.
