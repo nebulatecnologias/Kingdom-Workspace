@@ -30,4 +30,14 @@
     var por = function(){ caixa.style.setProperty("--pos", r.value + "%"); };
     r.addEventListener("input", por); por();
   });
+  /* Pixel: início de checkout ao clicar num botão de compra do Payflow */
+  document.querySelectorAll('a[href*="payflow.kingdomcompny.com"]').forEach(function(a){
+    a.addEventListener("click", function(){
+      if(typeof window.fbq !== "function") return;
+      var cartao = a.closest(".plano"), v = cartao && cartao.querySelector("[data-valor]");
+      var dados = { content_name: a.textContent.trim(), currency: "MZN" };
+      if(v) dados.value = +v.getAttribute("data-valor");
+      window.fbq("track", "InitiateCheckout", dados);
+    });
+  });
 })();
