@@ -129,6 +129,7 @@ Feedback que deu origem a estas regras: as copies "ficaram genéricas, o texto n
    - Antes: "E quem vive a reagir nunca tem tempo para construir."
    - Depois: "Abres o telemóvel às 7h e já há um cliente a reclamar, um fornecedor atrasado, um funcionário que não apareceu. Quando dás por ti são 18h. Resolveste tudo… e a proposta para aquele cliente novo ficou outra vez para amanhã."
 4. **Frases de efeito** podem ficar quando reforçam uma ideia que o slide já mostrou ("Um plano que só funciona quando tudo corre bem não é um plano. É uma esperança."); nunca no lugar da explicação.
+   - Vale também para listas e slides visuais (feedback de 18/10/2026 no 20/11): cada item diz o que se faz e com quê. Errado: "Verifica números e histórico." / "Um advogado, um contabilista." Certo: "Pede ao futuro sócio os extratos dos últimos 12 meses e a lista do que ele deve." / "Um advogado lê o contrato contigo antes de assinares; um contabilista confirma se os números dele batem certo."
 5. **Fluidez:** o texto lê-se como uma conversa com uma pessoa, não como uma lista de afirmações.
 6. **Checklist antes de entregar, slide a slide:** o leitor vê-se aqui? Há alguma frase que serviria a qualquer página? Fica alguma pergunta sem resposta? A ponte é o que ele pensaria a seguir?
 7. **Modelo aprovado:** carrossel de 02/11/2026 "Este é o jeito errado de preparar um plano de negócio para 2027" (https://claude.ai/code/artifact/8b9a0201-bc03-48de-89fb-7e9a4ae154ab).
