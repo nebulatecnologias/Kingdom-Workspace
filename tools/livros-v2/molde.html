@@ -1,0 +1,236 @@
+<!-- ============ 1. BARRA DE CIMA ============ -->
+<header class="barra" id="barra">
+  <div class="barra-dentro">
+    <a href="#topo" class="marca" aria-label="$titulo, início">
+      <span class="selo-escala"><svg><use href="#i-logo"/></svg></span>
+      <span><b>$marca_html</b><small>Shelton Douglas</small></span>
+    </a>
+    <nav aria-label="Secções">
+      <a href="#recebes">O que recebes</a>
+      <a href="#autor">O autor</a>
+      <a href="#preco">Preço</a>
+      <a href="#perguntas">Perguntas</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ============ 2. ABERTURA: promessa, preço e botão no primeiro ecrã ============ -->
+<section class="abertura claro">
+  <div class="abertura-fundo" aria-hidden="true"><div class="grelha"></div><div class="luz"></div></div>
+  <div class="contentor">
+    <div class="abertura-grelha">
+      <div class="abertura-texto">
+        <h1>$h1</h1>
+        <p class="entrada">$entrada</p>
+        <div class="oferta-curta">
+          <div class="preco-linha">
+            <s>947 MT</s>
+            <b>399<small>MT</small></b>
+            <span>livro + masterclass</span>
+          </div>
+          <a href="$link_pacote" class="botao botao-principal botao-grande">Quero o pacote por 399 MT <svg><use href="#i-arrow"/></svg></a>
+          <a href="#preco" class="so-playbook">ou só o livro por 199 MT</a>
+        </div>
+        <ul class="garantias">
+          <li><svg><use href="#d-wallet"/></svg>Pagas por M-Pesa</li>
+          <li><svg><use href="#d-mail"/></svg>Acesso imediato no email</li>
+          <li><svg><use href="#i-escudo"/></svg>Garantia de 7 dias</li>
+        </ul>
+      </div>
+      <div class="pacote" aria-hidden="true">
+        <img class="pacote-capa" src="/img/capa.webp" alt="" width="300" height="600" fetchpriority="high">
+        <div class="pacote-aula">
+          <img src="/img/masterclass.jpg" alt="" width="900" height="624">
+          <span class="tocar"><svg><use href="#i-play"/></svg></span>
+          <span class="rotulo-aula">Masterclass gravada</span>
+        </div>
+        <div class="pacote-funis"><svg><use href="#$chip_icone"/></svg>$chip_html</div>
+      </div>
+    </div>
+
+    <dl class="provas">
+$provas_html
+    </dl>
+  </div>
+</section>
+
+<!-- ============ 3. A DOR ============ -->
+<section class="seccao dor">
+  <div class="contentor">
+    <div class="cabeca">
+      <h2>$dor_titulo</h2>
+      <p class="entrada">$dor_entrada</p>
+    </div>
+    <ul class="dores">
+$dores_html
+    </ul>
+    <p class="viragem revela">$viragem</p>
+  </div>
+</section>
+
+<!-- ============ 4. O QUE RECEBES ============ -->
+<section class="seccao recebes-seccao" id="recebes">
+  <div class="contentor">
+    <div class="cabeca">
+      <h2>O que recebes</h2>
+      <p class="entrada">$recebes_entrada</p>
+    </div>
+
+    <article class="cartao playbook revela">
+      <div class="playbook-lado">
+        <img src="/img/capa.webp" alt="Capa do livro $titulo" width="300" height="600" loading="lazy">
+        <div>
+          <h3>$titulo</h3>
+          <p>$livro_desc</p>
+        </div>
+      </div>
+      <ol class="ganhos">
+$ganhos_html
+      </ol>
+    </article>
+
+    <div class="extras">
+      <article class="cartao extra revela">
+        <div class="aula">
+          <img src="/img/masterclass.jpg" alt="$aula_alt" width="900" height="624" loading="lazy">
+          <span class="tocar" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+          <span class="rotulo-aula">Gravada</span>
+        </div>
+        <h3>$aula_titulo</h3>
+        <p>$aula_desc</p>
+      </article>
+      <article class="cartao extra revela">
+        <h3>$extra_titulo</h3>
+        <p>$extra_desc</p>
+        <ul class="$tipos_classe">
+$tipos_html
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. O AUTOR ============ -->
+<section class="seccao claro mentor-seccao" id="autor">
+  <div class="contentor">
+    <div class="mentor">
+      <div class="retrato revela">
+        <img src="/img/shelton.jpg" alt="Shelton Douglas" width="800" height="698" loading="lazy">
+        <span class="pilula"><svg><use href="#d-award"/></svg>Best Seller · O Segredo</span>
+      </div>
+      <div class="revela">
+        <h2>Shelton Douglas</h2>
+        <p class="papel">Empreendedor moçambicano, mentor e autor</p>
+$bio_html
+        <div class="certificacoes">
+          <p>Certificações internacionais</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-google"/></svg>Google</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-anthropic"/></svg>Anthropic</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-semrush"/></svg>Semrush</li>
+            <li class="so-marca"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-wix"/></svg><span class="visual-oculto">Wix</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. PREÇO ============ -->
+<section class="seccao seccao-escura-pos-clara preco-seccao" id="preco">
+  <div class="precos-fundo" aria-hidden="true"></div>
+  <div class="contentor">
+    <div class="cabeca centro">
+      <h2>Escolhe como queres começar.</h2>
+    </div>
+    <div class="planos">
+      <div class="cartao plano destaque revela" id="checkout">
+        <div class="plano-tipo">Livro + Masterclass<span class="promo">Recomendado</span></div>
+        <h3>O pacote completo</h3>
+        <div class="plano-preco"><span class="antes">Antes 947 MT</span><span class="valor" data-valor="399">399</span><span class="unidade">MT</span></div>
+        <ul>
+$pacote_itens_html
+        </ul>
+        <a href="$link_pacote" class="botao botao-principal botao-largo">Quero o pacote completo <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="cartao plano revela">
+        <div class="plano-tipo">Apenas o livro</div>
+        <h3>Só o livro</h3>
+        <div class="plano-preco"><span class="antes">Antes 325 MT</span><span class="valor" data-valor="199">199</span><span class="unidade">MT</span></div>
+        <ul>
+$livro_itens_html
+        </ul>
+        <a href="$link_livro" class="botao botao-linha botao-largo">Quero só o livro <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="garantia revela">
+      <span class="selo-garantia"><svg><use href="#i-escudo"/></svg></span>
+      <div>
+        <h3>Garantia de 7 dias</h3>
+        <p>Se nos primeiros 7 dias achares que não é para ti, pede o reembolso por email ou WhatsApp e devolvemos 100% do valor.</p>
+      </div>
+    </div>
+    <p class="pagamento"><svg><use href="#d-wallet"/></svg>Pagas por M-Pesa e recebes o acesso imediato no teu email.</p>
+  </div>
+</section>
+
+<!-- ============ 7. PERGUNTAS ============ -->
+<section class="seccao claro" id="perguntas">
+  <div class="contentor">
+    <div class="cabeca centro">
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="perguntas">
+$perguntas_html
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. FECHO ============ -->
+<section class="fecho">
+  <div class="nascer" aria-hidden="true"></div>
+  <div class="horizonte" aria-hidden="true"></div>
+  <div class="contentor">
+    <h2>$fecho_titulo</h2>
+    <p class="entrada">$fecho_entrada</p>
+    <a href="$link_pacote" class="botao botao-principal botao-grande">Quero o pacote por 399 MT <svg><use href="#i-arrow"/></svg></a>
+    <ul class="garantias centro">
+      <li><svg><use href="#d-wallet"/></svg>Pagas por M-Pesa</li>
+      <li><svg><use href="#d-mail"/></svg>Acesso imediato no email</li>
+      <li><svg><use href="#i-escudo"/></svg>Garantia de 7 dias</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 9. RODAPÉ ============ -->
+<footer>
+  <div class="contentor">
+    <div class="rodape">
+      <div>
+        <a href="#topo" class="marca"><span class="selo-escala"><svg><use href="#i-logo"/></svg></span><span><b>$titulo</b><small>Kingdom Company</small></span></a>
+        <p>$rodape_desc</p>
+      </div>
+      <div>
+        <h4 class="t4">Página</h4>
+        <div class="rodape-links"><a href="#recebes">O que recebes</a><a href="#autor">O autor</a><a href="#preco">Preço</a><a href="#perguntas">Perguntas frequentes</a></div>
+      </div>
+      <div>
+        <h4 class="t4">Kingdom Company</h4>
+        <div class="rodape-links">
+          <a href="mailto:comercial@kingdomcompny.com"><svg><use href="#d-mail"/></svg>comercial@kingdomcompny.com</a>
+          <a href="tel:+258851800920"><svg><use href="#i-telefone"/></svg>+258 85 1800 920</a>
+          <a href="#topo"><svg><use href="#d-pin"/></svg>Av. Marginal, Glória Mall, Maputo</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal">© 2026 Kingdom Company. Todos os direitos reservados.<br><span class="aviso-resultados">$aviso</span></div>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

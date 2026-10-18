@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<!-- O Bloqueio Invisível: design system do O Conselheiro (site.css + site.js) com as cores da capa do livro (bloqueio.css). -->
+<!-- O Bloqueio Invisível: design system do O Conselheiro (site.css + site.js) com as cores da capa do livro (bloqueio.css).
+     Página curta, pensada primeiro para o telemóvel (gerada por tools/livros-v2/gera.py). -->
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
@@ -35,56 +36,29 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
-    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
     <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.2 2.7 2.7L16.2 9.4"/></symbol>
-    <symbol id="i-x-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="m9.2 9.2 5.6 5.6M14.8 9.2l-5.6 5.6"/></symbol>
-    <symbol id="i-trend-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 6.5 6.5 4-4L21 17"/><path d="M15 17h6v-6"/></symbol>
     <symbol id="i-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 11.2a1.4 1.4 0 1 1-1.4-1.6 3 3 0 0 1 3 3.1 4.3 4.3 0 0 1-4.4 4.1A5.6 5.6 0 0 1 4.4 11 7 7 0 0 1 11.6 4 7.4 7.4 0 0 1 19 11.3l1.6 3.1h-1.9v2.8a2 2 0 0 1-2 2h-1.4V21"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8Z"/></symbol>
-    <symbol id="d-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.6 7h14.2l-1.6 7.6a2 2 0 0 1-2 1.6H9.1a2 2 0 0 1-2-1.7Z"/><path d="M2.5 3.5h2.2l2.4 12.7"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M11 10.5h5"/></symbol>
-    <symbol id="d-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="m7 16 3.5-3.5 2.5 2.5L17.5 8.5"/><path d="M13.5 8.5h4v4"/></symbol>
-    <symbol id="d-burn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5c3.9 0 7-2.8 7-6.8 0-4.7-4.1-6.7-4.6-11.2-2.6 1.6-4.4 4.2-4.2 7.4-1.2-.6-1.9-1.8-2-3.2C6.3 9.2 5 11.8 5 14.7c0 4 3.1 6.8 7 6.8Z"/><path d="M12 21.5a3 3 0 0 1-3-3c0-2 1.8-3 3-5 1.2 2 3 3 3 5a3 3 0 0 1-3 3Z"/></symbol>
-    <symbol id="d-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13.5 6.3 5.6A2 2 0 0 1 8.2 4h7.6a2 2 0 0 1 1.9 1.6L20 13.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M4 13.5h4.5l1.5 2.5h4l1.5-2.5H20"/><path d="M9.5 8.5h5"/></symbol>
-    <symbol id="d-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m15.8 8.2-2.2 5.4-5.4 2.2 2.2-5.4Z"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></symbol>
-    <symbol id="d-offer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.6V5a1.5 1.5 0 0 1 1.5-1.5h7.6a1.5 1.5 0 0 1 1.1.44l7 7a1.5 1.5 0 0 1 0 2.12l-7.5 7.5a1.5 1.5 0 0 1-2.12 0l-7-7a1.5 1.5 0 0 1-.58-.96Z"/><circle cx="8.5" cy="8.5" r="1.6"/></symbol>
-    <symbol id="d-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10v4a1.5 1.5 0 0 0 1.5 1.5h2L17 20V4L7 8.5H5A1.5 1.5 0 0 0 3.5 10Z"/><path d="m7.5 15.5 1.3 4.3a1.3 1.3 0 0 0 2.5-.7l-.6-2.4"/><path d="M20.5 9.5v5"/></symbol>
-    <symbol id="d-funnel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5h18l-6.8 8v6.2L9.8 21v-8.5Z"/><path d="M6.4 8.5h11.2"/></symbol>
     <symbol id="d-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5h15a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"/><path d="M3.5 7.5V6a2 2 0 0 1 2-2h10v3.5"/><path d="M20.5 12h-4a2 2 0 0 0 0 4h4"/></symbol>
-    <symbol id="d-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 15.5 8.5 9.5c2-5 6.2-7 12-7 0 5.8-2 10-6 13Z"/><circle cx="15" cy="9" r="1.6"/><path d="M8.5 9.5 5 9.2 3 11.5l4 1.5M14.5 15.5l.3 3.5-2.3 2-1.5-4"/><path d="M6 18c-.8.8-1.5 2.5-1.5 2.5S6.2 19.8 7 19"/></symbol>
-    <symbol id="d-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M8.5 7.5h7M8.5 11h4.5"/></symbol>
-    <symbol id="d-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="14" height="14" rx="3"/><path d="m16.5 10.5 5-3v9l-5-3"/><path d="m8 9.5 4 2.5-4 2.5Z" fill="currentColor"/></symbol>
-    <symbol id="d-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 4.8-9 4.8-9-4.8Z"/><path d="m3 12 9 4.8 9-4.8"/><path d="m3 16.2 9 4.8 9-4.8"/></symbol>
-    <symbol id="d-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="11" width="17" height="10" rx="1.5"/><rect x="2.5" y="7" width="19" height="4" rx="1.2"/><path d="M12 7v14"/><path d="M12 7C10.5 3.5 6.5 3.5 7 6c.3 1 2 1 5 1Zm0 0c1.5-3.5 5.5-3.5 5-1-.3 1-2 1-5 1Z"/></symbol>
-    <symbol id="d-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15.5a9 9 0 1 1 18 0" /><path d="M3 15.5a9 9 0 0 1 3.2-6.9L12 15.5Z" stroke="none"/><path d="m12 15.5 4.2-4.8"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor"/><path d="M3.5 19h17"/></symbol>
-    <symbol id="d-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
-    <symbol id="d-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="8"/><path d="M12 13.5V9.5A4 4 0 1 1 8 13.5Z" stroke="none"/><path d="M12 13.5V9.5M9.5 2.5h5M19 6l1.5-1.5"/></symbol>
-    <symbol id="d-leak" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/><path d="M11 7.5v3.5l2.2 1.3"/></symbol>
     <symbol id="d-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.5 20.5 6 17 9.5"/><path d="M3.5 12V10a4 4 0 0 1 4-4h13"/><path d="M7 21.5 3.5 18 7 14.5"/><path d="M20.5 12v2a4 4 0 0 1-4 4h-13"/><circle cx="12" cy="12" r="2.2"/></symbol>
     <symbol id="d-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.1 7-11.5a7 7 0 0 0-14 0c0 5.4 7 11.5 7 11.5Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-    <symbol id="d-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="16" rx="3"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4"/><path d="m9 14.5 2 2 4-4"/></symbol>
-    <symbol id="d-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.3a6.5 6.5 0 0 1 3.5 5.7"/></symbol>
-    <symbol id="d-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.5 8.5 4.7v9.6L12 21.5l-8.5-4.7V7.2Z"/><path d="M3.5 7.2 12 12l8.5-4.8M12 12v9.5M7.8 4.8l8.5 4.8"/></symbol>
-    <symbol id="d-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h15l-1 12.2a1.8 1.8 0 0 1-1.8 1.8H7.3a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></symbol>
-    <symbol id="d-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c.8 4.6 2.9 6.7 7.5 7.5-4.6.8-6.7 2.9-7.5 7.5-.8-4.6-2.9-6.7-7.5-7.5 4.6-.8 6.7-2.9 7.5-7.5Z"/><path d="M19 16.5c.3 1.7 1 2.4 2.5 2.7-1.5.3-2.2 1-2.5 2.6-.3-1.6-1-2.3-2.5-2.6 1.5-.3 2.2-1 2.5-2.7Z"/></symbol>
-    <symbol id="d-cursor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="19" height="13" rx="2.5"/><path d="M8 20.5h8M12 16.5v4"/><path d="m10 7.5 5 2.2-2.1.8-.8 2.1Z"/></symbol>
-    <symbol id="d-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v9a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A2 2 0 0 1 4 15Z"/><path d="M9.8 8.2a2.3 2.3 0 0 1 4.4.9c0 1.5-2.2 1.9-2.2 3.1"/><circle cx="12" cy="14.2" r=".4" fill="currentColor"/></symbol>
     <symbol id="d-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6.5"/><path d="m12 5.8 1 2 2.2.3-1.6 1.5.4 2.2-2-1-2 1 .4-2.2-1.6-1.5 2.2-.3Z" fill="currentColor"/><path d="m8.2 14.3-1.7 7.2L12 19l5.5 2.5-1.7-7.2"/></symbol>
     <symbol id="d-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
-    <symbol id="d-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="3"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.7" r="1.3"/></symbol>
     <symbol id="i-telefone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 3.6h-2A2.2 2.2 0 0 0 3 5.9C3 14.2 9.8 21 18.1 21a2.2 2.2 0 0 0 2.3-2.2v-2l-4.3-1.6-2 2.2a14.5 14.5 0 0 1-5.5-5.5l2.2-2Z"/></symbol>
-    <symbol id="d-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
     <symbol id="d-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></symbol>
     <symbol id="d-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/></symbol>
-    <symbol id="d-unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="3"/><path d="M8 10.5V7.5a4 4 0 0 1 7.7-1.5"/><circle cx="12" cy="15.7" r="1.3"/></symbol>
     <symbol id="d-steps" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h4v-4h4v-4h4V6h4"/></symbol>
-    <symbol id="d-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8 8 12l4-6.5 4 6.5 4.5-4-2 10.5h-13Z"/><path d="M5.5 21h13"/></symbol>
     <symbol id="d-hourglass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12M6 21.5h12"/><path d="M7 2.5c0 5 5 6 5 9.5s-5 4.5-5 9.5M17 2.5c0 5-5 6-5 9.5s5 4.5 5 9.5"/></symbol>
     <symbol id="d-weight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.3 8.5h11.4l3 12h-17.4Z"/><circle cx="12" cy="5.2" r="2.5"/></symbol>
     <symbol id="d-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></symbol>
     <symbol id="d-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S3 15.2 3 8.9A4.6 4.6 0 0 1 12 6.6a4.6 4.6 0 0 1 9 2.3c0 6.3-9 11.6-9 11.6Z"/></symbol>
     <symbol id="d-root" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v9"/><path d="M12 11.5c0 4-4 4-4 9M12 11.5c0 4 4 4 4 9M12 11.5v9"/><path d="M8.5 6.5h7"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7.5-3.2 7.5-9.5V5.6L12 2.5 4.5 5.6V12c0 6.3 7.5 9.5 7.5 9.5Z"/><path d="m8.8 12 2.3 2.3 4.2-4.6"/></symbol>
+    <symbol id="l-google" viewBox="0 0 24 24"><path fill="currentColor" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></symbol>
+    <symbol id="l-anthropic" viewBox="0 0 24 24"><path fill="currentColor" d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></symbol>
+    <symbol id="l-semrush" viewBox="0 0 24 24"><path fill="currentColor" d="M20.698 11.911c0 .444-.226.516-.79.516-.596 0-.706-.1-.77-.554-.118-1.152-.896-2.13-2.201-2.24-.418-.034-.518-.19-.518-.706 0-.48.074-.708.446-.708 2.265.01 3.833 1.832 3.833 3.69v.002zm3.3 0c0-3.456-2.338-7.11-7.74-7.11H5.52c-.218 0-.354.11-.354.31 0 .109.082.209.156.26.388.31.97.654 1.73 1.036.743.372 1.323.616 1.903.852.246.1.336.208.336.344 0 .19-.136.308-.4.308H.372c-.254 0-.372.164-.372.326 0 .136.044.254.162.372.69.726 1.796 1.596 3.4 2.604 1.466.91 2.98 1.74 4.533 2.492.236.11.308.236.308.372-.008.154-.126.28-.4.28H4.1c-.216 0-.344.12-.344.3 0 .1.08.226.19.326.888.808 2.311 1.688 4.207 2.494 2.53 1.08 5.094 1.721 7.98 1.721 5.465 0 7.867-4.087 7.867-7.289l-.002.002zm-7.133 5.104c-2.794 0-5.132-2.276-5.132-5.114 0-2.794 2.33-5.04 5.132-5.04 2.863 0 5.111 2.24 5.111 5.04a5.086 5.086 0 0 1-5.111 5.114z"/></symbol>
+    <symbol id="l-wix" viewBox="0 0 24 24"><path fill="currentColor" d="m0 7.354 2.113 9.292h.801a1.54 1.54 0 0 0 1.506-1.218l1.351-6.34a.171.171 0 0 1 .167-.137c.08 0 .15.058.167.137l1.352 6.34a1.54 1.54 0 0 0 1.506 1.218h.805l2.113-9.292h-.565c-.62 0-1.159.43-1.296 1.035l-1.26 5.545-1.106-5.176a1.76 1.76 0 0 0-2.19-1.324c-.639.176-1.113.716-1.251 1.365l-1.094 5.127-1.26-5.537A1.33 1.33 0 0 0 .563 7.354H0zm13.992 0a.951.951 0 0 0-.951.95v8.342h.635a.952.952 0 0 0 .951-.95V7.353h-.635zm1.778 0 3.158 4.66-3.14 4.632h1.325c.368 0 .712-.181.918-.486l1.756-2.59a.12.12 0 0 1 .197 0l1.754 2.59c.206.305.55.486.918.486h1.326l-3.14-4.632L24 7.354h-1.326c-.368 0-.712.181-.918.486l-1.772 2.617a.12.12 0 0 1-.197 0L18.014 7.84a1.108 1.108 0 0 0-.918-.486H15.77z"/></symbol>
   </defs>
 </svg>
 
@@ -96,343 +70,251 @@
       <span><b>O Bloqueio Invisível</b><small>Shelton Douglas</small></span>
     </a>
     <nav aria-label="Secções">
-      <a href="#espelho">O bloqueio</a>
-      <a href="#metodo">Como funciona</a>
       <a href="#recebes">O que recebes</a>
+      <a href="#autor">O autor</a>
       <a href="#preco">Preço</a>
       <a href="#perguntas">Perguntas</a>
     </nav>
-    <a href="#preco" class="botao botao-principal botao-pequeno">Quero o livro</a>
   </div>
 </header>
 
 <main id="topo">
 
-<!-- ============ 2. ABERTURA ============ -->
-<section class="abertura claro dividida">
+<!-- ============ 2. ABERTURA: promessa, preço e botão no primeiro ecrã ============ -->
+<section class="abertura claro">
   <div class="abertura-fundo" aria-hidden="true"><div class="grelha"></div><div class="luz"></div></div>
   <div class="contentor">
-    <div>
-      <span class="de-quem revela"><img src="/img/shelton.jpg" alt="" width="56" height="56">Um livro de Shelton Douglas</span>
-      <h1 class="revela">Não te falta esforço. <span>Falta&#8209;te ver o que te está a travar.</span></h1>
-      <p class="entrada revela"><strong>O Bloqueio Invisível</strong> é um mapa prático para descobrires o que se passa contigo e começares a enxergar com clareza o que te impede de avançar, <strong>sem te sentires culpado.</strong></p>
-      <div class="abertura-botoes revela">
-        <a href="#preco" class="botao botao-principal">Quero o livro <svg><use href="#i-arrow"/></svg></a>
-        <a href="#espelho" class="botao botao-linha">Ver o que se esconde</a>
+    <div class="abertura-grelha">
+      <div class="abertura-texto">
+        <h1>Não te falta esforço. <em>Falta-te ver o que te está a travar.</em></h1>
+        <p class="entrada">Livro com exercícios práticos e masterclass para descobrires o que te impede de avançar e dares o próximo passo, sem culpa.</p>
+        <div class="oferta-curta">
+          <div class="preco-linha">
+            <s>947 MT</s>
+            <b>399<small>MT</small></b>
+            <span>livro + masterclass</span>
+          </div>
+          <a href="https://payflow.kingdomcompny.com/o-bloqueio-invisivel-masterclass" class="botao botao-principal botao-grande">Quero o pacote por 399 MT <svg><use href="#i-arrow"/></svg></a>
+          <a href="#preco" class="so-playbook">ou só o livro por 199 MT</a>
+        </div>
+        <ul class="garantias">
+          <li><svg><use href="#d-wallet"/></svg>Pagas por M-Pesa</li>
+          <li><svg><use href="#d-mail"/></svg>Acesso imediato no email</li>
+          <li><svg><use href="#i-escudo"/></svg>Garantia de 7 dias</li>
+        </ul>
       </div>
-      <div class="abertura-factos revela">
-        <span><svg><use href="#d-book"/></svg>Livro com exercícios práticos</span>
-        <span><svg><use href="#d-video"/></svg>Masterclass Mentalidade de Governo</span>
+      <div class="pacote" aria-hidden="true">
+        <img class="pacote-capa" src="/img/capa.webp" alt="" width="300" height="600" fetchpriority="high">
+        <div class="pacote-aula">
+          <img src="/img/masterclass.jpg" alt="" width="900" height="624">
+          <span class="tocar"><svg><use href="#i-play"/></svg></span>
+          <span class="rotulo-aula">Masterclass gravada</span>
+        </div>
+        <div class="pacote-funis"><svg><use href="#d-pen"/></svg>Exercícios<span class="so-largo"> práticos</span></div>
       </div>
     </div>
-    <div class="produto capa-palco revela">
-      <span class="halo" aria-hidden="true"></span>
-      <div class="livro"><img src="/img/capa.webp" alt="Capa do livro O Bloqueio Invisível, de Shelton Douglas" width="300" height="600"></div>
-      <span class="pensamento p1" aria-hidden="true">“Amanhã começo.”</span>
-      <span class="pensamento p2" aria-hidden="true">“E se não for suficiente?”</span>
-      <span class="pensamento p3" aria-hidden="true">“Ainda não é a altura.”</span>
-    </div>
+
+    <dl class="provas">
+      <div><dt>+13.000 alunos</dt><dd>no O Segredo, o curso mais vendido de 2022 e 2023</dd></div>
+      <div><dt>+100 empresários</dt><dd>mentorados no Kingdom Founders</dd></div>
+      <div><dt>4 livros</dt><dd>sobre vendas, marketing e mentalidade</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- ============ 3. ESPELHO ============ -->
-<section class="seccao seccao-escura-pos-clara" id="espelho">
+<!-- ============ 3. A DOR ============ -->
+<section class="seccao dor">
   <div class="contentor">
-    <div class="cabeca centro revela">
-      <h2>O que dizes a ti próprio. E o que está por baixo.</h2>
-      <p class="entrada">Os bloqueios raramente parecem bloqueios. Parecem desculpas razoáveis. <strong>Desce devagar e vê o que se esconde por trás de cada uma.</strong></p>
-    </div>
-    <div class="espelho vidro revela">
-      <div class="espelho-topo" aria-hidden="true"><span>O que dizes</span><span></span><span>O que está por baixo</span></div>
-      <div class="reflexo"><p class="dito">“Amanhã começo.”</p><span class="seta-r" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><p class="verdade">Medo de começar e descobrir que não és tão bom quanto esperas.</p></div>
-      <div class="reflexo"><p class="dito">“Ainda não é a altura.”</p><span class="seta-r" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><p class="verdade">Medo de seres julgado se as coisas não correrem bem.</p></div>
-      <div class="reflexo"><p class="dito">“Vou só preparar mais um pouco.”</p><span class="seta-r" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><p class="verdade">Perfeccionismo: enquanto estás a preparar, não podes falhar.</p></div>
-      <div class="reflexo"><p class="dito">“Os outros têm mais sorte.”</p><span class="seta-r" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><p class="verdade">A crença, quase sempre escondida, de que o sucesso não é para ti.</p></div>
-      <div class="reflexo chave"><p class="dito">“Eu sou mesmo assim.”</p><span class="seta-r" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><p class="verdade">Não és. É um padrão que aprendeste, e o que se aprende pode ser desaprendido.</p></div>
-    </div>
-    <p class="espelho-pe revela">É isto que o livro faz: <strong>torna visível o que estava escondido.</strong></p>
-  </div>
-</section>
-
-<!-- ============ 4. UM DIA ============ -->
-<section class="seccao claro" id="problema">
-  <div class="contentor problema">
-    <div class="cabeca revela">
+    <div class="cabeca">
       <h2>Sabes o que tens de fazer. E mesmo assim não fazes.</h2>
-      <p class="entrada">Não é preguiça nem falta de vontade. <strong>Há alguma coisa a travar-te que ainda não consegues ver.</strong></p>
-      <p style="margin-top:14px">Talvez o teu dia se pareça com este:</p>
+      <p class="entrada">Talvez te reconheças nisto:</p>
     </div>
-    <div>
-      <ol class="dia">
-        <li class="revela"><time>07:00</time><span class="ponto" aria-hidden="true"></span><div class="momento cartao medio"><b>“Hoje vai ser diferente.”</b><span>Acordas com vontade de mudar tudo.</span></div></li>
-        <li class="revela"><time>10:30</time><span class="ponto" aria-hidden="true"></span><div class="momento cartao medio"><b>Abres o projecto. Fechas.</b><span>Primeiro, só umas mensagens.</span></div></li>
-        <li class="revela"><time>15:00</time><span class="ponto" aria-hidden="true"></span><div class="momento cartao medio"><b>Fazes tudo menos o importante.</b><span>E o dia parece cheio.</span></div></li>
-        <li class="revela"><time>22:00</time><span class="ponto" aria-hidden="true"></span><div class="momento cartao medio"><b>Culpas-te.</b><span>E prometes que amanhã começas.</span></div></li>
-      </ol>
-      <div class="chamada revela">
-        <h3>O problema não és tu. É o que ainda não vês.</h3>
-        <a href="#invisivel" class="botao botao-escuro botao-pequeno">Perceber porquê <svg><use href="#i-arrow"/></svg></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 5. PARA TI ============ -->
-<section class="seccao claro" id="para-ti" style="padding-top:0">
-  <div class="contentor">
-    <div class="cabeca centro revela"><h2>Este livro é para ti se...</h2></div>
-    <ul class="lista-sim cartao medio revela">
-      <li><svg><use href="#i-check-circle"/></svg><div>Sentes que estás sempre a recomeçar.<span>Cada segunda-feira é um novo começo, mas o ritmo nunca se mantém.</span></div></li>
-      <li><svg><use href="#i-check-circle"/></svg><div>Sabes que és capaz, mas os resultados não o mostram.<span>Tens talento e, mesmo assim, alguma coisa te segura.</span></div></li>
-      <li><svg><use href="#i-check-circle"/></svg><div>Adias decisões importantes.<span>Esperas pela certeza total ou pela coragem que nunca chega.</span></div></li>
-      <li><svg><use href="#i-check-circle"/></svg><div>Vives com culpa por não fazeres mais.<span>E essa culpa, em vez de te empurrar, ainda te pesa mais.</span></div></li>
-      <li><svg><use href="#i-check-circle"/></svg><div>Comparas-te com os outros e sais sempre a perder.<span>Como se toda a gente tivesse percebido algo que tu não.</span></div></li>
-      <li><svg><use href="#i-check-circle"/></svg><div>Queres perceber-te antes de tentar mudar tudo.<span>Em vez de mais uma lista de hábitos, queres entender a raiz.</span></div></li>
+    <ul class="dores">
+      <li class="revela"><svg><use href="#d-repeat"/></svg><span>Estás sempre a recomeçar e o ritmo nunca se mantém.</span></li>
+      <li class="revela"><svg><use href="#d-target"/></svg><span>Sabes que és capaz, mas os resultados não o mostram.</span></li>
+      <li class="revela"><svg><use href="#d-hourglass"/></svg><span>Adias decisões à espera de uma coragem que nunca chega.</span></li>
+      <li class="revela"><svg><use href="#d-weight"/></svg><span>Vives com culpa por não fazeres mais.</span></li>
     </ul>
+    <p class="viragem revela">Não é preguiça nem falta de vontade. É algo que ainda não consegues ver. <strong>É isso que este livro torna visível.</strong></p>
   </div>
 </section>
 
-<!-- ============ 6. INVISÍVEL: AS CAMADAS ============ -->
-<section class="seccao seccao-escura-pos-clara" id="invisivel">
-  <div class="contentor adivinhar">
-    <div class="revela">
-      <h2>Porque é que lhe chamamos invisível?</h2>
-      <p class="entrada" style="margin-top:18px">Porque o que se vê é só a superfície. <strong>O que te trava está por baixo</strong>, onde ninguém olha, nem tu.</p>
-      <p style="margin-top:18px">Tentar mudar só o comportamento é como cortar a ponta de uma raiz: volta sempre a crescer. O livro leva-te camada a camada, <strong>do que repetes até à crença que o comanda.</strong></p>
-    </div>
-    <div class="camadas revela" role="img" aria-label="Três camadas do bloqueio: comportamento à superfície, emoção e crença por baixo.">
-      <div class="camada c1"><span class="ico-caixa"><svg><use href="#d-eye"/></svg></span><small>O que se vê</small><b>Comportamento</b>
-        <div class="sinais"><span>Adiar</span><span>Desistir a meio</span><span>Dizer sim a tudo</span></div></div>
-      <div class="superficie">Superfície</div>
-      <div class="camada c2"><span class="ico-caixa"><svg><use href="#d-heart"/></svg></span><small>O que sentes</small><b>Emoção</b>
-        <div class="sinais"><span>Medo</span><span>Vergonha</span><span>Culpa</span></div></div>
-      <div class="camada c3"><span class="ico-caixa"><svg><use href="#d-root"/></svg></span><small>O que te comanda</small><b>Crença</b>
-        <div class="sinais"><span>“Não sou suficiente”</span><span>“Não posso falhar”</span><span>“Ainda não é a altura”</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 7. COMO FUNCIONA ============ -->
-<section class="seccao claro" id="metodo">
+<!-- ============ 4. O QUE RECEBES ============ -->
+<section class="seccao recebes-seccao" id="recebes">
   <div class="contentor">
-    <div class="metodo-bq">
-      <div class="lado-fixo">
-        <div class="cabeca revela">
-          <h2>Um mapa, não um sermão.</h2>
-          <p class="entrada">Cinco etapas para passares de <strong>“não sei o que se passa comigo”</strong> para <strong>“sei o que me trava e sei qual é o próximo passo”.</strong></p>
-        </div>
-        <div class="nao-e revela">
-          <span><svg><use href="#i-x-circle"/></svg>Não é motivação de cinco minutos</span>
-          <span><svg><use href="#i-x-circle"/></svg>Não é mais uma lista de hábitos</span>
-          <span><svg><use href="#i-x-circle"/></svg>Não é para te apontar o dedo</span>
+    <div class="cabeca">
+      <h2>O que recebes</h2>
+      <p class="entrada">Escrito em linguagem simples, para leres com uma caneta na mão.</p>
+    </div>
+
+    <article class="cartao playbook revela">
+      <div class="playbook-lado">
+        <img src="/img/capa.webp" alt="Capa do livro O Bloqueio Invisível" width="300" height="600" loading="lazy">
+        <div>
+          <h3>O Bloqueio Invisível</h3>
+          <p>Um mapa prático: cada capítulo traz perguntas e exercícios curtos. Sem julgamentos e sem culpa.</p>
         </div>
       </div>
-      <ol class="mapa-passos">
-        <li class="passo cartao medio"><span class="ico-caixa"><svg><use href="#d-eye"/></svg></span><div><small>Etapa 01</small><b>Perceber</b><p>Reparas no que repetes, sem te julgares.</p></div></li>
-        <li class="passo cartao medio"><span class="ico-caixa"><svg><use href="#d-pen"/></svg></span><div><small>Etapa 02</small><b>Nomear</b><p>Dás nome ao que sentes quando travas.</p></div></li>
-        <li class="passo cartao medio"><span class="ico-caixa"><svg><use href="#d-lupa"/></svg></span><div><small>Etapa 03</small><b>Entender</b><p>Descobres de onde vem esse padrão e o que ele te tenta proteger.</p></div></li>
-        <li class="passo cartao medio"><span class="ico-caixa"><svg><use href="#d-unlock"/></svg></span><div><small>Etapa 04</small><b>Libertar</b><p>Largas a culpa que te mantém parado.</p></div></li>
-        <li class="passo cartao medio"><span class="ico-caixa"><svg><use href="#d-steps"/></svg></span><div><small>Etapa 05</small><b>Avançar</b><p>Defines o próximo passo: pequeno, concreto e teu.</p></div></li>
+      <ol class="ganhos">
+        <li><svg><use href="#i-check-circle"/></svg><span>Percebe o que repetes, sem te julgares.</span></li>
+        <li><svg><use href="#i-check-circle"/></svg><span>Dá nome ao que sentes quando travas.</span></li>
+        <li class="chave"><svg><use href="#i-check-circle"/></svg><span>Descobre a crença que está por trás dos teus bloqueios. <small>A raiz que faz o mesmo padrão voltar sempre.</small></span></li>
+        <li><svg><use href="#i-check-circle"/></svg><span>Entende de onde vem esse padrão e o que ele te tenta proteger.</span></li>
+        <li><svg><use href="#i-check-circle"/></svg><span>Larga a culpa que te mantém parado.</span></li>
+        <li><svg><use href="#i-check-circle"/></svg><span>Define o próximo passo: pequeno, concreto e teu.</span></li>
       </ol>
+    </article>
+
+    <div class="extras">
+      <article class="cartao extra revela">
+        <div class="aula">
+          <img src="/img/masterclass.jpg" alt="Shelton Douglas na masterclass Mentalidade de Governo" width="900" height="624" loading="lazy">
+          <span class="tocar" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+          <span class="rotulo-aula">Gravada</span>
+        </div>
+        <h3>Masterclass Mentalidade de Governo</h3>
+        <p>Gravada. Como passares a governar as tuas decisões, o teu tempo e o teu crescimento, em vez de seres governado pelas emoções e pelas circunstâncias.</p>
+      </article>
+      <article class="cartao extra revela">
+        <h3>O que levas no fim do mapa</h3>
+        <p>Clareza sobre ti, e um próximo passo que consegues dar.</p>
+        <ul class="tipos">
+          <li><svg><use href="#d-lupa"/></svg>O teu padrão identificado</li>
+          <li><svg><use href="#d-heart"/></svg>Os teus gatilhos com nome</li>
+          <li><svg><use href="#d-root"/></svg>A crença por trás de tudo</li>
+          <li><svg><use href="#d-steps"/></svg>O próximo passo, claro</li>
+        </ul>
+      </article>
     </div>
-    <p class="frase-clareza revela">Força de vontade dá-te um bom dia. Motivação dá-te uma boa semana. <span>Só a <em>clareza</em> muda o rumo.</span></p>
   </div>
 </section>
 
-<!-- ============ 8. O QUE RECEBES ============ -->
-<section class="seccao seccao-escura-pos-clara" id="recebes">
+<!-- ============ 5. O AUTOR ============ -->
+<section class="seccao claro mentor-seccao" id="autor">
   <div class="contentor">
-    <div class="cabeca revela"><h2>O que recebes</h2></div>
-    <div class="recebes-bq">
-      <div class="cartao holofote revela">
-        <span class="tipo"><svg><use href="#d-book"/></svg>Livro</span>
-        <h3>O Bloqueio Invisível</h3>
-        <p>Um mapa prático, escrito para ser lido com uma caneta na mão. Cada capítulo traz perguntas e exercícios para descobrires <strong>o que se passa contigo e o que te impede de avançar.</strong></p>
-        <div class="local"><svg><use href="#d-heart"/></svg>Sem julgamentos e sem culpa: o objectivo é veres com clareza.</div>
-        <div class="folha" aria-hidden="true">
-          <div class="ficha">
-            <small>Capítulo 3 · Exercício</small>
-            <p class="pergunta-ex">O que estou a evitar, e o que tenho medo que aconteça se o fizer?</p>
-            <span class="linha-ex">Estou a evitar mostrar o meu trabalho...</span>
-            <span class="linha-ex">...porque tenho medo de não ser bom o suficiente.</span>
-          </div>
-          <img src="/img/capa.webp" alt="" width="300" height="600" loading="lazy">
+    <div class="mentor">
+      <div class="retrato revela">
+        <img src="/img/shelton.jpg" alt="Shelton Douglas" width="800" height="698" loading="lazy">
+        <span class="pilula"><svg><use href="#d-award"/></svg>Best Seller · O Segredo</span>
+      </div>
+      <div class="revela">
+        <h2>Shelton Douglas</h2>
+        <p class="papel">Empreendedor moçambicano, mentor e autor</p>
+        <p class="entrada">Empreendedor que construiu a sua trajetória a superar desafios significativos. Criou O Segredo, o curso mais vendido do mercado em 2022 e 2023, com mais de 13.000 alunos, e já mentorou mais de 100 empresários no Kingdom Founders.</p>
+        <p class="entrada">Escreveu este livro para quem sente que alguma coisa o trava por dentro. É fundador da Kingdom Company e autor de 4 livros.</p>
+        <div class="certificacoes">
+          <p>Certificações internacionais</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-google"/></svg>Google</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-anthropic"/></svg>Anthropic</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-semrush"/></svg>Semrush</li>
+            <li class="so-marca"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-wix"/></svg><span class="visual-oculto">Wix</span></li>
+          </ul>
         </div>
       </div>
-      <div class="cartao holofote revela">
-        <span class="tipo"><svg><use href="#d-video"/></svg>Masterclass</span>
-        <span class="tag-pacote">No pacote completo</span>
-        <h3>Mentalidade de Governo</h3>
-        <p>Uma masterclass gravada sobre como passares a governar as tuas decisões, o teu tempo e o teu crescimento, em vez de seres governado pelas emoções e pelas circunstâncias.</p>
-        <div class="video">
-          <div class="ecra-video">
-            <img src="/img/masterclass.jpg" alt="" width="900" height="624" loading="lazy">
-            <span class="veu" aria-hidden="true"></span>
-            <span class="duracao">Masterclass gravada</span>
-            <span class="tocar" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
-          </div>
-        </div>
-      </div>
-      <div class="levas revela">
-        <div class="rotulo-levas"><b>O que levas daqui</b>No fim do mapa</div>
-        <div class="contorno"><svg><use href="#d-eye"/></svg>O teu padrão identificado</div>
-        <div class="contorno"><svg><use href="#d-pen"/></svg>Os teus gatilhos com nome</div>
-        <div class="contorno"><svg><use href="#d-root"/></svg>A crença por trás de tudo</div>
-        <div class="contorno"><svg><use href="#d-steps"/></svg>O próximo passo, claro</div>
-      </div>
-    </div>
-    <div class="cta-meio revela">
-      <a href="#preco" class="botao botao-principal">Quero ver as ofertas <svg><use href="#i-arrow"/></svg></a>
-      <span><svg><use href="#d-mail"/></svg>Acesso imediato por email</span>
     </div>
   </div>
 </section>
 
-<!-- ============ 9. OBJEÇÕES EM CONVERSA ============ -->
-<section class="seccao claro" id="duvidas">
-  <div class="contentor">
-    <div class="cabeca centro revela"><h2>Talvez estejas a pensar...</h2></div>
-    <div class="conversa">
-      <div class="troca revela">
-        <h3>Já li livros de desenvolvimento pessoal e nada mudou.</h3>
-        <div class="r"><p class="curta">Este não é para ler e arrumar.</p><p>É um mapa para preencher. Em vez de te dizer o que devias fazer, ajuda-te a perceber <strong>porque é que ainda não o fazes.</strong></p></div>
-      </div>
-      <div class="troca revela">
-        <h3>Não tenho tempo.</h3>
-        <div class="r"><p>Cada capítulo é curto e directo. E pensa nisto: <strong>quanto tempo já perdeste a adiar a mesma coisa?</strong></p></div>
-      </div>
-      <div class="troca revela">
-        <h3>E se o problema for mesmo eu?</h3>
-        <div class="r">
-          <p>Então é exactamente para ti que este livro existe.</p>
-          <p class="forte">Tu não és o teu bloqueio. É uma coisa que aprendeste, e o que se aprende pode ser visto, entendido e mudado.</p>
-          <p>É por isso que o mapa trabalha <strong>sem culpa</strong>: culpar-te só acrescenta peso ao que já te trava.</p>
-        </div>
-      </div>
-      <div class="troca revela">
-        <h3>Isto substitui acompanhamento psicológico?</h3>
-        <div class="r"><p>Não. O livro é uma ferramenta de autoconhecimento e <strong>não substitui acompanhamento psicológico ou médico.</strong> Se sentes que precisas desse apoio, procura um profissional; o mapa pode caminhar ao lado disso.</p></div>
-      </div>
-    </div>
-    <div class="cta-meio revela">
-      <a href="#preco" class="botao botao-principal">Quero ver as ofertas <svg><use href="#i-arrow"/></svg></a>
-      <span><svg><use href="#d-mail"/></svg>Acesso imediato por email</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 10. AUTOR ============ -->
-<section class="seccao seccao-escura-pos-clara" id="mentor">
-  <div class="contentor autor-bq">
-    <img class="foto-autor revela" src="/img/shelton.jpg" alt="Shelton Douglas" width="300" height="300" loading="lazy">
-    <blockquote class="revela">“Não se constrói nada de duradouro <span>sobre uma estrutura interna corrompida.</span>”</blockquote>
-    <p class="autor-nome revela"><b>Shelton Douglas</b>Empreendedor moçambicano, conselheiro empresarial e educador</p>
-    <p class="bio-autor revela">Autodidata por vocação, construiu a sua trajetória a superar desafios significativos. Hoje dedica-se a orientar empresários, empreendedores e profissionais na construção de vidas e negócios sustentáveis, e escreveu este livro para ajudar quem sente que alguma coisa o trava por dentro.</p>
-    <div class="mentor-numeros revela">
-      <div><b>4</b><span>Livros publicados</span></div>
-      <div><b>13.000+</b><span>Alunos</span></div>
-      <div><b>10+</b><span>Certificações internacionais</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 11. PREÇO ============ -->
-<section class="seccao" id="preco" style="overflow:hidden;padding-top:40px">
+<!-- ============ 6. PREÇO ============ -->
+<section class="seccao seccao-escura-pos-clara preco-seccao" id="preco">
   <div class="precos-fundo" aria-hidden="true"></div>
-  <div class="contentor" style="position:relative">
-    <div class="cabeca centro revela">
+  <div class="contentor">
+    <div class="cabeca centro">
       <h2>Escolhe como queres começar.</h2>
-      <p class="entrada">Podes levar só o livro e fazer o mapa ao teu ritmo, ou levar o pacote completo com a masterclass Mentalidade de Governo.</p>
     </div>
     <div class="planos">
-      <div class="cartao plano revela">
-        <div class="plano-tipo"><svg><use href="#d-book"/></svg>Apenas o livro</div>
-        <h3>Para fazeres o mapa ao teu ritmo</h3>
-        <div class="plano-preco"><span class="antes">Antes 325 MT</span><span class="valor" data-valor="199">199</span><span class="unidade">MT</span></div>
-        <ul>
-          <li><svg><use href="#i-check-circle"/></svg>Livro O Bloqueio Invisível</li>
-          <li><svg><use href="#i-check-circle"/></svg>Exercícios práticos em cada capítulo</li>
-          <li><svg><use href="#i-check-circle"/></svg>Acesso imediato por email</li>
-        </ul>
-        <a href="https://payflow.kingdomcompny.com/o-bloqueio-invisivel" class="botao botao-linha botao-largo">Quero o livro <svg><use href="#i-arrow"/></svg></a>
-      </div>
       <div class="cartao plano destaque revela" id="checkout">
-        <div class="plano-tipo"><svg><use href="#d-crown"/></svg>Livro + Masterclass<span class="promo">Mais completo</span></div>
+        <div class="plano-tipo">Livro + Masterclass<span class="promo">Recomendado</span></div>
         <h3>O pacote completo</h3>
         <div class="plano-preco"><span class="antes">Antes 947 MT</span><span class="valor" data-valor="399">399</span><span class="unidade">MT</span></div>
         <ul>
-          <li><svg><use href="#i-check-circle"/></svg>Livro O Bloqueio Invisível</li>
-          <li><svg><use href="#i-check-circle"/></svg>Masterclass Mentalidade de Governo</li>
-          <li><svg><use href="#i-check-circle"/></svg>Exercícios práticos em cada capítulo</li>
-          <li><svg><use href="#i-check-circle"/></svg>Acesso imediato por email</li>
+          <li><svg><use href="#i-check"/></svg>Livro O Bloqueio Invisível, com exercícios práticos</li>
+          <li><svg><use href="#i-check"/></svg>Masterclass Mentalidade de Governo</li>
+          <li><svg><use href="#i-check"/></svg>Acesso imediato na área de membros</li>
         </ul>
-        <a href="https://payflow.kingdomcompny.com/o-bloqueio-invisivel-masterclass" class="botao botao-escuro botao-largo">Quero o pacote completo <svg><use href="#i-arrow"/></svg></a>
+        <a href="https://payflow.kingdomcompny.com/o-bloqueio-invisivel-masterclass" class="botao botao-principal botao-largo">Quero o pacote completo <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="cartao plano revela">
+        <div class="plano-tipo">Apenas o livro</div>
+        <h3>Só o livro</h3>
+        <div class="plano-preco"><span class="antes">Antes 325 MT</span><span class="valor" data-valor="199">199</span><span class="unidade">MT</span></div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Livro O Bloqueio Invisível, com exercícios práticos</li>
+          <li><svg><use href="#i-check"/></svg>Acesso imediato na área de membros</li>
+        </ul>
+        <a href="https://payflow.kingdomcompny.com/o-bloqueio-invisivel" class="botao botao-linha botao-largo">Quero só o livro <svg><use href="#i-arrow"/></svg></a>
       </div>
     </div>
-    <div class="confianca-pag revela">
-      <span><svg><use href="#d-mail"/></svg>Acesso imediato: pagas e recebes o acesso à nossa área de membros directamente no teu email.</span>
-      <span><svg><use href="#d-lock"/></svg>Pagamento seguro, com os teus dados criptografados.</span>
+    <div class="garantia revela">
+      <span class="selo-garantia"><svg><use href="#i-escudo"/></svg></span>
+      <div>
+        <h3>Garantia de 7 dias</h3>
+        <p>Se nos primeiros 7 dias achares que não é para ti, pede o reembolso por email ou WhatsApp e devolvemos 100% do valor.</p>
+      </div>
     </div>
-    <div class="tres-passos">
-      <div class="cartao pequeno revela"><small>01</small>Lê e responde com honestidade.</div>
-      <div class="cartao pequeno revela"><small>02</small>Vê o teu bloqueio com clareza.</div>
-      <div class="cartao pequeno revela"><small>03</small>Dá o próximo passo, sem culpa.</div>
-    </div>
+    <p class="pagamento"><svg><use href="#d-wallet"/></svg>Pagas por M-Pesa e recebes o acesso imediato no teu email.</p>
   </div>
 </section>
 
-<!-- ============ 12. PERGUNTAS ============ -->
+<!-- ============ 7. PERGUNTAS ============ -->
 <section class="seccao claro" id="perguntas">
   <div class="contentor">
-    <div class="cabeca centro revela">
+    <div class="cabeca centro">
       <h2>Perguntas frequentes</h2>
-      <p class="entrada">O que costumam perguntar antes de começar.</p>
     </div>
-    <div class="perguntas revela">
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r1" id="p1">O que recebo exactamente?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r1" role="region" aria-labelledby="p1"><div><p>Depende da oferta que escolheres. Só o livro, com os exercícios práticos de cada capítulo, ou o pacote completo, que junta o livro e a masterclass gravada Mentalidade de Governo.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r2" id="p2">Em que formato é o livro?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r2" role="region" aria-labelledby="p2"><div><p>É um livro digital. Recebes o acesso na nossa área de membros e podes lê-lo no telemóvel, no tablet ou no computador.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r3" id="p3">Como recebo o acesso depois de pagar?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r3" role="region" aria-labelledby="p3"><div><p>O acesso é imediato. Assim que o pagamento é confirmado, recebes o acesso à nossa área de membros directamente no teu email.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r4" id="p4">O pagamento é seguro?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r4" role="region" aria-labelledby="p4"><div><p>Sim. O pagamento é feito numa página segura e os teus dados são criptografados.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r5" id="p5">A masterclass é ao vivo?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r5" role="region" aria-labelledby="p5"><div><p>Não. É gravada, por isso podes vê-la à hora que quiseres e revê-la as vezes que precisares.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r6" id="p6">Preciso de saber alguma coisa de psicologia?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r6" role="region" aria-labelledby="p6"><div><p>Não. O livro está escrito em linguagem simples, para qualquer pessoa que sinta que alguma coisa a impede de avançar.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r7" id="p7">O livro substitui acompanhamento psicológico?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r7" role="region" aria-labelledby="p7"><div><p>Não. É uma ferramenta de autoconhecimento e não substitui acompanhamento psicológico ou médico. Se sentes que precisas desse apoio, procura um profissional.</p></div></div></div>
+    <div class="perguntas">
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">O que recebo exactamente?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>No pacote completo recebes o livro, com os exercícios de cada capítulo, e a masterclass gravada Mentalidade de Governo. Na opção mais simples recebes só o livro. É um livro digital: lês no telemóvel, no tablet ou no computador.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">Como pago e quando recebo o acesso?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Pagas por M-Pesa numa página de pagamento segura. Assim que o pagamento é confirmado, recebes no teu email o acesso à nossa área de membros.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">E se eu achar que não é para mim?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Tens 7 dias de garantia. Pede o reembolso por email para <a href="mailto:comercial@kingdomcompny.com">comercial@kingdomcompny.com</a> ou por <a href="https://wa.me/258851800920" target="_blank" rel="noopener">WhatsApp</a> e devolvemos 100% do valor.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">Não tenho muito tempo. Consigo fazer?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Sim. Cada capítulo é curto e directo, e os exercícios fazem-se em poucos minutos.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">Preciso de saber alguma coisa de psicologia?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Não. O livro está escrito em linguagem simples, para qualquer pessoa que sinta que alguma coisa a impede de avançar.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">O livro substitui acompanhamento psicológico?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Não. É uma ferramenta de autoconhecimento e não substitui acompanhamento psicológico ou médico. Se sentes que precisas desse apoio, procura um profissional.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">A masterclass é ao vivo?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Não. É gravada, por isso vês à hora que quiseres e revês as vezes que precisares.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 13. FECHO ============ -->
-<section class="fecho" id="marcar">
-  <canvas id="estrelas" aria-hidden="true"></canvas>
+<!-- ============ 8. FECHO ============ -->
+<section class="fecho">
   <div class="nascer" aria-hidden="true"></div>
   <div class="horizonte" aria-hidden="true"></div>
   <div class="contentor">
-    <h2 class="revela">Não precisas de te esforçar mais. Precisas de ver melhor.</h2>
-    <p class="entrada revela">Tudo muda quando deixas de perguntar:</p>
-    <div class="perguntas-fecho revela">
-      <span class="velha">“O que é que se passa comigo?”</span>
-      <span class="entao">e começas a perguntar:</span>
-      <span class="nova">“O que é que me está a travar, e qual é o meu próximo passo?”</span>
-    </div>
-    <div class="resumo vidro revela">
-      <span class="nome">O Bloqueio Invisível</span>
-      <span class="sub">Um mapa prático para descobrires o que se passa contigo e começares a enxergar com clareza o que te impede de avançar, sem te sentires culpado.</span>
-      <div class="itens"><span><svg><use href="#d-book"/></svg>Livro</span><span><svg><use href="#d-pen"/></svg>Exercícios</span><span><svg><use href="#d-video"/></svg>Masterclass</span></div>
-      <a href="#preco" class="botao botao-principal">Quero começar agora <svg><use href="#i-arrow"/></svg></a>
-      <div class="tres" style="margin:0"><span>Acesso imediato por email</span><span>Pagamento seguro</span></div>
-    </div>
+    <h2>Não precisas de te esforçar mais. Precisas de ver melhor.</h2>
+    <p class="entrada">Descobre o que te trava e dá o próximo passo, sem culpa.</p>
+    <a href="https://payflow.kingdomcompny.com/o-bloqueio-invisivel-masterclass" class="botao botao-principal botao-grande">Quero o pacote por 399 MT <svg><use href="#i-arrow"/></svg></a>
+    <ul class="garantias centro">
+      <li><svg><use href="#d-wallet"/></svg>Pagas por M-Pesa</li>
+      <li><svg><use href="#d-mail"/></svg>Acesso imediato no email</li>
+      <li><svg><use href="#i-escudo"/></svg>Garantia de 7 dias</li>
+    </ul>
   </div>
 </section>
 
 </main>
 
-<!-- ============ 14. RODAPÉ ============ -->
+<!-- ============ 9. RODAPÉ ============ -->
 <footer>
   <div class="contentor">
     <div class="rodape">
@@ -442,7 +324,7 @@
       </div>
       <div>
         <h4 class="t4">Página</h4>
-        <div class="rodape-links"><a href="#invisivel">O bloqueio</a><a href="#recebes">O que recebes</a><a href="#preco">Preço</a><a href="#perguntas">Perguntas frequentes</a></div>
+        <div class="rodape-links"><a href="#recebes">O que recebes</a><a href="#autor">O autor</a><a href="#preco">Preço</a><a href="#perguntas">Perguntas frequentes</a></div>
       </div>
       <div>
         <h4 class="t4">Kingdom Company</h4>
@@ -458,6 +340,5 @@
 </footer>
 
 <script src="/site.js" defer></script>
-<script src="/bloqueio.js" defer></script>
 </body>
 </html>

@@ -110,11 +110,11 @@ Os sites dos livros (Escala Previsível, O Bloqueio Invisível, O Criativo que A
 
 *18/10/2026 · Decisão do Shelton*
 
-### R32 · Escala Previsível: garantia de 7 dias
+### R32 · Livros: garantia de 7 dias
 
-Quem compra no site do Escala Previsível (Playbook ou pacote completo) tem 7 dias de garantia: se pedir dentro desse prazo, recebe o valor de volta. O site mostra a garantia junto ao preço e nas perguntas frequentes.
+Quem compra num dos sites dos livros (Escala Previsível, O Criativo que Aprendeu a Vender, O Prisma da Influência e O Bloqueio Invisível), só o livro ou o pacote completo, tem 7 dias de garantia: se pedir o reembolso por email ou WhatsApp dentro desse prazo, recebe 100% do valor. O site mostra a garantia junto ao preço e nas perguntas frequentes.
 
-*18/10/2026 · Decisão do Shelton*
+*18/10/2026 · Decisão do Shelton (Escala Previsível); alargada aos quatro livros no mesmo dia*
 
 ### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas, depois 32.000
 

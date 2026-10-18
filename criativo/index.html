@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<!-- O Criativo que Aprendeu a Vender: design system do O Conselheiro (site.css + site.js) com o preto e laranja da capa (criativo.css). -->
+<!-- O Criativo que Aprendeu a Vender: design system do O Conselheiro (site.css + site.js) com o preto e laranja da capa (criativo.css).
+     Página curta, pensada primeiro para o telemóvel (gerada por tools/livros-v2/gera.py). -->
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
@@ -35,66 +36,29 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
-    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
     <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.2 2.7 2.7L16.2 9.4"/></symbol>
-    <symbol id="i-x-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="m9.2 9.2 5.6 5.6M14.8 9.2l-5.6 5.6"/></symbol>
-    <symbol id="i-trend-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 6.5 6.5 4-4L21 17"/><path d="M15 17h6v-6"/></symbol>
     <symbol id="i-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5 11 13"/><path d="M9.5 12.5c-2.5 0-4 1.6-4 3.8 0 1.6-.9 2.6-2 3.2 3.6 1 7.5.3 8.2-3.2.3-1.6-.6-3.1-2.2-3.8Z"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8Z"/></symbol>
-    <symbol id="d-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.6 7h14.2l-1.6 7.6a2 2 0 0 1-2 1.6H9.1a2 2 0 0 1-2-1.7Z"/><path d="M2.5 3.5h2.2l2.4 12.7"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M11 10.5h5"/></symbol>
-    <symbol id="d-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="m7 16 3.5-3.5 2.5 2.5L17.5 8.5"/><path d="M13.5 8.5h4v4"/></symbol>
-    <symbol id="d-burn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5c3.9 0 7-2.8 7-6.8 0-4.7-4.1-6.7-4.6-11.2-2.6 1.6-4.4 4.2-4.2 7.4-1.2-.6-1.9-1.8-2-3.2C6.3 9.2 5 11.8 5 14.7c0 4 3.1 6.8 7 6.8Z"/><path d="M12 21.5a3 3 0 0 1-3-3c0-2 1.8-3 3-5 1.2 2 3 3 3 5a3 3 0 0 1-3 3Z"/></symbol>
-    <symbol id="d-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13.5 6.3 5.6A2 2 0 0 1 8.2 4h7.6a2 2 0 0 1 1.9 1.6L20 13.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M4 13.5h4.5l1.5 2.5h4l1.5-2.5H20"/><path d="M9.5 8.5h5"/></symbol>
-    <symbol id="d-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m15.8 8.2-2.2 5.4-5.4 2.2 2.2-5.4Z"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></symbol>
-    <symbol id="d-offer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.6V5a1.5 1.5 0 0 1 1.5-1.5h7.6a1.5 1.5 0 0 1 1.1.44l7 7a1.5 1.5 0 0 1 0 2.12l-7.5 7.5a1.5 1.5 0 0 1-2.12 0l-7-7a1.5 1.5 0 0 1-.58-.96Z"/><circle cx="8.5" cy="8.5" r="1.6"/></symbol>
-    <symbol id="d-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10v4a1.5 1.5 0 0 0 1.5 1.5h2L17 20V4L7 8.5H5A1.5 1.5 0 0 0 3.5 10Z"/><path d="m7.5 15.5 1.3 4.3a1.3 1.3 0 0 0 2.5-.7l-.6-2.4"/><path d="M20.5 9.5v5"/></symbol>
-    <symbol id="d-funnel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5h18l-6.8 8v6.2L9.8 21v-8.5Z"/><path d="M6.4 8.5h11.2"/></symbol>
     <symbol id="d-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5h15a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"/><path d="M3.5 7.5V6a2 2 0 0 1 2-2h10v3.5"/><path d="M20.5 12h-4a2 2 0 0 0 0 4h4"/></symbol>
-    <symbol id="d-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 15.5 8.5 9.5c2-5 6.2-7 12-7 0 5.8-2 10-6 13Z"/><circle cx="15" cy="9" r="1.6"/><path d="M8.5 9.5 5 9.2 3 11.5l4 1.5M14.5 15.5l.3 3.5-2.3 2-1.5-4"/><path d="M6 18c-.8.8-1.5 2.5-1.5 2.5S6.2 19.8 7 19"/></symbol>
-    <symbol id="d-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M8.5 7.5h7M8.5 11h4.5"/></symbol>
     <symbol id="d-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="14" height="14" rx="3"/><path d="m16.5 10.5 5-3v9l-5-3"/><path d="m8 9.5 4 2.5-4 2.5Z" fill="currentColor"/></symbol>
-    <symbol id="d-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 4.8-9 4.8-9-4.8Z"/><path d="m3 12 9 4.8 9-4.8"/><path d="m3 16.2 9 4.8 9-4.8"/></symbol>
-    <symbol id="d-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="11" width="17" height="10" rx="1.5"/><rect x="2.5" y="7" width="19" height="4" rx="1.2"/><path d="M12 7v14"/><path d="M12 7C10.5 3.5 6.5 3.5 7 6c.3 1 2 1 5 1Zm0 0c1.5-3.5 5.5-3.5 5-1-.3 1-2 1-5 1Z"/></symbol>
-    <symbol id="d-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15.5a9 9 0 1 1 18 0" /><path d="M3 15.5a9 9 0 0 1 3.2-6.9L12 15.5Z" stroke="none"/><path d="m12 15.5 4.2-4.8"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor"/><path d="M3.5 19h17"/></symbol>
-    <symbol id="d-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
-    <symbol id="d-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="8"/><path d="M12 13.5V9.5A4 4 0 1 1 8 13.5Z" stroke="none"/><path d="M12 13.5V9.5M9.5 2.5h5M19 6l1.5-1.5"/></symbol>
-    <symbol id="d-leak" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/><path d="M11 7.5v3.5l2.2 1.3"/></symbol>
-    <symbol id="d-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.5 20.5 6 17 9.5"/><path d="M3.5 12V10a4 4 0 0 1 4-4h13"/><path d="M7 21.5 3.5 18 7 14.5"/><path d="M20.5 12v2a4 4 0 0 1-4 4h-13"/><circle cx="12" cy="12" r="2.2"/></symbol>
     <symbol id="d-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.1 7-11.5a7 7 0 0 0-14 0c0 5.4 7 11.5 7 11.5Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-    <symbol id="d-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="16" rx="3"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4"/><path d="m9 14.5 2 2 4-4"/></symbol>
-    <symbol id="d-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.3a6.5 6.5 0 0 1 3.5 5.7"/></symbol>
-    <symbol id="d-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.5 8.5 4.7v9.6L12 21.5l-8.5-4.7V7.2Z"/><path d="M3.5 7.2 12 12l8.5-4.8M12 12v9.5M7.8 4.8l8.5 4.8"/></symbol>
-    <symbol id="d-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h15l-1 12.2a1.8 1.8 0 0 1-1.8 1.8H7.3a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></symbol>
-    <symbol id="d-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c.8 4.6 2.9 6.7 7.5 7.5-4.6.8-6.7 2.9-7.5 7.5-.8-4.6-2.9-6.7-7.5-7.5 4.6-.8 6.7-2.9 7.5-7.5Z"/><path d="M19 16.5c.3 1.7 1 2.4 2.5 2.7-1.5.3-2.2 1-2.5 2.6-.3-1.6-1-2.3-2.5-2.6 1.5-.3 2.2-1 2.5-2.7Z"/></symbol>
-    <symbol id="d-cursor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="19" height="13" rx="2.5"/><path d="M8 20.5h8M12 16.5v4"/><path d="m10 7.5 5 2.2-2.1.8-.8 2.1Z"/></symbol>
-    <symbol id="d-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v9a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A2 2 0 0 1 4 15Z"/><path d="M9.8 8.2a2.3 2.3 0 0 1 4.4.9c0 1.5-2.2 1.9-2.2 3.1"/><circle cx="12" cy="14.2" r=".4" fill="currentColor"/></symbol>
     <symbol id="d-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6.5"/><path d="m12 5.8 1 2 2.2.3-1.6 1.5.4 2.2-2-1-2 1 .4-2.2-1.6-1.5 2.2-.3Z" fill="currentColor"/><path d="m8.2 14.3-1.7 7.2L12 19l5.5 2.5-1.7-7.2"/></symbol>
     <symbol id="d-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
-    <symbol id="d-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="3"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.7" r="1.3"/></symbol>
     <symbol id="i-telefone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 3.6h-2A2.2 2.2 0 0 0 3 5.9C3 14.2 9.8 21 18.1 21a2.2 2.2 0 0 0 2.3-2.2v-2l-4.3-1.6-2 2.2a14.5 14.5 0 0 1-5.5-5.5l2.2-2Z"/></symbol>
-    <symbol id="d-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
-    <symbol id="d-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></symbol>
-    <symbol id="d-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/></symbol>
-    <symbol id="d-unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="3"/><path d="M8 10.5V7.5a4 4 0 0 1 7.7-1.5"/><circle cx="12" cy="15.7" r="1.3"/></symbol>
-    <symbol id="d-steps" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h4v-4h4v-4h4V6h4"/></symbol>
-    <symbol id="d-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8 8 12l4-6.5 4 6.5 4.5-4-2 10.5h-13Z"/><path d="M5.5 21h13"/></symbol>
-    <symbol id="d-hourglass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12M6 21.5h12"/><path d="M7 2.5c0 5 5 6 5 9.5s-5 4.5-5 9.5M17 2.5c0 5-5 6-5 9.5s5 4.5 5 9.5"/></symbol>
-    <symbol id="d-weight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.3 8.5h11.4l3 12h-17.4Z"/><circle cx="12" cy="5.2" r="2.5"/></symbol>
-    <symbol id="d-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></symbol>
-    <symbol id="d-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S3 15.2 3 8.9A4.6 4.6 0 0 1 12 6.6a4.6 4.6 0 0 1 9 2.3c0 6.3-9 11.6-9 11.6Z"/></symbol>
-    <symbol id="d-root" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v9"/><path d="M12 11.5c0 4-4 4-4 9M12 11.5c0 4 4 4 4 9M12 11.5v9"/><path d="M8.5 6.5h7"/></symbol>
     <symbol id="d-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5a2 2 0 0 1 2-2h2.2l1.6-2.5h5.4l1.6 2.5h2.2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"/><circle cx="12" cy="12.8" r="3.6"/></symbol>
     <symbol id="d-brush" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5 11 13"/><path d="M9.5 12.5c-2.5 0-4 1.6-4 3.8 0 1.6-.9 2.6-2 3.2 3.6 1 7.5.3 8.2-3.2.3-1.6-.6-3.1-2.2-3.8Z"/></symbol>
     <symbol id="d-pentool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 6.5 9-6.5 9-6.5-9Z"/><path d="M12 3v6.5"/><circle cx="12" cy="11" r="1.5"/></symbol>
     <symbol id="d-smart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/><path d="M12 8.2c-1.2-1.6-3.5-.6-3 1.1.4 1.3 3 3 3 3s2.6-1.7 3-3c.5-1.7-1.8-2.7-3-1.1Z"/></symbol>
     <symbol id="d-type" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7V4.5h15V7"/><path d="M12 4.5v15"/><path d="M9 19.5h6"/></symbol>
-    <symbol id="d-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5.5l11-2V16"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></symbol>
-    <symbol id="d-ruler" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5 16.5 3 21 7.5 7.5 21Z"/><path d="m7 12.5 2 2M10 9.5l1.5 1.5M13 6.5l2 2"/></symbol>
     <symbol id="d-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5Z"/><path d="M14 2.5v5h5"/><path d="M8.5 13h7M8.5 16.5h4.5"/></symbol>
     <symbol id="d-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8 8 0 0 1-11.9 7l-4.6 1.2 1.2-4.4A8 8 0 1 1 20.5 11.5Z"/></symbol>
     <symbol id="d-coins" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9" cy="7" rx="5.5" ry="2.5"/><path d="M3.5 7v4c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5V7"/><path d="M9.5 16.4c.9.6 2.6 1.1 4.5 1.1 3 0 5.5-1.1 5.5-2.5v-4c0-1.2-1.6-2.1-4-2.4"/><path d="M19.5 15v4c0 1.4-2.5 2.5-5.5 2.5s-5.5-1.1-5.5-2.5v-1.5"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7.5-3.2 7.5-9.5V5.6L12 2.5 4.5 5.6V12c0 6.3 7.5 9.5 7.5 9.5Z"/><path d="m8.8 12 2.3 2.3 4.2-4.6"/></symbol>
+    <symbol id="l-google" viewBox="0 0 24 24"><path fill="currentColor" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></symbol>
+    <symbol id="l-anthropic" viewBox="0 0 24 24"><path fill="currentColor" d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></symbol>
+    <symbol id="l-semrush" viewBox="0 0 24 24"><path fill="currentColor" d="M20.698 11.911c0 .444-.226.516-.79.516-.596 0-.706-.1-.77-.554-.118-1.152-.896-2.13-2.201-2.24-.418-.034-.518-.19-.518-.706 0-.48.074-.708.446-.708 2.265.01 3.833 1.832 3.833 3.69v.002zm3.3 0c0-3.456-2.338-7.11-7.74-7.11H5.52c-.218 0-.354.11-.354.31 0 .109.082.209.156.26.388.31.97.654 1.73 1.036.743.372 1.323.616 1.903.852.246.1.336.208.336.344 0 .19-.136.308-.4.308H.372c-.254 0-.372.164-.372.326 0 .136.044.254.162.372.69.726 1.796 1.596 3.4 2.604 1.466.91 2.98 1.74 4.533 2.492.236.11.308.236.308.372-.008.154-.126.28-.4.28H4.1c-.216 0-.344.12-.344.3 0 .1.08.226.19.326.888.808 2.311 1.688 4.207 2.494 2.53 1.08 5.094 1.721 7.98 1.721 5.465 0 7.867-4.087 7.867-7.289l-.002.002zm-7.133 5.104c-2.794 0-5.132-2.276-5.132-5.114 0-2.794 2.33-5.04 5.132-5.04 2.863 0 5.111 2.24 5.111 5.04a5.086 5.086 0 0 1-5.111 5.114z"/></symbol>
+    <symbol id="l-wix" viewBox="0 0 24 24"><path fill="currentColor" d="m0 7.354 2.113 9.292h.801a1.54 1.54 0 0 0 1.506-1.218l1.351-6.34a.171.171 0 0 1 .167-.137c.08 0 .15.058.167.137l1.352 6.34a1.54 1.54 0 0 0 1.506 1.218h.805l2.113-9.292h-.565c-.62 0-1.159.43-1.296 1.035l-1.26 5.545-1.106-5.176a1.76 1.76 0 0 0-2.19-1.324c-.639.176-1.113.716-1.251 1.365l-1.094 5.127-1.26-5.537A1.33 1.33 0 0 0 .563 7.354H0zm13.992 0a.951.951 0 0 0-.951.95v8.342h.635a.952.952 0 0 0 .951-.95V7.353h-.635zm1.778 0 3.158 4.66-3.14 4.632h1.325c.368 0 .712-.181.918-.486l1.756-2.59a.12.12 0 0 1 .197 0l1.754 2.59c.206.305.55.486.918.486h1.326l-3.14-4.632L24 7.354h-1.326c-.368 0-.712.181-.918.486l-1.772 2.617a.12.12 0 0 1-.197 0L18.014 7.84a1.108 1.108 0 0 0-.918-.486H15.77z"/></symbol>
   </defs>
 </svg>
 
@@ -106,319 +70,250 @@
       <span><b><span class="nome-longo">O Criativo que Aprendeu a Vender</span><span class="nome-curto">O Criativo</span></b><small>Shelton Douglas</small></span>
     </a>
     <nav aria-label="Secções">
-      <a href="#conversa">A diferença</a>
-      <a href="#metodo">O caminho</a>
       <a href="#recebes">O que recebes</a>
+      <a href="#autor">O autor</a>
       <a href="#preco">Preço</a>
       <a href="#perguntas">Perguntas</a>
     </nav>
-    <a href="#preco" class="botao botao-principal botao-pequeno">Quero o livro</a>
   </div>
 </header>
 
 <main id="topo">
 
-<!-- ============ 2. ABERTURA (escura) ============ -->
-<section class="abertura cr-abertura">
+<!-- ============ 2. ABERTURA: promessa, preço e botão no primeiro ecrã ============ -->
+<section class="abertura claro">
   <div class="abertura-fundo" aria-hidden="true"><div class="grelha"></div><div class="luz"></div></div>
   <div class="contentor">
-    <div class="cr-texto">
-      <span class="cr-kicker revela">Do fundador da agência de marketing digital Vintage Corp</span>
-      <h1 class="revela">Talento não paga as contas. <em class="marcador">Vender paga.</em></h1>
-      <p class="entrada revela">Um guia prático para profissionais criativos que desejam <strong>transformar talento em rendimento</strong>: cobrar o que vales, apresentar propostas que fecham e deixar de competir pelo preço.</p>
-      <div class="abertura-botoes revela">
-        <a href="#preco" class="botao botao-principal">Quero o livro <svg><use href="#i-arrow"/></svg></a>
-        <a href="#conversa" class="botao botao-linha">Ver a diferença</a>
+    <div class="abertura-grelha">
+      <div class="abertura-texto">
+        <h1>Talento não paga as contas. <em>Vender paga.</em></h1>
+        <p class="entrada">Livro e masterclass para profissionais criativos cobrarem o que valem, apresentarem propostas que fecham e deixarem de competir pelo preço.</p>
+        <div class="oferta-curta">
+          <div class="preco-linha">
+            <s>947 MT</s>
+            <b>399<small>MT</small></b>
+            <span>livro + masterclass</span>
+          </div>
+          <a href="https://payflow.kingdomcompny.com/o-criativo-que-aprendeu-a-vender-masterclass" class="botao botao-principal botao-grande">Quero o pacote por 399 MT <svg><use href="#i-arrow"/></svg></a>
+          <a href="#preco" class="so-playbook">ou só o livro por 199 MT</a>
+        </div>
+        <ul class="garantias">
+          <li><svg><use href="#d-wallet"/></svg>Pagas por M-Pesa</li>
+          <li><svg><use href="#d-mail"/></svg>Acesso imediato no email</li>
+          <li><svg><use href="#i-escudo"/></svg>Garantia de 7 dias</li>
+        </ul>
       </div>
-      <ul class="oficios revela" aria-label="Para quem é">
-        <li>Designers</li><li>Fotógrafos</li><li>Videomakers</li><li>Ilustradores</li><li>Social media</li><li>Copywriters</li><li>Músicos</li>
-      </ul>
+      <div class="pacote" aria-hidden="true">
+        <img class="pacote-capa" src="/img/capa.webp" alt="" width="300" height="600" fetchpriority="high">
+        <div class="pacote-aula">
+          <img src="/img/masterclass.jpg" alt="" width="900" height="624">
+          <span class="tocar"><svg><use href="#i-play"/></svg></span>
+          <span class="rotulo-aula">Masterclass gravada</span>
+        </div>
+        <div class="pacote-funis"><svg><use href="#d-doc"/></svg>Propostas<span class="so-largo"> que fecham</span></div>
+      </div>
     </div>
-    <div class="produto cr-capa revela">
-      <span class="brilho" aria-hidden="true"></span>
-      <div class="livro"><img src="/img/capa.webp" alt="Capa do livro O Criativo que Aprendeu a Vender, de Shelton Douglas" width="300" height="600"></div>
-      <span class="fita f1" aria-hidden="true">Posicionamento</span>
-      <span class="fita f2" aria-hidden="true">Proposta</span>
-      <span class="fita f3" aria-hidden="true">Preço justo</span>
-    </div>
+
+    <dl class="provas">
+      <div><dt>+50 empresas</dt><dd>acompanhadas em marketing e vendas</dd></div>
+      <div><dt>+13.000 alunos</dt><dd>no O Segredo, o curso mais vendido de 2022 e 2023</dd></div>
+      <div><dt>4 livros</dt><dd>sobre vendas, marketing e mentalidade</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- ============ 3. A CONVERSA: ANTES E DEPOIS ============ -->
-<section class="seccao claro" id="conversa" data-estado="antes">
-  <div class="contentor cr-conversa">
-    <div class="cr-conversa-texto">
-      <div class="cabeca revela">
-        <h2>A mesma pergunta. Duas respostas.</h2>
-        <p class="entrada">Todo o criativo já recebeu esta mensagem. <strong>O que respondes a seguir decide quanto ganhas.</strong></p>
-      </div>
-      <div class="alternar revela" role="group" aria-label="Ver a conversa">
-        <button type="button" data-ver="antes" aria-pressed="true">Antes do livro</button>
-        <button type="button" data-ver="depois" aria-pressed="false">Depois do livro</button>
-      </div>
-      <ul class="mudou so-antes revela">
-        <li><svg><use href="#i-x-circle"/></svg>Respondeste com um número.</li>
-        <li><svg><use href="#i-x-circle"/></svg>Competiste pelo preço.</li>
-        <li><svg><use href="#i-x-circle"/></svg>Deste desconto sem pedir nada em troca.</li>
-      </ul>
-      <ul class="mudou so-depois revela">
-        <li><svg><use href="#i-check-circle"/></svg>Fizeste perguntas antes de falar de preço.</li>
-        <li><svg><use href="#i-check-circle"/></svg>Vendeste um resultado, não horas de trabalho.</li>
-        <li><svg><use href="#i-check-circle"/></svg>Deste opções em vez de um número.</li>
-      </ul>
-    </div>
-    <div class="telefone revela" aria-live="polite">
-      <div class="telefone-topo"><span class="avatar" aria-hidden="true">C</span><span><b>Cliente novo</b><small>online</small></span></div>
-      <div class="chat so-antes">
-        <p class="msg ele">Olá! Quanto custa um logótipo?</p>
-        <p class="msg eu">Olá 😊 1.500 MT.</p>
-        <p class="msg ele">Hmm, está um pouco caro... Fazes por 1.000?</p>
-        <p class="msg eu">Pode ser, faço por 1.000.</p>
-        <p class="msg ele">Boa! E mandas 3 versões para eu escolher?</p>
-        <p class="desfecho mau">1.000 MT, três versões e um cliente a pedir sempre mais.</p>
-      </div>
-      <div class="chat so-depois">
-        <p class="msg ele">Olá! Quanto custa um logótipo?</p>
-        <p class="msg eu">Olá! Antes de te dar um valor, posso fazer-te 3 perguntas rápidas sobre o teu negócio?</p>
-        <p class="msg ele">Claro, diz.</p>
-        <p class="msg eu">Obrigado! Preparei uma proposta com 3 opções, da mais simples à identidade completa. Envio já em PDF.</p>
-        <p class="msg ele">Gostei da opção 2. Como fazemos o pagamento?</p>
-        <p class="desfecho bom">Opção 2, 50% adiantado e um cliente a pedir para avançar.</p>
-      </div>
-      <small class="nota-exemplo">Exemplo ilustrativo</small>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 4. AS FRASES ============ -->
-<section class="seccao seccao-escura-pos-clara" id="frases">
+<!-- ============ 3. A DOR ============ -->
+<section class="seccao dor">
   <div class="contentor">
-    <div class="cabeca centro revela"><h2>Quantas destas já ouviste? Ou disseste?</h2></div>
-    <div class="notas">
-      <p class="nota-papel revela">“Fazes só um logozinho rápido?”</p>
-      <p class="nota-papel laranja revela">“Mete no portfólio, dá visibilidade.”</p>
-      <p class="nota-papel revela">“Faço mais barato porque és amigo.”</p>
-      <p class="nota-papel revela">“Nunca sei quanto cobrar.”</p>
-      <p class="nota-papel revela">“O cliente desapareceu depois do orçamento.”</p>
-      <p class="nota-papel laranja revela">“Tenho trabalho, mas não tenho dinheiro.”</p>
+    <div class="cabeca">
+      <h2>Quantas destas já ouviste? Ou disseste?</h2>
+      <p class="entrada">Todo o criativo conhece estas frases. E todas custam dinheiro.</p>
     </div>
-    <p class="cr-veredicto revela">O problema não é o teu talento. <span>É que ninguém te ensinou a vender.</span></p>
+    <ul class="dores">
+      <li class="revela"><svg><use href="#d-chat"/></svg><span>“Fazes só um logozinho rápido?”</span></li>
+      <li class="revela"><svg><use href="#d-coins"/></svg><span>“Faço mais barato porque és amigo.”</span></li>
+      <li class="revela"><svg><use href="#d-doc"/></svg><span>“O cliente desapareceu depois do orçamento.”</span></li>
+      <li class="revela"><svg><use href="#d-wallet"/></svg><span>“Tenho trabalho, mas não tenho dinheiro.”</span></li>
+    </ul>
+    <p class="viragem revela">O problema não é o teu talento. É que ninguém te ensinou a vender. <strong>É isso que este livro resolve.</strong></p>
   </div>
 </section>
 
-<!-- ============ 5. PARA QUEM ============ -->
-<section class="seccao claro" id="para-ti">
+<!-- ============ 4. O QUE RECEBES ============ -->
+<section class="seccao recebes-seccao" id="recebes">
   <div class="contentor">
-    <div class="cabeca revela"><h2>Escrito para quem vive do que cria.</h2></div>
-    <div class="oficios-grelha">
-      <div class="oficio cartao medio revela"><svg><use href="#d-pentool"/></svg>Designers</div>
-      <div class="oficio cartao medio revela"><svg><use href="#d-camera"/></svg>Fotógrafos</div>
-      <div class="oficio cartao medio revela"><svg><use href="#d-video"/></svg>Videomakers</div>
-      <div class="oficio cartao medio revela"><svg><use href="#d-brush"/></svg>Ilustradores</div>
-      <div class="oficio cartao medio revela"><svg><use href="#d-smart"/></svg>Gestores de redes sociais</div>
-      <div class="oficio cartao medio revela"><svg><use href="#d-type"/></svg>Copywriters</div>
-      <div class="oficio cartao medio revela"><svg><use href="#d-music"/></svg>Músicos e produtores</div>
-      <div class="oficio cartao medio revela"><svg><use href="#d-ruler"/></svg>Arquitectos e decoradores</div>
+    <div class="cabeca">
+      <h2>O que recebes</h2>
+      <p class="entrada">Simples de ler, simples de aplicar no próximo cliente. Com exemplos reais do mercado moçambicano.</p>
     </div>
-    <div class="se-tu">
-      <p class="revela"><svg><use href="#i-check-circle"/></svg><span><b>Já tens clientes, mas cobras pouco</b>e sentes que trabalhas muito para o que ganhas.</span></p>
-      <p class="revela"><svg><use href="#i-check-circle"/></svg><span><b>Tens talento, mas a agenda está vazia</b>e não sabes como chegar a mais clientes.</span></p>
-      <p class="revela"><svg><use href="#i-check-circle"/></svg><span><b>Queres que o que fazes seja um negócio</b>e não um conjunto de trabalhos soltos.</span></p>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 6. DO TALENTO AO RENDIMENTO ============ -->
-<section class="seccao seccao-escura-pos-clara" id="metodo">
-  <div class="contentor">
-    <div class="cabeca centro revela">
-      <h2>Do talento ao rendimento.</h2>
-      <p class="entrada">O talento é só o primeiro degrau. <strong>O rendimento vem de tudo o que construíres por cima dele.</strong></p>
-    </div>
-    <div class="degraus revela" role="img" aria-label="Gráfico em degraus: talento, posicionamento, oferta, preço, proposta e rendimento, cada um mais alto do que o anterior.">
-      <div class="degrau" style="--h:16%"><span class="barra-d"></span><b>Talento</b></div>
-      <div class="degrau" style="--h:30%"><span class="barra-d"></span><b>Posicionamento</b></div>
-      <div class="degrau" style="--h:45%"><span class="barra-d"></span><b>Oferta</b></div>
-      <div class="degrau" style="--h:61%"><span class="barra-d"></span><b>Preço</b></div>
-      <div class="degrau" style="--h:78%"><span class="barra-d"></span><b>Proposta</b></div>
-      <div class="degrau topo-d" style="--h:100%"><span class="barra-d"></span><b>Rendimento</b></div>
-    </div>
-    <div class="degraus-texto">
-      <div class="cartao pequeno revela"><small>01</small><b>Posicionamento</b>Seres escolhido pelo que resolves, não comparado pelo preço.</div>
-      <div class="cartao pequeno revela"><small>02</small><b>Oferta</b>Transformar o teu serviço em algo claro e fácil de comprar.</div>
-      <div class="cartao pequeno revela"><small>03</small><b>Preço</b>Cobrar pelo valor que entregas, sem medo e sem pedir desculpa.</div>
-      <div class="cartao pequeno revela"><small>04</small><b>Proposta</b>Apresentar o teu trabalho de forma a que o cliente queira avançar.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 7. O QUE RECEBES ============ -->
-<section class="seccao claro" id="recebes">
-  <div class="contentor">
-    <div class="cabeca revela"><h2>O que recebes</h2></div>
-    <div class="kit">
-      <div class="kit-capa escuro-ilha revela">
-        <span class="brilho" aria-hidden="true"></span>
-        <img src="/img/capa.webp" alt="" width="300" height="600" loading="lazy">
-        <span class="tipo-kit"><svg><use href="#d-book"/></svg>Livro</span>
-      </div>
-      <div class="kit-temas revela">
-        <h3>O que vais aprender</h3>
-        <ol>
-          <li>Porque é que o talento, sozinho, não paga as contas</li>
-          <li>Como te posicionar para seres escolhido, e não comparado pelo preço</li>
-          <li>Como transformar um serviço numa oferta clara</li>
-          <li>Como definir preços sem medo</li>
-          <li>O que responder quando te perguntam “quanto custa?”</li>
-          <li>Como apresentar propostas que fecham</li>
-          <li>Como lidar com pedidos de desconto</li>
-          <li>Como passar de trabalhos soltos a clientes que voltam</li>
-        </ol>
-      </div>
-      <div class="kit-master cartao medio revela">
-        <div class="kit-video"><img src="/img/masterclass.jpg" alt="" width="900" height="624" loading="lazy"><span class="tocar" aria-hidden="true"><svg><use href="#i-play"/></svg></span></div>
+    <article class="cartao playbook revela">
+      <div class="playbook-lado">
+        <img src="/img/capa.webp" alt="Capa do livro O Criativo que Aprendeu a Vender" width="300" height="600" loading="lazy">
         <div>
-          <span class="tag-pacote">No pacote completo</span>
-          <h3>Masterclass gravada</h3>
-          <p>O Shelton mostra, na prática, como posicionar, apresentar e vender serviços criativos, com exemplos reais do mercado moçambicano.</p>
+          <h3>O Criativo que Aprendeu a Vender</h3>
+          <p>Um guia prático e directo, escrito para quem vive do que cria.</p>
+        </div>
+      </div>
+      <ol class="ganhos">
+        <li><svg><use href="#i-check-circle"/></svg><span>Posiciona-te para seres escolhido, e não comparado pelo preço.</span></li>
+        <li><svg><use href="#i-check-circle"/></svg><span>Transforma o teu serviço numa oferta clara e fácil de comprar.</span></li>
+        <li><svg><use href="#i-check-circle"/></svg><span>Define preços sem medo e sem pedir desculpa.</span></li>
+        <li class="chave"><svg><use href="#i-check-circle"/></svg><span>Sabe o que responder quando te perguntam «quanto custa?». <small>A resposta que muda o resto da conversa.</small></span></li>
+        <li><svg><use href="#i-check-circle"/></svg><span>Apresenta propostas que fecham.</span></li>
+        <li><svg><use href="#i-check-circle"/></svg><span>Lida com pedidos de desconto sem perder o cliente.</span></li>
+        <li><svg><use href="#i-check-circle"/></svg><span>Passa de trabalhos soltos a clientes que voltam.</span></li>
+      </ol>
+    </article>
+
+    <div class="extras">
+      <article class="cartao extra revela">
+        <div class="aula">
+          <img src="/img/masterclass.jpg" alt="Shelton Douglas na masterclass O Criativo que Aprendeu a Vender" width="900" height="624" loading="lazy">
+          <span class="tocar" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+          <span class="rotulo-aula">Gravada</span>
+        </div>
+        <h3>Masterclass gravada</h3>
+        <p>O Shelton mostra, na prática, como posicionar, apresentar e vender serviços criativos, com exemplos reais.</p>
+      </article>
+      <article class="cartao extra revela">
+        <h3>Escrito para quem vive do que cria</h3>
+        <p>E para todas as áreas onde o talento precisa de virar rendimento.</p>
+        <ul class="tipos duas">
+          <li><svg><use href="#d-pentool"/></svg>Designers</li>
+          <li><svg><use href="#d-camera"/></svg>Fotógrafos</li>
+          <li><svg><use href="#d-video"/></svg>Videomakers</li>
+          <li><svg><use href="#d-brush"/></svg>Ilustradores</li>
+          <li><svg><use href="#d-smart"/></svg>Social media</li>
+          <li><svg><use href="#d-type"/></svg>Copywriters</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. O AUTOR ============ -->
+<section class="seccao claro mentor-seccao" id="autor">
+  <div class="contentor">
+    <div class="mentor">
+      <div class="retrato revela">
+        <img src="/img/shelton.jpg" alt="Shelton Douglas" width="800" height="698" loading="lazy">
+        <span class="pilula"><svg><use href="#d-award"/></svg>Best Seller · O Segredo</span>
+      </div>
+      <div class="revela">
+        <h2>Shelton Douglas</h2>
+        <p class="papel">Empreendedor moçambicano, mentor e autor</p>
+        <p class="entrada">Fundou uma agência de marketing digital e viveu os dois lados: o de quem cria e o de quem tem de vender o que cria. Hoje a Kingdom Company já acompanhou mais de 50 empresas em marketing e vendas.</p>
+        <p class="entrada">Criou O Segredo, o curso mais vendido do mercado em 2022 e 2023, com mais de 13.000 alunos, e já mentorou mais de 100 empresários no Kingdom Founders. É autor de 4 livros.</p>
+        <div class="certificacoes">
+          <p>Certificações internacionais</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-google"/></svg>Google</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-anthropic"/></svg>Anthropic</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-semrush"/></svg>Semrush</li>
+            <li class="so-marca"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#l-wix"/></svg><span class="visual-oculto">Wix</span></li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="cta-meio revela">
-      <a href="#preco" class="botao botao-principal">Quero ver as ofertas <svg><use href="#i-arrow"/></svg></a>
-      <span><svg><use href="#d-mail"/></svg>Acesso imediato por email</span>
-    </div>
   </div>
 </section>
 
-<!-- ============ 8. MITOS ============ -->
-<section class="seccao seccao-escura-pos-clara" id="duvidas">
-  <div class="contentor">
-    <div class="cabeca revela"><h2>Mitos que mantêm os criativos mal pagos.</h2></div>
-    <div class="mitos">
-      <div class="mito cartao medio revela"><span class="mito-r">Mito</span><s>Quem é bom não precisa de vender.</s><p>Quem é bom e não sabe vender fica à espera. <strong>E esperar não paga contas.</strong></p></div>
-      <div class="mito cartao medio revela"><span class="mito-r">Mito</span><s>Vender é ser insistente.</s><p>Vender é perceber o problema do cliente <strong>e mostrar como o resolves.</strong></p></div>
-      <div class="mito cartao medio revela"><span class="mito-r">Mito</span><s>Se baixar o preço, consigo mais clientes.</s><p>Consegues os clientes errados. <strong>Preço baixo atrai quem só compara preço.</strong></p></div>
-      <div class="mito cartao medio revela"><span class="mito-r">Mito</span><s>Primeiro preciso de mais seguidores.</s><p>Precisas de uma oferta clara. <strong>Seguidores sem oferta são aplausos, não rendimento.</strong></p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 9. AUTOR ============ -->
-<section class="seccao claro" id="mentor">
-  <div class="contentor cr-autor">
-    <div class="cr-autor-foto revela"><img src="/img/shelton.jpg" alt="Shelton Douglas" width="800" height="698" loading="lazy"></div>
-    <div class="revela">
-      <span class="cr-kicker escuro">Do fundador da Vintage Corp</span>
-      <h2>Escrito por quem transformou criatividade num negócio.</h2>
-      <p class="entrada" style="margin-top:20px"><strong>Shelton Douglas</strong> é empreendedor moçambicano, conselheiro empresarial e educador, e fundador da agência de marketing digital Vintage Corp, Lda.</p>
-      <p style="margin-top:14px">Hoje dedica-se a orientar empresários, empreendedores e profissionais na construção de vidas e negócios sustentáveis. Neste livro, junta o que aprendeu do lado de quem cria e do lado de quem vende.</p>
-      <div class="mentor-numeros">
-        <div><b>4</b><span>Livros publicados</span></div>
-        <div><b>13.000+</b><span>Alunos</span></div>
-        <div><b>10+</b><span>Certificações internacionais</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 10. PREÇO ============ -->
-<section class="seccao seccao-escura-pos-clara" id="preco" style="overflow:hidden">
+<!-- ============ 6. PREÇO ============ -->
+<section class="seccao seccao-escura-pos-clara preco-seccao" id="preco">
   <div class="precos-fundo" aria-hidden="true"></div>
-  <div class="contentor" style="position:relative">
-    <div class="cabeca centro revela">
+  <div class="contentor">
+    <div class="cabeca centro">
       <h2>Escolhe como queres começar.</h2>
-      <p class="entrada">Podes levar só o livro e aplicar ao teu ritmo, ou levar o pacote completo com a masterclass gravada.</p>
     </div>
     <div class="planos">
-      <div class="cartao plano revela">
-        <div class="plano-tipo"><svg><use href="#d-book"/></svg>Apenas o livro</div>
-        <h3>Para aplicares ao teu ritmo</h3>
-        <div class="plano-preco"><span class="antes">Antes 325 MT</span><span class="valor" data-valor="199">199</span><span class="unidade">MT</span></div>
-        <ul>
-          <li><svg><use href="#i-check-circle"/></svg>Livro O Criativo que Aprendeu a Vender</li>
-          <li><svg><use href="#i-check-circle"/></svg>Um guia prático, pensado para profissionais criativos</li>
-          <li><svg><use href="#i-check-circle"/></svg>Acesso imediato por email</li>
-        </ul>
-        <a href="https://payflow.kingdomcompny.com/o-criativo-que-aprendeu-a-vender" class="botao botao-linha botao-largo">Quero o livro <svg><use href="#i-arrow"/></svg></a>
-      </div>
       <div class="cartao plano destaque revela" id="checkout">
-        <div class="plano-tipo"><svg><use href="#d-coins"/></svg>Livro + Masterclass<span class="promo">Mais completo</span></div>
+        <div class="plano-tipo">Livro + Masterclass<span class="promo">Recomendado</span></div>
         <h3>O pacote completo</h3>
         <div class="plano-preco"><span class="antes">Antes 947 MT</span><span class="valor" data-valor="399">399</span><span class="unidade">MT</span></div>
         <ul>
-          <li><svg><use href="#i-check-circle"/></svg>Livro O Criativo que Aprendeu a Vender</li>
-          <li><svg><use href="#i-check-circle"/></svg>Masterclass gravada com exemplos reais</li>
-          <li><svg><use href="#i-check-circle"/></svg>Um guia prático, pensado para profissionais criativos</li>
-          <li><svg><use href="#i-check-circle"/></svg>Acesso imediato por email</li>
+          <li><svg><use href="#i-check"/></svg>Livro O Criativo que Aprendeu a Vender</li>
+          <li><svg><use href="#i-check"/></svg>Masterclass gravada com exemplos reais</li>
+          <li><svg><use href="#i-check"/></svg>Acesso imediato na área de membros</li>
         </ul>
-        <a href="https://payflow.kingdomcompny.com/o-criativo-que-aprendeu-a-vender-masterclass" class="botao botao-escuro botao-largo">Quero o pacote completo <svg><use href="#i-arrow"/></svg></a>
+        <a href="https://payflow.kingdomcompny.com/o-criativo-que-aprendeu-a-vender-masterclass" class="botao botao-principal botao-largo">Quero o pacote completo <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="cartao plano revela">
+        <div class="plano-tipo">Apenas o livro</div>
+        <h3>Só o livro</h3>
+        <div class="plano-preco"><span class="antes">Antes 325 MT</span><span class="valor" data-valor="199">199</span><span class="unidade">MT</span></div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Livro O Criativo que Aprendeu a Vender</li>
+          <li><svg><use href="#i-check"/></svg>Acesso imediato na área de membros</li>
+        </ul>
+        <a href="https://payflow.kingdomcompny.com/o-criativo-que-aprendeu-a-vender" class="botao botao-linha botao-largo">Quero só o livro <svg><use href="#i-arrow"/></svg></a>
       </div>
     </div>
-    <div class="confianca-pag revela">
-      <span><svg><use href="#d-mail"/></svg>Acesso imediato: pagas e recebes o acesso à nossa área de membros directamente no teu email.</span>
-      <span><svg><use href="#d-lock"/></svg>Pagamento seguro, com os teus dados criptografados.</span>
+    <div class="garantia revela">
+      <span class="selo-garantia"><svg><use href="#i-escudo"/></svg></span>
+      <div>
+        <h3>Garantia de 7 dias</h3>
+        <p>Se nos primeiros 7 dias achares que não é para ti, pede o reembolso por email ou WhatsApp e devolvemos 100% do valor.</p>
+      </div>
     </div>
-    <div class="tres-passos">
-      <div class="cartao pequeno revela"><small>01</small>Lê e repensa como vendes.</div>
-      <div class="cartao pequeno revela"><small>02</small>Aplica no próximo cliente.</div>
-      <div class="cartao pequeno revela"><small>03</small>Cobra o que o teu trabalho vale.</div>
-    </div>
+    <p class="pagamento"><svg><use href="#d-wallet"/></svg>Pagas por M-Pesa e recebes o acesso imediato no teu email.</p>
   </div>
 </section>
 
-<!-- ============ 11. PERGUNTAS ============ -->
+<!-- ============ 7. PERGUNTAS ============ -->
 <section class="seccao claro" id="perguntas">
   <div class="contentor">
-    <div class="cabeca centro revela">
+    <div class="cabeca centro">
       <h2>Perguntas frequentes</h2>
-      <p class="entrada">O que costumam perguntar antes de começar.</p>
     </div>
-    <div class="perguntas revela">
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r1" id="p1">O que recebo exactamente?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r1" role="region" aria-labelledby="p1"><div><p>Depende da oferta que escolheres. Só o livro, ou o pacote completo, que junta o livro e a masterclass gravada.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r2" id="p2">Em que formato é o livro?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r2" role="region" aria-labelledby="p2"><div><p>É um livro digital. Recebes o acesso na nossa área de membros e podes lê-lo no telemóvel, no tablet ou no computador.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r3" id="p3">Como recebo o acesso depois de pagar?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r3" role="region" aria-labelledby="p3"><div><p>O acesso é imediato. Assim que o pagamento é confirmado, recebes o acesso à nossa área de membros directamente no teu email.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r4" id="p4">O pagamento é seguro?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r4" role="region" aria-labelledby="p4"><div><p>Sim. O pagamento é feito numa página segura e os teus dados são criptografados.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r5" id="p5">A masterclass é ao vivo?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r5" role="region" aria-labelledby="p5"><div><p>Não. É gravada, por isso podes vê-la à hora que quiseres e revê-la as vezes que precisares.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r6" id="p6">Serve para quem está a começar?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r6" role="region" aria-labelledby="p6"><div><p>Sim. Se estás a começar, aprendes a cobrar bem desde o primeiro cliente. Se já tens clientes, aprendes a cobrar melhor e a deixar de competir pelo preço.</p></div></div></div>
-      <div class="pergunta-item"><button type="button" aria-expanded="false" aria-controls="r7" id="p7">Funciona para a minha área criativa?<span class="mais" aria-hidden="true"></span></button>
-        <div class="resposta" id="r7" role="region" aria-labelledby="p7"><div><p>Se vendes serviços criativos, sim: design, fotografia, vídeo, ilustração, redes sociais, escrita, música, arquitectura e outras áreas onde o talento precisa de se transformar em rendimento.</p></div></div></div>
+    <div class="perguntas">
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">O que recebo exactamente?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>No pacote completo recebes o livro e a masterclass gravada. Na opção mais simples recebes só o livro. É um livro digital: lês no telemóvel, no tablet ou no computador.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">Como pago e quando recebo o acesso?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Pagas por M-Pesa numa página de pagamento segura. Assim que o pagamento é confirmado, recebes no teu email o acesso à nossa área de membros.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">E se eu achar que não é para mim?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Tens 7 dias de garantia. Pede o reembolso por email para <a href="mailto:comercial@kingdomcompny.com">comercial@kingdomcompny.com</a> ou por <a href="https://wa.me/258851800920" target="_blank" rel="noopener">WhatsApp</a> e devolvemos 100% do valor.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">Serve para quem está a começar?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Sim. Se estás a começar, aprendes a cobrar bem desde o primeiro cliente. Se já tens clientes, aprendes a cobrar melhor e a deixar de competir pelo preço.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">Funciona para a minha área criativa?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Se vendes serviços criativos, sim: design, fotografia, vídeo, ilustração, redes sociais, escrita, música, arquitectura e outras áreas onde o talento precisa de se transformar em rendimento.</p></div></div>
+      </div>
+      <div class="pergunta-item">
+        <button type="button" aria-expanded="false">A masterclass é ao vivo?<span class="mais" aria-hidden="true"></span></button>
+        <div class="resposta"><div><p>Não. É gravada, por isso vês à hora que quiseres e revês as vezes que precisares.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 12. FECHO ============ -->
-<section class="fecho" id="marcar">
-  <canvas id="estrelas" aria-hidden="true"></canvas>
+<!-- ============ 8. FECHO ============ -->
+<section class="fecho">
   <div class="nascer" aria-hidden="true"></div>
   <div class="horizonte" aria-hidden="true"></div>
   <div class="contentor">
-    <h2 class="revela">O teu talento já está aí. Agora aprende a vendê-lo.</h2>
-    <p class="entrada revela">Tudo muda quando deixas de perguntar:</p>
-    <div class="perguntas-fecho revela">
-      <span class="velha">“Quanto é que eu cobro?”</span>
-      <span class="entao">e começas a perguntar:</span>
-      <span class="nova">“Que resultado é que eu entrego, e quanto é que isso vale?”</span>
-    </div>
-    <div class="resumo vidro revela">
-      <span class="nome">O Criativo que Aprendeu a Vender</span>
-      <span class="sub">Um guia prático para profissionais criativos que desejam transformar talento em rendimento.</span>
-      <div class="itens"><span><svg><use href="#d-book"/></svg>Livro</span><span><svg><use href="#d-doc"/></svg>Propostas</span><span><svg><use href="#d-video"/></svg>Masterclass</span></div>
-      <a href="#preco" class="botao botao-principal">Quero começar agora <svg><use href="#i-arrow"/></svg></a>
-      <div class="tres" style="margin:0"><span>Acesso imediato por email</span><span>Pagamento seguro</span></div>
-    </div>
+    <h2>O teu talento já está aí. Agora aprende a vendê-lo.</h2>
+    <p class="entrada">Cobra o que vales, apresenta propostas que fecham e deixa de competir pelo preço.</p>
+    <a href="https://payflow.kingdomcompny.com/o-criativo-que-aprendeu-a-vender-masterclass" class="botao botao-principal botao-grande">Quero o pacote por 399 MT <svg><use href="#i-arrow"/></svg></a>
+    <ul class="garantias centro">
+      <li><svg><use href="#d-wallet"/></svg>Pagas por M-Pesa</li>
+      <li><svg><use href="#d-mail"/></svg>Acesso imediato no email</li>
+      <li><svg><use href="#i-escudo"/></svg>Garantia de 7 dias</li>
+    </ul>
   </div>
 </section>
 
 </main>
 
-<!-- ============ 13. RODAPÉ ============ -->
+<!-- ============ 9. RODAPÉ ============ -->
 <footer>
   <div class="contentor">
     <div class="rodape">
@@ -428,7 +323,7 @@
       </div>
       <div>
         <h4 class="t4">Página</h4>
-        <div class="rodape-links"><a href="#conversa">A diferença</a><a href="#recebes">O que recebes</a><a href="#preco">Preço</a><a href="#perguntas">Perguntas frequentes</a></div>
+        <div class="rodape-links"><a href="#recebes">O que recebes</a><a href="#autor">O autor</a><a href="#preco">Preço</a><a href="#perguntas">Perguntas frequentes</a></div>
       </div>
       <div>
         <h4 class="t4">Kingdom Company</h4>
@@ -444,6 +339,5 @@
 </footer>
 
 <script src="/site.js" defer></script>
-<script src="/criativo.js" defer></script>
 </body>
 </html>
