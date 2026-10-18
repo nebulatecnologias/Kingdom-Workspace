@@ -93,6 +93,20 @@ html,body{ background:var(--preto); }
   background:#fff; font-size:14.5px; color:var(--texto); box-shadow:inset 0 0 0 1px rgba(0,52,26,.12), 0 18px 34px -18px rgba(0,52,26,.5); transform:rotate(2deg); }
 .pacote-funis svg{ flex:none; width:30px; height:30px; padding:6px; border-radius:9px; background:var(--verde-escuro); color:var(--verde); }
 
+/* abertura larga: texto ao centro e a foto do pacote em largura total por baixo
+   (no telemóvel a foto sobe para cima do título) */
+.abertura-grelha.larga{ display:flex; flex-direction:column; align-items:center; gap:36px; }
+.larga .abertura-texto{ max-width:860px; text-align:center; }
+.larga .abertura-texto .entrada{ margin-left:auto; margin-right:auto; }
+.larga .oferta-curta{ align-items:center; }
+.larga .garantias{ justify-content:center; }
+.pacote-foto{ margin:0; width:100%; max-width:1140px; }
+.pacote-foto img{ width:100%; height:auto; }
+@media (max-width:900px){
+  .abertura-grelha.larga{ gap:18px; }
+  .pacote-foto{ order:-1; width:calc(100% + 40px); max-width:none; margin:0 -20px; }
+}
+
 /* provas: três factos numa linha, sem cartões */
 .provas{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:64px; border-top:1px solid var(--linha); }
 .provas div{ padding:26px 28px 34px; border-left:1px solid var(--linha); }
