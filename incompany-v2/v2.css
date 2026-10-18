@@ -288,7 +288,7 @@
 .ap-kpi span{ display:block; font-size:12px; color:var(--texto-3); }
 .ap-kpi b{ font-size:30px; font-weight:500; letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
 .ap-barras{ height:64px; display:flex; align-items:flex-end; gap:6px; }
-.ap-barras i{ flex:1; height:calc(var(--h) * 100%); border-radius:4px 4px 2px 2px; background:linear-gradient(180deg, #8FB4FF, rgba(29,91,255,.5)); transition:height .7s var(--sai); }
+.ap-barras i{ flex:1; height:100%; transform:scaleY(var(--h)); transform-origin:50% 100%; border-radius:4px 4px 2px 2px; background:linear-gradient(180deg, #8FB4FF, rgba(29,91,255,.5)); transition:transform .7s var(--sai); }
 .ap-barras i:last-child{ background:linear-gradient(180deg, #8FE2FF, #1D5BFF); }
 .ap-linhas{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
 .ap-linhas li{ display:grid; grid-template-columns:auto auto 1fr; align-items:center; gap:10px; padding:9px 12px; border-radius:11px; background:rgba(255,255,255,.035); font-size:12.5px; }
