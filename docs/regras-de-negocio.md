@@ -104,9 +104,9 @@ Livros: 325 MT. Livro + masterclass: 947 MT. Todos os cursos gravados custam 1.3
 
 *10/10/2026 · Decisão do Shelton*
 
-### R31 · Livros em promoção: 199 MT e 399 MT
+### R31 · Livros em promoção: 199 MT e 399 MT (Escala Previsível: 325 MT)
 
-Os sites dos livros (Escala Previsível, O Bloqueio Invisível, O Criativo que Aprendeu a Vender e O Prisma da Influência) vendem em promoção: livro a 199 MT e livro + masterclass a 399 MT. Os preços da R23 (325 MT e 947 MT) ficam como preço de tabela e aparecem riscados como «Antes». A promoção ainda não tem data de fim: é revista na revisão trimestral dos preços.
+Os sites dos livros (Escala Previsível, O Bloqueio Invisível, O Criativo que Aprendeu a Vender e O Prisma da Influência) vendem em promoção: livro a 199 MT e livro + masterclass a 399 MT. No Escala Previsível o livro + masterclass custa 325 MT (alteração de 18/10/2026, decisão do Shelton). Os preços da R23 (325 MT e 947 MT) ficam como preço de tabela e aparecem riscados como «Antes». A promoção ainda não tem data de fim: é revista na revisão trimestral dos preços.
 
 *18/10/2026 · Decisão do Shelton*
 
