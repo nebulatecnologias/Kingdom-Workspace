@@ -3,7 +3,7 @@
 Cópia das regras gravadas no separador **Regras e estratégia** do [Mapa Kingdom](https://claude.ai/artifact/GdnhABbW2DhtKcopjLHz8c).
 A versão de referência é a do mapa (coleção `regras` da base de dados do artefacto). Este ficheiro é atualizado sempre que uma regra muda.
 
-Última atualização: 10/10/2026.
+Última atualização: 18/10/2026.
 
 ## Estrutura
 
@@ -103,6 +103,12 @@ Nenhuma oferta paga menos de 2.650 MT por cada hora do Shelton ao vivo. Preço m
 Livros: 325 MT. Livro + masterclass: 947 MT. Todos os cursos gravados custam 1.350 MT (Escala 10X, 10X Mindset e os que vierem). Plataforma de cursos da Kingdom Academy: 450 MT por mês.
 
 *10/10/2026 · Decisão do Shelton*
+
+### R31 · Livros em promoção: 199 MT e 399 MT
+
+Os sites dos livros (Escala Previsível, O Bloqueio Invisível, O Criativo que Aprendeu a Vender e O Prisma da Influência) vendem em promoção: livro a 199 MT e livro + masterclass a 399 MT. Os preços da R23 (325 MT e 947 MT) ficam como preço de tabela e aparecem riscados como «Antes». A promoção ainda não tem data de fim: é revista na revisão trimestral dos preços.
+
+*18/10/2026 · Decisão do Shelton*
 
 ### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas, depois 32.000
 
