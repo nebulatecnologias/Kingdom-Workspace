@@ -1,0 +1,1 @@
+[0:v]scale=1080:1920:flags=lanczos,subtitles=legendas.ass:fontsdir=fonts[v];[1:v]format=rgba,fade=t=in:st=99.152:d=0.25:alpha=1[pill];[v][pill]overlay=x=(W-w)/2:y=1560:enable='gte(t,99.152)':format=auto,format=yuv420p[out]
