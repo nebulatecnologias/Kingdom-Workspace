@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- Molde v2 dos flyers do Escala Previsível (Instagram e Facebook). Sem botões: o botão é o do anúncio.
+     Cada flyer conta uma só ideia: gancho (dor ou desejo) → imagem que prova a dor → virada → produto e preço.
+     Parâmetros na URL:
+       f   feed | story
+       t   escuro | claro
+       v   grafico | semana | mensagens        (a imagem do meio)
+       g   gancho; *palavras* entre asteriscos ficam em destaque
+       r   virada (1 a 2 frases)
+       m   só para v=mensagens: mensagens separadas por |
+       n   só para v=mensagens: o número do contador ("37 por responder")
+     Gerado em PNG por tools/criativos/escala/render.mjs. -->
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#021D10; --fundo-2:#0B3D22; --texto:#F7FBF8; --texto-2:#C3DCCB; --texto-3:#8FC1A2;
+  --verde:#00BD36; --destaque:#00BD36; --perigo:#FF7A6B; --linha:rgba(236,246,239,.14); --cartao:rgba(236,246,239,.06);
+}
+.claro{ --fundo:#F3F7F2; --fundo-2:#E3EEE4; --texto:#00341A; --texto-2:#2F5641; --texto-3:#55755F; --destaque:#007241; --perigo:#C2410C;
+  --linha:rgba(0,52,26,.14); --cartao:rgba(255,255,255,.75); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ background:transparent; }
+body{ font-family:'Google Sans','Product Sans',Roboto,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+.flyer{ position:relative; width:1080px; height:1350px; overflow:hidden; color:var(--texto);
+  background:radial-gradient(100% 70% at 50% 45%, var(--fundo-2), var(--fundo) 75%); display:flex; flex-direction:column; padding:72px 76px 64px; }
+.flyer.story{ height:1920px; padding:230px 76px 280px; }
+.marca{ display:flex; align-items:center; gap:12px; font-size:24px; color:var(--texto-3); }
+.marca i{ width:10px; height:10px; border-radius:50%; background:var(--verde); }
+h1{ margin-top:30px; font-weight:500; font-size:74px; line-height:1.02; letter-spacing:-.045em; text-wrap:balance; }
+h1 em{ font-style:normal; color:var(--destaque); }
+.story h1{ font-size:92px; margin-top:44px; }
+.palco{ margin:36px 0 0; }
+.virada{ margin-top:30px; font-size:32px; line-height:1.32; letter-spacing:-.015em; color:var(--texto-2); text-wrap:pretty; }
+.virada b{ font-weight:500; color:var(--texto); }
+.story .virada{ font-size:38px; }
+.story .barras{ height:160px; }
+.story .msg{ padding:18px 24px 14px; }
+.story .fecho img{ height:230px; }
+
+/* rodapé: produto, preço e a seta para o botão do anúncio */
+.fecho{ margin-top:auto; padding-top:24px; border-top:1px solid var(--linha); display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:center; }
+.fecho img{ height:160px; width:auto; display:block; filter:drop-shadow(0 14px 16px rgba(0,0,0,.35)); }
+.fecho .nome{ font-size:28px; font-weight:500; letter-spacing:-.02em; }
+.fecho .inclui{ font-size:22px; color:var(--texto-3); margin-top:4px; line-height:1.35; }
+.fecho .preco{ display:flex; align-items:baseline; gap:14px; margin-top:12px; }
+.fecho .preco b{ font-size:64px; font-weight:500; letter-spacing:-.05em; line-height:1; }
+.fecho .preco b small{ font-size:26px; letter-spacing:0; margin-left:4px; color:var(--texto-2); }
+.fecho .preco s{ font-size:26px; color:var(--texto-3); }
+.seta{ margin-top:26px; display:flex; align-items:center; gap:14px; font-size:26px; color:var(--texto-2); }
+.seta svg{ width:40px; height:40px; color:var(--verde); flex:none; }
+.seta b{ font-weight:500; color:var(--texto); }
+.story .fecho img{ height:230px; }
+
+/* 1. gráfico: investimento sobe, lucro desce */
+.grafico{ background:var(--cartao); border:1px solid var(--linha); border-radius:28px; padding:30px 34px 22px; }
+.grafico .leg{ display:flex; gap:28px; font-size:22px; color:var(--texto-2); margin-bottom:10px; }
+.grafico .leg span{ display:inline-flex; align-items:center; gap:10px; }
+.grafico .leg i{ width:26px; height:4px; border-radius:2px; background:var(--texto-2); }
+.grafico .leg i.l{ background:var(--perigo); }
+.grafico svg{ width:100%; height:auto; display:block; }
+.grafico .eixo{ display:flex; justify-content:space-between; font-size:20px; color:var(--texto-3); padding:6px 4px 0; }
+
+/* 2. semana: vendas irregulares → vendas previsíveis */
+.semanas{ display:flex; flex-direction:column; gap:10px; }
+.semana{ background:var(--cartao); border:1px solid var(--linha); border-radius:26px; padding:20px 28px 14px; }
+.semana .tit{ display:flex; justify-content:space-between; align-items:baseline; font-size:24px; color:var(--texto-2); margin-bottom:14px; }
+.semana .tit b{ font-weight:500; color:var(--texto); font-size:26px; }
+.barras{ height:118px; display:flex; align-items:flex-end; gap:16px; }
+.barras div{ flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:flex-end; }
+.barras i{ width:100%; border-radius:10px 10px 4px 4px; background:var(--texto-3); opacity:.55; }
+.barras .zero i{ height:6px !important; background:var(--perigo); opacity:1; }
+.barras span{ font-size:19px; color:var(--texto-3); }
+.semana.boa .barras i{ background:var(--verde); opacity:1; }
+.entre{ align-self:center; width:44px; height:44px; color:var(--verde); }
+
+/* 3. mensagens: tudo passa por ti */
+.mensagens{ position:relative; display:flex; flex-direction:column; gap:10px; }
+.contador{ align-self:flex-start; display:inline-flex; align-items:center; gap:12px; padding:10px 20px 10px 12px; border-radius:999px; background:#C93A26; color:#fff; font-size:24px; font-weight:500; margin-bottom:6px; }
+.contador b{ width:40px; height:40px; border-radius:50%; background:rgba(0,0,0,.18); display:grid; place-items:center; font-size:20px; }
+.msg{ max-width:78%; background:var(--cartao); border:1px solid var(--linha); border-radius:24px 24px 24px 8px; padding:14px 22px 10px; font-size:28px; line-height:1.3; letter-spacing:-.01em; }
+.msg small{ display:block; text-align:right; font-size:18px; color:var(--texto-3); margin-top:6px; }
+.msg:nth-child(odd){ margin-left:40px; }
+.story .msg{ font-size:34px; }
+</style>
+</head>
+<body>
+<div class="flyer" id="flyer">
+  <div class="marca"><i></i>Escala Previsível · Shelton Douglas</div>
+  <h1 id="gancho"></h1>
+  <div class="palco" id="palco"></div>
+  <p class="virada" id="virada"></p>
+  <div class="fecho">
+    <img src="../../../escala/img/capa.webp" alt="" id="capa">
+    <div>
+      <div class="nome">Escala Previsível</div>
+      <div class="inclui">Playbook + masterclass de 1 hora + modelos de funis</div>
+      <div class="preco"><b>325<small>MT</small></b><s>947 MT</s></div>
+    </div>
+  </div>
+  <div class="seta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg><span><b>Toca em «Saber mais»</b> · M-Pesa · acesso imediato · garantia de 7 dias</span></div>
+</div>
+<template id="v-grafico">
+  <div class="grafico">
+    <div class="leg"><span><i></i>Investimento em anúncios</span><span><i class="l"></i>Lucro</span></div>
+    <svg viewBox="0 0 860 330">
+      <g stroke="currentColor" stroke-opacity=".12"><path d="M0 60H860M0 150H860M0 240H860"/></g>
+      <path d="M20 270 C 200 250, 330 200, 470 150 S 720 60, 840 30" fill="none" stroke="var(--texto-2)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M20 120 C 200 105, 330 140, 470 160 S 720 250, 840 300" fill="none" stroke="var(--perigo)" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="455" cy="155" r="13" fill="var(--fundo)" stroke="var(--texto)" stroke-width="4"/>
+      <path d="M455 128 L 455 70" stroke="var(--texto)" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+      <text x="455" y="54" text-anchor="middle" font-size="26" fill="var(--texto)" font-family="Google Sans, sans-serif" font-weight="500">É aqui que a maioria desiste</text>
+    </svg>
+    <div class="eixo"><span>Semana 1</span><span>Semana 2</span><span>Semana 3</span><span>Semana 4</span></div>
+  </div>
+</template>
+<template id="v-semana">
+  <div class="semanas">
+    <div class="semana"><div class="tit"><b>Hoje</b><span>dias bons e dias de zero vendas</span></div>
+      <div class="barras"><div><i style="height:80%"></i><span>Seg</span></div><div class="zero"><i></i><span>Ter</span></div><div><i style="height:35%"></i><span>Qua</span></div><div class="zero"><i></i><span>Qui</span></div><div><i style="height:95%"></i><span>Sex</span></div><div class="zero"><i></i><span>Sáb</span></div><div><i style="height:20%"></i><span>Dom</span></div></div></div>
+    <svg class="entre" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg>
+    <div class="semana boa"><div class="tit"><b>Com estrutura</b><span>sabes o que fazer cada dia</span></div>
+      <div class="barras"><div><i style="height:42%"></i><span>Seg</span></div><div><i style="height:50%"></i><span>Ter</span></div><div><i style="height:55%"></i><span>Qua</span></div><div><i style="height:63%"></i><span>Qui</span></div><div><i style="height:72%"></i><span>Sex</span></div><div><i style="height:80%"></i><span>Sáb</span></div><div><i style="height:90%"></i><span>Dom</span></div></div></div>
+  </div>
+</template>
+<template id="v-mensagens">
+  <div class="mensagens" id="lista-msg"><span class="contador"><b>!</b><span id="n-msg"></span></span></div>
+</template>
+<script>
+  var q = new URLSearchParams(location.search), f = document.getElementById("flyer");
+  var esc = function(t){ return t.replace(/[&<>]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]; }); };
+  var marca = function(t){ return esc(t).replace(/\*(.+?)\*/g, "<em>$1</em>"); };
+  if(q.get("f") === "story") f.classList.add("story");
+  if(q.get("t") === "claro") f.classList.add("claro");
+  document.getElementById("gancho").innerHTML = marca(q.get("g") || "");
+  document.getElementById("virada").innerHTML = esc(q.get("r") || "").replace(/\*(.+?)\*/g, "<b>$1</b>");
+  var v = q.get("v") || "grafico";
+  document.getElementById("palco").appendChild(document.getElementById("v-" + v).content.cloneNode(true));
+  if(v === "mensagens"){
+    var horas = ["23:47","23:52","00:05","00:18","00:31"], lista = document.getElementById("lista-msg");
+    (q.get("m") || "").split("|").filter(Boolean).forEach(function(t, i){
+      var d = document.createElement("div"); d.className = "msg";
+      d.innerHTML = esc(t) + "<small>" + horas[i % horas.length] + "</small>"; lista.appendChild(d);
+    });
+    document.getElementById("n-msg").textContent = q.get("n") || "37 mensagens por responder";
+  }
+</script>
+</body>
+</html>

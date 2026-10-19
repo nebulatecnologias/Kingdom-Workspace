@@ -1,0 +1,13 @@
+[
+  { "id": "02-lucro", "v": "grafico",
+    "g": "Puseste mais dinheiro nos anúncios. *E o lucro diminuiu.*",
+    "r": "O problema não é o anúncio. É escalar sem estrutura. *O Escala Previsível mostra-te o que medir, quando investir e quando parar.*" },
+  { "id": "03-semana", "v": "semana", "t": "claro",
+    "g": "Imagina acordar e saber que *hoje também vais vender.*",
+    "r": "Vendas previsíveis não são sorte. São uma estrutura: *a oferta certa, o funil certo e os números que olhas todos os dias.*" },
+  { "id": "04-mensagens", "v": "mensagens",
+    "g": "O teu negócio vende. *Mas só enquanto estás agarrado ao telemóvel.*",
+    "m": "Ainda tem disponível?|Quanto é a entrega para a Matola?|Já enviou o meu pedido?|Faz desconto se levar 2?",
+    "n": "37 mensagens por responder",
+    "r": "Se tudo passa por ti, o negócio não cresce. *Aprende a montar a operação que vende sem depender de ti.*" }
+]
