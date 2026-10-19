@@ -172,3 +172,53 @@ svg [fill="#000"]{ fill:var(--preto); }
 /* o método vem a seguir a uma secção off-white */
 #metodo{ padding-top:130px !important; }
 @media (max-width:720px){ #metodo{ padding-top:88px !important; } }
+
+/* ============================================================
+   Página curta (Outubro 2026): preço no primeiro ecrã, prova logo
+   a seguir, "para quem é" lado a lado e certificações com logótipos.
+============================================================ */
+.preco-abertura{ display:flex; justify-content:center; flex-wrap:wrap; gap:6px 22px; margin:-14px auto 30px; font-size:16px; color:var(--texto-2); }
+.preco-abertura b{ font-weight:500; color:var(--texto); }
+.preco-abertura span + span::before{ content:""; display:inline-block; width:5px; height:5px; border-radius:50%; background:var(--laranja); margin-right:22px; vertical-align:3px; }
+@media (max-width:640px){ .preco-abertura{ flex-direction:column; align-items:center; gap:4px; margin:-10px auto 26px; font-size:15px; } .preco-abertura span + span::before{ display:none; } }
+
+.prova-rostos{ padding:20px 0 90px; }
+.rostos{ display:flex; align-items:center; justify-content:center; gap:20px; max-width:820px; margin:0 auto; }
+.rostos p{ font-size:16px; line-height:1.5; }
+.caras{ list-style:none; display:flex; flex:none; }
+.caras li{ width:52px; height:52px; border-radius:50%; overflow:hidden; box-shadow:0 0 0 3px var(--offwhite); }
+.caras li + li{ margin-left:-14px; }
+.caras img{ width:100%; height:100%; object-fit:cover; object-position:50% 30%; }
+.numeros-prova{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); max-width:980px; margin:44px auto 0; border-top:1px solid var(--linha); }
+.numeros-prova div{ padding:24px 26px 0; border-left:1px solid var(--linha); }
+.numeros-prova div:first-child{ border-left:0; padding-left:0; }
+.numeros-prova dt{ font-size:clamp(30px,3vw,40px); font-weight:500; letter-spacing:-.05em; line-height:1; color:var(--texto); font-variant-numeric:tabular-nums; }
+.numeros-prova dd{ margin-top:8px; font-size:14.5px; color:var(--texto-3); line-height:1.45; }
+@media (max-width:700px){
+  .prova-rostos{ padding:10px 0 70px; }
+  .rostos{ flex-direction:column; text-align:center; gap:14px; }
+  .caras li{ width:44px; height:44px; }
+  .numeros-prova{ grid-template-columns:1fr; margin-top:30px; }
+  .numeros-prova div, .numeros-prova div:first-child{ padding:16px 0; border-left:0; border-bottom:1px solid var(--linha); display:flex; align-items:baseline; gap:14px; }
+  .numeros-prova div:last-child{ border-bottom:0; }
+  .numeros-prova dt{ font-size:26px; min-width:96px; }
+  .numeros-prova dd{ margin:0; }
+}
+
+.para-quem{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.para-quem h3{ margin-bottom:14px; }
+.lista-sim li svg{ color:var(--laranja); }
+.lista-sim li{ color:var(--texto); }
+@media (max-width:860px){ .para-quem{ grid-template-columns:1fr; } }
+
+.certificacoes{ margin-top:30px; padding-top:22px; border-top:1px solid var(--linha); }
+.certificacoes p{ font-size:14px; color:var(--texto-3); margin-bottom:14px; }
+.certificacoes ul{ list-style:none; display:flex; flex-wrap:wrap; gap:12px 30px; }
+.certificacoes li{ display:inline-flex; align-items:center; gap:10px; font-size:17px; font-weight:500; letter-spacing:-.02em; color:var(--texto); }
+.certificacoes svg{ width:24px; height:24px; }
+.certificacoes li.so-marca svg{ width:44px; height:44px; margin:-10px 0; }
+.visual-oculto{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+@media (max-width:560px){ .certificacoes ul{ display:grid; grid-template-columns:1fr 1fr; gap:14px; } }
+
+/* sem o 4.º pilar, o Conselheiro sobe para perto do método */
+#conselheiro{ padding-top:40px; }
