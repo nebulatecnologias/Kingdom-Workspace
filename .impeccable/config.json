@@ -188,6 +188,24 @@
         ],
         "createdAt": "2026-10-19T21:16:18.663Z",
         "reason": "Video stage for a line-art reel: the glow is the luminous stroke style of the film and clipping is the fixed 1080x1920 frame; not a UI page (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "film2/index.html"
+        ],
+        "createdAt": "2026-10-19T21:25:27.736Z",
+        "reason": "Amber top light is the Kingdom Founders brand book's 'luz âmbar' (brand.css --amber, post templates); Claude's judgement, disclosed to user"
+      },
+      {
+        "rule": "overused-font",
+        "value": "instrument serif",
+        "files": [
+          "film2/index.html"
+        ],
+        "createdAt": "2026-10-19T21:25:27.749Z",
+        "reason": "Instrument Serif italic is the official Kingdom Founders headline accent face (content/brand/founders/brand.css); Claude's judgement, disclosed to user"
       }
     ]
   }
