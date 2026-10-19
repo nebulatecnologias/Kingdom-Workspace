@@ -1,0 +1,940 @@
+[
+ {
+  "word": "Cinco",
+  "start": 0.0,
+  "end": 0.24,
+  "raw_start": 0.0,
+  "raw_end": 0.24
+ },
+ {
+  "word": "perguntas",
+  "start": 0.288,
+  "end": 0.88,
+  "raw_start": 0.288,
+  "raw_end": 0.88
+ },
+ {
+  "word": "que",
+  "start": 0.92,
+  "end": 1.04,
+  "raw_start": 0.92,
+  "raw_end": 1.04
+ },
+ {
+  "word": "destravam",
+  "start": 1.067,
+  "end": 1.6,
+  "raw_start": 1.067,
+  "raw_end": 1.6
+ },
+ {
+  "word": "qualquer",
+  "start": 1.653,
+  "end": 2.08,
+  "raw_start": 1.653,
+  "raw_end": 2.08
+ },
+ {
+  "word": "decisão",
+  "start": 2.133,
+  "end": 2.56,
+  "raw_start": 2.133,
+  "raw_end": 2.56
+ },
+ {
+  "word": "difícil.",
+  "start": 2.64,
+  "end": 3.299,
+  "raw_start": 2.64,
+  "raw_end": 3.8
+ },
+ {
+  "word": "Um:",
+  "start": 4.296,
+  "end": 4.602,
+  "raw_start": 4.0,
+  "raw_end": 5.04
+ },
+ {
+  "word": "o",
+  "start": 5.08,
+  "end": 5.12,
+  "raw_start": 5.08,
+  "raw_end": 5.12
+ },
+ {
+  "word": "que",
+  "start": 5.14,
+  "end": 5.2,
+  "raw_start": 5.14,
+  "raw_end": 5.2
+ },
+ {
+  "word": "é",
+  "start": 5.24,
+  "end": 5.28,
+  "raw_start": 5.24,
+  "raw_end": 5.28
+ },
+ {
+  "word": "que",
+  "start": 5.3,
+  "end": 5.36,
+  "raw_start": 5.3,
+  "raw_end": 5.36
+ },
+ {
+  "word": "eu",
+  "start": 5.387,
+  "end": 5.44,
+  "raw_start": 5.387,
+  "raw_end": 5.44
+ },
+ {
+  "word": "já",
+  "start": 5.547,
+  "end": 5.76,
+  "raw_start": 5.547,
+  "raw_end": 5.76
+ },
+ {
+  "word": "sei,",
+  "start": 5.82,
+  "end": 6.16,
+  "raw_start": 5.82,
+  "raw_end": 6.16
+ },
+ {
+  "word": "mas",
+  "start": 6.302,
+  "end": 6.4,
+  "raw_start": 6.22,
+  "raw_end": 6.4
+ },
+ {
+  "word": "estou",
+  "start": 6.44,
+  "end": 6.64,
+  "raw_start": 6.44,
+  "raw_end": 6.64
+ },
+ {
+  "word": "a",
+  "start": 6.68,
+  "end": 6.72,
+  "raw_start": 6.68,
+  "raw_end": 6.72
+ },
+ {
+  "word": "evitar?",
+  "start": 6.8,
+  "end": 7.375,
+  "raw_start": 6.8,
+  "raw_end": 7.76
+ },
+ {
+  "word": "Quase",
+  "start": 8.299,
+  "end": 8.56,
+  "raw_start": 7.92,
+  "raw_end": 8.56
+ },
+ {
+  "word": "sempre,",
+  "start": 8.617,
+  "end": 9.07,
+  "raw_start": 8.617,
+  "raw_end": 9.2
+ },
+ {
+  "word": "a",
+  "start": 9.24,
+  "end": 9.28,
+  "raw_start": 9.24,
+  "raw_end": 9.28
+ },
+ {
+  "word": "resposta",
+  "start": 9.342,
+  "end": 9.84,
+  "raw_start": 9.342,
+  "raw_end": 9.84
+ },
+ {
+  "word": "já",
+  "start": 9.867,
+  "end": 9.92,
+  "raw_start": 9.867,
+  "raw_end": 9.92
+ },
+ {
+  "word": "está",
+  "start": 9.968,
+  "end": 10.16,
+  "raw_start": 9.968,
+  "raw_end": 10.16
+ },
+ {
+  "word": "contigo.",
+  "start": 10.224,
+  "end": 10.88,
+  "raw_start": 10.224,
+  "raw_end": 10.88
+ },
+ {
+  "word": "Dois:",
+  "start": 11.916,
+  "end": 12.424,
+  "raw_start": 11.253,
+  "raw_end": 12.72
+ },
+ {
+  "word": "isto",
+  "start": 13.022,
+  "end": 13.2,
+  "raw_start": 12.82,
+  "raw_end": 13.2
+ },
+ {
+  "word": "é",
+  "start": 13.24,
+  "end": 13.28,
+  "raw_start": 13.24,
+  "raw_end": 13.28
+ },
+ {
+  "word": "um",
+  "start": 13.307,
+  "end": 13.36,
+  "raw_start": 13.307,
+  "raw_end": 13.36
+ },
+ {
+  "word": "sintoma,",
+  "start": 13.424,
+  "end": 14.0,
+  "raw_start": 13.424,
+  "raw_end": 14.0
+ },
+ {
+  "word": "ou",
+  "start": 14.107,
+  "end": 14.32,
+  "raw_start": 14.107,
+  "raw_end": 14.32
+ },
+ {
+  "word": "é",
+  "start": 14.4,
+  "end": 14.48,
+  "raw_start": 14.4,
+  "raw_end": 14.48
+ },
+ {
+  "word": "a",
+  "start": 14.52,
+  "end": 14.56,
+  "raw_start": 14.52,
+  "raw_end": 14.56
+ },
+ {
+  "word": "causa?",
+  "start": 14.653,
+  "end": 15.221,
+  "raw_start": 14.653,
+  "raw_end": 15.56
+ },
+ {
+  "word": "Vendas",
+  "start": 16.02,
+  "end": 16.32,
+  "raw_start": 15.78,
+  "raw_end": 16.32
+ },
+ {
+  "word": "baixas",
+  "start": 16.4,
+  "end": 16.8,
+  "raw_start": 16.4,
+  "raw_end": 16.8
+ },
+ {
+  "word": "raramente",
+  "start": 16.88,
+  "end": 17.36,
+  "raw_start": 16.88,
+  "raw_end": 17.36
+ },
+ {
+  "word": "são",
+  "start": 17.42,
+  "end": 17.6,
+  "raw_start": 17.42,
+  "raw_end": 17.6
+ },
+ {
+  "word": "o",
+  "start": 17.64,
+  "end": 17.68,
+  "raw_start": 17.64,
+  "raw_end": 17.68
+ },
+ {
+  "word": "problema",
+  "start": 17.733,
+  "end": 18.16,
+  "raw_start": 17.733,
+  "raw_end": 18.16
+ },
+ {
+  "word": "verdadeiro.",
+  "start": 18.21,
+  "end": 18.922,
+  "raw_start": 18.21,
+  "raw_end": 19.44
+ },
+ {
+  "word": "Três:",
+  "start": 20.041,
+  "end": 20.4,
+  "raw_start": 19.653,
+  "raw_end": 20.4
+ },
+ {
+  "word": "o",
+  "start": 20.72,
+  "end": 21.04,
+  "raw_start": 20.72,
+  "raw_end": 21.04
+ },
+ {
+  "word": "que",
+  "start": 21.104,
+  "end": 21.2,
+  "raw_start": 21.08,
+  "raw_end": 21.2
+ },
+ {
+  "word": "acontece",
+  "start": 21.257,
+  "end": 21.76,
+  "raw_start": 21.257,
+  "raw_end": 21.76
+ },
+ {
+  "word": "se",
+  "start": 21.787,
+  "end": 21.84,
+  "raw_start": 21.787,
+  "raw_end": 21.84
+ },
+ {
+  "word": "eu",
+  "start": 21.867,
+  "end": 21.92,
+  "raw_start": 21.867,
+  "raw_end": 21.92
+ },
+ {
+  "word": "não",
+  "start": 21.96,
+  "end": 22.08,
+  "raw_start": 21.96,
+  "raw_end": 22.08
+ },
+ {
+  "word": "fizer",
+  "start": 22.12,
+  "end": 22.4,
+  "raw_start": 22.12,
+  "raw_end": 22.4
+ },
+ {
+  "word": "nada",
+  "start": 22.464,
+  "end": 22.72,
+  "raw_start": 22.464,
+  "raw_end": 22.72
+ },
+ {
+  "word": "durante",
+  "start": 22.77,
+  "end": 23.12,
+  "raw_start": 22.77,
+  "raw_end": 23.12
+ },
+ {
+  "word": "seis",
+  "start": 23.184,
+  "end": 23.44,
+  "raw_start": 23.184,
+  "raw_end": 23.44
+ },
+ {
+  "word": "meses?",
+  "start": 23.533,
+  "end": 24.001,
+  "raw_start": 23.533,
+  "raw_end": 24.001
+ },
+ {
+  "word": "Adiar",
+  "start": 24.951,
+  "end": 25.36,
+  "raw_start": 24.347,
+  "raw_end": 25.36
+ },
+ {
+  "word": "também",
+  "start": 25.406,
+  "end": 25.68,
+  "raw_start": 25.406,
+  "raw_end": 25.68
+ },
+ {
+  "word": "é",
+  "start": 25.72,
+  "end": 25.76,
+  "raw_start": 25.72,
+  "raw_end": 25.76
+ },
+ {
+  "word": "uma",
+  "start": 25.8,
+  "end": 25.92,
+  "raw_start": 25.8,
+  "raw_end": 25.92
+ },
+ {
+  "word": "decisão.",
+  "start": 25.987,
+  "end": 26.65,
+  "raw_start": 25.987,
+  "raw_end": 27.16
+ },
+ {
+  "word": "Quatro:",
+  "start": 27.795,
+  "end": 28.281,
+  "raw_start": 27.36,
+  "raw_end": 28.32
+ },
+ {
+  "word": "o",
+  "start": 28.6,
+  "end": 28.88,
+  "raw_start": 28.6,
+  "raw_end": 28.88
+ },
+ {
+  "word": "que",
+  "start": 28.936,
+  "end": 29.04,
+  "raw_start": 28.92,
+  "raw_end": 29.04
+ },
+ {
+  "word": "é",
+  "start": 29.08,
+  "end": 29.12,
+  "raw_start": 29.08,
+  "raw_end": 29.12
+ },
+ {
+  "word": "que",
+  "start": 29.16,
+  "end": 29.28,
+  "raw_start": 29.16,
+  "raw_end": 29.28
+ },
+ {
+  "word": "só",
+  "start": 29.333,
+  "end": 29.44,
+  "raw_start": 29.333,
+  "raw_end": 29.44
+ },
+ {
+  "word": "eu",
+  "start": 29.493,
+  "end": 29.6,
+  "raw_start": 29.493,
+  "raw_end": 29.6
+ },
+ {
+  "word": "posso",
+  "start": 29.66,
+  "end": 30.08,
+  "raw_start": 29.66,
+  "raw_end": 30.08
+ },
+ {
+  "word": "fazer?",
+  "start": 30.12,
+  "end": 30.404,
+  "raw_start": 30.12,
+  "raw_end": 30.76
+ },
+ {
+  "word": "Tudo",
+  "start": 31.281,
+  "end": 31.36,
+  "raw_start": 30.98,
+  "raw_end": 31.36
+ },
+ {
+  "word": "o",
+  "start": 31.4,
+  "end": 31.44,
+  "raw_start": 31.4,
+  "raw_end": 31.44
+ },
+ {
+  "word": "resto",
+  "start": 31.52,
+  "end": 31.92,
+  "raw_start": 31.52,
+  "raw_end": 31.92
+ },
+ {
+  "word": "pode",
+  "start": 31.952,
+  "end": 32.08,
+  "raw_start": 31.952,
+  "raw_end": 32.08
+ },
+ {
+  "word": "ser",
+  "start": 32.14,
+  "end": 32.32,
+  "raw_start": 32.14,
+  "raw_end": 32.32
+ },
+ {
+  "word": "delegado.",
+  "start": 32.373,
+  "end": 33.04,
+  "raw_start": 32.373,
+  "raw_end": 33.04
+ },
+ {
+  "word": "Cinco:",
+  "start": 34.215,
+  "end": 34.72,
+  "raw_start": 33.38,
+  "raw_end": 34.72
+ },
+ {
+  "word": "qual",
+  "start": 35.437,
+  "end": 35.52,
+  "raw_start": 34.88,
+  "raw_end": 35.52
+ },
+ {
+  "word": "é",
+  "start": 35.56,
+  "end": 35.6,
+  "raw_start": 35.56,
+  "raw_end": 35.6
+ },
+ {
+  "word": "o",
+  "start": 35.64,
+  "end": 35.68,
+  "raw_start": 35.64,
+  "raw_end": 35.68
+ },
+ {
+  "word": "primeiro",
+  "start": 35.724,
+  "end": 36.08,
+  "raw_start": 35.724,
+  "raw_end": 36.08
+ },
+ {
+  "word": "passo",
+  "start": 36.128,
+  "end": 36.4,
+  "raw_start": 36.128,
+  "raw_end": 36.4
+ },
+ {
+  "word": "que",
+  "start": 36.44,
+  "end": 36.56,
+  "raw_start": 36.44,
+  "raw_end": 36.56
+ },
+ {
+  "word": "consigo",
+  "start": 36.608,
+  "end": 37.04,
+  "raw_start": 36.608,
+  "raw_end": 37.04
+ },
+ {
+  "word": "dar",
+  "start": 37.08,
+  "end": 37.2,
+  "raw_start": 37.08,
+  "raw_end": 37.2
+ },
+ {
+  "word": "esta",
+  "start": 37.248,
+  "end": 37.44,
+  "raw_start": 37.248,
+  "raw_end": 37.44
+ },
+ {
+  "word": "semana?",
+  "start": 37.52,
+  "end": 38.109,
+  "raw_start": 37.52,
+  "raw_end": 38.64
+ },
+ {
+  "word": "Clareza",
+  "start": 39.043,
+  "end": 39.52,
+  "raw_start": 38.747,
+  "raw_end": 39.52
+ },
+ {
+  "word": "sem",
+  "start": 39.56,
+  "end": 39.68,
+  "raw_start": 39.56,
+  "raw_end": 39.68
+ },
+ {
+  "word": "ação",
+  "start": 39.8,
+  "end": 40.16,
+  "raw_start": 39.8,
+  "raw_end": 40.16
+ },
+ {
+  "word": "é",
+  "start": 40.609,
+  "end": 40.64,
+  "raw_start": 40.4,
+  "raw_end": 40.64
+ },
+ {
+  "word": "só",
+  "start": 40.72,
+  "end": 40.88,
+  "raw_start": 40.72,
+  "raw_end": 40.88
+ },
+ {
+  "word": "mais",
+  "start": 40.928,
+  "end": 41.12,
+  "raw_start": 40.928,
+  "raw_end": 41.12
+ },
+ {
+  "word": "informação.",
+  "start": 41.177,
+  "end": 41.92,
+  "raw_start": 41.177,
+  "raw_end": 41.92
+ },
+ {
+  "word": "Guarda",
+  "start": 42.74,
+  "end": 43.04,
+  "raw_start": 42.08,
+  "raw_end": 43.04
+ },
+ {
+  "word": "isto.",
+  "start": 43.1,
+  "end": 43.472,
+  "raw_start": 43.1,
+  "raw_end": 43.96
+ },
+ {
+  "word": "Mas",
+  "start": 44.498,
+  "end": 44.56,
+  "raw_start": 44.11,
+  "raw_end": 44.56
+ },
+ {
+  "word": "há",
+  "start": 44.587,
+  "end": 44.64,
+  "raw_start": 44.587,
+  "raw_end": 44.64
+ },
+ {
+  "word": "uma",
+  "start": 44.7,
+  "end": 44.88,
+  "raw_start": 44.7,
+  "raw_end": 44.88
+ },
+ {
+  "word": "parte",
+  "start": 44.933,
+  "end": 45.2,
+  "raw_start": 44.933,
+  "raw_end": 45.2
+ },
+ {
+  "word": "que",
+  "start": 45.24,
+  "end": 45.36,
+  "raw_start": 45.24,
+  "raw_end": 45.36
+ },
+ {
+  "word": "ninguém",
+  "start": 45.4,
+  "end": 45.72,
+  "raw_start": 45.4,
+  "raw_end": 45.72
+ },
+ {
+  "word": "te",
+  "start": 45.76,
+  "end": 45.84,
+  "raw_start": 45.76,
+  "raw_end": 45.84
+ },
+ {
+  "word": "conta:",
+  "start": 45.907,
+  "end": 46.378,
+  "raw_start": 45.907,
+  "raw_end": 46.4
+ },
+ {
+  "word": "é",
+  "start": 47.093,
+  "end": 47.12,
+  "raw_start": 46.76,
+  "raw_end": 47.12
+ },
+ {
+  "word": "muito",
+  "start": 47.16,
+  "end": 47.36,
+  "raw_start": 47.16,
+  "raw_end": 47.36
+ },
+ {
+  "word": "difícil",
+  "start": 47.42,
+  "end": 47.84,
+  "raw_start": 47.42,
+  "raw_end": 47.84
+ },
+ {
+  "word": "fazer",
+  "start": 47.907,
+  "end": 48.24,
+  "raw_start": 47.907,
+  "raw_end": 48.24
+ },
+ {
+  "word": "estas",
+  "start": 48.28,
+  "end": 48.48,
+  "raw_start": 48.28,
+  "raw_end": 48.48
+ },
+ {
+  "word": "perguntas",
+  "start": 48.528,
+  "end": 49.04,
+  "raw_start": 48.528,
+  "raw_end": 49.04
+ },
+ {
+  "word": "a",
+  "start": 49.08,
+  "end": 49.12,
+  "raw_start": 49.08,
+  "raw_end": 49.12
+ },
+ {
+  "word": "ti",
+  "start": 49.173,
+  "end": 49.28,
+  "raw_start": 49.173,
+  "raw_end": 49.28
+ },
+ {
+  "word": "próprio.",
+  "start": 49.344,
+  "end": 49.87,
+  "raw_start": 49.344,
+  "raw_end": 50.56
+ },
+ {
+  "word": "Às",
+  "start": 50.659,
+  "end": 50.8,
+  "raw_start": 50.64,
+  "raw_end": 50.8
+ },
+ {
+  "word": "vezes,",
+  "start": 50.867,
+  "end": 51.343,
+  "raw_start": 50.867,
+  "raw_end": 51.6
+ },
+ {
+  "word": "precisas",
+  "start": 51.756,
+  "end": 52.08,
+  "raw_start": 51.657,
+  "raw_end": 52.08
+ },
+ {
+  "word": "de",
+  "start": 52.133,
+  "end": 52.24,
+  "raw_start": 52.133,
+  "raw_end": 52.24
+ },
+ {
+  "word": "alguém",
+  "start": 52.293,
+  "end": 52.56,
+  "raw_start": 52.293,
+  "raw_end": 52.56
+ },
+ {
+  "word": "que",
+  "start": 52.58,
+  "end": 52.64,
+  "raw_start": 52.58,
+  "raw_end": 52.64
+ },
+ {
+  "word": "veja",
+  "start": 52.72,
+  "end": 53.04,
+  "raw_start": 52.72,
+  "raw_end": 53.04
+ },
+ {
+  "word": "o",
+  "start": 53.08,
+  "end": 53.12,
+  "raw_start": 53.08,
+  "raw_end": 53.12
+ },
+ {
+  "word": "que",
+  "start": 53.14,
+  "end": 53.2,
+  "raw_start": 53.14,
+  "raw_end": 53.2
+ },
+ {
+  "word": "tu",
+  "start": 53.253,
+  "end": 53.36,
+  "raw_start": 53.253,
+  "raw_end": 53.36
+ },
+ {
+  "word": "não",
+  "start": 53.4,
+  "end": 53.52,
+  "raw_start": 53.4,
+  "raw_end": 53.52
+ },
+ {
+  "word": "estás",
+  "start": 53.56,
+  "end": 53.76,
+  "raw_start": 53.56,
+  "raw_end": 53.76
+ },
+ {
+  "word": "a",
+  "start": 53.8,
+  "end": 53.84,
+  "raw_start": 53.8,
+  "raw_end": 53.84
+ },
+ {
+  "word": "ver.",
+  "start": 53.94,
+  "end": 54.298,
+  "raw_start": 53.94,
+  "raw_end": 54.76
+ },
+ {
+  "word": "Marca",
+  "start": 55.186,
+  "end": 55.44,
+  "raw_start": 54.89,
+  "raw_end": 55.44
+ },
+ {
+  "word": "o",
+  "start": 55.48,
+  "end": 55.52,
+  "raw_start": 55.48,
+  "raw_end": 55.52
+ },
+ {
+  "word": "teu",
+  "start": 55.547,
+  "end": 55.68,
+  "raw_start": 55.547,
+  "raw_end": 55.68
+ },
+ {
+  "word": "Advising.",
+  "start": 55.747,
+  "end": 56.388,
+  "raw_start": 55.747,
+  "raw_end": 56.8
+ },
+ {
+  "word": "O",
+  "start": 56.84,
+  "end": 56.88,
+  "raw_start": 56.84,
+  "raw_end": 56.88
+ },
+ {
+  "word": "link",
+  "start": 56.944,
+  "end": 57.2,
+  "raw_start": 56.944,
+  "raw_end": 57.2
+ },
+ {
+  "word": "está",
+  "start": 57.248,
+  "end": 57.44,
+  "raw_start": 57.248,
+  "raw_end": 57.44
+ },
+ {
+  "word": "na",
+  "start": 57.493,
+  "end": 57.6,
+  "raw_start": 57.493,
+  "raw_end": 57.6
+ },
+ {
+  "word": "bio.",
+  "start": 57.68,
+  "end": 58.0,
+  "raw_start": 57.68,
+  "raw_end": 58.0
+ }
+]

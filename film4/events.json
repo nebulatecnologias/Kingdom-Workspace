@@ -1,0 +1,32 @@
+[
+ {
+  "t": 4.566,
+  "sfx": "../film2/audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 12.186,
+  "sfx": "../film2/audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 20.311,
+  "sfx": "../film2/audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 28.065,
+  "sfx": "../film2/audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 34.485,
+  "sfx": "../film2/audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 55.986,
+  "sfx": "../film/audio/sfx/encaixe.mp3",
+  "gain": -5
+ }
+]

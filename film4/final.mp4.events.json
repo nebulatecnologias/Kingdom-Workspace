@@ -1,0 +1,338 @@
+[
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#p1"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#p2"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#p3"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#p4"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#p5"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#figW"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "show",
+  "label": "#figW"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#q1"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#q2"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#q3"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#areiaC"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#areiaB"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#q4"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#caixa"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#q5"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#passo"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#orbita"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#outro"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#selo"
+ },
+ {
+  "t": 0,
+  "frame": 0,
+  "type": "hide",
+  "label": "#botao"
+ },
+ {
+  "t": 4.6,
+  "frame": 138,
+  "type": "show",
+  "label": "#p1"
+ },
+ {
+  "t": 4.6,
+  "frame": 138,
+  "type": "enter",
+  "label": "#p1"
+ },
+ {
+  "t": 4.6,
+  "frame": 138,
+  "type": "show",
+  "label": "pergunta 1"
+ },
+ {
+  "t": 4.6,
+  "frame": 138,
+  "type": "show",
+  "label": "#q1"
+ },
+ {
+  "t": 12.2,
+  "frame": 366,
+  "type": "show",
+  "label": "#p2"
+ },
+ {
+  "t": 12.2,
+  "frame": 366,
+  "type": "enter",
+  "label": "#p2"
+ },
+ {
+  "t": 12.2,
+  "frame": 366,
+  "type": "show",
+  "label": "pergunta 2"
+ },
+ {
+  "t": 12.2,
+  "frame": 366,
+  "type": "show",
+  "label": "#q2"
+ },
+ {
+  "t": 20.3333,
+  "frame": 610,
+  "type": "show",
+  "label": "#p3"
+ },
+ {
+  "t": 20.3333,
+  "frame": 610,
+  "type": "enter",
+  "label": "#p3"
+ },
+ {
+  "t": 20.3333,
+  "frame": 610,
+  "type": "show",
+  "label": "pergunta 3"
+ },
+ {
+  "t": 20.3333,
+  "frame": 610,
+  "type": "show",
+  "label": "#q3"
+ },
+ {
+  "t": 20.8667,
+  "frame": 626,
+  "type": "show",
+  "label": "#areiaC"
+ },
+ {
+  "t": 20.8667,
+  "frame": 626,
+  "type": "show",
+  "label": "#areiaB"
+ },
+ {
+  "t": 28.1,
+  "frame": 843,
+  "type": "show",
+  "label": "#p4"
+ },
+ {
+  "t": 28.1,
+  "frame": 843,
+  "type": "enter",
+  "label": "#p4"
+ },
+ {
+  "t": 28.1,
+  "frame": 843,
+  "type": "show",
+  "label": "pergunta 4"
+ },
+ {
+  "t": 28.1,
+  "frame": 843,
+  "type": "show",
+  "label": "#q4"
+ },
+ {
+  "t": 31.4333,
+  "frame": 943,
+  "type": "show",
+  "label": "#caixa"
+ },
+ {
+  "t": 34.5,
+  "frame": 1035,
+  "type": "show",
+  "label": "#p5"
+ },
+ {
+  "t": 34.5,
+  "frame": 1035,
+  "type": "enter",
+  "label": "#p5"
+ },
+ {
+  "t": 34.5,
+  "frame": 1035,
+  "type": "show",
+  "label": "pergunta 5"
+ },
+ {
+  "t": 34.5,
+  "frame": 1035,
+  "type": "show",
+  "label": "#q5"
+ },
+ {
+  "t": 38.6667,
+  "frame": 1160,
+  "type": "show",
+  "label": "#passo"
+ },
+ {
+  "t": 38.6667,
+  "frame": 1160,
+  "type": "enter",
+  "label": "#passo"
+ },
+ {
+  "t": 47.4,
+  "frame": 1422,
+  "type": "show",
+  "label": "#orbita"
+ },
+ {
+  "t": 47.4,
+  "frame": 1422,
+  "type": "enter",
+  "label": "#orbita"
+ },
+ {
+  "t": 52.6,
+  "frame": 1578,
+  "type": "show",
+  "label": "#outro"
+ },
+ {
+  "t": 52.6,
+  "frame": 1578,
+  "type": "show",
+  "label": "alguém que vê"
+ },
+ {
+  "t": 55.5,
+  "frame": 1665,
+  "type": "hide",
+  "label": "#pontos"
+ },
+ {
+  "t": 55.5,
+  "frame": 1665,
+  "type": "show",
+  "label": "#selo"
+ },
+ {
+  "t": 55.5,
+  "frame": 1665,
+  "type": "enter",
+  "label": "#mU"
+ },
+ {
+  "t": 55.5,
+  "frame": 1665,
+  "type": "enter",
+  "label": "#mL"
+ },
+ {
+  "t": 56,
+  "frame": 1680,
+  "type": "snap",
+  "label": "selo encaixa"
+ },
+ {
+  "t": 56.1667,
+  "frame": 1685,
+  "type": "show",
+  "label": "#botao"
+ },
+ {
+  "t": 56.1667,
+  "frame": 1685,
+  "type": "enter",
+  "label": "#botao"
+ }
+]

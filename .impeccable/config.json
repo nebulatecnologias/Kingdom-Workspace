@@ -206,6 +206,15 @@
         ],
         "createdAt": "2026-10-19T21:25:27.749Z",
         "reason": "Instrument Serif italic is the official Kingdom Founders headline accent face (content/brand/founders/brand.css); Claude's judgement, disclosed to user"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "film4/index.html"
+        ],
+        "createdAt": "2026-10-19T22:13:59.243Z",
+        "reason": "Video stage: the glow belongs to the luminous line-art style of the user's own reel format; not a UI page (Claude's judgement, disclosed to user)"
       }
     ]
   }

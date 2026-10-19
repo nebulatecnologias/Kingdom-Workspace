@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Cinco perguntas: O Conselheiro</title>
+<meta name="viewport" content="width=1080, height=1920">
+<!-- Reel vertical 1080x1920, ~60 s. Formato do reel 10x Mindset do utilizador (figura a traço pontilhado num anel com aura,
+     pontos de progresso, legendas palavra a palavra), com guião e desenhos novos para O Conselheiro.
+     Marca: café #2D1E17, off-white #EDE6DC, laranja #FF5E1E nos elementos activos, Google Sans. -->
+<style>
+@font-face { font-family: "Google Sans"; src: url("./assets/GoogleSans-latin.woff2") format("woff2"); font-weight: 400 700; }
+:root { --cafe: #2D1E17; --cafe2: #49372D; --off: #EDE6DC; --texto: #F3EEE6; --mudo: #9c8a7d; --laranja: #FF5E1E; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #1c120d; }
+#main { position: absolute; inset: 0; overflow: hidden; background: var(--cafe); color: var(--texto); font-family: "Google Sans", sans-serif; -webkit-font-smoothing: antialiased; }
+.luz { position: absolute; left: -110px; top: 380px; width: 1300px; height: 1300px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(73,55,45,.85), rgba(45,30,23,0) 70%); }
+.vinheta { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 45%, transparent 55%, rgba(18,10,6,.55)); }
+
+#pontos { position: absolute; left: 0; top: 150px; width: 1080px; height: 16px; }
+.pt { position: absolute; top: 2px; width: 11px; height: 11px; margin-left: -5.5px; border-radius: 50%; background: rgba(237,230,220,.22); }
+.pt i { position: absolute; inset: 0; border-radius: 50%; background: var(--off); box-shadow: 0 0 8px rgba(237,230,220,.8); }
+
+#arte { position: absolute; left: 90px; top: 380px; width: 600px; height: 600px; transform: scale(1.5); transform-origin: 0 0; }
+.lay { position: absolute; left: 0; top: 0; width: 600px; height: 600px; overflow: visible; }
+.lay .d { fill: none; stroke: var(--off); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.lay .o { stroke: var(--laranja); stroke-width: 2.4; }
+.lay .m { fill: none; stroke: #fff; stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.lay .pon { fill: none; stroke: var(--off); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: .01 6.2; }
+.lay .anel { fill: none; stroke: rgba(237,230,220,.42); stroke-width: 1.6; stroke-dasharray: 1.5 7; stroke-linecap: round; }
+.lay .aura { fill: none; stroke: rgba(255,94,30,.75); stroke-width: 2; }
+.lay .rot { font-family: "Google Sans", sans-serif; font-size: 15px; fill: var(--mudo); letter-spacing: .02em; }
+.brilho { filter: url(#gl); }
+
+#cap { position: absolute; left: 110px; width: 860px; top: 1330px; text-align: center; font-weight: 500; font-size: 52px; line-height: 1.22; letter-spacing: -.02em; }
+#cap span { display: inline-block; will-change: transform; }
+#cap span.dito { color: var(--texto); }
+#cap span.vem { color: var(--mudo); }
+#cap span.k { font-weight: 700; }
+#cap span.k.dito { text-shadow: 0 0 14px rgba(255,236,224,.55), 0 0 2px rgba(255,255,255,.6); }
+
+#selo { position: absolute; left: 380px; top: 640px; width: 320px; height: 320px; }
+#anel { position: absolute; inset: 0; background: url("./assets/logo-offwhite.png") center/100% 100% no-repeat;
+  -webkit-mask-image: radial-gradient(circle closest-side at 50% 50%, transparent 0 74%, #000 75.5%); mask-image: radial-gradient(circle closest-side at 50% 50%, transparent 0 74%, #000 75.5%); }
+.metade { position: absolute; inset: 0; width: 320px; height: 320px; overflow: visible; }
+.metade path { fill: #F3EEE6; }
+#botao { position: absolute; left: 50%; top: 1560px; height: 92px; padding: 0 46px; transform: translateX(-50%); border-radius: 999px; background: #FBF7F2; color: #2D1E17;
+  font-weight: 700; font-size: 34px; line-height: 92px; white-space: nowrap; box-shadow: 0 0 40px rgba(255,240,228,.35); display: flex; align-items: center; gap: 16px; }
+#botao b { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: var(--laranja); }
+</style>
+</head>
+<body>
+<div id="main">
+  <div class="luz" id="luz"></div><div class="vinheta"></div>
+  <div id="pontos">
+    <div class="pt" style="left:472px"><i id="p1"></i></div><div class="pt" style="left:506px"><i id="p2"></i></div>
+    <div class="pt" style="left:540px"><i id="p3"></i></div><div class="pt" style="left:574px"><i id="p4"></i></div>
+    <div class="pt" style="left:608px"><i id="p5"></i></div>
+  </div>
+
+  <div id="arte">
+    <svg width="0" height="0" style="position:absolute"><defs>
+      <filter id="gl" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs></svg>
+
+    <!-- a figura: anel, aura e um pensador a traço pontilhado (desenho original) -->
+    <div id="figW" class="lay" style="transform-origin:300px 300px">
+      <svg class="lay" viewBox="0 0 600 600">
+        <circle class="anel" id="anelC" cx="300" cy="300" r="214" style="transform-origin:300px 300px"/>
+        <path class="aura brilho" id="aura" d=""/>
+      </svg>
+      <svg class="lay brilho" id="fig" viewBox="0 0 600 600" style="transform-origin:300px 330px">
+        <defs><mask id="mf" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="600">
+          <g id="mfg">
+            <circle class="m" pathLength="1" cx="300" cy="196" r="48"/>
+            <path class="m" pathLength="1" d="M276 243 C276 268 270 284 236 294 C194 306 166 330 158 372 L152 440"/>
+            <path class="m" pathLength="1" d="M324 243 C324 268 330 284 364 294 C406 306 434 330 442 372 L448 440"/>
+            <path class="m" pathLength="1" d="M410 340 C388 330 358 300 338 262 C332 250 320 246 312 252 C304 258 306 270 316 274"/>
+          </g>
+        </mask></defs>
+        <g mask="url(#mf)">
+          <circle class="pon" cx="300" cy="196" r="48"/>
+          <path class="pon" d="M276 243 C276 268 270 284 236 294 C194 306 166 330 158 372 L152 440"/>
+          <path class="pon" d="M324 243 C324 268 330 284 364 294 C406 306 434 330 442 372 L448 440"/>
+          <path class="pon" d="M410 340 C388 330 358 300 338 262 C332 250 320 246 312 252 C304 258 306 270 316 274"/>
+        </g>
+      </svg>
+      <svg class="lay" id="ponto" viewBox="0 0 600 600" style="transform-origin:300px 352px"><circle cx="300" cy="352" r="6" fill="#FF5E1E" class="brilho"/></svg>
+    </div>
+
+    <!-- Q1: a lanterna (o que já sabes) -->
+    <svg class="lay brilho" id="q1" viewBox="0 0 600 600">
+      <path class="d" pathLength="1" d="M520 96 V118 M506 96 H534"/>
+      <rect class="d" pathLength="1" x="492" y="118" width="56" height="86" rx="10"/>
+      <path class="d o" pathLength="1" d="M520 186 C506 176 508 160 520 146 C532 160 534 176 520 186 Z"/>
+      <path class="d o" id="raios" pathLength="1" d="M486 150 L410 132 M486 166 L400 168 M486 182 L414 204"/>
+      <text class="rot" x="492" y="232">o que já sabes</text>
+    </svg>
+    <!-- Q2: o iceberg (sintoma / causa) -->
+    <svg class="lay brilho" id="q2" viewBox="0 0 600 600">
+      <path class="d" pathLength="1" d="M400 250 H586"/>
+      <path class="d" pathLength="1" d="M460 250 L486 206 L512 250"/>
+      <path class="d o" id="causa" pathLength="1" d="M440 250 L424 316 L470 382 L538 342 L552 286 L530 250"/>
+      <text class="rot" x="520" y="214">sintoma</text>
+      <text class="rot" id="rcausa" x="452" y="410">causa</text>
+    </svg>
+    <!-- Q3: a ampulheta (seis meses) -->
+    <svg class="lay brilho" id="q3" viewBox="0 0 600 600">
+      <path class="d" pathLength="1" d="M470 110 H566 M470 330 H566 M478 110 C478 180 516 196 518 220 C516 244 478 260 478 330 M558 110 C558 180 520 196 518 220 C520 244 558 260 558 330"/>
+      <text class="rot" x="486" y="360">6 meses</text>
+    </svg>
+    <svg class="lay" id="areiaC" viewBox="0 0 600 600" style="transform-origin:518px 210px"><path d="M488 132 H548 C548 170 524 190 518 210 C512 190 488 170 488 132 Z" fill="#FF5E1E" opacity=".85"/></svg>
+    <svg class="lay" id="areiaB" viewBox="0 0 600 600" style="transform-origin:518px 326px"><path d="M484 326 C496 290 512 276 518 262 C524 276 540 290 552 326 Z" fill="#FF5E1E" opacity=".85"/></svg>
+    <!-- Q4: delegar -->
+    <svg class="lay brilho" id="q4" viewBox="0 0 600 600">
+      <circle class="d" pathLength="1" cx="520" cy="250" r="24"/>
+      <path class="d" pathLength="1" d="M482 340 C484 302 500 286 520 286 C540 286 556 302 558 340"/>
+      <path class="d" pathLength="1" d="M388 300 C420 282 450 280 478 288 M470 280 L480 288 L470 297" style="stroke-dasharray:.06 .04"/>
+      <text class="rot" x="486" y="370">a tua equipa</text>
+    </svg>
+    <svg class="lay brilho" id="caixa" viewBox="0 0 600 600"><rect class="d o" pathLength="1" x="372" y="272" width="30" height="30" rx="5" style="stroke-dashoffset:0"/></svg>
+    <!-- Q5: o primeiro passo -->
+    <svg class="lay brilho" id="q5" viewBox="0 0 600 600">
+      <path class="d" pathLength="1" d="M396 400 H446 V356 H496 V312 H546 V268 H586"/>
+      <text class="rot" x="400" y="430">esta semana</text>
+    </svg>
+    <svg class="lay brilho" id="passo" viewBox="0 0 600 600" style="transform-origin:421px 392px"><circle cx="421" cy="392" r="8" fill="#FF5E1E"/></svg>
+
+    <!-- fecho: perguntas à volta da cabeça e a segunda figura (quem vê o que tu não vês) -->
+    <svg class="lay" id="orbita" viewBox="0 0 600 600" style="transform-origin:300px 196px">
+      <text x="372" y="150" font-family="Google Sans" font-size="34" fill="#FF5E1E" class="brilho">?</text>
+      <text x="212" y="140" font-family="Google Sans" font-size="26" fill="#EDE6DC" opacity=".7">?</text>
+      <text x="236" y="276" font-family="Google Sans" font-size="22" fill="#EDE6DC" opacity=".55">?</text>
+    </svg>
+    <svg class="lay brilho" id="outro" viewBox="0 0 600 600">
+      <circle class="d" pathLength="1" cx="78" cy="236" r="36"/>
+      <path class="d" pathLength="1" d="M20 410 C22 330 44 296 78 296 C112 296 134 330 136 410"/>
+      <path class="d o" pathLength="1" d="M116 230 C170 214 220 204 262 200" style="stroke-dasharray:.04 .03"/>
+    </svg>
+  </div>
+
+  <div id="selo">
+    <div id="anel"></div>
+    <svg class="metade" id="mU" viewBox="0 0 360 360"><path d="M184 60 L203 151 L298 176 L181 176 L181 68 Z"/></svg>
+    <svg class="metade" id="mL" viewBox="0 0 360 360"><path d="M175 298 L156 207 L61 182 L178 182 L178 290 Z"/></svg>
+  </div>
+
+  <div id="cap"></div>
+  <div id="botao"><b></b>Marca o teu Advising · link na bio</div>
+</div>
+
+<script src="./captions.js"></script>
+<script src="./runtime/vendor/gsap.min.js"></script>
+<script src="./runtime/motion.js"></script>
+<script>
+const DUR = Math.ceil((window.LINES[window.LINES.length - 1].e + 1.6) * 30) / 30;
+const M = Motion.film({ fps: 30, duration: DUR, width: 1080, height: 1920, clock: 'smooth' });
+const F = s => Math.round(s * 30), FIM = Math.round(DUR * 30);
+const N = window.NUMS.map(n => F(n.s)), MK = window.MARKS, CAPS = window.CAP;
+const chunkAt = w0 => F(CAPS.find(c => c.words[0][0].startsWith(w0) && c.words[0][1] > 40).words[0][1]);
+const FECHO = F(window.LINES[6].s), DIFICIL = chunkAt('é'), ALGUEM = F(MK['alguém']), CTA = F(window.LINES[7].s);
+const Q = [...N, FECHO];
+
+function traco(sel, a, b, o = {}) {
+  const els = typeof sel === 'string' ? document.querySelectorAll(sel) : sel, st = o.stagger == null ? 3 : o.stagger, dur = o.dur || 16;
+  Array.from(els).forEach((el, i) => {
+    const s = a + i * st, ks = [[0, 1]];
+    if (s > 0) ks.push([s, 1]);
+    ks.push([s + dur, 0, 'softLand']);
+    if (b != null) { ks.push([b - 10, 0]); ks.push([b, -1, 'accelExit']); }
+    M.kf(el, 'strokeDashoffset', ks);
+  });
+}
+const cena = (id, a, b) => { M.hide(id, 0); M.show(id, a, b); };
+
+/* ---------- pontos ---------- */
+N.forEach((f, i) => { const id = '#p' + (i + 1); M.hide(id, 0); M.show(id, f); M.enter(id, { at: f, frames: 9, ease: 'softLand', from: { scale: 2.4 } }); M.mark(f, 'show', 'pergunta ' + (i + 1)); });
+M.hide('#pontos', CTA);
+
+/* ---------- a figura ---------- */
+cena('#figW', 0, CTA);
+traco('#mfg .m', 2, null, { stagger: 6, dur: 26 });
+M.kf('#ponto', 'scale', [[0, 0], [24, 0], [34, 1, 'softLand'], [F(MK['Quase']), 1], [F(MK['Quase']) + 10, 2.1, 'softLand'], [F(MK['Quase']) + 40, 1.3], [FIM, 1.3]]);
+// a figura recua para a esquerda enquanto há um desenho de pergunta, e volta ao centro no fecho
+M.kf('#figW', 'x', [[0, 0], [N[0], 0], [N[0] + 16, -74, 'softInOut'], [FECHO, -74], [FECHO + 18, 0, 'softInOut'], [ALGUEM, 0], [ALGUEM + 18, 58, 'softInOut']]);
+M.kf('#figW', 'scale', [[0, 1], [N[0], 1], [N[0] + 16, .8, 'softInOut'], [FECHO, .8], [FECHO + 18, 1, 'softInOut'], [ALGUEM, 1], [ALGUEM + 18, .84, 'softInOut'], [CTA - 10, .84], [CTA, .6, 'accelExit']]);
+
+M.kf('#anelC', 'rotation', [[0, 0], [FIM, 48]]);
+const lz = [], lo = []; for (let f = 0, i = 0; f <= FIM; f += 54, i++) { lz.push([f, i % 2 ? 1.22 : .96, 'softInOut']); lo.push([f, i % 2 ? 1 : .55, 'softInOut']); }
+M.kf('#luz', 'scale', lz); M.kf('#luz', 'opacity', lo);
+const resp = []; for (let f = 0; f <= FIM; f += 45) resp.push([f, (f / 45) % 2 ? 1.025 : 1, 'softInOut']);
+M.kf('#fig', 'scale', resp);
+
+/* ---------- Q1..Q5 ---------- */
+cena('#q1', Q[0], Q[1]); traco('#q1 .d', Q[0] + 8, Q[1], { stagger: 5 });
+M.kf('#q1 .rot', 'opacity', [[0, 0], [Q[0] + 24, 0], [Q[0] + 34, 1], [Q[1] - 10, 1], [Q[1], 0]]);
+cena('#q2', Q[1], Q[2]); traco(document.querySelectorAll('#q2 .d:not(.o)'), Q[1] + 8, Q[2], { stagger: 6 });
+traco('#causa', F(MK['Vendas']) - 30, Q[2], { dur: 30 });
+M.kf('#q2 .rot', 'opacity', [[0, 0], [Q[1] + 24, 0], [Q[1] + 34, 1], [Q[2] - 10, 1], [Q[2], 0]]);
+cena('#q3', Q[2], Q[3]); cena('#areiaC', Q[2] + 16, Q[3]); cena('#areiaB', Q[2] + 16, Q[3]);
+traco('#q3 .d', Q[2] + 6, Q[3], { dur: 22 });
+M.kf('#areiaC', 'scaleY', [[0, 1], [Q[2] + 20, 1], [Q[3] - 12, .12]]);
+M.kf('#areiaB', 'scaleY', [[0, .1], [Q[2] + 20, .1], [Q[3] - 12, 1]]);
+M.kf('#q3 .rot', 'opacity', [[0, 0], [Q[2] + 24, 0], [Q[2] + 34, 1], [Q[3] - 10, 1], [Q[3], 0]]);
+cena('#q4', Q[3], Q[4]); cena('#caixa', F(MK['Tudo']) - 4, Q[4]);
+traco('#q4 .d', Q[3] + 8, Q[4], { stagger: 6 });
+M.kf('#caixa', 'x', [[0, 900], [F(MK['Tudo']) - 5, 900], [F(MK['Tudo']) - 4, 0], [F(MK['Tudo']), 0], [F(MK['Tudo']) + 30, 110, 'softInOut']]);
+M.kf('#caixa', 'y', [[0, 0], [F(MK['Tudo']), 0], [F(MK['Tudo']) + 15, -14, 'softInOut'], [F(MK['Tudo']) + 30, 20, 'softInOut']]);
+M.kf('#q4 .rot', 'opacity', [[0, 0], [Q[3] + 24, 0], [Q[3] + 34, 1], [Q[4] - 10, 1], [Q[4], 0]]);
+cena('#q5', Q[4], Q[5]); cena('#passo', F(MK['Clareza']) - 20, Q[5]);
+traco('#q5 .d', Q[4] + 8, Q[5], { dur: 26 });
+M.enter('#passo', { at: F(MK['Clareza']) - 20, frames: 10, ease: 'softLand', from: { y: -60, scale: 1.4 } });
+M.kf('#q5 .rot', 'opacity', [[0, 0], [Q[4] + 24, 0], [Q[4] + 34, 1], [Q[5] - 10, 1], [Q[5], 0]]);
+
+/* ---------- fecho ---------- */
+cena('#orbita', DIFICIL, ALGUEM + 6);
+M.enter('#orbita', { at: DIFICIL, frames: 12, ease: 'softLand', from: { scale: .6 } });
+M.kf('#orbita', 'rotation', [[0, 0], [DIFICIL, 0], [ALGUEM + 6, 70]]);
+cena('#outro', ALGUEM, CTA);
+traco('#outro .d', ALGUEM + 4, CTA, { stagger: 6, dur: 20 });
+M.mark(ALGUEM, 'show', 'alguém que vê');
+
+/* ---------- CTA: o selo encaixa ---------- */
+cena('#selo', CTA, FIM + 1);
+M.enter('#mU', { at: CTA, frames: 15, ease: 'softLand', from: { y: -620 } });
+M.enter('#mL', { at: CTA, frames: 15, ease: 'softLand', from: { y: 620 } });
+M.kf('#anel', 'rotation', [[0, -48], [CTA, -48], [CTA + 30, 0, 'softLand'], [FIM, 14]]);
+M.kf('#anel', 'scale', [[0, 1.14], [CTA, 1.14], [CTA + 26, 1, 'softLand']]);
+M.mark(CTA + 15, 'snap', 'selo encaixa');
+cena('#botao', CTA + 20, FIM + 1);
+M.enter('#botao', { at: CTA + 20, frames: 14, ease: 'softLand', from: { y: 30 } });
+
+/* ---------- renderizador puro: aura ondulada e legendas ---------- */
+const aura = document.getElementById('aura');
+function auraAt(t) {
+  let d = '';
+  for (let i = 0; i <= 160; i++) {
+    const a = i / 160 * Math.PI * 2, r = 190 + 8 * Math.sin(14 * a + t * 3.4) + 4 * Math.sin(5 * a - t * 1.9);
+    d += (i ? 'L' : 'M') + (300 + r * Math.cos(a)).toFixed(1) + ' ' + (300 + r * Math.sin(a)).toFixed(1);
+  }
+  aura.setAttribute('d', d + 'Z');
+  aura.style.opacity = Math.min(1, t / .8).toFixed(3);
+}
+const cap = document.getElementById('cap'), out = Motion.ease.softLand;
+let lastKey = '';
+function legenda(t) {
+  let c = -1;
+  for (let i = 0; i < CAPS.length; i++) {
+    const w = CAPS[i].words, s = w[0][1] - .12, nx = i + 1 < CAPS.length ? CAPS[i + 1].words[0][1] - .12 : 999, e = Math.min(nx, w[w.length - 1][2] + .9);
+    if (t >= s && t < e) { c = i; break; }
+  }
+  if (c < 0) { if (lastKey !== '') { cap.innerHTML = ''; lastKey = ''; } return; }
+  const ch = CAPS[c], n = ch.words.filter(w => t >= w[1] - .05).length, key = c + ':' + n;
+  if (key !== lastKey) {
+    cap.innerHTML = ch.words.map((w, j) => `<span class="${j < n ? 'dito' : 'vem'}${j === ch.key ? ' k' : ''}" data-s="${w[1]}">${w[0]}</span>`).join(' ');
+    lastKey = key;
+  }
+  cap.querySelectorAll('span').forEach(sp => {
+    const age = t - (+sp.dataset.s - .05), p = Math.max(0, Math.min(1, age / .18));
+    sp.style.transform = 'translateY(' + (age < 0 ? 0 : 6 * (1 - out(p))).toFixed(2) + 'px)';
+  });
+}
+const baseSeek = window.__seek;
+window.__seek = t => { baseSeek(t); const tt = Math.max(0, Math.min(DUR, t)); auraAt(tt); legenda(tt); };
+window.__ready = Motion.loaded().then(() => { window.__seek(0);
+  if (/selftest/.test(location.search)) { const r = Motion.selfTest(M, { samples: 24 }); document.documentElement.setAttribute('data-selftest', JSON.stringify({ ok: r.ok, samples: r.samples, elements: r.elements, mismatches: r.mismatches.slice(0, 3) })); } });
+</script>
+</body>
+</html>
