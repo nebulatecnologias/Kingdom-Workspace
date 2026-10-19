@@ -215,6 +215,24 @@
         ],
         "createdAt": "2026-10-19T22:13:59.243Z",
         "reason": "Video stage: the glow belongs to the luminous line-art style of the user's own reel format; not a UI page (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "film4/index.html"
+        ],
+        "createdAt": "2026-10-19T22:14:31.149Z",
+        "reason": "Video stage: clipping is the fixed 1080x1920 frame and the warm radial light is the scene's single light source behind the figure (it breathes to give the picture motion); not a UI page (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "film4/index.html"
+        ],
+        "createdAt": "2026-10-19T22:14:31.160Z",
+        "reason": "Video stage: clipping is the fixed 1080x1920 frame and the warm radial light is the scene's single light source behind the figure (it breathes to give the picture motion); not a UI page (Claude's judgement, disclosed to user)"
       }
     ]
   }
