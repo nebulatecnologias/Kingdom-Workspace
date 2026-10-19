@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- Molde dos flyers do Escala Previsível (anúncios Meta).
+     Lê o texto da URL: ?g=gancho&s=subtítulo&f=feed|story&t=escuro|claro
+     No gancho, *palavras* entre asteriscos ficam a verde.
+     Gerado em PNG por tools/criativos/escala/render.mjs. -->
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#021D10; --fundo-2:#0B3D22; --texto:#F7FBF8; --texto-2:#C3DCCB; --texto-3:#8FC1A2;
+  --verde:#00BD36; --sobre-verde:#00210F; --linha:rgba(236,246,239,.14);
+}
+.claro{ --fundo:#F3F7F2; --fundo-2:#E2EDE3; --texto:#00341A; --texto-2:#2F5641; --texto-3:#4B6D58; --linha:rgba(0,52,26,.14); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ background:transparent; }
+body{ font-family:'Google Sans','Product Sans',Roboto,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+.flyer{ position:relative; width:1080px; height:1350px; overflow:hidden; color:var(--texto);
+  background:radial-gradient(90% 60% at 50% 62%, var(--fundo-2), var(--fundo) 70%); display:flex; flex-direction:column; padding:84px 80px 76px; }
+.flyer.story{ height:1920px; padding:250px 80px 300px; }   /* zonas livres do topo e do fundo das stories */
+/* o caminho do mapa: tracejado com pontos, atrás de tudo */
+.rota{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.rota-story,.story .rota-feed{ display:none; }
+.story .rota-story{ display:block; }
+.rota path{ fill:none; stroke:var(--verde); stroke-width:3; stroke-dasharray:2 16; stroke-linecap:round; opacity:.55; }
+.rota circle{ fill:var(--verde); }
+.rota .alvo{ fill:none; stroke:var(--verde); stroke-width:3; }
+.topo{ display:flex; align-items:center; gap:14px; font-size:26px; color:var(--texto-2); position:relative; }
+.topo .selo{ width:48px; height:48px; border-radius:14px; background:#00421F; display:grid; place-items:center; }
+.topo .selo svg{ width:26px; height:26px; color:var(--verde); }
+.topo b{ font-weight:500; color:var(--texto); }
+h1{ position:relative; margin-top:56px; font-weight:500; font-size:96px; line-height:1.0; letter-spacing:-.045em; text-wrap:balance; }
+h1 em{ font-style:normal; color:var(--verde); }
+.sub{ position:relative; margin-top:26px; font-size:34px; line-height:1.3; color:var(--texto-2); max-width:880px; text-wrap:pretty; }
+.produto{ position:relative; margin:auto -40px 0; }
+.produto img{ width:100%; height:auto; display:block; filter:drop-shadow(0 30px 40px rgba(0,0,0,.35)); }
+.oferta{ position:relative; margin-top:34px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.preco s{ display:block; font-size:30px; color:var(--texto-3); text-decoration-thickness:2px; }
+.preco b{ font-weight:500; font-size:104px; line-height:.95; letter-spacing:-.05em; }
+.preco b small{ font-size:36px; letter-spacing:0; margin-left:6px; color:var(--texto-2); }
+.cta{ display:inline-flex; align-items:center; gap:14px; height:96px; padding:0 44px; border-radius:999px; background:var(--verde); color:var(--sobre-verde);
+  font-size:34px; font-weight:500; box-shadow:0 14px 30px -14px rgba(0,0,0,.55); white-space:nowrap; }
+.cta svg{ width:30px; height:30px; }
+.factos{ position:relative; margin-top:30px; padding-top:26px; border-top:1px solid var(--linha); display:flex; justify-content:space-between; font-size:26px; color:var(--texto-2); }
+.factos span{ display:inline-flex; align-items:center; gap:10px; }
+.factos svg{ width:28px; height:28px; color:var(--verde); }
+.story h1{ font-size:108px; margin-top:70px; }
+.story .sub{ font-size:38px; }
+.story .oferta{ flex-direction:column; align-items:flex-start; gap:30px; }
+.story .cta{ width:100%; justify-content:center; height:110px; font-size:38px; }
+.story .factos{ flex-direction:column; gap:14px; }
+</style>
+</head>
+<body>
+<div class="flyer" id="flyer">
+  <svg class="rota rota-feed" viewBox="0 0 1080 1350" aria-hidden="true">
+    <path d="M-10 1060 C 160 1010, 140 900, 300 860 S 640 840, 700 690 S 980 520, 1000 300"/>
+    <circle class="alvo" cx="1000" cy="300" r="20"/><circle cx="1000" cy="300" r="8"/>
+  </svg>
+  <svg class="rota rota-story" viewBox="0 0 1080 1920" aria-hidden="true">
+    <path d="M-10 1700 C 200 1640, 150 1500, 320 1440 S 660 1400, 720 1180 S 980 760, 1000 430"/>
+    <circle class="alvo" cx="1000" cy="430" r="20"/><circle cx="1000" cy="430" r="8"/>
+  </svg>
+  <div class="topo">
+    <span class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h4v-4h4v-4h4V6h4"/></svg></span>
+    <span><b>Escala Previsível</b> · Shelton Douglas</span>
+  </div>
+  <h1 id="gancho"></h1>
+  <p class="sub" id="sub"></p>
+  <div class="produto"><img src="../../../escala/img/pacote.webp" alt=""></div>
+  <div class="oferta">
+    <div class="preco"><s>947 MT</s><b>325<small>MT</small></b></div>
+    <span class="cta" id="cta">Quero o mapa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+  </div>
+  <div class="factos">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5h15a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"/><path d="M3.5 7.5V6a2 2 0 0 1 2-2h10v3.5"/><path d="M20.5 12h-4a2 2 0 0 0 0 4h4"/></svg>Pagas por M-Pesa</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>Acesso imediato</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7.5-3.2 7.5-9.5V5.6L12 2.5 4.5 5.6V12c0 6.3 7.5 9.5 7.5 9.5Z"/><path d="m8.8 12 2.3 2.3 4.2-4.6"/></svg>Garantia de 7 dias</span>
+  </div>
+</div>
+<script>
+  var q = new URLSearchParams(location.search), f = document.getElementById("flyer");
+  var esc = function(t){ return t.replace(/[&<>]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]; }); };
+  document.getElementById("gancho").innerHTML = esc(q.get("g") || "Tens o carro. Falta-te o *mapa.*").replace(/\*(.+?)\*/g, "<em>$1</em>");
+  document.getElementById("sub").textContent = q.get("s") || "Playbook, masterclass de 1 hora e modelos de funis para escalares o teu negócio digital.";
+  if(q.get("cta")) document.getElementById("cta").firstChild.textContent = q.get("cta") + " ";
+  if(q.get("f") === "story") f.classList.add("story");
+  if(q.get("t") === "claro") f.classList.add("claro");
+</script>
+</body>
+</html>
