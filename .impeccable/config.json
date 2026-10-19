@@ -170,6 +170,24 @@
         ],
         "createdAt": "2026-10-13T08:05:53.288Z",
         "reason": "The flagged element is the horizon rim (.aro): border-top on a 2600px circle draws the planet's arc, the same technique as the live site's .fecho .horizonte; not a card (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "film2/index.html"
+        ],
+        "createdAt": "2026-10-19T21:16:18.639Z",
+        "reason": "Video stage for a line-art reel: the glow is the luminous stroke style of the film and clipping is the fixed 1080x1920 frame; not a UI page (Claude's judgement, disclosed to user)"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "film2/index.html"
+        ],
+        "createdAt": "2026-10-19T21:16:18.663Z",
+        "reason": "Video stage for a line-art reel: the glow is the luminous stroke style of the film and clipping is the fixed 1080x1920 frame; not a UI page (Claude's judgement, disclosed to user)"
       }
     ]
   }

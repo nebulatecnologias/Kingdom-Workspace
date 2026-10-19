@@ -1,0 +1,47 @@
+[
+ {
+  "t": 4.95,
+  "sfx": "audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 8.742,
+  "sfx": "audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 16.837,
+  "sfx": "audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 23.196,
+  "sfx": "audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 31.201,
+  "sfx": "audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 36.231,
+  "sfx": "audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 42.49,
+  "sfx": "audio/sfx/toque.mp3",
+  "gain": -15
+ },
+ {
+  "t": 52.55,
+  "sfx": "audio/sfx/ordem.mp3",
+  "gain": -7
+ },
+ {
+  "t": 53.85,
+  "sfx": "audio/sfx/fim.mp3",
+  "gain": -9
+ }
+]

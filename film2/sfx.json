@@ -1,0 +1,6 @@
+[
+ {"id": "toque", "prompt": "single soft warm wooden marimba tick, gentle and short, close, no reverb tail", "seconds": 0.6},
+ {"id": "ordem", "prompt": "several thin metal rods sliding and snapping neatly into place, one tidy satisfying click at the end, short", "seconds": 1.0},
+ {"id": "fim", "prompt": "warm soft low cinematic swell with a gentle shimmer, calm and confident, fades naturally", "seconds": 3.0},
+ {"id": "cama", "prompt": "calm minimal ambient music bed, warm soft analog pad with slow subtle pulse and gentle low bass, reflective and focused, steady, no drums, no vocals, seamless loop", "seconds": 21}
+]

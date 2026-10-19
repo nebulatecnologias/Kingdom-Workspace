@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Sete sinais: Kingdom Founders</title>
+<meta name="viewport" content="width=1080, height=1920">
+<!-- Reel vertical 1080x1920, 57 s, 30 fps. Guião original da Kingdom ("Sete sinais de que o teu negócio depende demasiado de ti"),
+     voz ElevenLabs (George, v3). Marca Kingdom Founders: preto, luz âmbar, dourado #C29D5A, Aptos + Instrument Serif itálico.
+     Traço fino luminoso; os traços activos a laranja #FF5E1E (pedido do utilizador). Composição e desenhos originais. -->
+<style>
+@font-face { font-family: "Aptos"; font-weight: 300; src: url("./fonts/aptos-light.ttf") format("truetype"); }
+@font-face { font-family: "Aptos"; font-weight: 400; src: url("./fonts/aptos.ttf") format("truetype"); }
+@font-face { font-family: "Aptos"; font-weight: 600; src: url("./fonts/aptos-semibold.ttf") format("truetype"); }
+@font-face { font-family: "Aptos"; font-weight: 700; src: url("./fonts/aptos-bold.ttf") format("truetype"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; src: url("./fonts/instrument-serif-italic.woff2") format("woff2"); }
+:root { --gold: #C29D5A; --gold-l: #D6B87B; --sand: #E8D9B8; --mist: #CBC8C8; --white: #F7F3EC; --laranja: #FF5E1E; --amber: #7A4A12;
+  --sans: "Aptos", "Inter", Arial, sans-serif; --serif: "Instrument Serif", Georgia, serif; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+#main { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000; color: var(--white); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+.ambar { position: absolute; left: 50%; top: -520px; width: 1700px; height: 1150px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(122,74,18,.55), rgba(122,74,18,.18) 55%, transparent); }
+.chao { position: absolute; left: 50%; top: 520px; width: 1100px; height: 900px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(194,157,90,.07), transparent 70%); }
+
+/* progresso: sete pontos */
+#pontos { position: absolute; left: 0; top: 150px; width: 1080px; height: 20px; }
+.pt { position: absolute; top: 3px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; box-shadow: inset 0 0 0 1.6px rgba(232,217,184,.38); }
+.pt i { position: absolute; inset: 0; border-radius: 50%; background: var(--laranja); box-shadow: 0 0 10px rgba(255,94,30,.75); }
+#anelPt { position: absolute; top: -4px; left: 0; width: 26px; height: 26px; margin-left: -13px; border-radius: 50%; box-shadow: inset 0 0 0 1.6px var(--laranja); }
+
+/* número do sinal */
+.num { position: absolute; left: 0; top: 196px; width: 1080px; text-align: center; font-family: var(--serif); font-style: italic; font-size: 132px; line-height: 132px; color: var(--gold); letter-spacing: -.02em; }
+
+/* palco do desenho: 600x600 unidades, escalado para 760 px */
+#arte { position: absolute; left: 90px; top: 340px; width: 600px; height: 600px; transform: scale(1.5); transform-origin: 0 0; }
+.lay { position: absolute; left: 0; top: 0; width: 600px; height: 600px; overflow: visible; }
+.lay .d { fill: none; stroke: var(--sand); stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.lay .o { stroke: var(--laranja); stroke-width: 2.6; }
+.lay .g { stroke: var(--gold); stroke-width: 2.6; }
+.lay .f { fill: var(--laranja); stroke: none; }
+.lay .s { fill: none; stroke: rgba(232,217,184,.35); stroke-width: 1.6; stroke-dasharray: 2 7; stroke-linecap: round; }
+.brilho { filter: url(#gl); }
+#fogo1 .d, #fogo2 .d, #fogo3 .d { stroke-dashoffset: 0; }
+
+/* legendas palavra a palavra */
+#cap { position: absolute; left: 90px; width: 900px; top: 1310px; text-align: center; font-weight: 600; font-size: 66px; line-height: 1.1; letter-spacing: -.035em; word-spacing: .04em; color: var(--white); }
+#cap span { display: inline-block; will-change: transform; }
+#cap span.k { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.169em; line-height: .9; color: var(--gold); letter-spacing: -.02em; }
+#arroba { position: absolute; left: 50%; top: 1520px; height: 72px; padding: 0 34px; transform: translateX(-50%); border-radius: 999px; white-space: nowrap;
+  box-shadow: inset 0 0 0 1.6px rgba(194,157,90,.7); font-size: 40px; line-height: 72px; font-weight: 400; color: var(--sand); letter-spacing: -.01em; }
+</style>
+</head>
+<body>
+<div id="main">
+  <div class="ambar" id="ambar"></div>
+  <div class="chao"></div>
+
+  <div id="pontos">
+    <div class="pt" style="left:438px"><i id="p1"></i></div>
+    <div class="pt" style="left:472px"><i id="p2"></i></div>
+    <div class="pt" style="left:506px"><i id="p3"></i></div>
+    <div class="pt" style="left:540px"><i id="p4"></i></div>
+    <div class="pt" style="left:574px"><i id="p5"></i></div>
+    <div class="pt" style="left:608px"><i id="p6"></i></div>
+    <div class="pt" style="left:642px"><i id="p7"></i></div>
+    <div id="anelPt"></div>
+  </div>
+  <div class="num" id="n1">1</div><div class="num" id="n2">2</div><div class="num" id="n3">3</div><div class="num" id="n4">4</div>
+  <div class="num" id="n5">5</div><div class="num" id="n6">6</div><div class="num" id="n7">7</div>
+
+  <div id="arte">
+    <svg width="0" height="0" style="position:absolute"><defs>
+      <filter id="gl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs></svg>
+
+    <!-- ABERTURA e FECHO: o globo da Kingdom Founders, a traço -->
+    <svg class="lay brilho" id="globo" viewBox="0 0 600 600">
+      <circle class="d g" pathLength="1" cx="300" cy="300" r="205"/>
+      <ellipse class="d" id="mer1" pathLength="1" cx="300" cy="300" rx="110" ry="205"/>
+      <ellipse class="d" id="mer2" pathLength="1" cx="300" cy="300" rx="44" ry="205"/>
+      <path class="d" pathLength="1" d="M128 190 Q300 230 472 190"/>
+      <path class="d" pathLength="1" d="M128 410 Q300 370 472 410"/>
+      <path class="d g" pathLength="1" d="M300 236 L313 287 L364 300 L313 313 L300 364 L287 313 L236 300 L287 287 Z"/>
+    </svg>
+
+    <!-- 1: férias e o telefone -->
+    <svg class="lay brilho" id="s1" viewBox="0 0 600 600">
+      <path class="d" pathLength="1" d="M40 470 H560"/>
+      <path class="d" pathLength="1" d="M392 470 A74 74 0 0 1 540 470"/>
+      <path class="d" pathLength="1" d="M70 506 H210 M260 526 H420 M460 506 H540"/>
+      <path class="d" pathLength="1" d="M110 470 L172 362 L238 362 M142 420 L266 420 L292 470 M196 420 L222 470"/>
+    </svg>
+    <svg class="lay brilho" id="tel" viewBox="0 0 600 600" style="transform-origin:300px 215px">
+      <rect class="d" pathLength="1" x="245" y="120" width="110" height="190" rx="18"/>
+      <path class="d" pathLength="1" d="M286 140 H314"/>
+      <path class="d o" pathLength="1" d="M268 196 H332 M268 218 H316"/>
+      <path class="d o" id="vib" pathLength="1" d="M226 178 Q207 215 226 252 M206 164 Q180 215 206 266 M374 178 Q393 215 374 252 M394 164 Q420 215 394 266"/>
+    </svg>
+
+    <!-- 2: tudo passa por ti -->
+    <svg class="lay brilho" id="s2" viewBox="0 0 600 600">
+      <g id="equipa"></g>
+      <circle class="d o" pathLength="1" cx="300" cy="300" r="28"/>
+    </svg>
+    <svg class="lay brilho" id="fila" viewBox="0 0 600 600" style="transform-origin:300px 300px">
+      <circle class="s" cx="300" cy="300" r="64"/>
+      <circle class="s" cx="300" cy="300" r="92"/>
+    </svg>
+    <svg class="lay" id="nucleo" viewBox="0 0 600 600" style="transform-origin:300px 300px"><circle class="f" cx="300" cy="300" r="11"/></svg>
+
+    <!-- 3: as vendas param quando tu paras -->
+    <svg class="lay brilho" id="s3" viewBox="0 0 600 600">
+      <path class="d" pathLength="1" d="M90 482 H520 M90 482 V120"/>
+      <path class="d" pathLength="1" d="M90 446 L158 410 L222 420 L284 350 L338 300 L364 254"/>
+      <path class="d o" id="plano" pathLength="1" d="M364 254 L522 254"/>
+      <path class="d o" id="pausa" pathLength="1" d="M446 140 V186 M474 140 V186"/>
+    </svg>
+
+    <!-- 4: os processos estão na tua cabeça -->
+    <svg class="lay brilho" id="s4" viewBox="0 0 600 600">
+      <path class="d" pathLength="1" d="M196 506 V436 C138 414 118 356 128 300 C140 206 208 144 290 144 C370 144 420 194 424 262 L452 320 C456 330 452 338 442 338 L428 338 L428 380 C428 400 414 410 394 410 L360 410 V506"/>
+      <path class="d o" pathLength="1" d="M206 290 C214 222 314 206 334 252 C352 296 268 326 250 282 C236 246 300 232 312 266 C322 296 276 302 270 280 C262 250 228 300 248 330 C268 360 330 344 326 316"/>
+      <path class="d" pathLength="1" d="M468 408 H558 L580 430 V552 H468 Z M558 408 V430 H580"/>
+    </svg>
+
+    <!-- 5: corriges em vez de ensinar -->
+    <svg class="lay brilho" id="s5" viewBox="0 0 600 600">
+      <rect class="d" pathLength="1" x="150" y="86" width="300" height="420" rx="10"/>
+      <path class="d" pathLength="1" d="M182 150 H410 M182 196 H382 M182 242 H418 M182 288 H350 M182 334 H404 M182 380 H372 M182 426 H300"/>
+      <path class="d o" id="c1" pathLength="1" d="M176 197 H388"/>
+      <path class="d o" id="c2" pathLength="1" d="M318 242 m-58 0 a58 20 0 1 0 116 0 a58 20 0 1 0 -116 0"/>
+      <path class="d o" id="c3" pathLength="1" d="M176 335 H410"/>
+      <path class="d o" id="c4" pathLength="1" d="M478 380 C500 360 500 330 476 318 M470 326 L476 316 L488 322"/>
+    </svg>
+    <svg class="lay brilho" id="caneta" viewBox="0 0 600 600" style="transform-origin:0 0">
+      <path class="d" pathLength="1" d="M0 0 L12 -30 L96 -114 L114 -96 L30 -12 Z M12 -30 L30 -12"/>
+    </svg>
+
+    <!-- 6: apagar fogos -->
+    <svg class="lay brilho" id="s6" viewBox="0 0 600 600">
+      <path class="d" id="cresce" pathLength="1" d="M80 500 L210 420 L290 450 L470 250 M440 252 L472 248 L468 280" style="stroke:rgba(232,217,184,.55)"/>
+      <path class="d" pathLength="1" d="M60 520 H540"/>
+    </svg>
+    <svg class="lay brilho" id="fogo1" viewBox="0 0 600 600" style="transform-origin:170px 470px"><path class="d o" pathLength="1" d="M170 470 C136 464 130 420 154 392 C156 414 168 420 170 406 C172 376 190 360 198 350 C196 374 214 400 210 430 C208 458 192 470 170 470 Z"/></svg>
+    <svg class="lay brilho" id="fogo2" viewBox="0 0 600 600" style="transform-origin:300px 410px"><path class="d o" pathLength="1" d="M300 410 C266 404 260 360 284 332 C286 354 298 360 300 346 C302 316 320 300 328 290 C326 314 344 340 340 370 C338 398 322 410 300 410 Z"/></svg>
+    <svg class="lay brilho" id="fogo3" viewBox="0 0 600 600" style="transform-origin:440px 480px"><path class="d o" pathLength="1" d="M440 480 C406 474 400 430 424 402 C426 424 438 430 440 416 C442 386 460 370 468 360 C466 384 484 410 480 440 C478 468 462 480 440 480 Z"/></svg>
+
+    <!-- 7: não sabes por onde começar -->
+    <svg class="lay brilho" id="s7" viewBox="0 0 600 600">
+      <path class="d" pathLength="1" d="M300 470 C250 380 140 330 118 170"/>
+      <path class="d" pathLength="1" d="M300 470 C306 360 286 240 300 112"/>
+      <path class="d" pathLength="1" d="M300 470 C360 390 470 330 486 150"/>
+      <circle class="d" pathLength="1" cx="118" cy="160" r="10"/><circle class="d" pathLength="1" cx="300" cy="102" r="10"/><circle class="d" pathLength="1" cx="486" cy="140" r="10"/>
+    </svg>
+    <svg class="lay brilho" id="bussola" viewBox="0 0 600 600" style="transform-origin:300px 470px">
+      <path class="d o" pathLength="1" d="M300 420 L310 460 L350 470 L310 480 L300 520 L290 480 L250 470 L290 460 Z"/>
+    </svg>
+
+    <!-- FECHO: sete traços soltos que se arrumam -->
+    <div id="ordem"></div>
+  </div>
+
+  <div id="cap"></div>
+  <div id="arroba">@kingdomfounderss</div>
+</div>
+
+<script src="./captions.js"></script>
+<script src="./runtime/vendor/gsap.min.js"></script>
+<script src="./runtime/motion.js"></script>
+<script>
+const M = Motion.film({ fps: 30, duration: 57, width: 1080, height: 1920, clock: 'smooth' });
+const F = s => Math.round(s * 30);
+const NUMS = window.NUMS.map(n => F(n.s));                 // 149, 263, 506, 697, 937, 1088, 1276
+const FECHO = F(window.LINES[8].s), CTA = F(window.LINES[9].s), FIM = 1710;
+const B = [0, ...NUMS, FECHO];                             // limites das cenas: abertura, 1..7, fecho
+
+/* ---------- construção (determinística) ---------- */
+const equipa = document.getElementById('equipa');
+let h = '';
+for (let i = 0; i < 8; i++) {
+  const a = (-90 + i * 45) * Math.PI / 180, x = 300 + 212 * Math.cos(a), y = 300 + 212 * Math.sin(a);
+  const x1 = 300 + 186 * Math.cos(a), y1 = 300 + 186 * Math.sin(a), x2 = 300 + 52 * Math.cos(a), y2 = 300 + 52 * Math.sin(a);
+  const ax = a + Math.PI, l = 14, w = .5;
+  const hx1 = x2 + l * Math.cos(ax + w), hy1 = y2 + l * Math.sin(ax + w), hx2 = x2 + l * Math.cos(ax - w), hy2 = y2 + l * Math.sin(ax - w);
+  h += `<circle class="d tm" pathLength="1" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="13"/>`;
+  h += `<path class="d sv" pathLength="1" d="M${x1.toFixed(1)} ${y1.toFixed(1)} L${x2.toFixed(1)} ${y2.toFixed(1)} M${hx1.toFixed(1)} ${hy1.toFixed(1)} L${x2.toFixed(1)} ${y2.toFixed(1)} L${hx2.toFixed(1)} ${hy2.toFixed(1)}"/>`;
+}
+equipa.innerHTML = h;
+// o globo volta no fim: um clone, porque um segundo conjunto de keyframes não se pode sobrepor ao primeiro
+const gl2 = document.getElementById('globo').cloneNode(true); gl2.id = 'globo2'; gl2.querySelectorAll('[id]').forEach(e => e.id += '2');
+document.getElementById('arte').appendChild(gl2);
+// fecho: sete traços (um por sinal), primeiro soltos, depois em lista
+function prng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+const r = prng(11), ordem = document.getElementById('ordem'), SOLTO = [];
+for (let i = 0; i < 7; i++) {
+  const el = document.createElement('div');
+  el.id = 't' + i;
+  el.style.cssText = 'position:absolute;left:220px;top:' + (148 + i * 50) + 'px;width:160px;height:4px;border-radius:4px;background:#E8D9B8;box-shadow:0 0 8px rgba(232,217,184,.45);transform-origin:50% 50%';
+  ordem.appendChild(el);
+  SOLTO.push({ x: (r() - .5) * 360, y: (r() - .5) * 300 + (150 - i * 50) * .4, rot: (r() - .5) * 160 });
+}
+const TRES = [1, 3, 5];   // "três ou mais": três traços acendem a laranja
+TRES.forEach(i => { const o = document.createElement('div'); o.id = 'to' + i;
+  o.style.cssText = 'position:absolute;inset:0;border-radius:4px;background:#FF5E1E;box-shadow:0 0 12px rgba(255,94,30,.85)'; document.getElementById('t' + i).appendChild(o); });
+
+/* ---------- utilitários de traço ---------- */
+// desenha os .d de um layer a partir de `a` (com escalonamento) e recolhe-os em [b-10, b]
+function traco(sel, a, b, o = {}) {
+  const els = typeof sel === 'string' ? document.querySelectorAll(sel) : sel, st = o.stagger == null ? 3 : o.stagger, dur = o.dur || 16;
+  Array.from(els).forEach((el, i) => {
+    const s = a + i * st, ks = [[0, 1]];
+    if (s > 0) ks.push([s, 1]);
+    ks.push([s + dur, o.ate == null ? 0 : o.ate, 'softLand']);
+    if (b != null) { ks.push([b - 10, o.ate == null ? 0 : o.ate]); ks.push([b, -1, 'accelExit']); }
+    M.kf(el, 'strokeDashoffset', ks);
+  });
+}
+const cena = (id, a, b) => { M.hide(id, 0); M.show(id, a, b); };
+
+/* ---------- fundo, pontos e números ---------- */
+M.kf('#ambar', 'opacity', [[0, .75], [FIM, 1]]);
+M.kf('#ambar', 'scale', [[0, 1], [FIM, 1.12]]);
+NUMS.forEach((f, i) => {
+  const k = i + 1, fim = i < 6 ? NUMS[i + 1] : FECHO;
+  M.hide('#p' + k, 0); M.show('#p' + k, f);
+  M.enter('#p' + k, { at: f, frames: 9, ease: 'softLand', from: { scale: 2.2 } });
+  cena('#n' + k, f, fim);
+  M.enter('#n' + k, { at: f, frames: 14, ease: 'softLand', from: { y: 34, scale: 1.12 } });
+  M.mark(f, 'show', 'sinal ' + k);
+});
+M.hide('#anelPt', 0); M.show('#anelPt', NUMS[0], FECHO);
+M.kf('#anelPt', 'x', [[0, 438], ...NUMS.flatMap((f, i) => (i ? [[f - 1, 438 + (i - 1) * 34], [f + 8, 438 + i * 34, 'softLand']] : [[f, 438]]))]);
+M.hide('#pontos', CTA);
+
+/* ---------- ABERTURA (0-149): o globo ---------- */
+cena('#globo', 0, B[1]);
+traco('#globo .d', 2, B[1], { stagger: 4, dur: 20 });
+M.kf('#mer1', 'rx', [[0, 110], [B[1], 70]], { ease: 'softInOut' });
+M.kf('#mer2', 'rx', [[0, 44], [B[1], 96]], { ease: 'softInOut' });
+M.kf('#globo', 'scale', [[0, .92], [B[1], 1.04]], { ease: 'cruise' });
+
+/* ---------- 1: férias (149-263) ---------- */
+cena('#s1', B[1], B[2]); cena('#tel', B[1], B[2]);
+traco('#s1 .d', B[1], B[2], { stagger: 4 });
+traco('#tel .d', B[1] + 10, B[2], { stagger: 3 });
+const shake = []; for (let f = B[1] + 26; f < B[2] - 12; f += 2) shake.push([f, ((f / 2) % 2 ? 4.5 : -4.5)]);
+M.kf('#tel', 'rotation', [[0, 0], [B[1] + 24, 0], ...shake, [B[2] - 10, 0]]);
+M.kf('#vib', 'opacity', [[0, 1], ...shake.map(([f], i) => [f, i % 3 === 2 ? .25 : 1])]);
+
+/* ---------- 2: tudo passa por ti (263-506) ---------- */
+cena('#s2', B[2], B[3]); cena('#fila', F(13.46), B[3]); cena('#nucleo', B[2] + 6, B[3]);
+traco('#s2 .tm', B[2], B[3], { stagger: 3, dur: 12 });
+traco('#s2 .sv', B[2] + 18, B[3], { stagger: 5, dur: 14 });
+traco('#s2 > circle.d', B[2] + 4, B[3], { dur: 14 });
+M.enter('#nucleo', { at: B[2] + 6, frames: 10, ease: 'softLand', from: { scale: 2.4 } });
+M.kf('#nucleo', 'scale', [[B[2] + 16, 1], [F(12.2), 1], [F(12.2) + 8, 1.9, 'softLand'], [F(13.4), 1.6], [B[3], 2.2]]);
+M.kf('#s2 .tm', 'opacity', [[0, 1], [F(13.46), 1], [F(13.46) + 14, .35, 'softLand']]);
+M.enter('#fila', { at: F(13.46), frames: 16, ease: 'softLand', from: { scale: 1.5 } });
+M.kf('#fila', 'rotation', [[F(13.46), 0], [B[3], 40]]);
+
+/* ---------- 3: as vendas param (506-697) ---------- */
+cena('#s3', B[3], B[4]);
+const PARAS = F(20.12);
+traco(document.querySelectorAll('#s3 .d:not(.o)'), B[3], B[4], { stagger: 8, dur: 26 });
+traco('#plano', PARAS, B[4], { dur: 30 });
+traco('#pausa', PARAS - 2, B[4], { dur: 10 });
+
+/* ---------- 4: processos na cabeça (697-937) ---------- */
+cena('#s4', B[4], B[5]);
+const ESCRITO = F(26.77);
+traco([document.querySelectorAll('#s4 .d')[0], document.querySelectorAll('#s4 .d')[1]], B[4], B[5], { stagger: 10, dur: 30 });
+M.kf(document.querySelectorAll('#s4 .d')[2], 'strokeDashoffset', [[0, 1], [ESCRITO, 1], [ESCRITO + 14, 0, 'softLand'], [B[5] - 10, 0], [B[5], -1, 'accelExit']]);
+
+/* ---------- 5: corriges em vez de ensinar (937-1088) ---------- */
+cena('#s5', B[5], B[6]); cena('#caneta', B[5] + 14, B[6]);
+const S5 = document.querySelectorAll('#s5 .d');
+traco([S5[0], S5[1]], B[5], B[6], { stagger: 6, dur: 18 });
+const CT = [B[5] + 30, B[5] + 56, B[5] + 82, B[5] + 108];
+['#c1', '#c2', '#c3', '#c4'].forEach((c, i) => traco(c, CT[i], B[6], { dur: 14 }));
+traco('#caneta .d', B[5] + 14, B[6], { dur: 12 });
+const PEN = [[176, 197], [388, 197], [260, 236], [376, 242], [176, 335], [410, 335], [478, 380], [476, 318]];
+M.kf('#caneta', 'x', [[0, 900], [B[5] + 13, 900], [B[5] + 14, 470], [CT[0], PEN[0][0]], [CT[0] + 14, PEN[1][0]], [CT[1], PEN[2][0]], [CT[1] + 14, PEN[3][0]], [CT[2], PEN[4][0]], [CT[2] + 14, PEN[5][0]], [CT[3], PEN[6][0]], [CT[3] + 14, PEN[7][0]], [B[6] - 4, 560, 'accelExit']], { ease: 'softInOut' });
+M.kf('#caneta', 'y', [[0, 900], [B[5] + 13, 900], [B[5] + 14, 120], [CT[0], PEN[0][1]], [CT[0] + 14, PEN[1][1]], [CT[1], PEN[2][1]], [CT[1] + 14, PEN[3][1]], [CT[2], PEN[4][1]], [CT[2] + 14, PEN[5][1]], [CT[3], PEN[6][1]], [CT[3] + 14, PEN[7][1]], [B[6] - 4, 140, 'accelExit']], { ease: 'softInOut' });
+
+/* ---------- 6: apagar fogos (1088-1276) ---------- */
+cena('#s6', B[6], B[7]);
+const CRESCE = F(40.0);
+traco(document.querySelectorAll('#s6 .d')[1], B[6], B[7], { dur: 18 });
+traco('#cresce', CRESCE, B[7], { dur: 40, ate: .42 });   // o crescimento nunca chega ao fim
+[['#fogo1', B[6] + 12], ['#fogo2', B[6] + 34], ['#fogo3', B[6] + 56], ['#fogo1', B[6] + 84], ['#fogo2', B[6] + 104]].forEach(([id, f], i, arr) => {
+  const prev = arr.slice(0, i).filter(x => x[0] === id).length;
+  if (prev) return;
+  const ons = arr.filter(x => x[0] === id).map(x => x[1]);
+  M.hide(id, 0);
+  const sk = [[0, .6]], ok = [[0, 1]];
+  ons.forEach(on => { M.show(id, on, on + 22); sk.push([on, .6], [on + 8, 1, 'softLand'], [on + 14, 1], [on + 22, .15, 'accelExit']); });
+  M.kf(id, 'scaleY', sk);
+});
+
+/* ---------- 7: por onde começar (1276-1438) ---------- */
+cena('#s7', B[7], B[8]); cena('#bussola', B[7] + 4, B[8]);
+traco('#s7 .d', B[7] + 8, B[8], { stagger: 5, dur: 22 });
+traco('#bussola .d', B[7] + 4, B[8], { dur: 12 });
+const COM = F(45.29), spin = [[0, -40], [B[7] + 4, -40]];
+let ang = -40; for (let f = B[7] + 20, i = 0; f < B[8] - 6; f += (f < COM ? 22 : 10), i++) { ang = i % 2 ? -36 - i * 4 : 34 + i * 6; spin.push([f, ang, 'softInOut']); }
+M.kf('#bussola', 'rotation', spin);
+
+/* ---------- FECHO (1438-1617): sete traços soltos -> ordem ---------- */
+M.hide('#ordem', 0); M.show('#ordem', B[8], CTA);
+const TRESF = F(49.3), ORDEM = F(52.6);
+for (let i = 0; i < 7; i++) {
+  const s = SOLTO[i], el = '#t' + i, a = B[8] + i * 3;
+  M.kf(el, 'x', [[0, s.x], [ORDEM, s.x], [ORDEM + 14, 0, 'snapSettle']]);
+  M.kf(el, 'y', [[0, s.y], [ORDEM, s.y], [ORDEM + 14, 0, 'snapSettle']]);
+  M.kf(el, 'rotation', [[0, s.rot], [a, s.rot], [ORDEM, s.rot + (i % 2 ? 14 : -14)], [ORDEM + 14, 0, 'snapSettle']]);
+  M.kf(el, 'scaleX', [[0, 0], [a, 0], [a + 12, 1, 'softLand'], [CTA - 10, 1], [CTA, 0, 'accelExit']]);
+}
+TRES.forEach((i, j) => { M.hide('#to' + i, 0); M.show('#to' + i, TRESF + j * 4); });
+M.mark(ORDEM, 'snap', 'é ordem');
+
+/* ---------- CTA (1617-1710): o globo volta, a arroba ---------- */
+cena('#globo2', CTA, FIM + 1);
+traco('#globo2 .d', CTA, null, { stagger: 3, dur: 18 });
+M.kf('#globo2', 'scale', [[CTA, .9], [FIM, 1.0]], { ease: 'cruise' });
+M.kf('#mer12', 'rx', [[CTA, 60], [FIM, 104]], { ease: 'softInOut' });
+M.kf('#mer22', 'rx', [[CTA, 100], [FIM, 40]], { ease: 'softInOut' });
+M.hide('#arroba', 0); M.show('#arroba', CTA + 34);
+M.enter('#arroba', { at: CTA + 34, frames: 14, ease: 'softLand', from: { y: 24 } });
+
+/* ---------- legendas palavra a palavra (renderizador puro) ---------- */
+const cap = document.getElementById('cap'), CAP = window.CAP, out = Motion.ease.softLand;
+let lastKey = '';
+function legenda(t) {
+  let c = -1;
+  for (let i = 0; i < CAP.length; i++) {
+    const w = CAP[i].words, s = w[0][1] - .12, nx = i + 1 < CAP.length ? CAP[i + 1].words[0][1] - .12 : 99, e = Math.min(nx, w[w.length - 1][2] + .9);
+    if (t >= s && t < e) { c = i; break; }
+  }
+  if (c < 0) { if (lastKey !== '') { cap.innerHTML = ''; lastKey = ''; } return; }
+  const ch = CAP[c], key = c + ':' + ch.words.filter(w => t >= w[1] - .06).length;
+  if (key !== lastKey) {
+    cap.innerHTML = ch.words.map((w, j) => `<span${j === ch.key ? ' class="k"' : ''} data-s="${w[1]}">${w[0]}</span>`).join(' ');
+    lastKey = key;
+  }
+  cap.querySelectorAll('span').forEach(sp => {
+    const age = t - (+sp.dataset.s - .06);
+    if (age < 0) { sp.style.visibility = 'hidden'; return; }
+    const p = Math.min(1, age / .2);
+    sp.style.visibility = '';
+    sp.style.transform = 'translateY(' + (18 * (1 - out(p))).toFixed(2) + 'px)';
+    sp.style.opacity = Math.min(1, age / .07).toFixed(3);
+  });
+}
+const baseSeek = window.__seek;
+window.__seek = t => { baseSeek(t); legenda(Math.max(0, Math.min(57, t))); };
+window.__ready = Motion.loaded().then(() => { window.__seek(0);
+  if (/selftest/.test(location.search)) { const res = Motion.selfTest(M, { samples: 24 }); document.documentElement.setAttribute('data-selftest', JSON.stringify({ ok: res.ok, samples: res.samples, elements: res.elements, mismatches: res.mismatches.slice(0, 3) })); } });
+</script>
+</body>
+</html>
