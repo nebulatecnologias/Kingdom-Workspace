@@ -3,7 +3,7 @@
 Cópia das regras gravadas no separador **Regras e estratégia** do [Mapa Kingdom](https://claude.ai/artifact/GdnhABbW2DhtKcopjLHz8c).
 A versão de referência é a do mapa (coleção `regras` da base de dados do artefacto). Este ficheiro é atualizado sempre que uma regra muda.
 
-Última atualização: 18/10/2026.
+Última atualização: 19/10/2026.
 
 ## Estrutura
 
@@ -115,6 +115,12 @@ Os sites dos livros (Escala Previsível, O Bloqueio Invisível, O Criativo que A
 Quem compra num dos sites dos livros (Escala Previsível, O Criativo que Aprendeu a Vender, O Prisma da Influência e O Bloqueio Invisível), só o livro ou o pacote completo, tem 7 dias de garantia: se pedir o reembolso por email ou WhatsApp dentro desse prazo, recebe 100% do valor. O site mostra a garantia junto ao preço e nas perguntas frequentes.
 
 *18/10/2026 · Decisão do Shelton (Escala Previsível); alargada aos quatro livros no mesmo dia*
+
+### R33 · Advising presencial em promoção até 30/11/2026
+
+Até 30 de Novembro de 2026, o Advising presencial custa 3.650 MT por até 2 horas, com o preço normal de 5.800 MT (R17) riscado no site. É uma excepção temporária ao piso da R22 (dá 1.825 MT por hora). A 1 de Dezembro volta a 5.800 MT. O Advising online mantém 2.650 MT por hora.
+
+*19/10/2026 · Decisão do Shelton*
 
 ### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas, depois 32.000
 
