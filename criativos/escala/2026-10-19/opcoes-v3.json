@@ -1,0 +1,17 @@
+[
+  { "id": "05-tudo-isto", "molde": "molde-v3.html",
+    "k": "Tudo isto por",
+    "i": "livro:Playbook|play:Masterclass 1h|funil:Modelos de funis|escudo:Garantia 7 dias",
+    "p": "325", "u": "MT", "a": "947 MT",
+    "x": "Acesso imediato · Pagas por M-Pesa" },
+  { "id": "06-da-oferta-a-escala", "molde": "molde-v3.html",
+    "k": "A estrutura de uma operação de +80.000 MT/dia por",
+    "i": "oferta:Oferta|megafone:Marketing|funil:Funil|escada:Escala",
+    "p": "325", "u": "MT", "a": "947 MT",
+    "x": "Playbook + masterclass · Garantia de 7 dias" },
+  { "id": "07-um-dia-de-anuncios", "molde": "molde-v3.html",
+    "k": "Menos do que um dia de anúncios",
+    "i": "livro:24 ferramentas|relogio:60 min de aula|funil:4 funis prontos",
+    "p": "325", "u": "MT", "a": "947 MT",
+    "x": "O mapa para escalar sem queimar dinheiro" }
+]

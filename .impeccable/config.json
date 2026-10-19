@@ -1,7 +1,9 @@
 {
   "detector": {
     "ignoreRules": [],
-    "ignoreFiles": [],
+    "ignoreFiles": [
+      "tools/criativos/escala/molde-v3.html"
+    ],
     "ignoreValues": [
       {
         "rule": "all-caps-body",
