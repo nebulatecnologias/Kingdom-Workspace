@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Terreno e superfícies */
+  --color-ground: #f4f6f5;
+  --color-surface: #ffffff;
+  --color-sunken: #f6f7f6;
+  --color-line: #e5e9e6;
+  --color-line-strong: #d3d9d5;
+
+  /* Tinta */
+  --color-ink: #111714;
+  --color-ink-2: #4a544f;
+  --color-ink-3: #646e68;
+
+  /* Verde: acções, selecção, reconciliado */
+  --color-brand: #11804a;
+  --color-brand-strong: #0e6b3a;
+  --color-brand-deep: #0b4f2c;
+  --color-brand-soft: #e7f4ec;
+  --color-brand-tint: #c9e7d5;
+
+  /* Canais: placas de balcão */
+  --color-mpesa: #c2271f;
+  --color-mpesa-ink: #a3211a;
+  --color-mpesa-soft: #fdecea;
+  --color-mpesa-bar: #ef9a93;
+  --color-emola: #e88a0c;
+  --color-emola-ink: #8a4b00;
+  --color-emola-soft: #fff2dc;
+  --color-emola-bar: #f6c06b;
+  --color-banco: #3a5c8f;
+  --color-banco-ink: #2f4b78;
+  --color-banco-soft: #e9eef7;
+  --color-banco-bar: #a9bddb;
+  --color-caixa: #5b645f;
+  --color-caixa-ink: #4a544f;
+  --color-caixa-soft: #eef0ef;
+  --color-caixa-bar: #c6ccc8;
+
+  /* Estados */
+  --color-danger: #a3185e;
+  --color-danger-soft: #fbeaf2;
+  --color-warn: #b45309;
+  --color-warn-soft: #fff4e5;
+  --color-info: #0f6670;
+  --color-info-soft: #e3f2f3;
+
+  --radius-card: 1rem;
+  --radius-tile: 0.75rem;
+  --radius-tag: 0.25rem;
+
+  --shadow-card: 0 1px 2px rgb(17 23 20 / 0.04), 0 1px 1px rgb(17 23 20 / 0.02);
+  --shadow-pop: 0 12px 32px -8px rgb(17 23 20 / 0.18), 0 2px 6px rgb(17 23 20 / 0.08);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-brand-tint);
+    color: var(--color-brand-deep);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  input,
+  textarea {
+    caret-color: var(--color-brand);
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-strong) transparent;
+  }
+}
+
+@utility tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-line);
+}
+
+/* Chegada de um pagamento ao vivo */
+@keyframes arrive {
+  from {
+    background-color: var(--color-brand-soft);
+    transform: translateY(-6px);
+    opacity: 0.2;
+  }
+  60% {
+    background-color: var(--color-brand-soft);
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    background-color: transparent;
+  }
+}
+@keyframes ticking {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes bump {
+  0% {
+    transform: none;
+  }
+  40% {
+    transform: translateY(-2px);
+    color: var(--color-brand-strong);
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes enter-panel {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.row-arrive {
+  animation: arrive 1.6s var(--ease-out) both;
+}
+.dot-ticking {
+  animation: ticking 0.9s ease-in-out infinite;
+}
+.num-bump {
+  display: inline-block;
+  animation: bump 0.5s var(--ease-out);
+}
+.panel-enter {
+  animation: enter-panel 0.22s var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row-arrive,
+  .dot-ticking,
+  .num-bump,
+  .panel-enter {
+    animation: none;
+  }
+  * {
+    transition-duration: 0ms !important;
+  }
+}
