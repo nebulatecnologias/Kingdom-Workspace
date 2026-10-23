@@ -45,8 +45,8 @@ export function PaymentsPage() {
           <label className="block">
             <span className="text-[13px] font-medium text-ink-2">Canal</span>
             <select name="canal" className="mt-1.5 h-10 w-full cursor-pointer appearance-none rounded-tile border border-line bg-surface bg-[length:16px] bg-[right_12px_center] bg-no-repeat px-3 pr-9 text-sm focus:border-brand focus:outline-none" style={{ backgroundImage: CHEVRON }} defaultValue="numerario">
-              <option value="numerario">Numerário (caixa do escritório)</option>
-              <option value="banco">Banco (transferência)</option>
+              <option value="numerario">Numerário</option>
+              <option value="banco">Banco</option>
             </select>
           </label>
           <Field label="N.º do talão ou transferência" name="talao" placeholder="ex.: CX-0232" />

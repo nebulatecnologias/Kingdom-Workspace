@@ -7,7 +7,7 @@ import { CHANNELS, type Channel } from "@/lib/data";
 /* Placa do canal: rectangular, letras curtas, como a tabuleta de um balcão de agente. */
 const TAG_TONE: Record<Channel, string> = {
   mpesa: "bg-mpesa text-white",
-  emola: "bg-emola text-[#2b1700]",
+  emola: "bg-emola text-[#2a2000]",
   banco: "bg-banco text-white",
   numerario: "bg-caixa text-white",
 };

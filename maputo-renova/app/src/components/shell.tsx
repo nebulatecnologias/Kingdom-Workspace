@@ -207,7 +207,7 @@ function Topbar({ onMenu }: { onMenu: () => void }) {
         </button>
         <button type="button" className="flex cursor-pointer items-center gap-2 rounded-full py-1 pr-2 pl-1 hover:bg-surface" aria-label={`Conta de ${USER.name}`}>
           <span className="grid size-10 place-items-center rounded-full bg-brand-tint text-sm font-semibold text-brand-deep">{USER.initials}</span>
-          <span className="hidden text-left leading-tight whitespace-nowrap 2xl:block">
+          <span className="hidden text-left leading-tight whitespace-nowrap xl:block">
             <span className="block text-sm font-medium">{USER.name}</span>
             <span className="block text-xs text-ink-3">{USER.role}</span>
           </span>
