@@ -232,6 +232,23 @@ window.HC_SEED = function () {
     ],
     descontos: [],
     verificados: {},
-    colaboradores: colaboradores
+    colaboradores: colaboradores,
+    // Clientes fictícios da base de dados (hc_clientes), pelo pedido, conversa ou resposta NPS de cada um.
+    clienteRef: (function () {
+      const id = (n) => '7c1e0000-0000-4000-8000-0000000000' + (n < 10 ? '0' + n : n);
+      return {
+        c1: id(1),
+        c7: id(2), 'HC-24815': id(2), d2: id(2),
+        r1: id(3), 'HC-24766': id(3), d1: id(3),
+        'HC-24797': id(4), d3: id(4),
+        'HC-24822': id(5),
+        'HC-24831': id(6),
+        'HC-24790': id(7),
+        c5: id(8),
+        'HC-24840': id(9),
+        r4: id(10),
+        c2: id(11), 'HC-24828': id(11)
+      };
+    })()
   };
 };

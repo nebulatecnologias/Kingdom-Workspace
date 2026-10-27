@@ -1,5 +1,5 @@
 -- Home Center (protótipo): clientes reconciliados por e-mail, histórico e avaliações verificadas.
--- Para aplicar no projecto Supabase "Kingdom Dashboard" como migração hc_clientes_historico (ainda não aplicada),
+-- Migração hc_clientes_historico do projecto Supabase "Kingdom Dashboard", aplicada a 27/10/2026 no SQL Editor,
 -- depois de hc_avaliacao_colaboradores_qr.sql. Dados fictícios (e-mails @example.com).
 --
 -- Regras:

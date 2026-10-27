@@ -713,6 +713,26 @@ a.rk-t:hover { color: var(--primary); text-decoration: underline; }
 .rate-l { color: var(--on-surface); text-decoration: none; display: inline-flex; align-items: center; gap: 2px; font-weight: 500; }
 .rate-l:hover { color: var(--primary); }
 .star-big { font-size: 24px; color: #B26B00; margin-left: 4px; vertical-align: -2px; }
+/* Clientes: ficha e histórico */
+.cli-top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.cli-top .av { width: 48px; height: 48px; border-radius: 24px; font-size: 17px; flex: none; }
+.cli-top h2 { margin: 0; font: 500 20px/28px var(--font); }
+.cli-top p { margin: 0; color: var(--on-surface-variant); font-size: 14px; line-height: 20px; overflow-wrap: anywhere; }
+.cli-tags { margin-bottom: 16px; }
+.cli-link { margin-top: 16px; }
+.tl { list-style: none; margin: 0; padding: 0; display: grid; }
+.tl-i { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; position: relative; padding-bottom: 16px; }
+.tl-i:not(:last-child)::before { content: ''; position: absolute; left: 15px; top: 34px; bottom: 2px; width: 2px; border-radius: 1px; background: var(--surface-high); }
+.tl-ic { width: 32px; height: 32px; border-radius: 16px; background: var(--surface-high); color: var(--on-surface-variant); display: grid; place-items: center; }
+.tl-ic .ms { font-size: 18px; }
+.tl-h { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-height: 32px; }
+.tl-h strong { font-weight: 500; font-size: 14px; }
+.tl-v { font-variant-numeric: tabular-nums; font-size: 14px; color: var(--on-surface); }
+.tl-t { font-size: 14px; line-height: 20px; }
+.tl-q { display: block; margin-top: 4px; color: var(--on-surface-variant); }
+.tl-m { font-size: 12px; line-height: 16px; color: var(--on-surface-variant); margin-top: 2px; }
+.fi-w { font-size: 12px; line-height: 16px; color: var(--on-surface-variant); margin-top: 6px; }
+.fi.pend .stars { opacity: .55; }
 .feed { display: grid; }
 .fi { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 12px 8px; margin: 0 -8px; border-top: 1px solid var(--surface-high); border-radius: var(--r-m); }
 .fi:first-child { border-top-color: transparent; }
@@ -779,4 +799,12 @@ a.rk-t:hover { color: var(--primary); text-decoration: underline; }
 .rate-sent p { margin: 0 0 8px; color: var(--on-surface-variant); }
 .rate-ok { width: 80px; height: 80px; border-radius: 40px; background: var(--ok-c); color: var(--ok); display: grid; place-items: center; }
 .rate-ok .ms { font-size: 44px; }
+.rate-you { border: 0; margin: 0; padding: 0; min-width: 0; border-top: 1px solid var(--surface-high); display: grid; gap: 14px; }
+.rate-you legend { float: left; width: 100%; padding: 18px 0 0; }
+.rate-why { margin: 0; font-size: 14px; line-height: 20px; color: var(--on-surface-variant); }
+.rate-chk { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 20px; cursor: pointer; }
+.rate-chk input { flex: none; width: 20px; height: 20px; margin: 0; accent-color: var(--primary); cursor: pointer; }
+.rate-chk input:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.rate-mail { background: var(--sel); color: var(--on-sel); }
+.rate-sent strong { color: var(--on-surface); font-weight: 500; }
 .rate-f { margin-top: auto; padding-top: 8px; text-align: center; font-size: 12px; line-height: 16px; color: var(--on-surface-variant); }

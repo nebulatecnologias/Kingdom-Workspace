@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Static HTML/CSS/JS with no build step: `clients/home-center/index.html` plus `assets/` (styles, app logic, seed data, channel logos, Home Center logo), deployed to the Vercel project `home-center-dashboard-gestao` (team Nebula Tecnologias). Data entered in the prototype persists in the viewer's browser (localStorage), except customer ratings by QR code: collaborators and ratings live in two isolated tables (`hc_colaboradores`, `hc_avaliacoes`, RLS: public read and insert only, server-side rate limits) in the Supabase project "Kingdom Dashboard", read by the dashboard every 10 seconds. The public rating page is `avaliar.html?c=<código>`.
+Static HTML/CSS/JS with no build step: `clients/home-center/index.html` plus `assets/` (styles, app logic, seed data, channel logos, Home Center logo), deployed to the Vercel project `home-center-dashboard-gestao` (team Nebula Tecnologias). Data entered in the prototype persists in the viewer's browser (localStorage), except customer ratings by QR code and the customer base, which live in isolated `hc_` tables in the Supabase project "Kingdom Dashboard" (migrations in `supabase/`): `hc_colaboradores`, `hc_avaliacoes`, `hc_clientes` (one customer per e-mail), `hc_eventos` (each customer's history: purchases, QR ratings, NPS answers, messages, public reviews) and `hc_confirmacoes` (hash of each rating's e-mail confirmation code). Ratings and customers are never read directly: the dashboard calls database functions that return names and e-mails abbreviated («Ana M.», «a•••@example.com»), every 10 seconds. The public rating page is `avaliar.html?c=<código>`; it sends through the edge function `hc-avaliacao` (source in `supabase/functions/`), which stores the rating as pending and e-mails a confirmation link through Resend, from `Home Center (demonstração) <homecenter@kingdomcompny.com>` until Home Center's own domain is set up (`HC_REMETENTE`). The link opens `avaliar.html?confirmar=<código>`, where one tap confirms it.
 
 ## Users
 
@@ -33,11 +33,12 @@ Built around how Home Center actually sells: store visits counted at the entranc
 
 ## Capabilities and Constraints
 
-- Sections: Visão geral, Mensagens, Pedidos e entregas, Lojas e equipas, Satisfação e NPS, Campanhas, Financeiro.
+- Sections: Visão geral, Mensagens, Pedidos e entregas, Lojas e equipas, Avaliações e rankings, Clientes, Satisfação e NPS, Campanhas, Financeiro.
 - Data entry required in every area (confirmed): daily store close (visits, sales, value, customer origin); orders and deliveries (new order, status changes, delivery/assembly scheduling); campaigns and finance (investment and results, receivables, discounts); teams and satisfaction (mystery-shopper evaluations, NPS answers, detractor follow-up).
-- Entered data must update the figures shown, and persist in the browser. No shared backend, no login.
+- Entered data must update the figures shown, and persist in the browser. No login; the only shared backend is the ratings and customer base in Supabase.
 - The message inbox filters by channel.
-- Every sales attendant and every delivery/assembly worker has a code (HC-V001, HC-M001…) and a printable QR card. The customer scans it, rates 1 to 5 stars overall plus three role-specific questions (sales: friendliness, product knowledge, speed; delivery/assembly: punctuality, care in the home, assembly quality) and an optional comment, without giving any personal data. Ratings feed rankings of best stores, sellers and assemblers (minimum 5 ratings to be ranked).
+- Every sales attendant and every delivery/assembly worker has a code (HC-V001, HC-M001…) and a printable QR card. The customer scans it, rates 1 to 5 stars overall plus three role-specific questions (sales: friendliness, product knowledge, speed; delivery/assembly: punctuality, care in the home, assembly quality), an optional comment, and gives name and e-mail with consent. A rating counts in the rankings (best stores, sellers and assemblers, minimum 5 ratings) only after the customer confirms it from the e-mail. Limits: one rating per collaborator per e-mail per day, 5 per e-mail per day, 200 per day in total.
+- Customers are reconciled by e-mail: QR ratings, orders and NPS answers entered with an e-mail, and purchases or contacts registered in Clientes, all join the same customer history. Ratings show whether the customer has a registered purchase (verification: e-mail plus purchases). Personal data appears masked; full names and e-mails would need a management login.
 - Interface language: Portuguese as written in Mozambique (pt-MZ, European spelling: "acção", "facturação", "equipa").
 
 ## Brand Commitments

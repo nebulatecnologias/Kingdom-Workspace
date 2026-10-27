@@ -65,7 +65,7 @@
   const ui = {
     loja: S.lojas[uiPrefs.loja] ? uiPrefs.loja : 'todas',
     lojaLocal: 'angola',
-    flt: { canal: 'todos', est: 'pendente', etapa: 'todos', pcanal: 'todos', ctipo: 'todas', aest: 'pendente', fin: 'factura', func: 'todos', af: 'todas' },
+    flt: { canal: 'todos', est: 'pendente', etapa: 'todos', pcanal: 'todos', ctipo: 'todas', aest: 'pendente', fin: 'factura', func: 'todos', af: 'todas', cf: 'todos' },
     rkAll: {}, seen: null,
     sel: {}, open: null, view: 'list', drafts: {}, pop: null, sheet: false, anim: false, scrollTo: null, path: ''
   };
@@ -91,6 +91,7 @@
     { id: 'pedidos', label: 'Pedidos e entregas', short: 'Pedidos', icon: 'local_shipping', tabs: [['lista', 'Pedidos'], ['agenda', 'Agenda de entregas'], ['novo', 'Novo pedido', 1]] },
     { id: 'lojas', label: 'Lojas e equipas', short: 'Lojas', icon: 'storefront', tabs: [['desempenho', 'Desempenho'], ['briefing', 'Briefing e coaching'], ['avaliar', 'Avaliar atendimento', 1]] },
     { id: 'rankings', label: 'Avaliações e rankings', short: 'Rankings', icon: 'leaderboard', tabs: [['rankings', 'Rankings'], ['colaboradores', 'Colaboradores e QR'], ['avaliacoes', 'Avaliações recebidas'], ['novo', 'Registar colaborador', 1]] },
+    { id: 'clientes', label: 'Clientes', icon: 'group', tabs: [['lista', 'Clientes e histórico'], ['registar', 'Registar compra ou contacto', 1]] },
     { id: 'satisfacao', label: 'Satisfação e NPS', short: 'Satisfação', icon: 'sentiment_satisfied', tabs: [['painel', 'Painel'], ['avaliacoes', 'Avaliações públicas'], ['registar', 'Registar resposta', 1]] },
     { id: 'campanhas', label: 'Campanhas', icon: 'campaign', tabs: [['resultados', 'Resultados'], ['nova', 'Nova campanha', 1], ['registar', 'Registar resultados', 1]] },
     { id: 'financeiro', label: 'Financeiro', icon: 'account_balance_wallet', tabs: [['resumo', 'Resumo'], ['receber', 'Contas a receber'], ['registar', 'Registar', 1]] }
@@ -153,7 +154,7 @@
       out.push({ o: 1, n: det.length, t: 'Clientes insatisfeitos por contactar', d: 'O prazo de 24 horas mais curto termina ' + (diasEntre(NOW, fim) === 0 ? 'hoje' : 'amanhã') + ' às ' + pad(fim.getHours()) + 'h' + pad(fim.getMinutes()) + '.', cta: 'Contactar', href: '#satisfacao/painel' });
     }
     const cmap = new Map(colaboradores().map((c) => [c.codigo, c]));
-    const baixas = R.aval.filter((a) => a.estrelas <= 2 && Date.now() - new Date(a.criado_em) < 7 * 864e5 && cmap.has(a.codigo) && (k === 'todas' || cmap.get(a.codigo).loja === k));
+    const baixas = R.aval.filter((a) => a.estado === 'confirmada' && a.estrelas <= 2 && Date.now() - new Date(a.criado_em) < 7 * 864e5 && cmap.has(a.codigo) && (k === 'todas' || cmap.get(a.codigo).loja === k));
     if (baixas.length) out.push({ o: 3, n: baixas.length, t: baixas.length === 1 ? 'Avaliação de 1 ou 2 estrelas por QR' : 'Avaliações de 1 ou 2 estrelas por QR', d: 'Últimos 7 dias. Fale com o colaborador e, se possível, com o cliente.', cta: 'Ver', href: '#rankings/avaliacoes?f=baixa' });
     const late = S.pedidos.filter((p) => atrasado(p) && (k === 'todas' || p.loja === k));
     if (late.length) {
@@ -379,7 +380,8 @@
     const vs = (c.loja ? [c.loja] : LOJAS()).map((s) => [lojaN(s), S.vendedores[s].map((v) => [v.nome, v.nome])]);
     return '<aside class="card cli" aria-label="Ficha do cliente"><h2>Ficha do cliente</h2><dl class="dl"><dt>Tipo</dt><dd>' + esc(c.cliente.tipo) + '</dd><dt>Histórico</dt><dd>' + esc(c.cliente.historico) + '</dd><dt>Valor total</dt><dd>' + (c.cliente.total ? fMT(c.cliente.total) : '—') + '</dd><dt>Última compra</dt><dd>' + esc(c.cliente.ultima || '—') + '</dd></dl>' +
       fld('cli', { name: 'vendedor', label: 'Responsável', type: 'select', value: c.vendedor, change: 'responsavel', options: [['', 'Por atribuir']].concat(vs) }) +
-      '<div class="chips">' + c.tags.map((t) => '<span class="tag">' + esc(t) + '</span>').join('') + '</div></aside>';
+      '<div class="chips">' + c.tags.map((t) => '<span class="tag">' + esc(t) + '</span>').join('') + '</div>' +
+      (cidDe(c.id) ? '<a class="b b-o b-s cli-link" href="' + cliUrl(cidDe(c.id)) + '">' + ic('group') + 'Histórico completo do cliente</a>' : '') + '</aside>';
   }
   function vRespostas() {
     const list = S.respostasRapidas.map((q) => ui.open === 'qr-edit:' + q.id
@@ -425,7 +427,7 @@
     return '<aside class="card detail" id="detail" aria-labelledby="det-h"><div class="det-h"><h2 id="det-h">' + p.id + '</h2>' + st(e, t) + '</div><p style="margin:0 0 2px;font-weight:500;font-size:15px">' + esc(p.cliente) + '</p><p class="muted" style="margin:0 0 16px">' + esc(p.itens) + '</p>' +
       '<dl class="dl" style="margin-bottom:18px"><dt>Valor</dt><dd>' + fMT(p.valor) + '</dd><dt>Pagamento</dt><dd>' + esc(p.pagamento) + '</dd><dt>Canal e loja</dt><dd>' + PED_CANAL[p.canal] + ', ' + lojaN(p.loja) + '</dd><dt>Equipa</dt><dd>' + (p.equipa ? 'Equipa ' + p.equipa : '—') + '</dd></dl>' +
       '<ol class="steps">' + steps + '</ol>' + reag +
-      '<div class="acts">' + (p.passo < 5 ? '<button type="button" class="b b-f b-s" data-act="avancar" data-arg="' + p.id + '">' + ic('check') + PROX[p.passo] + '</button>' : '') + (p.passo >= 2 && p.passo < 5 ? '<button type="button" class="b b-o b-s" data-act="open" data-arg="reag">' + ic('event') + (p.entrega ? 'Reagendar' : 'Agendar entrega') + '</button>' : '') + '<button type="button" class="b b-o b-s" data-act="notificar" data-arg="' + p.id + '">' + brand('whatsapp') + 'Notificar cliente</button></div>' +
+      '<div class="acts">' + (p.passo < 5 ? '<button type="button" class="b b-f b-s" data-act="avancar" data-arg="' + p.id + '">' + ic('check') + PROX[p.passo] + '</button>' : '') + (p.passo >= 2 && p.passo < 5 ? '<button type="button" class="b b-o b-s" data-act="open" data-arg="reag">' + ic('event') + (p.entrega ? 'Reagendar' : 'Agendar entrega') + '</button>' : '') + '<button type="button" class="b b-o b-s" data-act="notificar" data-arg="' + p.id + '">' + brand('whatsapp') + 'Notificar cliente</button>' + ((p.cid || cidDe(p.id)) ? '<a class="b b-x b-s" href="' + cliUrl(p.cid || cidDe(p.id)) + '">' + ic('group') + 'Histórico do cliente</a>' : '') + '</div>' +
       (p.notas.length ? '<ul class="log" aria-label="Histórico do pedido">' + p.notas.slice().reverse().map((n) => '<li><span>' + fData(n.em) + ', ' + fHora(n.em) + '</span><span>' + esc(n.txt) + '</span></li>').join('') + '</ul>' : '') + '</aside>';
   }
   function vNovoPedido() {
@@ -445,6 +447,7 @@
       '<div class="form-h">Cliente</div>' +
       fld(F, { name: 'cliente', label: 'Nome do cliente ou empresa', req: true, value: pre.cliente, auto: 'name' }) +
       fld(F, { name: 'telefone', label: 'Telefone (WhatsApp)', type: 'tel', hint: 'Para os avisos de entrega, por exemplo 84 123 4567', auto: 'tel' }) +
+      fld(F, { name: 'email', label: 'E-mail do cliente', type: 'email', auto: 'email', hint: 'Opcional. Junta o pedido ao histórico do cliente' }) +
       opts(F, 'tipo', [['Particular', 'Particular'], ['Empresa', 'Empresa']], pre.tipo, { legend: 'Tipo de cliente', cls: 'full' }) +
       '<div class="form-h">Pedido</div>' +
       fld(F, { name: 'canal', label: 'Canal', type: 'select', req: true, value: pre.canal, options: Object.entries(PED_CANAL) }) +
@@ -571,7 +574,7 @@
       const m = prazoDet(d);
       const prazoTxt = d.contacto ? st('Contactado · ' + d.contacto.resultado, d.contacto.resultado === 'Resolvido' ? 'ok' : 'info', 'check') : m <= 0 ? st('Prazo ultrapassado', 'bad', 'error') : st('Termina em ' + dur(m), m < 8 * 60 ? 'bad' : 'warn', 'schedule');
       const form = ui.open === 'contacto:' + d.id ? '<form class="inline full" data-form="contacto" data-id="' + d.id + '" novalidate>' + opts('ct', 'resultado', [['Resolvido', 'Resolvido'], ['Em acompanhamento', 'Em acompanhamento'], ['Sem resposta', 'Sem resposta']], '', { legend: 'Resultado do contacto', req: true }) + fld('ct', { name: 'nota', label: 'O que ficou combinado', type: 'textarea', rows: 2, hint: 'Por exemplo, nova data de entrega ou compensação oferecida' }) + '<div class="acts" style="justify-content:flex-start"><button class="b b-f b-s" type="submit">Guardar contacto</button><button class="b b-x b-s" type="button" data-act="close-inline">Cancelar</button></div></form>' : '';
-      return '<div class="li"><div><div class="li-t">' + esc(d.nome) + ' ' + st('Nota ' + d.nota, 'bad') + '</div><div class="li-d">' + lojaN(d.loja) + (d.equipa && d.equipa !== 'loja' ? ', equipa ' + d.equipa : '') + '. ' + esc(d.comentario || d.motivo) + '</div>' + (d.contacto && d.contacto.nota ? '<div class="li-d" style="margin-top:4px">«' + esc(d.contacto.nota) + '»</div>' : '') + '</div><div class="acts">' + prazoTxt + (!d.contacto && !form ? '<button type="button" class="b b-t b-s" data-act="open" data-arg="contacto:' + d.id + '">' + ic('call') + 'Registar contacto</button>' : '') + '</div>' + form + '</div>';
+      return '<div class="li"><div><div class="li-t">' + (cidDe(d.id) ? '<a href="' + cliUrl(cidDe(d.id)) + '">' + esc(d.nome) + '</a>' : esc(d.nome)) + ' ' + st('Nota ' + d.nota, 'bad') + '</div><div class="li-d">' + lojaN(d.loja) + (d.equipa && d.equipa !== 'loja' ? ', equipa ' + d.equipa : '') + '. ' + esc(d.comentario || d.motivo) + '</div>' + (d.contacto && d.contacto.nota ? '<div class="li-d" style="margin-top:4px">«' + esc(d.contacto.nota) + '»</div>' : '') + '</div><div class="acts">' + prazoTxt + (!d.contacto && !form ? '<button type="button" class="b b-t b-s" data-act="open" data-arg="contacto:' + d.id + '">' + ic('call') + 'Registar contacto</button>' : '') + '</div>' + form + '</div>';
     }).join('');
     const cDet = card('Contactar em 24 horas', porContactar.length ? st(porContactar.length + ' por contactar', 'bad') : st('Todos contactados', 'ok'), detL || empty('sentiment_satisfied', 'Sem clientes insatisfeitos', 'Nenhuma nota de 0 a 6 nesta selecção.'), '', 'c-det');
     const totM = sum(Object.values(S.nps.motivos), (x) => x);
@@ -586,6 +589,7 @@
       fld(F, { name: 'pedido', label: 'Pedido (opcional)', type: 'select', change: 'nps-pedido', value: '', options: [['', 'Sem pedido associado']].concat(entregues.map((p) => [p.id, p.id + ' · ' + p.cliente])) , hint: 'Preenche a loja e a equipa automaticamente' }) +
       fld(F, { name: 'data', label: 'Data da resposta', type: 'date', req: true, value: HOJE, min: '2026-10-01', max: HOJE }) +
       fld(F, { name: 'cliente', label: 'Cliente', req: true }) +
+      fld(F, { name: 'email', label: 'E-mail do cliente', type: 'email', auto: 'email', hint: 'Opcional. Junta a resposta ao histórico do cliente' }) +
       fld(F, { name: 'loja', label: 'Loja', type: 'select', req: true, value: loja, options: lojaOpts(loja, true) }) +
       fld(F, { name: 'equipa', label: 'Equipa de entrega e montagem', type: 'select', req: true, value: '', options: [['', 'Escolha a equipa']].concat(EQUIPAS.map((e) => [e, 'Equipa ' + e])).concat([['loja', 'Levantamento na loja']]) }) +
       '<div class="full">' + opts(F, 'nota', Array.from({ length: 11 }, (_, i) => [String(i), String(i), i <= 6 ? 'd' : i <= 8 ? 'n' : 'p']), '', { legend: 'De 0 a 10, recomendaria a Home Center a um amigo?', req: true, kind: 'nps' }) + '<div class="nps-scale" aria-hidden="true"><span>Nada provável</span><span>Muito provável</span></div></div>' +
@@ -757,39 +761,47 @@
   const FUNCAO_N = { vendedor: 'Atendimento e vendas', montagem: 'Entrega e montagem' };
   const MIN_RANK = 5;
   const RKEY = 'hc-gestao-remoto';
-  const R = (() => { try { return Object.assign({ colabs: [], aval: [], at: null }, JSON.parse(localStorage.getItem(RKEY)) || {}); } catch (e) { return { colabs: [], aval: [], at: null }; } })();
+  const R = (() => { try { return Object.assign({ colabs: [], aval: [], clientes: [], at: null }, JSON.parse(localStorage.getItem(RKEY)) || {}); } catch (e) { return { colabs: [], aval: [], clientes: [], at: null }; } })();
   R.status = 'a-ligar';
-  const saveRemote = () => { try { localStorage.setItem(RKEY, JSON.stringify({ colabs: R.colabs, aval: R.aval.slice(0, 1000), at: R.at })); } catch (e) { /* sem armazenamento */ } };
+  const saveRemote = () => { try { localStorage.setItem(RKEY, JSON.stringify({ colabs: R.colabs, aval: R.aval.slice(0, 1000), clientes: R.clientes, at: R.at })); } catch (e) { /* sem armazenamento */ } };
 
-  // Supabase por REST: a chave publicável só lê e acrescenta nas tabelas hc_ (RLS).
+  // Supabase por REST. A chave publicável lê os colaboradores e regista-os; avaliações e clientes
+  // só passam por funções da base, que devolvem nomes e e-mails abreviados.
   function sb(path, opt) {
     opt = opt || {};
     if (!CFG.supabaseUrl) return Promise.reject(new Error('sem configuração'));
     const headers = { apikey: CFG.supabaseKey };
-    if (opt.body) { headers['Content-Type'] = 'application/json'; headers.Prefer = 'return=minimal'; }
+    if (opt.body) { headers['Content-Type'] = 'application/json'; if (!opt.rpc) headers.Prefer = 'return=minimal'; }
     return fetch(CFG.supabaseUrl + '/rest/v1/' + path, { method: opt.method || 'GET', headers, body: opt.body ? JSON.stringify(opt.body) : undefined })
       .then((res) => {
         if (res.ok) return res.status === 201 || res.status === 204 ? null : res.json();
         return res.json().catch(() => ({})).then((j) => { const e = new Error(j.message || 'erro ' + res.status); e.status = res.status; e.code = j.code; throw e; });
       });
   }
-  let syncing = false;
+  const rpc = (fn, args) => sb('rpc/' + fn, { method: 'POST', body: args || {}, rpc: true });
+  const marca = () => [R.colabs.length, R.aval.length, (R.aval[0] || {}).id, R.aval.filter((a) => a.estado === 'confirmada').length, R.clientes.length, (R.clientes[0] || {}).ultimo_em].join(':');
+  // Um pedido de cada vez; o que chegar a meio fica para logo a seguir (quem espera, espera pelos dois).
+  let syncP = null, outraVez = false;
   function syncRemote() {
-    if (syncing) return Promise.resolve();
-    syncing = true;
-    return Promise.all([
+    if (syncP) { outraVez = true; return syncP; }
+    syncP = Promise.all([
       sb('hc_colaboradores?select=codigo,nome,funcao,loja,equipa&activo=eq.true'),
-      sb('hc_avaliacoes?select=id,codigo,estrelas,c1,c2,c3,comentario,criado_em&order=criado_em.desc&limit=1000')
-    ]).then(([cs, as]) => {
-      const antes = (R.aval[0] || {}).id + ':' + R.aval.length + ':' + R.colabs.length;
-      R.colabs = cs; R.aval = as; R.status = 'ok'; R.at = Date.now(); saveRemote();
-      if (antes !== (as[0] || {}).id + ':' + as.length + ':' + cs.length) refreshLive();
-    }).catch(() => { R.status = 'erro'; }).then(() => { syncing = false; updLive(); });
+      rpc('hc_avaliacoes_lista', { p_limite: 1000 }),
+      rpc('hc_clientes_lista')
+    ]).then(([cs, as, cl]) => {
+      const antes = marca();
+      R.colabs = cs; R.aval = as; R.clientes = cl; R.status = 'ok'; R.at = Date.now(); saveRemote();
+      if (antes !== marca()) refreshLive();
+    }).catch(() => { R.status = 'erro'; }).then(() => {
+      syncP = null; updLive();
+      if (outraVez) { outraVez = false; return syncRemote(); }
+    });
+    return syncP;
   }
   const typing = () => { const a = document.activeElement; return !!a && /INPUT|TEXTAREA|SELECT/.test(a.tagName) && !!a.closest('#main'); };
   function refreshLive() {
     if (typing() || ui.pop) return;
-    if (['rankings', 'visao-geral', 'lojas'].includes(cur.sec) && cur.tab !== 'novo') { ui.anim = true; render(); }
+    if (['rankings', 'visao-geral', 'lojas', 'clientes'].includes(cur.sec) && cur.tab !== 'novo' && cur.tab !== 'registar') { ui.anim = true; render(); }
     else { const n = alertas(ui.loja).length; const dot = document.getElementById('bell-dot'); dot.textContent = n || ''; dot.hidden = !n; }
   }
   const relSync = () => { const s = Math.round((Date.now() - (R.at || 0)) / 1000); return s < 10 ? 'agora' : s < 60 ? 'há ' + s + ' s' : 'há ' + Math.round(s / 60) + ' min'; };
@@ -805,12 +817,12 @@
     return t.getDate() + ' ' + MESES[t.getMonth()] + ', ' + h;
   };
 
-  // Histórico de Outubro (dados de demonstração) somado às notas que chegam por QR.
+  // Histórico de Outubro (dados de demonstração) somado às notas que chegam por QR, depois de o cliente as confirmar no e-mail.
   function colaboradores() {
     const map = new Map();
     S.colaboradores.forEach((c) => map.set(c.codigo, Object.assign({}, c, { live: { n: 0, s: [0, 0, 0, 0] } })));
     R.colabs.forEach((c) => { if (!map.has(c.codigo)) map.set(c.codigo, { codigo: c.codigo, nome: c.nome, funcao: c.funcao, loja: c.loja, equipa: c.equipa, aval: { n: 0, s: [0, 0, 0, 0] }, live: { n: 0, s: [0, 0, 0, 0] } }); });
-    R.aval.forEach((a) => { const c = map.get(a.codigo); if (!c) return; c.live.n++; c.live.s[0] += a.estrelas; c.live.s[1] += a.c1; c.live.s[2] += a.c2; c.live.s[3] += a.c3; });
+    R.aval.forEach((a) => { const c = map.get(a.codigo); if (!c || a.estado !== 'confirmada') return; c.live.n++; c.live.s[0] += a.estrelas; c.live.s[1] += a.c1; c.live.s[2] += a.c2; c.live.s[3] += a.c3; });
     return Array.from(map.values()).map((c) => {
       const n = c.aval.n + c.live.n, s2 = c.aval.s.map((x, i) => x + c.live.s[i]);
       return Object.assign(c, { n, s: s2, media: n ? s2[0] / n : 0, crit: s2.slice(1).map((x) => (n ? x / n : 0)) });
@@ -822,7 +834,7 @@
   const avaliarUrl = (codigo) => new URL('avaliar.html?c=' + encodeURIComponent(codigo), location.href).href;
   function qrSvg(text) { try { const q = window.qrcode(0, 'M'); q.addData(text); q.make(); return q.createSvgTag({ cellSize: 4, margin: 0, scalable: true }); } catch (e) { return ''; } }
   function qrCard(c) {
-    return '<div class="qr-card"><div class="qr-top"><img src="assets/logo.png" alt="" width="20" height="32"><span>' + (c.funcao === 'montagem' ? 'Avalie a entrega e a montagem' : 'Avalie o meu atendimento') + '</span></div><div class="qr-name">' + esc(c.nome || 'Nome do colaborador') + '</div><div class="qr-role">' + quem(c) + '</div><div class="qr-code" role="img" aria-label="QR code para avaliar ' + esc(c.nome) + '">' + qrSvg(avaliarUrl(c.codigo)) + '</div><div class="qr-id">' + c.codigo + '</div><div class="qr-hint">Aponte a câmara do telemóvel. Demora 30 segundos e não pedimos os seus dados.</div></div>';
+    return '<div class="qr-card"><div class="qr-top"><img src="assets/logo.png" alt="" width="20" height="32"><span>' + (c.funcao === 'montagem' ? 'Avalie a entrega e a montagem' : 'Avalie o meu atendimento') + '</span></div><div class="qr-name">' + esc(c.nome || 'Nome do colaborador') + '</div><div class="qr-role">' + quem(c) + '</div><div class="qr-code" role="img" aria-label="QR code para avaliar ' + esc(c.nome) + '">' + qrSvg(avaliarUrl(c.codigo)) + '</div><div class="qr-id">' + c.codigo + '</div><div class="qr-hint">Aponte a câmara do telemóvel. Demora um minuto; a avaliação é confirmada pelo seu e-mail.</div></div>';
   }
   function imprimir(list) {
     if (!list.length) { snack('Não há colaboradores nesta selecção.'); return; }
@@ -839,8 +851,11 @@
     return (ranked.length ? '<ol class="rk-list">' + rows + '</ol>' : empty('leaderboard', 'Ainda sem ranking', 'São precisas pelo menos ' + MIN_RANK + ' avaliações por pessoa.')) +
       '<div class="foot-row rk-foot">' + (ranked.length > 5 ? '<button type="button" class="b b-x b-s" data-act="rk-all" data-arg="' + key + '" aria-expanded="' + !!ui.rkAll[key] + '">' + ic(ui.rkAll[key] ? 'expand_less' : 'expand_more') + (ui.rkAll[key] ? 'Ver só os 5 melhores' : 'Ver os ' + ranked.length) + '</button>' : '<span></span>') + '<span class="small muted">' + (few ? few + (few === 1 ? ' pessoa' : ' pessoas') + ' com menos de ' + MIN_RANK + ' avaliações fora do ranking' : 'Mínimo de ' + MIN_RANK + ' avaliações para entrar') + '</span></div>';
   }
+  const confirmada = (a) => a.estado === 'confirmada';
   function feedItem(a, c, fresh) {
-    return '<div class="fi' + (fresh ? ' new' : '') + '"><span class="av ' + tone(c.nome) + '" aria-hidden="true">' + esc(initials(c.nome)) + '</span><div style="min-width:0"><div class="fi-h"><a class="rk-t" href="#rankings/colaboradores?k=' + c.codigo + '">' + esc(c.nome) + '</a>' + stars(a.estrelas) + (a.estrelas <= 2 ? st('A acompanhar', 'bad') : '') + '</div><div class="rk-s">' + quem(c) + ' · ' + relLive(a.criado_em) + '</div><div class="fi-c">' + CRIT[c.funcao].map((t, i) => t + ' ' + a['c' + (i + 1)]).join(' · ') + '</div>' + (a.comentario ? '<div class="fi-q">«' + esc(a.comentario) + '»</div>' : '') + '</div></div>';
+    const ok = confirmada(a);
+    const quemAvaliou = a.cliente_nome ? '<div class="fi-w">' + (a.cliente_id ? '<a href="' + cliUrl(a.cliente_id) + '">' + esc(a.cliente_nome) + '</a>' : esc(a.cliente_nome)) + ' · ' + esc(a.cliente_email || '') + (a.com_compra ? ' · cliente com compras' : ' · sem compras registadas') + '</div>' : '';
+    return '<div class="fi' + (fresh ? ' new' : '') + (ok ? '' : ' pend') + '"><span class="av ' + tone(c.nome) + '" aria-hidden="true">' + esc(initials(c.nome)) + '</span><div style="min-width:0"><div class="fi-h"><a class="rk-t" href="#rankings/colaboradores?k=' + c.codigo + '">' + esc(c.nome) + '</a>' + stars(a.estrelas) + (ok ? st('E-mail confirmado', 'ok', 'verified') : st('Por confirmar', 'warn', 'schedule')) + (ok && a.estrelas <= 2 ? st('A acompanhar', 'bad') : '') + '</div><div class="rk-s">' + quem(c) + ' · ' + relLive(a.criado_em) + '</div><div class="fi-c">' + CRIT[c.funcao].map((t, i) => t + ' ' + a['c' + (i + 1)]).join(' · ') + '</div>' + (a.comentario ? '<div class="fi-q">«' + esc(a.comentario) + '»</div>' : '') + quemAvaliou + '</div></div>';
   }
   function feed(list, max) {
     const cmap = new Map(colaboradores().map((c) => [c.codigo, c]));
@@ -864,7 +879,7 @@
       metric({ l: 'Avaliações dos clientes', v: val(ga.n, 'int', 'q-n'), s: ['Outubro, por QR code'] }) +
       metric({ l: 'Nota do atendimento', v: val(gv.media, 'r', 'q-v') + ic('star', 'f star-big'), s: [gv.n + ' avaliações de vendedores'] }) +
       metric({ l: 'Nota da entrega e montagem', v: (gm.n ? val(gm.media, 'r', 'q-m') + ic('star', 'f star-big') : '—'), s: [gm.n + ' avaliações de montadores'] }) +
-      metric({ l: 'Recebidas por QR hoje', v: val(hoje.length, 'int', 'q-h'), s: ['<span data-live>' + liveChip() + '</span>'] }) + '</div>';
+      metric({ l: 'Recebidas por QR hoje', v: val(hoje.length, 'int', 'q-h'), s: [(hoje.filter((a) => !confirmada(a)).length ? hoje.filter((a) => !confirmada(a)).length + ' por confirmar no e-mail' : 'todas confirmadas no e-mail'), '<span data-live>' + liveChip() + '</span>'] }) + '</div>';
     const lojas = LOJAS().map((s2) => { const L = all.filter((c) => c.loja === s2); return { s: s2, g: grupo(L), v: grupo(L.filter((c) => c.funcao === 'vendedor')), m: grupo(L.filter((c) => c.funcao === 'montagem')) }; }).sort((a, b) => b.g.media - a.g.media);
     const cLojas = card('Melhores lojas', 'nota média dos clientes, todas as funções', '<ol class="rk-list">' + lojas.map((x, i) => '<li class="rk rk-loja' + (i === 0 ? ' lead' : '') + (k !== 'todas' && k !== x.s ? ' dim' : '') + '"><span class="rk-n">' + (i + 1) + '</span><span class="rk-b"><span class="rk-t">' + lojaN(x.s) + '</span><span class="rk-s">Atendimento ' + fDec(x.v.media, 1) + (x.m.n ? ' · Entrega e montagem ' + fDec(x.m.media, 1) : '') + '</span>' + bar(x.g.media / 5, { size: 'thin', k: 'rl-' + x.s, label: fDec(x.g.media, 1) + ' de 5' }) + '</span><span class="rk-v">' + nota(x.g.media, x.g.n) + '<small>' + x.g.n + ' avaliações</small></span></li>').join('') + '</ol><p class="card-note">As equipas de entrega e montagem contam para a loja onde estão sediadas.</p>', 'flex', 'c-rl');
     const cLive = card('Ao vivo', '<a href="#rankings/avaliacoes">Ver todas</a>', live.length ? '<div class="feed">' + feed(live, 3) + '</div>' : empty('qr_code_2', 'Ainda sem avaliações por QR', 'Abra o QR de um colaborador em «Colaboradores e QR» e avalie pelo telemóvel: a nota aparece aqui em segundos.'), 'flex', 'c-live');
@@ -872,7 +887,7 @@
     const cMont = card('Melhores montadores', 'entrega e montagem', rankList(mont, 'm', (c) => 'Equipa ' + c.equipa + ' · ' + lojaN(c.loja)), 'flex', 'c-rm');
     const critCol = (titulo, g, nomes, key) => { const pior = g.crit.indexOf(Math.min(...g.crit)); return '<div><h3 class="crit-h">' + titulo + '</h3>' + (g.n ? '<div class="hb">' + nomes.map((t, i) => '<div><div class="hb-h"><span>' + t + (i === pior ? ' ' + st('Ponto mais fraco', 'warn') : '') + '</span><span>' + fDec(g.crit[i], 1) + '</span></div>' + bar(g.crit[i] / 5, { size: 'thin', cls: i === pior ? '' : 'dark', k: 'cr-' + key + i }) + '</div>').join('') + '</div>' : '<p class="muted small">Sem avaliações nesta selecção.</p>') + '</div>'; };
     const cCrit = card('Onde a equipa perde pontos', 'média de cada pergunta, de 1 a 5', '<div class="crit-cols">' + critCol('Atendimento e vendas', gv, CRIT.vendedor, 'v') + critCol('Entrega e montagem', gm, CRIT.montagem, 'm') + '</div>', '', 'c-crit');
-    return head('Avaliações e rankings', 'Notas dos clientes por QR code, colaborador a colaborador' + (k === 'todas' ? '' : ' · ' + lojaN(k)), '<a class="b b-o" href="#rankings/colaboradores">' + ic('qr_code_2') + 'Ver QR codes</a><a class="b b-f" href="#rankings/novo">' + ic('person_add') + 'Registar colaborador</a>') + tabs('rankings') +
+    return head('Avaliações e rankings', 'Notas dos clientes por QR code, colaborador a colaborador. Só contam as que o cliente confirmou no e-mail' + (k === 'todas' ? '.' : ' · ' + lojaN(k)), '<a class="b b-o" href="#rankings/colaboradores">' + ic('qr_code_2') + 'Ver QR codes</a><a class="b b-f" href="#rankings/novo">' + ic('person_add') + 'Registar colaborador</a>') + tabs('rankings') +
       '<div class="stack">' + band + '<div class="g g-75">' + cLojas + cLive + '</div><div class="g g-11">' + cVend + cMont + '</div>' + cCrit + '</div>';
   }
   function vColaboradores() {
@@ -899,11 +914,11 @@
     const k = ui.loja, f = ui.flt.af;
     const cmap = new Map(colaboradores().map((c) => [c.codigo, c]));
     const base = avalDaSel(k);
-    const fil = { todas: () => true, vendedor: (a) => cmap.get(a.codigo).funcao === 'vendedor', montagem: (a) => cmap.get(a.codigo).funcao === 'montagem', baixa: (a) => a.estrelas <= 2 };
+    const fil = { todas: () => true, vendedor: (a) => cmap.get(a.codigo).funcao === 'vendedor', montagem: (a) => cmap.get(a.codigo).funcao === 'montagem', baixa: (a) => a.estrelas <= 2, pendente: (a) => !confirmada(a), semcompra: (a) => confirmada(a) && !a.com_compra };
     const list = base.filter(fil[f] || fil.todas);
-    const chips = '<div class="chips" role="group" aria-label="Filtrar avaliações">' + [['todas', 'Todas'], ['vendedor', 'Atendimento e vendas'], ['montagem', 'Entrega e montagem'], ['baixa', '1 ou 2 estrelas']].map(([v, l]) => chip('af', v, l + ' <span class="cn">' + base.filter(fil[v]).length + '</span>', f === v)).join('') + '</div>';
-    return head('Avaliações recebidas', 'O que os clientes escreveram depois de ler o QR code, da mais recente para a mais antiga.', '<span data-live>' + liveChip() + '</span><button type="button" class="b b-o b-s" data-act="sync">' + ic('sync') + 'Actualizar</button>') + tabs('avaliacoes') +
-      '<div class="stack">' + chips + card(list.length + (list.length === 1 ? ' avaliação' : ' avaliações'), R.status === 'erro' ? 'sem ligação à base de dados' : 'recebidas por QR code', list.length ? '<div class="feed">' + feed(list, 200) + '</div>' : empty('qr_code_2', f === 'baixa' ? 'Nenhuma nota de 1 ou 2 estrelas' : 'Ainda sem avaliações por QR', 'Abra o QR de um colaborador em «Colaboradores e QR» e avalie pelo telemóvel.'), '', 'c-arec') + '</div>';
+    const chips = '<div class="chips" role="group" aria-label="Filtrar avaliações">' + [['todas', 'Todas'], ['vendedor', 'Atendimento e vendas'], ['montagem', 'Entrega e montagem'], ['baixa', '1 ou 2 estrelas'], ['pendente', 'Por confirmar'], ['semcompra', 'Confirmadas sem compra']].map(([v, l]) => chip('af', v, l + ' <span class="cn">' + base.filter(fil[v]).length + '</span>', f === v)).join('') + '</div>';
+    return head('Avaliações recebidas', 'O que os clientes escreveram depois de ler o QR code, da mais recente para a mais antiga. Cada avaliação leva o nome e o e-mail do cliente e só conta nos rankings depois de confirmada no e-mail.', '<span data-live>' + liveChip() + '</span><button type="button" class="b b-o b-s" data-act="sync">' + ic('sync') + 'Actualizar</button>') + tabs('avaliacoes') +
+      '<div class="stack">' + chips + card(list.length + (list.length === 1 ? ' avaliação' : ' avaliações'), R.status === 'erro' ? 'sem ligação à base de dados' : 'recebidas por QR code', list.length ? '<div class="feed">' + feed(list, 200) + '</div>' : empty('qr_code_2', f === 'baixa' ? 'Nenhuma nota de 1 ou 2 estrelas' : f === 'pendente' ? 'Nenhuma avaliação por confirmar' : f === 'semcompra' ? 'Todas as confirmadas têm compra registada' : 'Ainda sem avaliações por QR', 'Abra o QR de um colaborador em «Colaboradores e QR» e avalie pelo telemóvel.'), '', 'c-arec') + '</div>';
   }
   function colabPreview(d) {
     const funcao = d.funcao || 'vendedor';
@@ -919,6 +934,96 @@
       '<div class="form-act"><button type="submit" class="b b-f">' + ic('person_add') + '<span>Registar e criar QR</span></button></div></form>';
     return head('Registar colaborador', 'O colaborador fica com um código e um QR code para os clientes o avaliarem.', '') + tabs('novo') +
       '<div class="g g-form">' + card('Dados do colaborador', '', form, '', 'c-cform2') + card('Cartão com QR code', '', '<div id="colab-prev">' + colabPreview({ loja: loja || 'angola' }) + '</div>', '', 'c-cprev') + '</div>';
+  }
+  /* ---------- clientes: um por e-mail, com o histórico de compras, avaliações, NPS e mensagens ---------- */
+  const CREF = (window.HC_SEED && window.HC_SEED().clienteRef) || {};
+  const H = {};
+  const EMAIL_RE = /^[^@\s<>"]+@[^@\s<>"]+\.[^@\s<>"]+$/;
+  const TIPO_EV = { compra: ['Compra', 'shopping_cart'], avaliacao_qr: ['Avaliação por QR', 'qr_code_2'], nps: ['Inquérito NPS', 'sentiment_satisfied'], mensagem: ['Mensagem', 'forum'], avaliacao_publica: ['Avaliação pública', 'reviews'] };
+  const fQuando = (iso) => { const t = new Date(iso); return t.getDate() + ' ' + MESES[t.getMonth()] + (t.getFullYear() !== NOW.getFullYear() ? ' ' + t.getFullYear() : '') + ', ' + pad(t.getHours()) + ':' + pad(t.getMinutes()); };
+  const cliUrl = (id) => '#clientes/lista?cl=' + id;
+  const cidDe = (ref) => CREF[ref] || null;
+  function ligarCliente(o) {
+    return rpc('hc_registar_evento', { p_email: o.email, p_nome: o.nome, p_tipo: o.tipo, p_referencia: o.ref || null, p_resumo: o.resumo, p_valor: o.valor == null || isNaN(o.valor) ? null : o.valor, p_loja: ['angola', 'baia', 'matola'].includes(o.loja) ? o.loja : null, p_dados: o.dados || {} })
+      .then((cid) => { delete H[cid]; return syncRemote().then(() => cid); });
+  }
+  // O histórico vem da base quando se abre o cliente, e outra vez quando ele tem actividade nova.
+  function historico(c) {
+    const h = H[c.id];
+    if (h && !h.busy && h.ultimo === c.ultimo_em) return h;
+    if (!h || !h.busy) {
+      H[c.id] = { busy: true, rows: h && h.rows };
+      rpc('hc_cliente_historico', { p_cliente: c.id })
+        .then((rows) => { H[c.id] = { rows, ultimo: c.ultimo_em }; }, () => { H[c.id] = { erro: true, rows: h && h.rows, ultimo: c.ultimo_em }; })
+        .then(() => { if (cur.sec === 'clientes' && cur.tab === 'lista' && ui.sel.cli === c.id && !typing()) render(); });
+    }
+    return H[c.id];
+  }
+  function refLink(e) {
+    const r = e.referencia || '', m = /^(MSG|REV)-(.+)$/.exec(r);
+    if (e.tipo === 'compra' && S.pedidos.some((p) => p.id === r)) return ['#pedidos/lista?p=' + r, 'Ver pedido ' + r];
+    if (m) { const c = S.conversas.find((x) => x.id === m[2]); if (c) return ['#mensagens/caixa?c=' + c.id + '&canal=' + c.canal + '&est=todas', m[1] === 'MSG' ? 'Abrir conversa' : 'Abrir avaliação']; }
+    if (e.tipo === 'avaliacao_qr' && e.dados && e.dados.codigo) return ['#rankings/colaboradores?k=' + e.dados.codigo, 'Ver colaborador'];
+    if (e.tipo === 'nps') return ['#satisfacao/painel', 'Ver satisfação'];
+    return null;
+  }
+  function evento(e) {
+    const [t, icon] = TIPO_EV[e.tipo] || ['Registo', 'info'], d = e.dados || {}, lk = refLink(e);
+    const extra = e.tipo === 'compra' && e.valor != null ? '<span class="tl-v">' + fMT(e.valor) + '</span>'
+      : e.tipo === 'avaliacao_qr' ? (d.estado === 'confirmada' ? st('E-mail confirmado', 'ok', 'verified') : st('Por confirmar', 'warn', 'schedule'))
+      : e.tipo === 'nps' && d.nota != null ? st('Nota ' + d.nota, d.nota <= 6 ? 'bad' : d.nota <= 8 ? '' : 'ok') : '';
+    const ref = lk ? '<a href="' + lk[0] + '">' + lk[1] + '</a>' : e.referencia && !/^(QR|NPS)-/.test(e.referencia) ? esc(e.referencia) : '';
+    return '<li class="tl-i"><span class="tl-ic">' + ic(icon) + '</span><div class="tl-b"><div class="tl-h"><strong>' + t + '</strong>' + extra + '</div><div class="tl-t">' + esc(e.resumo) + (d.comentario ? '<span class="tl-q">«' + esc(d.comentario) + '»</span>' : '') + '</div><div class="tl-m">' + fQuando(e.criado_em) + (e.loja ? ' · ' + lojaN(e.loja) : '') + (ref ? ' · ' + ref : '') + '</div></div></li>';
+  }
+  function vClientes(tab) {
+    if (tab === 'registar') return vRegistarEvento();
+    const f = ui.flt.cf, L = R.clientes || [];
+    const fil = { todos: () => true, compras: (c) => c.compras > 0, avaliaram: (c) => c.avaliacoes > 0, semcompra: (c) => c.avaliacoes > 0 && !c.compras };
+    const list = L.filter(fil[f] || fil.todos);
+    const sel = list.find((c) => c.id === ui.sel.cli) || L.find((c) => c.id === ui.sel.cli) || list[0];
+    if (sel) ui.sel.cli = sel.id;
+    const aval = sum(L, (c) => c.avaliacoes), conf = sum(L, (c) => c.avaliacoes_confirmadas), voltaram = L.filter((c) => c.compras >= 2).length;
+    const band = '<div class="band strip">' +
+      metric({ l: 'Clientes identificados', v: val(L.length, 'int', 'cl-n'), s: ['pelo e-mail, em todos os canais'] }) +
+      metric({ l: 'Com compras registadas', v: val(L.filter(fil.compras).length, 'int', 'cl-c'), s: [voltaram + (voltaram === 1 ? ' voltou' : ' voltaram') + ' a comprar'] }) +
+      metric({ l: 'Avaliações por QR confirmadas', v: aval ? val(conf / aval, 'pct', 'cl-a') : '—', s: [conf + ' de ' + aval + ' com o e-mail confirmado'] }) +
+      metric({ l: 'Avaliaram sem compra registada', v: val(L.filter(fil.semcompra).length, 'int', 'cl-s'), s: ['para confirmar com a loja'] }) + '</div>';
+    const chips = '<div class="chips" role="group" aria-label="Filtrar clientes">' + [['todos', 'Todos'], ['compras', 'Com compras'], ['avaliaram', 'Avaliaram por QR'], ['semcompra', 'Avaliação sem compra']].map(([v, l]) => chip('cf', v, l + ' <span class="cn">' + L.filter(fil[v]).length + '</span>', f === v)).join('') + '</div>';
+    const rows = list.map((c) => '<tr class="click' + (sel && sel.id === c.id ? ' on' : '') + '" data-act="cli" data-arg="' + c.id + '"><td class="clip" data-l="Cliente"><button type="button" class="idbtn" data-act="cli" data-arg="' + c.id + '" data-scroll="1" data-fk="cli:' + c.id + '" aria-label="Ver o histórico de ' + esc(c.nome) + '">' + esc(c.nome) + '</button><span class="sub">' + esc(c.email) + '</span></td><td class="r nw" data-l="Compras">' + (c.compras ? fMT(c.total_compras) + '<span class="sub">' + c.compras + (c.compras === 1 ? ' compra' : ' compras') + '</span>' : '<span class="muted">Sem compras</span>') + '</td><td class="nw" data-l="Avaliações por QR">' + (c.avaliacoes ? c.avaliacoes_confirmadas + ' de ' + c.avaliacoes + '<span class="sub">confirmadas</span>' : '<span class="muted">—</span>') + '</td><td class="nw" data-l="Última actividade">' + (c.ultimo_em ? relLive(c.ultimo_em) : '—') + '</td></tr>').join('');
+    const tabela = card(list.length + (list.length === 1 ? ' cliente' : ' clientes'), chips, list.length
+      ? '<div class="tw"><table class="t cards"><thead><tr><th scope="col">Cliente</th><th scope="col" class="r">Compras</th><th scope="col">Avaliações por QR</th><th scope="col">Última actividade</th></tr></thead><tbody>' + rows + '</tbody></table></div><p class="card-note">Nomes e e-mails aparecem abreviados: sem login, a base de dados não os mostra completos.' + (ui.loja === 'todas' ? '' : ' A lista inclui clientes de todas as lojas.') + '</p>'
+      : L.length ? empty('group', 'Nenhum cliente neste filtro', '') : R.status === 'erro' ? empty('cloud_off', 'Sem ligação à base de dados', 'A lista de clientes aparece quando a ligação voltar.') : empty('group', 'A carregar os clientes…', ''), '', 'c-clis');
+    let det = '';
+    if (sel) {
+      const h = historico(sel);
+      const tl = h.rows ? (h.rows.length ? '<ol class="tl" aria-label="Histórico do cliente">' + h.rows.map(evento).join('') + '</ol>' : '<p class="muted small">Ainda sem registos.</p>') + (h.erro ? '<p class="card-note">' + ic('cloud_off') + ' Sem ligação: pode faltar actividade recente.</p>' : '')
+        : h.erro ? empty('cloud_off', 'Sem ligação à base de dados', 'O histórico aparece quando a ligação voltar.') : '<p class="muted small" aria-busy="true">A carregar o histórico…</p>';
+      det = '<aside class="card detail" id="cli-detail" aria-labelledby="cli-h"><div class="cli-top"><span class="av ' + tone(sel.nome) + '" aria-hidden="true">' + esc(initials(sel.nome)) + '</span><div><h2 id="cli-h">' + esc(sel.nome) + '</h2><p>' + esc(sel.email) + '</p></div></div>' +
+        '<div class="chips cli-tags">' + (sel.compras ? st(sel.compras >= 2 ? 'Cliente recorrente' : 'Cliente com compras', 'ok', 'shopping_cart') : st('Sem compras registadas', '', 'shopping_cart')) + (sel.avaliacoes_confirmadas ? st('E-mail confirmado', 'ok', 'verified') : sel.avaliacoes ? st('Avaliação por confirmar', 'warn', 'schedule') : '') + '</div>' +
+        '<dl class="dl"><dt>Cliente desde</dt><dd>' + fQuando(sel.criado_em).split(',')[0] + '</dd><dt>Compras</dt><dd>' + (sel.compras ? sel.compras + ' · ' + fMT(sel.total_compras) : '—') + '</dd><dt>Avaliações por QR</dt><dd>' + (sel.avaliacoes ? sel.avaliacoes_confirmadas + ' de ' + sel.avaliacoes + ' confirmadas' : '—') + '</dd><dt>Respostas NPS</dt><dd>' + (sel.nps || '—') + '</dd><dt>Mensagens</dt><dd>' + (sel.mensagens || '—') + '</dd><dt>Avaliações públicas</dt><dd>' + (sel.publicas || '—') + '</dd></dl>' +
+        '<h3 class="crit-h" style="margin-top:20px">Histórico</h3>' + tl + '</aside>';
+    }
+    return head('Clientes', 'Cada cliente é reconhecido pelo e-mail: compras, avaliações por QR, inquéritos e mensagens juntam-se no mesmo histórico.', '<span data-live>' + liveChip() + '</span><a class="b b-f" href="#clientes/registar">' + ic('add_shopping_cart') + 'Registar compra ou contacto</a>') + tabs('lista') +
+      '<div class="stack">' + band + '<div class="split">' + tabela + det + '</div></div>';
+  }
+  function vRegistarEvento() {
+    const F = 'evento', loja = ui.loja !== 'todas' ? ui.loja : '';
+    const form = '<form class="form" data-form="evento" novalidate>' +
+      '<div class="form-h">Cliente</div>' +
+      fld(F, { name: 'email', label: 'E-mail do cliente', type: 'email', req: true, auto: 'email', hint: 'É o e-mail que junta tudo no mesmo histórico' }) +
+      fld(F, { name: 'nome', label: 'Nome do cliente ou empresa', req: true, auto: 'name', hint: 'Se o e-mail já existir, fica o nome do primeiro registo' }) +
+      '<div class="form-h">Registo</div>' +
+      opts(F, 'tipo', [['compra', 'Compra'], ['mensagem', 'Mensagem ou contacto']], 'compra', { legend: 'O que aconteceu', req: true, cls: 'full' }) +
+      fld(F, { name: 'loja', label: 'Loja', type: 'select', req: true, value: loja, options: lojaOpts(loja, true) }) +
+      fld(F, { name: 'canal', label: 'Canal', type: 'select', value: 'loja', options: [['loja', 'Na loja'], ['whatsapp', 'WhatsApp'], ['site', 'Site'], ['redes', 'Instagram ou Facebook'], ['telefone', 'Telefone'], ['email', 'E-mail']] }) +
+      fld(F, { name: 'resumo', label: 'O que comprou ou o que pediu', type: 'textarea', req: true, cls: 'full', rows: 2, max: 300, hint: 'Por exemplo, sofá de 3 lugares e mesa de centro' }) +
+      fld(F, { name: 'valor', label: 'Valor da compra', type: 'num', suffix: 'MT', hint: 'Obrigatório para compras' }) +
+      fld(F, { name: 'ref', label: 'Número do pedido ou da factura', hint: 'Opcional. Evita registar a mesma compra duas vezes' }) +
+      '<div class="form-act"><button type="submit" class="b b-f">' + ic('check') + '<span>Juntar ao histórico</span></button><a class="b b-x" href="#clientes/lista">Cancelar</a></div></form>';
+    const passos = [['O e-mail identifica o cliente', 'Maiúsculas e espaços não contam: é sempre o mesmo cliente'], ['O registo junta-se ao histórico', 'Se o e-mail é novo, o cliente é criado; se já existe, junta-se ao que já lá está'], ['Tudo lado a lado', 'Compras, avaliações por QR, inquéritos NPS e mensagens, por ordem de data']];
+    const how = '<ol class="steps">' + passos.map(([t, x], i) => '<li class="' + (i === 0 ? 'now' : '') + '"><span class="sd"></span><span><strong>' + t + '</strong><small>' + x + '</small></span></li>').join('') + '</ol><div class="info-box">' + ic('info') + '<span>Os pedidos criados em «Novo pedido» e as respostas NPS com e-mail entram aqui sozinhos. As avaliações por QR também, assim que o cliente as envia.</span></div>';
+    return head('Registar compra ou contacto', 'Junte ao histórico de um cliente uma compra feita na loja ou um contacto que não passou pela caixa de mensagens.', '') + tabs('registar') +
+      '<div class="g g-form">' + card('Dados do registo', '', form, '', 'c-eform') + card('Como juntamos os dados', '', how, '', 'c-ehow') + '</div>';
   }
   function formError(form, msg) {
     const old = form.querySelector('.err-sum'); if (old) old.remove();
@@ -943,7 +1048,7 @@
     };
     return '<nav class="tabs" role="tablist" aria-label="' + s.label + '">' + s.tabs.map(([t, l, entry]) => '<a class="tab" role="tab" href="#' + s.id + '/' + t + '" aria-selected="' + (t === active) + '" data-fk="tab:' + t + '">' + (entry ? ic('edit_note') : '') + l + badge(t) + '</a>').join('') + '</nav>';
   }
-  const VIEWS = { 'visao-geral': vGeral, mensagens: vMensagens, pedidos: vPedidos, lojas: vLojas, rankings: vRankings, satisfacao: vSatisfacao, campanhas: vCampanhas, financeiro: vFinanceiro };
+  const VIEWS = { 'visao-geral': vGeral, mensagens: vMensagens, pedidos: vPedidos, lojas: vLojas, rankings: vRankings, clientes: vClientes, satisfacao: vSatisfacao, campanhas: vCampanhas, financeiro: vFinanceiro };
 
   function navHTML() {
     const pend = pendentes('todas').length;
@@ -1001,7 +1106,7 @@
     cur = { sec: s.id, tab: t };
     ui.path = s.id + '/' + t;
     const fk = document.activeElement && document.activeElement.dataset ? document.activeElement.dataset.fk : null;
-    document.getElementById('main').innerHTML = VIEWS[s.id](t) + '<div class="sig"><span>Dados ilustrativos para demonstração. O que registar fica guardado só neste navegador.</span><span>Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem</span></div>';
+    document.getElementById('main').innerHTML = VIEWS[s.id](t) + '<div class="sig"><span>Dados ilustrativos para demonstração. O que registar fica neste navegador, excepto as avaliações por QR e o histórico de clientes, que ficam na base de dados.</span><span>Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem</span></div>';
     document.getElementById('nav-list').innerHTML = navHTML();
     document.getElementById('bn').innerHTML = bottomHTML();
     document.getElementById('top-title').textContent = s.short || s.label;
@@ -1017,7 +1122,7 @@
     if (ui.scrollTo) {
       const el = document.querySelector(ui.scrollTo), sp = document.querySelector('.split');
       const stacked = !sp || getComputedStyle(sp).gridTemplateColumns.split(' ').length < 2;
-      if (el && ((ui.scrollTo !== '#detail' && ui.scrollTo !== '#qr-detail') || stacked)) el.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      if (el && (!['#detail', '#qr-detail', '#cli-detail'].includes(ui.scrollTo) || stacked)) el.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       ui.scrollTo = null;
     }
     renderPop();
@@ -1039,6 +1144,7 @@
       if (q.tipo) ui.flt.fin = q.tipo;
       if (q.k) { ui.sel.colab = q.k; ui.flt.func = 'todos'; ui.scrollTo = '#qr-detail'; }
       if (q.f) ui.flt.af = q.f;
+      if (q.cl) { ui.sel.cli = q.cl; ui.flt.cf = 'todos'; ui.scrollTo = '#cli-detail'; }
     }
     if (!(qs && (q_has(qs, 'reag')))) ui.open = null;
     ui.pop = null; ui.sheet = false;
@@ -1116,6 +1222,7 @@
     const v = el.value.trim();
     if (el.required && !v) return 'Preencha este campo.';
     if (el.hasAttribute('data-num') && v && (isNaN(pn(v)) || pn(v) < 0)) return 'Escreva só números, por exemplo 45000.';
+    if (el.type === 'email' && v && !EMAIL_RE.test(v)) return 'Escreva um e-mail válido, por exemplo nome@gmail.com.';
     if (el.type === 'date' && v) { if (el.min && v < el.min) return 'A data não pode ser antes de ' + fData(el.min) + '.'; if (el.max && v > el.max) return 'A data não pode ser depois de ' + fData(el.max) + '.'; }
     return '';
   }
@@ -1205,6 +1312,9 @@
         if (conv) { const c = s.conversas.find((x) => x.id === conv); if (c) { c.pedido = id; c.tags.push('Pedido ' + id); c.msgs.push({ de: 'sys', txt: 'Pedido ' + id + ' criado', em: isoT(NOW) }); } }
         if (ab) s.abandonadas = s.abandonadas.filter((a) => a.id !== ab);
       }, { go: 'pedidos/lista' });
+      if (d.email) ligarCliente({ email: d.email, nome: d.cliente, tipo: 'compra', ref: id, resumo: d.itens, valor: pn(d.valor), loja: d.loja, dados: { pagamento: d.pagamento, canal: d.canal } })
+        .then((cid) => { const p = S.pedidos.find((x) => x.id === id); if (p) { p.cid = cid; persist(); } if (cur.sec === 'pedidos' && !typing()) render(); })
+        .catch(() => snack('Pedido ' + id + ' criado, mas sem ligação à base de clientes: não entrou no histórico do cliente.'));
     },
     reag(form, d) {
       if (!validate(form)) return;
@@ -1252,6 +1362,8 @@
         if (d.motivo && nota <= 8) s.nps.motivos[d.motivo] = (s.nps.motivos[d.motivo] || 0) + 1;
         if (nota <= 6) s.detratores.push({ id: uid('d'), nome: d.cliente, nota, loja: d.loja, equipa: d.equipa, motivo: d.motivo, comentario: d.comentario || d.motivo, em: isoT(NOW), contacto: null });
       }, { go: 'satisfacao/painel' });
+      if (d.email) ligarCliente({ email: d.email, nome: d.cliente, tipo: 'nps', ref: uid('NPS-'), resumo: 'Nota ' + nota + ' no inquérito pós-entrega' + (d.motivo ? ': ' + d.motivo.toLowerCase() : ''), loja: d.loja, dados: { nota, motivo: d.motivo || null, pedido: d.pedido || null, comentario: d.comentario || null } })
+        .catch(() => snack('Resposta registada, mas sem ligação à base de clientes: não entrou no histórico do cliente.'));
     },
     contacto(form, d) {
       if (!validate(form)) return;
@@ -1330,6 +1442,16 @@
         formError(form, (e.status ? 'A base de dados recusou o registo: ' + e.message + '.' : 'Sem ligação à base de dados.') + ' Verifique a ligação e tente de novo.');
       });
     },
+    evento(form, d) {
+      const ex = [];
+      if (d.tipo === 'compra' && !d.valor) ex.push(['valor', 'Indique o valor da compra.']);
+      if (!validate(form, ex)) return;
+      const btn = form.querySelector('[type=submit]'), lbl = btn.querySelector('span:last-child');
+      btn.disabled = true; lbl.textContent = 'A guardar…';
+      ligarCliente({ email: d.email, nome: d.nome, tipo: d.tipo, ref: d.ref, resumo: d.resumo, valor: d.tipo === 'compra' ? pn(d.valor) : null, loja: d.loja, dados: { canal: d.canal } })
+        .then((cid) => { ui.sel.cli = cid; ui.flt.cf = 'todos'; location.hash = 'clientes/lista?cl=' + cid; snack((d.tipo === 'compra' ? 'Compra juntada' : 'Contacto juntado') + ' ao histórico de ' + d.nome + '.'); })
+        .catch((e) => { btn.disabled = false; lbl.textContent = 'Juntar ao histórico'; formError(form, e.status ? e.message : 'Sem ligação à base de dados. Tente de novo daqui a pouco.'); });
+    },
     desconto(form, d) {
       if (!validate(form)) return;
       commit('Desconto de ' + fMT(pn(d.valor)) + ' registado em ' + lojaN(d.loja) + '.', (s) => { s.descontos.push({ id: uid('x'), loja: d.loja, data: d.data, ref: d.ref, valor: pn(d.valor), motivo: d.motivo, autorizado: d.autorizado }); }, { go: 'financeiro/resumo' });
@@ -1357,6 +1479,8 @@
     func(arg) { ui.flt.func = arg; render(); },
     af(arg) { ui.flt.af = arg; render(); },
     colab(arg, el) { ui.sel.colab = arg; if (el && el.dataset.scroll) ui.scrollTo = '#qr-detail'; render(); },
+    cli(arg, el) { ui.sel.cli = arg; if (el && el.dataset.scroll) ui.scrollTo = '#cli-detail'; render(); },
+    cf(arg) { ui.flt.cf = arg; render(); },
     'rk-all'(arg) { ui.rkAll[arg] = !ui.rkAll[arg]; render(); },
     'print-one'(arg) { const c = colaboradores().find((x) => x.codigo === arg); if (c) imprimir([c]); },
     'print-all'() { const k = ui.loja, f = ui.flt.func; imprimir(colaboradores().filter((c) => (k === 'todas' || c.loja === k) && (f === 'todos' || c.funcao === f))); },
@@ -1461,6 +1585,7 @@
     S.conversas.forEach((c) => { if (norm(c.nome).includes(n)) out.push({ ic: c.tipo === 'avaliacao' ? 'reviews' : 'forum', t: c.nome, s: (c.tipo === 'avaliacao' ? 'Avaliação no ' : 'Conversa no ') + CANAL_N[c.canal] + (c.estado === 'pendente' ? ', por responder' : ''), h: '#mensagens/caixa?c=' + c.id + '&canal=' + c.canal + '&est=todas' }); });
     LOJAS().forEach((s) => S.vendedores[s].forEach((v) => { if (norm(v.nome).includes(n)) out.push({ ic: 'badge', t: v.nome, s: 'Vendedor, ' + lojaN(s) + ', nota ' + v.score + '% no roteiro', h: '#lojas/desempenho', loja: s }); }));
     colaboradores().forEach((c) => { if (norm(c.nome + ' ' + c.codigo).includes(n)) out.push({ ic: 'qr_code_2', t: c.nome + ' · ' + c.codigo, s: FUNCAO_N[c.funcao] + ', ' + lojaN(c.loja) + (c.n ? ', nota ' + fDec(c.media, 1) : ''), h: '#rankings/colaboradores?k=' + c.codigo }); });
+    (R.clientes || []).forEach((c) => { if (norm(c.nome + ' ' + c.email).includes(n)) out.push({ ic: 'group', t: c.nome, s: 'Cliente, ' + c.email + (c.compras ? ', ' + c.compras + (c.compras === 1 ? ' compra' : ' compras') : ''), h: cliUrl(c.id) }); });
     S.facturas.forEach((f) => { if (norm(f.empresa).includes(n)) out.push({ ic: 'receipt_long', t: f.empresa + ' · ' + f.ref, s: 'Factura, ' + fMT(f.valor), h: '#financeiro/receber' }); });
     S.campanhas.forEach((c) => { if (norm(c.nome).includes(n)) out.push({ ic: 'campaign', t: c.nome, s: 'Campanha, ' + c.plataforma, h: '#campanhas/resultados' }); });
     return out.slice(0, 8);
