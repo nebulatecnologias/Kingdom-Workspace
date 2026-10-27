@@ -147,6 +147,38 @@ window.HC_SEED = function () {
   };
   vendedores.angola[1].equipa = 'Empresas';
 
+  // Colaboradores avaliados por QR code: histórico de Outubro (n avaliações e somas de estrelas e dos 3 critérios).
+  // As notas novas chegam do Supabase e somam-se a estas.
+  const K = (codigo, nome, funcao, loja, equipa, n, media, d) => ({
+    codigo, nome, funcao, loja, equipa,
+    aval: { n, s: [media].concat(d.map((x) => Math.min(5, media + x))).map((m) => Math.round(m * n)) }
+  });
+  const colaboradores = [
+    K('HC-V001', 'Hélio Sitoe', 'vendedor', 'angola', null, 26, 4.8, [0.1, 0, -0.1]),
+    K('HC-V002', 'Marta Nhantumbo', 'vendedor', 'angola', null, 9, 4.9, [0, 0.1, -0.1]),
+    K('HC-V003', 'Albino Cossa', 'vendedor', 'angola', null, 21, 4.4, [0.2, -0.1, -0.2]),
+    K('HC-V004', 'Neide Muianga', 'vendedor', 'angola', null, 18, 4.3, [0.3, -0.3, 0]),
+    K('HC-V005', 'Abel Novela', 'vendedor', 'angola', null, 12, 3.6, [-0.1, -0.2, -0.5]),
+    K('HC-V006', 'Neusa Macuácua', 'vendedor', 'baia', null, 19, 4.7, [0.2, 0, -0.1]),
+    K('HC-V007', 'Celso Mabunda', 'vendedor', 'baia', null, 16, 4.6, [0.1, 0, -0.2]),
+    K('HC-V008', 'Lina Bila', 'vendedor', 'baia', null, 13, 4.1, [0.3, -0.2, -0.4]),
+    K('HC-V009', 'Samuel Chauque', 'vendedor', 'baia', null, 10, 3.9, [0, -0.3, -0.2]),
+    K('HC-V010', 'Vânia Massingue', 'vendedor', 'baia', null, 8, 3.5, [0.1, -0.4, -0.3]),
+    K('HC-V011', 'Dércia Tembe', 'vendedor', 'matola', null, 17, 4.5, [0.2, 0, -0.2]),
+    K('HC-V012', 'Osvaldo Manhiça', 'vendedor', 'matola', null, 14, 4.2, [0, 0.1, -0.3]),
+    K('HC-V013', 'Rita Zandamela', 'vendedor', 'matola', null, 11, 3.9, [0.2, -0.3, -0.2]),
+    K('HC-V014', 'Ivo Langa', 'vendedor', 'matola', null, 9, 3.7, [0, -0.2, -0.4]),
+    K('HC-V015', 'Telma Matsinhe', 'vendedor', 'matola', null, 8, 3.4, [0.1, -0.4, -0.3]),
+    K('HC-M001', 'Joaquim Mabote', 'montagem', 'angola', 'A', 22, 4.7, [0.1, 0.1, -0.1]),
+    K('HC-M002', 'Eusébio Cuna', 'montagem', 'angola', 'A', 18, 4.6, [-0.1, 0.2, 0]),
+    K('HC-M003', 'Armando Sitoe', 'montagem', 'baia', 'B', 20, 4.5, [-0.2, 0.2, 0.1]),
+    K('HC-M004', 'Lucas Chirindza', 'montagem', 'baia', 'B', 15, 4.4, [-0.3, 0.1, 0.1]),
+    K('HC-M005', 'Benedito Nhamposse', 'montagem', 'matola', 'C', 17, 3.8, [-0.6, 0.2, -0.1]),
+    K('HC-M006', 'Raul Manjate', 'montagem', 'matola', 'C', 12, 3.9, [-0.5, 0.1, 0]),
+    K('HC-M007', 'Feliciano Mondlane', 'montagem', 'matola', 'D', 14, 3.5, [-0.7, 0, -0.3]),
+    K('HC-M008', 'Zacarias Muchanga', 'montagem', 'matola', 'D', 10, 3.6, [-0.6, 0.1, -0.2])
+  ];
+
   return {
     versao: 2,
     lojas,
@@ -199,6 +231,7 @@ window.HC_SEED = function () {
       { id: 'i3', empresa: 'Colégio Horizonte', ref: 'Fatura de Outubro', valor: 640000, emissao: '2026-10-21', vencimento: '2026-11-20', gestor: 'Marta Nhantumbo', paga: null }
     ],
     descontos: [],
-    verificados: {}
+    verificados: {},
+    colaboradores: colaboradores
   };
 };

@@ -89,6 +89,12 @@
         ],
         "createdAt": "2026-09-23T18:07:04.184Z",
         "reason": "assistant judgement: false positive — table-wrap sits flush in the card by design while each th/td carries 16px padding (same pattern as the reviewed prototype)"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "material symbols rounded",
+        "createdAt": "2026-10-27T19:20:37.245Z",
+        "reason": "Claude: icon font, documented as the icon system in clients/home-center/DESIGN.md, not a text face"
       }
     ]
   }

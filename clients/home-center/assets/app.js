@@ -53,7 +53,10 @@
 
   /* ---------- estado ---------- */
   function load() {
-    try { const r = localStorage.getItem(KEY); if (r) { const x = JSON.parse(r); if (x && x.versao === 2) return x; } } catch (e) { /* sem armazenamento */ }
+    try {
+      const r = localStorage.getItem(KEY);
+      if (r) { const x = JSON.parse(r); if (x && x.versao === 2) { const seed = window.HC_SEED(); Object.keys(seed).forEach((k) => { if (!(k in x)) x[k] = seed[k]; }); return x; } }
+    } catch (e) { /* sem armazenamento */ }
     return window.HC_SEED();
   }
   let S = load();
@@ -62,7 +65,8 @@
   const ui = {
     loja: S.lojas[uiPrefs.loja] ? uiPrefs.loja : 'todas',
     lojaLocal: 'angola',
-    flt: { canal: 'todos', est: 'pendente', etapa: 'todos', pcanal: 'todos', ctipo: 'todas', aest: 'pendente', fin: 'factura' },
+    flt: { canal: 'todos', est: 'pendente', etapa: 'todos', pcanal: 'todos', ctipo: 'todas', aest: 'pendente', fin: 'factura', func: 'todos', af: 'todas' },
+    rkAll: {}, seen: null,
     sel: {}, open: null, view: 'list', drafts: {}, pop: null, sheet: false, anim: false, scrollTo: null, path: ''
   };
   const saveUi = () => { try { localStorage.setItem(UIKEY, JSON.stringify({ loja: ui.loja })); } catch (e) { /* sem armazenamento */ } };
@@ -86,6 +90,7 @@
     { id: 'mensagens', label: 'Mensagens', icon: 'forum', tabs: [['caixa', 'Caixa de entrada'], ['respostas', 'Respostas rápidas', 1]] },
     { id: 'pedidos', label: 'Pedidos e entregas', short: 'Pedidos', icon: 'local_shipping', tabs: [['lista', 'Pedidos'], ['agenda', 'Agenda de entregas'], ['novo', 'Novo pedido', 1]] },
     { id: 'lojas', label: 'Lojas e equipas', short: 'Lojas', icon: 'storefront', tabs: [['desempenho', 'Desempenho'], ['briefing', 'Briefing e coaching'], ['avaliar', 'Avaliar atendimento', 1]] },
+    { id: 'rankings', label: 'Avaliações e rankings', short: 'Rankings', icon: 'leaderboard', tabs: [['rankings', 'Rankings'], ['colaboradores', 'Colaboradores e QR'], ['avaliacoes', 'Avaliações recebidas'], ['novo', 'Registar colaborador', 1]] },
     { id: 'satisfacao', label: 'Satisfação e NPS', short: 'Satisfação', icon: 'sentiment_satisfied', tabs: [['painel', 'Painel'], ['avaliacoes', 'Avaliações públicas'], ['registar', 'Registar resposta', 1]] },
     { id: 'campanhas', label: 'Campanhas', icon: 'campaign', tabs: [['resultados', 'Resultados'], ['nova', 'Nova campanha', 1], ['registar', 'Registar resultados', 1]] },
     { id: 'financeiro', label: 'Financeiro', icon: 'account_balance_wallet', tabs: [['resumo', 'Resumo'], ['receber', 'Contas a receber'], ['registar', 'Registar', 1]] }
@@ -147,6 +152,9 @@
       const fim = new Date(dt(prox.em).getTime() + 864e5);
       out.push({ o: 1, n: det.length, t: 'Clientes insatisfeitos por contactar', d: 'O prazo de 24 horas mais curto termina ' + (diasEntre(NOW, fim) === 0 ? 'hoje' : 'amanhã') + ' às ' + pad(fim.getHours()) + 'h' + pad(fim.getMinutes()) + '.', cta: 'Contactar', href: '#satisfacao/painel' });
     }
+    const cmap = new Map(colaboradores().map((c) => [c.codigo, c]));
+    const baixas = R.aval.filter((a) => a.estrelas <= 2 && Date.now() - new Date(a.criado_em) < 7 * 864e5 && cmap.has(a.codigo) && (k === 'todas' || cmap.get(a.codigo).loja === k));
+    if (baixas.length) out.push({ o: 3, n: baixas.length, t: baixas.length === 1 ? 'Avaliação de 1 ou 2 estrelas por QR' : 'Avaliações de 1 ou 2 estrelas por QR', d: 'Últimos 7 dias. Fale com o colaborador e, se possível, com o cliente.', cta: 'Ver', href: '#rankings/avaliacoes?f=baixa' });
     const late = S.pedidos.filter((p) => atrasado(p) && (k === 'todas' || p.loja === k));
     if (late.length) {
       const by = LOJAS().map((s) => [s, late.filter((p) => p.loja === s).length]).filter((x) => x[1]).map(([s, n]) => n + (s === 'baia' ? ' no ' : s === 'matola' ? ' na ' : ' na ') + lojaN(s));
@@ -170,7 +178,7 @@
   const stars = (n) => '<span class="stars" role="img" aria-label="' + n + ' de 5 estrelas">' + [1, 2, 3, 4, 5].map((i) => ic('star', i <= n ? 'f' : 'f off')).join('') + '</span>';
   const initials = (n) => n.replace(/,.*$/, '').split(/\s+/).filter((w) => /^[A-ZÀ-Ý]/.test(w)).slice(0, 2).map((w) => w[0]).join('');
   const tone = (n) => 't' + ((n.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % 4) + 1);
-  const FMT = { M: (v) => fM(v), pct: (v) => fPct(v), int: (v) => fNum(v), x: (v) => fDec(v) + '×', nps: (v) => String(Math.round(v)), MT: (v) => fMT(v) };
+  const FMT = { r: (v) => fDec(v, 1), M: (v) => fM(v), pct: (v) => fPct(v), int: (v) => fNum(v), x: (v) => fDec(v) + '×', nps: (v) => String(Math.round(v)), MT: (v) => fMT(v) };
   const val = (v, f, k) => '<span data-k="' + k + '" data-v="' + v + '" data-f="' + f + '">' + FMT[f](v) + '</span>';
   function metric(o) {
     return '<div><div class="m-l">' + o.l + '</div><div class="m-v">' + o.v + '</div>' + (o.s || []).map((x) => '<div class="m-s">' + x + '</div>').join('') + (o.extra || '') + '</div>';
@@ -486,7 +494,9 @@
       metric({ l: 'Ticket médio', v: fMT(Math.round(x.valor / x.vendas / 100) * 100), s: ['NPS da loja: ' + npsVal(S.nps.lojas[s])] }) +
       metric({ l: 'Cumprimento do roteiro', v: val(rt, 'int', 'j-rt-' + s) + '%', s: ['Meta ' + META_ROTEIRO + '%, ' + R.n + ' visitas de cliente-mistério'], extra: '<div style="margin-top:12px">' + bar(rt / 100, { k: 'j-rtb-' + s, mark: META_ROTEIRO / 100, label: rt + '% do roteiro cumprido' }) + '</div>' }) + '</div>';
     const vs = S.vendedores[s].slice().sort((a, b) => b.vendas - a.vendas);
-    const tabela = card('Vendedores em destaque e a acompanhar', 'Outubro, ordenado por vendas', '<div class="tw"><table class="t cards"><thead><tr><th scope="col">Vendedor</th><th scope="col" class="r">Vendas</th><th scope="col" class="r">N.º de vendas</th><th scope="col" class="r">Atendimentos</th><th scope="col" class="r">Conversão</th><th scope="col">Nota no roteiro</th><th scope="col" class="r">NPS</th></tr></thead><tbody>' + vs.map((v) => '<tr><td class="h" data-l="Vendedor">' + esc(v.nome) + (v.equipa ? '<span class="sub">' + v.equipa + '</span>' : '') + '</td><td class="r nw" data-l="Vendas">' + fMT(v.vendas) + '</td><td class="r" data-l="N.º de vendas">' + v.n + '</td><td class="r" data-l="Atendimentos">' + v.at + '</td><td class="r" data-l="Conversão">' + fPct(v.n / v.at) + '</td><td data-l="Nota no roteiro">' + st(v.score + '%', v.score >= META_ROTEIRO ? 'ok' : v.score >= 70 ? '' : 'warn') + ' <span class="small muted">' + v.aval + ' aval.</span></td><td class="r" data-l="NPS">' + v.nps + '</td></tr>').join('') + '</tbody></table></div>', '', 'c-vend');
+    const cm = colaboradores();
+    const qrDe = (v) => cm.find((c) => c.nome === v.nome && c.loja === s);
+    const tabela = card('Vendedores em destaque e a acompanhar', 'Outubro, ordenado por vendas', '<div class="tw"><table class="t cards"><thead><tr><th scope="col">Vendedor</th><th scope="col" class="r">Vendas</th><th scope="col" class="r">N.º de vendas</th><th scope="col" class="r">Atendimentos</th><th scope="col" class="r">Conversão</th><th scope="col">Nota no roteiro</th><th scope="col" class="r">NPS</th><th scope="col" class="r">Cliente (QR)</th></tr></thead><tbody>' + vs.map((v) => '<tr><td class="h" data-l="Vendedor">' + esc(v.nome) + (v.equipa ? '<span class="sub">' + v.equipa + '</span>' : '') + '</td><td class="r nw" data-l="Vendas">' + fMT(v.vendas) + '</td><td class="r" data-l="N.º de vendas">' + v.n + '</td><td class="r" data-l="Atendimentos">' + v.at + '</td><td class="r" data-l="Conversão">' + fPct(v.n / v.at) + '</td><td data-l="Nota no roteiro">' + st(v.score + '%', v.score >= META_ROTEIRO ? 'ok' : v.score >= 70 ? '' : 'warn') + ' <span class="small muted">' + v.aval + ' aval.</span></td><td class="r" data-l="NPS">' + v.nps + '</td><td class="r nw" data-l="Cliente (QR)">' + (qrDe(v) && qrDe(v).n ? '<a class="rate-l" href="#rankings/colaboradores?k=' + qrDe(v).codigo + '">' + fDec(qrDe(v).media, 1) + ic('star', 'f star-i') + '</a><span class="sub">' + qrDe(v).n + ' aval.</span>' : '—') + '</td></tr>').join('') + '</tbody></table></div>', '', 'c-vend');
     const passos = card('Roteiro de atendimento, passo a passo', '% de visitas em que o passo foi cumprido', '<div class="rows">' + S.roteiro.passos.map((p, i) => '<div class="row"><div class="row-h"><span>' + (i + 1) + '. ' + p + '</span><strong class="num">' + val(R.p[i], 'int', 'rp-' + s + i) + '%</strong></div>' + bar(R.p[i] / 100, { k: 'rpb-' + s + i, mark: META_ROTEIRO / 100, cls: R.p[i] >= META_ROTEIRO ? 'ok' : '' }) + '</div>').join('') + '</div><div class="legend" style="margin:16px 0"><span><i class="mark"></i>Meta de ' + META_ROTEIRO + '%</span></div><div class="foot-row"><a class="b b-t b-s" href="#lojas/avaliar">' + ic('fact_check') + 'Avaliar atendimento</a></div>', 'flex', 'c-rot');
     const coach = S.vendedores[s].filter((v) => v.score < 70);
     const brief = card('Briefing de hoje', '10 minutos, antes da abertura', '<p class="brief-t">' + esc(S.briefing.titulo) + '</p><p class="muted" style="margin:0 0 16px">' + esc(S.briefing.texto) + '</p>' + '<div>' + (S.briefing.feito[s] ? st('Realizado às ' + S.briefing.feito[s], 'ok', 'check') : st('Por confirmar nesta loja', 'warn')) + '</div>' +
@@ -741,6 +751,183 @@
     return '<div class="li-t">' + lojaN(d.loja) + '</div><div class="pv"><span class="muted">Descontos de Outubro</span><span>' + fM(x.descontos) + ' → <span class="to">' + fM(x.descontos + v) + '</span></span></div><div class="pv"><span class="muted">Percentagem da receita</span><span>' + fPct(a) + ' → <span class="to">' + fPct(b) + '</span></span></div>' + (b > META_DESC ? '<div class="info-box">' + ic('warning') + '<span>Acima da meta de 4% da receita.</span></div>' : '');
   }
 
+  /* ---------- secção: Avaliações e rankings (QR code) ---------- */
+  const CFG = window.HC_CONFIG || {};
+  const CRIT = { vendedor: ['Simpatia e acolhimento', 'Conhecimento dos produtos', 'Rapidez e clareza'], montagem: ['Pontualidade', 'Cuidado com a casa', 'Qualidade da montagem'] };
+  const FUNCAO_N = { vendedor: 'Atendimento e vendas', montagem: 'Entrega e montagem' };
+  const MIN_RANK = 5;
+  const RKEY = 'hc-gestao-remoto';
+  const R = (() => { try { return Object.assign({ colabs: [], aval: [], at: null }, JSON.parse(localStorage.getItem(RKEY)) || {}); } catch (e) { return { colabs: [], aval: [], at: null }; } })();
+  R.status = 'a-ligar';
+  const saveRemote = () => { try { localStorage.setItem(RKEY, JSON.stringify({ colabs: R.colabs, aval: R.aval.slice(0, 1000), at: R.at })); } catch (e) { /* sem armazenamento */ } };
+
+  // Supabase por REST: a chave publicável só lê e acrescenta nas tabelas hc_ (RLS).
+  function sb(path, opt) {
+    opt = opt || {};
+    if (!CFG.supabaseUrl) return Promise.reject(new Error('sem configuração'));
+    const headers = { apikey: CFG.supabaseKey };
+    if (opt.body) { headers['Content-Type'] = 'application/json'; headers.Prefer = 'return=minimal'; }
+    return fetch(CFG.supabaseUrl + '/rest/v1/' + path, { method: opt.method || 'GET', headers, body: opt.body ? JSON.stringify(opt.body) : undefined })
+      .then((res) => {
+        if (res.ok) return res.status === 201 || res.status === 204 ? null : res.json();
+        return res.json().catch(() => ({})).then((j) => { const e = new Error(j.message || 'erro ' + res.status); e.status = res.status; e.code = j.code; throw e; });
+      });
+  }
+  let syncing = false;
+  function syncRemote() {
+    if (syncing) return Promise.resolve();
+    syncing = true;
+    return Promise.all([
+      sb('hc_colaboradores?select=codigo,nome,funcao,loja,equipa&activo=eq.true'),
+      sb('hc_avaliacoes?select=id,codigo,estrelas,c1,c2,c3,comentario,criado_em&order=criado_em.desc&limit=1000')
+    ]).then(([cs, as]) => {
+      const antes = (R.aval[0] || {}).id + ':' + R.aval.length + ':' + R.colabs.length;
+      R.colabs = cs; R.aval = as; R.status = 'ok'; R.at = Date.now(); saveRemote();
+      if (antes !== (as[0] || {}).id + ':' + as.length + ':' + cs.length) refreshLive();
+    }).catch(() => { R.status = 'erro'; }).then(() => { syncing = false; updLive(); });
+  }
+  const typing = () => { const a = document.activeElement; return !!a && /INPUT|TEXTAREA|SELECT/.test(a.tagName) && !!a.closest('#main'); };
+  function refreshLive() {
+    if (typing() || ui.pop) return;
+    if (['rankings', 'visao-geral', 'lojas'].includes(cur.sec) && cur.tab !== 'novo') { ui.anim = true; render(); }
+    else { const n = alertas(ui.loja).length; const dot = document.getElementById('bell-dot'); dot.textContent = n || ''; dot.hidden = !n; }
+  }
+  const relSync = () => { const s = Math.round((Date.now() - (R.at || 0)) / 1000); return s < 10 ? 'agora' : s < 60 ? 'há ' + s + ' s' : 'há ' + Math.round(s / 60) + ' min'; };
+  const horaSync = () => { const t = new Date(R.at); return pad(t.getHours()) + ':' + pad(t.getMinutes()); };
+  const liveChip = () => (R.status === 'ok' ? st('Ao vivo · actualizado ' + relSync(), 'ok', 'cloud_done') : R.status === 'erro' ? st('Sem ligação' + (R.at ? ' · cópia das ' + horaSync() : ''), 'warn', 'cloud_off') : st('A ligar à base de dados…', '', 'cloud_done'));
+  const updLive = () => document.querySelectorAll('[data-live]').forEach((el) => { el.innerHTML = liveChip(); });
+  const relLive = (iso) => {
+    const t = new Date(iso), s = (Date.now() - t) / 1000, h = pad(t.getHours()) + ':' + pad(t.getMinutes());
+    if (s < 60) return 'agora mesmo';
+    if (s < 3600) return 'há ' + Math.floor(s / 60) + ' min';
+    if (t.toDateString() === new Date().toDateString()) return 'hoje, ' + h;
+    if (t.toDateString() === new Date(Date.now() - 864e5).toDateString()) return 'ontem, ' + h;
+    return t.getDate() + ' ' + MESES[t.getMonth()] + ', ' + h;
+  };
+
+  // Histórico de Outubro (dados de demonstração) somado às notas que chegam por QR.
+  function colaboradores() {
+    const map = new Map();
+    S.colaboradores.forEach((c) => map.set(c.codigo, Object.assign({}, c, { live: { n: 0, s: [0, 0, 0, 0] } })));
+    R.colabs.forEach((c) => { if (!map.has(c.codigo)) map.set(c.codigo, { codigo: c.codigo, nome: c.nome, funcao: c.funcao, loja: c.loja, equipa: c.equipa, aval: { n: 0, s: [0, 0, 0, 0] }, live: { n: 0, s: [0, 0, 0, 0] } }); });
+    R.aval.forEach((a) => { const c = map.get(a.codigo); if (!c) return; c.live.n++; c.live.s[0] += a.estrelas; c.live.s[1] += a.c1; c.live.s[2] += a.c2; c.live.s[3] += a.c3; });
+    return Array.from(map.values()).map((c) => {
+      const n = c.aval.n + c.live.n, s2 = c.aval.s.map((x, i) => x + c.live.s[i]);
+      return Object.assign(c, { n, s: s2, media: n ? s2[0] / n : 0, crit: s2.slice(1).map((x) => (n ? x / n : 0)) });
+    });
+  }
+  const grupo = (list) => { const n = sum(list, (c) => c.n), s2 = [0, 1, 2, 3].map((i) => sum(list, (c) => c.s[i])); return { n, media: n ? s2[0] / n : 0, crit: s2.slice(1).map((x) => (n ? x / n : 0)) }; };
+  const nota = (m, n) => (n ? '<span class="rate-v"><strong>' + fDec(m, 1) + '</strong>' + ic('star', 'f star-i') + '</span>' : '<span class="muted">Sem notas</span>');
+  const quem = (c) => FUNCAO_N[c.funcao] + (c.equipa ? ', equipa ' + c.equipa : '') + ' · ' + lojaN(c.loja);
+  const avaliarUrl = (codigo) => new URL('avaliar.html?c=' + encodeURIComponent(codigo), location.href).href;
+  function qrSvg(text) { try { const q = window.qrcode(0, 'M'); q.addData(text); q.make(); return q.createSvgTag({ cellSize: 4, margin: 0, scalable: true }); } catch (e) { return ''; } }
+  function qrCard(c) {
+    return '<div class="qr-card"><div class="qr-top"><img src="assets/logo.png" alt="" width="20" height="32"><span>' + (c.funcao === 'montagem' ? 'Avalie a entrega e a montagem' : 'Avalie o meu atendimento') + '</span></div><div class="qr-name">' + esc(c.nome || 'Nome do colaborador') + '</div><div class="qr-role">' + quem(c) + '</div><div class="qr-code" role="img" aria-label="QR code para avaliar ' + esc(c.nome) + '">' + qrSvg(avaliarUrl(c.codigo)) + '</div><div class="qr-id">' + c.codigo + '</div><div class="qr-hint">Aponte a câmara do telemóvel. Demora 30 segundos e não pedimos os seus dados.</div></div>';
+  }
+  function imprimir(list) {
+    if (!list.length) { snack('Não há colaboradores nesta selecção.'); return; }
+    document.getElementById('print-area').innerHTML = list.map(qrCard).join('');
+    setTimeout(() => window.print(), 50);
+  }
+  const nextCode = (funcao) => { const p = funcao === 'montagem' ? 'HC-M' : 'HC-V'; const max = Math.max(0, ...colaboradores().filter((c) => c.codigo.startsWith(p)).map((c) => Number(c.codigo.slice(4)))); return p + String(max + 1).padStart(3, '0'); };
+
+  function rankList(list, key, sub) {
+    const ranked = list.filter((c) => c.n >= MIN_RANK).sort((a, b) => b.media - a.media || b.n - a.n);
+    const few = list.length - ranked.length;
+    const show = ui.rkAll[key] ? ranked : ranked.slice(0, 5);
+    const rows = show.map((c, i) => '<li class="rk' + (i < 3 ? ' lead' : '') + '"><span class="rk-n">' + (i + 1) + '</span><span class="av ' + tone(c.nome) + '" aria-hidden="true">' + esc(initials(c.nome)) + '</span><span class="rk-b"><a class="rk-t" href="#rankings/colaboradores?k=' + c.codigo + '">' + esc(c.nome) + '</a><span class="rk-s">' + sub(c) + '</span></span><span class="rk-v">' + nota(c.media, c.n) + '<small>' + c.n + ' avaliações</small></span></li>').join('');
+    return (ranked.length ? '<ol class="rk-list">' + rows + '</ol>' : empty('leaderboard', 'Ainda sem ranking', 'São precisas pelo menos ' + MIN_RANK + ' avaliações por pessoa.')) +
+      '<div class="foot-row rk-foot">' + (ranked.length > 5 ? '<button type="button" class="b b-x b-s" data-act="rk-all" data-arg="' + key + '" aria-expanded="' + !!ui.rkAll[key] + '">' + ic(ui.rkAll[key] ? 'expand_less' : 'expand_more') + (ui.rkAll[key] ? 'Ver só os 5 melhores' : 'Ver os ' + ranked.length) + '</button>' : '<span></span>') + '<span class="small muted">' + (few ? few + (few === 1 ? ' pessoa' : ' pessoas') + ' com menos de ' + MIN_RANK + ' avaliações fora do ranking' : 'Mínimo de ' + MIN_RANK + ' avaliações para entrar') + '</span></div>';
+  }
+  function feedItem(a, c, fresh) {
+    return '<div class="fi' + (fresh ? ' new' : '') + '"><span class="av ' + tone(c.nome) + '" aria-hidden="true">' + esc(initials(c.nome)) + '</span><div style="min-width:0"><div class="fi-h"><a class="rk-t" href="#rankings/colaboradores?k=' + c.codigo + '">' + esc(c.nome) + '</a>' + stars(a.estrelas) + (a.estrelas <= 2 ? st('A acompanhar', 'bad') : '') + '</div><div class="rk-s">' + quem(c) + ' · ' + relLive(a.criado_em) + '</div><div class="fi-c">' + CRIT[c.funcao].map((t, i) => t + ' ' + a['c' + (i + 1)]).join(' · ') + '</div>' + (a.comentario ? '<div class="fi-q">«' + esc(a.comentario) + '»</div>' : '') + '</div></div>';
+  }
+  function feed(list, max) {
+    const cmap = new Map(colaboradores().map((c) => [c.codigo, c]));
+    const first = ui.seen === null;
+    if (first) ui.seen = new Set();
+    const html = list.slice(0, max).map((a) => { const c = cmap.get(a.codigo); return c ? feedItem(a, c, !first && !ui.seen.has(a.id)) : ''; }).join('');
+    R.aval.forEach((a) => ui.seen.add(a.id));
+    return html;
+  }
+  const avalDaSel = (k) => { const cmap = new Map(colaboradores().map((c) => [c.codigo, c])); return R.aval.filter((a) => cmap.has(a.codigo) && (k === 'todas' || cmap.get(a.codigo).loja === k)); };
+
+  function vRankings(tab) {
+    if (tab === 'colaboradores') return vColaboradores();
+    if (tab === 'avaliacoes') return vAvalRecebidas();
+    if (tab === 'novo') return vNovoColab();
+    const k = ui.loja, all = colaboradores(), sel = all.filter((c) => k === 'todas' || c.loja === k);
+    const vend = sel.filter((c) => c.funcao === 'vendedor'), mont = sel.filter((c) => c.funcao === 'montagem');
+    const gv = grupo(vend), gm = grupo(mont), ga = grupo(sel);
+    const live = avalDaSel(k), hoje = live.filter((a) => new Date(a.criado_em).toDateString() === new Date().toDateString());
+    const band = '<div class="band strip">' +
+      metric({ l: 'Avaliações dos clientes', v: val(ga.n, 'int', 'q-n'), s: ['Outubro, por QR code'] }) +
+      metric({ l: 'Nota do atendimento', v: val(gv.media, 'r', 'q-v') + ic('star', 'f star-big'), s: [gv.n + ' avaliações de vendedores'] }) +
+      metric({ l: 'Nota da entrega e montagem', v: (gm.n ? val(gm.media, 'r', 'q-m') + ic('star', 'f star-big') : '—'), s: [gm.n + ' avaliações de montadores'] }) +
+      metric({ l: 'Recebidas por QR hoje', v: val(hoje.length, 'int', 'q-h'), s: ['<span data-live>' + liveChip() + '</span>'] }) + '</div>';
+    const lojas = LOJAS().map((s2) => { const L = all.filter((c) => c.loja === s2); return { s: s2, g: grupo(L), v: grupo(L.filter((c) => c.funcao === 'vendedor')), m: grupo(L.filter((c) => c.funcao === 'montagem')) }; }).sort((a, b) => b.g.media - a.g.media);
+    const cLojas = card('Melhores lojas', 'nota média dos clientes, todas as funções', '<ol class="rk-list">' + lojas.map((x, i) => '<li class="rk rk-loja' + (i === 0 ? ' lead' : '') + (k !== 'todas' && k !== x.s ? ' dim' : '') + '"><span class="rk-n">' + (i + 1) + '</span><span class="rk-b"><span class="rk-t">' + lojaN(x.s) + '</span><span class="rk-s">Atendimento ' + fDec(x.v.media, 1) + (x.m.n ? ' · Entrega e montagem ' + fDec(x.m.media, 1) : '') + '</span>' + bar(x.g.media / 5, { size: 'thin', k: 'rl-' + x.s, label: fDec(x.g.media, 1) + ' de 5' }) + '</span><span class="rk-v">' + nota(x.g.media, x.g.n) + '<small>' + x.g.n + ' avaliações</small></span></li>').join('') + '</ol><p class="card-note">As equipas de entrega e montagem contam para a loja onde estão sediadas.</p>', 'flex', 'c-rl');
+    const cLive = card('Ao vivo', '<a href="#rankings/avaliacoes">Ver todas</a>', live.length ? '<div class="feed">' + feed(live, 3) + '</div>' : empty('qr_code_2', 'Ainda sem avaliações por QR', 'Abra o QR de um colaborador em «Colaboradores e QR» e avalie pelo telemóvel: a nota aparece aqui em segundos.'), 'flex', 'c-live');
+    const cVend = card('Melhores vendedores', 'atendimento e vendas', rankList(vend, 'v', (c) => lojaN(c.loja)), 'flex', 'c-rv');
+    const cMont = card('Melhores montadores', 'entrega e montagem', rankList(mont, 'm', (c) => 'Equipa ' + c.equipa + ' · ' + lojaN(c.loja)), 'flex', 'c-rm');
+    const critCol = (titulo, g, nomes, key) => { const pior = g.crit.indexOf(Math.min(...g.crit)); return '<div><h3 class="crit-h">' + titulo + '</h3>' + (g.n ? '<div class="hb">' + nomes.map((t, i) => '<div><div class="hb-h"><span>' + t + (i === pior ? ' ' + st('Ponto mais fraco', 'warn') : '') + '</span><span>' + fDec(g.crit[i], 1) + '</span></div>' + bar(g.crit[i] / 5, { size: 'thin', cls: i === pior ? '' : 'dark', k: 'cr-' + key + i }) + '</div>').join('') + '</div>' : '<p class="muted small">Sem avaliações nesta selecção.</p>') + '</div>'; };
+    const cCrit = card('Onde a equipa perde pontos', 'média de cada pergunta, de 1 a 5', '<div class="crit-cols">' + critCol('Atendimento e vendas', gv, CRIT.vendedor, 'v') + critCol('Entrega e montagem', gm, CRIT.montagem, 'm') + '</div>', '', 'c-crit');
+    return head('Avaliações e rankings', 'Notas dos clientes por QR code, colaborador a colaborador' + (k === 'todas' ? '' : ' · ' + lojaN(k)), '<a class="b b-o" href="#rankings/colaboradores">' + ic('qr_code_2') + 'Ver QR codes</a><a class="b b-f" href="#rankings/novo">' + ic('person_add') + 'Registar colaborador</a>') + tabs('rankings') +
+      '<div class="stack">' + band + '<div class="g g-75">' + cLojas + cLive + '</div><div class="g g-11">' + cVend + cMont + '</div>' + cCrit + '</div>';
+  }
+  function vColaboradores() {
+    const k = ui.loja, f = ui.flt.func;
+    const base = colaboradores().filter((c) => k === 'todas' || c.loja === k);
+    const list = base.filter((c) => f === 'todos' || c.funcao === f).sort((a, b) => b.funcao.localeCompare(a.funcao) || a.codigo.localeCompare(b.codigo));
+    const cur2 = list.find((c) => c.codigo === ui.sel.colab) || base.find((c) => c.codigo === ui.sel.colab) || list[0];
+    if (cur2) ui.sel.colab = cur2.codigo;
+    const chips = '<div class="chips" role="group" aria-label="Função">' + [['todos', 'Todos'], ['vendedor', 'Atendimento e vendas'], ['montagem', 'Entrega e montagem']].map(([v, l]) => chip('func', v, l + ' <span class="cn">' + base.filter((c) => v === 'todos' || c.funcao === v).length + '</span>', f === v)).join('') + '</div>';
+    const rows = list.map((c) => '<tr class="click' + (cur2 && cur2.codigo === c.codigo ? ' on' : '') + '" data-act="colab" data-arg="' + c.codigo + '"><td class="h nw" data-l="Código"><button type="button" class="idbtn" data-act="colab" data-arg="' + c.codigo + '" data-scroll="1" data-fk="colab:' + c.codigo + '" aria-label="Ver o QR de ' + esc(c.nome) + '">' + c.codigo + '</button></td><td class="clip" data-l="Colaborador">' + esc(c.nome) + '<span class="sub">' + FUNCAO_N[c.funcao] + (c.equipa ? ', equipa ' + c.equipa : '') + '</span></td><td data-l="Loja" class="nw">' + lojaN(c.loja) + '</td><td class="r nw" data-l="Nota">' + nota(c.media, c.n) + '<span class="sub">' + c.n + ' aval.</span></td></tr>').join('');
+    const tabela = card('Colaboradores', chips, list.length ? '<div class="tw"><table class="t cards"><thead><tr><th scope="col">Código</th><th scope="col">Colaborador</th><th scope="col">Loja</th><th scope="col" class="r">Nota</th></tr></thead><tbody>' + rows + '</tbody></table></div>' : empty('badge', 'Sem colaboradores nesta selecção', ''), '', 'c-colabs');
+    let det = '';
+    if (cur2) {
+      const ult = R.aval.filter((a) => a.codigo === cur2.codigo).slice(0, 3);
+      det = '<aside class="card detail" id="qr-detail" aria-labelledby="qr-h"><h2 class="sr" id="qr-h">QR code de ' + esc(cur2.nome) + '</h2>' + qrCard(cur2) +
+        '<div class="acts" style="justify-content:center;margin:16px 0 20px"><button type="button" class="b b-f b-s" data-act="print-one" data-arg="' + cur2.codigo + '">' + ic('print') + 'Imprimir cartão</button><button type="button" class="b b-o b-s" data-act="copy-link" data-arg="' + cur2.codigo + '">' + ic('content_copy') + 'Copiar link</button><a class="b b-x b-s" href="' + avaliarUrl(cur2.codigo) + '" target="_blank" rel="noopener">' + ic('open_in_new') + 'Abrir a avaliação</a></div>' +
+        '<dl class="dl"><dt>Nota geral<span class="sub">' + cur2.n + ' avaliações</span></dt><dd>' + nota(cur2.media, cur2.n) + '</dd>' + CRIT[cur2.funcao].map((t, i) => '<dt>' + t + '</dt><dd>' + (cur2.n ? fDec(cur2.crit[i], 1) : '—') + '</dd>').join('') + '</dl>' +
+        (ult.length ? '<h3 class="crit-h" style="margin-top:20px">Últimas avaliações por QR</h3><div class="feed">' + ult.map((a) => feedItem(a, cur2, false)).join('') + '</div>' : '<p class="card-note">Ainda sem avaliações por QR' + (cur2.aval.n ? '. As ' + cur2.aval.n + ' avaliações de Outubro vêm do histórico.' : '.') + '</p>') + '</aside>';
+    }
+    return head('Colaboradores e QR', 'Cada colaborador tem um código e um QR próprio, para o cliente o avaliar no fim do atendimento ou da montagem.', '<button type="button" class="b b-o" data-act="print-all">' + ic('print') + 'Imprimir cartões</button><a class="b b-f" href="#rankings/novo">' + ic('person_add') + 'Registar colaborador</a>') + tabs('colaboradores') +
+      '<div class="split">' + tabela + det + '</div>';
+  }
+  function vAvalRecebidas() {
+    const k = ui.loja, f = ui.flt.af;
+    const cmap = new Map(colaboradores().map((c) => [c.codigo, c]));
+    const base = avalDaSel(k);
+    const fil = { todas: () => true, vendedor: (a) => cmap.get(a.codigo).funcao === 'vendedor', montagem: (a) => cmap.get(a.codigo).funcao === 'montagem', baixa: (a) => a.estrelas <= 2 };
+    const list = base.filter(fil[f] || fil.todas);
+    const chips = '<div class="chips" role="group" aria-label="Filtrar avaliações">' + [['todas', 'Todas'], ['vendedor', 'Atendimento e vendas'], ['montagem', 'Entrega e montagem'], ['baixa', '1 ou 2 estrelas']].map(([v, l]) => chip('af', v, l + ' <span class="cn">' + base.filter(fil[v]).length + '</span>', f === v)).join('') + '</div>';
+    return head('Avaliações recebidas', 'O que os clientes escreveram depois de ler o QR code, da mais recente para a mais antiga.', '<span data-live>' + liveChip() + '</span><button type="button" class="b b-o b-s" data-act="sync">' + ic('sync') + 'Actualizar</button>') + tabs('avaliacoes') +
+      '<div class="stack">' + chips + card(list.length + (list.length === 1 ? ' avaliação' : ' avaliações'), R.status === 'erro' ? 'sem ligação à base de dados' : 'recebidas por QR code', list.length ? '<div class="feed">' + feed(list, 200) + '</div>' : empty('qr_code_2', f === 'baixa' ? 'Nenhuma nota de 1 ou 2 estrelas' : 'Ainda sem avaliações por QR', 'Abra o QR de um colaborador em «Colaboradores e QR» e avalie pelo telemóvel.'), '', 'c-arec') + '</div>';
+  }
+  function colabPreview(d) {
+    const funcao = d.funcao || 'vendedor';
+    return qrCard({ codigo: nextCode(funcao), nome: d.nome || '', funcao, loja: d.loja || 'angola', equipa: funcao === 'montagem' ? (d.equipa || '?') : null }) + '<p class="card-note" style="text-align:center">O código é atribuído ao guardar. O QR abre a página de avaliação deste colaborador.</p>';
+  }
+  function vNovoColab() {
+    const F = 'colab', loja = ui.loja !== 'todas' ? ui.loja : '';
+    const form = '<form class="form" data-form="colab" novalidate>' +
+      fld(F, { name: 'nome', label: 'Nome do colaborador', req: true, cls: 'full', auto: 'name', hint: 'Como aparece no cartão e no ranking' }) +
+      opts(F, 'funcao', [['vendedor', 'Atendimento e vendas'], ['montagem', 'Entrega e montagem']], 'vendedor', { legend: 'Função', req: true, cls: 'full' }) +
+      fld(F, { name: 'loja', label: 'Loja', type: 'select', req: true, value: loja, options: lojaOpts(loja, true) }) +
+      fld(F, { name: 'equipa', label: 'Equipa de entrega e montagem', type: 'select', value: '', options: [['', 'Não se aplica']].concat(EQUIPAS.map((e) => [e, 'Equipa ' + e])), hint: 'Obrigatório para entrega e montagem' }) +
+      '<div class="form-act"><button type="submit" class="b b-f">' + ic('person_add') + '<span>Registar e criar QR</span></button></div></form>';
+    return head('Registar colaborador', 'O colaborador fica com um código e um QR code para os clientes o avaliarem.', '') + tabs('novo') +
+      '<div class="g g-form">' + card('Dados do colaborador', '', form, '', 'c-cform2') + card('Cartão com QR code', '', '<div id="colab-prev">' + colabPreview({ loja: loja || 'angola' }) + '</div>', '', 'c-cprev') + '</div>';
+  }
+  function formError(form, msg) {
+    const old = form.querySelector('.err-sum'); if (old) old.remove();
+    const box = document.createElement('div');
+    box.className = 'err-sum'; box.setAttribute('role', 'alert'); box.tabIndex = -1;
+    box.innerHTML = '<h3>Não foi possível guardar</h3><p style="margin:0">' + esc(msg) + '</p>';
+    form.prepend(box); box.focus();
+  }
+
   /* ---------- estrutura comum ---------- */
   let cur = { sec: 'visao-geral', tab: 'painel' };
   const secDef = (id) => SECOES.find((s) => s.id === id) || SECOES[0];
@@ -756,7 +943,7 @@
     };
     return '<nav class="tabs" role="tablist" aria-label="' + s.label + '">' + s.tabs.map(([t, l, entry]) => '<a class="tab" role="tab" href="#' + s.id + '/' + t + '" aria-selected="' + (t === active) + '" data-fk="tab:' + t + '">' + (entry ? ic('edit_note') : '') + l + badge(t) + '</a>').join('') + '</nav>';
   }
-  const VIEWS = { 'visao-geral': vGeral, mensagens: vMensagens, pedidos: vPedidos, lojas: vLojas, satisfacao: vSatisfacao, campanhas: vCampanhas, financeiro: vFinanceiro };
+  const VIEWS = { 'visao-geral': vGeral, mensagens: vMensagens, pedidos: vPedidos, lojas: vLojas, rankings: vRankings, satisfacao: vSatisfacao, campanhas: vCampanhas, financeiro: vFinanceiro };
 
   function navHTML() {
     const pend = pendentes('todas').length;
@@ -830,7 +1017,7 @@
     if (ui.scrollTo) {
       const el = document.querySelector(ui.scrollTo), sp = document.querySelector('.split');
       const stacked = !sp || getComputedStyle(sp).gridTemplateColumns.split(' ').length < 2;
-      if (el && (ui.scrollTo !== '#detail' || stacked)) el.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      if (el && ((ui.scrollTo !== '#detail' && ui.scrollTo !== '#qr-detail') || stacked)) el.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       ui.scrollTo = null;
     }
     renderPop();
@@ -850,6 +1037,8 @@
       if (q.p) { ui.sel.ped = q.p; ui.flt.etapa = 'todos'; ui.flt.pcanal = 'todos'; ui.scrollTo = '#detail'; if (q.reag) ui.open = 'reag'; }
       if (q.ab) ui.scrollTo = h.startsWith('pedidos/lista') ? '#abandonadas' : null;
       if (q.tipo) ui.flt.fin = q.tipo;
+      if (q.k) { ui.sel.colab = q.k; ui.flt.func = 'todos'; ui.scrollTo = '#qr-detail'; }
+      if (q.f) ui.flt.af = q.f;
     }
     if (!(qs && (q_has(qs, 'reag')))) ui.open = null;
     ui.pop = null; ui.sheet = false;
@@ -1117,6 +1306,30 @@
       if (!validate(form, ex)) return;
       commit('Factura de ' + d.empresa + ' guardada.', (s) => { s.facturas.push({ id: uid('i'), empresa: d.empresa, ref: d.ref, valor: pn(d.valor), emissao: d.emissao, vencimento: d.vencimento, gestor: d.gestor, paga: null }); }, { go: 'financeiro/receber' });
     },
+    colab(form, d) {
+      const ex = [];
+      if (d.funcao === 'montagem' && !d.equipa) ex.push(['equipa', 'Escolha a equipa de entrega e montagem.']);
+      if (!validate(form, ex)) return;
+      const btn = form.querySelector('button[type=submit]'), lbl = btn.querySelector('span:last-child');
+      btn.disabled = true; lbl.textContent = 'A registar…';
+      const tentar = (vez) => {
+        const novo = { codigo: nextCode(d.funcao), nome: d.nome, funcao: d.funcao, loja: d.loja, equipa: d.funcao === 'montagem' ? d.equipa : null };
+        return sb('hc_colaboradores', { method: 'POST', body: novo }).then(() => novo, (e) => {
+          if (e.code === '23505' && vez === 0) return syncRemote().then(() => tentar(1));
+          throw e;
+        });
+      };
+      tentar(0).then((novo) => {
+        S.colaboradores.push(Object.assign({}, novo, { aval: { n: 0, s: [0, 0, 0, 0] } })); persist();
+        R.colabs.push(novo); saveRemote();
+        ui.sel.colab = novo.codigo; ui.flt.func = 'todos';
+        location.hash = 'rankings/colaboradores';
+        snack(novo.nome + ' registado com o código ' + novo.codigo + '. O QR já está pronto a imprimir.');
+      }).catch((e) => {
+        btn.disabled = false; lbl.textContent = 'Registar e criar QR';
+        formError(form, (e.status ? 'A base de dados recusou o registo: ' + e.message + '.' : 'Sem ligação à base de dados.') + ' Verifique a ligação e tente de novo.');
+      });
+    },
     desconto(form, d) {
       if (!validate(form)) return;
       commit('Desconto de ' + fMT(pn(d.valor)) + ' registado em ' + lojaN(d.loja) + '.', (s) => { s.descontos.push({ id: uid('x'), loja: d.loja, data: d.data, ref: d.ref, valor: pn(d.valor), motivo: d.motivo, autorizado: d.autorizado }); }, { go: 'financeiro/resumo' });
@@ -1141,6 +1354,19 @@
     'del-qr'(arg) { const q = S.respostasRapidas.find((x) => x.id === arg); commit('Resposta «' + q.titulo + '» apagada.', (s) => { s.respostasRapidas = s.respostasRapidas.filter((x) => x.id !== arg); }); },
     etapa(arg) { ui.flt.etapa = arg; render(); },
     'al-more'() { ui.alMore = !ui.alMore; render(); },
+    func(arg) { ui.flt.func = arg; render(); },
+    af(arg) { ui.flt.af = arg; render(); },
+    colab(arg, el) { ui.sel.colab = arg; if (el && el.dataset.scroll) ui.scrollTo = '#qr-detail'; render(); },
+    'rk-all'(arg) { ui.rkAll[arg] = !ui.rkAll[arg]; render(); },
+    'print-one'(arg) { const c = colaboradores().find((x) => x.codigo === arg); if (c) imprimir([c]); },
+    'print-all'() { const k = ui.loja, f = ui.flt.func; imprimir(colaboradores().filter((c) => (k === 'todas' || c.loja === k) && (f === 'todos' || c.funcao === f))); },
+    'copy-link'(arg) {
+      const url = avaliarUrl(arg);
+      const ok = () => snack('Link de avaliação copiado: ' + url);
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(ok, () => window.prompt('Copie o link', url));
+      else window.prompt('Copie o link', url);
+    },
+    sync() { syncRemote().then(() => render()); },
     pcanal(arg) { ui.flt.pcanal = arg; render(); },
     ped(arg, el) { ui.sel.ped = arg; ui.open = null; if (el && el.dataset.scroll) ui.scrollTo = '#detail'; render(); },
     avancar(arg) {
@@ -1220,6 +1446,8 @@
       document.getElementById('res-prev').innerHTML = resPreview(d);
     } else if (form.dataset.form === 'desconto') {
       document.getElementById('desc-prev').innerHTML = descPreview(d);
+    } else if (form.dataset.form === 'colab') {
+      document.getElementById('colab-prev').innerHTML = colabPreview(d);
     }
   }
 
@@ -1232,6 +1460,7 @@
     S.pedidos.forEach((p) => { if (norm(p.id + ' ' + p.cliente).includes(n)) out.push({ ic: 'local_shipping', t: p.id + ' · ' + p.cliente, s: 'Pedido, ' + lojaN(p.loja) + ', ' + pedidoEstado(p)[0].toLowerCase(), h: '#pedidos/lista?p=' + p.id }); });
     S.conversas.forEach((c) => { if (norm(c.nome).includes(n)) out.push({ ic: c.tipo === 'avaliacao' ? 'reviews' : 'forum', t: c.nome, s: (c.tipo === 'avaliacao' ? 'Avaliação no ' : 'Conversa no ') + CANAL_N[c.canal] + (c.estado === 'pendente' ? ', por responder' : ''), h: '#mensagens/caixa?c=' + c.id + '&canal=' + c.canal + '&est=todas' }); });
     LOJAS().forEach((s) => S.vendedores[s].forEach((v) => { if (norm(v.nome).includes(n)) out.push({ ic: 'badge', t: v.nome, s: 'Vendedor, ' + lojaN(s) + ', nota ' + v.score + '% no roteiro', h: '#lojas/desempenho', loja: s }); }));
+    colaboradores().forEach((c) => { if (norm(c.nome + ' ' + c.codigo).includes(n)) out.push({ ic: 'qr_code_2', t: c.nome + ' · ' + c.codigo, s: FUNCAO_N[c.funcao] + ', ' + lojaN(c.loja) + (c.n ? ', nota ' + fDec(c.media, 1) : ''), h: '#rankings/colaboradores?k=' + c.codigo }); });
     S.facturas.forEach((f) => { if (norm(f.empresa).includes(n)) out.push({ ic: 'receipt_long', t: f.empresa + ' · ' + f.ref, s: 'Factura, ' + fMT(f.valor), h: '#financeiro/receber' }); });
     S.campanhas.forEach((c) => { if (norm(c.nome).includes(n)) out.push({ ic: 'campaign', t: c.nome, s: 'Campanha, ' + c.plataforma, h: '#campanhas/resultados' }); });
     return out.slice(0, 8);
@@ -1316,4 +1545,14 @@
   window.addEventListener('resize', () => { if (ui.pop) renderPop(); });
 
   onHash();
+  syncRemote();
+  let tick = 0;
+  setInterval(() => {
+    updLive();
+    if (document.hidden) return;
+    tick++;
+    if (cur.sec === 'rankings' || tick % 3 === 0) syncRemote();
+  }, 10000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) syncRemote(); });
+  window.addEventListener('afterprint', () => { document.getElementById('print-area').innerHTML = ''; });
 })();

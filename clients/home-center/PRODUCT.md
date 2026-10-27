@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Static HTML/CSS/JS with no build step: `clients/home-center/index.html` plus `assets/` (styles, app logic, seed data, channel logos, Home Center logo), deployed to the Vercel project `home-center-dashboard-gestao` (team Nebula Tecnologias). Data entered in the prototype persists in the viewer's browser (localStorage) only.
+Static HTML/CSS/JS with no build step: `clients/home-center/index.html` plus `assets/` (styles, app logic, seed data, channel logos, Home Center logo), deployed to the Vercel project `home-center-dashboard-gestao` (team Nebula Tecnologias). Data entered in the prototype persists in the viewer's browser (localStorage), except customer ratings by QR code: collaborators and ratings live in two isolated tables (`hc_colaboradores`, `hc_avaliacoes`, RLS: public read and insert only, server-side rate limits) in the Supabase project "Kingdom Dashboard", read by the dashboard every 10 seconds. The public rating page is `avaliar.html?c=<código>`.
 
 ## Users
 
@@ -37,6 +37,7 @@ Built around how Home Center actually sells: store visits counted at the entranc
 - Data entry required in every area (confirmed): daily store close (visits, sales, value, customer origin); orders and deliveries (new order, status changes, delivery/assembly scheduling); campaigns and finance (investment and results, receivables, discounts); teams and satisfaction (mystery-shopper evaluations, NPS answers, detractor follow-up).
 - Entered data must update the figures shown, and persist in the browser. No shared backend, no login.
 - The message inbox filters by channel.
+- Every sales attendant and every delivery/assembly worker has a code (HC-V001, HC-M001…) and a printable QR card. The customer scans it, rates 1 to 5 stars overall plus three role-specific questions (sales: friendliness, product knowledge, speed; delivery/assembly: punctuality, care in the home, assembly quality) and an optional comment, without giving any personal data. Ratings feed rankings of best stores, sellers and assemblers (minimum 5 ratings to be ranked).
 - Interface language: Portuguese as written in Mozambique (pt-MZ, European spelling: "acção", "facturação", "equipa").
 
 ## Brand Commitments
