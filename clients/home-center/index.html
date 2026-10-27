@@ -1,0 +1,1358 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home Center — Dashboard de Gestão</title>
+<meta name="description" content="Protótipo do dashboard de gestão da Home Center, desenvolvido por Mídia Pro – Comunicação e Imagem.">
+<meta name="author" content="Mídia Pro – Comunicação e Imagem">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;600;700;800&amp;family=Red+Hat+Text:wght@400;500;600;700&amp;display=swap">
+<style data-screen="visao-geral">
+body{margin:0;background:#F3F3F2}
+a{color:#B3141A}a:hover{color:#7E0E12}
+.hc{font-family:'Red Hat Text',system-ui,sans-serif;color:#1E1F22;background:#F3F3F2;display:flex;flex-wrap:wrap;min-height:100vh;font-size:15px;line-height:1.45}
+.side{flex:1 1 236px;background:#1E1F22;color:#fff;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;padding:0 8px}
+.brand-sub{font-family:'Red Hat Display',sans-serif;font-weight:600;font-size:15px;color:#C9CBCF;line-height:1.25}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:10px;color:#D3D5D9;text-decoration:none;font-weight:500}
+.nav a:hover{background:#2C2D31;color:#fff}
+.nav a.on{background:#D41F26;color:#fff;font-weight:600}
+.badge{margin-left:auto;background:#fff;color:#B3141A;border-radius:999px;font-size:12px;font-weight:700;padding:1px 8px}
+.side-foot{margin-top:auto;padding:16px 10px 0;border-top:1px solid #34363A;font-size:12.5px;color:#B4B7BC;line-height:1.5}
+.side-foot strong{color:#fff}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:28px 32px 36px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;max-width:1280px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.h1{font-family:'Red Hat Display',sans-serif;font-size:30px;font-weight:800;margin:0;letter-spacing:-0.01em}
+.h2{font-family:'Red Hat Display',sans-serif;font-size:18px;font-weight:700;margin:0}
+.muted{color:#5B5E63}
+.small{font-size:13px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.field{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #DCDCD9;border-radius:10px;padding:0 12px;min-height:44px}
+.field input,.field select{border:0;outline:0;font:inherit;background:transparent;color:#1E1F22;min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.iconbtn{width:44px;height:44px;border-radius:10px;border:1px solid #DCDCD9;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1E1F22;cursor:pointer}
+.avatar{width:44px;height:44px;border-radius:50%;background:#1E1F22;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.card{background:#fff;border-radius:16px;padding:22px 24px;box-sizing:border-box;min-width:0}
+.cardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:16px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.klabel{font-weight:600;font-size:14px}
+.kval{font-family:'Red Hat Display',sans-serif;font-size:36px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0 4px;letter-spacing:-0.01em}
+.hot{background:#D41F26;color:#fff}
+.hot .muted{color:#FFE3E3}
+.split{display:flex;flex-wrap:wrap;gap:16px}
+.split>.a{flex:2 1 560px;min-width:0}
+.split>.b{flex:1 1 320px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.c-ok{background:#E3ECF7;color:#1D4F8A}.c-warn{background:#FCECD5;color:#8A4100}.c-bad{background:#FDE3E3;color:#A3141A}.c-neu{background:#EDEDEB;color:#45474B}
+.scroll{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+.t th{text-align:left;font-weight:600;color:#5B5E63;font-size:13px;padding:10px 12px;border-bottom:1px solid #E4E4E1;white-space:nowrap}
+.t td{padding:13px 12px;border-bottom:1px solid #EFEFED;font-variant-numeric:tabular-nums;white-space:nowrap}
+.t .num{text-align:right}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid #D6D6D3;background:#fff;color:#1E1F22;font:600 14px 'Red Hat Text',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:#1E1F22;color:#1E1F22}
+.btn.p{background:#D41F26;border-color:#D41F26;color:#fff}
+.btn.p:hover{background:#B3141A;color:#fff}
+.track{height:10px;background:#EFEFED;border-radius:999px;overflow:hidden}
+.fill{height:100%;background:#D41F26;border-radius:999px}
+.fill.dark{background:#1E1F22}
+.sig{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12.5px;color:#5B5E63;padding-top:8px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1D5FA6;outline-offset:2px}
+</style>
+<style data-screen="mensagens">
+body{margin:0;background:#F3F3F2}
+a{color:#B3141A}a:hover{color:#7E0E12}
+.hc{font-family:'Red Hat Text',system-ui,sans-serif;color:#1E1F22;background:#F3F3F2;display:flex;flex-wrap:wrap;min-height:100vh;font-size:15px;line-height:1.45}
+.side{flex:1 1 236px;background:#1E1F22;color:#fff;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;padding:0 8px}
+.brand-sub{font-family:'Red Hat Display',sans-serif;font-weight:600;font-size:15px;color:#C9CBCF;line-height:1.25}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:10px;color:#D3D5D9;text-decoration:none;font-weight:500}
+.nav a:hover{background:#2C2D31;color:#fff}
+.nav a.on{background:#D41F26;color:#fff;font-weight:600}
+.badge{margin-left:auto;background:#fff;color:#B3141A;border-radius:999px;font-size:12px;font-weight:700;padding:1px 8px}
+.side-foot{margin-top:auto;padding:16px 10px 0;border-top:1px solid #34363A;font-size:12.5px;color:#B4B7BC;line-height:1.5}
+.side-foot strong{color:#fff}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:28px 32px 36px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;max-width:1280px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.h1{font-family:'Red Hat Display',sans-serif;font-size:30px;font-weight:800;margin:0;letter-spacing:-0.01em}
+.h2{font-family:'Red Hat Display',sans-serif;font-size:18px;font-weight:700;margin:0}
+.muted{color:#5B5E63}
+.small{font-size:13px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.field{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #DCDCD9;border-radius:10px;padding:0 12px;min-height:44px}
+.field input,.field select{border:0;outline:0;font:inherit;background:transparent;color:#1E1F22;min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.iconbtn{width:44px;height:44px;border-radius:10px;border:1px solid #DCDCD9;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1E1F22;cursor:pointer}
+.avatar{width:44px;height:44px;border-radius:50%;background:#1E1F22;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.card{background:#fff;border-radius:16px;padding:22px 24px;box-sizing:border-box;min-width:0}
+.cardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:16px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.klabel{font-weight:600;font-size:14px}
+.kval{font-family:'Red Hat Display',sans-serif;font-size:36px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0 4px;letter-spacing:-0.01em}
+.hot{background:#D41F26;color:#fff}
+.hot .muted{color:#FFE3E3}
+.split{display:flex;flex-wrap:wrap;gap:16px}
+.split>.a{flex:2 1 560px;min-width:0}
+.split>.b{flex:1 1 320px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.c-ok{background:#E3ECF7;color:#1D4F8A}.c-warn{background:#FCECD5;color:#8A4100}.c-bad{background:#FDE3E3;color:#A3141A}.c-neu{background:#EDEDEB;color:#45474B}
+.scroll{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+.t th{text-align:left;font-weight:600;color:#5B5E63;font-size:13px;padding:10px 12px;border-bottom:1px solid #E4E4E1;white-space:nowrap}
+.t td{padding:13px 12px;border-bottom:1px solid #EFEFED;font-variant-numeric:tabular-nums;white-space:nowrap}
+.t .num{text-align:right}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid #D6D6D3;background:#fff;color:#1E1F22;font:600 14px 'Red Hat Text',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:#1E1F22;color:#1E1F22}
+.btn.p{background:#D41F26;border-color:#D41F26;color:#fff}
+.btn.p:hover{background:#B3141A;color:#fff}
+.track{height:10px;background:#EFEFED;border-radius:999px;overflow:hidden}
+.fill{height:100%;background:#D41F26;border-radius:999px}
+.fill.dark{background:#1E1F22}
+.sig{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12.5px;color:#5B5E63;padding-top:8px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1D5FA6;outline-offset:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid #D6D6D3;background:#fff;font:600 14px 'Red Hat Text',sans-serif;color:#1E1F22;cursor:pointer}
+.tab.on{background:#1E1F22;border-color:#1E1F22;color:#fff}
+.inbox{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.inbox>.list{flex:1 1 300px;min-width:0;padding:12px}
+.inbox>.conv{flex:2 1 440px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.inbox>.cli{flex:1 1 260px;min-width:0}
+.item{display:flex;flex-direction:column;gap:4px;width:100%;text-align:left;border:0;background:transparent;border-radius:12px;padding:12px;cursor:pointer;font:inherit;color:inherit}
+.item:hover{background:#F5F5F4}
+.item.on{background:#FDECEC}
+.msgs{display:flex;flex-direction:column;gap:12px;padding:8px 0}
+.msg{max-width:78%;padding:12px 14px;border-radius:14px;font-size:14.5px}
+.msg.in{align-self:flex-start;background:#F1F1EF}
+.msg.out{align-self:flex-end;background:#1E1F22;color:#fff}
+.msg.auto{align-self:flex-end;background:#fff;border:1px dashed #9A9DA2}
+.meta{font-size:12px;margin-top:6px;opacity:.8}
+.compose{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.compose .field{flex:1 1 260px}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:14px;margin:0}
+.dl dt{color:#5B5E63}.dl dd{margin:0;font-weight:600}
+</style>
+<style data-screen="pedidos">
+body{margin:0;background:#F3F3F2}
+a{color:#B3141A}a:hover{color:#7E0E12}
+.hc{font-family:'Red Hat Text',system-ui,sans-serif;color:#1E1F22;background:#F3F3F2;display:flex;flex-wrap:wrap;min-height:100vh;font-size:15px;line-height:1.45}
+.side{flex:1 1 236px;background:#1E1F22;color:#fff;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;padding:0 8px}
+.brand-sub{font-family:'Red Hat Display',sans-serif;font-weight:600;font-size:15px;color:#C9CBCF;line-height:1.25}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:10px;color:#D3D5D9;text-decoration:none;font-weight:500}
+.nav a:hover{background:#2C2D31;color:#fff}
+.nav a.on{background:#D41F26;color:#fff;font-weight:600}
+.badge{margin-left:auto;background:#fff;color:#B3141A;border-radius:999px;font-size:12px;font-weight:700;padding:1px 8px}
+.side-foot{margin-top:auto;padding:16px 10px 0;border-top:1px solid #34363A;font-size:12.5px;color:#B4B7BC;line-height:1.5}
+.side-foot strong{color:#fff}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:28px 32px 36px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;max-width:1280px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.h1{font-family:'Red Hat Display',sans-serif;font-size:30px;font-weight:800;margin:0;letter-spacing:-0.01em}
+.h2{font-family:'Red Hat Display',sans-serif;font-size:18px;font-weight:700;margin:0}
+.muted{color:#5B5E63}
+.small{font-size:13px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.field{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #DCDCD9;border-radius:10px;padding:0 12px;min-height:44px}
+.field input,.field select{border:0;outline:0;font:inherit;background:transparent;color:#1E1F22;min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.iconbtn{width:44px;height:44px;border-radius:10px;border:1px solid #DCDCD9;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1E1F22;cursor:pointer}
+.avatar{width:44px;height:44px;border-radius:50%;background:#1E1F22;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.card{background:#fff;border-radius:16px;padding:22px 24px;box-sizing:border-box;min-width:0}
+.cardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:16px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.klabel{font-weight:600;font-size:14px}
+.kval{font-family:'Red Hat Display',sans-serif;font-size:36px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0 4px;letter-spacing:-0.01em}
+.hot{background:#D41F26;color:#fff}
+.hot .muted{color:#FFE3E3}
+.split{display:flex;flex-wrap:wrap;gap:16px}
+.split>.a{flex:2 1 560px;min-width:0}
+.split>.b{flex:1 1 320px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.c-ok{background:#E3ECF7;color:#1D4F8A}.c-warn{background:#FCECD5;color:#8A4100}.c-bad{background:#FDE3E3;color:#A3141A}.c-neu{background:#EDEDEB;color:#45474B}
+.scroll{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+.t th{text-align:left;font-weight:600;color:#5B5E63;font-size:13px;padding:10px 12px;border-bottom:1px solid #E4E4E1;white-space:nowrap}
+.t td{padding:13px 12px;border-bottom:1px solid #EFEFED;font-variant-numeric:tabular-nums;white-space:nowrap}
+.t .num{text-align:right}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid #D6D6D3;background:#fff;color:#1E1F22;font:600 14px 'Red Hat Text',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:#1E1F22;color:#1E1F22}
+.btn.p{background:#D41F26;border-color:#D41F26;color:#fff}
+.btn.p:hover{background:#B3141A;color:#fff}
+.track{height:10px;background:#EFEFED;border-radius:999px;overflow:hidden}
+.fill{height:100%;background:#D41F26;border-radius:999px}
+.fill.dark{background:#1E1F22}
+.sig{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12.5px;color:#5B5E63;padding-top:8px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1D5FA6;outline-offset:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid #D6D6D3;background:#fff;font:600 14px 'Red Hat Text',sans-serif;color:#1E1F22;cursor:pointer}
+.tab.on{background:#1E1F22;border-color:#1E1F22;color:#fff}
+.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stage{background:#fff;border-radius:14px;padding:16px 18px}
+.stage .n{font-family:'Red Hat Display',sans-serif;font-size:28px;font-weight:800;font-variant-numeric:tabular-nums}
+.t tr.on td{background:#FDECEC}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+.steps li{display:flex;gap:12px;align-items:flex-start;padding-bottom:16px;position:relative}
+.dot{width:14px;height:14px;border-radius:50%;border:2px solid #9A9DA2;background:#fff;flex:none;margin-top:3px}
+.dot.done{background:#D41F26;border-color:#D41F26}
+.dot.now{border-color:#D41F26;box-shadow:0 0 0 4px #FDE3E3}
+</style>
+<style data-screen="lojas">
+body{margin:0;background:#F3F3F2}
+a{color:#B3141A}a:hover{color:#7E0E12}
+.hc{font-family:'Red Hat Text',system-ui,sans-serif;color:#1E1F22;background:#F3F3F2;display:flex;flex-wrap:wrap;min-height:100vh;font-size:15px;line-height:1.45}
+.side{flex:1 1 236px;background:#1E1F22;color:#fff;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;padding:0 8px}
+.brand-sub{font-family:'Red Hat Display',sans-serif;font-weight:600;font-size:15px;color:#C9CBCF;line-height:1.25}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:10px;color:#D3D5D9;text-decoration:none;font-weight:500}
+.nav a:hover{background:#2C2D31;color:#fff}
+.nav a.on{background:#D41F26;color:#fff;font-weight:600}
+.badge{margin-left:auto;background:#fff;color:#B3141A;border-radius:999px;font-size:12px;font-weight:700;padding:1px 8px}
+.side-foot{margin-top:auto;padding:16px 10px 0;border-top:1px solid #34363A;font-size:12.5px;color:#B4B7BC;line-height:1.5}
+.side-foot strong{color:#fff}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:28px 32px 36px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;max-width:1280px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.h1{font-family:'Red Hat Display',sans-serif;font-size:30px;font-weight:800;margin:0;letter-spacing:-0.01em}
+.h2{font-family:'Red Hat Display',sans-serif;font-size:18px;font-weight:700;margin:0}
+.muted{color:#5B5E63}
+.small{font-size:13px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.field{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #DCDCD9;border-radius:10px;padding:0 12px;min-height:44px}
+.field input,.field select{border:0;outline:0;font:inherit;background:transparent;color:#1E1F22;min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.iconbtn{width:44px;height:44px;border-radius:10px;border:1px solid #DCDCD9;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1E1F22;cursor:pointer}
+.avatar{width:44px;height:44px;border-radius:50%;background:#1E1F22;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.card{background:#fff;border-radius:16px;padding:22px 24px;box-sizing:border-box;min-width:0}
+.cardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:16px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.klabel{font-weight:600;font-size:14px}
+.kval{font-family:'Red Hat Display',sans-serif;font-size:36px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0 4px;letter-spacing:-0.01em}
+.hot{background:#D41F26;color:#fff}
+.hot .muted{color:#FFE3E3}
+.split{display:flex;flex-wrap:wrap;gap:16px}
+.split>.a{flex:2 1 560px;min-width:0}
+.split>.b{flex:1 1 320px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.c-ok{background:#E3ECF7;color:#1D4F8A}.c-warn{background:#FCECD5;color:#8A4100}.c-bad{background:#FDE3E3;color:#A3141A}.c-neu{background:#EDEDEB;color:#45474B}
+.scroll{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+.t th{text-align:left;font-weight:600;color:#5B5E63;font-size:13px;padding:10px 12px;border-bottom:1px solid #E4E4E1;white-space:nowrap}
+.t td{padding:13px 12px;border-bottom:1px solid #EFEFED;font-variant-numeric:tabular-nums;white-space:nowrap}
+.t .num{text-align:right}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid #D6D6D3;background:#fff;color:#1E1F22;font:600 14px 'Red Hat Text',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:#1E1F22;color:#1E1F22}
+.btn.p{background:#D41F26;border-color:#D41F26;color:#fff}
+.btn.p:hover{background:#B3141A;color:#fff}
+.track{height:10px;background:#EFEFED;border-radius:999px;overflow:hidden}
+.fill{height:100%;background:#D41F26;border-radius:999px}
+.fill.dark{background:#1E1F22}
+.sig{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12.5px;color:#5B5E63;padding-top:8px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1D5FA6;outline-offset:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid #D6D6D3;background:#fff;font:600 15px 'Red Hat Text',sans-serif;color:#1E1F22;cursor:pointer}
+.tab.on{background:#1E1F22;border-color:#1E1F22;color:#fff}
+.check{display:flex;align-items:center;gap:10px;min-height:44px;font-weight:600}
+.check input{width:20px;height:20px;accent-color:#D41F26}
+</style>
+<style data-screen="satisfacao">
+body{margin:0;background:#F3F3F2}
+a{color:#B3141A}a:hover{color:#7E0E12}
+.hc{font-family:'Red Hat Text',system-ui,sans-serif;color:#1E1F22;background:#F3F3F2;display:flex;flex-wrap:wrap;min-height:100vh;font-size:15px;line-height:1.45}
+.side{flex:1 1 236px;background:#1E1F22;color:#fff;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;padding:0 8px}
+.brand-sub{font-family:'Red Hat Display',sans-serif;font-weight:600;font-size:15px;color:#C9CBCF;line-height:1.25}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:10px;color:#D3D5D9;text-decoration:none;font-weight:500}
+.nav a:hover{background:#2C2D31;color:#fff}
+.nav a.on{background:#D41F26;color:#fff;font-weight:600}
+.badge{margin-left:auto;background:#fff;color:#B3141A;border-radius:999px;font-size:12px;font-weight:700;padding:1px 8px}
+.side-foot{margin-top:auto;padding:16px 10px 0;border-top:1px solid #34363A;font-size:12.5px;color:#B4B7BC;line-height:1.5}
+.side-foot strong{color:#fff}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:28px 32px 36px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;max-width:1280px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.h1{font-family:'Red Hat Display',sans-serif;font-size:30px;font-weight:800;margin:0;letter-spacing:-0.01em}
+.h2{font-family:'Red Hat Display',sans-serif;font-size:18px;font-weight:700;margin:0}
+.muted{color:#5B5E63}
+.small{font-size:13px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.field{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #DCDCD9;border-radius:10px;padding:0 12px;min-height:44px}
+.field input,.field select{border:0;outline:0;font:inherit;background:transparent;color:#1E1F22;min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.iconbtn{width:44px;height:44px;border-radius:10px;border:1px solid #DCDCD9;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1E1F22;cursor:pointer}
+.avatar{width:44px;height:44px;border-radius:50%;background:#1E1F22;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.card{background:#fff;border-radius:16px;padding:22px 24px;box-sizing:border-box;min-width:0}
+.cardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:16px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.klabel{font-weight:600;font-size:14px}
+.kval{font-family:'Red Hat Display',sans-serif;font-size:36px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0 4px;letter-spacing:-0.01em}
+.hot{background:#D41F26;color:#fff}
+.hot .muted{color:#FFE3E3}
+.split{display:flex;flex-wrap:wrap;gap:16px}
+.split>.a{flex:2 1 560px;min-width:0}
+.split>.b{flex:1 1 320px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.c-ok{background:#E3ECF7;color:#1D4F8A}.c-warn{background:#FCECD5;color:#8A4100}.c-bad{background:#FDE3E3;color:#A3141A}.c-neu{background:#EDEDEB;color:#45474B}
+.scroll{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+.t th{text-align:left;font-weight:600;color:#5B5E63;font-size:13px;padding:10px 12px;border-bottom:1px solid #E4E4E1;white-space:nowrap}
+.t td{padding:13px 12px;border-bottom:1px solid #EFEFED;font-variant-numeric:tabular-nums;white-space:nowrap}
+.t .num{text-align:right}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid #D6D6D3;background:#fff;color:#1E1F22;font:600 14px 'Red Hat Text',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:#1E1F22;color:#1E1F22}
+.btn.p{background:#D41F26;border-color:#D41F26;color:#fff}
+.btn.p:hover{background:#B3141A;color:#fff}
+.track{height:10px;background:#EFEFED;border-radius:999px;overflow:hidden}
+.fill{height:100%;background:#D41F26;border-radius:999px}
+.fill.dark{background:#1E1F22}
+.sig{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12.5px;color:#5B5E63;padding-top:8px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1D5FA6;outline-offset:2px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.stars{color:#B3141A;letter-spacing:2px;font-size:16px}
+.rev{padding:16px 0;border-bottom:1px solid #EFEFED;display:flex;flex-direction:column;gap:8px}
+.rev textarea{width:100%;box-sizing:border-box;min-height:84px;border:1px solid #D6D6D3;border-radius:10px;padding:10px 12px;font:inherit;color:#1E1F22;resize:vertical}
+</style>
+<style data-screen="campanhas">
+body{margin:0;background:#F3F3F2}
+a{color:#B3141A}a:hover{color:#7E0E12}
+.hc{font-family:'Red Hat Text',system-ui,sans-serif;color:#1E1F22;background:#F3F3F2;display:flex;flex-wrap:wrap;min-height:100vh;font-size:15px;line-height:1.45}
+.side{flex:1 1 236px;background:#1E1F22;color:#fff;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;padding:0 8px}
+.brand-sub{font-family:'Red Hat Display',sans-serif;font-weight:600;font-size:15px;color:#C9CBCF;line-height:1.25}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:10px;color:#D3D5D9;text-decoration:none;font-weight:500}
+.nav a:hover{background:#2C2D31;color:#fff}
+.nav a.on{background:#D41F26;color:#fff;font-weight:600}
+.badge{margin-left:auto;background:#fff;color:#B3141A;border-radius:999px;font-size:12px;font-weight:700;padding:1px 8px}
+.side-foot{margin-top:auto;padding:16px 10px 0;border-top:1px solid #34363A;font-size:12.5px;color:#B4B7BC;line-height:1.5}
+.side-foot strong{color:#fff}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:28px 32px 36px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;max-width:1280px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.h1{font-family:'Red Hat Display',sans-serif;font-size:30px;font-weight:800;margin:0;letter-spacing:-0.01em}
+.h2{font-family:'Red Hat Display',sans-serif;font-size:18px;font-weight:700;margin:0}
+.muted{color:#5B5E63}
+.small{font-size:13px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.field{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #DCDCD9;border-radius:10px;padding:0 12px;min-height:44px}
+.field input,.field select{border:0;outline:0;font:inherit;background:transparent;color:#1E1F22;min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.iconbtn{width:44px;height:44px;border-radius:10px;border:1px solid #DCDCD9;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1E1F22;cursor:pointer}
+.avatar{width:44px;height:44px;border-radius:50%;background:#1E1F22;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.card{background:#fff;border-radius:16px;padding:22px 24px;box-sizing:border-box;min-width:0}
+.cardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:16px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.klabel{font-weight:600;font-size:14px}
+.kval{font-family:'Red Hat Display',sans-serif;font-size:36px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0 4px;letter-spacing:-0.01em}
+.hot{background:#D41F26;color:#fff}
+.hot .muted{color:#FFE3E3}
+.split{display:flex;flex-wrap:wrap;gap:16px}
+.split>.a{flex:2 1 560px;min-width:0}
+.split>.b{flex:1 1 320px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.c-ok{background:#E3ECF7;color:#1D4F8A}.c-warn{background:#FCECD5;color:#8A4100}.c-bad{background:#FDE3E3;color:#A3141A}.c-neu{background:#EDEDEB;color:#45474B}
+.scroll{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+.t th{text-align:left;font-weight:600;color:#5B5E63;font-size:13px;padding:10px 12px;border-bottom:1px solid #E4E4E1;white-space:nowrap}
+.t td{padding:13px 12px;border-bottom:1px solid #EFEFED;font-variant-numeric:tabular-nums;white-space:nowrap}
+.t .num{text-align:right}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid #D6D6D3;background:#fff;color:#1E1F22;font:600 14px 'Red Hat Text',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:#1E1F22;color:#1E1F22}
+.btn.p{background:#D41F26;border-color:#D41F26;color:#fff}
+.btn.p:hover{background:#B3141A;color:#fff}
+.track{height:10px;background:#EFEFED;border-radius:999px;overflow:hidden}
+.fill{height:100%;background:#D41F26;border-radius:999px}
+.fill.dark{background:#1E1F22}
+.sig{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12.5px;color:#5B5E63;padding-top:8px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1D5FA6;outline-offset:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid #D6D6D3;background:#fff;font:600 14px 'Red Hat Text',sans-serif;color:#1E1F22;cursor:pointer}
+.tab.on{background:#1E1F22;border-color:#1E1F22;color:#fff}
+.funnel{display:flex;flex-direction:column;gap:10px}
+.fbar{height:40px;background:#1E1F22;border-radius:8px;display:flex;align-items:center;padding:0 12px;box-sizing:border-box;color:#fff;font-weight:700;font-variant-numeric:tabular-nums;min-width:64px}
+.how{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;margin:0;font-size:14px}
+.how dt{font-weight:700}.how dd{margin:0;color:#45474B}
+</style>
+<style data-screen="financeiro">
+body{margin:0;background:#F3F3F2}
+a{color:#B3141A}a:hover{color:#7E0E12}
+.hc{font-family:'Red Hat Text',system-ui,sans-serif;color:#1E1F22;background:#F3F3F2;display:flex;flex-wrap:wrap;min-height:100vh;font-size:15px;line-height:1.45}
+.side{flex:1 1 236px;background:#1E1F22;color:#fff;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;padding:0 8px}
+.brand-sub{font-family:'Red Hat Display',sans-serif;font-weight:600;font-size:15px;color:#C9CBCF;line-height:1.25}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;min-height:44px;box-sizing:border-box;border-radius:10px;color:#D3D5D9;text-decoration:none;font-weight:500}
+.nav a:hover{background:#2C2D31;color:#fff}
+.nav a.on{background:#D41F26;color:#fff;font-weight:600}
+.badge{margin-left:auto;background:#fff;color:#B3141A;border-radius:999px;font-size:12px;font-weight:700;padding:1px 8px}
+.side-foot{margin-top:auto;padding:16px 10px 0;border-top:1px solid #34363A;font-size:12.5px;color:#B4B7BC;line-height:1.5}
+.side-foot strong{color:#fff}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:28px 32px 36px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;max-width:1280px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.h1{font-family:'Red Hat Display',sans-serif;font-size:30px;font-weight:800;margin:0;letter-spacing:-0.01em}
+.h2{font-family:'Red Hat Display',sans-serif;font-size:18px;font-weight:700;margin:0}
+.muted{color:#5B5E63}
+.small{font-size:13px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.field{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #DCDCD9;border-radius:10px;padding:0 12px;min-height:44px}
+.field input,.field select{border:0;outline:0;font:inherit;background:transparent;color:#1E1F22;min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.iconbtn{width:44px;height:44px;border-radius:10px;border:1px solid #DCDCD9;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1E1F22;cursor:pointer}
+.avatar{width:44px;height:44px;border-radius:50%;background:#1E1F22;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.card{background:#fff;border-radius:16px;padding:22px 24px;box-sizing:border-box;min-width:0}
+.cardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:16px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.klabel{font-weight:600;font-size:14px}
+.kval{font-family:'Red Hat Display',sans-serif;font-size:36px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0 4px;letter-spacing:-0.01em}
+.hot{background:#D41F26;color:#fff}
+.hot .muted{color:#FFE3E3}
+.split{display:flex;flex-wrap:wrap;gap:16px}
+.split>.a{flex:2 1 560px;min-width:0}
+.split>.b{flex:1 1 320px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.c-ok{background:#E3ECF7;color:#1D4F8A}.c-warn{background:#FCECD5;color:#8A4100}.c-bad{background:#FDE3E3;color:#A3141A}.c-neu{background:#EDEDEB;color:#45474B}
+.scroll{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+.t th{text-align:left;font-weight:600;color:#5B5E63;font-size:13px;padding:10px 12px;border-bottom:1px solid #E4E4E1;white-space:nowrap}
+.t td{padding:13px 12px;border-bottom:1px solid #EFEFED;font-variant-numeric:tabular-nums;white-space:nowrap}
+.t .num{text-align:right}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid #D6D6D3;background:#fff;color:#1E1F22;font:600 14px 'Red Hat Text',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:#1E1F22;color:#1E1F22}
+.btn.p{background:#D41F26;border-color:#D41F26;color:#fff}
+.btn.p:hover{background:#B3141A;color:#fff}
+.track{height:10px;background:#EFEFED;border-radius:999px;overflow:hidden}
+.fill{height:100%;background:#D41F26;border-radius:999px}
+.fill.dark{background:#1E1F22}
+.sig{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12.5px;color:#5B5E63;padding-top:8px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1D5FA6;outline-offset:2px}
+.cols{display:flex;align-items:flex-end;gap:14px;height:220px;padding-top:8px}
+.col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;height:100%;min-width:0}
+.colbar{width:100%;max-width:64px;background:#C9CBCF;border-radius:8px 8px 0 0}
+.colbar.now{background:#D41F26}
+.colv{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+</style>
+</head>
+<body>
+<!-- Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem -->
+<div id="app"></div>
+<template id="tpl-visao-geral"><div class="hc">
+<nav class="side" aria-label="Menu principal">
+<div class="brand"><img src="{{$logo}}" alt="Home Center" style="height: 64px; width: auto"><span class="brand-sub">Gestão<br>de lojas</span></div>
+<div class="nav">
+<a href="#visao-geral" class="on" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Visão geral</a>
+<a href="#mensagens"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Mensagens<span class="badge">23</span></a>
+<a href="#pedidos"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"></path><path d="m3 8 9 5 9-5M12 13v8"></path></svg>Pedidos e entregas</a>
+<a href="#lojas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.5-5h-13zM5 9v11h14V9M9 20v-6h6v6"></path></svg>Lojas e equipas</a>
+<a href="#satisfacao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>Satisfação e NPS</a>
+<a href="#campanhas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6l-6 4H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6"></path></svg>Campanhas</a>
+<a href="#financeiro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7l12-4v4M16 14h1"></path></svg>Financeiro</a>
+</div>
+<div class="side-foot">Protótipo desenvolvido por<br><strong>Mídia Pro</strong> – Comunicação e Imagem</div>
+</nav>
+
+<main class="main">
+<div class="top">
+<div>
+<p class="muted small" style="margin: 0 0 4px">Terça-feira, 27 de Outubro de 2026</p>
+<h1 class="h1">Bom dia, equipa de gestão</h1>
+</div>
+<div class="tools">
+<label class="field"><span class="sr">Filtrar por loja</span><select><option>Todas as lojas e site</option><option>Av. de Angola</option><option>Baía Mall</option><option>Matola</option><option>Site</option></select></label>
+<label class="field"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><span class="sr">Pesquisar</span><input type="search" placeholder="Pesquisar cliente, pedido ou vendedor"></label>
+<button class="iconbtn" type="button" aria-label="Notificações"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 1 1 12 0c0 6 2 7 2 7H4s2-1 2-7M10 20a2 2 0 0 0 4 0"></path></svg></button>
+<span class="avatar" aria-label="Utilizador: Direcção Geral">DG</span>
+</div>
+</div>
+
+<div class="kgrid">
+<div class="card hot">
+<div class="klabel">Vendas de Outubro</div>
+<div class="kval">18,4 M MT</div>
+<div class="small muted">+6,4% face a Setembro</div>
+<div style="margin-top: 14px; height: 8px; background: rgba(255,255,255,0.28); border-radius: 999px; overflow: hidden"><div style="width: 88%; height: 100%; background: #fff; border-radius: 999px"></div></div>
+<div class="small muted" style="margin-top: 6px">88% da meta de 21 M MT</div>
+</div>
+<div class="card">
+<div class="klabel">Conversão nas lojas</div>
+<div class="kval">14,2%</div>
+<div class="small muted">2.890 visitas, 410 vendas</div>
+<div style="margin-top: 14px"><span class="chip c-ok">Meta: 16%</span></div>
+</div>
+<div class="card">
+<div class="klabel">NPS geral</div>
+<div class="kval">41</div>
+<div class="small muted">118 respostas após entrega</div>
+<div style="margin-top: 14px"><span class="chip c-warn">Meta: 50</span></div>
+</div>
+<div class="card">
+<div class="klabel">Mensagens por responder</div>
+<div class="kval">23</div>
+<div class="small muted">7 chegaram depois das 17h30</div>
+<div style="margin-top: 14px"><a href="#mensagens" class="chip c-bad" style="text-decoration: none">Abrir caixa de mensagens</a></div>
+</div>
+</div>
+
+<div class="split">
+<section class="card a" aria-labelledby="t-lojas">
+<div class="cardhead"><h2 class="h2" id="t-lojas">Vendas por loja face à meta</h2><span class="small muted">Outubro, até hoje</span></div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<template data-for="lojas" data-as="l">
+<div>
+<div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px">
+<div><strong>{{l.nome}}</strong> <span class="small muted">{{l.sub}}</span></div>
+<div style="font-variant-numeric: tabular-nums"><strong>{{l.venda}}</strong> <span class="small muted">de {{l.meta}}</span></div>
+</div>
+<div class="track" style="height: 14px"><div class="fill" style="width: {{l.pct}}"></div></div>
+<div class="small muted" style="margin-top: 4px">{{l.pctTxt}} da meta</div>
+</div>
+</template>
+</div>
+</section>
+
+<section class="card b" aria-labelledby="t-hoje">
+<div class="cardhead"><h2 class="h2" id="t-hoje">Precisa de atenção hoje</h2><span class="chip c-bad">5 pendentes</span></div>
+<div style="display: flex; flex-direction: column">
+<template data-for="alertas" data-as="a">
+<div style="display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid #EFEFED">
+<div style="font-family: 'Red Hat Display', sans-serif; font-weight: 800; font-size: 24px; min-width: 36px; color: #B3141A; font-variant-numeric: tabular-nums">{{a.n}}</div>
+<div style="flex: 1; min-width: 0"><div style="font-weight: 600">{{a.t}}</div><div class="small muted">{{a.d}}</div></div>
+<a href="{{a.href}}" class="btn">{{a.cta}}</a>
+</div>
+</template>
+</div>
+</section>
+</div>
+
+<div class="split">
+<section class="card a" aria-labelledby="t-comp">
+<div class="cardhead"><h2 class="h2" id="t-comp">Comparação das lojas</h2><a href="#lojas" class="small">Ver equipas</a></div>
+<div class="scroll">
+<table class="t">
+<thead><tr><th scope="col">Loja</th><th scope="col" class="num">Vendedores</th><th scope="col" class="num">Visitas</th><th scope="col" class="num">Vendas</th><th scope="col" class="num">Conversão</th><th scope="col" class="num">Ticket médio</th><th scope="col" class="num">NPS</th><th scope="col" class="num">Entregas no prazo</th></tr></thead>
+<tbody>
+<template data-for="tabela" data-as="r">
+<tr><td><strong>{{r.loja}}</strong></td><td class="num">{{r.vend}}</td><td class="num">{{r.vis}}</td><td class="num">{{r.vendas}}</td><td class="num">{{r.conv}}</td><td class="num">{{r.ticket}}</td><td class="num">{{r.nps}}</td><td class="num"><span class="chip {{r.prazoCls}}">{{r.prazo}}</span></td></tr>
+</template>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="card b" aria-labelledby="t-origem">
+<div class="cardhead"><h2 class="h2" id="t-origem">De onde vêm as vendas</h2><span class="small muted">410 vendas</span></div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<template data-for="origem" data-as="o">
+<div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px"><span>{{o.nome}}</span><strong style="font-variant-numeric: tabular-nums">{{o.pct}}</strong></div>
+<div class="track" style="height: 8px"><div class="fill dark" style="width: {{o.pct}}"></div></div>
+</div>
+</template>
+</div>
+<p class="small muted" style="margin: 14px 0 0">Outdoors e parcerias medidos por código promocional e QR; restantes pela pergunta “como nos conheceu?” no fecho da venda.</p>
+</section>
+</div>
+
+<div class="sig"><span>Dados ilustrativos para demonstração. Integração com o site sincronizada há 2 min.</span><span>Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem</span></div>
+</main>
+</div></template>
+<template id="tpl-mensagens"><div class="hc">
+<nav class="side" aria-label="Menu principal">
+<div class="brand"><img src="{{$logo}}" alt="Home Center" style="height: 64px; width: auto"><span class="brand-sub">Gestão<br>de lojas</span></div>
+<div class="nav">
+<a href="#visao-geral"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Visão geral</a>
+<a href="#mensagens" class="on" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Mensagens<span class="badge">23</span></a>
+<a href="#pedidos"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"></path><path d="m3 8 9 5 9-5M12 13v8"></path></svg>Pedidos e entregas</a>
+<a href="#lojas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.5-5h-13zM5 9v11h14V9M9 20v-6h6v6"></path></svg>Lojas e equipas</a>
+<a href="#satisfacao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>Satisfação e NPS</a>
+<a href="#campanhas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6l-6 4H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6"></path></svg>Campanhas</a>
+<a href="#financeiro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7l12-4v4M16 14h1"></path></svg>Financeiro</a>
+</div>
+<div class="side-foot">Protótipo desenvolvido por<br><strong>Mídia Pro</strong> – Comunicação e Imagem</div>
+</nav>
+
+<main class="main">
+<div class="top">
+<div>
+<p class="muted small" style="margin: 0 0 4px">WhatsApp das 3 lojas, Instagram, Facebook, avaliações do Google e formulários do site</p>
+<h1 class="h1">Caixa de mensagens</h1>
+</div>
+<div class="tools">
+<label class="field"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><span class="sr">Pesquisar conversas</span><input type="search" placeholder="Pesquisar conversas"></label>
+<span class="avatar" aria-label="Utilizador: Direcção Geral">DG</span>
+</div>
+</div>
+
+<div class="kgrid">
+<div class="card"><div class="klabel">Por responder</div><div class="kval">23</div><div class="small muted">em todos os canais</div></div>
+<div class="card hot"><div class="klabel">Tempo médio da 1.ª resposta</div><div class="kval">38 min</div><div class="small muted">Meta: menos de 5 minutos</div></div>
+<div class="card"><div class="klabel">Recebidas fora de horas</div><div class="kval">7</div><div class="small muted">ontem, depois das 17h30</div></div>
+<div class="card"><div class="klabel">Avaliações sem resposta</div><div class="kval">12</div><div class="small muted">Google, Facebook e Instagram</div></div>
+</div>
+
+<div class="tabs" role="group" aria-label="Filtrar conversas">
+<template data-for="tabs" data-as="t">
+<button type="button" class="tab {{t.cls}}" aria-pressed="{{t.on}}" onClick="{{t.pick}}">{{t.label}}</button>
+</template>
+</div>
+
+<div class="inbox">
+<section class="card list" aria-label="Conversas">
+<template data-for="lista" data-as="c">
+<button type="button" class="item {{c.cls}}" onClick="{{c.pick}}">
+<span style="display: flex; justify-content: space-between; gap: 8px"><strong>{{c.nome}}</strong><span class="small muted">{{c.hora}}</span></span>
+<span class="small muted">{{c.canal}}</span>
+<span class="small" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{c.prev}}</span>
+<span><span class="chip {{c.estCls}}">{{c.estado}}</span></span>
+</button>
+</template>
+</section>
+
+<section class="card conv" aria-label="Conversa aberta">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-start; border-bottom: 1px solid #EFEFED; padding-bottom: 14px">
+<div><h2 class="h2">{{cur.nome}}</h2><div class="small muted">{{cur.canal}}</div></div>
+<span class="chip {{cur.estCls}}">{{cur.espera}}</span>
+</div>
+<template data-if="cur.fora">
+<div class="small" style="background: #FCECD5; color: #6E3400; border-radius: 10px; padding: 10px 12px">Recebida fora do horário de atendimento. A resposta automática foi enviada e a conversa entrou na fila das 8h00.</div>
+</template>
+<div class="msgs">
+<template data-for="cur.msgs" data-as="m">
+<div class="msg {{m.cls}}">{{m.txt}}<div class="meta">{{m.quem}}, {{m.hora}}</div></div>
+</template>
+</div>
+<div class="tabs">
+<button type="button" class="btn">Enviar catálogo</button>
+<button type="button" class="btn">Agendar visita à loja</button>
+<button type="button" class="btn">Enviar link de pagamento</button>
+<a href="#pedidos" class="btn">Criar pedido</a>
+</div>
+<div class="compose">
+<label class="field"><span class="sr">Escrever resposta</span><input type="text" placeholder="Escrever resposta"></label>
+<button type="button" class="btn p">Enviar resposta</button>
+</div>
+</section>
+
+<aside class="card cli" aria-label="Ficha do cliente">
+<h2 class="h2" style="margin-bottom: 14px">Ficha do cliente</h2>
+<dl class="dl">
+<dt>Tipo</dt><dd>{{cur.tipo}}</dd>
+<dt>Histórico</dt><dd>{{cur.pedidos}}</dd>
+<dt>Valor total</dt><dd>{{cur.total}}</dd>
+<dt>Última compra</dt><dd>{{cur.ultima}}</dd>
+</dl>
+<label style="display: block; margin-top: 18px; font-size: 14px; color: #5B5E63">Responsável
+<span class="field" style="margin-top: 6px"><select style="width: 100%"><option>{{cur.vendedor}}</option><option>Hélio Sitoe (Av. de Angola)</option><option>Neusa Macuácua (Baía Mall)</option><option>Dércia Tembe (Matola)</option><option>Marta Nhantumbo (Empresas)</option></select></span>
+</label>
+<div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px">
+<template data-for="cur.tags" data-as="g"><span class="chip c-neu">{{g}}</span></template>
+</div>
+</aside>
+</div>
+
+<div class="sig"><span>Dados ilustrativos para demonstração.</span><span>Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem</span></div>
+</main>
+</div></template>
+<template id="tpl-pedidos"><div class="hc">
+<nav class="side" aria-label="Menu principal">
+<div class="brand"><img src="{{$logo}}" alt="Home Center" style="height: 64px; width: auto"><span class="brand-sub">Gestão<br>de lojas</span></div>
+<div class="nav">
+<a href="#visao-geral"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Visão geral</a>
+<a href="#mensagens"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Mensagens<span class="badge">23</span></a>
+<a href="#pedidos" class="on" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"></path><path d="m3 8 9 5 9-5M12 13v8"></path></svg>Pedidos e entregas</a>
+<a href="#lojas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.5-5h-13zM5 9v11h14V9M9 20v-6h6v6"></path></svg>Lojas e equipas</a>
+<a href="#satisfacao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>Satisfação e NPS</a>
+<a href="#campanhas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6l-6 4H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6"></path></svg>Campanhas</a>
+<a href="#financeiro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7l12-4v4M16 14h1"></path></svg>Financeiro</a>
+</div>
+<div class="side-foot">Protótipo desenvolvido por<br><strong>Mídia Pro</strong> – Comunicação e Imagem</div>
+</nav>
+
+<main class="main">
+<div class="top">
+<div>
+<p class="muted small" style="margin: 0 0 4px">Pedidos do site, das lojas, do WhatsApp e de clientes empresariais</p>
+<h1 class="h1">Pedidos e entregas</h1>
+</div>
+<div class="tools">
+<span class="chip c-ok">Site sincronizado há 2 min</span>
+<a href="#mensagens" class="btn">Ver mensagens</a>
+<button type="button" class="btn p">Novo pedido</button>
+</div>
+</div>
+
+<div class="pipe">
+<div class="stage"><div class="small muted">Novos</div><div class="n">14</div></div>
+<div class="stage"><div class="small muted">Pagos</div><div class="n">22</div></div>
+<div class="stage"><div class="small muted">Em preparação</div><div class="n">18</div></div>
+<div class="stage"><div class="small muted">Em entrega</div><div class="n">9</div></div>
+<div class="stage"><div class="small muted">Montagem agendada</div><div class="n">11</div></div>
+<div class="stage" style="background: #D41F26; color: #fff"><div class="small" style="color: #FFE3E3">Atrasados</div><div class="n">5</div></div>
+</div>
+
+<div class="split">
+<section class="card a" aria-labelledby="t-ped">
+<div class="cardhead"><h2 class="h2" id="t-ped">Pedidos recentes</h2>
+<div class="tabs" role="group" aria-label="Filtrar por canal">
+<template data-for="tabs" data-as="t"><button type="button" class="tab {{t.cls}}" aria-pressed="{{t.on}}" onClick="{{t.pick}}">{{t.label}}</button></template>
+</div>
+</div>
+<div class="scroll">
+<table class="t">
+<thead><tr><th scope="col">Pedido</th><th scope="col">Cliente</th><th scope="col">Canal</th><th scope="col">Loja</th><th scope="col" class="num">Valor</th><th scope="col">Pagamento</th><th scope="col">Estado</th><th scope="col">Entrega</th><th scope="col"><span class="sr">Acção</span></th></tr></thead>
+<tbody>
+<template data-for="pedidos" data-as="p">
+<tr class="{{p.cls}}"><td><strong>{{p.id}}</strong></td><td>{{p.cliente}}</td><td>{{p.canal}}</td><td>{{p.loja}}</td><td class="num">{{p.valor}}</td><td>{{p.pag}}</td><td><span class="chip {{p.estCls}}">{{p.estado}}</span></td><td>{{p.entrega}}</td><td><button type="button" class="btn" onClick="{{p.pick}}">Ver</button></td></tr>
+</template>
+</tbody>
+</table>
+</div>
+</section>
+
+<aside class="card b" aria-labelledby="t-det">
+<div class="cardhead"><h2 class="h2" id="t-det">{{cur.id}}</h2><span class="chip {{cur.estCls}}">{{cur.estado}}</span></div>
+<p style="margin: 0 0 4px"><strong>{{cur.cliente}}</strong></p>
+<p class="small muted" style="margin: 0 0 18px">{{cur.itens}}</p>
+<ol class="steps">
+<template data-for="cur.etapas" data-as="e">
+<li><span class="dot {{e.cls}}"></span><span><span style="font-weight: 600">{{e.t}}</span><br><span class="small muted">{{e.d}}</span></span></li>
+</template>
+</ol>
+<div class="small muted" style="margin-bottom: 16px">Equipa de montagem: <strong style="color: #1E1F22">{{cur.equipa}}</strong></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" class="btn p">Notificar cliente por WhatsApp</button>
+<button type="button" class="btn">Reagendar entrega</button>
+</div>
+</aside>
+</div>
+
+<section class="card" aria-labelledby="t-aband">
+<div class="cardhead"><h2 class="h2" id="t-aband">Compras abandonadas no site</h2><span class="small muted">Últimos 7 dias: 9 compras, 612.000 MT. Pagamento online por M-Pesa, e-Mola e cartão.</span></div>
+<div class="scroll">
+<table class="t">
+<thead><tr><th scope="col">Cliente</th><th scope="col">Produto</th><th scope="col" class="num">Valor</th><th scope="col">Parou em</th><th scope="col">Quando</th><th scope="col">Seguimento</th><th scope="col"><span class="sr">Acção</span></th></tr></thead>
+<tbody>
+<template data-for="aband" data-as="a">
+<tr><td><strong>{{a.cliente}}</strong></td><td>{{a.prod}}</td><td class="num">{{a.valor}}</td><td>{{a.passo}}</td><td>{{a.quando}}</td><td><span class="chip {{a.estCls}}">{{a.estado}}</span></td><td><button type="button" class="btn" onClick="{{a.enviar}}">{{a.cta}}</button></td></tr>
+</template>
+</tbody>
+</table>
+</div>
+</section>
+
+<div class="sig"><span>Dados ilustrativos para demonstração.</span><span>Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem</span></div>
+</main>
+</div></template>
+<template id="tpl-lojas"><div class="hc">
+<nav class="side" aria-label="Menu principal">
+<div class="brand"><img src="{{$logo}}" alt="Home Center" style="height: 64px; width: auto"><span class="brand-sub">Gestão<br>de lojas</span></div>
+<div class="nav">
+<a href="#visao-geral"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Visão geral</a>
+<a href="#mensagens"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Mensagens<span class="badge">23</span></a>
+<a href="#pedidos"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"></path><path d="m3 8 9 5 9-5M12 13v8"></path></svg>Pedidos e entregas</a>
+<a href="#lojas" class="on" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.5-5h-13zM5 9v11h14V9M9 20v-6h6v6"></path></svg>Lojas e equipas</a>
+<a href="#satisfacao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>Satisfação e NPS</a>
+<a href="#campanhas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6l-6 4H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6"></path></svg>Campanhas</a>
+<a href="#financeiro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7l12-4v4M16 14h1"></path></svg>Financeiro</a>
+</div>
+<div class="side-foot">Protótipo desenvolvido por<br><strong>Mídia Pro</strong> – Comunicação e Imagem</div>
+</nav>
+
+<main class="main">
+<div class="top">
+<div>
+<p class="muted small" style="margin: 0 0 4px">Desempenho de vendedores, roteiro de atendimento e coaching</p>
+<h1 class="h1">Lojas e equipas</h1>
+</div>
+<div class="tabs" role="group" aria-label="Escolher loja">
+<template data-for="tabs" data-as="t"><button type="button" class="tab {{t.cls}}" aria-pressed="{{t.on}}" onClick="{{t.pick}}">{{t.label}}</button></template>
+</div>
+</div>
+
+<div class="kgrid">
+<div class="card"><div class="klabel">Vendedores</div><div class="kval">{{s.vend}}</div><div class="small muted">{{s.local}}</div></div>
+<div class="card"><div class="klabel">Conversão</div><div class="kval">{{s.conv}}</div><div class="small muted">vendas ÷ visitas no contador da entrada</div></div>
+<div class="card"><div class="klabel">Ticket médio</div><div class="kval">{{s.ticket}}</div><div class="small muted">NPS da loja: {{s.nps}}</div></div>
+<div class="card hot"><div class="klabel">Cumprimento do roteiro</div><div class="kval">{{s.roteiro}}</div><div class="small muted">cliente-mistério de Outubro, meta 85%</div></div>
+</div>
+
+<section class="card" aria-labelledby="t-rank">
+<div class="cardhead"><h2 class="h2" id="t-rank">Vendedores em destaque e a acompanhar</h2><span class="small muted">Outubro, ordenado por vendas</span></div>
+<div class="scroll">
+<table class="t">
+<thead><tr><th scope="col">Vendedor</th><th scope="col" class="num">Vendas</th><th scope="col" class="num">N.º de vendas</th><th scope="col" class="num">Atendimentos</th><th scope="col" class="num">Conversão</th><th scope="col">Nota no roteiro</th><th scope="col" class="num">NPS</th></tr></thead>
+<tbody>
+<template data-for="s.vendedores" data-as="v">
+<tr><td><strong>{{v.nome}}</strong></td><td class="num">{{v.vendas}}</td><td class="num">{{v.n}}</td><td class="num">{{v.at}}</td><td class="num">{{v.conv}}</td><td><span class="chip {{v.cls}}">{{v.score}}</span></td><td class="num">{{v.nps}}</td></tr>
+</template>
+</tbody>
+</table>
+</div>
+</section>
+
+<div class="split">
+<section class="card a" aria-labelledby="t-rot">
+<div class="cardhead"><h2 class="h2" id="t-rot">Roteiro de atendimento, passo a passo</h2><span class="small muted">% de visitas de cliente-mistério em que o passo foi cumprido</span></div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<template data-for="s.passos" data-as="p">
+<div>
+<div style="display: flex; justify-content: space-between; margin-bottom: 6px"><span><strong>{{p.n}}.</strong> {{p.t}}</span><strong style="font-variant-numeric: tabular-nums">{{p.v}}</strong></div>
+<div class="track"><div class="fill" style="width: {{p.v}}"></div></div>
+</div>
+</template>
+</div>
+</section>
+
+<section class="card b" aria-labelledby="t-brief">
+<div class="cardhead"><h2 class="h2" id="t-brief">Briefing de hoje</h2><span class="small muted">10 minutos, antes da abertura</span></div>
+<p style="margin: 0 0 4px; font-family: 'Red Hat Display', sans-serif; font-size: 20px; font-weight: 700">Apresentar o ambiente completo, não só a peça</p>
+<p class="small muted" style="margin: 0 0 12px">Quem procura um sofá recebe também a proposta de mesa de centro, tapete e iluminação.</p>
+<label class="check"><input type="checkbox">Briefing realizado nesta loja</label>
+<h3 style="font-size: 15px; margin: 18px 0 8px">Coaching desta semana</h3>
+<template data-for="s.coaching" data-as="c">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid #EFEFED"><span>{{c.nome}} <span class="small muted">nota {{c.score}}</span></span><button type="button" class="btn">Marcar sessão</button></div>
+</template>
+</section>
+</div>
+
+<div class="sig"><span>Dados ilustrativos para demonstração.</span><span>Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem</span></div>
+</main>
+</div></template>
+<template id="tpl-satisfacao"><div class="hc">
+<nav class="side" aria-label="Menu principal">
+<div class="brand"><img src="{{$logo}}" alt="Home Center" style="height: 64px; width: auto"><span class="brand-sub">Gestão<br>de lojas</span></div>
+<div class="nav">
+<a href="#visao-geral"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Visão geral</a>
+<a href="#mensagens"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Mensagens<span class="badge">23</span></a>
+<a href="#pedidos"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"></path><path d="m3 8 9 5 9-5M12 13v8"></path></svg>Pedidos e entregas</a>
+<a href="#lojas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.5-5h-13zM5 9v11h14V9M9 20v-6h6v6"></path></svg>Lojas e equipas</a>
+<a href="#satisfacao" class="on" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>Satisfação e NPS</a>
+<a href="#campanhas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6l-6 4H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6"></path></svg>Campanhas</a>
+<a href="#financeiro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7l12-4v4M16 14h1"></path></svg>Financeiro</a>
+</div>
+<div class="side-foot">Protótipo desenvolvido por<br><strong>Mídia Pro</strong> – Comunicação e Imagem</div>
+</nav>
+
+<main class="main">
+<div class="top">
+<div>
+<p class="muted small" style="margin: 0 0 4px">Inquérito pós-entrega por WhatsApp e avaliações públicas</p>
+<h1 class="h1">Satisfação e NPS</h1>
+</div>
+<div class="tools"><button type="button" class="btn">Exportar relatório</button></div>
+</div>
+
+<div class="kgrid">
+<div class="card"><div class="klabel">NPS geral</div><div class="kval">41</div><div class="small muted">Meta: 50</div></div>
+<div class="card"><div class="klabel">Respostas ao inquérito</div><div class="kval">118</div><div class="small muted">29% dos clientes com entrega em Outubro</div></div>
+<div class="card hot"><div class="klabel">Insatisfeitos por contactar</div><div class="kval">{{porContactar}}</div><div class="small muted">Regra: contacto em 24 horas</div></div>
+<div class="card"><div class="klabel">Avaliações sem resposta</div><div class="kval">12</div><div class="small muted">Meta: responder 100% em 48 horas</div></div>
+</div>
+
+<div class="grid2">
+<section class="card" aria-labelledby="t-npsloja">
+<div class="cardhead"><h2 class="h2" id="t-npsloja">NPS por loja</h2></div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<template data-for="npsLoja" data-as="n">
+<div><div style="display: flex; justify-content: space-between; margin-bottom: 6px"><span>{{n.nome}}</span><strong>{{n.v}}</strong></div><div class="track"><div class="fill dark" style="width: {{n.w}}"></div></div></div>
+</template>
+</div>
+</section>
+<section class="card" aria-labelledby="t-npsmont">
+<div class="cardhead"><h2 class="h2" id="t-npsmont">NPS por equipa de entrega e montagem</h2></div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<template data-for="npsEquipa" data-as="n">
+<div><div style="display: flex; justify-content: space-between; margin-bottom: 6px"><span>{{n.nome}}</span><strong>{{n.v}}</strong></div><div class="track"><div class="fill {{n.cls}}" style="width: {{n.w}}"></div></div></div>
+</template>
+</div>
+<p class="small muted" style="margin: 14px 0 0">Equipas C e D concentram as reclamações de montagem: prioridade no próximo treinamento.</p>
+</section>
+</div>
+
+<div class="split">
+<section class="card a" aria-labelledby="t-aval">
+<div class="cardhead"><h2 class="h2" id="t-aval">Avaliações públicas por responder</h2><span class="small muted">Google, Facebook e Instagram</span></div>
+<template data-for="avaliacoes" data-as="r">
+<div class="rev">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px"><span><strong>{{r.nome}}</strong> <span class="small muted">{{r.onde}}, {{r.quando}}</span></span><span class="stars" aria-label="{{r.estrelasTxt}}">{{r.estrelas}}</span></div>
+<div>{{r.txt}}</div>
+<template data-if="r.aberto">
+<label class="small muted">Resposta pública (sugestão editável)<textarea>{{r.sug}}</textarea></label>
+<div style="display: flex; gap: 8px"><button type="button" class="btn p" onClick="{{r.toggle}}">Publicar resposta</button><button type="button" class="btn" onClick="{{r.toggle}}">Cancelar</button></div>
+</template>
+<template data-if="r.fechado">
+<div><button type="button" class="btn" onClick="{{r.toggle}}">Responder</button></div>
+</template>
+</div>
+</template>
+</section>
+
+<div class="b" style="display: flex; flex-direction: column; gap: 16px">
+<section class="card" aria-labelledby="t-det">
+<div class="cardhead"><h2 class="h2" id="t-det">Contactar em 24 horas</h2></div>
+<template data-for="detratores" data-as="d">
+<div style="padding: 12px 0; border-bottom: 1px solid #EFEFED; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 8px"><strong>{{d.nome}}</strong><span class="chip {{d.cls}}">{{d.prazo}}</span></div>
+<div class="small muted">Nota {{d.nota}} de 10, {{d.loja}}. {{d.motivo}}</div>
+<div><button type="button" class="btn" onClick="{{d.toggle}}">{{d.cta}}</button></div>
+</div>
+</template>
+</section>
+<section class="card" aria-labelledby="t-mot">
+<div class="cardhead"><h2 class="h2" id="t-mot">Motivos de reclamação</h2><span class="small muted">Outubro</span></div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<template data-for="motivos" data-as="m">
+<div><div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px"><span>{{m.t}}</span><strong>{{m.v}}</strong></div><div class="track" style="height: 8px"><div class="fill" style="width: {{m.v}}"></div></div></div>
+</template>
+</div>
+</section>
+</div>
+</div>
+
+<div class="sig"><span>Dados ilustrativos para demonstração.</span><span>Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem</span></div>
+</main>
+</div></template>
+<template id="tpl-campanhas"><div class="hc">
+<nav class="side" aria-label="Menu principal">
+<div class="brand"><img src="{{$logo}}" alt="Home Center" style="height: 64px; width: auto"><span class="brand-sub">Gestão<br>de lojas</span></div>
+<div class="nav">
+<a href="#visao-geral"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Visão geral</a>
+<a href="#mensagens"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Mensagens<span class="badge">23</span></a>
+<a href="#pedidos"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"></path><path d="m3 8 9 5 9-5M12 13v8"></path></svg>Pedidos e entregas</a>
+<a href="#lojas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.5-5h-13zM5 9v11h14V9M9 20v-6h6v6"></path></svg>Lojas e equipas</a>
+<a href="#satisfacao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>Satisfação e NPS</a>
+<a href="#campanhas" class="on" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6l-6 4H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6"></path></svg>Campanhas</a>
+<a href="#financeiro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7l12-4v4M16 14h1"></path></svg>Financeiro</a>
+</div>
+<div class="side-foot">Protótipo desenvolvido por<br><strong>Mídia Pro</strong> – Comunicação e Imagem</div>
+</nav>
+
+<main class="main">
+<div class="top">
+<div>
+<p class="muted small" style="margin: 0 0 4px">Quanto cada outdoor, parceria e anúncio devolve em vendas</p>
+<h1 class="h1">Campanhas</h1>
+</div>
+<div class="tools"><button type="button" class="btn p">Nova campanha</button></div>
+</div>
+
+<div class="kgrid">
+<div class="card"><div class="klabel">Investimento em Outubro</div><div class="kval">1,42 M MT</div><div class="small muted">6 campanhas activas</div></div>
+<div class="card"><div class="klabel">Contactos gerados</div><div class="kval">1.236</div><div class="small muted">1.149 MT por contacto</div></div>
+<div class="card"><div class="klabel">Vendas atribuídas</div><div class="kval">61</div><div class="small muted">3,1 M MT em receita</div></div>
+<div class="card hot"><div class="klabel">Retorno sobre o investimento</div><div class="kval">2,2×</div><div class="small muted">receita atribuída ÷ investimento</div></div>
+</div>
+
+<section class="card" aria-labelledby="t-camp">
+<div class="cardhead"><h2 class="h2" id="t-camp">Resultados por campanha</h2>
+<div class="tabs" role="group" aria-label="Filtrar por tipo">
+<template data-for="tabs" data-as="t"><button type="button" class="tab {{t.cls}}" aria-pressed="{{t.on}}" onClick="{{t.pick}}">{{t.label}}</button></template>
+</div>
+</div>
+<div class="scroll">
+<table class="t">
+<thead><tr><th scope="col">Campanha</th><th scope="col">Como é medida</th><th scope="col" class="num">Investimento</th><th scope="col" class="num">Contactos</th><th scope="col" class="num">Custo por contacto</th><th scope="col" class="num">Vendas</th><th scope="col" class="num">Receita</th><th scope="col">Retorno</th></tr></thead>
+<tbody>
+<template data-for="camp" data-as="c">
+<tr><td><strong>{{c.nome}}</strong><br><span class="small muted">{{c.tipo}}</span></td><td>{{c.med}}</td><td class="num">{{c.inv}}</td><td class="num">{{c.cont}}</td><td class="num">{{c.cpc}}</td><td class="num">{{c.vendas}}</td><td class="num">{{c.rec}}</td><td><span class="chip {{c.cls}}">{{c.roi}}</span></td></tr>
+</template>
+</tbody>
+</table>
+</div>
+</section>
+
+<div class="split">
+<section class="card a" aria-labelledby="t-fun">
+<div class="cardhead"><h2 class="h2" id="t-fun">Do contacto à venda</h2><span class="small muted">Todas as campanhas, Outubro</span></div>
+<div class="funnel">
+<template data-for="funil" data-as="f">
+<div><div class="small muted" style="margin-bottom: 4px">{{f.t}} <span>{{f.taxa}}</span></div><div class="fbar" style="width: {{f.w}}">{{f.v}}</div></div>
+</template>
+</div>
+<p class="small muted" style="margin: 14px 0 0">A maior perda está entre a conversa e a visita: 2 em cada 3 contactos qualificados não chegam à loja.</p>
+</section>
+<section class="card b" aria-labelledby="t-how">
+<div class="cardhead"><h2 class="h2" id="t-how">Como cada canal é medido</h2></div>
+<dl class="how">
+<dt>Outdoors</dt><dd>Código promocional e QR com número de WhatsApp próprio por local.</dd>
+<dt>Parcerias</dt><dd>Código do parceiro aplicado no fecho da venda.</dd>
+<dt>Digital</dt><dd>Anúncios com clique para WhatsApp e ligações etiquetadas para o site.</dd>
+<dt>Lojas</dt><dd>Pergunta obrigatória “como nos conheceu?” no registo da venda.</dd>
+</dl>
+</section>
+</div>
+
+<div class="sig"><span>Dados ilustrativos para demonstração. Nome do parceiro a confirmar.</span><span>Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem</span></div>
+</main>
+</div></template>
+<template id="tpl-financeiro"><div class="hc">
+<nav class="side" aria-label="Menu principal">
+<div class="brand"><img src="{{$logo}}" alt="Home Center" style="height: 64px; width: auto"><span class="brand-sub">Gestão<br>de lojas</span></div>
+<div class="nav">
+<a href="#visao-geral"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Visão geral</a>
+<a href="#mensagens"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Mensagens<span class="badge">23</span></a>
+<a href="#pedidos"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"></path><path d="m3 8 9 5 9-5M12 13v8"></path></svg>Pedidos e entregas</a>
+<a href="#lojas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.5-5h-13zM5 9v11h14V9M9 20v-6h6v6"></path></svg>Lojas e equipas</a>
+<a href="#satisfacao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>Satisfação e NPS</a>
+<a href="#campanhas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6l-6 4H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6"></path></svg>Campanhas</a>
+<a href="#financeiro" class="on" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7l12-4v4M16 14h1"></path></svg>Financeiro</a>
+</div>
+<div class="side-foot">Protótipo desenvolvido por<br><strong>Mídia Pro</strong> – Comunicação e Imagem</div>
+</nav>
+
+<main class="main">
+<div class="top">
+<div>
+<p class="muted small" style="margin: 0 0 4px">Receita, margem, descontos, conciliação de caixa e contas a receber</p>
+<h1 class="h1">Financeiro</h1>
+</div>
+<div class="tools">
+<label class="field"><span class="sr">Período</span><select><option>Outubro de 2026</option><option>Setembro de 2026</option><option>3.º trimestre de 2026</option></select></label>
+<button type="button" class="btn">Exportar para Excel</button>
+</div>
+</div>
+
+<div class="kgrid">
+<div class="card"><div class="klabel">Receita de Outubro</div><div class="kval">18,4 M MT</div><div class="small muted">+6,4% face a Setembro</div></div>
+<div class="card"><div class="klabel">Margem bruta</div><div class="kval">34%</div><div class="small muted">6,3 M MT</div></div>
+<div class="card hot"><div class="klabel">Descontos concedidos</div><div class="kval">6,8%</div><div class="small muted">da receita; meta: até 4%</div></div>
+<div class="card"><div class="klabel">A receber de empresas</div><div class="kval">2,6 M MT</div><div class="small muted">1,12 M MT vencidos</div></div>
+</div>
+
+<div class="split">
+<section class="card a" aria-labelledby="t-rec">
+<div class="cardhead"><h2 class="h2" id="t-rec">Receita mensal</h2><span class="small muted">milhões de MT, as 3 lojas e o site</span></div>
+<div class="cols" role="img" aria-label="Receita mensal de Maio a Outubro: 15,9; 16,4; 17,1; 16,8; 17,3 e 18,4 milhões de meticais">
+<template data-for="meses" data-as="m">
+<div class="col"><span class="colv">{{m.v}}</span><div class="colbar {{m.cls}}" style="height: {{m.h}}"></div><span class="small muted">{{m.m}}</span></div>
+</template>
+</div>
+</section>
+<section class="card b" aria-labelledby="t-pag">
+<div class="cardhead"><h2 class="h2" id="t-pag">Formas de pagamento</h2><span class="small muted">% da receita</span></div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<template data-for="pag" data-as="p">
+<div><div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px"><span>{{p.t}}</span><strong>{{p.v}}</strong></div><div class="track" style="height: 8px"><div class="fill dark" style="width: {{p.v}}"></div></div></div>
+</template>
+</div>
+</section>
+</div>
+
+<section class="card" aria-labelledby="t-conc">
+<div class="cardhead"><h2 class="h2" id="t-conc">Conciliação de vendas, caixa e entregas</h2><span class="small muted">Outubro, até ontem</span></div>
+<div class="scroll">
+<table class="t">
+<thead><tr><th scope="col">Loja</th><th scope="col" class="num">Vendas registadas</th><th scope="col" class="num">Recebido ou faturado</th><th scope="col" class="num">Diferença</th><th scope="col" class="num">Pagos sem entrega agendada</th><th scope="col" class="num">Descontos</th><th scope="col">Estado</th></tr></thead>
+<tbody>
+<template data-for="conc" data-as="c">
+<tr><td><strong>{{c.loja}}</strong></td><td class="num">{{c.vend}}</td><td class="num">{{c.rec}}</td><td class="num">{{c.dif}}</td><td class="num">{{c.sem}}</td><td class="num">{{c.desc}}</td><td><span class="chip {{c.cls}}">{{c.est}}</span></td></tr>
+</template>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="card" aria-labelledby="t-car">
+<div class="cardhead"><h2 class="h2" id="t-car">Contas a receber de clientes empresariais</h2><a href="#mensagens" class="small">Contactar cliente</a></div>
+<div class="scroll">
+<table class="t">
+<thead><tr><th scope="col">Empresa</th><th scope="col">Referência</th><th scope="col" class="num">Valor</th><th scope="col">Vencimento</th><th scope="col">Gestor de conta</th><th scope="col">Estado</th></tr></thead>
+<tbody>
+<tr><td><strong>Hotel Costa Azul</strong></td><td>Fatura de Setembro</td><td class="num">1.120.000 MT</td><td>15 Out</td><td>Marta Nhantumbo</td><td><span class="chip c-bad">Vencida há 12 dias</span></td></tr>
+<tr><td><strong>Escritórios Baobá, Lda</strong></td><td>Fatura de Outubro</td><td class="num">840.000 MT</td><td>5 Nov</td><td>Marta Nhantumbo</td><td><span class="chip c-ok">Em dia</span></td></tr>
+<tr><td><strong>Colégio Horizonte</strong></td><td>Fatura de Outubro</td><td class="num">640.000 MT</td><td>20 Nov</td><td>Marta Nhantumbo</td><td><span class="chip c-ok">Em dia</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<div class="sig"><span>Dados ilustrativos para demonstração. Integração com o sistema de facturação a definir.</span><span>Protótipo desenvolvido por Mídia Pro – Comunicação e Imagem</span></div>
+</main>
+</div></template>
+<script>
+
+const SCREENS = {};
+let current = null;
+const instances = {};
+class DCLogic {
+  constructor(props) { this.props = props || {}; this.state = {}; }
+  setState(p) { Object.assign(this.state, typeof p === 'function' ? p(this.state) : p); render(); }
+  forceUpdate() { render(); }
+}
+function look(ctx, path) {
+  if (path === 'true') return true; if (path === 'false') return false;
+  let v = ctx;
+  for (const k of path.split('.')) { if (v == null) return undefined; v = v[k]; }
+  return v;
+}
+const HOLE = /\{\{\s*([^}]+?)\s*\}\}/g, WHOLE = /^\{\{\s*([\w.$]+)\s*\}\}$/;
+function interp(str, ctx) { return str.replace(HOLE, (m, p) => { const v = look(ctx, p); return v == null ? '' : String(v); }); }
+function renderNode(node, ctx) {
+  if (node.nodeType === 3) return document.createTextNode(interp(node.nodeValue, ctx));
+  if (node.nodeType !== 1) return document.createTextNode('');
+  if (node.tagName === 'TEMPLATE' && node.dataset.for) {
+    const frag = document.createDocumentFragment();
+    const list = look(ctx, node.dataset.for) || [];
+    list.forEach((item, i) => {
+      const c = Object.create(ctx); c[node.dataset.as] = item; c.$index = i;
+      node.content.childNodes.forEach((ch) => frag.appendChild(renderNode(ch, c)));
+    });
+    return frag;
+  }
+  if (node.tagName === 'TEMPLATE' && node.dataset.if) {
+    const frag = document.createDocumentFragment();
+    if (look(ctx, node.dataset.if)) node.content.childNodes.forEach((ch) => frag.appendChild(renderNode(ch, ctx)));
+    return frag;
+  }
+  const el = node.cloneNode(false);
+  for (const a of Array.from(el.attributes)) {
+    if (!a.value.includes('{{')) continue;
+    const w = a.value.match(WHOLE);
+    if (a.name.startsWith('on') && w) {
+      el.removeAttribute(a.name);
+      const fn = look(ctx, w[1]);
+      if (typeof fn === 'function') el.addEventListener(a.name.slice(2), fn);
+    } else {
+      el.setAttribute(a.name, interp(a.value, ctx));
+    }
+  }
+  const kids = node.tagName === 'TEMPLATE' ? node.content.childNodes : node.childNodes;
+  kids.forEach((ch) => el.appendChild(renderNode(ch, ctx)));
+  if (el.tagName === 'TEXTAREA') el.value = el.textContent;
+  return el;
+}
+function render() {
+  const app = document.getElementById('app');
+  const inst = instances[current];
+  const vals = Object.assign({ $logo: LOGO }, inst.renderVals ? inst.renderVals() : {});
+  const frag = document.createDocumentFragment();
+  document.getElementById('tpl-' + current).content.childNodes.forEach((ch) => frag.appendChild(renderNode(ch, vals)));
+  app.replaceChildren(frag);
+}
+function route() {
+  const id = (location.hash || '#visao-geral').slice(1);
+  const next = SCREENS[id] ? id : 'visao-geral';
+  const changed = next !== current;
+  current = next;
+  if (!instances[current]) instances[current] = new SCREENS[current]({});
+  document.querySelectorAll('style[data-screen]').forEach((s) => { s.disabled = s.dataset.screen !== current; });
+  document.title = TITLES[current];
+  render();
+  if (changed) window.scrollTo(0, 0);
+}
+
+const LOGO = "data:image/png;base64,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";
+const TITLES = {"visao-geral": "Home Center — Visão geral", "mensagens": "Home Center — Caixa de mensagens", "pedidos": "Home Center — Pedidos e entregas", "lojas": "Home Center — Lojas e equipas", "satisfacao": "Home Center — Satisfação e NPS", "campanhas": "Home Center — Campanhas", "financeiro": "Home Center — Financeiro"};
+SCREENS["visao-geral"] = class extends DCLogic {
+  renderVals() {
+    return {
+      lojas: [
+        { nome: 'Av. de Angola', sub: 'loja principal, 45 vendedores', venda: '11,2 M MT', meta: '12,5 M MT', pct: '89.6%', pctTxt: '90%' },
+        { nome: 'Baía Mall', sub: '12 vendedores', venda: '3,9 M MT', meta: '4,5 M MT', pct: '86.7%', pctTxt: '87%' },
+        { nome: 'Matola', sub: '12 vendedores', venda: '3,3 M MT', meta: '4,0 M MT', pct: '82.5%', pctTxt: '83%' }
+      ],
+      alertas: [
+        { n: '12', t: 'Avaliações no Google sem resposta', d: 'A mais antiga tem 41 dias', href: 'Satisfacao.dc.html', cta: 'Responder' },
+        { n: '7', t: 'Conversas recebidas depois das 17h30', d: 'Resposta automática enviada, falta contacto', href: 'Mensagens.dc.html', cta: 'Abrir' },
+        { n: '3', t: 'Clientes insatisfeitos por contactar', d: 'Prazo de 24 horas termina às 14h00', href: 'Satisfacao.dc.html', cta: 'Ligar' },
+        { n: '5', t: 'Entregas atrasadas', d: '4 na Matola, 1 no Baía Mall', href: 'Pedidos.dc.html', cta: 'Ver' },
+        { n: '9', t: 'Compras abandonadas no site', d: 'Valor total de 612.000 MT', href: 'Pedidos.dc.html', cta: 'Recuperar' }
+      ],
+      tabela: [
+        { loja: 'Av. de Angola', vend: '45', vis: '1.720', vendas: '236', conv: '13,7%', ticket: '47.500 MT', nps: '44', prazo: '88%', prazoCls: 'c-ok' },
+        { loja: 'Baía Mall', vend: '12', vis: '610', vendas: '92', conv: '15,1%', ticket: '42.400 MT', nps: '39', prazo: '81%', prazoCls: 'c-warn' },
+        { loja: 'Matola', vend: '12', vis: '560', vendas: '82', conv: '14,6%', ticket: '40.200 MT', nps: '36', prazo: '76%', prazoCls: 'c-bad' }
+      ],
+      origem: [
+        { nome: 'Visita espontânea à loja', pct: '46%' },
+        { nome: 'WhatsApp das lojas', pct: '21%' },
+        { nome: 'Instagram e Facebook', pct: '12%' },
+        { nome: 'Clientes empresariais', pct: '9%' },
+        { nome: 'Site', pct: '5%' },
+        { nome: 'Outdoors (código e QR)', pct: '4%' },
+        { nome: 'Parcerias', pct: '3%' }
+      ]
+    };
+  }
+}
+
+SCREENS["mensagens"] = class extends DCLogic {
+  constructor(props) { super(props); this.state = { sel: 'c1', filtro: 'todas' }; }
+  renderVals() {
+    const C = (de, txt, hora) => ({ cls: de === 'cliente' ? 'in' : (de === 'auto' ? 'auto' : 'out'), quem: de === 'cliente' ? 'Cliente' : (de === 'auto' ? 'Resposta automática' : 'Equipa Home Center'), txt, hora });
+    const conv = [
+      { id: 'c1', nome: 'Ana Muianga', canal: 'WhatsApp, loja Av. de Angola', hora: 'ontem, 20:14', prev: 'Boa noite, o sofá de 3 lugares cinzento ainda tem?', estado: 'Por responder', estCls: 'c-bad', espera: 'Aguarda há 11 h 46 min', fora: true, aval: false, pend: true,
+        msgs: [C('cliente', 'Boa noite, o sofá de 3 lugares cinzento do vosso post ainda tem? Entregam na Matola?', '20:14'), C('auto', 'Olá Ana, obrigado pela mensagem. Estamos fora do horário de atendimento; um consultor responde a partir das 8h00. Enquanto isso, veja o catálogo: [link do catálogo]', '20:14')],
+        tipo: 'Particular', pedidos: '1 compra anterior', total: '38.900 MT', ultima: 'Mesa de centro, Março', vendedor: 'Hélio Sitoe (Av. de Angola)', tags: ['Sofás', 'Entrega na Matola'] },
+      { id: 'c2', nome: 'Escritórios Baobá, Lda', canal: 'Site, formulário para empresas', hora: 'ontem, 16:02', prev: 'Orçamento: 24 secretárias e 24 cadeiras', estado: 'Por responder', estCls: 'c-bad', espera: 'Aguarda há 15 h 58 min', fora: false, aval: false, pend: true,
+        msgs: [C('cliente', 'Bom dia. Estamos a mudar de escritório e precisamos de orçamento para 24 secretárias, 24 cadeiras ergonómicas e 2 mesas de reunião. Prazo: fim de Novembro.', '16:02')],
+        tipo: 'Empresa', pedidos: '2 encomendas anteriores', total: '1,9 M MT', ultima: 'Cadeiras de escritório, Junho', vendedor: 'Marta Nhantumbo (Empresas)', tags: ['Empresa', 'Orçamento'] },
+      { id: 'c3', nome: 'Carlos Bila', canal: 'Avaliação no Google, loja Matola, 2 estrelas', hora: 'há 6 dias', prev: 'Montagem marcada para sábado e ninguém apareceu.', estado: 'Avaliação sem resposta', estCls: 'c-bad', espera: 'Sem resposta há 6 dias', fora: false, aval: true, pend: true,
+        msgs: [C('cliente', 'Montagem marcada para sábado e ninguém apareceu nem ligou. Perdi o dia todo à espera.', 'há 6 dias')],
+        tipo: 'Particular', pedidos: 'Pedido HC-24766', total: '54.000 MT', ultima: 'Guarda-roupa de 3 portas', vendedor: 'Dércia Tembe (Matola)', tags: ['Montagem', 'Cliente insatisfeito'] },
+      { id: 'c4', nome: 'Sónia Langa', canal: 'Instagram, comentário', hora: 'ontem, 18:47', prev: 'Quanto custa a mesa de jantar do último post?', estado: 'Por responder', estCls: 'c-bad', espera: 'Aguarda há 13 h 13 min', fora: true, aval: false, pend: true,
+        msgs: [C('cliente', 'Olá! Quanto custa a mesa de jantar de 6 lugares do último post? Tem em branco?', '18:47'), C('auto', 'Olá Sónia! Para preços e disponibilidade, fale connosco no WhatsApp: [link do WhatsApp]', '18:47')],
+        tipo: 'Particular', pedidos: 'Sem compras anteriores', total: '—', ultima: '—', vendedor: 'Por atribuir', tags: ['Mesas de jantar', 'Novo contacto'] },
+      { id: 'c5', nome: 'Jorge Matsinhe', canal: 'WhatsApp, loja Baía Mall', hora: 'ontem, 11:20', prev: 'Já recebi a cama, obrigado! Montagem impecável.', estado: 'Respondida', estCls: 'c-ok', espera: 'Respondida em 12 min', fora: false, aval: false, pend: false,
+        msgs: [C('cliente', 'Já recebi a cama, obrigado! A equipa da montagem foi impecável.', '11:20'), C('equipa', 'Que bom saber, Jorge! Vamos enviar um inquérito de 1 minuto sobre a experiência. Obrigado pela preferência.', '11:32')],
+        tipo: 'Particular', pedidos: '3 compras', total: '146.500 MT', ultima: 'Cama de casal, Outubro', vendedor: 'Celso Mabunda (Baía Mall)', tags: ['Quartos', 'Cliente satisfeito'] },
+      { id: 'c6', nome: 'Telma Zandamela', canal: 'Facebook, mensagem', hora: 'ontem, 09:05', prev: 'Fazem pagamento por M-Pesa?', estado: 'Respondida', estCls: 'c-ok', espera: 'Respondida em 6 min', fora: false, aval: false, pend: false,
+        msgs: [C('cliente', 'Fazem pagamento por M-Pesa? E prestações?', '09:05'), C('equipa', 'Bom dia, Telma! Aceitamos M-Pesa, e-Mola, cartão e transferência. As condições de prestações explicamos na loja ou por WhatsApp.', '09:11')],
+        tipo: 'Particular', pedidos: 'Sem compras anteriores', total: '—', ultima: '—', vendedor: 'Neusa Macuácua (Baía Mall)', tags: ['Pagamentos'] }
+    ];
+    const f = this.state.filtro;
+    const ok = (c) => f === 'todas' || (f === 'pend' && c.pend) || (f === 'fora' && c.fora) || (f === 'aval' && c.aval);
+    const vis = conv.filter(ok);
+    const cur = vis.find((c) => c.id === this.state.sel) || vis[0] || conv[0];
+    const tabsDef = [['todas', 'Todas'], ['pend', 'Por responder'], ['fora', 'Fora de horas'], ['aval', 'Avaliações']];
+    return {
+      tabs: tabsDef.map(([k, l]) => ({ label: l, cls: f === k ? 'on' : '', on: f === k ? 'true' : 'false', pick: () => this.setState({ filtro: k }) })),
+      lista: vis.map((c) => ({ ...c, cls: c.id === cur.id ? 'on' : '', pick: () => this.setState({ sel: c.id }) })),
+      cur
+    };
+  }
+}
+
+SCREENS["pedidos"] = class extends DCLogic {
+  constructor(props) { super(props); this.state = { sel: 'HC-24815', canal: 'todos', enviados: {} }; }
+  renderVals() {
+    const P = (id, cliente, canal, k, loja, valor, pag, estado, estCls, entrega, equipa, passo, itens) => ({ id, cliente, canal, k, loja, valor, pag, estado, estCls, entrega, equipa, passo, itens });
+    const todos = [
+      P('HC-24831', 'Lucas Novela', 'Site', 'site', 'Matola', '72.400 MT', 'M-Pesa', 'Pago', 'c-ok', '29 Out', 'Equipa C', 2, 'Sofá-cama e mesa de apoio'),
+      P('HC-24828', 'Escritórios Baobá, Lda', 'Empresas', 'emp', 'Av. de Angola', '840.000 MT', 'Fatura a 30 dias', 'Em preparação', 'c-neu', '4 Nov', 'Equipa A', 2, '24 secretárias e 24 cadeiras'),
+      P('HC-24822', 'Rosa Chauque', 'WhatsApp', 'wa', 'Baía Mall', '46.900 MT', 'e-Mola', 'Em entrega', 'c-ok', 'Hoje', 'Equipa B', 3, 'Cómoda de 6 gavetas'),
+      P('HC-24815', 'Fernando Massingue', 'Loja', 'loja', 'Matola', '118.000 MT', 'Cartão', 'Atrasado', 'c-bad', 'Previsto 24 Out', 'Equipa D', 3, 'Conjunto de sala de jantar, 6 lugares'),
+      P('HC-24809', 'Inês Manhiça', 'Site', 'site', 'Av. de Angola', '31.500 MT', 'Por pagar', 'Aguarda pagamento', 'c-warn', '—', '—', 0, 'Cadeira de escritório'),
+      P('HC-24802', 'Hotel Costa Azul', 'Empresas', 'emp', 'Av. de Angola', '1.120.000 MT', 'Fatura a 30 dias', 'Montado', 'c-ok', '15 Out', 'Equipa A', 5, '40 camas e 40 mesas de cabeceira'),
+      P('HC-24766', 'Carlos Bila', 'Loja', 'loja', 'Matola', '54.000 MT', 'Cartão', 'Montagem remarcada', 'c-warn', '31 Out', 'Equipa D', 4, 'Guarda-roupa de 3 portas'),
+      P('HC-24790', 'Paulo Cossa', 'WhatsApp', 'wa', 'Av. de Angola', '63.200 MT', 'M-Pesa', 'Montado', 'c-ok', '22 Out', 'Equipa A', 5, 'Cama de casal com colchão')
+    ];
+    const c = this.state.canal;
+    const vis = todos.filter((p) => c === 'todos' || p.k === c);
+    const cur = vis.find((p) => p.id === this.state.sel) || vis[0] || todos[0];
+    const nomes = ['Pedido recebido', 'Pagamento confirmado', 'Em preparação no armazém', 'Saída para entrega', 'Montagem concluída'];
+    const etapas = nomes.map((t, i) => ({ t, cls: i < cur.passo ? 'done' : (i === cur.passo ? 'now' : ''), d: i < cur.passo ? 'Concluído' : (i === cur.passo ? 'Em curso' : 'Por fazer') }));
+    const tabsDef = [['todos', 'Todos'], ['site', 'Site'], ['loja', 'Loja'], ['wa', 'WhatsApp'], ['emp', 'Empresas']];
+    const ab = [
+      ['Mércia Tembe', 'Sofá de canto em L', '96.000 MT', 'Pagamento', 'há 2 h'],
+      ['Rui Sitoe', 'Cama de solteiro com gavetas', '28.500 MT', 'Dados de entrega', 'ontem'],
+      ['Graça Mabunda', 'Estante modular', '41.800 MT', 'Pagamento', 'ontem'],
+      ['Nuno Langa', 'Mesa de jantar, 8 lugares', '87.200 MT', 'Carrinho', 'há 3 dias']
+    ];
+    const env = this.state.enviados;
+    return {
+      tabs: tabsDef.map(([k, l]) => ({ label: l, cls: c === k ? 'on' : '', on: c === k ? 'true' : 'false', pick: () => this.setState({ canal: k }) })),
+      pedidos: vis.map((p) => ({ ...p, cls: p.id === cur.id ? 'on' : '', pick: () => this.setState({ sel: p.id }) })),
+      cur: { ...cur, etapas },
+      aband: ab.map(([cliente, prod, valor, passo, quando], i) => ({ cliente, prod, valor, passo, quando,
+        estado: env[i] ? 'Lembrete enviado por WhatsApp' : 'Por contactar', estCls: env[i] ? 'c-ok' : 'c-warn',
+        cta: env[i] ? 'Enviado' : 'Enviar lembrete', enviar: () => this.setState({ enviados: { ...env, [i]: true } }) }))
+    };
+  }
+}
+
+SCREENS["lojas"] = class extends DCLogic {
+  constructor(props) { super(props); this.state = { loja: 'angola' }; }
+  renderVals() {
+    const V = (nome, vendas, n, at, conv, sc, nps) => ({ nome, vendas, n, at, conv, score: sc + '%', sc, nps, cls: sc >= 85 ? 'c-ok' : (sc >= 70 ? 'c-neu' : 'c-warn') });
+    const passosNomes = ['Receber o cliente em menos de 1 minuto', 'Entender o espaço, o estilo e o orçamento', 'Apresentar o ambiente completo', 'Tratar objecções: prazo, preço e pagamento', 'Fechar e agendar a entrega com data'];
+    const L = {
+      angola: { label: 'Av. de Angola', vend: '45', local: 'Av. de Angola 2356, Maputo (loja principal)', conv: '13,7%', ticket: '47.500 MT', nps: '44', roteiro: '69%', p: [64, 72, 58, 70, 81],
+        v: [V('Hélio Sitoe', '1.020.000 MT', 18, 92, '19,6%', 92, 58), V('Marta Nhantumbo (Empresas)', '960.000 MT', 6, 14, '42,9%', 88, 61), V('Albino Cossa', '610.000 MT', 14, 88, '15,9%', 81, 47), V('Neide Muianga', '540.000 MT', 12, 79, '15,2%', 76, 45), V('Abel Novela', '205.000 MT', 5, 71, '7,0%', 54, 22)] },
+      baia: { label: 'Baía Mall', vend: '12', local: 'Baía Mall, loja G69, Maputo', conv: '15,1%', ticket: '42.400 MT', nps: '39', roteiro: '74%', p: [78, 76, 66, 72, 80],
+        v: [V('Neusa Macuácua', '520.000 MT', 13, 70, '18,6%', 90, 52), V('Celso Mabunda', '470.000 MT', 11, 64, '17,2%', 86, 50), V('Lina Bila', '390.000 MT', 9, 61, '14,8%', 73, 37), V('Samuel Chauque', '300.000 MT', 7, 55, '12,7%', 68, 30), V('Vânia Massingue', '210.000 MT', 5, 52, '9,6%', 58, 25)] },
+      matola: { label: 'Matola', vend: '12', local: 'Rua 11.117, n.º 75, Matola', conv: '14,6%', ticket: '40.200 MT', nps: '36', roteiro: '63%', p: [55, 66, 52, 64, 78],
+        v: [V('Dércia Tembe', '480.000 MT', 12, 66, '18,2%', 84, 46), V('Osvaldo Manhiça', '400.000 MT', 10, 63, '15,9%', 79, 41), V('Rita Zandamela', '330.000 MT', 8, 60, '13,3%', 70, 33), V('Ivo Langa', '250.000 MT', 6, 57, '10,5%', 61, 28), V('Telma Matsinhe', '190.000 MT', 5, 54, '9,3%', 55, 21)] }
+    };
+    const k = this.state.loja;
+    const d = L[k];
+    return {
+      tabs: Object.keys(L).map((key) => ({ label: L[key].label, cls: key === k ? 'on' : '', on: key === k ? 'true' : 'false', pick: () => this.setState({ loja: key }) })),
+      s: { ...d, vendedores: d.v, passos: passosNomes.map((t, i) => ({ n: i + 1, t, v: d.p[i] + '%' })), coaching: d.v.filter((x) => x.sc < 70) }
+    };
+  }
+}
+
+SCREENS["satisfacao"] = class extends DCLogic {
+  constructor(props) { super(props); this.state = { contactados: {}, abertos: {} }; }
+  renderVals() {
+    const ct = this.state.contactados, ab = this.state.abertos;
+    const det = [
+      ['Carlos Bila', 2, 'Matola', 'A montagem marcada não aconteceu.', 'Termina em 6 h'],
+      ['Fernando Massingue', 3, 'Matola', 'Entrega atrasada 3 dias.', 'Termina em 14 h'],
+      ['Amélia Cossa', 4, 'Baía Mall', 'Mesa entregue com um risco no tampo.', 'Termina em 20 h']
+    ];
+    const av = [
+      ['Carlos Bila', 'Google, Matola', 'há 6 dias', 2, 'Montagem marcada para sábado e ninguém apareceu nem ligou.', 'Carlos, pedimos desculpa pela falha na montagem. Já reagendámos para 31 de Outubro e o gerente da loja da Matola vai ligar-lhe hoje para confirmar.'],
+      ['Edson Langa', 'Facebook', 'há 12 dias', 3, 'Bons móveis, mas ninguém responde às mensagens à noite.', 'Obrigado pelo comentário, Edson. Passámos a ter resposta automática fora de horas e um consultor responde a partir das 8h00.'],
+      ['Patrícia Sitoe', 'Google, Baía Mall', 'há 19 dias', 4, 'Loja bonita, mas tive de esperar para ser atendida.', 'Obrigado, Patrícia. Reforçámos o acolhimento: cada cliente deve ser recebido em menos de 1 minuto.'],
+      ['Mariana Novela', 'Google, Av. de Angola', 'há 41 dias', 5, 'Óptima variedade e o vendedor Hélio ajudou muito a escolher.', 'Obrigado, Mariana! Vamos partilhar o seu elogio com o Hélio e com toda a equipa.']
+    ];
+    const pendentes = det.filter((x, i) => !ct[i]).length;
+    return {
+      porContactar: String(pendentes),
+      npsLoja: [{ nome: 'Av. de Angola', v: '44', w: '44%' }, { nome: 'Baía Mall', v: '39', w: '39%' }, { nome: 'Matola', v: '36', w: '36%' }],
+      npsEquipa: [{ nome: 'Equipa A', v: '52', w: '52%', cls: 'dark' }, { nome: 'Equipa B', v: '47', w: '47%', cls: 'dark' }, { nome: 'Equipa C', v: '31', w: '31%', cls: '' }, { nome: 'Equipa D', v: '28', w: '28%', cls: '' }],
+      detratores: det.map(([nome, nota, loja, motivo, prazo], i) => ({ nome, nota, loja, motivo, prazo: ct[i] ? 'Contactado' : prazo, cls: ct[i] ? 'c-ok' : 'c-bad', cta: ct[i] ? 'Desfazer' : 'Marcar como contactado', toggle: () => this.setState({ contactados: { ...ct, [i]: !ct[i] } }) })),
+      avaliacoes: av.map(([nome, onde, quando, n, txt, sug], i) => ({ nome, onde, quando, txt, sug, estrelas: '★'.repeat(n) + '☆'.repeat(5 - n), estrelasTxt: n + ' de 5 estrelas', aberto: !!ab[i], fechado: !ab[i], toggle: () => this.setState({ abertos: { ...ab, [i]: !ab[i] } }) })),
+      motivos: [{ t: 'Atraso na entrega', v: '38%' }, { t: 'Montagem em falta ou mal feita', v: '22%' }, { t: 'Atendimento na loja', v: '17%' }, { t: 'Produto danificado', v: '13%' }, { t: 'Outros', v: '10%' }]
+    };
+  }
+}
+
+SCREENS["campanhas"] = class extends DCLogic {
+  constructor(props) { super(props); this.state = { tipo: 'todas' }; }
+  renderVals() {
+    const K = (nome, tipo, k, med, inv, cont, cpc, vendas, rec, r) => ({ nome, tipo, k, med, inv, cont, cpc, vendas, rec, roi: String(r).replace('.', ',') + '×', cls: r >= 2 ? 'c-ok' : (r >= 1 ? 'c-neu' : 'c-bad') });
+    const all = [
+      K('Outdoor Av. Julius Nyerere', 'Outdoor', 'out', 'Código OUT-JN e QR', '420.000 MT', '96', '4.375 MT', '9', '468.000 MT', 1.1),
+      K('Outdoor EN4, Matola', 'Outdoor', 'out', 'Código OUT-EN4 e QR', '380.000 MT', '54', '7.037 MT', '5', '230.000 MT', 0.6),
+      K('Parceria [nome do parceiro]', 'Parceria', 'par', 'Código do parceiro', '150.000 MT', '41', '3.659 MT', '7', '392.000 MT', 2.6),
+      K('Sala completa', 'Meta Ads, clique para WhatsApp', 'dig', 'Número de WhatsApp da campanha', '210.000 MT', '612', '343 MT', '22', '1.012.000 MT', 4.8),
+      K('Loja de móveis em Maputo', 'Google Ads e perfil do Google', 'dig', 'Ligação etiquetada para o site', '160.000 MT', '298', '537 MT', '11', '605.000 MT', 3.8),
+      K('Escritório completo', 'LinkedIn, clientes empresariais', 'dig', 'Formulário para empresas', '100.000 MT', '135', '741 MT', '7', '393.000 MT', 3.9)
+    ];
+    const t = this.state.tipo;
+    const tabsDef = [['todas', 'Todas'], ['out', 'Outdoors'], ['par', 'Parcerias'], ['dig', 'Digital']];
+    return {
+      tabs: tabsDef.map(([k, l]) => ({ label: l, cls: t === k ? 'on' : '', on: t === k ? 'true' : 'false', pick: () => this.setState({ tipo: k }) })),
+      camp: all.filter((c) => t === 'todas' || c.k === t),
+      funil: [
+        { t: 'Contactos', taxa: '', v: '1.236', w: '100%' },
+        { t: 'Conversas qualificadas', taxa: '(57%)', v: '702', w: '56.8%' },
+        { t: 'Visitas à loja', taxa: '(30% das conversas)', v: '214', w: '17.3%' },
+        { t: 'Vendas', taxa: '(29% das visitas)', v: '61', w: '4.9%' }
+      ]
+    };
+  }
+}
+
+SCREENS["financeiro"] = class extends DCLogic {
+  renderVals() {
+    const m = [['Mai', 15.9], ['Jun', 16.4], ['Jul', 17.1], ['Ago', 16.8], ['Set', 17.3], ['Out', 18.4]];
+    return {
+      meses: m.map(([mm, v], i) => ({ m: mm, v: String(v).replace('.', ','), h: Math.round(v / 20 * 170) + 'px', cls: i === m.length - 1 ? 'now' : '' })),
+      pag: [{ t: 'Cartão', v: '34%' }, { t: 'Transferência bancária', v: '22%' }, { t: 'M-Pesa', v: '19%' }, { t: 'Numerário', v: '15%' }, { t: 'e-Mola', v: '6%' }, { t: 'Prestações', v: '4%' }],
+      conc: [
+        { loja: 'Av. de Angola', vend: '11.200.000 MT', rec: '11.200.000 MT', dif: '0 MT', sem: '3', desc: '5,9%', est: 'Conciliado', cls: 'c-ok' },
+        { loja: 'Baía Mall', vend: '3.900.000 MT', rec: '3.874.500 MT', dif: '−25.500 MT', sem: '1', desc: '7,4%', est: 'Por verificar', cls: 'c-warn' },
+        { loja: 'Matola', vend: '3.300.000 MT', rec: '3.300.000 MT', dif: '0 MT', sem: '2', desc: '8,9%', est: 'Conciliado', cls: 'c-ok' }
+      ]
+    };
+  }
+}
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
