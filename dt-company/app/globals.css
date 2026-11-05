@@ -201,7 +201,7 @@ img {
 
 .nav--scrolled,
 .nav--open {
-  background: rgba(3, 12, 42, 0.88);
+  background: rgba(4, 18, 63, 0.9);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -336,7 +336,7 @@ img {
     flex-direction: column;
     gap: 0.25rem;
     padding: 0.5rem 1.5rem 1.75rem;
-    background: rgba(3, 12, 42, 0.96);
+    background: rgba(4, 18, 63, 0.96);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
   }
@@ -376,16 +376,16 @@ img {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(900px 620px at 86% -10%, rgba(10, 87, 231, 0.75), transparent 62%),
-    radial-gradient(720px 520px at -12% 112%, rgba(10, 87, 231, 0.38), transparent 58%),
-    linear-gradient(158deg, var(--navy-950) 12%, var(--navy-900) 48%, var(--navy-800) 100%);
+    radial-gradient(1000px 720px at 88% -12%, rgba(10, 87, 231, 0.95), transparent 64%),
+    radial-gradient(820px 620px at -10% 116%, rgba(10, 87, 231, 0.55), transparent 60%),
+    linear-gradient(140deg, var(--navy-900) 0%, var(--navy-800) 42%, #0843c4 76%, var(--blue-600) 106%);
 }
 
 .hero__field::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(1200px 500px at 50% 118%, rgba(3, 12, 42, 0.85), transparent 70%);
+  background: radial-gradient(1200px 460px at 50% 120%, rgba(4, 18, 63, 0.5), transparent 70%);
 }
 
 .hero__grid {
@@ -498,7 +498,7 @@ img {
 .dossier__sheet {
   position: absolute;
   inset: 0;
-  transform: rotate(3.2deg) translate(14px, 10px);
+  transform: translate(16px, 14px);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -875,7 +875,7 @@ section {
 
 .boundaries {
   padding: 6.5rem 0;
-  background: linear-gradient(170deg, var(--navy-950) 0%, var(--navy-900) 70%, #061a52 100%);
+  background: linear-gradient(170deg, var(--navy-900) 0%, var(--navy-900) 58%, #0a2a7a 100%);
   color: #ffffff;
 }
 
@@ -926,9 +926,28 @@ section {
   color: #ffffff;
   overflow: clip;
   background:
-    radial-gradient(760px 420px at 18% -20%, rgba(10, 87, 231, 0.65), transparent 60%),
-    radial-gradient(760px 480px at 88% 130%, rgba(45, 111, 240, 0.5), transparent 62%),
-    linear-gradient(150deg, var(--navy-950), var(--navy-900) 55%, var(--navy-800));
+    radial-gradient(820px 520px at 16% -24%, rgba(10, 87, 231, 0.8), transparent 60%),
+    radial-gradient(960px 680px at 94% 118%, rgba(10, 87, 231, 0.9), transparent 64%),
+    linear-gradient(145deg, var(--navy-900), var(--navy-800) 52%, #0747c9 100%);
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -3%;
+  width: min(44vw, 620px);
+  aspect-ratio: 618 / 272;
+  transform: translateY(-50%);
+  background: url("/logo-white.png") no-repeat center / contain;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+@media (max-width: 920px) {
+  .cta::before {
+    display: none;
+  }
 }
 
 .cta__inner {
@@ -959,9 +978,10 @@ section {
 }
 
 .cta__note {
+  position: relative;
   margin-top: 1.1rem;
-  font-size: 0.8438rem;
-  color: var(--ink-on-navy-soft);
+  font-size: 0.875rem;
+  color: var(--ink-on-navy);
 }
 
 @media (max-width: 920px) {
@@ -1066,8 +1086,8 @@ section {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(820px 480px at 92% -24%, rgba(10, 87, 231, 0.7), transparent 60%),
-    linear-gradient(160deg, var(--navy-950) 8%, var(--navy-900) 55%, var(--navy-800) 100%);
+    radial-gradient(920px 580px at 92% -24%, rgba(10, 87, 231, 0.85), transparent 62%),
+    linear-gradient(155deg, var(--navy-900) 8%, var(--navy-800) 58%, #0846c6 112%);
 }
 
 .phero__big {
