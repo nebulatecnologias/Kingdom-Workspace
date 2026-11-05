@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T00:00:00Z",
+  "title": "Design System: DT Company — Business Advisory & Development",
+  "extensions": {
+    "colorMeta": {
+      "vivid-blue": {
+        "role": "primary",
+        "displayName": "Vivid Blue",
+        "canonical": "#0a57e7",
+        "tonalRamp": ["#030c2a", "#04123f", "#0a1f5c", "#0a57e7", "#2d6ff0", "#5b8df5", "#9dc0ff", "#eef4ff"]
+      },
+      "brand-navy": {
+        "role": "primary",
+        "displayName": "Brand Navy",
+        "canonical": "#04123f",
+        "tonalRamp": ["#030c2a", "#04123f", "#0a1f5c", "#17254e", "#46568b", "#9db4e4", "#d4e0f9", "#f4f8ff"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#17254e",
+        "tonalRamp": ["#17254e", "#46568b", "#9db4e4", "#d4e0f9", "#d7e3f8", "#dce6f7", "#eef4ff", "#f4f8ff"]
+      },
+      "tint-panel": {
+        "role": "neutral",
+        "displayName": "Tint Panel",
+        "canonical": "#eef4ff",
+        "tonalRamp": ["#d7e3f8", "#dce6f7", "#eef4ff", "#f4f8ff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
+      },
+      "confirm-green": {
+        "role": "tertiary",
+        "displayName": "Confirm Green",
+        "canonical": "#0c7a43",
+        "tonalRamp": ["#063d22", "#0c7a43", "#2b9560", "#58b183", "#8acdaa", "#bce4cd", "#e3f4ea", "#f2faf5"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only; balanced, max ~15ch." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles and the CTA heading." },
+      "title": { "displayName": "Title", "purpose": "Pillar and service names." },
+      "body": { "displayName": "Body", "purpose": "Default copy; intros step to 1.125rem in Ink Soft." },
+      "label": { "displayName": "Label", "purpose": "Uppercase structural column/panel labels; Sky Accent on navy, Ink Soft on white." }
+    },
+    "shadows": [
+      { "name": "shadow-card", "value": "0 1px 2px rgba(4, 18, 63, 0.06), 0 12px 32px -12px rgba(4, 18, 63, 0.18)", "purpose": "Default resting card shadow on light grounds." },
+      { "name": "shadow-float", "value": "0 2px 6px rgba(3, 12, 42, 0.25), 0 32px 72px -28px rgba(3, 12, 42, 0.55)", "purpose": "Hero dossier card floating off the gradient brand field." },
+      { "name": "shadow-button-blue", "value": "0 1px 2px rgba(10, 87, 231, 0.35), 0 10px 24px -10px rgba(10, 87, 231, 0.55)", "purpose": "Primary button and step-number discs; shadow glows in the element's own blue." },
+      { "name": "shadow-button-light", "value": "0 1px 2px rgba(3, 12, 42, 0.3), 0 10px 28px -12px rgba(3, 12, 42, 0.55)", "purpose": "White button on navy fields; deepens on hover." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The only easing curve; all transitions and animations." },
+      { "name": "rise", "value": "@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } } /* 0.9–1s, staggered 0 / 0.12s / 0.22s / 0.3s */", "purpose": "Hero entrance stagger, the single authored motion moment." },
+      { "name": "reveal", "value": "opacity 0.7s + translateY(18px) → 0, per-element --reveal-delay, triggered by IntersectionObserver", "purpose": "Scroll reveals for sections; collapsed entirely under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "920px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Vivid Blue pill with blue-glow shadow; the main conversion action on light grounds.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Falar connosco</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1.6rem; border-radius: 999px; font-family: 'Google Sans', 'Product Sans', sans-serif; font-weight: 500; font-size: 1rem; line-height: 1.2; border: 1px solid transparent; cursor: pointer; transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1), background-color 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-btn:hover { transform: translateY(-1px); } .ds-btn:active { transform: translateY(0); } .ds-btn:focus-visible { outline: 2px solid #2d6ff0; outline-offset: 3px; } .ds-btn-primary { background: #0a57e7; color: #ffffff; box-shadow: 0 1px 2px rgba(10,87,231,0.35), 0 10px 24px -10px rgba(10,87,231,0.55); } .ds-btn-primary:hover { background: #2d6ff0; }"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "White pill for use on navy/blue brand fields; navy-tinted shadow deepens on hover.",
+      "html": "<div class=\"ds-field-chip\"><button class=\"ds-btn2 ds-btn-light\">Falar connosco</button></div>",
+      "css": ".ds-field-chip { display: inline-block; padding: 1.25rem; border-radius: 14px; background: linear-gradient(140deg, #04123f 0%, #0a1f5c 42%, #0843c4 76%, #0a57e7 106%); } .ds-btn2 { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1.6rem; border-radius: 999px; font-family: 'Google Sans', 'Product Sans', sans-serif; font-weight: 500; font-size: 1rem; line-height: 1.2; border: 1px solid transparent; cursor: pointer; transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-btn2:hover { transform: translateY(-1px); } .ds-btn2:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; } .ds-btn-light { background: #ffffff; color: #04123f; box-shadow: 0 1px 2px rgba(3,12,42,0.3), 0 10px 28px -12px rgba(3,12,42,0.55); } .ds-btn-light:hover { box-shadow: 0 2px 4px rgba(3,12,42,0.3), 0 16px 36px -12px rgba(3,12,42,0.6); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Outline pill on brand fields; border brightens and the trailing arrow slides on hover.",
+      "html": "<div class=\"ds-field-chip2\"><button class=\"ds-btn3 ds-btn-ghost\">Ver os 4 pilares <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16\"/><path d=\"M13 5l7 7-7 7\"/></svg></button></div>",
+      "css": ".ds-field-chip2 { display: inline-block; padding: 1.25rem; border-radius: 14px; background: linear-gradient(140deg, #04123f 0%, #0a1f5c 42%, #0843c4 76%, #0a57e7 106%); } .ds-btn3 { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1.6rem; border-radius: 999px; font-family: 'Google Sans', 'Product Sans', sans-serif; font-weight: 500; font-size: 1rem; line-height: 1.2; cursor: pointer; transition: border-color 0.25s cubic-bezier(0.16,1,0.3,1), background-color 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost { background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.38); } .ds-btn-ghost:hover { border-color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.08); } .ds-btn-ghost svg { transition: transform 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost:hover svg { transform: translateX(3px); } .ds-btn-ghost:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Number Chip",
+      "kind": "chip",
+      "refersTo": "chip-number",
+      "description": "Tabular service numeral in Vivid Blue on Tint Panel; labels every service row.",
+      "html": "<span class=\"ds-chip-num\">2.1</span>",
+      "css": ".ds-chip-num { display: inline-block; font-family: 'Google Sans', 'Product Sans', sans-serif; font-size: 0.8438rem; font-weight: 700; color: #0a57e7; background: #eef4ff; border-radius: 999px; padding: 0.18rem 0.6rem; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Status Pill",
+      "kind": "chip",
+      "refersTo": "chip-number",
+      "description": "Three-state status grammar from the dossier checklist: done (green), active (blue), scheduled (muted).",
+      "html": "<span class=\"ds-status ds-status-done\">Emitida</span> <span class=\"ds-status ds-status-active\">Em curso</span> <span class=\"ds-status ds-status-sched\">Agendado</span>",
+      "css": ".ds-status { display: inline-block; font-family: 'Google Sans', 'Product Sans', sans-serif; font-size: 0.7813rem; font-weight: 500; padding: 0.22rem 0.6rem; border-radius: 999px; font-variant-numeric: tabular-nums; } .ds-status-done { color: #0c7a43; background: #e3f4ea; } .ds-status-active { color: #0a57e7; background: #eef4ff; } .ds-status-sched { color: #46568b; background: #f4f8ff; }"
+    },
+    {
+      "name": "Dossier Card",
+      "kind": "card",
+      "refersTo": "card-dossier",
+      "description": "The hero proof object: white card under the Float shadow with a translucent offset sheet, hairline-ruled checklist rows with state icons and status pills.",
+      "html": "<div class=\"ds-dossier-wrap\"><div class=\"ds-dossier\"><div class=\"ds-dossier-sheet\"></div><div class=\"ds-dossier-card\"><div class=\"ds-dossier-head\"><div class=\"ds-dossier-mark\">DT</div><div><div class=\"ds-dossier-title\">Dossier do cliente</div><div class=\"ds-dossier-note\">Entregáveis verificáveis</div></div></div><div class=\"ds-dossier-row\"><span class=\"ds-dossier-ic ds-ic-done\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4.5 12.5l5 5 10-11\"/></svg></span><span class=\"ds-dossier-item\">Certidão de quitação</span><span class=\"ds-dossier-st ds-st-done\">Emitida</span></div><div class=\"ds-dossier-row\"><span class=\"ds-dossier-ic ds-ic-active\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12h16\"/><path d=\"M13 5l7 7-7 7\"/></svg></span><span class=\"ds-dossier-item\">Registo no Banco de Moçambique</span><span class=\"ds-dossier-st ds-st-active\">Em curso</span></div></div></div></div>",
+      "css": ".ds-dossier-wrap { display: inline-block; padding: 2rem; border-radius: 20px; background: linear-gradient(140deg, #04123f 0%, #0a1f5c 42%, #0843c4 76%, #0a57e7 106%); } .ds-dossier { position: relative; width: 340px; font-family: 'Google Sans', 'Product Sans', sans-serif; } .ds-dossier-sheet { position: absolute; inset: 0; transform: translate(16px, 14px); border-radius: 20px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); } .ds-dossier-card { position: relative; background: #ffffff; border-radius: 20px; box-shadow: 0 2px 6px rgba(3,12,42,0.25), 0 32px 72px -28px rgba(3,12,42,0.55); padding: 1.6rem 1.6rem 1.1rem; color: #17254e; } .ds-dossier-head { display: flex; align-items: center; gap: 0.9rem; padding-bottom: 1.1rem; border-bottom: 1px solid #dce6f7; } .ds-dossier-mark { flex: none; width: 52px; height: 52px; border-radius: 12px; background: #eef4ff; display: grid; place-items: center; color: #04123f; font-weight: 700; } .ds-dossier-title { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; } .ds-dossier-note { font-size: 0.8125rem; color: #46568b; } .ds-dossier-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.78rem 0; border-bottom: 1px solid #eef4ff; font-size: 0.9063rem; } .ds-dossier-row:last-child { border-bottom: 0; } .ds-dossier-ic { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; } .ds-ic-done { background: #e3f4ea; color: #0c7a43; } .ds-ic-active { background: #eef4ff; color: #0a57e7; } .ds-dossier-item { flex: 1; line-height: 1.35; } .ds-dossier-st { flex: none; font-size: 0.7813rem; font-weight: 500; padding: 0.22rem 0.6rem; border-radius: 999px; } .ds-st-done { color: #0c7a43; background: #e3f4ea; } .ds-st-active { color: #0a57e7; background: #eef4ff; }"
+    },
+    {
+      "name": "Service Row",
+      "kind": "custom",
+      "refersTo": "chip-number",
+      "description": "Home-page service listing: number chip, title, pain line; tint hover wash bleeding past the column with a sliding blue arrow.",
+      "html": "<a class=\"ds-service-row\" href=\"#\"><span class=\"ds-sr-num\">2.2</span><span class=\"ds-sr-body\"><span class=\"ds-sr-title\">Regularização Fiscal e Certidão de Quitação</span><span class=\"ds-sr-pain\">A certidão está retida e o concurso fecha em semanas.</span></span><span class=\"ds-sr-arrow\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12h16\"/><path d=\"M13 5l7 7-7 7\"/></svg></span></a>",
+      "css": ".ds-service-row { display: flex; align-items: flex-start; gap: 1.1rem; padding: 1.05rem 1rem; border-radius: 14px; max-width: 520px; color: #17254e; text-decoration: none; font-family: 'Google Sans', 'Product Sans', sans-serif; transition: background-color 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-service-row:hover { background: #f4f8ff; } .ds-sr-num { flex: none; margin-top: 0.15rem; font-size: 0.8438rem; font-weight: 700; color: #0a57e7; font-variant-numeric: tabular-nums; background: #eef4ff; border-radius: 999px; padding: 0.18rem 0.6rem; } .ds-sr-body { flex: 1; min-width: 0; } .ds-sr-title { display: block; font-weight: 500; line-height: 1.35; font-size: 1.0625rem; } .ds-sr-pain { display: block; margin-top: 0.3rem; font-size: 0.9063rem; line-height: 1.5; color: #46568b; } .ds-sr-arrow { flex: none; align-self: center; color: #0a57e7; opacity: 0; transform: translateX(-6px); transition: opacity 0.25s cubic-bezier(0.16,1,0.3,1), transform 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-service-row:hover .ds-sr-arrow { opacity: 1; transform: translateX(0); }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "button-light",
+      "description": "Fixed translucent nav over the brand field: white logo wordmark, muted links brightening on hover, PT/EN toggle, light pill CTA.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-brand\"><strong>DT Company</strong><span>BUSINESS ADVISORY &amp; DEVELOPMENT</span></span><span class=\"ds-nav-links\"><a href=\"#\">Pilares</a><a href=\"#\">Abordagem</a><a href=\"#\">Contactos</a></span><span class=\"ds-nav-lang\"><span class=\"ds-cur\">PT</span><span>EN</span></span><a class=\"ds-nav-cta\" href=\"#\">Falar connosco</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 2rem; padding: 0 1.5rem; height: 76px; background: rgba(4,18,63,0.9); backdrop-filter: blur(14px); box-shadow: 0 1px 0 rgba(255,255,255,0.08); border-radius: 14px; font-family: 'Google Sans', 'Product Sans', sans-serif; } .ds-nav-brand { display: flex; flex-direction: column; line-height: 1.25; color: #ffffff; } .ds-nav-brand strong { font-weight: 700; font-size: 1.02rem; letter-spacing: 0.01em; } .ds-nav-brand span { font-size: 0.72rem; letter-spacing: 0.04em; color: #9dc0ff; } .ds-nav-links { display: flex; gap: 1.8rem; margin-left: auto; } .ds-nav-links a { color: #d4e0f9; font-weight: 500; font-size: 0.9688rem; text-decoration: none; transition: color 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-nav-links a:hover { color: #ffffff; } .ds-nav-lang { display: inline-flex; gap: 0.4rem; color: #9db4e4; font-size: 0.875rem; font-weight: 500; } .ds-nav-lang .ds-cur { color: #ffffff; } .ds-nav-cta { display: inline-flex; align-items: center; padding: 0.6rem 1.15rem; border-radius: 999px; background: #ffffff; color: #04123f; font-weight: 500; font-size: 0.9375rem; text-decoration: none; box-shadow: 0 1px 2px rgba(3,12,42,0.3), 0 10px 28px -12px rgba(3,12,42,0.55); transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgba(3,12,42,0.3), 0 16px 36px -12px rgba(3,12,42,0.6); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Category Canon, Executed Impeccably",
+    "overview": "This is the consulting category's own visual canon — the Big Four structural language of pillars, numbered services, and sober authority — finished to Stripe/Vercel/Linear standard. The whole palette is the logo's blue field: deep navy (#04123F) flowing into vivid blue (#0A57E7) as gradient \"brand fields\" with radial blooms, set against clean white grounds with the faintest blue-tinted panels and hairlines. Nothing outside this field exists except a single confirmation green for \"done\" states. The system persuades through concrete structure (numbers, checklists, deliverable rows), never through decoration.\n\nDensity is generous and editorial: wide sections, hairline-ruled lists instead of card grids, large negative-tracked headings, one authored motion moment (hero rise stagger, scroll reveals) and nothing else moving. Bilingual PT/EN carries identical dignity in both languages.",
+    "keyCharacteristics": [
+      "One hue family: navy → vivid blue, white, and blue-cast tints; green appears only as a status confirmation.",
+      "Gradient brand fields with radial blue blooms for hero and CTA moments; flat white/tint grounds for content.",
+      "Google Sans at three weights (400/500/700) doing all hierarchy work; negative tracking on everything above body size.",
+      "Pill-shaped buttons and chips; soft 14–20px radii on cards and panels.",
+      "Authored 1.75-stroke round-capped SVG icons, always `currentColor`.",
+      "Hairline rules (#dce6f7 on white, white-alpha on navy) structure lists; shadows are reserved and navy-tinted."
+    ],
+    "rules": [
+      { "name": "The One Field Rule", "body": "Every color on the site is drawn from the logo's navy→blue axis (plus white and the single confirmation green). No warm hues, no grays — \"gray\" text and lines are always blue-cast (#46568b, #dce6f7).", "section": "colors" },
+      { "name": "The Brand Field Rule", "body": "The navy→blue gradient with radial blooms appears only on full-bleed brand moments: hero, final CTA, pillar-page hero, boundaries band. Content sections sit flat on white or #f4f8ff.", "section": "colors" },
+      { "name": "The Tight-at-Scale Rule", "body": "Tracking tightens as size grows: body is normal, titles -0.015em, headlines -0.02em, display -0.022em, the giant ghost numeral -0.04em. Never positive tracking except the uppercase 0.8125rem label (0.08em).", "section": "typography" },
+      { "name": "The Tabular Figures Rule", "body": "Any number doing work — pillar numerals, service numbers, stats, statuses — sets tabular-nums.", "section": "typography" },
+      { "name": "The Tinted Shadow Rule", "body": "No shadow uses neutral black. Shadows on white are navy-tinted (rgba(4,18,63,…) / rgba(3,12,42,…)); shadows under blue elements are blue-tinted (rgba(10,87,231,…)).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every surface inside the blue field: navy #04123f, vivid blue #0a57e7, white, and the #f4f8ff/#eef4ff/#dce6f7 tint ramp; confirmation green only for completed states.",
+      "Do build gradient brand fields from the house recipe — 140–155° navy→blue linear base plus 1–2 vivid-blue radial blooms at the corners — and reserve them for hero/CTA-grade moments.",
+      "Do use pills for every interactive capsule, 20px/14px radii for cards/panels, and 1px hairlines (never heavier) for structure.",
+      "Do author icons on the 24px grid at 1.75 stroke, round caps, currentColor.",
+      "Do keep motion to the established grammar: rise-and-fade (18–22px), cubic-bezier(0.16,1,0.3,1), staggered delays, fully disabled under prefers-reduced-motion.",
+      "Do tint every shadow with navy or the element's own blue, and set tabular-nums on working numerals."
+    ],
+    "donts": [
+      "Don't introduce neutral grays, warm hues, or a second accent; secondary text and lines are blue-cast ink, not gray.",
+      "Don't put gradient fields behind ordinary content sections — content sits flat on white or #f4f8ff.",
+      "Don't use a second typeface, positive tracking at display sizes, or weights outside 400/500/700.",
+      "Don't replace the ruled-row editorial layout with uniform card grids; pillars, boundaries, and services are hairline-separated rows.",
+      "Don't add hard black shadows, borders heavier than 1px, or sharp corners on interactive elements.",
+      "Don't fabricate clients, stats, or contacts — placeholder facts stay visibly marked, in both languages equally."
+    ]
+  }
+}
