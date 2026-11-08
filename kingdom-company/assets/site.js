@@ -144,7 +144,7 @@
   }
 
   // Faixas de entregáveis: duplica a lista para o movimento contínuo
-  document.querySelectorAll('.trilho').forEach((ul) => {
+  document.querySelectorAll('.trilho, .logos-trilho').forEach((ul) => {
     [...ul.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); ul.appendChild(c); });
   });
 

@@ -41,8 +41,10 @@ Manual de marca v2 (`docs/marca/brandbook/kingdom-company-manual-de-marca.pdf`, 
 ## Evidence on Hand
 
 - Na mão: logótipo e símbolo, padrão, manual de marca, logótipos de certificações (Google, Anthropic, Wix, Semrush) usados em `site/`.
-- Prometido pelo cliente, ainda não recebido: logótipos de clientes autorizados, testemunhos com nome e cargo, links ou imagens de entrevistas e reportagens.
-- Não usar: números do grupo (13.000+ alunos, 100+ empresários) na home, por decisão de 08/11/2026; nenhum cliente, testemunho, número ou aparição inventados.
+- Prometido pelo cliente, ainda não recebido: mais logótipos de clientes, testemunhos com nome e cargo, links ou imagens de entrevistas e reportagens.
+- Números na home, dados pelo cliente a 08/11/2026 (substituem a decisão anterior de não os usar): +50 negócios atendidos, +5 certificações internacionais em marketing, inteligência artificial e vendas, +6 anos de mercado, +13 mil alunos formados em programas de ensino online.
+- Logótipos de 10 clientes autorizados em `img/clientes/` (cores originais).
+- Não usar: nenhum cliente, testemunho, número ou aparição inventados.
 
 ## Product Principles
 
