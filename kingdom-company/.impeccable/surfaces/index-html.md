@@ -22,3 +22,13 @@ FIRST VIEWPORT: Full-width dark hero. Header with white logo, five anchors and a
 FORM: Client-pinned classic hero plus ordered sections (overrides the roll); grounded list position 1 for the services index rows; seed key 4355ddfa (degraded roll, no challengers).
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+
+## Revisão de direção (08/11/2026, pedido do cliente)
+
+O cliente pediu páginas de fundo branco com informação muito estruturada, um cabeçalho como o da Stripe (menus com painéis organizados), as secções dinâmicas do site antigo (plano à vista, órbita, carrossel «Para cada momento») e uma área de notícias e newsletter como a da Stripe. Esta revisão substitui o OWN-WORLD noturno:
+
+- Mundo: branco e marfim alternados dentro de uma moldura de 1264 px com linhas-guia verticais contínuas; índigo para títulos; laranja só em ações principais; um único bloco escuro (noite) para as provas dinâmicas e o fecho em índigo.
+- Abertura branca: «Um único lugar.» em índigo seguido do slogan em cinza na mesma frase, globo Aurora (lavanda → luz → índigo) a sair pela direita, faixa das cinco áreas por baixo.
+- Cabeçalho: Serviços, Soluções, Empresa, Recursos, Preços com painéis; Business Advising e Pedir cotação à direita; acordeão no telemóvel.
+- Material «A receber» (logótipos, testemunhos, imprensa) só aparece na pré-visualização (localhost, *.vercel.app ou ?previa); no domínio público fica escondido.
+- Números só factuais (5 áreas, 18 serviços, 4 fases, 2 países); números do grupo continuam fora até decisão do cliente.
