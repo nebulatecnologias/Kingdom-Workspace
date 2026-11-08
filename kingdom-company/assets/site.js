@@ -102,8 +102,38 @@
     }, 0.5);
   }
 
-  // Plano de ação e anel de treino: animam ao aparecer
+  // Anel de treino: anima ao aparecer
   document.querySelectorAll('[data-anima]').forEach((el) => quandoVisivel(el, () => el.classList.add('visivel'), 0.4));
+
+  // Botão «Pausar animações»: para tudo o que se mexe sozinho (WCAG 2.2.2)
+  let parado = false;
+  const pausa = document.querySelector('[data-pausa]');
+  if (pausa) pausa.addEventListener('click', () => {
+    parado = !parado;
+    raiz.classList.toggle('parado', parado);
+    pausa.setAttribute('aria-pressed', String(parado));
+    pausa.querySelector('span').textContent = parado ? 'Retomar animações' : 'Pausar animações';
+    pausa.querySelector('use').setAttribute('href', parado ? '#i-play' : '#i-pausa');
+  });
+
+  // Plano de ação: a linha de «Hoje» avança semana a semana, as barras enchem e os marcos acendem
+  const gantt = document.querySelector('[data-gantt]');
+  if (gantt) {
+    const marcos = [...gantt.querySelectorAll('.gl-marco')].map((m) => [m, parseFloat(m.style.getPropertyValue('--s'))]);
+    const aplica = (t) => { gantt.style.setProperty('--t', t.toFixed(4)); marcos.forEach(([m, s0]) => m.classList.toggle('feito', t >= s0)); };
+    const ciclo = 14000, espera = 1600;
+    let visivel = false, pedido = 0, decorrido = 0, antes = 0;
+    const f = (agora) => {
+      if (antes && !parado && !document.hidden) decorrido += agora - antes;
+      antes = agora;
+      const p = (decorrido % (ciclo + espera)) / ciclo;
+      aplica(Math.min(1, p) * 0.98 + 0.02);
+      pedido = visivel ? requestAnimationFrame(f) : 0;
+      if (!visivel) antes = 0;
+    };
+    aplica(0.25);
+    if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visivel = e.isIntersecting; if (visivel && !pedido) pedido = requestAnimationFrame(f); }).observe(gantt);
+  }
 
   // Faixas de entregáveis: duplica a lista para o movimento contínuo
   document.querySelectorAll('.trilho').forEach((ul) => {

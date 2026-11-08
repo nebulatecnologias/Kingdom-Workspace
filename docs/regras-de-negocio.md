@@ -68,7 +68,7 @@ O Training tem como entrada o livro O Bloqueio Invisível e três ofertas: 10X M
 
 ### R04 · Kingdom Company: 5 áreas e 3 planos por serviço
 
-A Kingdom Company tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Assessoria em Marketing & Vendas, Desenvolvimento Tecnológico e Treinamento Corporativo (nomes novos de 08/11/2026; antes «Marketing & Vendas» e «Assessoria Corporativa»). O site oficial é www.kingdomcompany.co.za (R35), feito a partir da versão 2 (hoje em incompany.kingdomcompny.com até o domínio novo estar ligado); é o único sítio onde aparece a morada da África do Sul. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta. Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da Kingdom Company (R16). O Business Plan pertence à Consultoria Estratégica. A Assessoria de Eventos foi eliminada.
+A Kingdom Company tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Assessoria em Marketing & Vendas, Desenvolvimento Tecnológico e Treinamento Corporativo (nomes novos de 08/11/2026; antes «Marketing & Vendas» e «Assessoria Corporativa»). O site oficial é www.kingdomcompany.co.za (R35), feito a partir da versão 2 (hoje em incompany.kingdomcompny.com até o domínio novo estar ligado); é o único sítio onde aparece a morada da África do Sul. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta; no site nenhum plano mostra preço (R36). Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da Kingdom Company (R16). O Business Plan pertence à Consultoria Estratégica. A Assessoria de Eventos foi eliminada.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -80,7 +80,7 @@ Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas, com no máximo 4 t
 
 ### R17 · Business Advising no piso: 2.650 MT por hora online, 5.800 MT presencial
 
-O Business Advising fica no piso da R22. Online: 2.650 MT por hora. Presencial: 5.800 MT até 2 horas (2 × 2.650 MT mais cerca de 500 MT de deslocação). Fecha direto no site (R08).
+O Business Advising fica no piso da R22. Online: 2.650 MT por hora. Presencial: 5.800 MT até 2 horas (2 × 2.650 MT mais cerca de 500 MT de deslocação). Fecha direto no site (R08), exceto no site da Kingdom Company, onde não mostra preço e passa por conversa com um consultor (R36).
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -194,7 +194,7 @@ A Kingdom Library não faz parte da estrutura. Quem compra um livro ou uma maste
 
 ### R08 · Quem fecha no site e quem passa por vendedor
 
-Os livros e o Business Advising fecham direto no site, sem vendedor; nessas linhas, a etapa de Fechamento fica vazia. O Tracktion e a Kingdom Company passam por um vendedor.
+Os livros e o Business Advising fecham direto no site, sem vendedor; nessas linhas, a etapa de Fechamento fica vazia. O Tracktion e a Kingdom Company passam por um vendedor. No site da Kingdom Company, o Business Advising também passa por conversa com um consultor, sem preço (R36).
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -243,6 +243,12 @@ Todas as ofertas de entrada levam anúncios de vendas (livros, livro + mastercla
 *10/10/2026 · Decisão do Shelton*
 
 ## Marca e sites
+
+### R36 · O site da Kingdom Company não mostra preços
+
+O site da Kingdom Company (www.kingdomcompany.co.za) não mostra preços, sem exceções, incluindo o Business Advising. Todos os serviços passam por um pedido de cotação ou por uma avaliação inicial (conversa com um consultor). Os preços da tabela (R17, R25, R27, R29, R30) ficam para uso interno e para as propostas. Os planos Essencial, Profissional e Premium continuam a existir, mas são apresentados sem valores.
+
+*08/11/2026 · Decisão do Shelton*
 
 ### R14 · Cores e estilo de cada peça
 
