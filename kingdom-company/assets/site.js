@@ -166,7 +166,7 @@
     { tipo: 'Startups', ico: 'i-foguete', capa: 'Plano de negócios', areas: 'Consultoria Estratégica · Desenvolvimento Editorial · Desenvolvimento Tecnológico', frase: 'Uma empresa a arrancar precisa de um plano que convença o banco, de uma identidade e de um primeiro site. Juntamos o plano de negócios, a marca e a presença digital.' },
     { tipo: 'Pequenas e médias empresas', ico: 'i-loja', capa: 'Dashboard de gestão', areas: 'Consultoria Estratégica · Assessoria · Desenvolvimento Tecnológico', frase: 'Uma empresa que já vende e quer crescer sem perder o controlo. Definimos as prioridades, montamos um dashboard de gestão e pomos a marca a comunicar todos os meses.' },
     { tipo: 'Empresas que concorrem', ico: 'i-trofeu', capa: 'Proposta técnica', areas: 'Desenvolvimento Editorial', frase: 'Quem concorre com frequência não pode perder por falhas de forma. Construímos modelos de proposta técnica a partir do caderno de encargos, prontos a adaptar a cada concurso.' },
-    { tipo: 'Instituições', ico: 'i-instituicao', capa: 'Pesquisa de dados', areas: 'Desenvolvimento Editorial · Assessoria · Desenvolvimento Tecnológico', frase: 'Uma instituição que precisa de prestar contas e de conhecer quem serve. Fazemos o perfil e a comunicação, e montamos um sistema de pesquisa de dados com relatórios.' }
+    { tipo: 'Instituições', ico: 'i-instituicao', capa: 'Dashboard de gestão', areas: 'Desenvolvimento Editorial · Assessoria · Desenvolvimento Tecnológico', frase: 'Uma instituição que precisa de prestar contas e de comunicar com quem serve. Fazemos o perfil e a comunicação, e montamos um dashboard de gestão com os números do dia a dia.' }
   ];
   const mom = document.querySelector('[data-momentos]');
   let mostraMomento = () => {};
