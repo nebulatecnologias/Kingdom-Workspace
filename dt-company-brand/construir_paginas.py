@@ -225,8 +225,11 @@ print('página: pedido-de-cotacao.html')
 c = (SITE / 'contactos.html').read_text(encoding='utf-8')
 c = c.replace(bloco(c, '<header class="topo"', '</header>'), header_fora)
 c = c.replace(bloco(c, '<footer class="rodape"', '</footer>'), footer_fora)
-mapa = bloco(c, '<section class="seccao marfim" id="mapa"', '</section>')
-c = c.replace(mapa + '\n', '')
+try:
+    mapa = bloco(c, '<section class="seccao marfim" id="mapa"', '</section>')
+    c = c.replace(mapa + '\n', '')
+except ValueError:
+    pass  # mapa já removido numa execução anterior
 c = c.replace('<p><a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a></p></li>',
               '<p><a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a><br><small>Email provisório — canais definitivos em actualização.</small></p></li>', 1)
 c = c.replace('Escreva-nos, ligue ou venha visitar-nos em Moçambique. Para receber uma proposta, peça uma cotação ou uma avaliação inicial.',

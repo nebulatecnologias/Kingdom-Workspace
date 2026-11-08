@@ -125,6 +125,15 @@
         ],
         "createdAt": "2026-11-08T23:21:41.375Z",
         "reason": "moldura/seccao do modelo têm inset generoso no render (capturas conferidas); leitura estática"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "dt-company-site/index.html"
+        ],
+        "createdAt": "2026-11-08T23:26:32.308Z",
+        "reason": "sombras dos astros/cartões do modelo testado da skill (mesma família já justificada em site.css); render conferido nas capturas"
       }
     ]
   }
