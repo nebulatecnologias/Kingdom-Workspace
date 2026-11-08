@@ -1,6 +1,6 @@
 """Gera os logótipos Kingdom (globo + «Kingdom <Braço>» numa só linha) em SVG, com o texto
 convertido em curvas (Google Sans 500), para não depender da letra instalada.
-Uso: python3 tools/marca/logotipo.py <fontes_dir> <saida_dir>
+Uso: python3 tools/marca/logotipo.py <fontes_dir> <saida_dir> [braços...]  (por omissão: Company)
      fontes_dir tem gs500.ttf e gs700.ttf (Google Sans)."""
 import sys, json, os
 import uharfbuzz as hb
@@ -39,35 +39,61 @@ def globo(x, y, tam):
     return f'<path transform="translate({x:.2f} {y:.2f}) scale({tam/480:.5f})" fill-rule="evenodd" d="{GLOBO}"/>'
 
 TRACK = -0.02                                  # tracking do nome, em em
+# descritor por baixo do nome (os dos outros braços entram quando forem decididos)
+DESCRITOR = {'Company': 'Desenvolvimento Empresarial, Educação e Tecnologia'}
+XH = 0.53                                      # altura-x do Google Sans, em em
 
-def horizontal(braco):
-    """globo à esquerda; «Kingdom <Braço>» numa só linha, mesma letra, tamanho e peso"""
+def descritor(texto, largura, x0, base):
+    """texto do descritor ajustado à largura do nome: escolhe o tamanho com tracking fixo"""
+    _, w1 = L500.caminho(texto, 10, 0, 0, tracking=0.01)
+    tam = 10 * largura / w1
+    return L500.caminho(texto, tam, x0, base, tracking=0.01) + (tam,)
+
+def horizontal(braco, com_descritor=True):
+    """globo à esquerda; «Kingdom <Braço>» numa só linha e, por baixo, o descritor"""
     G = 120; S = 60; gap = 30
-    cap = CAP * S
-    base = (G + cap) / 2                       # maiúsculas centradas na altura do globo
-    d, w = L500.caminho(f'Kingdom {braco}', S, G + gap, base, tracking=TRACK)
-    W = G + gap + w + 4; H = G
-    return W, H, globo(0, 0, G) + f'<path d="{d}"/>'
+    cap = CAP * S; nome = f'Kingdom {braco}'
+    _, w = L500.caminho(nome, S, 0, 0, tracking=TRACK)
+    if not (com_descritor and braco in DESCRITOR):
+        base = (G + cap) / 2
+        d, _ = L500.caminho(nome, S, G + gap, base, tracking=TRACK)
+        return G + gap + w + 4, G, globo(0, 0, G) + f'<path d="{d}"/>'
+    _, _, t = descritor(DESCRITOR[braco], w - 2, 0, 0)
+    entre = 0.42 * S                           # da linha de base do nome ao topo das maiúsculas do descritor
+    bloco = cap + entre + CAP * t
+    base = (G - bloco) / 2 + cap
+    d, _ = L500.caminho(nome, S, G + gap, base, tracking=TRACK)
+    dd, _, _ = descritor(DESCRITOR[braco], w - 2, G + gap + 2, base + entre + CAP * t)
+    return G + gap + w + 4, G, globo(0, 0, G) + f'<path d="{d}"/><path d="{dd}"/>'
 
-def vertical(braco):
-    """globo em cima; «Kingdom <Braço>» numa só linha, centrado por baixo"""
+def vertical(braco, com_descritor=True):
+    """globo em cima; «Kingdom <Braço>» numa só linha, centrado, e o descritor por baixo"""
     G = 120; S = 44; gap = 30
-    cap = CAP * S
-    _, w = L500.caminho(f'Kingdom {braco}', S, 0, 0, tracking=TRACK)
+    cap = CAP * S; nome = f'Kingdom {braco}'
+    _, w = L500.caminho(nome, S, 0, 0, tracking=TRACK)
     W = max(G, w) + 8
     base = G + gap + cap
-    d, _ = L500.caminho(f'Kingdom {braco}', S, (W - w) / 2, base, tracking=TRACK)
-    H = base + 0.24 * S                        # espaço para a descendente do «g»/«y»
-    return W, H, globo((W - G) / 2, 0, G) + f'<path d="{d}"/>'
+    d, _ = L500.caminho(nome, S, (W - w) / 2, base, tracking=TRACK)
+    corpo = globo((W - G) / 2, 0, G) + f'<path d="{d}"/>'
+    if com_descritor and braco in DESCRITOR:
+        _, _, t = descritor(DESCRITOR[braco], w - 2, 0, 0)
+        base += 0.42 * S + CAP * t
+        dd, _, _ = descritor(DESCRITOR[braco], w - 2, (W - w) / 2 + 1, base)
+        corpo += f'<path d="{dd}"/>'
+        return W, base + 0.24 * t, corpo
+    return W, base + 0.24 * S, corpo
 
 CORES = {'indigo': '#2B2850', 'branco': '#FFFFFF', 'preto': '#000000'}
-for braco in ('Company', 'Training', 'Academy'):
+BRACOS = sys.argv[3:] or ['Company']           # os outros braços entram na fase de replicação
+for braco in BRACOS:
     for forma, fn in (('horizontal', horizontal), ('vertical', vertical)):
-        W, H, corpo = fn(braco)
-        for cor, hexa in CORES.items():
-            nome = f'kingdom-{braco.lower()}-{forma}-{cor}.svg'
-            open(os.path.join(SAIDA, nome), 'w').write(
-                f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.2f} {H:.2f}" width="{W:.0f}" height="{H:.0f}"><g fill="{hexa}">{corpo}</g></svg>\n')
+        for sufixo, com in (('', True), ('-simples', False)):
+            if com and braco not in DESCRITOR: continue
+            W, H, corpo = fn(braco, com)
+            for cor, hexa in CORES.items():
+                nome = f'kingdom-{braco.lower()}-{forma}{sufixo}-{cor}.svg'
+                open(os.path.join(SAIDA, nome), 'w').write(
+                    f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.2f} {H:.2f}" width="{W:.0f}" height="{H:.0f}"><g fill="{hexa}">{corpo}</g></svg>\n')
 for cor, hexa in CORES.items():
     open(os.path.join(SAIDA, f'kingdom-simbolo-{cor}.svg'), 'w').write(
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480"><g fill="{hexa}"><path fill-rule="evenodd" d="{GLOBO}"/></g></svg>\n')

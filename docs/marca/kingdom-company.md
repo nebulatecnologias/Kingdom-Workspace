@@ -35,12 +35,14 @@ Uma só família: **Google Sans** (a mesma dos outros sites do ecossistema).
 
 ## Nome e arquitectura (R34, 08/11/2026)
 - **Kingdom Company**: desenvolvimento empresarial (estratégia, crescimento e gestão). Era a «Kingdom InCompany».
+  - Descritor (por baixo do nome, no logótipo): **Desenvolvimento Empresarial, Educação e Tecnologia**.
+  - Slogan (fora do logótipo: capas, anúncios, topo do site): **Um único lugar. Tudo o que precisa para desenvolver o seu negócio.**
 - **Kingdom Training**: braço educacional.
 - **Kingdom Academy**: plataforma de educação online.
 - Núcleo: Shelton Douglas (O Conselheiro).
 
 ## Símbolo (08/11/2026)
-O globo (`docs/marca/globo/`) é o símbolo das três marcas: Kingdom Company, Kingdom Training e Kingdom Academy, com o nome do braço por baixo. O anel é um círculo perfeito; o desenho de dentro segue as medidas do original (`medidas.json`).
+O globo (`docs/marca/globo/`) é o símbolo das três marcas: Kingdom Company, Kingdom Training e Kingdom Academy. O anel é um círculo perfeito; o desenho de dentro segue as medidas do original (`medidas.json`).
 
 ## Significado do globo (aprovado a 08/11/2026, igual nas três marcas)
 
@@ -54,6 +56,13 @@ O globo (`docs/marca/globo/`) é o símbolo das três marcas: Kingdom Company, K
 Frase: **É isto que a Kingdom faz, em todas as suas marcas: dá direção, estrutura e método para crescer com propósito.**
 
 Quadro de conceito: `docs/marca/globo/conceito-globo-kingdom.png`. O símbolo é igual nas três marcas e numa só cor; o que muda é o nome do braço por baixo.
+
+## Logótipo (08/11/2026)
+- O nome completo («Kingdom Company») numa só linha, Google Sans 500, com o mesmo tamanho e espessura nas duas palavras, convertido em curvas.
+- **Horizontal**: globo à esquerda, nome centrado na altura do globo, descritor por baixo com a largura exata do nome.
+- **Vertical**: globo em cima, nome e descritor centrados por baixo.
+- Versões **simples** (sem descritor) para tamanhos pequenos.
+- Cores: índigo, branco e preto. Ficheiros em `docs/marca/logotipo/`, gerados por `tools/marca/logotipo.py`.
 
 ## Por decidir
 - Aprovação do significado e versões do logótipo com o nome de cada braço.
