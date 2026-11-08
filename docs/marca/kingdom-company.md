@@ -78,10 +78,19 @@ Quadros: `docs/marca/logotipo/quadros/kingdom-company-variacoes.png` e `kingdom-
 - **Área de proteção**: margem mínima de *x* em todos os lados, em que *x* é a altura do «K» de Kingdom.
 - **Tamanhos mínimos** (largura): horizontal 280 px / 70 mm; horizontal simples 120 px / 30 mm; vertical 210 px / 55 mm; vertical simples 100 px / 25 mm; símbolo 16 px / 6 mm. Abaixo do mínimo com descritor, usar a versão simples.
 
-## Padrões (08/11/2026)
-Cinco padrões feitos com o globo e a estrela: grelha, alternado, estrela, globo e estrela, e grande. Cores: branco sobre índigo, índigo sobre marfim, branco sobre laranja; o padrão grande também em tom sobre tom (índigo e marfim), para fundos.
-- `docs/marca/padroes/`: folhas de 1200 × 1200 em SVG e PNG; `modulos/` tem o módulo que se repete sem emendas, para usar como amostra de padrão no Figma, Canva ou Illustrator. Quadro: `quadro-padroes.png`.
-- Gerados por `tools/marca/padroes.py`.
+## Padrão (08/11/2026, revisto)
+Só a estrela central do globo (Direção), em fiadas desencontradas: cada fiada avança meio módulo. Duas densidades: densa (módulo 120 × 104) e ampla (240 × 208). Cores: branco sobre índigo, índigo sobre marfim, branco sobre laranja e tom sobre tom (índigo e marfim).
+- `docs/marca/padroes/`: folhas de 1200 × 1200 em SVG e PNG; `modulos/` tem o módulo que se repete sem emendas. Gerados por `tools/marca/padroes.py`.
+
+## Gradientes (proposta no brandbook v2, 08/11/2026)
+Servem de luz de fundo em capas, apresentações e digital; levam grão fino e texto branco.
+- **Noite:** #0E0C1F → #1C1A30 → #2B2850.
+- **Aurora:** #2B2850 → #6F67D6 → #B9B3F2.
+- **Brasa:** #0E0C1F → #2B2850 → #FF521A (pouco laranja).
+Noite #0E0C1F, Índigo Luz #6F67D6 e Lavanda #B9B3F2 são tons só para gradientes: nunca cores sólidas nem no logótipo.
+
+## Personalidade (proposta no brandbook v2)
+Clareza, Estrutura, Método, Proximidade, Ambição. Anti-referência: consultora genérica de banco de imagens, gráficos dourados e promessas de enriquecimento rápido, linguagem de guru, cores novas por serviço.
 
 ## Papelaria (08/11/2026)
 - **Papel timbrado** (A4, PDF): `docs/marca/papelaria/kingdom-company-papel-timbrado.pdf`. Página 1 com o logótipo completo e um traço laranja; página 2 (continuação) só com o símbolo. Rodapé com os contactos oficiais de Moçambique (R35): morada no Edifício Millenium Park, telefones, email e site. Globo em tom muito claro no canto inferior direito. Gerado por `tools/marca/timbrado.py`.
@@ -90,8 +99,8 @@ Cinco padrões feitos com o globo e a estrela: grelha, alternado, estrela, globo
 ## Capas de destaques do Instagram (08/11/2026)
 Sobre nós (o globo), Bastidores, Resultados e Agendar, em índigo, laranja e marfim (usar uma só cor nas quatro). 1080 × 1920 px, ícone de 520 px ao centro. Ficheiros em `docs/marca/instagram/destaques/`, gerados por `tools/marca/destaques.py`.
 
-## Brandbook (08/11/2026)
-`docs/marca/brandbook/kingdom-company-manual-de-marca.pdf`: 20 páginas A4 na horizontal (marca, símbolo, logótipo, cor, tipografia, padrões, tom de voz e contactos). Gerado por `tools/marca/brandbook.py`. As aplicações entram na versão seguinte, com as imagens que o Shelton vai enviar. O tom de voz é uma proposta feita a partir do texto do site, à espera de aprovação.
+## Brandbook (versão 2, 08/11/2026)
+`docs/marca/brandbook/kingdom-company-manual-de-marca.pdf`: 35 páginas A4 na horizontal. Capas de secção em gradiente com grão e luz diagonal; conteúdo em fundo branco. Inclui a construção geométrica do globo, as superelipses da estrela e a construção do nome. Gerado por `tools/marca/brandbook.py --fontes <pasta com gs500.ttf>`. Revisto com o impeccable (revisão de design e detector). As aplicações entram na versão seguinte.
 
 ## Por decidir
 - Logótipos da Kingdom Training e da Kingdom Academy (descritor e slogan de cada uma), depois do brandbook da Company.

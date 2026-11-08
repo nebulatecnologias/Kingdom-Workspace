@@ -82,6 +82,7 @@ def construcao_geometria():
         l.append(f'<line x1="{k}" y1="0" x2="{k}" y2="480" stroke="#CFCBEF" stroke-width=".5"/><line x1="0" y1="{k}" x2="480" y2="{k}" stroke="#CFCBEF" stroke-width=".5"/>')
     l.append(f'<line x1="0" y1="0" x2="480" y2="480" stroke="{LUZ}" stroke-width=".7" stroke-dasharray="4 4"/><line x1="480" y1="0" x2="0" y2="480" stroke="{LUZ}" stroke-width=".7" stroke-dasharray="4 4"/>')
     l.append(f'<path fill="{IND}" fill-opacity=".07" fill-rule="evenodd" d="{PECAS["globo"]}"/>')
+    l.append(f'<path fill="{IND}" fill-opacity=".14" stroke="{IND}" stroke-width=".7" fill-rule="evenodd" d="{PECAS["estrela"]}"/>')
     l.append(f'<circle cx="240" cy="240" r="{R}" fill="none" stroke="{IND}" stroke-width="1.3"/><circle cx="240" cy="240" r="{r:.2f}" fill="none" stroke="{IND}" stroke-width="1.3"/>')
     l.append(f'<ellipse cx="240" cy="240" rx="{AE:.2f}" ry="{BE:.2f}" fill="none" stroke="{LUZ}" stroke-width="1.1"/><ellipse cx="240" cy="240" rx="{AI:.2f}" ry="{BI:.2f}" fill="none" stroke="{LUZ}" stroke-width="1.1"/>')
     for s in (-1, 1):
@@ -89,7 +90,7 @@ def construcao_geometria():
         l.append(f'<line x1="-20" y1="{240 + s * Q / 2:.2f}" x2="500" y2="{240 + s * Q / 2:.2f}" stroke="{IND}" stroke-width=".8"/>')
     for x, y in ((0, -R), (0, R), (-R, 0), (R, 0), (-AE, 0), (AE, 0), (-AI, 0), (AI, 0), (0, 0)):
         l.append(ponto(x, y))
-    for x, y, n in ((-R * .7071, -R * .7071, 1), (-r * .5, r * .866, 2), (-AE * .62, -BE * .77, 3), (E / 2 + 6, -R + 34, 4), (R - 40, Q / 2 + 12, 5), (-(E / 2 + Uc) * .5, -(Q / 2 + Vc) * .55, 6)):
+    for x, y, n in ((-R * .7071, -R * .7071, 1), (-r * .5, r * .866, 2), (-AE * .62, -BE * .77, 3), (0, -R + 40, 4), (R - 34, 0, 5), (-(E / 2 + Uc * .38), -(Q / 2 + Vc * .38), 6)):
         l.append(marca(x, y, n))
     return f'<svg viewBox="-24 -24 528 528" width="150mm" height="150mm" overflow="visible">{"".join(l)}</svg>'
 
@@ -115,7 +116,7 @@ def construcao_estrela():
             yy = sy * (Q / 2 + vm); xx = sx * (-x_ext(Q / 2 + vm) + um)
             l.append(f'<polyline points="{pts(xx, yy)}" fill="none" stroke="{LAR}" stroke-width="2"/>')
             l.append(ponto(xx[0], yy[0], LAR, 3.2, IND) + ponto(xx[-1], yy[-1], LAR, 3.2, IND))
-    return f'<svg viewBox="70 110 340 260" width="182mm" height="139mm">{"".join(l)}</svg>'
+    return f'<svg viewBox="40 115 400 250" width="186mm" height="116mm">{"".join(l)}</svg>'
 
 # ---------------- construção do nome (curvas da letra) ----------------
 def construcao_nome():
@@ -130,13 +131,19 @@ def construcao_nome():
     gs = tt.getGlyphSet(); ordem = tt.getGlyphOrder()
     font = hb.Font(hb.Face(hb.Blob.from_file_path(f)))
     buf = hb.Buffer(); buf.add_str('Kingdom'); buf.guess_segment_properties(); hb.shape(font, buf, {'kern': True, 'liga': False})
-    x = 0; partes = []; pontos = []
+    x = 0; partes = []; pontos = []; alcas = []; inicios = []
     for i, (inf, pos) in enumerate(zip(buf.glyph_infos, buf.glyph_positions)):
         pen = SVGPathPen(gs); gs[ordem[inf.codepoint]].draw(TransformPen(pen, (1, 0, 0, -1, x + pos.x_offset, 0)))
-        d = pen.getCommands(); partes.append(d)
-        for seg in re.findall(r'[MLQCZ][^MLQCZ]*', d):          # pontos sobre a curva = último par de cada comando
-            nums = [float(n) for n in re.findall(r'-?\d+\.?\d*', seg[1:])]
-            if len(nums) >= 2: pontos.append((nums[-2], nums[-1]))
+        d = pen.getCommands(); partes.append(d); inicios.append(x)
+        if i in (0, 3, 5):                                     # K, g e o: pontos e alças das curvas
+            ant = None
+            for seg in re.findall(r'[MLQTCZ][^MLQTCZ]*', d):
+                nums = [float(n) for n in re.findall(r'-?\d+\.?\d*', seg[1:])]
+                pares = list(zip(nums[0::2], nums[1::2]))
+                if not pares: continue
+                if seg[0] in 'QC' and ant:
+                    for c in pares[:-1]: alcas.append((ant, c, pares[-1]))
+                ant = pares[-1]; pontos.append(ant)
         x += pos.x_advance - 25 * (i < len(buf.glyph_infos) - 1)   # tracking −0,025 em
     def topo(ch):
         b = BoundsPen(gs); gs[ch].draw(b); return b.bounds
@@ -145,11 +152,13 @@ def construcao_nome():
     for y, nome in ((-716, 'Maiúsculas e ascendentes · 716' if round(asc) == 716 else 'Altura das maiúsculas · 716'), (-510, 'Altura-x · 510'), (0, 'Linha de base · 0'), (-desc, f'Descendente · {desc:.0f}')):
         lin.append(f'<line x1="-120" y1="{y}" x2="{W + 100}" y2="{y}" stroke="{LUZ}" stroke-width="5" stroke-dasharray="{"" if y in (0, -716) else "16 12"}"/>'
                    f'<text x="{W + 150}" y="{y + 20}" font-size="58" fill="{CIN}" font-family="Google Sans">{nome}</text>')
-    for gx in range(0, int(W) + 1, 250):
-        lin.append(f'<line x1="{gx}" y1="{-asc - 120}" x2="{gx}" y2="{-desc + 120}" stroke="#D9D6F2" stroke-width="3"/>')
+    for gx in inicios[1:] + [W]:
+        lin.append(f'<line x1="{gx:.0f}" y1="{-asc - 120}" x2="{gx:.0f}" y2="{-desc + 120}" stroke="#D9D6F2" stroke-width="3"/>')
+    for (ax, ay), (cx, cy), (bx, by) in alcas:
+        lin.append(f'<path d="M{ax:.0f} {ay:.0f} L{cx:.0f} {cy:.0f} L{bx:.0f} {by:.0f}" fill="none" stroke="{LUZ}" stroke-width="3"/><rect x="{cx - 9:.0f}" y="{cy - 9:.0f}" width="18" height="18" fill="{LUZ}"/>')
     dots = ''.join(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="13" fill="#fff" stroke="{LAR}" stroke-width="5"/>' for px, py in pontos)
     corpo = ''.join(f'<path d="{d}" fill="{IND}" fill-opacity=".07" stroke="{IND}" stroke-width="7"/>' for d in partes)
-    return f'<svg viewBox="-140 {-asc - 160} {W + 1300} {asc - desc + 320}" width="257mm">{"".join(lin)}{corpo}{dots}</svg>'
+    return f'<svg viewBox="-140 {-asc - 160} {W + 1300} {asc - desc + 320}" width="257mm">{corpo}{"".join(lin)}{dots}</svg>'
 
 # ---------------- páginas ----------------
 paginas = []      # (html, classe, secção)
@@ -163,11 +172,11 @@ def efeitos(grelha=True, feixes=2):
 def cab(sec, titulo, lead=''):
     return f'<div class="eb">{sec}</div><h2>{titulo}</h2>' + (f'<p class="lead">{lead}</p>' if lead else '')
 
-def capa_seccao(n, titulo, itens, extra=''):
+def capa_seccao(n, titulo, itens, extra='', cls='grad'):
     li = ''.join(f'<li>{t}</li>' for t in itens)
     pag(f'''{efeitos()}{extra}<div class="cs"><div class="cs-num">{n:02d}</div>
 <div class="cs-txt"><small>Capítulo {n:02d}</small><h1>{titulo}</h1><ul>{li}</ul></div></div>
-<div class="canto">Kingdom Company · Manual de marca</div><div class="canto d">{SITE}</div>''', 'grad', titulo)
+<div class="canto">Kingdom Company · Manual de marca</div><div class="canto d">{SITE}</div>''', cls, titulo)
 
 # 1 · capa
 pag(f'''{efeitos(feixes=3)}<div class="capa-g">{globo_grad('225mm', id_='gcapa')}</div>
@@ -187,7 +196,7 @@ pag(f'''{efeitos(grelha=False, feixes=1)}<div class="mani"><small>Kingdom Compan
 pag('@@INDICE@@', 'branca', 'Índice')
 
 # ---- 01 a marca
-capa_seccao(1, 'A marca', ['Quem somos', 'Personalidade', 'O que fazemos'])
+capa_seccao(1, 'A marca', ['Quem somos', 'Personalidade', 'O que fazemos'], '<div class="cs-tres">' + globo('#FFFFFF', '34mm', op=.10) * 3 + '</div>')
 arq = f'''<svg viewBox="-20 0 440 250" width="132mm">
 <path d="M200 70 V118 M55 118 H345 M55 118 V150 M200 118 V150 M345 118 V150" fill="none" stroke="{LIN}" stroke-width="1.4"/>
 <g transform="translate(176 10)"><path fill="{IND}" fill-rule="evenodd" transform="scale(.1)" d="{PECAS['globo']}"/></g>
@@ -230,10 +239,11 @@ SIG = [(['anel'], 'O círculo', 'Reino', 'A unidade. Tudo começa por juntar as 
 pag(f'''{cab('02 · O símbolo', 'O globo', 'O mesmo símbolo nas três marcas Kingdom, com um só significado. Cada parte diz uma coisa sobre a forma como trabalhamos.')}
 <div class="sigs">{''.join(f'<div>{pecas_svg(p, "50mm")}<small>{e}</small><b>{n}</b><span>{d}</span></div>' for p, e, n, d in SIG)}</div>''', 'branca', 'O símbolo')
 
-PASSOS = [(['anel'], 'Círculo'), (['anel', 'eixo', 'equador'], 'Eixos'), (['anel', 'eixo', 'equador', 'meridianos'], 'Meridianos'), (['globo'], 'Estrela')]
-pz = ''.join(f'<div><div class="pz-a">{pecas_svg(p, "46mm", base=None)}</div><small>{i + 1:02d}</small><b>{t}</b></div>' + ('<i>+</i>' if i < 3 else '') for i, (p, t) in enumerate(PASSOS))
+PASSOS = [(['anel'], 'Círculo', f'R {n2(R, 0)} · r {n2(r)} · traço {n2(R - r)}'), (['anel', 'eixo', 'equador'], 'Eixos', f'Eixo {n2(E)} · equador {n2(Q)}'),
+          (['anel', 'eixo', 'equador', 'meridianos'], 'Meridianos', f'Elipses {n2(AE)} × {n2(BE)} e {n2(AI)} × {n2(BI)}'), (['globo'], 'Estrela', f'Superelipses p {n2(Pc, 2)} e {n2(Pm, 2)}')]
+pz = ''.join(f'<div><div class="pz-a">{pecas_svg(p, "52mm", base=(LIN if i else None))}</div><small>{i + 1:02d}</small><b>{t}</b><span>{m}</span></div>' + ('<i>+</i>' if i < 3 else '') for i, (p, t, m) in enumerate(PASSOS))
 pag(f'''{cab('02 · O símbolo', 'Do traço ao símbolo', 'O globo constrói-se em quatro passos, cada um com a mesma espessura de traço. A estrela nasce no fim, das curvas que unem os eixos.')}
-<div class="pz">{pz}</div>''', 'branca', 'O símbolo')
+<div class="pz">{pz}</div>''', 'clara', 'O símbolo')
 
 LEG = [('Anel', f'Dois círculos concêntricos: R {n2(R, 0)} e r {n2(r)}. Espessura {n2(R - r)}.'), ('Círculo interior', 'Contém todo o desenho de dentro.'),
        ('Meridianos', f'Duas elipses: exterior {n2(AE)} × {n2(BE)}; interior {n2(AI)} × {n2(BI)}.'), ('Eixo vertical', f'Faixa de {n2(E)} de largura, centrada.'),
@@ -254,16 +264,16 @@ pag(f'''{efeitos(feixes=2)}<div class="frase"><div class="eb claro">02 · O sím
 <div class="frase-g">{globo('#FFFFFF', '58mm')}</div>''', 'grad aurora', 'O símbolo')
 
 # ---- 03 o logótipo
-capa_seccao(3, 'O logótipo', ['O logótipo principal', 'Construção do nome', 'Versões', 'Ícone e favicon', 'Proteção e tamanhos mínimos', 'Cores e usos incorretos'])
+capa_seccao(3, 'O logótipo', ['Principal', 'Construção do nome', 'Versões', 'Ícone', 'Proteção', 'Cores', 'Usos incorretos'], f'<div class="cs-k">{logo("kingdom-company-horizontal-simples", "#FFFFFF", w="300mm")}</div>')
 # relações do logótipo principal (unidades do SVG: 671,44 × 120)
 k = 230 / 671.44
 rel = f'''<svg viewBox="-20 -40 711.44 210" width="250mm">
 <g>{open(os.path.join(M, 'logotipo/kingdom-company-horizontal-indigo.svg')).read().split('<g', 1)[1].rsplit('</svg>', 1)[0].join(['<g', ''])}</g>
-<g stroke="{LAR}" stroke-width="1" fill="none"><line x1="0" y1="-14" x2="120" y2="-14"/><line x1="120" y1="-22" x2="150" y2="-22"/><line x1="150" y1="-14" x2="667.4" y2="-14"/>
+<g stroke="{LAR}" stroke-width="1" fill="none"><line x1="0" y1="-14" x2="120" y2="-14"/><line x1="120" y1="-14" x2="150" y2="-14"/><line x1="150" y1="-14" x2="667.4" y2="-14"/>
 <line x1="-10" y1="0" x2="-10" y2="120"/><line x1="680" y1="18.6" x2="680" y2="61.6"/>
 <line x1="150" y1="61.6" x2="667.4" y2="61.6" stroke-dasharray="4 3"/><line x1="150" y1="18.6" x2="667.4" y2="18.6" stroke-dasharray="4 3"/></g>
-<g font-family="Google Sans" font-size="10" fill="{LARF}" font-weight="700"><text x="60" y="-20" text-anchor="middle">G</text><text x="135" y="-28" text-anchor="middle">G/4</text><text x="408" y="-20" text-anchor="middle">largura do nome = largura do descritor</text>
-<text x="-16" y="64" text-anchor="end">G</text><text x="686" y="44">x</text></g></svg>'''
+<g font-family="Google Sans" font-size="10" fill="{LARF}" font-weight="700"><text x="60" y="-20" text-anchor="middle">G</text><text x="135" y="-20" text-anchor="middle">G/4</text><text x="408" y="-20" text-anchor="middle">largura do nome = largura do descritor</text>
+<text x="-15" y="64" text-anchor="end" font-size="13">G</text><text x="686" y="44">x</text></g></svg>'''
 pag(f'''{cab('03 · O logótipo', 'O logótipo principal', 'O globo à esquerda e o nome completo numa só linha, em Google Sans 500. Por baixo, o descritor com a largura exata do nome. O texto está em curvas: o logótipo fica igual em qualquer computador.')}
 <div class="rel">{rel}</div>
 <div class="tres"><div><b>G</b><span>Altura do globo e de todo o logótipo.</span></div><div><b>G/4</b><span>Espaço entre o globo e o nome.</span></div><div><b>x</b><span>Altura do «K». Medida da área de proteção.</span></div></div>''', 'branca', 'O logótipo')
@@ -307,7 +317,7 @@ def errado(t):
     if t == 'dois': return f'<div class="row">{globo(LAR, "11mm")}<span class="wm">Kingdom Company</span></div>'
     if t == 'laranja': return logo('kingdom-company-horizontal-simples', LAR, w='50mm')
     if t == 'letra': return f'<div class="row">{globo(IND, "11mm")}<span class="wm" style="font-family:Georgia,serif;font-weight:400">Kingdom Company</span></div>'
-    if t == 'contraste': return logo('kingdom-company-horizontal-simples', '#3A3A46', w='50mm')
+    if t == 'contraste': return logo('kingdom-company-horizontal-simples', IND, w='50mm')
     if t == 'prop': return f'<div class="row">{globo(IND, "20mm")}<span class="wm" style="font-size:9pt">Kingdom Company</span></div>'
     return logo('kingdom-company-horizontal-simples', IND, w='36mm' if 'scaleX' in t else '48mm', estilo=t)
 cls = {'laranja': ' e-ind', 'contraste': ' e-esc'}
@@ -315,10 +325,10 @@ pag(f'''{cab('03 · O logótipo', 'Usos incorretos', 'O logótipo usa-se sempre 
 <div class="erros">{''.join(f'<div class="er{cls.get(t, "")}"><div class="er-a">{errado(t)}</div><p><i>×</i>{n}</p></div>' for t, n in ERR)}</div>''', 'branca', 'O logótipo')
 
 # ---- 04 a cor
-capa_seccao(4, 'A cor', ['A paleta', 'Gradientes', 'Proporção e contraste'])
+capa_seccao(4, 'A cor', ['A paleta', 'Gradientes', 'Proporção e contraste'], cls='grad brasa')
 def valores(h):
     rr, gg, bb = rgb(h); c, m_, y, k_ = cmyk(h); return f'HEX {h}<br>RGB {rr} {gg} {bb}<br>CMYK {c} {m_} {y} {k_}'
-PAL = [('Índigo Kingdom', IND, '#fff', 'Logótipo, títulos e blocos escuros', 'p-big'), ('Marfim', MAR, TIN, 'Fundo de páginas e documentos', ''), ('Laranja', LAR, '#fff', 'Botões, preços e destaques', ''),
+PAL = [('Índigo Kingdom', IND, '#fff', 'Logótipo, títulos e blocos escuros', 'p-big'), ('Marfim', MAR, TIN, 'Fundo de páginas e documentos', ''), ('Laranja', LAR, TIN, 'Botões, preços e destaques', ''),
        ('Tinta', TIN, '#fff', 'Texto principal', ''), ('Laranja Fundo', LARF, '#fff', 'Links e texto laranja pequeno', ''), ('Cinza Índigo', CIN, '#fff', 'Texto secundário', ''), ('Linha', LIN, TIN, 'Divisórias e contornos', '')]
 pag(f'''{cab('04 · A cor', 'A paleta', 'Três cores principais e quatro de apoio. CMYK aproximado: confirmar com a gráfica numa prova de cor.')}
 <div class="mosaico">{''.join(f'<div class="{c}" style="background:{h};color:{t}"><b>{n}</b><span>{u}</span><code>{valores(h)}</code></div>' for n, h, t, u, c in PAL)}</div>''', 'branca', 'A cor')
@@ -337,7 +347,7 @@ pag(f'''<div class="cols"><div>{cab('04 · A cor', 'Proporção e contraste', 'O
 <div class="pares">{''.join(f'<div style="background:{f};color:{t}"><b>Aa</b><div><span>{n}</span><small>{n2(contraste(t, f))}:1 · {"qualquer tamanho" if contraste(t, f) >= 4.5 else "só texto grande ou a negrito"}</small></div></div>' for t, f, n in PARES)}</div></div>''', 'branca', 'A cor')
 
 # ---- 05 a tipografia
-capa_seccao(5, 'A tipografia', ['Google Sans', 'Hierarquia'], '<div class="cs-aa">Aa</div>')
+capa_seccao(5, 'A tipografia', ['Google Sans', 'Hierarquia'], '<div class="cs-aa">Aa</div>', cls='grad aurora')
 pag(f'''<div class="cols"><div>{cab('05 · A tipografia', 'Google Sans', 'Uma só família para tudo: logótipo, títulos, texto, botões e documentos. É a mesma em todos os sites do grupo Kingdom.')}
 <div class="pesos">{''.join(f'<div><b style="font-weight:{w}">Aa</b><span>{n}</span><small>{u}</small></div>' for w, n, u in ((400, 'Regular 400', 'Texto corrido'), (500, 'Medium 500', 'Títulos, nome, números'), (700, 'Bold 700', 'Botões e etiquetas')))}</div>
 <p class="nota">Gratuita no Google Fonts. Em documentos do Office, instalar a letra antes de editar.</p></div>
@@ -355,12 +365,16 @@ pag(f'''{cab('05 · A tipografia', 'Hierarquia')}<div class="hier">{''.join(f'<d
 padrao_capa = f'<div class="pad-capa" style="background-image:url(file://{M}/padroes/modulos/kingdom-padrao-estrela-ampla-branco-sobre-indigo-modulo.svg)"></div>'
 capa_seccao(6, 'O padrão', ['A estrela central', 'Módulo e escalas', 'Cores'], padrao_capa)
 st = PECAS['estrela']
-modulo = f'''<svg viewBox="-20 -20 280 248" width="96mm"><rect x="0" y="0" width="240" height="208" fill="none" stroke="{LUZ}" stroke-width="1" stroke-dasharray="5 4"/>
-<line x1="120" y1="0" x2="120" y2="208" stroke="#D9D6F2"/><line x1="0" y1="104" x2="240" y2="104" stroke="#D9D6F2"/>
-<g fill="{IND}"><path transform="translate(-37 -63) scale(.3333)" fill-rule="evenodd" d="{st}"/><path transform="translate(83 41) scale(.3333)" fill-rule="evenodd" d="{st}"/>
-<path transform="translate(203 -63) scale(.3333)" fill-rule="evenodd" d="{st}" opacity=".25"/><path transform="translate(-37 145) scale(.3333)" fill-rule="evenodd" d="{st}" opacity=".25"/><path transform="translate(203 145) scale(.3333)" fill-rule="evenodd" d="{st}" opacity=".25"/></g>
-<g font-family="Google Sans" font-size="9" fill="{LARF}" font-weight="700"><text x="120" y="-6" text-anchor="middle">módulo 2S × 1,73S</text><text x="60" y="122" text-anchor="middle">S</text></g>
-<line x1="0" y1="114" x2="120" y2="114" stroke="{LAR}" stroke-width="1"/></svg>'''
+def estrela_em(cx, cy, tam=130, op=1):
+    k = tam / 480
+    return f'<path transform="translate({cx - tam / 2:.2f} {cy - tam / 2:.2f}) scale({k:.5f})" fill-rule="evenodd" fill-opacity="{op}" d="{st}"/>'
+# módulo real do padrão «estrela ampla»: 240 × 208, estrelas em (60, 52) e (180, 156)
+modulo = f'''<svg viewBox="-24 -34 288 272" width="98mm">
+<rect x="0" y="0" width="240" height="208" fill="none" stroke="{LUZ}" stroke-width="1" stroke-dasharray="5 4"/>
+<g stroke="#D9D6F2" stroke-width=".8"><line x1="60" y1="0" x2="60" y2="208"/><line x1="180" y1="0" x2="180" y2="208"/><line x1="0" y1="52" x2="240" y2="52"/><line x1="0" y1="156" x2="240" y2="156"/></g>
+<g fill="{IND}">{estrela_em(60, 52)}{estrela_em(180, 156)}</g>
+<g stroke="{LAR}" stroke-width="1"><line x1="60" y1="222" x2="180" y2="222"/><line x1="60" y1="217" x2="60" y2="227"/><line x1="180" y1="217" x2="180" y2="227"/></g>
+<g font-family="Google Sans" font-size="9.5" fill="{LARF}" font-weight="700"><text x="120" y="-14" text-anchor="middle">Módulo 240 × 208</text><text x="120" y="236" text-anchor="middle">120 · meio módulo de avanço</text></g></svg>'''
 VAR = [('estrela', 'branco-sobre-indigo', 'Densa · branco sobre índigo', 14), ('estrela-ampla', 'indigo-sobre-marfim', 'Ampla · índigo sobre marfim', 26),
        ('estrela', 'branco-sobre-laranja', 'Densa · branco sobre laranja', 14), ('estrela-ampla', 'tom-sobre-indigo', 'Ampla · tom sobre tom', 26)]
 pag(f'''<div class="pd"><div>{cab('06 · O padrão', 'A estrela central', 'O padrão usa só a estrela do globo, a Direção. As estrelas alinham em fiadas desencontradas, como tijolo: cada fiada avança meio módulo.')}
@@ -374,15 +388,15 @@ pag(f'''<div class="pd-full" style="background-image:url(file://{M}/padroes/modu
 TOM = [('Claros', 'Dizemos as coisas pelo nome, em frases curtas.', 'Os pedidos, as aprovações e os relatórios a correr sozinhos.', 'Soluções disruptivas de transformação digital 360º.'),
        ('Concretos', 'Falamos de resultados, números, prazos e entregas.', 'Plano de negócios pronto para investidores e bancos.', 'Levamos o seu negócio para o próximo nível.'),
        ('Próximos e respeitosos', 'Português europeu, «a sua empresa», sem gíria nem emojis em documentos.', 'O que trava o crescimento, dito com clareza e com números.', 'Bora escalar o teu negócio!!!')]
-capa_seccao(7, 'O tom de voz', ['Como escrevemos', 'Contactos'])
+capa_seccao(7, 'O tom de voz', ['Como escrevemos', 'Contactos'], '<div class="cs-asp">«»</div>')
 pag(f'''{cab('07 · O tom de voz', 'Como escrevemos', 'Como um consultor experiente fala com um empresário: com clareza, com números e com respeito pelo tempo dele.')}
 <div class="tom">{''.join(f'<div><b>{n}</b><p>{d}</p><small>Dizemos</small><q>{s}</q><small class="x">Evitamos</small><s>{e}</s></div>' for n, d, s, e in TOM)}</div>
 <div class="frm"><small>Parágrafo-modelo</small>A Kingdom Company [faz o quê] para [que empresas], com [que método], para que [resultado concreto].</div>''', 'branca', 'O tom de voz')
 
-pag(f'''<div class="cols"><div>{cab('07 · Contactos', 'Contactos oficiais', 'Usar sempre estes contactos em documentos, assinaturas, cartões e redes.')}<div class="ct-g">{pecas_svg(['estrela'], '62mm', base='#F1EFFA', cor='#E2DEF7')}</div></div>
+pag(f'''<div class="cols"><div>{cab('07 · Contactos', 'Contactos oficiais', 'Usar sempre estes contactos em documentos, assinaturas, cartões e redes.')}<div class="ct-g">{globo(LIN, '62mm')}</div></div>
 <div class="cts"><div><small>Email</small>contact@kingdomcompany.co.za</div><div><small>Telefones</small>+258 87 664 1836<br>+258 85 1800 920</div>
 <div><small>Morada</small>Edifício Millenium Park<br>Av. Vladimir Lenine, n.º 174<br>Maputo 1106, Moçambique</div><div><small>Site</small>{SITE}</div>
-<p class="nota">A morada da África do Sul aparece só no site. Os ficheiros da marca estão em docs/marca/ no repositório Kingdom-Workspace.</p></div></div>''', 'branca', 'Contactos')
+<p class="nota">A morada da África do Sul aparece só no site. Para receber os ficheiros originais da marca, pedir à equipa Kingdom Company.</p></div></div>''', 'branca', 'Contactos')
 
 # fecho
 pag(f'''{efeitos(feixes=3)}<div class="fim">{logo('kingdom-company-vertical', '#FFFFFF', w='92mm')}<p>Um único lugar. Tudo o que precisa para desenvolver o seu negócio.</p></div>
@@ -400,7 +414,7 @@ GRAO = ("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
 CSS = '''@page{size:297mm 210mm;margin:0} *{margin:0;padding:0;box-sizing:border-box}
 :root{--ind:#2B2850;--lar:#FF521A;--larf:#D63E12;--mar:#FAF9F5;--tin:#1C1A30;--cin:#6A6682;--lin:#E8E4DC;--noite:#0E0C1F;--luz:#6F67D6;--lav:#B9B3F2}
 body{font-family:'Google Sans',sans-serif;color:var(--tin);-webkit-print-color-adjust:exact;print-color-adjust:exact;-webkit-font-smoothing:antialiased}
-.pag{width:297mm;height:210mm;position:relative;overflow:hidden;page-break-after:always;padding:18mm 20mm 20mm}
+.pag{width:297mm;height:209.9mm;position:relative;overflow:hidden;page-break-after:always;padding:18mm 20mm 20mm}
 .branca{background:#fff} .clara{background:linear-gradient(180deg,#ECEAFB 0%,#fff 62%)}
 .escura{background:radial-gradient(70% 90% at 90% 20%,rgba(111,103,214,.35) 0,transparent 60%),linear-gradient(160deg,#0B0A16 0%,var(--noite) 50%,#1C1A30 100%);color:#fff}
 .grad{background:radial-gradient(70% 80% at 88% 8%,rgba(185,179,242,.42) 0,transparent 55%),radial-gradient(55% 60% at 0% 100%,rgba(255,82,26,.20) 0,transparent 60%),linear-gradient(135deg,var(--noite) 0%,var(--tin) 32%,var(--ind) 68%,#3B3478 100%);color:#fff}
@@ -408,7 +422,7 @@ body{font-family:'Google Sans',sans-serif;color:var(--tin);-webkit-print-color-a
 .grao{position:absolute;inset:0;background-image:url("@@GRAO@@");background-size:300px;opacity:.13;mix-blend-mode:overlay;pointer-events:none}
 .luz{position:absolute;inset:0;overflow:hidden} .feixe{position:absolute;width:70mm;height:330mm;border-radius:16mm;background:linear-gradient(180deg,rgba(185,179,242,0) 0%,rgba(185,179,242,.30) 50%,rgba(185,179,242,0) 100%);filter:blur(5mm);transform:rotate(32deg)}
 .f1{left:150mm;top:-70mm} .f2{left:215mm;top:-40mm;width:40mm;opacity:.7} .f3{left:60mm;top:-110mm;width:30mm;opacity:.5}
-.gl{position:absolute;background:rgba(255,255,255,.13)} .gv1,.gv2{top:0;bottom:0;width:.25mm} .gv1{left:20mm} .gv2{right:20mm} .gh1,.gh2{left:0;right:0;height:.25mm} .gh1{top:18mm} .gh2{bottom:20mm}
+.gl{position:absolute;background:rgba(255,255,255,.13)} .gv1,.gv2{top:0;bottom:0;width:.25mm} .gv1{left:12mm} .gv2{right:12mm} .gh1,.gh2{left:0;right:0;height:.25mm} .gh1{top:18mm} .gh2{bottom:20mm}
 .canto{position:absolute;left:20mm;bottom:11mm;font-size:7.5pt;color:rgba(255,255,255,.62);z-index:3} .canto.d{left:auto;right:20mm}
 .rod{position:absolute;left:20mm;right:20mm;bottom:10mm;display:flex;justify-content:space-between;font-size:7pt;color:var(--cin)} .rod b{font-weight:500;color:var(--ind)}
 .eb{font-size:7.5pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--larf);margin-bottom:5mm} .eb.claro{color:var(--lar)}
@@ -417,6 +431,7 @@ h2{font-size:30pt;font-weight:500;letter-spacing:-.035em;line-height:1.05;color:
 .txt{font-size:10pt;line-height:1.6;margin-top:6mm;max-width:118mm} .txt b{font-weight:500;color:var(--ind)}
 .nota{font-size:8.5pt;line-height:1.5;color:var(--cin);margin-top:6mm;max-width:130mm} .nota.claro{color:#A9A5C0}
 .cols{display:grid;grid-template-columns:118mm 1fr;gap:18mm;height:100%} .centro{align-self:center}
+.pag:last-child{page-break-after:auto} html,body{margin:0}
 /* capa */
 .capa-g{position:absolute;right:-70mm;top:-22mm;line-height:0} .capa-logo{position:absolute;left:20mm;top:22mm;z-index:2}
 .capa-t{position:absolute;left:20mm;bottom:26mm;z-index:2} .capa-t h1{font-size:60pt;font-weight:500;letter-spacing:-.045em;line-height:.95} .capa-t p{font-size:10pt;color:#C9C6DE;margin-top:6mm}
@@ -425,15 +440,18 @@ h2{font-size:30pt;font-weight:500;letter-spacing:-.035em;line-height:1.05;color:
 .mani h1{font-size:50pt;font-weight:500;letter-spacing:-.045em;line-height:1;margin-top:12mm} .mani p{font-size:14pt;line-height:1.5;color:#D8D5E8;max-width:180mm;margin-top:12mm}
 .pilulas{display:flex;gap:3mm;margin-top:12mm} .pilulas span{font-size:9.5pt;padding:2.2mm 5mm;border:.3mm solid rgba(255,255,255,.55);border-radius:20mm}
 /* índice */
-.ix{display:grid;grid-template-columns:105mm 1fr;gap:20mm} .ix ol{list-style:none;align-self:center} .ix li{display:flex;align-items:baseline;gap:6mm;padding:3.4mm 0;border-bottom:.25mm solid var(--lin)}
-.ix li i{font-style:normal;font-size:9pt;font-weight:700;color:var(--larf);width:8mm} .ix li span{flex:1;font-size:15pt;font-weight:500;letter-spacing:-.02em;color:var(--ind)} .ix li b{font-size:9pt;font-weight:500;color:var(--cin);font-variant-numeric:tabular-nums}
+.ix{display:grid;grid-template-columns:105mm 1fr;gap:20mm;height:100%} .ix ol{list-style:none;align-self:center} .ix li{display:flex;align-items:baseline;gap:6mm;padding:5mm 0;border-bottom:.25mm solid var(--lin)}
+.ix li i{font-style:normal;font-size:9pt;font-weight:700;color:var(--larf);width:8mm} .ix li span{flex:1;font-size:18pt;font-weight:500;letter-spacing:-.02em;color:var(--ind)} .ix li b{font-size:9pt;font-weight:500;color:var(--cin);font-variant-numeric:tabular-nums}
 /* capa de secção */
-.cs{position:absolute;inset:0;z-index:2} .cs-num{position:absolute;right:14mm;top:-6mm;font-size:300pt;font-weight:400;letter-spacing:-.07em;line-height:1;background:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(185,179,242,.18) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.cs-txt{position:absolute;left:20mm;bottom:28mm} .cs-txt small{font-size:8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lar)}
-.cs-txt h1{font-size:52pt;font-weight:500;letter-spacing:-.045em;line-height:1;margin-top:4mm} .cs-txt ul{list-style:none;margin-top:7mm;display:flex;flex-wrap:wrap;gap:2mm;max-width:150mm}
+.cs{position:absolute;inset:0;z-index:2} .cs-num{position:absolute;right:8mm;top:-6mm;padding-right:.12em;font-size:300pt;font-weight:400;letter-spacing:-.07em;line-height:1;background:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(185,179,242,.18) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cs-txt{position:absolute;left:20mm;top:118mm} .cs-txt small{font-size:8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lar)}
+.cs-txt h1{font-size:52pt;font-weight:500;letter-spacing:-.045em;line-height:1;margin-top:4mm} .cs-txt ul{list-style:none;margin-top:7mm;display:flex;flex-wrap:wrap;gap:2mm;max-width:240mm}
 .cs-txt li{font-size:8.5pt;padding:1.6mm 3.6mm;border:.3mm solid rgba(255,255,255,.4);border-radius:20mm;color:#E2E0F0}
 .cs-arte{position:absolute;left:-40mm;top:-30mm;opacity:.22;z-index:1;line-height:0} .cs-aa{position:absolute;left:16mm;top:-14mm;font-size:250pt;font-weight:500;letter-spacing:-.06em;line-height:1;color:rgba(255,255,255,.06);z-index:1}
 .pad-capa{position:absolute;inset:0;background-size:52mm auto;opacity:.16;-webkit-mask-image:radial-gradient(90% 90% at 70% 30%,#000 0,transparent 75%);z-index:1}
+.brasa{background:radial-gradient(70% 90% at 100% 100%,rgba(255,82,26,.75) 0,transparent 60%),radial-gradient(60% 70% at 85% 5%,rgba(185,179,242,.25) 0,transparent 55%),linear-gradient(135deg,var(--noite) 0%,var(--tin) 40%,var(--ind) 75%)}
+.cs-tres{position:absolute;left:20mm;top:22mm;display:flex;gap:6mm;z-index:1} .cs-k{position:absolute;left:-10mm;top:34mm;opacity:.07;z-index:1}
+.cs-asp{position:absolute;left:14mm;top:-30mm;font-size:260pt;font-weight:500;line-height:1;color:rgba(255,255,255,.07);z-index:1}
 /* a marca */
 .atr{display:grid;grid-template-columns:repeat(5,1fr);gap:8mm;margin-top:12mm} .atr div{border-top:.6mm solid var(--ind);padding-top:4mm}
 .atr b{display:block;font-size:17pt;font-weight:500;letter-spacing:-.025em;color:var(--ind)} .atr span{display:block;font-size:9pt;line-height:1.5;color:var(--cin);margin-top:2mm}
@@ -447,20 +465,20 @@ h2{font-size:30pt;font-weight:500;letter-spacing:-.035em;line-height:1.05;color:
 /* símbolo */
 .sigs{display:grid;grid-template-columns:repeat(4,1fr);gap:8mm;margin-top:12mm} .sigs div{display:flex;flex-direction:column;gap:1.5mm} .sigs svg{margin-bottom:5mm}
 .sigs small{font-size:7.5pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--larf)} .sigs b{font-size:18pt;font-weight:500;letter-spacing:-.025em;color:var(--ind)} .sigs span{font-size:9pt;line-height:1.5;color:var(--cin)}
-.pz{display:flex;align-items:center;justify-content:space-between;margin-top:16mm} .pz>div{display:flex;flex-direction:column;align-items:flex-start;gap:1.5mm}
-.pz small{font-size:8pt;font-weight:700;color:var(--larf);margin-top:5mm} .pz b{font-size:14pt;font-weight:500;color:var(--ind)} .pz>i{font-style:normal;font-size:26pt;font-weight:400;color:var(--lin)}
+.pz{display:flex;align-items:flex-start;justify-content:space-between;margin-top:18mm} .pz>div{display:flex;flex-direction:column;align-items:flex-start;gap:1.5mm}
+.pz small{font-size:8pt;font-weight:700;color:var(--larf);margin-top:5mm} .pz b{font-size:14pt;font-weight:500;color:var(--ind)} .pz>i{font-style:normal;font-size:16pt;font-weight:400;color:var(--cin);margin-top:23mm} .pz span{font-size:8.5pt;color:var(--cin);max-width:52mm;line-height:1.45}
 .cons{display:grid;grid-template-columns:96mm 1fr;gap:10mm;height:100%} .cons-arte{display:flex;align-items:center;justify-content:center;margin-top:-8mm}
 .leg{list-style:none;margin-top:7mm;display:flex;flex-direction:column;gap:3mm} .leg li{display:flex;gap:4mm;align-items:flex-start}
 .leg i{font-style:normal;flex:none;width:5.4mm;height:5.4mm;border-radius:50%;background:var(--lar);color:#fff;font-size:7.5pt;font-weight:700;display:grid;place-items:center}
 .leg b{display:block;font-size:10pt;font-weight:500;color:var(--ind)} .leg span{font-size:8.5pt;line-height:1.45;color:var(--cin)}
-.est{position:absolute;inset:0;display:grid;grid-template-columns:96mm 1fr;gap:4mm;padding:18mm 20mm 20mm;z-index:2} .est-a{display:flex;align-items:center;justify-content:center}
+.est{position:absolute;inset:0;display:grid;grid-template-columns:96mm 1fr;gap:4mm;padding:18mm 20mm 20mm;z-index:2} .est-a{display:flex;align-items:center;justify-content:center;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%)}
 .formula{font-size:24pt;font-weight:400;letter-spacing:-.02em;margin-top:9mm;color:#fff} .formula sup{font-size:12pt}
 .est dl{margin-top:6mm;display:grid;grid-template-columns:auto 1fr;gap:2mm 6mm;font-size:9.5pt} .est dt{color:var(--lav)} .est dd{color:#fff;font-variant-numeric:tabular-nums}
-.frase{position:absolute;left:20mm;top:22mm;right:20mm;z-index:2} .frase p{font-size:36pt;font-weight:500;letter-spacing:-.04em;line-height:1.1;max-width:205mm;margin-top:14mm;color:#fff}
+.frase{position:absolute;left:20mm;top:18mm;right:20mm;z-index:2} .frase .eb{color:rgba(255,255,255,.78)} .frase p{font-size:36pt;font-weight:500;letter-spacing:-.04em;line-height:1.1;max-width:205mm;margin-top:14mm;color:#fff}
 .frase em{font-style:normal;color:#fff;background:linear-gradient(transparent 62%,rgba(255,82,26,.85) 62%,rgba(255,82,26,.85) 92%,transparent 92%)}
 .frase-g{position:absolute;right:20mm;bottom:22mm;z-index:2;line-height:0}
 /* logótipo */
-.rel{margin-top:14mm;display:flex;justify-content:center} .tres{display:grid;grid-template-columns:repeat(3,1fr);gap:10mm;margin-top:12mm}
+.rel{margin-top:10mm;display:flex;justify-content:center} .tres{display:grid;grid-template-columns:repeat(3,1fr);gap:10mm;margin-top:6mm}
 .tres b{display:block;font-size:20pt;font-weight:500;color:var(--larf)} .tres span{font-size:9pt;color:var(--cin)}
 .nome-c{margin-top:12mm}
 .vers{display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:62mm 62mm;margin-top:8mm;border-top:.25mm solid var(--lin)}
@@ -479,7 +497,7 @@ h2{font-size:30pt;font-weight:500;letter-spacing:-.035em;line-height:1.05;color:
 .fd p{position:absolute;left:4mm;bottom:3.5mm;font-size:7.5pt;color:var(--cin);background:#fff;padding:1.2mm 2.8mm;border-radius:10mm;z-index:3} .fd p b{font-weight:500;color:var(--ind)}
 .erros{display:grid;grid-template-columns:repeat(4,1fr);margin-top:8mm;border-top:.25mm solid var(--lin);border-left:.25mm solid var(--lin)}
 .er{border-right:.25mm solid var(--lin);border-bottom:.25mm solid var(--lin)} .er-a{height:40mm;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.e-ind .er-a{background:var(--ind)} .e-esc .er-a{background:#2E2E38} .er p{font-size:8.5pt;padding:3mm 4mm;display:flex;gap:2mm;align-items:center}
+.e-ind .er-a{background:var(--ind)} .e-esc .er-a{background:var(--tin)} .er p{font-size:8.5pt;padding:3mm 4mm;display:flex;gap:2mm;align-items:center}
 .er p i{font-style:normal;font-weight:700;color:var(--larf);font-size:12pt;line-height:1} .row{display:flex;align-items:center;gap:3mm} .wm{white-space:nowrap;font-size:13pt;font-weight:500;letter-spacing:-.02em;color:var(--ind)}
 /* cor */
 .mosaico{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;grid-template-rows:58mm 58mm;gap:3mm;margin-top:8mm}
@@ -491,7 +509,7 @@ h2{font-size:30pt;font-weight:500;letter-spacing:-.035em;line-height:1.05;color:
 .grads code{font-family:inherit;font-size:8pt;color:var(--cin)} .grads p{font-size:8.5pt;color:var(--cin);margin-top:1mm}
 .prop{display:flex;height:34mm;border-radius:5mm;overflow:hidden;margin-top:9mm;border:.25mm solid var(--lin)} .prop div{padding:4mm;font-size:14pt;font-weight:500;color:#fff} .prop small{display:block;font-size:8pt;font-weight:400;opacity:.85}
 .pares{display:flex;flex-direction:column;gap:2.5mm;justify-content:center} .pares>div{display:flex;gap:6mm;align-items:center;border-radius:4mm;padding:4.5mm 6mm;border:.25mm solid var(--lin)}
-.pares b{font-size:24pt;font-weight:500;width:18mm} .pares span{display:block;font-size:10.5pt;font-weight:500} .pares small{font-size:8.5pt;opacity:.85}
+.pares b{font-size:24pt;font-weight:500;width:18mm} .pares span{display:block;font-size:10.5pt;font-weight:500} .pares small{font-size:9pt;font-weight:500;opacity:.92}
 /* tipografia */
 .pesos{display:grid;grid-template-columns:repeat(3,1fr);margin-top:10mm;border-top:.25mm solid var(--lin)} .pesos div{padding:4mm 4mm 0 0;display:flex;flex-direction:column}
 .pesos b{font-size:38pt;color:var(--ind);line-height:1.1} .pesos span{font-size:9.5pt;font-weight:500;margin-top:3mm} .pesos small{font-size:8pt;color:var(--cin)}
@@ -515,7 +533,8 @@ h2{font-size:30pt;font-weight:500;letter-spacing:-.035em;line-height:1.05;color:
 .ct-g{margin-top:14mm;line-height:0} .fim{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10mm} .fim p{font-size:15pt;color:#D8D5E8}'''.replace('@@GRAO@@', GRAO)
 
 def rodape(i, cls, sec):
-    if 'grad' in cls or 'escura' in cls: return ''
+    if 'grad' in cls or 'escura' in cls:
+        return '' if 'canto d' in paginas[i - 1][0] else f'<div class="canto d">{i:02d}</div>'
     return f'<div class="rod"><span><b>Kingdom Company</b> · Manual de marca{" · " + sec if sec and sec != "Índice" else ""}</span><span>{i:02d}</span></div>'
 corpo = ''.join(f'<section class="pag {c}">{h}{rodape(i + 1, c, s)}</section>' for i, (h, c, s) in enumerate(paginas))
 html = f'''<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><title>Kingdom Company · Manual de marca</title>
