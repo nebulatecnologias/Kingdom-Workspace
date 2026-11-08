@@ -322,8 +322,11 @@ a.pcol-t:hover { color: var(--violeta); }
 .setas svg { width: 22px; height: 22px; }
 
 /* Quem confia em nós */
-.logos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
-.logos li { height: 96px; display: grid; place-items: center; border-radius: 12px; text-align: center; padding: 8px; }
+.logos { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; overflow: hidden; border-radius: 16px; background: var(--linha); box-shadow: 0 0 0 1px var(--linha); }
+.logos li { height: 132px; display: grid; place-items: center; padding: 20px 24px; background: var(--branco); text-align: center; }
+.logos img { width: auto; height: auto; max-width: 100%; max-height: 84px; object-fit: contain; opacity: .78; transition: opacity .25s; }
+.logos li:hover img { opacity: 1; }
+.logos .por-receber { outline-offset: -10px; border-radius: 0; }
 .testemunhos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 40px; }
 .testemunho { padding: 36px; border-radius: var(--raio); background: var(--branco); }
 .testemunho blockquote p { font-size: 1.3125rem; line-height: 1.45; font-weight: 500; letter-spacing: -.01em; color: var(--indigo); }
@@ -341,7 +344,8 @@ a.pcol-t:hover { color: var(--violeta); }
 /* Material por receber: só aparece na pré-visualização (html.previa) */
 .so-previa { display: none !important; }
 .previa .so-previa { display: revert !important; }
-.previa .logos.so-previa, .previa .testemunhos.so-previa, .previa .midia { display: grid !important; }
+.previa .testemunhos.so-previa, .previa .midia { display: grid !important; }
+.previa .logos li.so-previa { display: grid !important; }
 .por-receber { position: relative; outline: 1.5px dashed #C9C3D8; outline-offset: -1.5px; color: var(--cinza); }
 .por-receber::after { content: "A receber"; position: absolute; top: 10px; right: 12px; font-size: 1rem; font-weight: 700; color: var(--laranja-texto); }
 .logos .por-receber::after { content: none; }
@@ -485,6 +489,7 @@ a.pcol-t:hover { color: var(--violeta); }
   .fases { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
   .fases::before, .fases::after { content: none; }
   .logos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .logos li { height: 112px; }
   .rodape-in { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cartao-largo { grid-template-columns: minmax(0, 1fr); padding: 40px 0 0; }
   .cartao-largo .cartao-texto { padding-inline: 36px; }
