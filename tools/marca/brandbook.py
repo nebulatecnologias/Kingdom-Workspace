@@ -414,7 +414,7 @@ GRAO = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAAAAAAbPrZOAADiAE
 CSS = '''@page{size:297mm 210mm;margin:0} *{margin:0;padding:0;box-sizing:border-box}
 :root{--ind:#2B2850;--lar:#FF521A;--larf:#D63E12;--mar:#FAF9F5;--tin:#1C1A30;--cin:#6A6682;--lin:#E8E4DC;--noite:#0E0C1F;--luz:#6F67D6;--lav:#B9B3F2}
 body{font-family:'Google Sans',sans-serif;color:var(--tin);-webkit-print-color-adjust:exact;print-color-adjust:exact;-webkit-font-smoothing:antialiased}
-.pag{width:297mm;height:209.9mm;position:relative;overflow:hidden;page-break-after:always;padding:18mm 20mm 20mm}
+.pag{width:297mm;height:210mm;position:relative;overflow:clip;contain:strict;page-break-after:always;padding:18mm 20mm 20mm}
 .branca{background:#fff} .clara{background:linear-gradient(180deg,#ECEAFB 0%,#fff 62%)}
 .escura{background:radial-gradient(70% 90% at 90% 20%,rgba(111,103,214,.35) 0,transparent 60%),linear-gradient(160deg,#0B0A16 0%,var(--noite) 50%,#1C1A30 100%);color:#fff}
 .grad{background:radial-gradient(70% 80% at 88% 8%,rgba(185,179,242,.42) 0,transparent 55%),radial-gradient(55% 60% at 0% 100%,rgba(255,82,26,.20) 0,transparent 60%),linear-gradient(135deg,var(--noite) 0%,var(--tin) 32%,var(--ind) 68%,#3B3478 100%);color:#fff}
@@ -431,7 +431,7 @@ h2{font-size:30pt;font-weight:500;letter-spacing:-.035em;line-height:1.05;color:
 .txt{font-size:10pt;line-height:1.6;margin-top:6mm;max-width:118mm} .txt b{font-weight:500;color:var(--ind)}
 .nota{font-size:8.5pt;line-height:1.5;color:var(--cin);margin-top:6mm;max-width:130mm} .nota.claro{color:#A9A5C0}
 .cols{display:grid;grid-template-columns:118mm 1fr;gap:18mm;height:100%} .centro{align-self:center}
-.pag:last-child{page-break-after:auto} html,body{margin:0}
+.pag:last-child{page-break-after:auto} html,body{margin:0;width:297mm;overflow:hidden}   /* sem isto o Chrome encolhe o PDF para caber os feixes rodados */
 /* capa */
 .capa-g{position:absolute;right:-70mm;top:-22mm;line-height:0} .capa-logo{position:absolute;left:20mm;top:22mm;z-index:2}
 .capa-t{position:absolute;left:20mm;bottom:26mm;z-index:2} .capa-t h1{font-size:60pt;font-weight:500;letter-spacing:-.045em;line-height:.95} .capa-t p{font-size:10pt;color:#C9C6DE;margin-top:6mm}
