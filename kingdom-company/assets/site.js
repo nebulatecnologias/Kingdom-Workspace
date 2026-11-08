@@ -148,45 +148,6 @@
     [...ul.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); ul.appendChild(c); });
   });
 
-  // Carrossel: para cada momento da sua empresa
-  const MOMENTOS = [
-    { tipo: 'Startups', ico: 'i-foguete', capa: 'Plano de negócios', areas: 'Consultoria Estratégica · Desenvolvimento Editorial · Desenvolvimento Tecnológico', frase: 'Uma empresa a arrancar precisa de um plano que convença o banco, de uma identidade e de um primeiro site. Juntamos o plano de negócios, a marca e a presença digital.' },
-    { tipo: 'Pequenas e médias empresas', ico: 'i-loja', capa: 'Dashboard de gestão', areas: 'Consultoria Estratégica · Assessoria · Desenvolvimento Tecnológico', frase: 'Uma empresa que já vende e quer crescer sem perder o controlo. Definimos as prioridades, montamos um dashboard de gestão e pomos a marca a comunicar todos os meses.' },
-    { tipo: 'Empresas que concorrem', ico: 'i-trofeu', capa: 'Proposta técnica', areas: 'Desenvolvimento Editorial', frase: 'Quem concorre com frequência não pode perder por falhas de forma. Construímos modelos de proposta técnica a partir do caderno de encargos, prontos a adaptar a cada concurso.' },
-    { tipo: 'Instituições', ico: 'i-instituicao', capa: 'Dashboard de gestão', areas: 'Desenvolvimento Editorial · Assessoria · Desenvolvimento Tecnológico', frase: 'Uma instituição que precisa de prestar contas e de comunicar com quem serve. Fazemos o perfil e a comunicação, e montamos um dashboard de gestão com os números do dia a dia.' }
-  ];
-  const mom = document.querySelector('[data-momentos]');
-  let mostraMomento = () => {};
-  if (mom) {
-    const $ = (s) => mom.querySelector(s);
-    const tel = $('.tel'), frase = $('[data-m-frase]'), pontos = [...mom.querySelectorAll('.momentos-pontos button')];
-    let i = 0, tempo = 0, toque = null, parado = false;
-    const agenda = () => { clearTimeout(tempo); if (!calmo && !parado) tempo = setTimeout(() => mostraMomento(i + 1), 7000); };
-    mostraMomento = (n) => {
-      i = (n + MOMENTOS.length) % MOMENTOS.length;
-      const x = MOMENTOS[i];
-      const aplica = () => {
-        $('[data-m-tipo]').textContent = x.tipo; frase.textContent = x.frase; $('[data-m-areas]').textContent = x.areas;
-        $('[data-m-capa]').textContent = x.capa; $('[data-m-ico]').setAttribute('href', '#' + x.ico);
-        pontos.forEach((p, k) => p.setAttribute('aria-pressed', String(k === i)));
-        tel.classList.remove('muda'); frase.classList.remove('muda');
-      };
-      if (calmo) aplica(); else { tel.classList.add('muda'); frase.classList.add('muda'); setTimeout(aplica, 280); }
-      agenda();
-    };
-    $('[data-m-ant]').addEventListener('click', () => mostraMomento(i - 1));
-    $('[data-m-seg]').addEventListener('click', () => mostraMomento(i + 1));
-    pontos.forEach((p, k) => p.addEventListener('click', () => mostraMomento(k)));
-    mom.addEventListener('pointerdown', (e) => { toque = e.clientX; });
-    mom.addEventListener('pointerup', (e) => { if (toque !== null && Math.abs(e.clientX - toque) > 50) mostraMomento(i + (e.clientX < toque ? 1 : -1)); toque = null; });
-    mom.addEventListener('mouseenter', () => { parado = true; clearTimeout(tempo); });
-    mom.addEventListener('mouseleave', () => { parado = false; agenda(); });
-    mom.addEventListener('focusin', () => { parado = true; clearTimeout(tempo); });
-    mom.addEventListener('focusout', (e) => { if (!mom.contains(e.relatedTarget)) { parado = false; agenda(); } });
-    quandoVisivel(mom, agenda, 0.4);
-  }
-  document.querySelectorAll('[data-momento]').forEach((a) => a.addEventListener('click', () => mostraMomento(+a.dataset.momento)));
-
   // Notícias: a capa ativa abre, as outras ficam em tiras
   const not = document.querySelector('[data-noticias]');
   if (not) {

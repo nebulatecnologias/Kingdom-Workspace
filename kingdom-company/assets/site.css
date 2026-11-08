@@ -282,29 +282,8 @@ a.pcol-t:hover { color: var(--violeta); }
 .trilho svg { flex: none; width: 22px; height: 22px; color: var(--luz); }
 .trilho b { font-weight: 500; color: var(--indigo); }
 
-/* Para cada momento da sua empresa */
-.momentos { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); border-radius: 24px; overflow: hidden; box-shadow: 0 0 0 1px var(--linha); }
-.momentos-palco { position: relative; display: grid; place-items: center; min-height: 420px; padding: 48px 24px 0; overflow: hidden; background: radial-gradient(70% 60% at 50% 100%, rgba(111, 103, 214, .45), rgba(111, 103, 214, 0)), linear-gradient(180deg, var(--indigo), var(--noite)); }
-.tel { align-self: end; width: min(100%, 230px); padding: 16px 14px 24px; border-radius: 28px 28px 0 0; background: rgba(14, 12, 31, .7); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16); color: var(--branco); transition: opacity .28s, transform .28s var(--sai); }
-.tel-topo { display: flex; align-items: center; gap: 10px; font-weight: 500; }
-.tel-ico { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px; background: var(--luz); }
-.tel-ico svg { width: 18px; height: 18px; }
-.tel-capa { display: flex; align-items: flex-end; min-height: 110px; margin-top: 14px; padding: 14px; border-radius: 14px; background: linear-gradient(150deg, rgba(185, 179, 242, .35), rgba(111, 103, 214, .15)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); font-weight: 500; }
-.tel-linhas { display: grid; gap: 8px; margin-top: 12px; padding: 14px; border-radius: 14px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
-.tel-linhas span { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .18); }
-.tel-linhas span:nth-child(2) { width: 80%; } .tel-linhas span:nth-child(3) { width: 55%; }
-.tel-botao { margin-top: 14px; padding: 10px; border-radius: 999px; background: var(--branco); color: var(--indigo); text-align: center; font-weight: 500; }
-.momentos-texto { display: flex; flex-direction: column; padding: clamp(32px, 4vw, 56px); background: var(--branco); }
-.momentos-tipo { font-weight: 500; color: var(--luz); }
-.momentos-frase { margin-top: 18px; font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.3; letter-spacing: -.02em; font-weight: 500; color: var(--indigo); transition: opacity .28s; }
-.momentos-areas { margin-top: 20px; color: var(--cinza); }
-.momentos-pe { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: auto; padding-top: 32px; }
-.momentos-pontos { display: flex; gap: 4px; }
-.momentos-pontos button { position: relative; width: 44px; height: 44px; border: 0; background: none; cursor: pointer; }
-.momentos-pontos button::after { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--claro-2); transition: transform .3s var(--sai), background-color .3s; }
-.momentos-pontos button[aria-pressed="true"]::after { transform: scaleX(2.6); background: var(--indigo); }
+/* Setas e transições partilhadas */
 .muda { opacity: 0; }
-.tel.muda { transform: translateY(12px); }
 .setas { display: flex; gap: 8px; }
 .setas button { display: grid; place-items: center; width: 48px; height: 48px; border: 0; border-radius: 12px; background: var(--realce); color: var(--indigo); cursor: pointer; transition: background-color .2s; }
 .setas button:hover { background: #E2DEF8; }
@@ -524,8 +503,6 @@ a.pcol-t:hover { color: var(--violeta); }
   .porque, .perguntas, .contratar { grid-template-columns: minmax(0, 1fr); }
   .porque h2 { position: static; }
   .bento { grid-template-columns: minmax(0, 1fr); }
-  .momentos { grid-template-columns: minmax(0, 1fr); }
-  .momentos-palco { min-height: 300px; }
   .contactos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .testemunhos, .frentes { grid-template-columns: minmax(0, 1fr); }
   .newsletter { grid-template-columns: minmax(0, 1fr); }
