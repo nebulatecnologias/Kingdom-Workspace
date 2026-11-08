@@ -47,6 +47,7 @@ Autoridade Tributária, Banco de Moçambique, INSS, NUIT, DUAT, DIRE, quotas de 
 - RN3 — Contactos provisórios: `contacto@dtcompany.example`, assinalado como provisório no site; sem mapa até haver morada e ligação do Google Maps.
 - RN4 — O site não mostra preços; os caminhos são «Pedir cotação» e «Avaliação inicial». (O modelo 2.1 «honorário fixo + % da poupança» descreve a estrutura, não valores.)
 - RN5 — Idioma único PT nesta versão; a versão EN (existente no site Next.js anterior) volta como segunda fase se o cliente a pedir.
+- RN6 — Movimento contínuo (trilho de entregáveis, órbita, Gantt) herdado do modelo da skill, sem botão de pausa: lição registada do projecto de origem do modelo. Fica por cumprir o critério WCAG 2.2.2; a confirmar com o cliente DT se quiser um controlo de pausa.
 
 ## Evidence on Hand
 
