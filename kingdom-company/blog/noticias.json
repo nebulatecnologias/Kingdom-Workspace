@@ -5,7 +5,8 @@
   "categoria": "Negócios",
   "ambito": "Nacional",
   "data": "2026-11-08",
-  "link": "/blog/oportunidades-de-negocio-mocambique-2027"
+  "link": "/blog/oportunidades-de-negocio-mocambique-2027",
+  "imagem": "/blog/img/oportunidades-de-negocio-mocambique-2027.jpg"
  },
  {
   "titulo": "Os agentes de IA chegaram ao trabalho. O que isso muda para as PME moçambicanas",
@@ -13,7 +14,8 @@
   "categoria": "Inteligência artificial",
   "ambito": "Internacional",
   "data": "2026-11-07",
-  "link": "/blog/agentes-de-ia-chegam-aos-negocios"
+  "link": "/blog/agentes-de-ia-chegam-aos-negocios",
+  "imagem": "/blog/img/agentes-de-ia-chegam-aos-negocios.jpg"
  },
  {
   "titulo": "6 tendências de marketing para 2027, com dados",
@@ -21,6 +23,7 @@
   "categoria": "Negócios",
   "ambito": "Internacional",
   "data": "2026-11-06",
-  "link": "/blog/tendencias-de-marketing-2027"
+  "link": "/blog/tendencias-de-marketing-2027",
+  "imagem": "/blog/img/tendencias-de-marketing-2027.jpg"
  }
 ]

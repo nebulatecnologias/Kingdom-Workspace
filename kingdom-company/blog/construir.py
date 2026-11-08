@@ -110,7 +110,7 @@ def main():
 <section class="seccao" aria-label="Artigo">
   <div class="moldura">
     <article class="artigo">
-{corpo_html(a['corpo_md'])}
+{(f'<figure class="artigo-capa"><img src="{html.escape(a["imagem"])}" alt="" width="1200" height="630"></figure>' + chr(10)) if a.get('imagem') else ''}{corpo_html(a['corpo_md'])}
     </article>
     <aside class="artigo-cta" aria-labelledby="t-cta">
       <div>

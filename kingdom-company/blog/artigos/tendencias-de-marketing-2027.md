@@ -4,7 +4,7 @@ resumo: A inteligência artificial acelerou a produção de conteúdo, mas tamb�
 categoria: Negócios
 ambito: Internacional
 data: 2026-11-06
-imagem:
+imagem: /blog/img/tendencias-de-marketing-2027.jpg
 ---
 
 O principal estudo usado aqui é o inquérito anual do **Content Marketing Institute (CMI)** e da MarketingProfs, publicado a 4 de Novembro de 2026. Ouviu **861 profissionais de marketing** entre Junho e Agosto de 2026. Completámos com dados da Forrester.

@@ -4,7 +4,7 @@ resumo: Nas últimas semanas, a Google, a Adobe e outras gigantes deixaram de ve
 categoria: Inteligência artificial
 ambito: Internacional
 data: 2026-11-07
-imagem:
+imagem: /blog/img/agentes-de-ia-chegam-aos-negocios.jpg
 ---
 
 ## A notícia: a Google lança um agente que "faz o trabalho"

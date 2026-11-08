@@ -4,7 +4,7 @@ resumo: 2027 será um ano de crescimento lento e dinheiro caro, mas não de opor
 categoria: Negócios
 ambito: Nacional
 data: 2026-11-08
-imagem:
+imagem: /blog/img/oportunidades-de-negocio-mocambique-2027.jpg
 ---
 
 ## O cenário em números
