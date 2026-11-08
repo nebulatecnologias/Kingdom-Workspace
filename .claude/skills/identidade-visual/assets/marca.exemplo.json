@@ -1,0 +1,381 @@
+{
+  "_leia_me": "Exemplo completo (Kingdom Company). Caminhos relativos à pasta deste ficheiro. Copiar para a pasta da marca e trocar os valores; apagar os blocos que não se usam.",
+  "nome": "Kingdom Company",
+  "slug": "kingdom-company",
+  "saida": "marca",
+  "descritor": "Desenvolvimento Empresarial, Educação e Tecnologia",
+  "slogan": [
+    "Um único lugar.",
+    "Tudo o que precisa para desenvolver o seu negócio."
+  ],
+  "versao": "Versão 2.0 · Novembro de 2026",
+  "simbolo": "simbolo/globo.svg",
+  "fontes": {
+    "familia": "Google Sans",
+    "logotipo": "fontes/google-sans-500.ttf",
+    "peso_logotipo": 500
+  },
+  "logotipo": {
+    "tracking": -0.025
+  },
+  "cores": {
+    "principal": {
+      "nome": "Índigo",
+      "hex": "#2B2850",
+      "uso": "Logótipo, títulos e blocos escuros"
+    },
+    "fundo": {
+      "nome": "Marfim",
+      "hex": "#FAF9F5",
+      "uso": "Fundo de páginas e documentos"
+    },
+    "acento": {
+      "nome": "Laranja",
+      "hex": "#FF521A",
+      "uso": "Botões, preços e destaques"
+    },
+    "acento_texto": {
+      "nome": "Laranja Fundo",
+      "hex": "#D63E12",
+      "uso": "Links e texto laranja pequeno"
+    },
+    "texto": {
+      "nome": "Tinta",
+      "hex": "#1C1A30",
+      "uso": "Texto principal"
+    },
+    "texto_secundario": {
+      "nome": "Cinza Índigo",
+      "hex": "#6A6682",
+      "uso": "Texto secundário"
+    },
+    "linha": {
+      "nome": "Linha",
+      "hex": "#E8E4DC",
+      "uso": "Divisórias e contornos"
+    }
+  },
+  "cores_logo": {
+    "indigo": "#2B2850",
+    "branco": "#FFFFFF",
+    "preto": "#000000"
+  },
+  "cores_icone": {
+    "indigo": "#2B2850",
+    "laranja": "#FF521A"
+  },
+  "gradiente_tons": {
+    "noite": "#0E0C1F",
+    "luz": "#6F67D6",
+    "lavanda": "#B9B3F2"
+  },
+  "gradientes": [
+    {
+      "nome": "Noite",
+      "css": "linear-gradient(135deg,#0E0C1F 0%,#1C1A30 35%,#2B2850 70%,#3B3478 100%)",
+      "paragens": "#0E0C1F → #1C1A30 → #2B2850",
+      "uso": "Capas e apresentações."
+    },
+    {
+      "nome": "Aurora",
+      "css": "radial-gradient(90% 80% at 85% 10%,#B9B3F2 0,transparent 55%),linear-gradient(160deg,#2B2850 0%,#4A43A0 55%,#6F67D6 100%)",
+      "paragens": "#2B2850 → #6F67D6 → #B9B3F2",
+      "uso": "Frases e digital."
+    },
+    {
+      "nome": "Brasa",
+      "css": "radial-gradient(80% 90% at 100% 100%,#FF521A 0,transparent 60%),linear-gradient(135deg,#0E0C1F 0%,#2B2850 65%)",
+      "paragens": "#0E0C1F → #2B2850 → #FF521A",
+      "uso": "Campanhas."
+    }
+  ],
+  "manifesto": {
+    "texto": "A Kingdom Company junta desenvolvimento empresarial, educação e tecnologia num só lugar. A identidade nasce dessa ideia: um globo construído com geometria simples, uma só letra e uma paleta curta."
+  },
+  "sobre": {
+    "texto": [
+      "A Kingdom Company é uma empresa de <b>desenvolvimento empresarial, educação e tecnologia</b>.",
+      "Temos sede em Maputo, Moçambique."
+    ]
+  },
+  "arquitetura": {
+    "marcas": [
+      {
+        "nome": "Kingdom Company",
+        "linhas": [
+          "Desenvolvimento empresarial,",
+          "educação e tecnologia"
+        ],
+        "ativo": true
+      },
+      {
+        "nome": "Kingdom Training",
+        "linhas": [
+          "O braço educacional"
+        ]
+      },
+      {
+        "nome": "Kingdom Academy",
+        "linhas": [
+          "Plataforma de",
+          "educação online"
+        ]
+      }
+    ],
+    "nota": "As três marcas usam o mesmo globo."
+  },
+  "personalidade": {
+    "atributos": [
+      [
+        "Clareza",
+        "Dizemos o que fazemos, sem jargão."
+      ],
+      [
+        "Estrutura",
+        "Tudo assenta num plano."
+      ],
+      [
+        "Método",
+        "O mesmo caminho em cada projeto."
+      ],
+      [
+        "Proximidade",
+        "Ao lado da equipa."
+      ],
+      [
+        "Ambição",
+        "Crescer com propósito."
+      ]
+    ],
+    "anti": [
+      "Banco de imagens com apertos de mão.",
+      "Gráficos dourados e promessas fáceis."
+    ]
+  },
+  "areas": [
+    {
+      "nome": "Consultoria Estratégica",
+      "titulo": "Decisões com base em dados",
+      "texto": "Diagnóstico, planeamento e business plans."
+    },
+    {
+      "nome": "Desenvolvimento Tecnológico",
+      "titulo": "Tecnologia ao serviço da operação",
+      "texto": "Sites, automação e painéis."
+    }
+  ],
+  "metodo": {
+    "titulo": "Do diagnóstico à autonomia",
+    "passos": [
+      [
+        "Diagnóstico",
+        "O que trava o crescimento."
+      ],
+      [
+        "Estratégia",
+        "Um plano executável."
+      ],
+      [
+        "Implementação",
+        "Com a equipa."
+      ],
+      [
+        "Autonomia",
+        "O resultado fica."
+      ]
+    ]
+  },
+  "simbolo_titulo": "O globo",
+  "simbolo_lead": "O mesmo símbolo nas três marcas, com um só significado.",
+  "simbolo_significado": [
+    {
+      "pecas": [
+        "simbolo/anel.svg"
+      ],
+      "elemento": "O círculo",
+      "nome": "Reino",
+      "texto": "A unidade."
+    },
+    {
+      "pecas": [
+        "simbolo/estrela.svg"
+      ],
+      "elemento": "A estrela",
+      "nome": "Direção",
+      "texto": "O conhecimento."
+    },
+    {
+      "pecas": [
+        "simbolo/eixo.svg",
+        "simbolo/equador.svg"
+      ],
+      "elemento": "Os eixos",
+      "nome": "Estrutura",
+      "texto": "A base."
+    },
+    {
+      "pecas": [
+        "simbolo/meridianos.svg"
+      ],
+      "elemento": "Os meridianos",
+      "nome": "Método",
+      "texto": "A metodologia."
+    }
+  ],
+  "simbolo_passos": [
+    {
+      "pecas": [
+        "simbolo/anel.svg"
+      ],
+      "nome": "Círculo",
+      "nota": "R 240 · r 215,8"
+    },
+    {
+      "pecas": [
+        "simbolo/anel.svg",
+        "simbolo/eixo.svg",
+        "simbolo/equador.svg"
+      ],
+      "nome": "Eixos",
+      "nota": "24,7 e 26,1"
+    },
+    {
+      "pecas": [
+        "simbolo/anel.svg",
+        "simbolo/eixo.svg",
+        "simbolo/equador.svg",
+        "simbolo/meridianos.svg"
+      ],
+      "nome": "Meridianos",
+      "nota": "Duas elipses"
+    },
+    {
+      "pecas": [
+        "simbolo/globo.svg"
+      ],
+      "nome": "Estrela",
+      "nota": "Superelipses"
+    }
+  ],
+  "frase": "É isto que a Kingdom faz: dá <em>direção</em>, <em>estrutura</em> e <em>método</em> para crescer com propósito.",
+  "padrao": {
+    "peca": "simbolo/estrela.svg",
+    "densidades": {
+      "densa": [
+        120,
+        1.0
+      ],
+      "ampla": [
+        240,
+        0.54
+      ]
+    }
+  },
+  "tom": [
+    {
+      "nome": "Claros",
+      "texto": "Frases curtas.",
+      "dizemos": "Os relatórios a correr sozinhos.",
+      "evitamos": "Soluções disruptivas 360º."
+    },
+    {
+      "nome": "Concretos",
+      "texto": "Números e prazos.",
+      "dizemos": "Plano pronto para bancos.",
+      "evitamos": "O próximo nível."
+    }
+  ],
+  "contactos": {
+    "email": "contact@kingdomcompany.co.za",
+    "telefones": [
+      "+258 87 664 1836",
+      "+258 85 1800 920"
+    ],
+    "morada": [
+      "Edifício Millenium Park, Av. Vladimir Lenine, n.º 174",
+      "Maputo 1106, Moçambique"
+    ],
+    "site": "www.kingdomcompany.co.za",
+    "cidade": "Maputo, Moçambique"
+  },
+  "destaques": [
+    {
+      "nome": "Sobre nós",
+      "icone": "simbolo"
+    },
+    {
+      "nome": "Bastidores",
+      "icone": "bastidores"
+    },
+    {
+      "nome": "Resultados",
+      "icone": "resultados"
+    },
+    {
+      "nome": "Agendar",
+      "icone": "agenda"
+    }
+  ],
+  "opcoes_paleta": [
+    {
+      "nome": "Índigo e laranja",
+      "nota": "Corporativo e quente.",
+      "cores": [
+        {
+          "nome": "Marfim",
+          "hex": "#FAF9F5",
+          "papel": "fundo",
+          "peso": 6
+        },
+        {
+          "nome": "Índigo",
+          "hex": "#2B2850",
+          "papel": "marca",
+          "peso": 3
+        },
+        {
+          "nome": "Laranja",
+          "hex": "#FF521A",
+          "papel": "ação",
+          "peso": 1
+        }
+      ]
+    },
+    {
+      "nome": "Azul e âmbar",
+      "nota": "Mais clássico.",
+      "cores": [
+        {
+          "nome": "Branco",
+          "hex": "#FFFFFF",
+          "papel": "fundo",
+          "peso": 6
+        },
+        {
+          "nome": "Azul",
+          "hex": "#14365C",
+          "papel": "marca",
+          "peso": 3
+        },
+        {
+          "nome": "Âmbar",
+          "hex": "#E8A33D",
+          "papel": "ação",
+          "peso": 1
+        }
+      ]
+    }
+  ],
+  "opcoes_tipografia": [
+    {
+      "titulos": "Google Sans",
+      "texto": "Google Sans",
+      "nota": "Uma só família."
+    },
+    {
+      "titulos": "Space Grotesk",
+      "texto": "Inter",
+      "nota": "Mais técnica."
+    }
+  ]
+}
