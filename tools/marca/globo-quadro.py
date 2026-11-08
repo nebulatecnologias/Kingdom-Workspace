@@ -48,7 +48,7 @@ body{{font-family:'Google Sans',sans-serif;-webkit-font-smoothing:antialiased}}
 <h1>Reino, Direção, Estrutura e Método</h1>
 <div class="simbolo">{globo_svg(480, "#F4F2FA")}</div></div>
 <div class="baixo">{cards}</div>
-<p class="frase">É isto que a Kingdom faz, em todas as suas marcas: <b>dá direção, estrutura e clareza para crescer com propósito.</b></p>
+<p class="frase">É isto que a Kingdom faz, em todas as suas marcas: <b>dá direção, estrutura e método para crescer com propósito.</b></p>
 <div class="assin">Kingdom<br>conceito do símbolo © 2026</div>
 </div></body></html>'''
 open('quadro.html', 'w').write(html)
