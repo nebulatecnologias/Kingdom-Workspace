@@ -422,6 +422,13 @@ a.pcol-t:hover { color: var(--violeta); }
 .frente-academy { background: linear-gradient(150deg, var(--realce), var(--lavanda)); color: var(--indigo); }
 .frente-academy p { color: var(--tinta); }
 .frente-academy .frente-ir { color: var(--violeta); }
+.jornada { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 0 32px; border-block: 1px solid var(--linha); counter-reset: etapa; }
+.jornada li { position: relative; display: grid; gap: 2px; padding: 18px 24px 18px 0; counter-increment: etapa; }
+.jornada li + li { padding-left: 24px; border-left: 1px solid var(--linha); }
+.jornada li:not(:last-child)::after { content: ""; position: absolute; right: -6px; top: 50%; z-index: 1; width: 10px; height: 10px; margin-top: -5px; border-top: 1.5px solid var(--claro-2); border-right: 1.5px solid var(--claro-2); background: var(--branco); transform: rotate(45deg); }
+.jornada b { font-size: 1.25rem; font-weight: 500; color: var(--indigo); }
+.jornada span { color: var(--cinza); }
+.frente-para { font-weight: 500; opacity: .8; margin-top: -6px; }
 .pc-frentes { background: linear-gradient(90deg, var(--indigo) 50%, var(--lavanda) 50%); }
 
 /* Página de contactos */
@@ -524,6 +531,9 @@ a.pcol-t:hover { color: var(--violeta); }
   .porque h2 { position: static; }
   .bento { grid-template-columns: minmax(0, 1fr); }
   .contactos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .jornada { grid-template-columns: minmax(0, 1fr); }
+  .jornada li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--linha); }
+  .jornada li:not(:last-child)::after { content: none; }
   .testemunhos, .frentes { grid-template-columns: minmax(0, 1fr); }
   .newsletter { grid-template-columns: minmax(0, 1fr); }
   .noticia { flex-basis: 40px; }
