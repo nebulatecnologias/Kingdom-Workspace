@@ -90,5 +90,8 @@ Cinco padrões feitos com o globo e a estrela: grelha, alternado, estrela, globo
 ## Capas de destaques do Instagram (08/11/2026)
 Sobre nós (o globo), Bastidores, Resultados e Agendar, em índigo, laranja e marfim (usar uma só cor nas quatro). 1080 × 1920 px, ícone de 520 px ao centro. Ficheiros em `docs/marca/instagram/destaques/`, gerados por `tools/marca/destaques.py`.
 
+## Brandbook (08/11/2026)
+`docs/marca/brandbook/kingdom-company-manual-de-marca.pdf`: 20 páginas A4 na horizontal (marca, símbolo, logótipo, cor, tipografia, padrões, tom de voz e contactos). Gerado por `tools/marca/brandbook.py`. As aplicações entram na versão seguinte, com as imagens que o Shelton vai enviar. O tom de voz é uma proposta feita a partir do texto do site, à espera de aprovação.
+
 ## Por decidir
 - Logótipos da Kingdom Training e da Kingdom Academy (descritor e slogan de cada uma), depois do brandbook da Company.
