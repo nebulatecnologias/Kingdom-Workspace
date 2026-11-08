@@ -1,8 +1,28 @@
 # Blog de notícias · dados
 
-A secção «Últimas atualizações» da página inicial lê `blog/noticias.json` e mostra as 5 notícias mais recentes (ordenadas por `data`). Este ficheiro é o que a automação (Manus + Claude) vai manter atualizado com notícias nacionais e internacionais de negócios, tecnologia e inteligência artificial.
+A secção «Últimas atualizações» da página inicial lê `blog/noticias.json` (gerado pelo `construir.py`) e mostra as 5 notícias mais recentes (ordenadas por `data`). Este ficheiro é o que a automação (Manus + Claude) vai manter atualizado com notícias nacionais e internacionais de negócios, tecnologia e inteligência artificial.
 
 Enquanto `noticias.json` estiver vazio, o site público mostra uma mensagem «As primeiras notícias chegam em breve». A pré-visualização (Vercel, localhost ou `?previa`) mostra os exemplos de `blog/exemplos.json`, marcados como exemplo.
+
+## Como publicar um artigo
+
+1. Criar `blog/artigos/<slug>.md` (o nome do ficheiro é o endereço: `/blog/<slug>`), com este cabeçalho e o texto em Markdown por baixo:
+
+```
+---
+titulo: Título do artigo
+resumo: Uma ou duas frases que aparecem no topo do artigo, na lista e na página inicial.
+categoria: Negócios | Tecnologia | Inteligência artificial
+ambito: Nacional | Regional | Internacional
+data: AAAA-MM-DD
+imagem: (opcional) /blog/img/<slug>.jpg, 1200 × 630
+---
+```
+
+2. Correr `python3 blog/construir.py` a partir da pasta `kingdom-company` (precisa de `pip install markdown`). O script gera a página do artigo, a lista `/blog` e o `blog/noticias.json`.
+3. Publicar (commit e push).
+
+A automação (Manus + Claude) segue os mesmos três passos.
 
 ## Formato de cada notícia
 

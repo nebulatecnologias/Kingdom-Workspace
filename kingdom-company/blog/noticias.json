@@ -1,1 +1,26 @@
-[]
+[
+ {
+  "titulo": "Onde estão as oportunidades de negócio em Moçambique em 2027",
+  "resumo": "2027 será um ano de crescimento lento e dinheiro caro, mas não de oportunidades paradas. Os números do Plano e Orçamento do Estado mostram onde vale a pena apostar e o que exige cautela.",
+  "categoria": "Negócios",
+  "ambito": "Nacional",
+  "data": "2026-11-08",
+  "link": "/blog/oportunidades-de-negocio-mocambique-2027"
+ },
+ {
+  "titulo": "Os agentes de IA chegaram ao trabalho. O que isso muda para as PME moçambicanas",
+  "resumo": "Nas últimas semanas, a Google, a Adobe e outras gigantes deixaram de vender \"chatbots\" e passaram a vender agentes que executam tarefas. A tecnologia já está ao alcance de pequenas empresas, sobretudo através do WhatsApp.",
+  "categoria": "Inteligência artificial",
+  "ambito": "Internacional",
+  "data": "2026-11-07",
+  "link": "/blog/agentes-de-ia-chegam-aos-negocios"
+ },
+ {
+  "titulo": "6 tendências de marketing para 2027, com dados",
+  "resumo": "A inteligência artificial acelerou a produção de conteúdo, mas também aumentou a desconfiança do público. Os estudos mais recentes mostram o que vai pesar no marketing em 2027.",
+  "categoria": "Negócios",
+  "ambito": "Internacional",
+  "data": "2026-11-06",
+  "link": "/blog/tendencias-de-marketing-2027"
+ }
+]

@@ -199,6 +199,17 @@
     ler(not.dataset.fonte).then((itens) => (itens.length || !raiz.classList.contains('previa') ? itens : ler(not.dataset.exemplos))).then(monta);
   }
 
+  // Blog: filtros por categoria
+  const posts = document.querySelector('[data-posts]');
+  if (posts) {
+    const botoes = [...document.querySelectorAll('[data-filtro]')];
+    botoes.forEach((b) => b.addEventListener('click', () => {
+      const f = b.dataset.filtro;
+      botoes.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      posts.querySelectorAll('.post').forEach((li) => { li.hidden = !!f && li.dataset.categoria !== f; });
+    }));
+  }
+
   // Newsletter: enquanto a lista não está ligada, a subscrição segue por email
   const form = document.querySelector('[data-newsletter]');
   if (form) {
