@@ -133,3 +133,21 @@ d = ' '.join(caminho(pl) for pl in getattr(forma, 'geoms', [forma]))
 open(saida, 'w').write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480"><path fill="currentColor" fill-rule="evenodd" d="{d}"/></svg>\n')
 json.dump(dict(R=R, r=r, eixo=eixo, equador=equador, a_ext=a_ext, b_ext=b_ext, a_int=a_int, b_int=b_int, centro=[Uc, Vc, Pc], meridiano=[Um, Vm, Pm]), open('geo3.json', 'w'), indent=1)
 print(dict(r=round(r, 2), eixo=round(eixo, 2), equador=round(equador, 2), ext=(round(a_ext, 2), round(b_ext, 2)), int=(round(a_int, 2), round(b_int, 2))), 'furos', len(furos))
+
+# ---------- peças separadas, para o quadro de conceito ----------
+def d_de(geom):
+    geom = geom.simplify(0.01, preserve_topology=True)
+    return ' '.join(caminho(pl) for pl in getattr(geom, 'geoms', [geom]) if not pl.is_empty)
+eixo_g = box(-eixo / 2, -R, eixo / 2, R).intersection(interior)
+equador_g = box(-R, -equador / 2, R, equador / 2).intersection(interior)
+centro = box(-eixo / 2, -equador / 2, eixo / 2, equador / 2)
+zc = box(-(eixo / 2 + Uc), -(equador / 2 + Vc), eixo / 2 + Uc, equador / 2 + Vc)
+estrela = unary_union([eixo_g, equador_g] + cantos[:4]).intersection(zc).intersection(interior)
+zm = box(-a_ext - Um - 1, -(equador / 2 + Vm), -a_int, equador / 2 + Vm)
+zm = unary_union([zm, affinity.scale(zm, -1, 1, origin=(0, 0))])
+meias = unary_union([meridianos, equador_g] + cantos[4:]).intersection(zm).intersection(interior)
+json.dump(dict(globo=d, anel=d_de(anel), eixo=d_de(eixo_g), equador=d_de(equador_g),
+               meridianos=d_de(meridianos.intersection(interior)), estrela=d_de(estrela), meias=d_de(meias),
+               linhas=dict(r=r, a_ext=a_ext, b_ext=b_ext, a_int=a_int, b_int=b_int, eixo=eixo, equador=equador)),
+          open('pecas.json', 'w'))
+print('pecas ok')
