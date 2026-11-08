@@ -336,6 +336,12 @@ a.pcol-t:hover { color: var(--violeta); }
 .advising-nota { color: var(--cinza); }
 
 .advising .botao { margin-top: 24px; }
+.pedido-lista { display: grid; gap: 0; margin-top: 20px; border-top: 1px solid var(--linha); }
+.pedido-lista li { display: grid; gap: 2px; padding: 14px 0 14px 32px; border-bottom: 1px solid var(--linha); position: relative; }
+.pedido-lista li::before { content: ""; position: absolute; left: 4px; top: 20px; width: 12px; height: 7px; border-left: 2px solid var(--violeta); border-bottom: 2px solid var(--violeta); transform: rotate(-45deg); }
+.pedido-lista b { font-weight: 500; color: var(--indigo); }
+.pedido-lista span { color: var(--cinza); }
+.contratar .entrada { margin-bottom: 8px; }
 
 /* Notícias */
 .noticias-cabeca { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
