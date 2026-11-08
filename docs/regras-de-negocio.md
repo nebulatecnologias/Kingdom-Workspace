@@ -15,7 +15,7 @@ O núcleo é o Shelton Douglas (O Conselheiro). Os três braços são a Kingdom 
 
 ### R34 · Arquitectura de marca: Kingdom Company, Kingdom Training e Kingdom Academy
 
-O braço de serviços para empresas deixa de se chamar InCompany e passa a ser a própria Kingdom Company: desenvolvimento empresarial focado em estratégia, crescimento e gestão (desenvolvimento editorial, consultoria estratégica, assessoria em marketing e vendas, desenvolvimento tecnológico e treinamento corporativo em atendimento, vendas e marketing). O Kingdom Training é o braço educacional e a Kingdom Academy é a plataforma de educação online. O núcleo continua a ser o Shelton Douglas (O Conselheiro). A marca Kingdom Company usa a paleta C e a letra Google Sans (R14, docs/marca/kingdom-company.md). As três marcas usam o mesmo símbolo, o globo (docs/marca/globo/), com o nome completo numa só linha (ex.: «Kingdom Company»). Kingdom Company: descritor «Desenvolvimento Empresarial, Educação e Tecnologia» por baixo do nome; slogan «Um único lugar. Tudo o que precisa para desenvolver o seu negócio.»
+O braço de serviços para empresas deixa de se chamar InCompany e passa a ser a própria Kingdom Company: desenvolvimento empresarial focado em estratégia, crescimento e gestão (desenvolvimento editorial, consultoria estratégica, assessoria e desenvolvimento tecnológico; o treinamento corporativo passou para o Kingdom Training a 08/11/2026, R04). O Kingdom Training é o braço educacional e a Kingdom Academy é a plataforma de educação online. O núcleo continua a ser o Shelton Douglas (O Conselheiro). A marca Kingdom Company usa a paleta C e a letra Google Sans (R14, docs/marca/kingdom-company.md). As três marcas usam o mesmo símbolo, o globo (docs/marca/globo/), com o nome completo numa só linha (ex.: «Kingdom Company»). Kingdom Company: descritor «Desenvolvimento Empresarial, Educação e Tecnologia» por baixo do nome; slogan «Um único lugar. Tudo o que precisa para desenvolver o seu negócio.»
 
 *08/11/2026 · Decisão do Shelton*
 
@@ -47,9 +47,9 @@ O salário do Shelton é de 100.000 MT por mês nos primeiros 3 meses, 150.000 M
 
 ### R28 · Quem entrega a Kingdom Company
 
-No primeiro trimestre, o Shelton entrega pessoalmente a maioria dos serviços da Kingdom Company, com inteligência artificial. Depois, a entrega passa para a equipa e para subcontratados. Preços médios de referência para o plano: MediaTrack 25.000 MT por cliente por mês, website 15.000 MT, sistema 95.000 MT.
+No primeiro trimestre, o Shelton entrega pessoalmente a maioria dos serviços da Kingdom Company, com inteligência artificial. Depois, a entrega passa para a equipa e para subcontratados. Preços médios de referência para o plano: website 15.000 MT, sistema 95.000 MT. O MediaTrack (25.000 MT por cliente por mês) foi eliminado a 08/11/2026; a Gestão de Redes Sociais da Assessoria ainda não tem preço (R29).
 
-*10/10/2026 · Decisão do Shelton*
+*10/10/2026 · Decisão do Shelton; revista a 08/11/2026*
 
 ## Ofertas
 
@@ -66,11 +66,11 @@ O Training tem como entrada o livro O Bloqueio Invisível e três ofertas: 10X M
 
 *10/10/2026 · Decisão do Shelton*
 
-### R04 · Kingdom Company: 5 áreas e 3 planos por serviço
+### R04 · Kingdom Company: 4 áreas, 12 serviços e 3 planos por serviço
 
-A Kingdom Company tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Assessoria em Marketing & Vendas, Desenvolvimento Tecnológico e Treinamento Corporativo (nomes novos de 08/11/2026; antes «Marketing & Vendas» e «Assessoria Corporativa»). O site oficial é www.kingdomcompany.co.za (R35), feito a partir da versão 2 (hoje em incompany.kingdomcompny.com até o domínio novo estar ligado); é o único sítio onde aparece a morada da África do Sul. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta; no site nenhum plano mostra preço (R36). Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da Kingdom Company (R16). O Business Plan pertence à Consultoria Estratégica. A Assessoria de Eventos foi eliminada.
+A Kingdom Company tem 4 áreas, na ordem da escada de valor (R20): Desenvolvimento Editorial (Identidade Visual, Modelos de Propostas Técnicas, Perfis Corporativos); Consultoria Estratégica (Plano de Negócios, Planeamento Estratégico, Advisory · Aconselhamento Empresarial); Assessoria (Produção Audiovisual, Gestão de Redes Sociais, Produção de Campanhas Publicitárias); Desenvolvimento Tecnológico (Dashboards de Gestão, Websites e Aplicativos, Sistema de Pesquisa de Dados). Estrutura de 08/11/2026: o Treinamento Corporativo saiu do site e o treino de equipas fica no Kingdom Training; foram eliminados Diagnóstico Empresarial, Playbooks, Expert Led Growth, Brand 121, MediaTrack, Automação de processos e Segurança cibernética. O Advisory é um serviço da Consultoria, diferente do Business Advising com o Shelton (R17), que não aparece neste site. O site oficial é www.kingdomcompany.co.za (R35); é o único sítio onde aparece a morada da África do Sul. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta; no site nenhum plano mostra preço (R36). Os preços da tabela são a âncora das outras ofertas (R16). A Assessoria de Eventos foi eliminada.
 
-*10/10/2026 · Decisão do Shelton*
+*10/10/2026 · Decisão do Shelton; revista a 08/11/2026*
 
 ### R16 · Tracktion: 3 meses, 6 pessoas, 12.800 MT por mês
 
@@ -80,9 +80,9 @@ Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas, com no máximo 4 t
 
 ### R17 · Business Advising no piso: 2.650 MT por hora online, 5.800 MT presencial
 
-O Business Advising fica no piso da R22. Online: 2.650 MT por hora. Presencial: 5.800 MT até 2 horas (2 × 2.650 MT mais cerca de 500 MT de deslocação). Fecha direto no site (R08), exceto no site da Kingdom Company, onde não mostra preço e passa por conversa com um consultor (R36).
+O Business Advising fica no piso da R22. Online: 2.650 MT por hora. Presencial: 5.800 MT até 2 horas (2 × 2.650 MT mais cerca de 500 MT de deslocação). Fecha direto no site (R08). Não aparece no site da Kingdom Company (R36); o Advisory da Consultoria Estratégica é um serviço diferente (R04).
 
-*10/10/2026 · Decisão do Shelton*
+*10/10/2026 · Decisão do Shelton; revista a 08/11/2026*
 
 ### R18 · Comunidade Tracktion (arquivada: não existe)
 
@@ -136,9 +136,9 @@ Até 30 de Novembro de 2026, o Advising presencial custa 3.650 MT por até 2 hor
 
 ### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas, depois 32.000
 
-O Treinamento de Vendas da Kingdom Company dura 3 dias de cerca de 3 horas (9 horas). Custa 26.500 MT por empresa até 10 pessoas nas 3 primeiras empresas, para ganhar portefólio; depois passa a 32.000 MT, para cobrir a preparação. Cada pessoa a mais paga 3.500 MT.
+O Treinamento de Vendas dura 3 dias de cerca de 3 horas (9 horas). Custa 26.500 MT por empresa até 10 pessoas nas 3 primeiras empresas, para ganhar portefólio; depois passa a 32.000 MT, para cobrir a preparação. Cada pessoa a mais paga 3.500 MT. Desde 08/11/2026 o treino de equipas sai do site da Kingdom Company e fica no Kingdom Training (R04, R20).
 
-*10/10/2026 · Decisão do Shelton*
+*10/10/2026 · Decisão do Shelton; revista a 08/11/2026*
 
 ### R27 · Desenvolvimento Tecnológico: preços de websites e sistemas
 
@@ -148,9 +148,9 @@ Na Kingdom Company, o desenvolvimento de websites custa de 15.000 MT a 65.000 MT
 
 ### R29 · Preços da Kingdom Company
 
-Perfil Corporativo: 9.500 MT. Propostas Comerciais e de Concursos: 18.500 MT. Business Plan (Consultoria Estratégica): 32.500 MT; passa a 45.000 MT se levar mais de 11 horas do Shelton. MediaTrack: em média 25.000 MT por mês (15.000 a 35.000), contrato mínimo de 3 meses e pagamento antes de cada mês. Websites e sistemas têm manutenção mensal obrigatória: a partir de 1.500 MT por mês nos websites e 5.000 MT por mês nos sistemas. Expert Led Growth 65.200 MT, Brand 121 135.000 MT e Gestão Comercial e Marketing 45.000 MT mantêm-se até haver horas reais medidas.
+Perfis Corporativos: 9.500 MT. Modelos de Propostas Técnicas (antes Propostas Comerciais e de Concursos): 18.500 MT. Plano de Negócios (antes Business Plan, Consultoria Estratégica): 32.500 MT; passa a 45.000 MT se levar mais de 11 horas do Shelton. Websites e Aplicativos seguem a R27 e têm manutenção mensal obrigatória a partir de 1.500 MT por mês; sistemas, a partir de 5.000 MT por mês. Preço por definir: Identidade Visual, Planeamento Estratégico, Advisory, Produção Audiovisual, Gestão de Redes Sociais, Produção de Campanhas Publicitárias, Dashboards de Gestão e Sistema de Pesquisa de Dados. MediaTrack, Expert Led Growth, Brand 121 e Gestão Comercial e Marketing deixaram de existir a 08/11/2026 (R04).
 
-*10/10/2026 · Decisão do Shelton*
+*10/10/2026 · Decisão do Shelton; revista a 08/11/2026*
 
 ### R30 · One pager: âmbito fechado por 15.000 MT
 
@@ -166,7 +166,7 @@ Perfil Corporativo: 9.500 MT. Propostas Comerciais e de Concursos: 18.500 MT. Bu
 - Pagamento: 100% antes de começar.
 - Manutenção obrigatória de 1.500 MT por mês: alojamento, certificado de segurança, suporte e até 2 pequenas alterações por mês.
 
-**Não inclui:** mais páginas, blog, loja, área de membros ou segunda língua (passa a website de 35.000 a 65.000 MT); integrações por API, sistemas ou automações; fotografia, vídeo, logótipo ou identidade visual; domínio e email profissional; anúncios e gestão de redes (MediaTrack). Ronda de revisões a mais: 1.500 MT. Sem materiais em 10 dias, o projeto entra na fila outra vez.
+**Não inclui:** mais páginas, blog, loja, área de membros ou segunda língua (passa a website de 35.000 a 65.000 MT); integrações por API, sistemas ou automações; fotografia, vídeo, logótipo ou identidade visual; domínio e email profissional; anúncios e gestão de redes (Gestão de Redes Sociais e Produção de Campanhas Publicitárias, da Assessoria). Ronda de revisões a mais: 1.500 MT. Sem materiais em 10 dias, o projeto entra na fila outra vez.
 
 *10/10/2026 · Proposta do Claude, a pedido do Shelton*
 
@@ -194,9 +194,9 @@ A Kingdom Library não faz parte da estrutura. Quem compra um livro ou uma maste
 
 ### R08 · Quem fecha no site e quem passa por vendedor
 
-Os livros e o Business Advising fecham direto no site, sem vendedor; nessas linhas, a etapa de Fechamento fica vazia. O Tracktion e a Kingdom Company passam por um vendedor. No site da Kingdom Company, o Business Advising também passa por conversa com um consultor, sem preço (R36).
+Os livros e o Business Advising fecham direto no site, sem vendedor; nessas linhas, a etapa de Fechamento fica vazia. O Tracktion e a Kingdom Company passam por um vendedor. O Business Advising não aparece no site da Kingdom Company (R36).
 
-*10/10/2026 · Decisão do Shelton*
+*10/10/2026 · Decisão do Shelton; revista a 08/11/2026*
 
 ### R09 · Cada fechamento tem um responsável e um canal
 
@@ -246,7 +246,7 @@ Todas as ofertas de entrada levam anúncios de vendas (livros, livro + mastercla
 
 ### R36 · O site da Kingdom Company não mostra preços
 
-O site da Kingdom Company (www.kingdomcompany.co.za) não mostra preços, sem exceções, incluindo o Business Advising. Todos os serviços passam por um pedido de cotação ou por uma avaliação inicial (conversa com um consultor). Os preços da tabela (R17, R25, R27, R29, R30) ficam para uso interno e para as propostas. Os planos Essencial, Profissional e Premium continuam a existir, mas são apresentados sem valores.
+O site da Kingdom Company (www.kingdomcompany.co.za) não mostra preços, sem exceções. Todos os serviços passam por um pedido de cotação ou por uma avaliação inicial (conversa com um consultor). O Business Advising com o Shelton não aparece no site (R17); o Advisory da Consultoria Estratégica aparece, sem preço. Os preços da tabela (R17, R25, R27, R29, R30) ficam para uso interno e para as propostas. Os planos Essencial, Profissional e Premium continuam a existir, mas são apresentados sem valores.
 
 *08/11/2026 · Decisão do Shelton*
 

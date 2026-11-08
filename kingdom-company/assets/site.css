@@ -94,7 +94,7 @@ p { text-wrap: pretty; }
 .nav-item.aberto > .painel { visibility: visible; opacity: 1; transform: none; transition: opacity .2s, transform .3s var(--sai); pointer-events: auto; }
 .painel-in { width: min(100%, 1080px); margin-inline: auto; padding: 32px; border-radius: 20px; background: var(--branco); box-shadow: var(--sombra), 0 0 0 1px var(--linha-fria); }
 .painel-grelha { display: grid; gap: 28px; }
-.painel-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.painel-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .painel-area { display: block; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--linha); font-weight: 700; color: var(--indigo); text-decoration: none; line-height: 1.3; }
 .painel-area:hover { text-decoration: underline; }
 .painel ul a { display: block; padding: 6px 0; color: var(--tinta); text-decoration: none; line-height: 1.35; }
@@ -146,7 +146,7 @@ p { text-wrap: pretty; }
 .abertura-desc { margin-top: 28px; max-width: 62ch; font-size: 1.1875rem; line-height: 1.55; color: var(--claro-1); }
 .abertura .acoes { margin-top: 36px; }
 .faixa-areas { position: relative; z-index: 1; border-top: 1px solid rgba(255, 255, 255, .12); }
-.faixa-areas ul { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.faixa-areas ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .faixa-areas li + li { border-left: 1px solid rgba(255, 255, 255, .12); }
 .faixa-areas a { display: flex; align-items: center; gap: 10px; height: 100%; min-height: 84px; padding: 18px 16px; font-weight: 500; line-height: 1.3; color: var(--branco); text-decoration: none; transition: background-color .2s; }
 .faixa-areas li:first-child a { padding-left: 0; }
@@ -246,6 +246,23 @@ p { text-wrap: pretty; }
 .ta-fundo { stroke: rgba(255, 255, 255, .1); }
 .ta-valor { stroke: var(--lavanda); stroke-linecap: round; stroke-dasharray: 86 100; }
 .treino-anel > b { position: absolute; inset: 0; display: grid; place-items: center; font-size: 1.375rem; font-weight: 500; }
+.painel-g { margin: 36px 36px 0; padding: 24px; border-radius: 18px; background: rgba(14, 12, 31, .5); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.pg-topo { display: flex; align-items: center; gap: 18px; }
+.pg-topo > div:last-child b { display: block; font-weight: 500; }
+.pg-topo small { display: block; font-size: 1rem; color: var(--claro-2); }
+.pg-barras { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; align-items: end; height: 120px; margin-top: 22px; }
+.pg-barras span { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px; height: 100%; }
+.pg-barras i { display: block; width: 100%; height: calc(var(--h) * 88px); border-radius: 8px 8px 3px 3px; background: rgba(185, 179, 242, .28); transform-origin: bottom; transition: transform 1.2s var(--sai); }
+.pg-barras .agora i { background: var(--lavanda); }
+.pg-barras em { font-style: normal; font-size: 1rem; color: var(--claro-2); }
+.painel-g:not(.visivel) .pg-barras i { transform: scaleY(.05); }
+.painel-g .ta-valor { stroke-dasharray: 0 100; transition: stroke-dasharray 1.6s var(--sai); }
+.painel-g.visivel .ta-valor { stroke-dasharray: 86 100; }
+.capa-areas { background: linear-gradient(150deg, var(--realce), var(--lavanda) 70%, var(--luz)); }
+.capa-quatro { position: absolute; inset: 50% auto auto 50%; display: grid; grid-template-columns: repeat(2, 64px); gap: 14px; transform: translate(-50%, -50%) rotate(-8deg); opacity: 0; transition: opacity .4s .2s; }
+.capa-quatro i { width: 64px; height: 64px; border-radius: 16px; background: rgba(255, 255, 255, .7); box-shadow: 0 10px 24px -10px rgba(43, 40, 80, .5); }
+.capa-quatro i:nth-child(2) { background: var(--indigo); } .capa-quatro i:nth-child(3) { background: var(--luz); }
+.noticia.ativa .capa-quatro { opacity: 1; }
 .treino-modulos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 22px; }
 .treino-modulos li { padding: 10px 6px; border-radius: 10px; text-align: center; font-size: 1rem; background: rgba(255, 255, 255, .06); color: var(--claro-2); }
 .treino-modulos .feito { background: rgba(185, 179, 242, .18); color: var(--branco); }
@@ -440,7 +457,7 @@ p { text-wrap: pretty; }
 /* Responsivo */
 @media (max-width: 1180px) {
   .nav-acoes .botao-claro { display: none; }
-  .painel-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .painel-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 1080px) {
   .quem { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -466,7 +483,7 @@ p { text-wrap: pretty; }
   .painel { position: static; display: none; padding: 0 0 20px; visibility: visible; opacity: 1; transform: none; transition: none; pointer-events: auto; }
   .nav-item.aberto > .painel { display: block; }
   .painel-in { width: auto; padding: 0; border-radius: 0; box-shadow: none; }
-  .painel-5, .painel-duplo, .painel-icones { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .painel-4, .painel-duplo, .painel-icones { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .painel-pe { margin: 20px 0 0; padding: 16px; border-radius: 12px; border: 0; }
   .painel-icones a { margin-inline: 0; }
   .nav-acoes { flex-direction: column; align-items: stretch; margin-top: 24px; }
@@ -477,7 +494,6 @@ p { text-wrap: pretty; }
   .faixa-areas li + li { border-left: 0; }
   .faixa-areas li:nth-child(even) { border-left: 1px solid var(--linha-fria); }
   .faixa-areas li:first-child, .faixa-areas li:nth-child(2) { border-top: 0; }
-  .faixa-areas li:last-child { grid-column: 1 / -1; }
   .faixa-areas a, .faixa-areas li:first-child a { padding: 16px; }
   .numeros { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .numeros::before { content: none; }
@@ -513,7 +529,7 @@ p { text-wrap: pretty; }
   .gl-nome { font-size: 1rem; line-height: 1.2; }
   .gl-semanas span:nth-child(even) { visibility: hidden; }
   .cartao-largo .cartao-texto, .cartao-pe { padding-inline: 24px; }
-  .treino { margin: 24px 24px 0; }
+  .treino, .painel-g { margin: 24px 24px 0; }
   .treino-modulos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .orbita { transform: scale(.82); }
   .noticias-cabeca { align-items: flex-start; flex-direction: column; }

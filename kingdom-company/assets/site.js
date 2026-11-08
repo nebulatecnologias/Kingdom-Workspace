@@ -163,10 +163,10 @@
 
   // Carrossel: para cada momento da sua empresa
   const MOMENTOS = [
-    { tipo: 'Startups', ico: 'i-foguete', capa: 'Business plan', areas: 'Desenvolvimento Editorial · Desenvolvimento Tecnológico', frase: 'Uma empresa a arrancar precisa de um plano que convença o banco e de um primeiro site que venda. Juntamos o business plan, o pitch deck e a presença digital.' },
-    { tipo: 'Pequenas e médias empresas', ico: 'i-loja', capa: 'Funil de vendas', areas: 'Consultoria Estratégica · Marketing & Vendas', frase: 'Uma empresa que já vende e quer crescer sem perder o controlo. Diagnosticamos, definimos as prioridades e montamos um processo comercial que trabalha todos os meses.' },
-    { tipo: 'Empresas que concorrem', ico: 'i-trofeu', capa: 'Proposta de concurso', areas: 'Desenvolvimento Editorial · Treinamento Corporativo', frase: 'Quem concorre com frequência não pode perder por falhas de forma. Construímos modelos de proposta a partir do caderno de encargos e treinamos a equipa para os adaptar.' },
-    { tipo: 'Instituições', ico: 'i-instituicao', capa: 'Relatório institucional', areas: 'Desenvolvimento Editorial · Desenvolvimento Tecnológico · Treinamento Corporativo', frase: 'Uma instituição que precisa de prestar contas e de trabalhar com menos papel. Fazemos os relatórios, automatizamos os processos e treinamos quem os vai usar.' }
+    { tipo: 'Startups', ico: 'i-foguete', capa: 'Plano de negócios', areas: 'Consultoria Estratégica · Desenvolvimento Editorial · Desenvolvimento Tecnológico', frase: 'Uma empresa a arrancar precisa de um plano que convença o banco, de uma identidade e de um primeiro site. Juntamos o plano de negócios, a marca e a presença digital.' },
+    { tipo: 'Pequenas e médias empresas', ico: 'i-loja', capa: 'Dashboard de gestão', areas: 'Consultoria Estratégica · Assessoria · Desenvolvimento Tecnológico', frase: 'Uma empresa que já vende e quer crescer sem perder o controlo. Definimos as prioridades, montamos um dashboard de gestão e pomos a marca a comunicar todos os meses.' },
+    { tipo: 'Empresas que concorrem', ico: 'i-trofeu', capa: 'Proposta técnica', areas: 'Desenvolvimento Editorial', frase: 'Quem concorre com frequência não pode perder por falhas de forma. Construímos modelos de proposta técnica a partir do caderno de encargos, prontos a adaptar a cada concurso.' },
+    { tipo: 'Instituições', ico: 'i-instituicao', capa: 'Pesquisa de dados', areas: 'Desenvolvimento Editorial · Assessoria · Desenvolvimento Tecnológico', frase: 'Uma instituição que precisa de prestar contas e de conhecer quem serve. Fazemos o perfil e a comunicação, e montamos um sistema de pesquisa de dados com relatórios.' }
   ];
   const mom = document.querySelector('[data-momentos]');
   let mostraMomento = () => {};
