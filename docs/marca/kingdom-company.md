@@ -71,5 +71,17 @@ Quadros: `docs/marca/logotipo/quadros/kingdom-company-variacoes.png` e `kingdom-
 - **Área de proteção**: margem mínima de *x* em todos os lados, em que *x* é a altura do «K» de Kingdom.
 - **Tamanhos mínimos** (largura): horizontal 280 px / 70 mm; horizontal simples 120 px / 30 mm; vertical 210 px / 55 mm; vertical simples 100 px / 25 mm; símbolo 16 px / 6 mm. Abaixo do mínimo com descritor, usar a versão simples.
 
+## Padrões (08/11/2026)
+Cinco padrões feitos com o globo e a estrela: grelha, alternado, estrela, globo e estrela, e grande. Cores: branco sobre índigo, índigo sobre marfim, branco sobre laranja; o padrão grande também em tom sobre tom (índigo e marfim), para fundos.
+- `docs/marca/padroes/`: folhas de 1200 × 1200 em SVG e PNG; `modulos/` tem o módulo que se repete sem emendas, para usar como amostra de padrão no Figma, Canva ou Illustrator. Quadro: `quadro-padroes.png`.
+- Gerados por `tools/marca/padroes.py`.
+
+## Papelaria (08/11/2026)
+- **Papel timbrado** (A4, PDF): `docs/marca/papelaria/kingdom-company-papel-timbrado.pdf`. Página 1 com o logótipo completo e um traço laranja; página 2 (continuação) só com o símbolo. Rodapé: Kingdom Company e contactos (+258 85 1800 920 · kingdomcompny.com · Maputo, Moçambique). Globo em tom muito claro no canto inferior direito. Gerado por `tools/marca/timbrado.py`.
+- **Modelo de carta** (PowerPoint A4): `docs/marca/papelaria/kingdom-company-modelo-carta.pptx`, com os esquemas «Carta» e «Continuacao» e campos para data, destinatário, assunto e corpo. Precisa da letra Google Sans instalada no computador. Gerado por `tools/marca/carta-pptx.js`.
+
+## Capas de destaques do Instagram (08/11/2026)
+Sobre nós (o globo), Bastidores, Resultados e Agendar, em índigo, laranja e marfim (usar uma só cor nas quatro). 1080 × 1920 px, ícone de 520 px ao centro. Ficheiros em `docs/marca/instagram/destaques/`, gerados por `tools/marca/destaques.py`.
+
 ## Por decidir
 - Logótipos da Kingdom Training e da Kingdom Academy (descritor e slogan de cada uma), depois do brandbook da Company.
