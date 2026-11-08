@@ -1,0 +1,42 @@
+[
+ {
+  "titulo": "Título da notícia de negócios",
+  "resumo": "Resumo de duas ou três linhas, escrito pela nossa equipa, com o que a notícia significa para as empresas.",
+  "categoria": "Negócios",
+  "ambito": "Nacional",
+  "fonte": "Fonte da notícia",
+  "data": "2026-11-08",
+  "link": "/blog",
+  "exemplo": true
+ },
+ {
+  "titulo": "Título da notícia de inteligência artificial",
+  "resumo": "Resumo de duas ou três linhas sobre a novidade e o impacto prático na gestão.",
+  "categoria": "Inteligência artificial",
+  "ambito": "Internacional",
+  "fonte": "Fonte da notícia",
+  "data": "2026-11-07",
+  "link": "/blog",
+  "exemplo": true
+ },
+ {
+  "titulo": "Título da notícia de tecnologia",
+  "resumo": "Resumo de duas ou três linhas sobre a tecnologia e as empresas a que interessa.",
+  "categoria": "Tecnologia",
+  "ambito": "Internacional",
+  "fonte": "Fonte da notícia",
+  "data": "2026-11-06",
+  "link": "/blog",
+  "exemplo": true
+ },
+ {
+  "titulo": "Título de outra notícia de negócios",
+  "resumo": "Resumo de duas ou três linhas com o contexto regional e o que muda para o mercado.",
+  "categoria": "Negócios",
+  "ambito": "Regional",
+  "fonte": "Fonte da notícia",
+  "data": "2026-11-05",
+  "link": "/blog",
+  "exemplo": true
+ }
+]
