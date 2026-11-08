@@ -148,19 +148,6 @@
     [...ul.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); ul.appendChild(c); });
   });
 
-  // Metodologia: as fases acendem à medida que a página desce
-  const fases = document.querySelector('[data-fases]');
-  if (fases) {
-    const passos = [...fases.children];
-    const atualiza = () => {
-      const meio = innerHeight * 0.62; let acesos = 0;
-      passos.forEach((p, n) => { const aceso = p.getBoundingClientRect().top < meio; p.classList.toggle('aceso', aceso); if (aceso) acesos = n + 1; });
-      fases.style.setProperty('--p', acesos <= 1 ? 0 : (acesos - 1) / (passos.length - 1));
-    };
-    if (calmo) passos.forEach((p) => p.classList.add('aceso')), fases.style.setProperty('--p', 1);
-    else { addEventListener('scroll', atualiza, { passive: true }); atualiza(); }
-  }
-
   // Carrossel: para cada momento da sua empresa
   const MOMENTOS = [
     { tipo: 'Startups', ico: 'i-foguete', capa: 'Plano de negócios', areas: 'Consultoria Estratégica · Desenvolvimento Editorial · Desenvolvimento Tecnológico', frase: 'Uma empresa a arrancar precisa de um plano que convença o banco, de uma identidade e de um primeiro site. Juntamos o plano de negócios, a marca e a presença digital.' },
