@@ -19,6 +19,12 @@ O braço de serviços para empresas deixa de se chamar InCompany e passa a ser a
 
 *08/11/2026 · Decisão do Shelton*
 
+### R35 · Contactos oficiais da Kingdom Company
+
+Contactos oficiais da Kingdom Company: email contact@kingdomcompany.co.za; telefones +258 87 664 1836 e +258 85 1800 920; morada em Moçambique: Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106; site www.kingdomcompany.co.za (o domínio novo da marca). A empresa tem também base na África do Sul (2 Mushroom Road, Plooysville AH, Midrand, Joanesburgo 1685), que só aparece no site. Papelaria, assinaturas de email, cartões e redes mostram só os contactos de Moçambique.
+
+*08/11/2026 · Decisão do Shelton*
+
 ### R20 · Jornada entre braços e escada de valor de cada braço
 
 Os braços formam uma jornada. Academy: quem quer ganhar o primeiro dinheiro online (marketing, vendas e inteligência artificial). Training: quem percebe que a técnica não chega e procura desenvolvimento pessoal, mentalidade de empresário, conexão e experiências. Kingdom Company: empresas que querem as soluções da Kingdom, vindas do Training ou do mercado.

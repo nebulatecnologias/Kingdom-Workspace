@@ -33,6 +33,13 @@ Uma só família: **Google Sans** (a mesma dos outros sites do ecossistema).
 - Paleta: post Aureva (cores) e template Koneksi (uso de um só laranja forte, muito espaço, tipografia grande).
 - Comparação das 3 paletas: `docs/marca/kingdom-company-paleta-c.png`.
 
+## Contactos oficiais (R35, 08/11/2026)
+- Email: contact@kingdomcompany.co.za
+- Telefones: +258 87 664 1836 · +258 85 1800 920
+- Morada: Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106, Moçambique
+- Site: www.kingdomcompany.co.za
+- África do Sul (só no site): 2 Mushroom Road, Plooysville AH, Midrand, Joanesburgo 1685
+
 ## Nome e arquitectura (R34, 08/11/2026)
 - **Kingdom Company**: desenvolvimento empresarial (estratégia, crescimento e gestão). Era a «Kingdom InCompany».
   - Descritor (por baixo do nome, no logótipo): **Desenvolvimento Empresarial, Educação e Tecnologia**.
@@ -77,7 +84,7 @@ Cinco padrões feitos com o globo e a estrela: grelha, alternado, estrela, globo
 - Gerados por `tools/marca/padroes.py`.
 
 ## Papelaria (08/11/2026)
-- **Papel timbrado** (A4, PDF): `docs/marca/papelaria/kingdom-company-papel-timbrado.pdf`. Página 1 com o logótipo completo e um traço laranja; página 2 (continuação) só com o símbolo. Rodapé: Kingdom Company e contactos (+258 85 1800 920 · kingdomcompny.com · Maputo, Moçambique). Globo em tom muito claro no canto inferior direito. Gerado por `tools/marca/timbrado.py`.
+- **Papel timbrado** (A4, PDF): `docs/marca/papelaria/kingdom-company-papel-timbrado.pdf`. Página 1 com o logótipo completo e um traço laranja; página 2 (continuação) só com o símbolo. Rodapé com os contactos oficiais de Moçambique (R35): morada no Edifício Millenium Park, telefones, email e site. Globo em tom muito claro no canto inferior direito. Gerado por `tools/marca/timbrado.py`.
 - **Modelo de carta** (PowerPoint A4): `docs/marca/papelaria/kingdom-company-modelo-carta.pptx`, com os esquemas «Carta» e «Continuacao» e campos para data, destinatário, assunto e corpo. Precisa da letra Google Sans instalada no computador. Gerado por `tools/marca/carta-pptx.js`.
 
 ## Capas de destaques do Instagram (08/11/2026)

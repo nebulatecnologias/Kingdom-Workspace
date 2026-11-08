@@ -24,12 +24,18 @@ pres.title = "Modelo de carta · Kingdom Company"; pres.company = "Kingdom Compa
 const C = pres.SchemeColor;
 const ESQ = mm(20), LARG = mm(170);
 
+// contactos oficiais (R35); a morada da África do Sul só aparece no site
+const MORADA = ["Edifício Millenium Park, Av. Vladimir Lenine, n.º 174", "Maputo 1106, Moçambique"];
+const CONTACTOS = ["+258 87 664 1836  ·  +258 85 1800 920", "contact@kingdomcompany.co.za", "www.kingdomcompany.co.za"];
+// no esquema (layout) o texto fixo não aceita várias cores num só bloco: uma caixa por linha
 function rodape() {
+  const linha = (t, i, x, w, cor, align) => ({ text: { text: t, options: { x, y: mm(268.2 + i * 3.6), w, h: mm(3.4), fontSize: 7.6, color: cor, margin: 0, valign: "middle", align } } });
+  const esq = [["Kingdom Company", C.text2], ...MORADA.map(t => [t, C.accent3])];
   return [
     { image: { path: CANTO, x: mm(108), y: mm(187), w: mm(102), h: mm(110) } },
-    { line: { x: ESQ, y: mm(279.6), w: LARG, h: 0, line: { color: "E8E4DC", width: 0.75 } } },
-    { text: { text: "Kingdom Company", options: { x: ESQ, y: mm(281.2), w: mm(60), h: mm(5), fontSize: 7.6, color: C.text2, margin: 0, valign: "middle" } } },
-    { text: { text: "+258 85 1800 920  ·  kingdomcompny.com  ·  Maputo, Moçambique", options: { x: ESQ + mm(60), y: mm(281.2), w: LARG - mm(60), h: mm(5), fontSize: 7.6, color: C.accent3, align: "right", margin: 0, valign: "middle" } } },
+    { line: { x: ESQ, y: mm(265.6), w: LARG, h: 0, line: { color: "E8E4DC", width: 0.75 } } },
+    ...esq.map(([t, cor], i) => linha(t, i, ESQ, mm(95), cor, "left")),
+    ...CONTACTOS.map((t, i) => linha(t, i, ESQ + mm(95), LARG - mm(95), C.accent3, "right")),
   ];
 }
 const corpo = (y, h) => ({ placeholder: { options: { name: "corpo", type: "body", x: ESQ, y, w: mm(166), h, fontSize: 10.5, color: C.text1, lineSpacingMultiple: 1.35, paraSpaceAfter: 6, valign: "top", margin: 0 }, text: "Texto da carta" } });
@@ -43,7 +49,7 @@ pres.defineSlideMaster({
     { placeholder: { options: { name: "data", type: "body", x: ESQ, y: mm(56), w: LARG, h: mm(7), fontSize: 10.5, color: C.accent3, align: "right", valign: "top", margin: 0 }, text: "Maputo, dia de mês de ano" } },
     { placeholder: { options: { name: "destinatario", type: "body", x: ESQ, y: mm(68), w: mm(110), h: mm(20), fontSize: 10.5, color: C.text1, lineSpacingMultiple: 1.3, valign: "top", margin: 0 }, text: "Nome do destinatário" } },
     { placeholder: { options: { name: "assunto", type: "body", x: ESQ, y: mm(93), w: mm(166), h: mm(7), fontSize: 10.5, color: C.text1, valign: "top", margin: 0 }, text: "Assunto" } },
-    corpo(mm(106), mm(165)),
+    corpo(mm(106), mm(152)),
   ],
 });
 pres.defineSlideMaster({
@@ -51,7 +57,7 @@ pres.defineSlideMaster({
   objects: [
     ...rodape(),
     { image: { path: SIMBOLO, x: ESQ, y: mm(16), w: mm(9), h: mm(9) } },
-    corpo(mm(36), mm(232)),
+    corpo(mm(36), mm(222)),
   ],
 });
 
@@ -68,7 +74,7 @@ s.addText([
   { text: "Exmo. Senhor,", options: { breakLine: true } },
   { text: "Na sequência da nossa conversa, enviamos a proposta de acompanhamento para os próximos seis meses. O objetivo é dar à vossa equipa comercial uma estrutura clara de vendas, com metas, rotinas e indicadores que a direção consiga acompanhar todas as semanas.", options: { breakLine: true } },
   { text: "A proposta inclui o diagnóstico inicial, o plano de ação e as sessões de acompanhamento. Os valores e o calendário seguem em anexo.", options: { breakLine: true } },
-  { text: "Ficamos à disposição para qualquer esclarecimento.", options: { breakLine: true } },
+  { text: "Ficamos à disposição para qualquer esclarecimento através do email contact@kingdomcompany.co.za ou do telefone +258 87 664 1836.", options: { breakLine: true } },
   { text: "Com os melhores cumprimentos,", options: { breakLine: true } },
   { text: " ", options: { breakLine: true } },
   { text: "Nome Apelido", options: { bold: true, breakLine: true } },
