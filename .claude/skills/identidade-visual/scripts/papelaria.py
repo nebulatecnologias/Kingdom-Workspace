@@ -31,7 +31,8 @@ if not f_logo: raise SystemExit('correr logotipo.py primeiro')
 
 if modo == 'timbrado':
     logo = re.sub(r'width="\d+" height="\d+"', 'width="74mm"', open(f_logo).read().strip(), count=1)
-    canto = SIM.svg(TOM, largura='150mm', estilo='position:absolute;right:-48mm;bottom:-40mm')
+    cn = cfg.get('papelaria', {}).get('canto', {})   # {tamanho_mm, direita_mm, baixo_mm}: símbolo grande no canto
+    canto = SIM.svg(TOM, largura=f"{cn.get('tamanho_mm', 150)}mm", estilo=f"position:absolute;right:{cn.get('direita_mm', -48)}mm;bottom:{cn.get('baixo_mm', -40)}mm")
     sim_peq = SIM.svg(PRI, altura='9mm')
     rod = f'''<div class="rod"><span><b>{cfg["nome"]}</b><br>{"<br>".join(MORADA)}</span><span class="d">{"<br>".join(CONTACTOS)}</span></div>'''
     carta = cfg.get('papelaria', {}).get('exemplo_html') or '''<p class="data">Cidade, dia de mês de ano</p><p class="dest"><b>Nome do destinatário</b><br>Cargo · Empresa<br>Endereço</p>
@@ -50,7 +51,7 @@ body{{font-family:'{fam}',sans-serif;color:{TIN};-webkit-print-color-adjust:exac
 <div class="pag">{canto}<div class="topo">{logo}</div><div class="traco"></div><div class="corpo">{carta if EX else ""}</div>{rod}</div>
 <div class="pag">{canto}<div class="topo2">{sim_peq}</div>{rod}</div></body></html>'''
     pdf = os.path.join(OUT, f'{S_}-papel-timbrado{"-exemplo" if EX else ""}.pdf')
-    renderizar(html, pdf=pdf, largura_mm=210, altura_mm=297, png_seletor='.pag', png_pasta=os.path.join(OUT, 'previa-timbrado'))
+    renderizar(html, pdf=pdf, largura_mm=210, altura_mm=297, png_seletor='.pag', png_pasta=os.path.join(OUT, 'previa-timbrado' + ('-exemplo' if EX else '')))
     print('ok', pdf)
 
 elif modo == 'carta':

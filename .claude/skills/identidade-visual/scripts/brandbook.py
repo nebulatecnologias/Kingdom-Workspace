@@ -43,6 +43,7 @@ LUZ = T.get('luz') or de_hls(hh, .62, min(1, max(ss, .25) * 1.7))
 LAV = T.get('lavanda') or de_hls(hh, .83, min(1, max(ss, .25) * 1.5))
 MEIO = de_hls(hh, ll * 1.35, min(1, ss * 1.2))
 LARF = C.get('acento_texto', {}).get('hex') or (LAR if contraste(LAR, '#FFFFFF') >= 4.5 else escurecer(LAR, .16))
+EB_ESCURO = LAR if min(contraste(LAR, NOITE), contraste(LAR, IND)) >= 4.5 else LAV   # etiquetas sobre gradientes
 def rgbs(h): return ','.join(map(str, rgb(h)))
 def n2(v, c=1): return f'{v:.{c}f}'.replace('.', ',')
 
@@ -93,11 +94,13 @@ def construcao_auto():
         l.append(f'<circle cx="{x}" cy="{y}" r="{sw * 3.2}" fill="#fff" stroke="{LAR}" stroke-width="{sw * 1.4}"/>')
     return f'<svg viewBox="{vx - m} {vy - m} {vw + 2 * m} {vh + 2 * m}" width="150mm" height="{150 / SIM.proporcao:.1f}mm" style="max-height:150mm">{"".join(l)}</svg>'
 
-def construcao_overlay(f):
-    """overlay feito à mão/por script nas mesmas coordenadas do símbolo"""
+def construcao_overlay(f, com_simbolo=True, claro=False):
+    """overlay nas mesmas coordenadas do símbolo; o símbolo é desenhado por baixo, em tom suave.
+    O overlay pode usar var(--ind), var(--lar), var(--luz), var(--clara2)."""
     s = open(caminho(cfg, f)).read(); corpo = s[s.index('>', s.index('<svg')) + 1:s.rindex('</svg>')]
     vb = re.search(r'viewBox="([^"]+)"', s).group(1)
-    return f'<svg viewBox="{vb}" width="150mm" height="150mm" overflow="visible">{corpo}</svg>'
+    base = ''.join(f'<path fill="{"#fff" if claro else IND}" fill-opacity="{".16" if claro else ".08"}" fill-rule="evenodd" d="{d}"/>' for d in SIM.ds) if com_simbolo else ''
+    return f'<svg viewBox="{vb}" width="150mm" height="150mm" overflow="visible">{base}{corpo}</svg>'
 
 # ---------------- construção do nome ----------------
 def construcao_nome():
@@ -127,7 +130,9 @@ def construcao_nome():
         b = BoundsPen(L.gs); L.gs[nome].draw(b); return b.bounds
     cap = round(L.cap * L.upem); xh = round(L.xh * L.upem); asc = round((bb('d') or (0, 0, 0, cap))[3]); desc = round((bb('g') or bb('p') or (0, -L.upem * .2, 0, 0))[1])
     W = x; u = L.upem / 1000; lin = []
-    alturas = [(-cap, f'Maiúsculas · {cap}' if abs(asc - cap) > 8 * u else f'Maiúsculas e ascendentes · {cap}')] + ([(-asc, f'Ascendentes · {asc}')] if abs(asc - cap) > 8 * u else []) + [(-xh, f'Altura-x · {xh}'), (0, 'Linha de base · 0'), (-desc, f'Descendentes · {desc}')]
+    perto = abs(asc - cap) <= 70 * u                      # etiquetas com 58 de corpo: abaixo de ~70 sobrepõem-se
+    alturas = [(-cap, f'Maiúsculas · {cap}' + (f' · ascendentes {asc}' if perto and asc != cap else '') if perto else f'Maiúsculas · {cap}')] + ([] if perto else [(-asc, f'Ascendentes · {asc}')]) + [(-xh, f'Altura-x · {xh}'), (0, 'Linha de base · 0'), (-desc, f'Descendentes · {desc}')]
+    if perto and asc != cap: lin.append(f'<line x1="{-120 * u}" y1="{-asc}" x2="{W + 100 * u}" y2="{-asc}" stroke="{LUZ}" stroke-width="{3 * u}" stroke-dasharray="{6 * u} {10 * u}"/>')
     for y, nome in alturas:
         lin.append(f'<line x1="{-120 * u}" y1="{y}" x2="{W + 100 * u}" y2="{y}" stroke="{LUZ}" stroke-width="{5 * u}" stroke-dasharray="{"" if y in (0, -cap) else f"{16 * u} {12 * u}"}"/>'
                    f'<text x="{W + 150 * u}" y="{y + 20 * u}" font-size="{58 * u}" fill="{CIN}" font-family="{FAM}">{nome}</text>')
@@ -223,14 +228,14 @@ if sig:
 if passos:
     pz = ''.join(f'<div><div class="pz-a">{destaque(p["pecas"], "52mm")}</div><small>{i + 1:02d}</small><b>{p["nome"]}</b><span>{p.get("nota", "")}</span></div>' + ('<i>+</i>' if i < len(passos) - 1 else '') for i, p in enumerate(passos))
     pag(f'''{cab(sec, 'Do traço ao símbolo', cfg.get('simbolo_passos_lead', 'O símbolo constrói-se por passos, sempre com a mesma lógica de traço.'))}<div class="pz">{pz}</div>''', 'clara', 'O símbolo')
-arte = construcao_overlay(cons['svg']) if cons.get('svg') else construcao_auto()
+arte = construcao_overlay(cons['svg'], cons.get('incluir_simbolo', True)) if cons.get('svg') else construcao_auto()
 leg = cons.get('legenda') or [['Caixa', f'{n2(SIM.vw, 0)} × {n2(SIM.vh, 0)} unidades; proporção {n2(SIM.proporcao, 2)}:1.'], ['Eixos', 'Centro, eixos e diagonais a 45° orientam o equilíbrio do desenho.'], ['Círculo', 'Círculo inscrito: referência para a ótica do símbolo em tamanhos pequenos.']]
 pag(f'''<div class="cons"><div>{cab(sec, 'Construção geométrica', cons.get('lead', 'O símbolo assente na sua grelha, com os eixos e os pontos de ancoragem.'))}
 <ol class="leg">{''.join(f'<li><i>{i + 1}</i><div><b>{n}</b><span>{d}</span></div></li>' for i, (n, d) in enumerate(leg))}</ol></div><div class="cons-arte">{arte}</div></div>''', 'clara', 'O símbolo')
 if det:
     dados = ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in det.get('dados', []))
     pag(f'''{efeitos(grelha=False, feixes=1)}<div class="est"><div class="est-t"><div class="eb claro">{sec}</div><h2 class="branco">{det["titulo"]}</h2><p class="lead claro">{det.get("texto", "")}</p>
-{f'<div class="formula">{det["formula"]}</div>' if det.get("formula") else ''}<dl>{dados}</dl></div><div class="est-a">{construcao_overlay(det["svg"])}</div></div>''', 'escura', 'O símbolo')
+{f'<div class="formula">{det["formula"]}</div>' if det.get("formula") else ''}<dl>{dados}</dl></div><div class="est-a">{construcao_overlay(det["svg"], det.get("incluir_simbolo", True), claro=True)}</div></div>''', 'escura', 'O símbolo')
 if frase:
     pag(f'''{efeitos(feixes=2)}<div class="frase"><div class="eb claro">{sec}</div><p>{frase}</p></div><div class="frase-g">{simbolo('#FFFFFF', '58mm')}</div>''', 'grad aurora', 'O símbolo')
 
@@ -250,9 +255,9 @@ pag(f'''{cab(sec, 'O logótipo principal', f'O símbolo à esquerda e o nome com
 svg_nome, palavra, xh_pct, peso = construcao_nome()
 pag(f'''{cab(sec, 'Construção do nome', f'{FAM} {peso}, com espaçamento {n2(LG.get("tracking", -0.02) * 100)}%. Os pontos são os pontos das curvas; os quadrados, as alças. As linhas marcam as alturas que a letra respeita.')}
 <div class="nome-c">{svg_nome}</div><div class="tres"><div><b>{peso}</b><span>Peso da letra, igual em todo o nome.</span></div><div><b>{n2(LG.get("tracking", -0.02) * 100)}%</b><span>Espaçamento entre letras.</span></div><div><b>{xh_pct}%</b><span>Altura-x em relação às maiúsculas.</span></div></div>''', 'clara', 'O logótipo')
-VS = [('horizontal', 'Horizontal', 'A versão principal. Usar sempre que houver espaço.', '112mm'), ('vertical', 'Vertical', 'Formatos quadrados e altos.', '60mm')]
-if TEM_DESC: VS += [('horizontal-simples', 'Horizontal simples', 'Sem descritor: cabeçalhos, rodapés, tamanhos pequenos.', '112mm'), ('vertical-simples', 'Vertical simples', 'Sem descritor.', '50mm')]
-pag(f'''{cab(sec, 'Versões')}<div class="vers" style="grid-template-rows:repeat({len(VS) // 2},62mm)">{''.join(f'<div>{logo(f, IND, w=w)}<p><b>{n}</b>{d}</p></div>' for f, n, d, w in VS)}</div>''', 'branca', 'O logótipo')
+VS = [('horizontal', 'Horizontal', 'A versão principal. Usar sempre que houver espaço.', dict(w='112mm')), ('vertical', 'Vertical', 'Formatos quadrados e altos.', dict(h='38mm'))]
+if TEM_DESC: VS += [('horizontal-simples', 'Horizontal simples', 'Sem descritor: cabeçalhos, rodapés, tamanhos pequenos.', dict(w='112mm')), ('vertical-simples', 'Vertical simples', 'Sem descritor.', dict(h='34mm'))]
+pag(f'''{cab(sec, 'Versões')}<div class="vers" style="grid-template-rows:repeat({len(VS) // 2},62mm)">{''.join(f'<div>{logo(f, IND, **t)}<p><b>{n}</b>{d}</p></div>' for f, n, d, t in VS)}</div>''', 'branca', 'O logótipo')
 ic_html = ''.join(f'<div class="ic-lar">{icone(n, "22mm")}</div>' for n in ICONES[1:2])
 fav = os.path.join(LOGO, 'favicon.svg'); favs = ''.join(re.sub(r'width="\d+" height="\d+"', f'width="{t}px" height="{t}px"', open(fav).read().strip(), count=1) for t in (48, 32, 16)) if os.path.exists(fav) else ''
 pag(f'''<div class="ic"><div class="ic-t">{cab(sec, 'Símbolo, ícone e favicon', 'Quando a marca já está presente ou o espaço é pequeno, o símbolo aparece sozinho.')}
@@ -389,7 +394,7 @@ GRAO = 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode()
 css_base = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'assets', 'brandbook.css')).read().replace('@@GRAO@@', GRAO)
 ROOT = (f":root{{--fam:'{FAM}';--ind:{IND};--lar:{LAR};--larf:{LARF};--mar:{MAR};--tin:{TIN};--cin:{CIN};--lin:{LIN};--noite:{NOITE};--luz:{LUZ};--lav:{LAV};--meio:{MEIO};"
         f"--clara:{de_hls(hh, .95, min(1, ss * 1.2 + .1))};--clara2:{de_hls(hh, .88, min(1, ss + .1))};--claro-txt:{de_hls(hh, .85, .25)};--claro-txt2:{de_hls(hh, .72, .2)};"
-        f"--lav-rgb:{rgbs(LAV)};--lar-rgb:{rgbs(LAR)};--noite-rgb:{rgbs(NOITE)};--luz-rgb:{rgbs(LUZ)}}}\n")
+        f"--eb-escuro:{EB_ESCURO};--lav-rgb:{rgbs(LAV)};--lar-rgb:{rgbs(LAR)};--noite-rgb:{rgbs(NOITE)};--luz-rgb:{rgbs(LUZ)}}}\n")
 EXTRA = '.apl{position:absolute;inset:0;background:center/cover no-repeat} .apl-leg{position:absolute;left:20mm;bottom:11mm;z-index:2;font-size:9pt;color:#fff;background:rgba(0,0,0,.35);padding:1.6mm 4mm;border-radius:10mm}'
 def rodape(i, cls, sec):
     if 'grad' in cls or 'escura' in cls:

@@ -23,6 +23,10 @@ OUT = saida(cfg, 'padroes'); MOD = saida(cfg, 'padroes', 'modulos'); S_ = slug(c
 
 def modulo(W, frac):
     H = round(W * 0.8667)                       # fiadas a 60°: altura = 0,8667 × largura
+    # frac = altura da peça / largura do módulo; a peça tem de caber em meia célula (largura <= W/2, altura <= H/2)
+    lim = min(0.5 / PECA.proporcao, 0.5 * 0.8667)
+    if frac > lim:
+        print(f'aviso: fração {frac} faz a peça passar da célula; usado {lim:.2f}'); frac = lim
     alt = W * frac; larg = alt * PECA.proporcao
     def em(cx, cy): return PECA.g(cx - larg / 2, cy - alt / 2, alt)
     return W, H, em(W / 4, H / 4) + em(3 * W / 4, 3 * H / 4)

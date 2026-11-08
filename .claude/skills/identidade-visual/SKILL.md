@@ -13,7 +13,7 @@ Os scripts estão em `scripts/` e leem tudo de um ficheiro `marca.json` por marc
 
 - **Mostrar, não descrever.** Em cada decisão (paleta, letra, logótipo), gerar um quadro PNG com `quadros.py` e enviá-lo. O cliente decide a ver, não a ler códigos de cor.
 - **Uma decisão de cada vez, e aprovada.** No fim de cada etapa, perguntar se aprova e esperar pela resposta antes de avançar. Se o cliente pedir outra ordem («primeiro o logótipo, depois as variações, depois o brandbook»), seguir a ordem dele.
-- **Registar as decisões.** Guardar cada escolha aprovada em `marca.json` (fonte de verdade para os scripts) e numa nota `decisoes.md` na pasta da marca, com data, para não se perder entre conversas. Se o projeto tiver regras de negócio registadas, como o CLAUDE.md da Kingdom, seguir também essas regras.
+- **Registar as decisões.** Guardar cada escolha aprovada em `marca.json` (fonte de verdade para os scripts) e numa nota `decisoes.md` na pasta da marca, com data, para não se perder entre conversas. Se o projeto em que se trabalha tiver regras próprias (um CLAUDE.md, regras de negócio), seguir essas regras. Uma marca de um cliente externo não herda regras de outra marca do mesmo espaço de trabalho.
 - **O texto do logótipo vai sempre em curvas.** O ficheiro do logótipo não pode depender da letra instalada. `logotipo.py` faz isto com uharfbuzz e fontTools.
 - **O logótipo usa uma só cor.** Duas cores e efeitos (sombras, gradientes no logótipo) aparecem como usos incorretos no brandbook.
 - **Escrever na língua do cliente.** Se for português, escolher a variante europeia ou brasileira conforme o cliente e manter a mesma em todas as peças. Os textos vão sem jargão, em frases curtas e com dados concretos.
@@ -31,20 +31,25 @@ Antes de desenhar, perguntar:
 - o símbolo atual, se houver;
 - os contactos oficiais.
 
-Criar a pasta da marca com `marca.json` (começar pelo exemplo) e `decisoes.md`. Não inventar dados que o cliente não deu: deixar o campo vazio e perguntar.
+Criar a pasta da marca com `marca.json` (começar pelo exemplo) e `decisoes.md`. Não inventar factos: contactos, números, clientes, anos de atividade. Quando um campo falta, deixá-lo vazio e perguntar.
+
+Os textos de posicionamento podem ser propostos a partir do briefing e da área de atividade: manifesto, personalidade, anti-referência, tom de voz. Marcá-los como «proposta» em `decisoes.md` e pedir aprovação. Se não houver base para os escrever, deixar essas secções de fora; o brandbook monta-se sem elas.
 
 ### 1. Símbolo
-- **Com uma imagem de referência:** `python3 scripts/tracar.py ref.png simbolo.svg --simetria x|y|xy --suavizar 1.0 [--circulo]`. O script grava `simbolo-verificacao.png` com a referência e o traçado lado a lado; abrir e comparar.
+- **Com uma imagem de referência:** `python3 scripts/tracar.py ref.png simbolo.svg [--simetria x|y|xy] --suavizar 1.0 [--circulo]`. O script grava `simbolo-verificacao.png` com a referência e o traçado lado a lado; abrir e comparar.
+  - Correr primeiro sem simetria. Num esboço torto ou feito à mão, a média com o espelho apaga traços finos que não coincidem; nesses casos, medir no traçado e reconstruir.
+  - O SVG final pode usar quaisquer comandos de caminho (arcos `A`, curvas `C`/`Q`), desde que tenha `viewBox`, sem `transform`, e fill-rule evenodd.
   - Se o desenho é geométrico (círculos, elipses, eixos, curvas de concordância), o traçado é só o ponto de partida. Refazer com primitivas exatas, seguindo [references/reconstrucao-geometrica.md](references/reconstrucao-geometrica.md). Foi o que o cliente pediu no globo: «100% circular, os detalhes de dentro devem corresponder exatamente ao desenho».
 - **Sem referência:** propor 2 ou 3 conceitos com o porquê de cada um. Desenhá-los em SVG, de preferência a partir de um módulo geométrico com regra de construção, e mostrá-los num quadro.
 - **Quadro:** `quadros.py marca.json simbolo` mostra o símbolo grande, sobre claro e escuro, e a 64, 32 e 16 px. Pedir aprovação.
 - **Significado (opcional, mas valorizado):** dar ao símbolo um sentido transversal, o mesmo em todas as sub-marcas.
   - Não repetir significados entre elementos. Na Kingdom, «estrela» e «eixo» queriam dizer o mesmo e o cliente corrigiu.
   - Resumir em 3 ou 4 palavras e numa frase.
-  - Separar o símbolo em peças SVG (uma por elemento, nas mesmas coordenadas) para as páginas de significado e de construção do brandbook.
+  - Separar o símbolo em peças SVG (uma por elemento, com o mesmo `viewBox` do símbolo) para as páginas de significado e de construção do brandbook.
+  - Na página de construção, o overlay (`simbolo_construcao.svg`) leva só as linhas-guia, nas coordenadas do símbolo. O brandbook desenha o símbolo por baixo e o overlay pode usar `var(--ind)`, `var(--lar)`, `var(--luz)` e `var(--clara2)`.
 
 ### 2. Paleta
-- Pôr 2 ou 3 opções em `opcoes_paleta` e correr `quadros.py marca.json paleta`. O quadro mostra as cores, uma amostra de uso e o contraste dos pares.
+- Pôr 2 ou 3 opções em `opcoes_paleta` e correr `quadros.py marca.json paleta`. O quadro mostra as cores, uma amostra de uso e o contraste dos pares, truncado e não arredondado: 4,48 falha os 4,5.
 - Explicar cada opção em uma ou duas frases, ligadas ao que a empresa faz.
 - Aceitar ajustes finos («um branco um pouco mais claro», «o laranja neste tom») e regenerar o quadro.
 - Fixar os papéis das cores:
@@ -54,7 +59,7 @@ Criar a pasta da marca com `marca.json` (começar pelo exemplo) e `decisoes.md`.
 - Detalhes em [references/paleta-tipografia.md](references/paleta-tipografia.md).
 
 ### 3. Tipografia
-- Sugerir 3 ou 4 letras que combinem com o tom da marca e mostrá-las com `quadros.py marca.json tipografia`. Os pares título e texto vão em `opcoes_tipografia`.
+- Sugerir 3 ou 4 letras que combinem com o tom da marca e mostrá-las com `quadros.py marca.json tipografia`. Os pares título e texto vão em `opcoes_tipografia`; o preço de exemplo, com a moeda do cliente, vai em `exemplo_preco` (ex.: «12,50 €»).
 - Uma só família é uma escolha válida e muitas vezes a melhor.
 - Depois da escolha, descarregar os TTF com `python3 scripts/fonte.py "Família" 400 500 700 --pasta fontes`.
 
@@ -76,10 +81,12 @@ Mostrar as versões e confirmar as cores permitidas, por exemplo nunca o acento 
 
 ### 6. Padrão
 - Perguntar que peça usar (o símbolo inteiro ou um elemento) e configurar `padrao` em `marca.json`. Depois, `padroes.py marca.json`.
+  - A peça do padrão precisa de um SVG com `viewBox` justo à peça. Uma peça cortada do símbolo com o `viewBox` do símbolo fica descentrada no módulo.
+  - `densidades` são `[largura do módulo, altura da peça ÷ largura do módulo]`. A peça tem de caber em meia célula: o script reduz a fração e avisa quando passa.
 - Mostrar as densidades e as cores. Se o cliente escolher só uma variante (na Kingdom, «só a estrela central»), remover as outras.
 
 ### 7. Papelaria e digital (quando pedido)
-- `papelaria.py marca.json timbrado [--exemplo]`: papel timbrado A4 em PDF, com página 1 e página de continuação.
+- `papelaria.py marca.json timbrado [--exemplo]`: papel timbrado A4 em PDF, com página 1 e página de continuação. A pré-visualização sai em `previa-timbrado/` (ou `previa-timbrado-exemplo/`). O símbolo grande do canto ajusta-se em `papelaria.canto`.
 - `papelaria.py marca.json carta`: modelo de carta A4 em PowerPoint. Precisa de pptxgenjs; o script instala-o se não houver NODE_PATH.
 - `destaques.py marca.json`: capas de destaques do Instagram (1080 × 1920, ícone dentro do círculo central).
 - O rodapé usa os contactos oficiais de `contactos`. Se o cliente indicar que um contacto só vai no site, não o pôr na papelaria.
@@ -88,7 +95,11 @@ Mostrar as versões e confirmar as cores permitidas, por exemplo nunca o acento 
 - `brandbook.py marca.json --png --html` gera o PDF A4 horizontal e uma imagem por página.
 - Monta só as secções com dados; a estrutura e o estilo estão em [references/brandbook.md](references/brandbook.md).
 - Rever todas as páginas em folhas de contacto (9 a 12 páginas por imagem).
-- Se a skill `impeccable` existir, correr a revisão dela em duas avaliações isoladas: uma revisão de design feita por um subagente que vê só as páginas, e o detector sobre o HTML. Aplicar as correções num só lote.
+- Se a skill `impeccable` existir, correr a revisão dela em duas avaliações isoladas:
+  - uma revisão de design feita por um subagente que vê só os PNG das páginas;
+  - o detector sobre o HTML: `.claude/skills/impeccable/scripts/impeccable detect --json --no-config <saida>/brandbook/brandbook.html`.
+
+  Sem ferramenta de subagentes, fazer a revisão de design tu mesmo, com folhas de contacto, e dizê-lo ao cliente. Aplicar as correções num só lote.
 - Antes de entregar, confirmar no próprio PDF (com `pdftoppm`, não só no PNG) que as páginas escuras chegam aos quatro bordos.
 - As aplicações (mockups) ficam de fora, a menos que o cliente envie as imagens. Nesse caso entram em `aplicacoes`. Para as produzir, ver [references/aplicacoes.md](references/aplicacoes.md), com um prompt pronto para o Gemini.
 
@@ -103,4 +114,4 @@ O símbolo, a letra e as regras mantêm-se: é isso que faz das marcas uma famí
 ## Entrega
 - Enviar ao cliente cada quadro e cada ficheiro final assim que estiver pronto, com uma frase sobre o que é.
 - Dizer o que ficou como proposta à espera de aprovação (por exemplo, os gradientes ou o tom de voz) e o que já está fechado.
-- Se o trabalho estiver num repositório git, fazer commit dos ficheiros da marca e dos scripts usados.
+- Se a pasta da marca estiver num repositório git, fazer commit dos ficheiros da marca. Fora de um repositório, indicar a pasta onde tudo ficou.

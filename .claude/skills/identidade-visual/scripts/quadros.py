@@ -34,7 +34,7 @@ if tipo == 'paleta':
         fundo = o['cores'][0]['hex']; marca = o['cores'][1]['hex']; acento = o['cores'][2]['hex'] if len(o['cores']) > 2 else marca
         amostra = (f'<div class="am" style="background:{fundo}"><small style="color:{acento}">{cfg["nome"]}</small><h3 style="color:{marca}">{o.get("frase", cfg.get("slogan", ["Título de exemplo"])[0])}</h3>'
                    f'<p style="color:{marca};opacity:.75">Texto corrido de exemplo com a cor da marca sobre o fundo.</p><a style="background:{acento};color:{texto_sobre(acento)}">Botão principal</a></div>')
-        ct = ''.join(f'<li>{a["nome"]} sobre {b["nome"]}: <b>{contraste(a["hex"], b["hex"]):.1f}:1</b></li>' for a, b in [(o['cores'][1], o['cores'][0]), (o['cores'][-1], o['cores'][0])] if a is not b)
+        ct = ''.join(f'<li>{a["nome"]} sobre {b["nome"]}: <b>{int(contraste(a["hex"], b["hex"]) * 100) / 100:.2f}:1</b> {"✓" if contraste(a["hex"], b["hex"]) >= 4.5 else ("só texto grande" if contraste(a["hex"], b["hex"]) >= 3 else "✗")}</li>' for a, b in [(o['cores'][1], o['cores'][0]), (o['cores'][-1], o['cores'][0])] if a is not b)
         cols += f'<div class="op"><div class="cab"><span>{chr(65 + i)}</span><b>{o["nome"]}</b></div><p class="nota">{o.get("nota", "")}</p><div class="sws">{sw}</div>{amostra}<ul>{ct}</ul></div>'
     css = '''.ops{display:grid;grid-template-columns:repeat(%d,1fr);gap:18px;margin-top:36px} .op{background:#fff;border:1px solid #E6E3DC;border-radius:24px;padding:24px}
 .cab{display:flex;gap:12px;align-items:baseline} .cab span{font-weight:700;color:#999} .cab b{font-size:22px;font-weight:500} .nota{font-size:14px;color:#666;margin:6px 0 16px;line-height:1.45;min-height:40px}
@@ -48,10 +48,10 @@ elif tipo == 'tipografia':
     cols = ''.join(f'''<div class="op"><div class="cab"><span>{chr(65 + i)}</span><b>{o["titulos"]}{" + " + o["texto"] if o["texto"] != o["titulos"] else ""}</b></div>
 <p class="nota">{o.get("nota", "")}</p><div class="am" style="background:{ESC};color:#fff"><h3 style="font-family:'{o["titulos"]}'">{cfg["nome"]}</h3>
 <h4 style="font-family:'{o["titulos"]}'">{(cfg.get("slogan") or ["Um título de secção"])[0]}</h4><p style="font-family:'{o["texto"]}'">Texto corrido de exemplo, para ver a leitura em parágrafos: a marca fala com clareza e com números.</p>
-<p class="dig" style="font-family:'{o["titulos"]}'">0123456789 · 13 500 MT</p></div></div>''' for i, o in enumerate(opc))
+<p class="dig" style="font-family:'{o["titulos"]}'">0123456789 · {cfg.get("exemplo_preco", "1 250,00")}</p></div></div>''' for i, o in enumerate(opc))
     css = '''.ops{display:grid;grid-template-columns:repeat(%d,1fr);gap:18px;margin-top:36px} .op{background:#fff;border:1px solid #E6E3DC;border-radius:24px;padding:24px}
 .cab{display:flex;gap:12px;align-items:baseline} .cab span{font-weight:700;color:#999} .cab b{font-size:20px;font-weight:500} .nota{font-size:14px;color:#666;margin:6px 0 16px;line-height:1.45;min-height:40px}
-.am{border-radius:16px;padding:26px} .am h3{font-size:46px;font-weight:500;letter-spacing:-.035em} .am h4{font-size:24px;font-weight:500;margin-top:14px;letter-spacing:-.02em} .am p{font-size:16px;line-height:1.55;margin-top:12px;opacity:.85} .dig{font-size:28px!important;opacity:1!important}''' % len(opc)
+.am{border-radius:16px;padding:26px} .am h3{font-size:%dpx;font-weight:500;letter-spacing:-.035em;white-space:nowrap} .am h4{font-size:24px;font-weight:500;margin-top:14px;letter-spacing:-.02em} .am p{font-size:16px;line-height:1.55;margin-top:12px;opacity:.85} .dig{font-size:28px!important;opacity:1!important}''' % (len(opc), 46 if len(opc) <= 3 else 34)
     html = folha(f'{cfg["nome"]} · opções de letra', 'A mesma amostra em cada opção: nome, título, texto corrido e algarismos.', f'<div class="ops">{cols}</div>', css, fams)
 
 elif tipo == 'logotipo':

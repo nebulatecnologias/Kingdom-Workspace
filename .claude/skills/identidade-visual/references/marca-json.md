@@ -55,10 +55,10 @@ Os outros campos de cor:
 | `simbolo_titulo`, `simbolo_lead` | Título e texto da página de significado |
 | `simbolo_significado` | `[{"pecas": [svg...], "elemento", "nome", "texto"}]`: cada peça a destacar sobre o símbolo em tom claro |
 | `simbolo_passos` | `[{"pecas": [svg...], "nome", "nota"}]`: «do traço ao símbolo» |
-| `simbolo_construcao` | `{"svg": overlay nas coordenadas do símbolo, "legenda": [[nome, texto]], "lead"}`. Sem ele, a construção é automática: grelha, eixos, diagonais, círculo inscrito e pontos de ancoragem |
+| `simbolo_construcao` | `{"svg": overlay nas coordenadas do símbolo, "legenda": [[nome, texto]], "lead", "incluir_simbolo": true}`. O símbolo é desenhado por baixo do overlay. Sem este campo, a construção é automática: grelha, eixos, diagonais, círculo inscrito e pontos de ancoragem |
 | `simbolo_detalhe` | `{"svg", "titulo", "texto", "formula", "dados": [[k, v]]}`: página escura com um pormenor da construção |
 | `frase` | Frase do símbolo em página de gradiente. `<em>palavra</em>` sublinha a palavra com o acento |
-| `padrao` | `{"peca": svg, "densidades": {"densa": [largura_modulo, fracao], "ampla": [...]}, "cores": [[nome, fundo, tinta]], "titulo", "texto"}` |
+| `padrao` | `{"peca": svg com viewBox justo, "densidades": {"densa": [largura_modulo, fracao], "ampla": [...]}, "cores": [[nome, fundo, tinta]], "titulo", "texto"}`. A fração é a altura da peça a dividir pela largura do módulo; tem de ser no máximo 0,5 a dividir pela proporção da peça (largura sobre altura), senão o script reduz |
 | `hierarquia` | `[[nome, especificação, tamanho_pt, peso, texto_exemplo]]`. Usar `"@botao"` como texto para mostrar botão e etiqueta |
 | `botao` | Texto do botão de exemplo |
 | `tom` | `[{"nome", "texto", "dizemos", "evitamos"}]` e `tom_modelo` (parágrafo-modelo), `tom_lead` |
@@ -67,4 +67,6 @@ Os outros campos de cor:
 | `destaques` | `[{"nome", "icone"}]`. Ícones: simbolo, bastidores, resultados, agenda, contacto, servicos, depoimentos, perguntas, loja, cursos |
 | `destaques_cores` | `[[nome, fundo, tinta]]` |
 | `papelaria.tom_simbolo` | Cor do símbolo grande no canto do timbrado (muito clara) |
+| `papelaria.canto` | `{"tamanho_mm": 150, "direita_mm": -48, "baixo_mm": -40}`: posição desse símbolo |
+| `exemplo_preco` | Preço de exemplo no quadro de tipografia, com a moeda do cliente |
 | `papelaria.exemplo_html` | Carta de exemplo para `--exemplo` |

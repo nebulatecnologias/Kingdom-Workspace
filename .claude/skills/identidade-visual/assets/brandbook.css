@@ -11,7 +11,7 @@ body{font-family:var(--fam),sans-serif;color:var(--tin);-webkit-print-color-adju
 .gl{position:absolute;background:rgba(255,255,255,.13)} .gv1,.gv2{top:0;bottom:0;width:.25mm} .gv1{left:12mm} .gv2{right:12mm} .gh1,.gh2{left:0;right:0;height:.25mm} .gh1{top:18mm} .gh2{bottom:20mm}
 .canto{position:absolute;left:20mm;bottom:11mm;font-size:7.5pt;color:rgba(255,255,255,.62);z-index:3} .canto.d{left:auto;right:20mm}
 .rod{position:absolute;left:20mm;right:20mm;bottom:10mm;display:flex;justify-content:space-between;font-size:7pt;color:var(--cin)} .rod b{font-weight:500;color:var(--ind)}
-.eb{font-size:7.5pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--larf);margin-bottom:5mm} .eb.claro{color:var(--lar)}
+.eb{font-size:7.5pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--larf);margin-bottom:5mm} .eb.claro{color:var(--eb-escuro)}
 h2{font-size:30pt;font-weight:500;letter-spacing:-.035em;line-height:1.05;color:var(--ind);text-wrap:balance} h2.branco{color:#fff}
 .lead{font-size:12.5pt;line-height:1.45;color:var(--cin);margin-top:4mm;max-width:160mm} .lead.claro{color:var(--claro-txt)}
 .txt{font-size:10pt;line-height:1.6;margin-top:6mm;max-width:118mm} .txt b{font-weight:500;color:var(--ind)}
@@ -30,7 +30,7 @@ h2{font-size:30pt;font-weight:500;letter-spacing:-.035em;line-height:1.05;color:
 .ix li i{font-style:normal;font-size:9pt;font-weight:700;color:var(--larf);width:8mm} .ix li span{flex:1;font-size:18pt;font-weight:500;letter-spacing:-.02em;color:var(--ind)} .ix li b{font-size:9pt;font-weight:500;color:var(--cin);font-variant-numeric:tabular-nums}
 /* capa de secção */
 .cs{position:absolute;inset:0;z-index:2} .cs-num{position:absolute;right:8mm;top:-6mm;padding-right:.12em;font-size:300pt;font-weight:400;letter-spacing:-.07em;line-height:1;background:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(var(--lav-rgb),.18) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.cs-txt{position:absolute;left:20mm;top:118mm} .cs-txt small{font-size:8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lar)}
+.cs-txt{position:absolute;left:20mm;top:118mm} .cs-txt small{font-size:8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--eb-escuro)}
 .cs-txt h1{font-size:52pt;font-weight:500;letter-spacing:-.045em;line-height:1;margin-top:4mm} .cs-txt ul{list-style:none;margin-top:7mm;display:flex;flex-wrap:wrap;gap:2mm;max-width:240mm}
 .cs-txt li{font-size:8.5pt;padding:1.6mm 3.6mm;border:.3mm solid rgba(255,255,255,.4);border-radius:20mm;color:var(--claro-txt)}
 .cs-arte{position:absolute;left:-40mm;top:-30mm;opacity:.22;z-index:1;line-height:0} .cs-aa{position:absolute;left:16mm;top:-14mm;font-size:250pt;font-weight:500;letter-spacing:-.06em;line-height:1;color:rgba(255,255,255,.06);z-index:1}
