@@ -3,27 +3,33 @@
 Cópia das regras gravadas no separador **Regras e estratégia** do [Mapa Kingdom](https://claude.ai/artifact/GdnhABbW2DhtKcopjLHz8c).
 A versão de referência é a do mapa (coleção `regras` da base de dados do artefacto). Este ficheiro é atualizado sempre que uma regra muda.
 
-Última atualização: 19/10/2026.
+Última atualização: 08/11/2026.
 
 ## Estrutura
 
 ### R01 · Núcleo e três braços
 
-O núcleo é o Shelton Douglas (O Conselheiro). Os três braços são a Kingdom InCompany (serviços para empresas), o Kingdom Training (Tracktion, Founders e 10X Mindset) e a Kingdom Academy (livros e masterclasses).
+O núcleo é o Shelton Douglas (O Conselheiro). Os três braços são a Kingdom Company (desenvolvimento empresarial para empresas: estratégia, crescimento e gestão), o Kingdom Training (educacional: Tracktion, Founders e 10X Mindset) e a Kingdom Academy (plataforma de educação online: livros, masterclasses e cursos).
 
 *10/10/2026 · Decisão do Shelton*
 
+### R34 · Arquitectura de marca: Kingdom Company, Kingdom Training e Kingdom Academy
+
+O braço de serviços para empresas deixa de se chamar InCompany e passa a ser a própria Kingdom Company: desenvolvimento empresarial focado em estratégia, crescimento e gestão (desenvolvimento editorial, consultoria estratégica, assessoria em marketing e vendas, desenvolvimento tecnológico e treinamento corporativo em atendimento, vendas e marketing). O Kingdom Training é o braço educacional e a Kingdom Academy é a plataforma de educação online. O núcleo continua a ser o Shelton Douglas (O Conselheiro). A marca Kingdom Company usa a paleta C e a letra Google Sans (R14, docs/marca/kingdom-company.md).
+
+*08/11/2026 · Decisão do Shelton*
+
 ### R20 · Jornada entre braços e escada de valor de cada braço
 
-Os braços formam uma jornada. Academy: quem quer ganhar o primeiro dinheiro online (marketing, vendas e inteligência artificial). Training: quem percebe que a técnica não chega e procura desenvolvimento pessoal, mentalidade de empresário, conexão e experiências. InCompany: empresas que querem as soluções da Kingdom, vindas do Training ou do mercado.
+Os braços formam uma jornada. Academy: quem quer ganhar o primeiro dinheiro online (marketing, vendas e inteligência artificial). Training: quem percebe que a técnica não chega e procura desenvolvimento pessoal, mentalidade de empresário, conexão e experiências. Kingdom Company: empresas que querem as soluções da Kingdom, vindas do Training ou do mercado.
 
 Cada braço tem a sua escada de valor:
 
 - Academy: livros → curso Escala 10X → plataforma de cursos.
 - Training: livro O Bloqueio Invisível → curso 10X Mindset → mentoria Kingdom Founders → mastermind Kingdom Tracktion.
-- InCompany: Desenvolvimento Editorial → Consultoria Estratégica → Assessoria → Desenvolvimento Tecnológico.
+- Kingdom Company: Desenvolvimento Editorial → Consultoria Estratégica → Assessoria → Desenvolvimento Tecnológico.
 
-Os braços servem-se uns aos outros: a Academy dá a área de membros ao Training; o Training dá os treinamentos corporativos à InCompany.
+Os braços servem-se uns aos outros: a Academy dá a área de membros ao Training; o Training dá os treinamentos corporativos à Kingdom Company.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -33,9 +39,9 @@ O salário do Shelton é de 100.000 MT por mês nos primeiros 3 meses, 150.000 M
 
 *10/10/2026 · Decisão do Shelton*
 
-### R28 · Quem entrega a InCompany
+### R28 · Quem entrega a Kingdom Company
 
-No primeiro trimestre, o Shelton entrega pessoalmente a maioria dos serviços da InCompany, com inteligência artificial. Depois, a entrega passa para a equipa e para subcontratados. Preços médios de referência para o plano: MediaTrack 25.000 MT por cliente por mês, website 15.000 MT, sistema 95.000 MT.
+No primeiro trimestre, o Shelton entrega pessoalmente a maioria dos serviços da Kingdom Company, com inteligência artificial. Depois, a entrega passa para a equipa e para subcontratados. Preços médios de referência para o plano: MediaTrack 25.000 MT por cliente por mês, website 15.000 MT, sistema 95.000 MT.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -54,15 +60,15 @@ O Training tem como entrada o livro O Bloqueio Invisível e três ofertas: 10X M
 
 *10/10/2026 · Decisão do Shelton*
 
-### R04 · Kingdom InCompany: 5 áreas e 3 planos por serviço
+### R04 · Kingdom Company: 5 áreas e 3 planos por serviço
 
-A InCompany tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Marketing & Vendas, Desenvolvimento Tecnológico e Assessoria Corporativa. O site oficial é a versão 2, em incompany.kingdomcompny.com. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta. Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da InCompany (R16). O Business Plan pertence à Consultoria Estratégica. A Assessoria de Eventos foi eliminada.
+A Kingdom Company tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Marketing & Vendas, Desenvolvimento Tecnológico e Assessoria Corporativa. O site oficial é a versão 2, em incompany.kingdomcompny.com. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta. Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da Kingdom Company (R16). O Business Plan pertence à Consultoria Estratégica. A Assessoria de Eventos foi eliminada.
 
 *10/10/2026 · Decisão do Shelton*
 
 ### R16 · Tracktion: 3 meses, 6 pessoas, 12.800 MT por mês
 
-Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas, com no máximo 4 turmas por ano. Cada participante paga 12.800 MT por mês (76.800 MT por mês e 230.400 MT por turma). Inclui, por mês, 1 advising individual de 1 hora e 1 encontro coletivo presencial de 4 horas, o Kingdom Experience: 3 encontros por turma. Quando o Shelton convida um especialista para partilhar conhecimento, a Kingdom Class acontece dentro do Experience. Inclui também o treino da equipa da empresa de cada participante, sobre os pontos levantados no início do programa: 2 equipas por mês, ou seja, uma vez por participante ao longo da turma, com cerca de 2 horas por treino. Com o tempo, o treino passa a ser dado pela equipa do Shelton. O treino é apresentado ao valor da tabela da InCompany. Os advisings e os treinos são gravados e viram conteúdo e portefólio da InCompany. Tempo do Shelton: 14 horas por mês, cerca de 5.490 MT por hora (10 horas e 7.680 MT por hora quando a equipa der os treinos).
+Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas, com no máximo 4 turmas por ano. Cada participante paga 12.800 MT por mês (76.800 MT por mês e 230.400 MT por turma). Inclui, por mês, 1 advising individual de 1 hora e 1 encontro coletivo presencial de 4 horas, o Kingdom Experience: 3 encontros por turma. Quando o Shelton convida um especialista para partilhar conhecimento, a Kingdom Class acontece dentro do Experience. Inclui também o treino da equipa da empresa de cada participante, sobre os pontos levantados no início do programa: 2 equipas por mês, ou seja, uma vez por participante ao longo da turma, com cerca de 2 horas por treino. Com o tempo, o treino passa a ser dado pela equipa do Shelton. O treino é apresentado ao valor da tabela da Kingdom Company. Os advisings e os treinos são gravados e viram conteúdo e portefólio da Kingdom Company. Tempo do Shelton: 14 horas por mês, cerca de 5.490 MT por hora (10 horas e 7.680 MT por hora quando a equipa der os treinos).
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -124,17 +130,17 @@ Até 30 de Novembro de 2026, o Advising presencial custa 3.650 MT por até 2 hor
 
 ### R25 · Treinamento de Vendas: 26.500 MT por empresa até 10 pessoas, depois 32.000
 
-O Treinamento de Vendas da InCompany dura 3 dias de cerca de 3 horas (9 horas). Custa 26.500 MT por empresa até 10 pessoas nas 3 primeiras empresas, para ganhar portefólio; depois passa a 32.000 MT, para cobrir a preparação. Cada pessoa a mais paga 3.500 MT.
+O Treinamento de Vendas da Kingdom Company dura 3 dias de cerca de 3 horas (9 horas). Custa 26.500 MT por empresa até 10 pessoas nas 3 primeiras empresas, para ganhar portefólio; depois passa a 32.000 MT, para cobrir a preparação. Cada pessoa a mais paga 3.500 MT.
 
 *10/10/2026 · Decisão do Shelton*
 
 ### R27 · Desenvolvimento Tecnológico: preços de websites e sistemas
 
-Na InCompany, o desenvolvimento de websites custa de 15.000 MT a 65.000 MT. O website de 15.000 MT é um one pager feito com skills e modelos, em cerca de 2 horas do Shelton. O desenvolvimento de sistemas custa de 95.000 MT a 350.000 MT.
+Na Kingdom Company, o desenvolvimento de websites custa de 15.000 MT a 65.000 MT. O website de 15.000 MT é um one pager feito com skills e modelos, em cerca de 2 horas do Shelton. O desenvolvimento de sistemas custa de 95.000 MT a 350.000 MT.
 
 *10/10/2026 · Decisão do Shelton*
 
-### R29 · Preços da InCompany
+### R29 · Preços da Kingdom Company
 
 Perfil Corporativo: 9.500 MT. Propostas Comerciais e de Concursos: 18.500 MT. Business Plan (Consultoria Estratégica): 32.500 MT; passa a 45.000 MT se levar mais de 11 horas do Shelton. MediaTrack: em média 25.000 MT por mês (15.000 a 35.000), contrato mínimo de 3 meses e pagamento antes de cada mês. Websites e sistemas têm manutenção mensal obrigatória: a partir de 1.500 MT por mês nos websites e 5.000 MT por mês nos sistemas. Expert Led Growth 65.200 MT, Brand 121 135.000 MT e Gestão Comercial e Marketing 45.000 MT mantêm-se até haver horas reais medidas.
 
@@ -168,7 +174,7 @@ Tráfego pago → Atração orgânica → Link na bio → Site da oferta → Fec
 
 ### R06 · Cada Instagram aponta para a bio do seu braço
 
-Cada conta de Instagram tem no perfil o link da página /bio do seu braço, com os links agrupados das ofertas. A bio da InCompany leva às 5 áreas.
+Cada conta de Instagram tem no perfil o link da página /bio do seu braço, com os links agrupados das ofertas. A bio da Kingdom Company leva às 5 áreas.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -182,7 +188,7 @@ A Kingdom Library não faz parte da estrutura. Quem compra um livro ou uma maste
 
 ### R08 · Quem fecha no site e quem passa por vendedor
 
-Os livros e o Business Advising fecham direto no site, sem vendedor; nessas linhas, a etapa de Fechamento fica vazia. O Tracktion e a InCompany passam por um vendedor.
+Os livros e o Business Advising fecham direto no site, sem vendedor; nessas linhas, a etapa de Fechamento fica vazia. O Tracktion e a Kingdom Company passam por um vendedor.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -218,9 +224,9 @@ Não se gasta em anúncios sem o Pixel da Meta instalado nos sites e sem uma com
 
 *10/10/2026 · Proposta do Claude, aceite*
 
-### R15 · Founders Podcast: co-produção InCompany e Mídia Pro
+### R15 · Founders Podcast: co-produção Kingdom Company e Mídia Pro
 
-O podcast do Shelton é uma co-produção da Kingdom InCompany com a Mídia Pro, o estúdio que patrocina a gravação. É o motor de conteúdo do núcleo: dá autoridade, alcance e um canal para vender as ofertas.
+O podcast do Shelton é uma co-produção da Kingdom Company com a Mídia Pro, o estúdio que patrocina a gravação. É o motor de conteúdo do núcleo: dá autoridade, alcance e um canal para vender as ofertas.
 
 *10/10/2026 · Decisão do Shelton*
 
@@ -234,6 +240,6 @@ Todas as ofertas de entrada levam anúncios de vendas (livros, livro + mastercla
 
 ### R14 · Cores e estilo de cada peça
 
-O mapa usa as cores da Kingdom: destaques a laranja, bordas cinza e fundo creme. Os sites da InCompany usam o azul da versão 2. As bios seguem a estrutura da bio d'O Conselheiro, com as cores de cada marca.
+O mapa usa as cores da Kingdom: destaques a laranja, bordas cinza e fundo creme. Os sites da Kingdom Company passam a usar a paleta C (marfim #FAF9F5, índigo #2B2850 e laranja #FF521A) e a letra Google Sans, definidas em docs/marca/kingdom-company.md; até o site novo estar pronto, a versão 2 mantém o azul. As bios seguem a estrutura da bio d'O Conselheiro, com as cores de cada marca.
 
 *10/10/2026 · Decisão do Shelton*

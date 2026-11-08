@@ -33,6 +33,11 @@ Uma só família: **Google Sans** (a mesma dos outros sites do ecossistema).
 - Paleta: post Aureva (cores) e template Koneksi (uso de um só laranja forte, muito espaço, tipografia grande).
 - Comparação das 3 paletas: `docs/marca/kingdom-company-paleta-c.png`.
 
+## Nome e arquitectura (R34, 08/11/2026)
+- **Kingdom Company**: desenvolvimento empresarial (estratégia, crescimento e gestão). Era a «Kingdom InCompany».
+- **Kingdom Training**: braço educacional.
+- **Kingdom Academy**: plataforma de educação online.
+- Núcleo: Shelton Douglas (O Conselheiro).
+
 ## Por decidir
-- Nome: o braço B2B passa a ser a própria Kingdom Company, ou só o site muda (afecta as regras R01, R04, R20, R28, R29 e o mapa).
 - Logótipo: actual ou novo.

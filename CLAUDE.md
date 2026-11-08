@@ -1,6 +1,6 @@
 # Kingdom Workspace
 
-Sites e ferramentas da Kingdom Company: o núcleo Shelton Douglas (O Conselheiro) e os braços Kingdom InCompany, Kingdom Training e Kingdom Academy. Cada pasta de topo é um site estático publicado na Vercel.
+Sites e ferramentas da Kingdom: o núcleo Shelton Douglas (O Conselheiro) e os braços Kingdom Company (desenvolvimento empresarial, antes «InCompany»), Kingdom Training (educacional) e Kingdom Academy (plataforma de educação online). A pasta `incompany-v2` e os ids `incompany` no mapa mantêm o nome antigo; o nome público é Kingdom Company (R34). Cada pasta de topo é um site estático publicado na Vercel.
 
 ## Regras de negócio: verificar antes de mudar
 
@@ -24,7 +24,7 @@ Os ciclos em `estado: proposta` são propostas do Claude ainda por decidir. Quan
 
 ## Ofertas no mapa
 
-Cada oferta é uma peça da etapa "Site da oferta", na linha do seu braço e na ordem da escada de valor (R20). O campo `oferta` dessa peça guarda o que o painel lateral mostra: `escada`, `degrau`/`degraus`, `resumo`, `precos[]`, `piso`, `margem`, `horas`, `custo_venda`, `meta`, `capacidade`, `contribuicao_mes` (MT por mês no plano de 1 milhão), `servicos[]` (InCompany) e `regras`. Quando um preço muda numa regra, atualizar também este campo.
+Cada oferta é uma peça da etapa "Site da oferta", na linha do seu braço e na ordem da escada de valor (R20). O campo `oferta` dessa peça guarda o que o painel lateral mostra: `escada`, `degrau`/`degraus`, `resumo`, `precos[]`, `piso`, `margem`, `horas`, `custo_venda`, `meta`, `capacidade`, `contribuicao_mes` (MT por mês no plano de 1 milhão), `servicos[]` (Kingdom Company) e `regras`. Quando um preço muda numa regra, atualizar também este campo.
 
 ## Notas de trabalho
 
