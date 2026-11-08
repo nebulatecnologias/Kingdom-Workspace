@@ -16,7 +16,7 @@ Gestores, CEOs e diretores de pequenas, médias e grandes empresas e instituiç�
 
 ## Product Purpose
 
-A Kingdom Company é a empresa de desenvolvimento empresarial, educação e tecnologia do grupo Kingdom: estratégia, crescimento e gestão num só parceiro. O site existe para levar decisores ao pedido de cotação ou à avaliação inicial com um consultor (passa por um vendedor, R08/R09). Desde 08/11/2026 o site não mostra preços, nem do Business Advising (R36). Sucesso: pedidos de cotação qualificados.
+A Kingdom Company é uma empresa moçambicana de desenvolvimento empresarial, membro da SDG (Pty) Ltd (grupo de negócios, educação e tecnologia com sede em Midrand, África do Sul): um parceiro estratégico com soluções integradas. O site existe para levar decisores ao pedido de cotação ou à avaliação inicial com um consultor (passa por um vendedor, R08/R09). Desde 08/11/2026 o site não mostra preços, nem do Business Advising (R36). Sucesso: pedidos de cotação qualificados.
 
 ## Positioning
 
