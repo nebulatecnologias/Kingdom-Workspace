@@ -53,4 +53,4 @@ Manual de marca v2 (`docs/marca/brandbook/kingdom-company-manual-de-marca.pdf`, 
 
 ## Accessibility & Inclusion
 
-WCAG 2.2 AA: contraste medido (branco sobre laranja só em texto grande/negrito), foco visível, navegação por teclado, alvos de toque de 44 px, texto mínimo 16 px, sem informação só por cor, movimento ambiente lento (órbita, plano de ação, faixas) sempre ativo por pedido do cliente, com botão «Pausar animações» visível (WCAG 2.2.2). Muitas visitas em telemóveis médios e redes lentas: página leve.
+WCAG 2.2 AA: contraste medido (branco sobre laranja só em texto grande/negrito), foco visível, navegação por teclado, alvos de toque de 44 px, texto mínimo 16 px, sem informação só por cor, movimento ambiente lento (órbita, plano de ação, faixas) sempre ativo e sem botão de pausa, por decisão do cliente de 08/11/2026; para ao passar o rato. Fica abaixo do critério WCAG 2.2.2, aceite pelo cliente. Muitas visitas em telemóveis médios e redes lentas: página leve.

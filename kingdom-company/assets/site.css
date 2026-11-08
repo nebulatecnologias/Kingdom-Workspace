@@ -424,7 +424,7 @@ p { text-wrap: pretty; }
 .rodape-contactos strong { font-weight: 500; color: var(--indigo); }
 .rodape-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-block: 24px 32px; border-top: 1px solid var(--linha); color: var(--cinza); }
 
-/* Movimento ambiente: lento, sem piscar, sempre com o botão «Pausar animações» (WCAG 2.2.2) */
+/* Movimento ambiente: lento e sem piscar, sempre ativo (pedido do cliente, 08/11/2026) */
 .abertura-arte img { animation: flutua 22s ease-in-out infinite alternate; }
 .abertura-luz i { animation: luz 16s ease-in-out infinite alternate; }
 .abertura-luz i:nth-child(2) { animation-duration: 21s; } .abertura-luz i:nth-child(3) { animation-duration: 26s; }
@@ -432,13 +432,9 @@ p { text-wrap: pretty; }
 .r1 .astro { animation: contra 28s linear infinite; } .r2 .astro { animation: contra 44s linear infinite reverse; } .r3 .astro { animation: contra 64s linear infinite; }
 .trilho { animation: trilho 60s linear infinite; }
 .trilho-inverso { animation-direction: reverse; animation-duration: 70s; }
-.trilhos:hover .trilho { animation-play-state: paused; }
+.trilhos:hover .trilho, .orbita:hover .roda, .orbita:hover .astro { animation-play-state: paused; }
 .treino .ta-valor { stroke-dasharray: 0 100; transition: stroke-dasharray 1.6s var(--sai); }
 .treino.visivel .ta-valor { stroke-dasharray: 86 100; }
-.parado .abertura-arte img, .parado .abertura-luz i, .parado .roda, .parado .astro, .parado .trilho { animation-play-state: paused; }
-.pausa { position: absolute; top: clamp(24px, 4vw, 40px); right: var(--dentro); display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 999px; background: rgba(255, 255, 255, .04); color: var(--claro-1); font-size: 1rem; cursor: pointer; }
-.pausa:hover { border-color: rgba(255, 255, 255, .5); color: var(--branco); }
-.pausa svg { width: 18px; height: 18px; }
 @keyframes flutua { from { transform: rotate(-14deg) translateY(0); } to { transform: rotate(-8deg) translateY(16px); } }
 @keyframes luz { to { transform: rotate(32deg) translateX(-5vw); } }
 @keyframes gira { to { transform: rotate(360deg); } }
@@ -533,4 +529,3 @@ p { text-wrap: pretty; }
   .fecho-globo { width: 80vw; right: -36vw; top: 10%; transform: rotate(-14deg); opacity: .35; }
   .fecho h2 { max-width: none; }
 }
-@media (max-width: 640px) { .pausa { position: static; margin-bottom: 24px; } }

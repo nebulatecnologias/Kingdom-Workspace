@@ -105,16 +105,7 @@
   // Anel de treino: anima ao aparecer
   document.querySelectorAll('[data-anima]').forEach((el) => quandoVisivel(el, () => el.classList.add('visivel'), 0.4));
 
-  // Botão «Pausar animações»: para tudo o que se mexe sozinho (WCAG 2.2.2)
-  let parado = false;
-  const pausa = document.querySelector('[data-pausa]');
-  if (pausa) pausa.addEventListener('click', () => {
-    parado = !parado;
-    raiz.classList.toggle('parado', parado);
-    pausa.setAttribute('aria-pressed', String(parado));
-    pausa.querySelector('span').textContent = parado ? 'Retomar animações' : 'Pausar animações';
-    pausa.querySelector('use').setAttribute('href', parado ? '#i-play' : '#i-pausa');
-  });
+  const parado = false;
 
   // Plano de ação: a linha de «Hoje» avança semana a semana, as barras enchem e os marcos acendem
   const gantt = document.querySelector('[data-gantt]');
