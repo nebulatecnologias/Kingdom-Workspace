@@ -250,14 +250,14 @@ a.pcol-t:hover { color: var(--violeta); }
 .pg-topo { display: flex; align-items: center; gap: 18px; }
 .pg-topo > div:last-child b { display: block; font-weight: 500; }
 .pg-topo small { display: block; font-size: 1rem; color: var(--claro-2); }
-.pg-barras { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; align-items: end; height: 120px; margin-top: 22px; }
-.pg-barras span { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px; height: 100%; }
-.pg-barras i { display: block; width: 100%; height: calc(var(--h) * 88px); border-radius: 8px 8px 3px 3px; background: rgba(185, 179, 242, .28); transform-origin: bottom; transition: transform 1.2s var(--sai); }
-.pg-barras .agora i { background: var(--lavanda); }
-.pg-barras em { font-style: normal; font-size: 1rem; color: var(--claro-2); }
-.painel-g:not(.visivel) .pg-barras i { transform: scaleY(.05); }
-.painel-g .ta-valor { stroke-dasharray: 0 100; transition: stroke-dasharray 1.6s var(--sai); }
-.painel-g.visivel .ta-valor { stroke-dasharray: 86 100; }
+.painel-g:not(.visivel) .painel-g .ta-valor { stroke-dasharray: 0 100; transition: stroke-dasharray 1.6s var(--sai); }
+.painel-g.visivel .ta-valor { stroke-dasharray: 72 100; }
+.pg-ind { display: grid; gap: 16px; margin-top: 24px; }
+.pg-ind li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; }
+.pg-ind span { color: var(--claro-1); }
+.pg-ind b { font-weight: 500; font-variant-numeric: tabular-nums; }
+.pg-ind i { grid-column: 1 / -1; height: 6px; border-radius: 999px; background: linear-gradient(90deg, var(--lavanda) calc(var(--v) * 100%), rgba(255, 255, 255, .1) 0); transform-origin: left; transition: transform 1.2s var(--sai); }
+.painel-g:not(.visivel) .pg-ind i { transform: scaleX(.04); }
 .capa-areas { background: linear-gradient(150deg, var(--realce), var(--lavanda) 70%, var(--luz)); }
 .capa-quatro { position: absolute; inset: 50% auto auto 50%; display: grid; grid-template-columns: repeat(2, 64px); gap: 14px; transform: translate(-50%, -50%) rotate(-8deg); opacity: 0; transition: opacity .4s .2s; }
 .capa-quatro i { width: 64px; height: 64px; border-radius: 16px; background: rgba(255, 255, 255, .7); box-shadow: 0 10px 24px -10px rgba(43, 40, 80, .5); }
