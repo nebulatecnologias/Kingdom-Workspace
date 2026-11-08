@@ -44,16 +44,16 @@ O globo (`docs/marca/globo/`) é o símbolo das três marcas: Kingdom Company, K
 
 ## Significado do globo (proposta de 08/11/2026, igual nas três marcas)
 
-Ideia central: **direção e estrutura geram clareza, e a clareza gera crescimento.**
+Ideia central: **com propósito, estrutura e método, o conhecimento transforma-se em crescimento.**
 
 | Elemento | Significado |
 |---|---|
-| Anel | O reino: uma visão completa, a 360°, de quem constrói algo inteiro e duradouro. |
-| Eixo vertical | Direção: saber para onde se vai. |
+| Anel | Unidade: o reino, um só ecossistema que junta pessoas e empresas. |
+| Eixo vertical | Propósito: o porquê, o norte e os valores que não mudam. |
 | Equador | Estrutura: a base que sustenta o crescimento. |
-| Meridianos | O caminho: o método que liga a visão à execução, curvo porque se adapta à realidade. |
-| Estrela central | Clareza: o ponto onde direção e estrutura se encontram. |
-| Meias-estrelas viradas para fora | Expansão: o crescimento que nasce no centro e se projecta para fora. |
+| Meridianos | Método: o caminho que liga o propósito à prática, curvo porque se adapta à realidade. |
+| Estrela central | Conhecimento: a luz no centro de tudo o que entregamos. |
+| Meias-estrelas viradas para fora | Expansão: o conhecimento aplicado que se multiplica para fora, em resultados e impacto. |
 
 O símbolo é igual nas três marcas e numa só cor; o que muda é o nome do braço por baixo.
 
