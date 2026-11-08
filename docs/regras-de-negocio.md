@@ -15,7 +15,7 @@ O núcleo é o Shelton Douglas (O Conselheiro). Os três braços são a Kingdom 
 
 ### R34 · Arquitectura de marca: Kingdom Company, Kingdom Training e Kingdom Academy
 
-O braço de serviços para empresas deixa de se chamar InCompany e passa a ser a própria Kingdom Company: desenvolvimento empresarial focado em estratégia, crescimento e gestão (desenvolvimento editorial, consultoria estratégica, assessoria em marketing e vendas, desenvolvimento tecnológico e treinamento corporativo em atendimento, vendas e marketing). O Kingdom Training é o braço educacional e a Kingdom Academy é a plataforma de educação online. O núcleo continua a ser o Shelton Douglas (O Conselheiro). A marca Kingdom Company usa a paleta C e a letra Google Sans (R14, docs/marca/kingdom-company.md).
+O braço de serviços para empresas deixa de se chamar InCompany e passa a ser a própria Kingdom Company: desenvolvimento empresarial focado em estratégia, crescimento e gestão (desenvolvimento editorial, consultoria estratégica, assessoria em marketing e vendas, desenvolvimento tecnológico e treinamento corporativo em atendimento, vendas e marketing). O Kingdom Training é o braço educacional e a Kingdom Academy é a plataforma de educação online. O núcleo continua a ser o Shelton Douglas (O Conselheiro). A marca Kingdom Company usa a paleta C e a letra Google Sans (R14, docs/marca/kingdom-company.md). As três marcas usam o mesmo símbolo, o globo (docs/marca/globo/), com o nome do braço por baixo.
 
 *08/11/2026 · Decisão do Shelton*
 

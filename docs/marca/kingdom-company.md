@@ -39,5 +39,8 @@ Uma só família: **Google Sans** (a mesma dos outros sites do ecossistema).
 - **Kingdom Academy**: plataforma de educação online.
 - Núcleo: Shelton Douglas (O Conselheiro).
 
+## Símbolo (08/11/2026)
+O globo (`docs/marca/globo/`) é o símbolo das três marcas: Kingdom Company, Kingdom Training e Kingdom Academy, com o nome do braço por baixo. O anel é um círculo perfeito; o desenho de dentro segue as medidas do original (`medidas.json`).
+
 ## Por decidir
-- Logótipo: actual ou novo.
+- Significado de cada elemento do globo e versões por braço.
