@@ -42,5 +42,20 @@ Uma só família: **Google Sans** (a mesma dos outros sites do ecossistema).
 ## Símbolo (08/11/2026)
 O globo (`docs/marca/globo/`) é o símbolo das três marcas: Kingdom Company, Kingdom Training e Kingdom Academy, com o nome do braço por baixo. O anel é um círculo perfeito; o desenho de dentro segue as medidas do original (`medidas.json`).
 
+## Significado do globo (proposta de 08/11/2026, igual nas três marcas)
+
+Ideia central: **direção e estrutura geram clareza, e a clareza gera crescimento.**
+
+| Elemento | Significado |
+|---|---|
+| Anel | O reino: uma visão completa, a 360°, de quem constrói algo inteiro e duradouro. |
+| Eixo vertical | Direção: saber para onde se vai. |
+| Equador | Estrutura: a base que sustenta o crescimento. |
+| Meridianos | O caminho: o método que liga a visão à execução, curvo porque se adapta à realidade. |
+| Estrela central | Clareza: o ponto onde direção e estrutura se encontram. |
+| Meias-estrelas viradas para fora | Expansão: o crescimento que nasce no centro e se projecta para fora. |
+
+O símbolo é igual nas três marcas e numa só cor; o que muda é o nome do braço por baixo.
+
 ## Por decidir
-- Significado de cada elemento do globo e versões por braço.
+- Aprovação do significado e versões do logótipo com o nome de cada braço.
