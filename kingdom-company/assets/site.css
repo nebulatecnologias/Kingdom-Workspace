@@ -476,7 +476,7 @@ a.pcol-t:hover { color: var(--violeta); }
 .artigo li::marker { color: var(--luz); }
 .artigo strong { font-weight: 500; color: var(--indigo); }
 .artigo a { color: var(--violeta); }
-.artigo blockquote { margin: 1.6em 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--lavanda); color: var(--cinza); }
+.artigo blockquote { margin: 1.6em 0; padding: 4px 0 4px 20px; border-left: 1px solid var(--linha); color: var(--cinza); font-style: italic; }
 .artigo hr { margin: 2.6em 0; border: 0; border-top: 1px solid var(--linha); }
 .artigo-tabela { overflow-x: auto; margin: 1.6em 0; border-radius: 12px; box-shadow: 0 0 0 1px var(--linha); }
 .artigo table { width: 100%; border-collapse: collapse; font-size: 1rem; font-variant-numeric: tabular-nums; }
