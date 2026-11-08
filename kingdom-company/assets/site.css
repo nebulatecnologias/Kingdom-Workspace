@@ -213,7 +213,7 @@ a.pcol-t:hover { color: var(--violeta); }
 .gantt-topo { display: flex; justify-content: space-between; gap: 12px; padding: 18px 24px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
 .gantt-topo b { font-weight: 500; }
 .gantt-topo span { color: var(--claro-2); }
-.gantt-corpo { position: relative; padding: 48px 24px 24px; --nome: 168px; }
+.gantt-corpo { position: relative; padding: 48px 24px 24px; --nome: 204px; }
 .gl { display: grid; grid-template-columns: var(--nome) minmax(0, 1fr); align-items: center; min-height: 42px; }
 .gl-nome { color: var(--claro-1); }
 .gl-pista { position: relative; height: 10px; }
