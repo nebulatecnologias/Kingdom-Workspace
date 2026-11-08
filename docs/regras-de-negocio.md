@@ -68,7 +68,7 @@ O Training tem como entrada o livro O Bloqueio Invisível e três ofertas: 10X M
 
 ### R04 · Kingdom Company: 5 áreas e 3 planos por serviço
 
-A Kingdom Company tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Marketing & Vendas, Desenvolvimento Tecnológico e Assessoria Corporativa. O site oficial é www.kingdomcompany.co.za (R35), feito a partir da versão 2 (hoje em incompany.kingdomcompny.com até o domínio novo estar ligado); é o único sítio onde aparece a morada da África do Sul. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta. Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da Kingdom Company (R16). O Business Plan pertence à Consultoria Estratégica. A Assessoria de Eventos foi eliminada.
+A Kingdom Company tem 5 áreas: Consultoria Estratégica, Desenvolvimento Editorial, Assessoria em Marketing & Vendas, Desenvolvimento Tecnológico e Treinamento Corporativo (nomes novos de 08/11/2026; antes «Marketing & Vendas» e «Assessoria Corporativa»). O site oficial é www.kingdomcompany.co.za (R35), feito a partir da versão 2 (hoje em incompany.kingdomcompny.com até o domínio novo estar ligado); é o único sítio onde aparece a morada da África do Sul. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta. Os preços da tabela são a âncora das outras ofertas: o treino de equipa incluído no Tracktion é apresentado ao valor da Kingdom Company (R16). O Business Plan pertence à Consultoria Estratégica. A Assessoria de Eventos foi eliminada.
 
 *10/10/2026 · Decisão do Shelton*
 

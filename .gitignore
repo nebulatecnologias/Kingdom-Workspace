@@ -2,6 +2,7 @@ node_modules/
 __pycache__/
 *.pyc
 members/.impeccable/review/
+kingdom-company/.impeccable/review/
 members/prototype/dist/
 skills/kingdom-design-system-workspace/
 
