@@ -49,6 +49,7 @@ O globo (`docs/marca/globo/`) é o símbolo das três marcas: Kingdom Company, K
 | O círculo | **Reino**: a unidade. |
 | A estrela | **Direção**: o conhecimento. |
 | Os eixos (vertical e horizontal) | **Estrutura**. |
+| Os meridianos | **Método**: a metodologia. |
 
 Frase: **É isto que a Kingdom faz, em todas as suas marcas: dá direção, estrutura e clareza para crescer com propósito.**
 
