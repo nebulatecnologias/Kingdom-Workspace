@@ -148,31 +148,55 @@
     [...ul.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); ul.appendChild(c); });
   });
 
-  // Notícias: a capa ativa abre, as outras ficam em tiras
+  // Blog de notícias: lê blog/noticias.json (mantido pela automação) e mostra as 5 mais recentes
   const not = document.querySelector('[data-noticias]');
   if (not) {
-    const lista = [...not.querySelectorAll('.noticia')];
-    const texto = not.querySelector('.noticia-texto p');
-    let i = 0;
-    const mostra = (n) => {
-      i = (n + lista.length) % lista.length;
-      const li = lista[i];
-      lista.forEach((x, k) => { x.classList.toggle('ativa', k === i); x.querySelector('button').setAttribute('aria-current', String(k === i)); });
-      const aplica = () => {
-        not.querySelector('[data-n-titulo]').textContent = li.dataset.titulo;
-        not.querySelector('[data-n-texto]').textContent = li.dataset.texto;
-        not.querySelector('[data-n-acao]').textContent = li.dataset.acao;
-        not.querySelector('[data-n-link]').setAttribute('href', li.dataset.link);
-        texto.classList.remove('muda');
+    const vazio = document.querySelector('[data-n-vazio]');
+    const setas = document.querySelector('[data-n-setas]');
+    const capas = { 'Negócios': 'capa-negocios', 'Tecnologia': 'capa-tecnologia', 'Inteligência artificial': 'capa-ia' };
+    const meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+    const dataPt = (d) => { const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ''); return m ? `${+m[3]} ${meses[+m[2] - 1]} ${m[1]}` : ''; };
+    const ler = (url) => fetch(url, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : [])).catch(() => []);
+    const monta = (itens) => {
+      itens = (Array.isArray(itens) ? itens : []).filter((x) => x && x.titulo).sort((a, b) => String(b.data).localeCompare(String(a.data))).slice(0, 5);
+      if (!itens.length) { if (setas) setas.hidden = true; return; }
+      const faixa = not.querySelector('.noticias-faixa');
+      itens.forEach((x, k) => {
+        const li = document.createElement('li'); li.className = 'noticia' + (k ? '' : ' ativa');
+        const b = document.createElement('button'); b.type = 'button';
+        b.className = 'noticia-capa ' + (x.imagem ? 'capa-foto' : (capas[x.categoria] || 'capa-negocios'));
+        b.setAttribute('aria-label', x.titulo);
+        if (x.imagem) { const im = document.createElement('img'); im.src = x.imagem; im.alt = ''; im.loading = 'lazy'; b.append(im); }
+        const et = document.createElement('span'); et.className = 'capa-etiqueta'; et.textContent = (x.exemplo ? 'Exemplo · ' : '') + (x.categoria || 'Notícias'); b.append(et);
+        li.append(b); faixa.append(li);
+      });
+      const lista = [...faixa.children];
+      const texto = not.querySelector('.noticia-texto');
+      let i = 0;
+      const mostra = (n) => {
+        i = (n + lista.length) % lista.length;
+        const x = itens[i];
+        lista.forEach((li, k) => { li.classList.toggle('ativa', k === i); li.firstChild.setAttribute('aria-current', String(k === i)); });
+        const aplica = () => {
+          not.querySelector('[data-n-meta]').textContent = [x.categoria, x.ambito, x.fonte, dataPt(x.data)].filter(Boolean).join(' · ');
+          not.querySelector('[data-n-titulo]').textContent = x.titulo;
+          not.querySelector('[data-n-texto]').textContent = x.resumo || '';
+          const a = not.querySelector('[data-n-link]'); a.href = x.link || x.fonte_url || '/blog';
+          const fora = /^https?:/.test(a.getAttribute('href')); a.target = fora ? '_blank' : ''; a.rel = fora ? 'noopener' : '';
+          texto.classList.remove('muda');
+        };
+        if (calmo) aplica(); else { texto.classList.add('muda'); setTimeout(aplica, 280); }
       };
-      if (calmo) aplica(); else { texto.classList.add('muda'); setTimeout(aplica, 280); }
+      lista.forEach((li, k) => li.firstChild.addEventListener('click', () => mostra(k)));
+      document.querySelector('[data-n-ant]').addEventListener('click', () => mostra(i - 1));
+      document.querySelector('[data-n-seg]').addEventListener('click', () => mostra(i + 1));
+      let toque = null;
+      not.addEventListener('pointerdown', (e) => { toque = e.clientX; });
+      not.addEventListener('pointerup', (e) => { if (toque !== null && Math.abs(e.clientX - toque) > 50) mostra(i + (e.clientX < toque ? 1 : -1)); toque = null; });
+      not.hidden = false; if (vazio) vazio.hidden = true;
+      mostra(0);
     };
-    lista.forEach((li, k) => li.querySelector('button').addEventListener('click', () => mostra(k)));
-    document.querySelector('[data-n-ant]').addEventListener('click', () => mostra(i - 1));
-    document.querySelector('[data-n-seg]').addEventListener('click', () => mostra(i + 1));
-    let toque = null;
-    not.addEventListener('pointerdown', (e) => { toque = e.clientX; });
-    not.addEventListener('pointerup', (e) => { if (toque !== null && Math.abs(e.clientX - toque) > 50) mostra(i + (e.clientX < toque ? 1 : -1)); toque = null; });
+    ler(not.dataset.fonte).then((itens) => (itens.length || !raiz.classList.contains('previa') ? itens : ler(not.dataset.exemplos))).then(monta);
   }
 
   // Newsletter: enquanto a lista não está ligada, a subscrição segue por email
