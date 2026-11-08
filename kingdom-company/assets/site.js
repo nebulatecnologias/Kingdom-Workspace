@@ -126,6 +126,23 @@
     if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visivel = e.isIntersecting; if (visivel && !pedido) pedido = requestAnimationFrame(f); }).observe(gantt);
   }
 
+  // Órbita: as cinco áreas giram à volta do globo, sempre (como no site anterior)
+  const rodas = [...document.querySelectorAll('.orbita .roda')].map((r, k) => ({ r, astros: [...r.querySelectorAll('.astro')], periodo: [28000, 44000, 64000][k] || 50000, sentido: k === 1 ? -1 : 1 }));
+  if (rodas.length) {
+    let visivelO = true;
+    const orb = document.querySelector('.orbita');
+    if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visivelO = e.isIntersecting; }).observe(orb);
+    const gira = (agora) => {
+      if (visivelO && !document.hidden) rodas.forEach(({ r, astros, periodo, sentido }) => {
+        const a = (sentido * 360 * agora / periodo) % 360;
+        r.style.transform = `rotate(${a}deg)`;
+        astros.forEach((x) => { x.style.rotate = `${-a}deg`; });
+      });
+      requestAnimationFrame(gira);
+    };
+    requestAnimationFrame(gira);
+  }
+
   // Faixas de entregáveis: duplica a lista para o movimento contínuo
   document.querySelectorAll('.trilho').forEach((ul) => {
     [...ul.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); ul.appendChild(c); });

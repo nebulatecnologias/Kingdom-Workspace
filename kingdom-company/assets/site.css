@@ -428,17 +428,13 @@ p { text-wrap: pretty; }
 .abertura-arte img { animation: flutua 22s ease-in-out infinite alternate; }
 .abertura-luz i { animation: luz 16s ease-in-out infinite alternate; }
 .abertura-luz i:nth-child(2) { animation-duration: 21s; } .abertura-luz i:nth-child(3) { animation-duration: 26s; }
-.r1 { animation: gira 28s linear infinite; } .r2 { animation: gira 44s linear infinite reverse; } .r3 { animation: gira 64s linear infinite; }
-.r1 .astro { animation: contra 28s linear infinite; } .r2 .astro { animation: contra 44s linear infinite reverse; } .r3 .astro { animation: contra 64s linear infinite; }
 .trilho { animation: trilho 60s linear infinite; }
 .trilho-inverso { animation-direction: reverse; animation-duration: 70s; }
-.trilhos:hover .trilho, .orbita:hover .roda, .orbita:hover .astro { animation-play-state: paused; }
+.trilhos:hover .trilho { animation-play-state: paused; }
 .treino .ta-valor { stroke-dasharray: 0 100; transition: stroke-dasharray 1.6s var(--sai); }
 .treino.visivel .ta-valor { stroke-dasharray: 86 100; }
 @keyframes flutua { from { transform: rotate(-14deg) translateY(0); } to { transform: rotate(-8deg) translateY(16px); } }
 @keyframes luz { to { transform: rotate(32deg) translateX(-5vw); } }
-@keyframes gira { to { transform: rotate(360deg); } }
-@keyframes contra { from { rotate: 0deg; } to { rotate: -360deg; } }
 @keyframes trilho { to { transform: translateX(calc(-50% - 7px)); } }
 
 /* Responsivo */
