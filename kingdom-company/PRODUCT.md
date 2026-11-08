@@ -20,7 +20,7 @@ A Kingdom Company é a empresa de desenvolvimento empresarial, educação e tecn
 
 ## Positioning
 
-«Um único lugar. Tudo o que precisa para desenvolver o seu negócio.» Cinco áreas debaixo do mesmo método (Diagnóstico, Estratégia, Implementação, Autonomia) e da mesma equipa, em vez de cinco fornecedores: Consultoria Estratégica, Desenvolvimento Editorial, Assessoria em Marketing & Vendas, Desenvolvimento Tecnológico, Treinamento Corporativo. Liderada por Shelton Douglas (O Conselheiro), com o Kingdom Training e a Kingdom Academy no mesmo grupo.
+«Um único lugar. Tudo o que precisa para desenvolver o seu negócio.» Cinco áreas debaixo do mesmo método (Diagnóstico, Estratégia, Implementação, Autonomia) e da mesma equipa, em vez de cinco fornecedores: Consultoria Estratégica, Desenvolvimento Editorial, Assessoria em Marketing & Vendas, Desenvolvimento Tecnológico, Treinamento Corporativo. Faz parte do grupo Kingdom, com o Kingdom Training e a Kingdom Academy como frentes irmãs. O fundador não aparece neste site (decisão do cliente, 08/11/2026): nem fotografia, nem nome.
 
 ## Operating Context
 
@@ -40,7 +40,7 @@ Manual de marca v2 (`docs/marca/brandbook/kingdom-company-manual-de-marca.pdf`, 
 
 ## Evidence on Hand
 
-- Na mão: logótipo e símbolo, padrão, manual de marca, fotografias do Shelton em `site/img/`, logótipos de certificações (Google, Anthropic, Wix, Semrush) usados em `site/`.
+- Na mão: logótipo e símbolo, padrão, manual de marca, logótipos de certificações (Google, Anthropic, Wix, Semrush) usados em `site/`.
 - Prometido pelo cliente, ainda não recebido: logótipos de clientes autorizados, testemunhos com nome e cargo, links ou imagens de entrevistas e reportagens.
 - Não usar: números do grupo (13.000+ alunos, 100+ empresários) na home, por decisão de 08/11/2026; nenhum cliente, testemunho, número ou aparição inventados.
 
