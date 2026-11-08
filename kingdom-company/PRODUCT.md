@@ -20,7 +20,7 @@ A Kingdom Company é uma empresa moçambicana de desenvolvimento empresarial, me
 
 ## Positioning
 
-«Um único lugar. Tudo o que precisa para desenvolver o seu negócio.» Cinco áreas debaixo do mesmo método (Diagnóstico, Estratégia, Implementação, Autonomia) e da mesma equipa, em vez de cinco fornecedores: Consultoria Estratégica, Desenvolvimento Editorial, Assessoria em Marketing & Vendas, Desenvolvimento Tecnológico, Treinamento Corporativo. Faz parte do grupo Kingdom, com o Kingdom Training e a Kingdom Academy como frentes irmãs. O fundador não aparece neste site (decisão do cliente, 08/11/2026): nem fotografia, nem nome.
+«Um único lugar. Tudo o que precisa para desenvolver o seu negócio.» Cinco áreas debaixo do mesmo método (Diagnóstico, Estratégia, Implementação, Autonomia) e da mesma equipa, em vez de cinco fornecedores: Consultoria Estratégica, Desenvolvimento Editorial, Assessoria em Marketing & Vendas, Desenvolvimento Tecnológico, Treinamento Corporativo. É membro da SDG (Pty) Ltd, com o Kingdom Training e a Kingdom Academy como frentes irmãs; no site usa-se sempre «SDG (Pty) Ltd», nunca «grupo Kingdom» (decisão do cliente, 08/11/2026). O fundador não aparece neste site (decisão do cliente, 08/11/2026): nem fotografia, nem nome.
 
 ## Operating Context
 
