@@ -62,7 +62,14 @@ Quadro de conceito: `docs/marca/globo/conceito-globo-kingdom.png`. O símbolo é
 - **Horizontal**: globo à esquerda, nome centrado na altura do globo, descritor por baixo com a largura exata do nome.
 - **Vertical**: globo em cima, nome e descritor centrados por baixo.
 - Versões **simples** (sem descritor) para tamanhos pequenos.
-- Cores: índigo, branco e preto. Ficheiros em `docs/marca/logotipo/`, gerados por `tools/marca/logotipo.py`.
+- Cores: índigo, branco e preto. Ficheiros em `docs/marca/logotipo/`, gerados por `tools/marca/logotipo.py`; PNG transparentes em `docs/marca/logotipo/png/` (`node tools/marca/png.mjs docs/marca/logotipo`).
+
+## Variações e regras de uso (08/11/2026)
+Quadros: `docs/marca/logotipo/quadros/kingdom-company-variacoes.png` e `kingdom-company-aplicacoes.png`.
+- **Uma só cor, sempre.** Índigo sobre marfim ou branco (principal); branco sobre índigo, laranja, preto ou fotografia escura e calma; preto sobre branco para impressão a uma cor. Nunca laranja sobre índigo, nem o logótipo a duas cores.
+- **Ícone**: globo branco num quadrado de cantos arredondados, índigo (principal) ou laranja, para app, perfis e redes. **Favicon**: o globo ocupa quase todo o quadrado índigo, para o anel continuar visível a 16 px (`favicon.svg`, `favicon.ico`).
+- **Área de proteção**: margem mínima de *x* em todos os lados, em que *x* é a altura do «K» de Kingdom.
+- **Tamanhos mínimos** (largura): horizontal 280 px / 70 mm; horizontal simples 120 px / 30 mm; vertical 210 px / 55 mm; vertical simples 100 px / 25 mm; símbolo 16 px / 6 mm. Abaixo do mínimo com descritor, usar a versão simples.
 
 ## Por decidir
-- Aprovação do significado e versões do logótipo com o nome de cada braço.
+- Logótipos da Kingdom Training e da Kingdom Academy (descritor e slogan de cada uma), depois do brandbook da Company.

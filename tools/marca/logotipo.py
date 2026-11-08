@@ -97,4 +97,14 @@ for braco in BRACOS:
 for cor, hexa in CORES.items():
     open(os.path.join(SAIDA, f'kingdom-simbolo-{cor}.svg'), 'w').write(
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480"><g fill="{hexa}"><path fill-rule="evenodd" d="{GLOBO}"/></g></svg>\n')
+# ícones: globo branco num quadrado de cantos arredondados (app, perfis) e favicon
+FUNDOS = {'indigo': '#2B2850', 'laranja': '#FF521A'}
+for cor, hexa in FUNDOS.items():
+    open(os.path.join(SAIDA, f'kingdom-icone-{cor}.svg'), 'w').write(
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><rect width="512" height="512" rx="115" fill="{hexa}"/>'
+        f'<g fill="#FFFFFF">{globo(106, 106, 300)}</g></svg>\n')
+# favicon: o globo ocupa quase todo o quadrado, para o anel não desaparecer a 16 px
+open(os.path.join(SAIDA, 'favicon.svg'), 'w').write(
+    f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><rect width="512" height="512" rx="96" fill="#2B2850"/>'
+    f'<g fill="#FFFFFF">{globo(56, 56, 400)}</g></svg>\n')
 print('ok', len(os.listdir(SAIDA)), 'ficheiros')
