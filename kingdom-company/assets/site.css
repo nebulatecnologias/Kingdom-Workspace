@@ -678,8 +678,8 @@ a.pcol-t:hover { color: var(--violeta); }
 .area-servs > li + li { border-left: 1px solid var(--linha-fria); }
 .area-servs a { display: flex; flex-direction: column; height: 100%; padding: 32px 28px 12px; text-decoration: none; transition: background-color .25s var(--sai); }
 .area-servs > li:first-child a { padding-left: 0; }
-.area-servs a::before { content: ""; width: 24px; height: 2px; margin-bottom: 20px; background: var(--luz); transition: width .3s var(--sai); }
-.area-servs a:hover::before { width: 48px; }
+.area-servs a::before { content: ""; width: 24px; height: 2px; margin-bottom: 20px; background: var(--luz); transform-origin: left center; transition: transform .3s var(--sai); }
+.area-servs a:hover::before { transform: scaleX(2); }
 .area-serv-rot { font-size: .875rem; font-weight: 500; color: var(--luz); }
 .area-servs h3 { margin-top: 8px; font-size: 1.375rem; line-height: 1.25; font-weight: 500; letter-spacing: -.01em; color: var(--indigo); }
 .area-servs p { margin-top: 12px; color: var(--cinza); line-height: 1.55; flex: 1; }
