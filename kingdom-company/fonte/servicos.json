@@ -37,7 +37,8 @@
    "urgencia": [
     "Enquanto a marca parecer amadora, o mercado julga o seu trabalho por ela.",
     "Cada proposta ou visita ao site com uma imagem abaixo do seu nível é uma oportunidade que pode ir para a concorrência."
-   ]
+   ],
+   "rotulo": "Logótipo, cores e manual de marca"
   },
   {
    "area": "Desenvolvimento Editorial",
@@ -75,7 +76,8 @@
    "urgencia": [
     "O próximo concurso não espera pela sua proposta.",
     "Cada concurso perdido na parte técnica é um contrato que podia ser seu."
-   ]
+   ],
+   "rotulo": "Prontos para concursos e cadernos de encargos"
   },
   {
    "area": "Desenvolvimento Editorial",
@@ -112,7 +114,8 @@
    "urgencia": [
     "Cada perfil desatualizado apresenta uma empresa mais pequena do que a sua.",
     "Clientes e financiadores decidem muitas vezes só pelo documento que recebem."
-   ]
+   ],
+   "rotulo": "A empresa apresentada em PDF, PPTX e DOCX"
   },
   {
    "area": "Consultoria Estratégica",
@@ -151,7 +154,8 @@
    "urgencia": [
     "Sem um plano sólido, a resposta do banco ou do investidor tende a ser não.",
     "Números que não resistem às primeiras perguntas fecham portas difíceis de voltar a abrir."
-   ]
+   ],
+   "rotulo": "Para bancos, investidores e parceiros"
   },
   {
    "area": "Consultoria Estratégica",
@@ -188,7 +192,8 @@
    "urgencia": [
     "Cada trimestre sem direção é um trimestre de esforço sem resultado.",
     "Quanto mais tarde definir para onde vai, mais tempo e dinheiro ficam presos no que não dá resultado."
-   ]
+   ],
+   "rotulo": "Prioridades, metas e responsáveis"
   },
   {
    "area": "Consultoria Estratégica",
@@ -222,7 +227,8 @@
    "urgencia": [
     "Uma decisão adiada também é uma decisão, e quase sempre a mais cara.",
     "Enquanto espera, as opções diminuem, e decidir à pressa aumenta o risco."
-   ]
+   ],
+   "rotulo": "Aconselhamento empresarial para decisões importantes"
   },
   {
    "area": "Assessoria",
@@ -258,7 +264,8 @@
    "urgencia": [
     "Se o mercado não vê o seu trabalho, escolhe quem se mostra melhor.",
     "Os clientes avaliam a empresa pelas imagens que encontram antes de falarem consigo."
-   ]
+   ],
+   "rotulo": "Vídeos institucionais e conteúdo"
   },
   {
    "area": "Assessoria",
@@ -294,7 +301,8 @@
    "urgencia": [
     "Uma página parada diz ao cliente que a empresa pode ter fechado.",
     "Cada mês sem publicações entrega a atenção a quem aparece com regularidade."
-   ]
+   ],
+   "rotulo": "Calendário e publicação todos os meses"
   },
   {
    "area": "Assessoria",
@@ -330,7 +338,8 @@
    "urgencia": [
     "Cada anúncio sem estratégia é dinheiro que não volta.",
     "Sem objetivo nem medição, não sabe o que funciona nem o que deve cortar."
-   ]
+   ],
+   "rotulo": "Do conceito aos anúncios"
   },
   {
    "area": "Desenvolvimento Tecnológico",
@@ -366,7 +375,8 @@
    "urgencia": [
     "Quando os números chegam tarde, a decisão também chega tarde.",
     "Com a informação espalhada por folhas de Excel, os problemas aparecem quando já custaram dinheiro."
-   ]
+   ],
+   "rotulo": "Os números da empresa num só lugar"
   },
   {
    "area": "Desenvolvimento Tecnológico",
@@ -403,7 +413,8 @@
    "urgencia": [
     "Se o cliente não o encontra online, encontra a concorrência.",
     "Um site lento ou antigo faz perder contactos todos os dias, sem que dê por isso."
-   ]
+   ],
+   "rotulo": "Presença digital que vende"
   },
   {
    "area": "Desenvolvimento Tecnológico",
@@ -439,7 +450,8 @@
    "urgencia": [
     "Cada cliente esquecido é uma venda que estava quase feita.",
     "Sem seguimento, os clientes interessados compram a quem lhes ligou primeiro."
-   ]
+   ],
+   "rotulo": "Clientes, oportunidades e vendas num só sistema"
   }
  ]
 }
