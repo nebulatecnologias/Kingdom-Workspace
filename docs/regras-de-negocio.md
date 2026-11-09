@@ -3,7 +3,7 @@
 Cópia das regras gravadas no separador **Regras e estratégia** do [Mapa Kingdom](https://claude.ai/artifact/GdnhABbW2DhtKcopjLHz8c).
 A versão de referência é a do mapa (coleção `regras` da base de dados do artefacto). Este ficheiro é atualizado sempre que uma regra muda.
 
-Última atualização: 08/11/2026.
+Última atualização: 09/11/2026.
 
 ## Estrutura
 
@@ -203,6 +203,24 @@ Os livros e o Business Advising fecham direto no site, sem vendedor; nessas linh
 Nas vendas com vendedor, cada fechamento tem uma pessoa responsável com nome, e um canal: chamada, videoconferência ou WhatsApp em texto.
 
 *10/10/2026 · Decisão do Shelton*
+
+### R37 · SDR e Closer separados, só pedidos que chegam
+
+As vendas da Kingdom Company são feitas por duas pessoas diferentes: o SDR recebe e qualifica os pedidos e marca a reunião; o Closer faz o diagnóstico, a proposta, a negociação e o fecho. A equipa trabalha só os pedidos que chegam (pedidos de cotação e avaliações iniciais do site, Instagram, LinkedIn e indicações), sem prospeção ativa. O processo está no Playbook de vendas da Kingdom Company.
+
+*09/11/2026 · Decisão do Shelton*
+
+### R38 · Kingdom Company: pagamento por marcos do projeto
+
+Os serviços da Kingdom Company pagam-se por marcos do projeto: o primeiro marco antes de começar e os seguintes a cada entrega intercalar. O one pager de 15.000 MT continua a pagar-se 100% antes de começar (R30). Os marcos e as percentagens de cada serviço ainda estão por definir.
+
+*09/11/2026 · Decisão do Shelton*
+
+### R39 · Kingdom Company: sem descontos
+
+Na Kingdom Company não há descontos, nem por pagamento antecipado nem por pacote. O preço de um plano nunca desce caso a caso: para baixar o valor, o Closer propõe um plano abaixo ou retira âmbito.
+
+*09/11/2026 · Decisão do Shelton*
 
 ## Tráfego e conteúdo
 
