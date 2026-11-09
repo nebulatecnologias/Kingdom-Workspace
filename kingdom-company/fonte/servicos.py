@@ -4,7 +4,8 @@
 Uso (na pasta kingdom-company):  python3 fonte/servicos.py
 
 O cabeçalho, o rodapé e o <head> vêm de contactos.html, para ficarem iguais ao resto do site.
-O conteúdo vem das fichas do Playbook de vendas. O site não mostra preços (R36).
+O conteúdo vem das fichas do Playbook de vendas: a proposta de valor (pitch) logo a seguir à abertura
+e o texto de urgência (urgencia: [título, texto]) no fecho. O site não mostra preços (R36).
 Os entregáveis ainda por validar e o estudo de caso só aparecem na pré-visualização (classe so-previa).
 """
 import html
@@ -38,16 +39,9 @@ def partes_base():
 def pagina(s, todos):
     rel = [x for x in todos if x['area_slug'] == s['area_slug'] and x['slug'] != s['slug']]
     url = f'/{s["area_slug"]}/{s["slug"]}'
-    n_ent = len(s['entrega'])
-    numeros = [
-        (f'{n_ent}', 'entregáveis' if not s['validar'] else 'entregáveis previstos', s['validar']),
-        ('6', 'fases do método, do diagnóstico ao acompanhamento', False),
-        ('+50', 'negócios atendidos', False),
-        ('4', 'áreas integradas numa só equipa', False),
-    ]
-    num_html = ''.join(f'<li{" class=so-previa" if v else ""}><b>{n}</b><span>{E(t)}</span></li>' for n, t, v in numeros)
-    if s['validar']:
-        num_html += '<li class="so-nao-previa"><b>+6</b><span>anos de mercado</span></li>'
+    frase, _, resto = s['pitch'].partition('. ')
+    frase += '.'
+    urg_t, urg_x = s['urgencia']
     dores = ''.join(f'<li>{E(d)}</li>' for d in s['dores'])
     quem = ''.join(f'<li><p>{E(q)}</p></li>' for q in s['quem'])
     entrega = ''.join(f'<li>{E(e.rstrip("."))}</li>' for e in s['entrega'])
@@ -76,8 +70,14 @@ def pagina(s, todos):
   </div>
 </section>
 
-<section class="serv-numeros" aria-label="O serviço em números">
-  <div class="moldura"><ul>{num_html}</ul></div>
+<section class="serv-proposta" aria-labelledby="t-proposta">
+  <div class="moldura serv-proposta-in">
+    <p class="contexto" id="t-proposta">A nossa proposta</p>
+    <div>
+      <p class="serv-proposta-frase">{E(frase)}</p>
+      <p class="serv-proposta-resto">{E(resto)}</p>
+    </div>
+  </div>
 </section>
 
 <section class="seccao serv-problema" aria-labelledby="t-problema">
@@ -147,8 +147,10 @@ def pagina(s, todos):
 <section class="seccao serv-fecho" aria-labelledby="t-fecho">
   <div class="moldura serv-duas">
     <div>
-      <h2 id="t-fecho">Vamos começar?</h2>
-      <p class="entrada">{E(s["pitch"])}</p>
+      <p class="contexto">O custo de esperar</p>
+      <h2 id="t-fecho">{E(urg_t)}</h2>
+      <p class="entrada">{E(urg_x)}</p>
+      <p class="serv-fecho-passo">Peça hoje a cotação ou a avaliação inicial e saiba por onde começar.</p>
       <div class="acoes">
         <a class="botao botao-acao" href="/pedido-de-cotacao">Pedir cotação {SETA}</a>
         <a class="ligacao" href="/contactos">Fale connosco {SETA}</a>
