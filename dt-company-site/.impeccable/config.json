@@ -1,0 +1,44 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "dt-company-site/index.html"
+        ],
+        "createdAt": "2026-11-08T23:20:13.946Z",
+        "reason": "secções .seccao/.moldura do modelo testado da skill têm padding generoso no render; moldura de linhas é desenho intencional"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "dt-company-site/assets/site.css"
+        ],
+        "createdAt": "2026-11-08T23:20:13.954Z",
+        "reason": "sombra com offset dos astros da órbita, desenho do modelo Kingdom testado"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "dt-company-site/index.html"
+        ],
+        "createdAt": "2026-11-08T23:20:13.962Z",
+        "reason": "painéis do menu do modelo: abrem colados à barra por desenho; comportamento verificado nas capturas"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "dt-company-site/index.html"
+        ],
+        "createdAt": "2026-11-08T23:20:20.705Z",
+        "reason": "falsos positivos verificados em render: texto claro-1/branco sobre fundos navy do gradiente; análise estática emparelhou com fundo claro errado (capturas conferidas)"
+      }
+    ]
+  }
+}
