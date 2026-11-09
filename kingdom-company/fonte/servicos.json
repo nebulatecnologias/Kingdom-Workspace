@@ -36,7 +36,7 @@
    "pitch": "Ajudamos empresas a construir uma identidade visual profissional e estratégica, alinhada com o seu posicionamento e com a imagem que pretendem transmitir ao mercado. Desenvolvemos os elementos visuais que permitem apresentar a marca com maior consistência, personalidade e credibilidade nos seus diferentes pontos de contacto.",
    "urgencia": [
     "Enquanto a marca parecer amadora, o mercado julga o seu trabalho por ela.",
-    "Os clientes formam uma opinião antes de falarem consigo. Cada proposta, apresentação ou visita ao site com uma imagem abaixo do nível do negócio é uma oportunidade que pode ir para um concorrente que parece mais preparado, mesmo que não seja. E quanto mais tempo passar, mais materiais terá de refazer depois."
+    "Cada proposta ou visita ao site com uma imagem abaixo do seu nível é uma oportunidade que pode ir para a concorrência."
    ]
   },
   {
@@ -74,7 +74,7 @@
    "pitch": "Ajudamos empresas a apresentar propostas técnicas que respondem exatamente ao que o júri avalia. Construímos a proposta a partir do caderno de encargos e deixamos modelos prontos, para que a empresa concorra com mais qualidade e menos esforço em cada concurso.",
    "urgencia": [
     "O próximo concurso não espera pela sua proposta.",
-    "Cada concurso perdido por pontos na parte técnica é um contrato que a empresa tinha capacidade para ganhar. Se continuar a montar a proposta na véspera do prazo, o resultado tende a repetir-se. Prepare a estrutura agora, antes de sair o próximo caderno de encargos."
+    "Cada concurso perdido na parte técnica é um contrato que podia ser seu."
    ]
   },
   {
@@ -110,8 +110,8 @@
    "validar": false,
    "pitch": "Ajudamos empresas a apresentar-se ao nível do que já entregam. Escrevemos e desenhamos o perfil corporativo que mostra a história, os serviços e os projetos da empresa, pronto a enviar a clientes, parceiros e financiadores.",
    "urgencia": [
-    "Cada perfil desatualizado que envia apresenta uma empresa mais pequena do que a sua.",
-    "Clientes, parceiros e financiadores decidem muitas vezes só com o documento que lhes chega às mãos. Enquanto a empresa se apresentar com um PDF antigo, o que já realizou fica por mostrar e cada nova oportunidade é avaliada por menos do que vale."
+    "Cada perfil desatualizado apresenta uma empresa mais pequena do que a sua.",
+    "Clientes e financiadores decidem muitas vezes só pelo documento que recebem."
    ]
   },
   {
@@ -150,7 +150,7 @@
    "pitch": "Ajudamos empreendedores e empresas a transformar uma ideia ou um projeto de expansão num plano de negócios sólido. Estruturamos o mercado, o modelo e os números para que chegue ao banco ou ao investidor preparado para responder a todas as perguntas.",
    "urgencia": [
     "Sem um plano sólido, a resposta do banco ou do investidor tende a ser não.",
-    "Cada mês sem um plano estruturado é um mês em que a ideia ou a expansão fica parada, e as oportunidades de financiamento não ficam abertas para sempre. Chegar com números que não resistem às primeiras perguntas pode fechar uma porta que depois é difícil voltar a abrir."
+    "Números que não resistem às primeiras perguntas fecham portas difíceis de voltar a abrir."
    ]
   },
   {
@@ -187,7 +187,7 @@
    "pitch": "Ajudamos a direção a definir para onde a empresa vai e como lá chegar. Transformamos as prioridades em metas, responsáveis e um plano de ação acompanhado, para que a equipa trabalhe na mesma direção e os resultados apareçam.",
    "urgencia": [
     "Cada trimestre sem direção é um trimestre de esforço sem resultado.",
-    "A equipa continua ocupada, mas a puxar em direções diferentes, e as prioridades mudam a cada urgência. Quanto mais tarde a direção definir para onde vai, mais tempo e dinheiro ficam presos em iniciativas que não levam a lado nenhum."
+    "Quanto mais tarde definir para onde vai, mais tempo e dinheiro ficam presos no que não dá resultado."
    ]
   },
   {
@@ -221,7 +221,7 @@
    "pitch": "Ajudamos donos e diretores a tomar decisões importantes com mais clareza e menos risco. Analisamos consigo os cenários e as consequências, para que avance com segurança e com um plano para o que pode correr mal.",
    "urgencia": [
     "Uma decisão adiada também é uma decisão, e quase sempre a mais cara.",
-    "Enquanto a decisão fica parada, o mercado e a concorrência continuam a mexer-se e as opções diminuem. Decidir mais tarde, à pressa e sob pressão, aumenta o risco que queria evitar. Discuta-a connosco agora, enquanto ainda tem margem para escolher."
+    "Enquanto espera, as opções diminuem, e decidir à pressa aumenta o risco."
    ]
   },
   {
@@ -257,7 +257,7 @@
    "pitch": "Ajudamos empresas a mostrar o que fazem com a qualidade que merecem. Produzimos vídeos e fotografias que apresentam a empresa, a equipa e os projetos, para que os clientes percebam o seu valor antes de falarem consigo.",
    "urgencia": [
     "Se o mercado não vê o seu trabalho, escolhe quem se mostra melhor.",
-    "Os clientes avaliam a empresa pelas imagens e pelos vídeos que encontram antes de falarem consigo. Enquanto o seu trabalho for mostrado com fotografias de banco ou vídeos de telemóvel, vai continuar a depender de longas conversas para provar o que vale, e algumas nunca chegam a acontecer."
+    "Os clientes avaliam a empresa pelas imagens que encontram antes de falarem consigo."
    ]
   },
   {
@@ -293,7 +293,7 @@
    "pitch": "Ajudamos empresas a manter uma presença profissional e constante nas redes sociais. Planeamos, criamos e publicamos os conteúdos todos os meses, para que a sua empresa transmita confiança a quem a procura, sem ocupar o seu tempo.",
    "urgencia": [
     "Uma página parada diz ao cliente que a empresa pode ter fechado.",
-    "Quem a procura nas redes decide em segundos se a empresa é de confiança. Cada mês sem publicações reforça a ideia errada e entrega a atenção a concorrentes que aparecem com regularidade. Recuperar a confiança perdida leva mais tempo do que mantê-la."
+    "Cada mês sem publicações entrega a atenção a quem aparece com regularidade."
    ]
   },
   {
@@ -329,7 +329,7 @@
    "pitch": "Ajudamos empresas a transformar o investimento em publicidade em resultados. Definimos o objetivo, a mensagem e o público, produzimos os criativos e gerimos os anúncios, para que saiba exatamente o que cada campanha trouxe.",
    "urgencia": [
     "Cada anúncio sem estratégia é dinheiro que não volta.",
-    "Impulsionar publicações ao acaso pode parecer barato, mas sem objetivo, público e medição não sabe o que funciona nem o que deve cortar. Quanto mais tempo continuar assim, mais investimento perde e menos aprende com ele."
+    "Sem objetivo nem medição, não sabe o que funciona nem o que deve cortar."
    ]
   },
   {
@@ -365,7 +365,7 @@
    "pitch": "Ajudamos a direção a ver a empresa em tempo real. Reunimos os dados de vendas, finanças e operações num só painel, para que decida a tempo e com números em que confia.",
    "urgencia": [
     "Quando os números chegam tarde, a decisão também chega tarde.",
-    "Enquanto a informação estiver espalhada por folhas de Excel que não batem certo, a direção decide por intuição e descobre os problemas quando já custaram dinheiro. Cada mês sem um painel fiável é mais um mês a gerir pelo retrovisor."
+    "Com a informação espalhada por folhas de Excel, os problemas aparecem quando já custaram dinheiro."
    ]
   },
   {
@@ -402,7 +402,7 @@
    "pitch": "Ajudamos empresas a ter uma presença digital que transmite confiança e traz clientes. Desenhamos e desenvolvemos o site ou a aplicação, e cuidamos do alojamento e da manutenção, para que a sua empresa venda também enquanto dorme.",
    "urgencia": [
     "Se o cliente não o encontra online, encontra a concorrência.",
-    "Muitos clientes procuram a empresa na internet antes de a contactar. Um site lento, antigo ou que não abre bem no telemóvel faz perder contactos todos os dias, sem que dê por isso. Cada mês sem uma presença digital à altura é um mês de clientes que foram para outro lado."
+    "Um site lento ou antigo faz perder contactos todos os dias, sem que dê por isso."
    ]
   },
   {
@@ -438,7 +438,7 @@
    "pitch": "Ajudamos empresas a vender de forma organizada e previsível. Implementamos um sistema que acompanha cada cliente e cada oportunidade, para que nenhuma venda se perca por falta de seguimento e saiba sempre o que vai entrar.",
    "urgencia": [
     "Cada cliente esquecido é uma venda que estava quase feita.",
-    "Sem um sistema de seguimento, as oportunidades dependem da memória de cada vendedor e saem da empresa com ele. Enquanto as vendas funcionarem assim, os resultados vão continuar imprevisíveis e os clientes interessados vão comprar a quem lhes ligou primeiro."
+    "Sem seguimento, os clientes interessados compram a quem lhes ligou primeiro."
    ]
   }
  ]

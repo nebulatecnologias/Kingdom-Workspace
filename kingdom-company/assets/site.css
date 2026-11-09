@@ -662,7 +662,6 @@ a.pcol-t:hover { color: var(--violeta); }
 .serv-fecho h2 { margin-bottom: 4px; }
 .serv-fecho .acoes { margin-top: 32px; align-items: center; }
 .serv-fecho h2 { max-width: 20ch; text-wrap: balance; }
-.serv-fecho-passo { margin-top: 20px; font-size: 1.0625rem; font-weight: 500; color: var(--indigo); }
 .ligacao { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; color: var(--violeta); text-decoration: none; padding: 12px 8px; }
 .ligacao svg, .serv-rel i svg { width: 18px; height: 18px; transition: transform .25s var(--sai); }
 .ligacao:hover svg, .serv-rel a:hover i svg { transform: translateX(3px); }
