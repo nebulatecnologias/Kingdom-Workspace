@@ -150,6 +150,7 @@ def pagina(s, todos):
       <p class="contexto">O custo de esperar</p>
       <h2 id="t-fecho">{E(urg_t)}</h2>
       <p class="entrada">{E(urg_x)}</p>
+      <p class="serv-fecho-passo">Peça hoje a cotação ou a avaliação inicial e saiba por onde começar.</p>
       <div class="acoes">
         <a class="botao botao-acao" href="/pedido-de-cotacao">Pedir cotação {SETA}</a>
         <a class="ligacao" href="/contactos">Fale connosco {SETA}</a>
