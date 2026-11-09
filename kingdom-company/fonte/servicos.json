@@ -1,0 +1,397 @@
+{
+ "origem": "Playbook de vendas · Kingdom Company (documento do Claude, revisão 409)",
+ "servicos": [
+  {
+   "area": "Desenvolvimento Editorial",
+   "area_slug": "desenvolvimento-editorial",
+   "nome": "Identidade Visual",
+   "slug": "identidade-visual",
+   "oque": "É um serviço de desenvolvimento estratégico e criativo da identidade visual de uma marca, que transforma o seu posicionamento, personalidade e valores em elementos visuais que orientam a forma como a empresa se apresenta e é reconhecida no mercado.",
+   "problema": "Resolve a dificuldade de empresas que não possuem uma identidade visual profissional, coerente e alinhada com o seu posicionamento, prejudicando a perceção de credibilidade, diferenciação e consistência da marca.",
+   "dores": [
+    "A empresa apresenta uma imagem amadora.",
+    "O logótipo não representa a dimensão ou a qualidade do negócio.",
+    "A marca não se diferencia dos concorrentes.",
+    "Existe inconsistência nos materiais de comunicação.",
+    "A imagem não acompanha a evolução da empresa."
+   ],
+   "quem": [
+    "Empreendedores que estão a iniciar um negócio.",
+    "Empresas que pretendem reposicionar ou modernizar a sua marca.",
+    "Negócios em expansão que precisam de profissionalizar a sua comunicação.",
+    "Empresas cuja identidade visual já não corresponde ao seu posicionamento atual."
+   ],
+   "antes": "Uma empresa com uma apresentação visual pouco estruturada, inconsistente ou incapaz de comunicar adequadamente a sua identidade.",
+   "depois": "Uma marca com identidade visual definida, coerente e profissional, preparada para se apresentar de forma consistente nos seus diferentes pontos de contacto.",
+   "entrega": [
+    "Desenvolvimento do conceito visual.",
+    "Criação do logótipo.",
+    "Definição da paleta cromática.",
+    "Seleção tipográfica.",
+    "Elementos gráficos complementares.",
+    "Manual de identidade visual.",
+    "Aplicações da marca em materiais selecionados."
+   ],
+   "validar": false,
+   "pitch": "Ajudamos empresas a construir uma identidade visual profissional e estratégica, alinhada com o seu posicionamento e com a imagem que pretendem transmitir ao mercado. Desenvolvemos os elementos visuais que permitem apresentar a marca com maior consistência, personalidade e credibilidade nos seus diferentes pontos de contacto."
+  },
+  {
+   "area": "Desenvolvimento Editorial",
+   "area_slug": "desenvolvimento-editorial",
+   "nome": "Modelos de Propostas Técnicas",
+   "slug": "modelos-de-propostas-tecnicas",
+   "oque": "É um serviço de construção de propostas técnicas para concursos, feitas a partir do caderno de encargos e dos critérios de avaliação, que deixa à empresa modelos editáveis para os concursos seguintes.",
+   "problema": "Resolve a dificuldade de empresas com capacidade técnica que perdem concursos pela forma como apresentam as propostas, por falta de método na estruturação das propostas, de tempo ou de conhecimento dos critérios de avaliação.",
+   "dores": [
+    "Perde concursos por pontos na parte técnica, não no preço.",
+    "As propostas são montadas à pressa na véspera do prazo.",
+    "Reutiliza textos de concursos antigos que não respondem aos critérios.",
+    "Corre o risco de exclusão por documentos em falta ou requisitos mal interpretados.",
+    "A equipa técnica perde dias a escrever em vez de executar."
+   ],
+   "quem": [
+    "Empresas que concorrem a concursos públicos.",
+    "Fornecedores de ONG, agências de cooperação e doadores.",
+    "Empresas que querem entrar no mercado dos concursos e não sabem por onde começar.",
+    "Empresas com um concurso em curso e uma data-limite próxima."
+   ],
+   "antes": "Propostas improvisadas, feitas à pressa, que perdem pontos e concursos que a empresa tinha capacidade para ganhar.",
+   "depois": "Propostas estruturadas, que respondem a cada critério de avaliação, e modelos prontos para preparar o próximo concurso em menos tempo.",
+   "entrega": [
+    "Análise do caderno de encargos e dos critérios de avaliação.",
+    "Checklist de desenvolvimento da proposta.",
+    "Proposta técnica redigida e paginada com a marca da empresa.",
+    "Sugestão de proposta financeira.",
+    "Checklist de submissão e revisão final.",
+    "Acompanhamento até à submissão e aos pedidos de esclarecimento.",
+    "Modelos editáveis para as próximas propostas."
+   ],
+   "validar": false,
+   "pitch": "Ajudamos empresas a apresentar propostas técnicas que respondem exatamente ao que o júri avalia. Construímos a proposta a partir do caderno de encargos e deixamos modelos prontos, para que a empresa concorra com mais qualidade e menos esforço em cada concurso."
+  },
+  {
+   "area": "Desenvolvimento Editorial",
+   "area_slug": "desenvolvimento-editorial",
+   "nome": "Perfis Corporativos",
+   "slug": "perfis-corporativos",
+   "oque": "É um serviço de redação e paginação do perfil corporativo, o documento que apresenta a empresa (história, serviços, equipa, clientes e projetos) em reuniões, propostas, parcerias e candidaturas.",
+   "problema": "Resolve a dificuldade de empresas que não têm uma apresentação escrita à altura do que já entregam, perdendo credibilidade nos primeiros contactos com clientes, parceiros e financiadores.",
+   "dores": [
+    "A empresa envia um PDF antigo, com informação desatualizada.",
+    "A apresentação não mostra a dimensão dos projetos e dos clientes que a empresa já tem.",
+    "Cada colaborador apresenta a empresa de forma diferente.",
+    "Grandes clientes e instituições pedem um perfil, e o que existe não convence.",
+    "Sempre que é preciso apresentar a empresa, alguém monta um documento de raiz."
+   ],
+   "quem": [
+    "Empresas com clientes e projetos realizados, mas sem um documento que os mostre.",
+    "Empresas que se registam como fornecedoras de grandes empresas, instituições ou ONG.",
+    "Empresas que vão a reuniões comerciais, parcerias ou candidaturas.",
+    "Empresas que mudaram de serviços, de dimensão ou de marca."
+   ],
+   "antes": "Uma empresa que se apresenta com documentos improvisados, que não fazem justiça ao que já realizou.",
+   "depois": "Uma empresa que é levada a sério à primeira, com uma apresentação profissional, atualizada e fácil de adaptar a cada oportunidade.",
+   "entrega": [
+    "Entrevista com a direção.",
+    "Redação e revisão dos textos.",
+    "Paginação com a marca da empresa.",
+    "Portefólio de projetos e clientes.",
+    "Versões em PDF, PPTX e DOCX, prontas a enviar e a editar.",
+    "Versão para impressão."
+   ],
+   "validar": false,
+   "pitch": "Ajudamos empresas a apresentar-se ao nível do que já entregam. Escrevemos e desenhamos o perfil corporativo que mostra a história, os serviços e os projetos da empresa, pronto a enviar a clientes, parceiros e financiadores."
+  },
+  {
+   "area": "Consultoria Estratégica",
+   "area_slug": "consultoria-estrategica",
+   "nome": "Plano de Negócios",
+   "slug": "plano-de-negocios",
+   "oque": "É um serviço de elaboração do plano de negócios, que estrutura o modelo de negócio, o mercado, a concorrência e as projeções financeiras num documento que bancos, investidores e parceiros conseguem avaliar.",
+   "problema": "Resolve a dificuldade de empreendedores e empresas que precisam de financiamento ou de validar um investimento, mas não conseguem demonstrar, com números sólidos, que o negócio é viável.",
+   "dores": [
+    "O banco ou o investidor pede um plano e não sabe por onde começar.",
+    "As projeções financeiras não resistem às primeiras perguntas.",
+    "Não sabe quanto pedir, para quê, nem em quanto tempo consegue pagar.",
+    "A ideia tem potencial, mas não é apresentada de forma convincente.",
+    "Vai investir sem ter validado o mercado, os custos e o retorno."
+   ],
+   "quem": [
+    "Empreendedores que estão a iniciar um negócio.",
+    "Empresas que vão pedir crédito bancário.",
+    "Empresas que querem captar investidores ou sócios.",
+    "Empresas que vão expandir, abrir uma nova unidade ou lançar uma linha de negócio.",
+    "Candidatos a programas de financiamento com prazo de submissão."
+   ],
+   "antes": "Uma ideia ou um projeto de expansão sem estrutura nem números que convençam quem financia.",
+   "depois": "Um plano de negócios sólido, com números que se defendem, pronto a apresentar a bancos e investidores e a orientar o crescimento.",
+   "entrega": [
+    "Análise do mercado e da concorrência.",
+    "Modelo de negócio.",
+    "Projeções financeiras.",
+    "Plano de negócios completo.",
+    "Pitch deck para investidores.",
+    "Modelo financeiro editável.",
+    "Preparação para a reunião com bancos e investidores."
+   ],
+   "validar": false,
+   "pitch": "Ajudamos empreendedores e empresas a transformar uma ideia ou um projeto de expansão num plano de negócios sólido. Estruturamos o mercado, o modelo e os números para que chegue ao banco ou ao investidor preparado para responder a todas as perguntas."
+  },
+  {
+   "area": "Consultoria Estratégica",
+   "area_slug": "consultoria-estrategica",
+   "nome": "Planeamento Estratégico",
+   "slug": "planeamento-estrategico",
+   "oque": "É um serviço de consultoria que conduz a direção na definição das prioridades, metas e responsáveis para o ano, e transforma essas decisões num plano de ação que se consegue acompanhar.",
+   "problema": "Resolve a dificuldade de empresas que crescem ou mudam sem um rumo claro, em que a equipa trabalha muito mas sem prioridades, metas nem responsabilidades definidas.",
+   "dores": [
+    "A empresa trabalha muito, mas não sabe para onde vai.",
+    "Tudo é urgente e nada avança.",
+    "As metas ficam no papel e ninguém responde por elas.",
+    "O dono passa o dia a apagar fogos em vez de dirigir.",
+    "Sócios e diretores puxam em direções diferentes."
+   ],
+   "quem": [
+    "Empresas em crescimento que perderam o foco.",
+    "Empresas no início de um novo ano fiscal.",
+    "Empresas com vendas ou resultados estagnados.",
+    "Empresas com novos sócios, nova direção ou uma mudança de estratégia."
+   ],
+   "antes": "Uma empresa que reage ao dia a dia, com uma equipa ocupada mas desalinhada.",
+   "depois": "Uma empresa com um rumo definido, metas claras, responsáveis por cada uma e uma direção que acompanha os resultados.",
+   "entrega": [
+    "Diagnóstico da situação atual.",
+    "Sessões de trabalho com a direção.",
+    "Prioridades e metas para o ano.",
+    "Plano de ação com responsáveis e prazos.",
+    "Indicadores de acompanhamento.",
+    "Reuniões de acompanhamento da execução."
+   ],
+   "validar": true,
+   "pitch": "Ajudamos a direção a definir para onde a empresa vai e como lá chegar. Transformamos as prioridades em metas, responsáveis e um plano de ação acompanhado, para que a equipa trabalhe na mesma direção e os resultados apareçam."
+  },
+  {
+   "area": "Consultoria Estratégica",
+   "area_slug": "consultoria-estrategica",
+   "nome": "Advisory (Aconselhamento Empresarial)",
+   "slug": "advisory",
+   "oque": "É um serviço de aconselhamento empresarial que apoia donos e diretores na análise de uma decisão importante, dos seus cenários e riscos, antes de avançar.",
+   "problema": "Resolve a dificuldade de quem tem de tomar decisões com grande impacto na empresa sem uma opinião independente e experiente com quem as discutir.",
+   "dores": [
+    "Decide sozinho, sem ninguém de confiança com quem discutir.",
+    "Tem uma decisão grande à frente e muito em jogo.",
+    "Já perdeu dinheiro por decidir com pressa ou sem informação.",
+    "Os conselhos que recebe vêm de quem tem algo a ganhar.",
+    "Adia a decisão porque não consegue ver os riscos com clareza."
+   ],
+   "quem": [
+    "Donos e sócios perante um investimento importante.",
+    "Empresas a escolher um novo sócio, parceiro ou mercado.",
+    "Diretores perante uma reestruturação, uma contratação-chave ou uma mudança de modelo de negócio."
+   ],
+   "antes": "Uma decisão adiada ou tomada às cegas, com medo de errar.",
+   "depois": "Uma decisão tomada com clareza e segurança, conhecendo os cenários, os riscos e o plano B.",
+   "entrega": [
+    "Sessão para perceber a decisão e o contexto.",
+    "Análise de cenários e riscos.",
+    "Recomendação por escrito.",
+    "Sessões de acompanhamento da execução."
+   ],
+   "validar": true,
+   "pitch": "Ajudamos donos e diretores a tomar decisões importantes com mais clareza e menos risco. Analisamos consigo os cenários e as consequências, para que avance com segurança e com um plano para o que pode correr mal."
+  },
+  {
+   "area": "Assessoria",
+   "area_slug": "assessoria",
+   "nome": "Produção Audiovisual",
+   "slug": "producao-audiovisual",
+   "oque": "É um serviço de produção de vídeo e fotografia, do guião à edição, que mostra a empresa, a equipa, os produtos e os projetos com qualidade profissional.",
+   "problema": "Resolve a dificuldade de empresas que não têm conteúdo visual próprio capaz de mostrar a qualidade do que fazem, e por isso não são vistas nem lembradas por quem decide.",
+   "dores": [
+    "O mercado não conhece a empresa nem o que ela faz.",
+    "Usa fotografias de banco ou vídeos de telemóvel que não mostram a qualidade real do trabalho.",
+    "Os clientes só percebem o valor depois de uma longa conversa.",
+    "Quer comunicar nas redes e no site, mas não tem material próprio.",
+    "Os lançamentos e os eventos passam sem que ninguém repare."
+   ],
+   "quem": [
+    "Empresas que vão lançar um produto, uma unidade ou um serviço.",
+    "Empresas que querem mostrar instalações, equipa ou projetos a clientes e investidores.",
+    "Empresas que vão renovar o site ou as redes sociais.",
+    "Empresas que organizam ou participam em eventos."
+   ],
+   "antes": "Uma empresa invisível ou mal representada, que depende de longas conversas para mostrar o seu valor.",
+   "depois": "Uma empresa vista e lembrada, com conteúdo profissional que mostra a sua qualidade antes da primeira reunião.",
+   "entrega": [
+    "Guião e plano de filmagem.",
+    "Captação de vídeo e fotografia.",
+    "Edição e pós-produção.",
+    "Vídeo institucional.",
+    "Versões curtas para as redes sociais."
+   ],
+   "validar": true,
+   "pitch": "Ajudamos empresas a mostrar o que fazem com a qualidade que merecem. Produzimos vídeos e fotografias que apresentam a empresa, a equipa e os projetos, para que os clientes percebam o seu valor antes de falarem consigo."
+  },
+  {
+   "area": "Assessoria",
+   "area_slug": "assessoria",
+   "nome": "Gestão de Redes Sociais",
+   "slug": "gestao-de-redes-sociais",
+   "oque": "É um serviço mensal de gestão das redes sociais da empresa, que planeia, cria e publica os conteúdos e mede o que resultou.",
+   "problema": "Resolve a dificuldade de empresas que não têm tempo nem equipa para manter uma presença regular e profissional nas redes, onde os clientes as procuram antes de comprar.",
+   "dores": [
+    "As páginas estão paradas há meses e passam a ideia de que a empresa fechou.",
+    "Ninguém na empresa tem tempo para publicar com regularidade.",
+    "Publica promoções avulsas, sem estratégia nem linha visual.",
+    "Não sabe se as redes trazem algum cliente.",
+    "Concorrentes mais pequenos parecem maiores online."
+   ],
+   "quem": [
+    "Empresas sem equipa de comunicação ou marketing.",
+    "Empresas cujos clientes as procuram no Instagram, no Facebook ou no LinkedIn.",
+    "Empresas que renovaram a marca e querem mostrá-la.",
+    "Donos que publicam eles próprios, quando têm tempo."
+   ],
+   "antes": "Redes paradas ou irregulares, que tiram confiança a quem as visita.",
+   "depois": "Uma presença constante e profissional, que gera confiança e contactos sem ocupar o tempo da direção.",
+   "entrega": [
+    "Estratégia e linha editorial.",
+    "Calendário mensal de publicações.",
+    "Criação dos conteúdos (texto e design).",
+    "Publicação nas redes acordadas.",
+    "Relatório mensal de resultados."
+   ],
+   "validar": true,
+   "pitch": "Ajudamos empresas a manter uma presença profissional e constante nas redes sociais. Planeamos, criamos e publicamos os conteúdos todos os meses, para que a sua empresa transmita confiança a quem a procura, sem ocupar o seu tempo."
+  },
+  {
+   "area": "Assessoria",
+   "area_slug": "assessoria",
+   "nome": "Produção de Campanhas Publicitárias",
+   "slug": "campanhas-publicitarias",
+   "oque": "É um serviço de planeamento e produção de campanhas publicitárias, do objetivo e da mensagem aos criativos e aos anúncios, com o resultado medido no fim.",
+   "problema": "Resolve a dificuldade de empresas que investem em publicidade sem estratégia, sem saber o que cada anúncio traz, ou que têm um lançamento sem plano de comunicação.",
+   "dores": [
+    "Já gastou em anúncios e não sabe o que trouxeram.",
+    "Impulsiona publicações ao acaso, à espera que alguma resulte.",
+    "Tem uma data de lançamento e nenhum plano de comunicação.",
+    "Os anúncios chegam a muita gente, mas não às pessoas certas.",
+    "Não sabe quanto lhe custa cada cliente conquistado."
+   ],
+   "quem": [
+    "Empresas que vão lançar um produto, um serviço ou uma loja.",
+    "Empresas com uma época forte de vendas.",
+    "Empresas com uma meta comercial e orçamento para publicidade.",
+    "Empresas que já anunciam, mas sem resultados claros."
+   ],
+   "antes": "Dinheiro gasto em anúncios sem estratégia e sem saber o que trouxe.",
+   "depois": "Campanhas com objetivo, mensagem e público definidos, e cada metical investido ligado a um resultado medido.",
+   "entrega": [
+    "Objetivo, público e mensagem da campanha.",
+    "Conceito criativo.",
+    "Criativos em imagem e vídeo.",
+    "Configuração e gestão dos anúncios.",
+    "Relatório de resultados."
+   ],
+   "validar": true,
+   "pitch": "Ajudamos empresas a transformar o investimento em publicidade em resultados. Definimos o objetivo, a mensagem e o público, produzimos os criativos e gerimos os anúncios, para que saiba exatamente o que cada campanha trouxe."
+  },
+  {
+   "area": "Desenvolvimento Tecnológico",
+   "area_slug": "desenvolvimento-tecnologico",
+   "nome": "Dashboards de Gestão",
+   "slug": "dashboards-de-gestao",
+   "oque": "É um serviço de desenvolvimento de painéis de gestão que reúnem os dados da empresa (vendas, finanças e operações) num só lugar, com os indicadores que a direção precisa de acompanhar.",
+   "problema": "Resolve a dificuldade de empresas que decidem sem dados fiáveis e a tempo, porque a informação está espalhada, chega tarde ou depende de uma só pessoa.",
+   "dores": [
+    "Toma decisões por intuição porque os números chegam tarde.",
+    "A informação está em várias folhas de Excel que não batem certo.",
+    "Leva dias, ou semanas, a saber como correu o mês.",
+    "Só uma pessoa sabe montar os relatórios.",
+    "Os problemas são descobertos quando o prejuízo já aconteceu."
+   ],
+   "quem": [
+    "Empresas com vários departamentos, lojas, filiais ou projetos.",
+    "Diretores que precisam de prestar contas a sócios ou investidores.",
+    "Empresas em crescimento cujos relatórios já não dão conta do volume."
+   ],
+   "antes": "Uma direção que decide às cegas, à espera de relatórios que chegam tarde e não batem certo.",
+   "depois": "Uma direção que vê a empresa em tempo real e decide a tempo, com números em que todos confiam.",
+   "entrega": [
+    "Levantamento dos indicadores com a direção.",
+    "Ligação às fontes de dados da empresa.",
+    "Painel de gestão com os indicadores.",
+    "Acessos para a direção e a equipa.",
+    "Formação para usar o painel.",
+    "Manutenção mensal."
+   ],
+   "validar": true,
+   "pitch": "Ajudamos a direção a ver a empresa em tempo real. Reunimos os dados de vendas, finanças e operações num só painel, para que decida a tempo e com números em que confia."
+  },
+  {
+   "area": "Desenvolvimento Tecnológico",
+   "area_slug": "desenvolvimento-tecnologico",
+   "nome": "Websites e Aplicativos",
+   "slug": "websites-e-aplicativos",
+   "oque": "É um serviço de desenho e desenvolvimento de sites e aplicações pensados para apresentar a empresa com credibilidade e gerar contactos e vendas, com alojamento e manutenção.",
+   "problema": "Resolve a dificuldade de empresas que não são encontradas online, ou que têm um site que não transmite confiança nem traz clientes.",
+   "dores": [
+    "Os clientes procuram a empresa na internet e não a encontram.",
+    "O site é antigo, lento ou não abre bem no telemóvel.",
+    "O site existe, mas não traz pedidos de contacto nem vendas.",
+    "Concorrentes com melhor presença digital ficam com os clientes.",
+    "Quando um cliente pede o site, a empresa sente que perde pontos."
+   ],
+   "quem": [
+    "Empresas que ainda não têm site.",
+    "Empresas com um site desatualizado ou que não gera contactos.",
+    "Empresas que mudaram de marca ou de serviços.",
+    "Empresas que querem vender ou receber pedidos online."
+   ],
+   "antes": "Uma empresa invisível ou mal representada online, que perde clientes para a concorrência.",
+   "depois": "Um canal de credibilidade e de vendas aberto 24 horas, que trabalha pela empresa.",
+   "entrega": [
+    "Estrutura e textos das páginas.",
+    "Design para computador e telemóvel.",
+    "Desenvolvimento e publicação no domínio da empresa.",
+    "Botões para WhatsApp, chamada, email ou formulário.",
+    "Título, descrição e imagem de partilha.",
+    "Alojamento, certificado de segurança e manutenção mensal."
+   ],
+   "validar": false,
+   "pitch": "Ajudamos empresas a ter uma presença digital que transmite confiança e traz clientes. Desenhamos e desenvolvemos o site ou a aplicação, e cuidamos do alojamento e da manutenção, para que a sua empresa venda também enquanto dorme."
+  },
+  {
+   "area": "Desenvolvimento Tecnológico",
+   "area_slug": "desenvolvimento-tecnologico",
+   "nome": "CRM e Sistemas de Vendas",
+   "slug": "crm-e-sistemas-de-vendas",
+   "oque": "É um serviço de implementação de um CRM e de um processo de vendas, que regista cada cliente, oportunidade e conversa, e organiza o acompanhamento comercial da equipa.",
+   "problema": "Resolve a dificuldade de empresas que perdem vendas por falta de seguimento e não conseguem prever nem controlar o trabalho da equipa comercial.",
+   "dores": [
+    "Clientes interessados ficam esquecidos por falta de seguimento.",
+    "Os contactos estão no telemóvel de cada vendedor e saem com ele.",
+    "Não sabe quanto vai faturar no próximo mês.",
+    "Não sabe em que fase está cada negócio nem o que cada vendedor está a fazer.",
+    "Cada vendedor trabalha à sua maneira, e o cliente sente a diferença."
+   ],
+   "quem": [
+    "Empresas com equipa comercial, ou a montá-la.",
+    "Empresas com um volume de clientes que já não cabe numa folha de cálculo.",
+    "Diretores comerciais que precisam de prever e controlar as vendas."
+   ],
+   "antes": "Vendas que dependem da memória de cada vendedor, com oportunidades perdidas e resultados imprevisíveis.",
+   "depois": "Um processo comercial organizado, com nenhum cliente esquecido e uma direção que sabe o que vai entrar.",
+   "entrega": [
+    "Mapeamento do processo comercial.",
+    "Configuração do CRM (etapas, campos e utilizadores).",
+    "Importação dos contactos existentes.",
+    "Painel de vendas.",
+    "Formação da equipa comercial.",
+    "Manutenção mensal."
+   ],
+   "validar": true,
+   "pitch": "Ajudamos empresas a vender de forma organizada e previsível. Implementamos um sistema que acompanha cada cliente e cada oportunidade, para que nenhuma venda se perca por falta de seguimento e saiba sempre o que vai entrar."
+  }
+ ]
+}

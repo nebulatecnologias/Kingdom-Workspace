@@ -616,3 +616,77 @@ a.pcol-t:hover { color: var(--violeta); }
   .newsletter-campo { flex-direction: column; }
     .fecho h2 { max-width: none; }
 }
+
+/* ---------- Páginas de serviço (/área/serviço) · referência Stripe ---------- */
+.so-nao-previa { }
+.previa .so-nao-previa { display: none !important; }
+.migalhas { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; font-size: .9375rem; color: var(--claro-2); }
+.migalhas a { color: var(--claro-1); text-decoration: none; }
+.migalhas a:hover { color: var(--branco); text-decoration: underline; }
+.pag-servico .abertura h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+.contexto { margin-bottom: 14px; font-size: 1rem; font-weight: 500; color: var(--luz); }
+.serv-duas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+.serv-numeros { background: var(--branco); border-bottom: 1px solid var(--linha-fria); }
+.serv-numeros ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-block: clamp(40px, 5vw, 64px); }
+.serv-numeros li { padding: 4px 24px; border-left: 1px solid var(--linha-fria); }
+.serv-numeros li:first-child { border-left-color: var(--luz); }
+.serv-numeros b { display: block; font-size: clamp(2.25rem, 3.6vw, 3rem); line-height: 1.05; font-weight: 500; letter-spacing: -.03em; color: var(--luz); }
+.serv-numeros span { display: block; margin-top: 8px; color: var(--cinza); line-height: 1.45; max-width: 22ch; }
+.serv-dores { border-bottom: 1px solid var(--linha); }
+.serv-dores li { position: relative; padding: 18px 0 18px 30px; border-top: 1px solid var(--linha); font-size: 1.125rem; line-height: 1.5; color: var(--tinta); }
+.serv-dores li::before { content: ""; position: absolute; left: 4px; top: 28px; width: 8px; height: 8px; border-radius: 2px; background: var(--laranja); }
+.serv-colunas { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); border-top: 1px solid var(--linha); }
+.serv-colunas li { padding: 28px 24px 8px; border-left: 1px solid var(--linha); }
+.serv-colunas li:first-child { border-left: 0; padding-left: 0; }
+.serv-colunas p { font-size: 1.0625rem; line-height: 1.55; color: var(--tinta); }
+.serv-colunas li::before { content: ""; display: block; width: 24px; height: 2px; margin-bottom: 16px; background: var(--luz); }
+.serv-entregaveis { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--linha); }
+.serv-entregaveis li { position: relative; padding: 16px 0 16px 36px; border-bottom: 1px solid var(--linha); font-size: 1.0625rem; color: var(--tinta); }
+.serv-entregaveis li::before { content: ""; position: absolute; left: 0; top: 17px; width: 22px; height: 22px; border-radius: 50%; background: var(--realce) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3 6.2l2 2 4-4.4' fill='none' stroke='%235B52C9' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>") center / 14px no-repeat; }
+.nota-previa { margin-top: 20px; font-size: .9375rem; font-weight: 500; color: var(--laranja-texto); }
+.serv-antes-depois { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 24px; align-items: stretch; }
+.serv-antes-depois > div:not(.seta-ad) { padding: 28px 32px; border-radius: var(--raio); }
+.serv-antes-depois .antes { background: var(--branco); box-shadow: inset 0 0 0 1px var(--linha); }
+.serv-antes-depois .depois { background: var(--indigo); color: var(--branco); }
+.serv-antes-depois span { display: block; margin-bottom: 10px; font-size: .8125rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--cinza); }
+.serv-antes-depois .depois span { color: var(--lavanda); }
+.serv-antes-depois p { font-size: 1.1875rem; line-height: 1.5; }
+.serv-antes-depois .antes p { color: var(--cinza); }
+.seta-ad { display: grid; place-items: center; color: var(--laranja); }
+.seta-ad svg { width: 28px; height: 28px; }
+.serv-fases-lista { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid var(--linha); counter-reset: f; }
+.serv-fases-lista li { padding: 28px 20px 8px 0; }
+.serv-fases-lista li + li { padding-left: 20px; border-left: 1px solid var(--linha-fria); }
+.serv-fases-lista span { font-size: .875rem; font-weight: 500; color: var(--luz); }
+.serv-fases-lista h3 { margin-top: 10px; font-size: 1.125rem; line-height: 1.3; font-weight: 500; color: var(--indigo); }
+.serv-fases-lista p { margin-top: 8px; font-size: .9375rem; line-height: 1.5; color: var(--cinza); }
+.caso { padding: 48px; border-radius: var(--raio); }
+.serv-fecho h2 { margin-bottom: 4px; }
+.serv-fecho .acoes { margin-top: 32px; align-items: center; }
+.ligacao { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; color: var(--violeta); text-decoration: none; padding: 12px 8px; }
+.ligacao svg, .serv-rel i svg { width: 18px; height: 18px; transition: transform .25s var(--sai); }
+.ligacao:hover svg, .serv-rel a:hover i svg { transform: translateX(3px); }
+.serv-rel { border-top: 1px solid var(--linha); }
+.serv-rel a { display: grid; grid-template-columns: 44px 1fr; gap: 4px 16px; padding: 22px 0; border-bottom: 1px solid var(--linha); text-decoration: none; }
+.serv-rel-ico { grid-row: span 3; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--realce); color: var(--indigo); }
+.serv-rel-ico svg { width: 22px; height: 22px; }
+.serv-rel b { font-size: 1.125rem; font-weight: 500; color: var(--indigo); }
+.serv-rel span:not(.serv-rel-ico) { color: var(--cinza); line-height: 1.5; }
+.serv-rel i { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; font-style: normal; font-weight: 500; color: var(--violeta); }
+@media (max-width: 1080px) {
+  .serv-fases-lista { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .serv-fases-lista li:nth-child(4) { padding-left: 0; border-left: 0; }
+}
+@media (max-width: 860px) {
+  .serv-duas { grid-template-columns: 1fr; }
+  .serv-numeros ul { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+  .serv-antes-depois { grid-template-columns: 1fr; }
+  .seta-ad svg { transform: rotate(90deg); }
+  .serv-colunas li { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 560px) {
+  .serv-fases-lista { grid-template-columns: 1fr; }
+  .serv-fases-lista li, .serv-fases-lista li + li { padding: 22px 0 6px; border-left: 0; border-top: 1px solid var(--linha-fria); }
+  .serv-numeros li { padding: 4px 16px; }
+  .caso { padding: 32px 24px; }
+}
