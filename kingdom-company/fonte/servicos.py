@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gera as 12 páginas de serviço (/<área>/<serviço>), as 4 páginas de área (/<área>)
-e a página /pedido-de-cotacao, a partir de fonte/servicos.json e fonte/areas.json.
+a página /pedido-de-cotacao e as páginas legais (/privacidade), a partir de fonte/servicos.json,
+fonte/areas.json e fonte/<página>.html.
 
 Uso (na pasta kingdom-company):  python3 fonte/servicos.py
 
@@ -351,7 +352,7 @@ def pagina_cotacao(todos):
 
       <div class="cot-enviar">
         <button class="botao botao-acao" type="submit">Enviar pedido {SETA}</button>
-        <p class="cot-nota">Usamos estes dados só para responder ao seu pedido.</p>
+        <p class="cot-nota">Usamos estes dados só para responder ao seu pedido. <a href="/privacidade">Política de privacidade</a></p>
       </div>
       <div class="cot-feito" data-cot-feito hidden tabindex="-1">
         <h2>O seu pedido está pronto a enviar</h2>
@@ -378,6 +379,53 @@ def pagina_cotacao(todos):
     return url, main, ld
 
 
+def pagina_legal(slug, titulo, desc, data):
+    corpo = (SITE / 'fonte' / f'{slug}.html').read_text(encoding='utf-8')
+    corpo = re.sub(r'^<!--.*?-->\n', '', corpo, flags=re.S)
+    seccoes = re.findall(r'<section id="([a-z-]+)">\s*<h2>(.*?)</h2>', corpo)
+    indice = ''.join(f'<li><a href="#{i}">{t}</a></li>' for i, t in seccoes)
+    url = f'/{slug}'
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": titulo, "url": f"https://www.kingdomcompany.co.za{url}", "dateModified": data}
+    main = f'''<main id="conteudo" class="pag-servico pag-legal">
+
+<section class="abertura abertura-curta" aria-labelledby="t-legal">
+  <div class="abertura-luz" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="moldura abertura-in">
+    <div class="abertura-arte" aria-hidden="true"><img src="/assets/marca/globo-luz.svg" alt="" width="480" height="480"></div>
+    <div class="abertura-texto">
+      <h1 id="t-legal">{E(titulo)}</h1>
+      <p class="abertura-desc">{E(desc)}</p>
+      <p class="legal-data">Última atualização: <time datetime="{data}">{data_pt(data)}</time></p>
+    </div>
+  </div>
+</section>
+
+<div class="seccao legal-seccao">
+  <div class="moldura legal-duas">
+    <nav class="legal-indice" aria-label="Nesta página">
+      <p class="contexto">Nesta página</p>
+      <ol>{indice}</ol>
+    </nav>
+    <div class="legal-texto">
+{corpo}
+      <aside class="legal-duvidas">
+        <h2>Tem dúvidas?</h2>
+        <p>Escreva para <a href="mailto:contact@kingdomcompany.co.za">contact@kingdomcompany.co.za</a> e respondemos com todo o gosto.</p>
+      </aside>
+    </div>
+  </div>
+</div>
+
+</main>'''
+    return url, main, ld
+
+
+def data_pt(iso):
+    a, m, d = iso.split('-')
+    meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+    return f'{int(d)} de {meses[int(m) - 1]} de {a}'
+
+
 def escreve(antes, depois, url, titulo, desc, ld, corpo, destino):
     cab = re.sub(r'<title>.*?</title>', f'<title>{E(titulo)}</title>', antes)
     cab = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{E(desc)}">', cab)
@@ -402,6 +450,11 @@ def main():
     escreve(antes, depois, url, 'Pedir cotação · Kingdom Company',
             'Peça uma cotação ou uma avaliação inicial à Kingdom Company. Um consultor fala consigo e preparamos uma proposta à medida.',
             ld, corpo, SITE / 'pedido-de-cotacao.html')
+    url, corpo, ld = pagina_legal('privacidade', 'Política de privacidade',
+                                  'Que dados recolhemos neste site, para que os usamos e como pode pedir para os ver, corrigir ou apagar.', '2026-11-09')
+    escreve(antes, depois, url, 'Política de privacidade · Kingdom Company',
+            'Que dados a Kingdom Company recolhe no site, para que os usa, com quem os partilha e quais são os seus direitos.',
+            ld, corpo, SITE / 'privacidade.html')
     print(f'{len(DADOS)} páginas de serviço e {len(AREAS)} de área (site.css?v={css_v})')
 
 

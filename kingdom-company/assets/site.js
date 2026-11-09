@@ -283,6 +283,14 @@
     });
   }
 
+  // Páginas legais: marca no índice a secção que está a ser lida
+  const indice = document.querySelectorAll('.legal-indice a');
+  if (indice.length && 'IntersectionObserver' in window) {
+    const marca = (id) => indice.forEach((a) => a.setAttribute('aria-current', a.hash === `#${id}` ? 'true' : 'false'));
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) marca(e.target.id); }), { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.legal-texto section[id]').forEach((s) => io.observe(s));
+  }
+
   // Perguntas: abrir e fechar com movimento
   if (!calmo) document.querySelectorAll('.faq details').forEach((d) => {
     const s = d.querySelector('summary'), corpo = d.querySelector('.faq-resposta');
