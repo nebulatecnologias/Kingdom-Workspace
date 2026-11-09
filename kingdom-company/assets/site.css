@@ -505,6 +505,10 @@ a.pcol-t:hover { color: var(--violeta); }
 .rodape-in { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; padding-block: 72px 64px; }
 .rodape-marca svg { height: 30px; width: auto; aspect-ratio: 671.44 / 120; fill: var(--indigo); }
 .rodape-marca p { margin-top: 18px; max-width: 30ch; color: var(--cinza); }
+.rodape-redes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
+.rodape .rodape-redes li { margin: 0; }
+.rodape-redes a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--linha); background: var(--branco); font-size: .9375rem; font-weight: 500; color: var(--indigo); text-decoration: none; transition: box-shadow .2s, color .2s; }
+.rodape-redes a:hover { box-shadow: inset 0 0 0 1px var(--violeta); color: var(--violeta); }
 .rodape h2 { font-size: 1rem; font-weight: 700; color: var(--indigo); margin-bottom: 14px; }
 .rodape li + li { margin-top: 8px; }
 .rodape a { text-decoration: none; }

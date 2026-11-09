@@ -3,7 +3,11 @@
  "ga4": "G-X1D36T83V5",
  "google_site_verification": "",
  "bing_site_verification": "",
- "redes": [],
+ "redes": [
+  "https://www.linkedin.com/company/kingdomincompany/",
+  "https://www.instagram.com/kingdomcompany.inc/",
+  "https://www.facebook.com/people/Kingdom-InCompany/61582404153250/"
+ ],
  "imagem": "/assets/og/kingdom-company.jpg",
  "nota": "ga4 = o ID de medição do Google Analytics 4 (G-XXXXXXXXXX). google_site_verification = o código da meta tag do Search Console. redes = links dos perfis oficiais (LinkedIn, Instagram, Facebook), para o Google ligar o site à empresa. Depois de mudar, correr: python3 fonte/seo.py"
 }

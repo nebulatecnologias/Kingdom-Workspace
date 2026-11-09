@@ -257,7 +257,7 @@ Sitemap: {D}/sitemap.xml
 '''
     (SITE / 'robots.txt').write_text(robots, encoding='utf-8')
     (SITE / 'llms.txt').write_text(llms(), encoding='utf-8')
-    print(f'{len(mapa)} páginas no sitemap · GA4: {CFG.get("ga4") or "por ligar"} · Search Console: {"ok" if CFG.get("google_site_verification") else "por verificar"}')
+    print(f'{len(mapa)} páginas no sitemap · GA4: {CFG.get("ga4") or "por ligar"} · meta do Search Console: {"sim" if CFG.get("google_site_verification") else "não (verificado por DNS)"}')
 
 
 def llms():
