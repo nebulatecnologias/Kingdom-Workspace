@@ -1,0 +1,1020 @@
+{
+ "marca": {
+  "nome": "DT Company",
+  "descritor": "Business Advisory & Development",
+  "logo_claro": "dt-logo-branco.png",
+  "logo_escuro": "dt-logo-azul.png",
+  "simbolo_escuro": "dt-simbolo-azul.png",
+  "fonte": "Google Sans",
+  "fontes": {
+   "400": "/root/.fonts/gs400.ttf",
+   "500": "/root/.fonts/gs500.ttf",
+   "700": "/root/.fonts/gs700.ttf"
+  },
+  "fonte_mono": {
+   "400": "fontes/ibm-plex-mono-400.ttf",
+   "500": "fontes/ibm-plex-mono-500.ttf"
+  },
+  "estilo_capa": "grelha",
+  "cores": {
+   "primaria": "#0068FF",
+   "primaria_2": "#0046C8",
+   "escura": "#001655",
+   "noite": "#00042D",
+   "tinta": "#0A1230",
+   "cinza": "#5B6482",
+   "cinza_2": "#8890AA",
+   "guia": "#E6EBF5",
+   "realce": "#E8F0FF",
+   "acento": "#0057E0",
+   "alerta": "#0068FF",
+   "luz": "#5C9DFF",
+   "ok": "#1F7A5A"
+  }
+ },
+ "rotulos": {
+  "seccao": "Secção",
+  "objectivo": "Objectivo",
+  "execucao": "Execução",
+  "conclusao": "Critério de conclusão",
+  "objeccoes": "Objecções",
+  "nesta": "Nesta secção",
+  "indice": "Índice",
+  "ficha": "Ficha",
+  "de": "de",
+  "avenca": "Opção de avença",
+  "fronteira": "Fronteira",
+  "a_validar": "a validar",
+  "reactivacao": "Reactivação",
+  "direcao": "direcção"
+ },
+ "capa": {
+  "titulo": "Playbook<br>de vendas",
+  "subtitulo": "Guia de abordagem, qualificação e conversão comercial para o SDR e o Closer.",
+  "selo": "Uso interno · Equipa comercial",
+  "versao": "Versão 1.0 · Novembro de 2026"
+ },
+ "como_usar": {
+  "lead": "Um só playbook para o SDR e o Closer da DT Company, em oito secções. As três primeiras são a base comum: quem somos, o que vendemos e como qualificamos. A 04 define o processo comercial, a 05 e a 06 são o guia de cada função, e a 07 e a 08 servem de consulta rápida durante uma conversa.",
+  "funcoes": [
+   [
+    "01 Quem somos",
+    "Domina",
+    "Domina"
+   ],
+   [
+    "02 O que vendemos: fichas dos serviços",
+    "Sabe explicar",
+    "Domina"
+   ],
+   [
+    "03 Qualificação BANT",
+    "Aplica",
+    "Confirma"
+   ],
+   [
+    "04 Processo comercial",
+    "✓",
+    "✓"
+   ],
+   [
+    "05 Guia do SDR",
+    "✓",
+    "—"
+   ],
+   [
+    "06 Guia do Closer",
+    "—",
+    "✓"
+   ],
+   [
+    "07 Tratamento de objecções",
+    "As do primeiro contacto",
+    "Todas"
+   ],
+   [
+    "08 Follow-up e recuperação",
+    "Leads e reuniões",
+    "Propostas"
+   ]
+  ],
+  "fora": "Fica de fora, por não ser essencial para vender: história da empresa, teoria de vendas e guiões para decorar. A análise fiscal, as decisões jurídicas e os estudos de impacto ambiental não são vendidos como serviços da DT Company: ficam com os parceiros."
+ },
+ "capas": {
+  "01": [
+   "Quem somos",
+   "Antes de vender um serviço, o vendedor vende a empresa. Aqui está a apresentação de 30 segundos, os cinco diferenciais e as regras do que dizemos e não dizemos.",
+   [
+    "A empresa em 30 segundos",
+    "Porque escolher a DT Company",
+    "O que dizemos e o que não dizemos"
+   ]
+  ],
+  "02": [
+   "O que vendemos",
+   "Doze serviços em quatro pilares, cada um com uma ficha. O vendedor usa as dores para reconhecer o cliente e as fronteiras para saber até onde vai o nosso trabalho e onde entram os parceiros.",
+   [
+    "Mapa dos 12 serviços",
+    "Regra: não vender características",
+    "As 12 fichas comerciais"
+   ]
+  ],
+  "03": [
+   "Como qualificamos",
+   "Cada serviço tem o seu cliente ideal, descrito na ficha. A qualificação é igual para todos: o método BANT, com quatro critérios que o vendedor confirma antes de passar a oportunidade ao Closer.",
+   [
+    "Os quatro critérios BANT",
+    "Perguntas e sinais de alerta",
+    "Regra de passagem"
+   ]
+  ],
+  "04": [
+   "Processo comercial",
+   "Sete etapas, duas funções: o SDR conduz as três primeiras e o Closer as quatro seguintes. Cada oportunidade tem sempre um responsável com nome e um canal.",
+   [
+    "As sete etapas",
+    "Responsabilidades e prazos",
+    "Estados da oportunidade no CRM"
+   ]
+  ],
+  "05": [
+   "Guia do SDR",
+   "O SDR não vende serviços: vende a reunião com o Closer. Tem três tarefas, por esta ordem: abrir a conversa, qualificar e passar a oportunidade sem perder informação.",
+   [
+    "A. Primeiro contacto",
+    "B. Perguntas de qualificação",
+    "C. Critérios de qualificação",
+    "D. Ficha de passagem ao Closer"
+   ]
+  ],
+  "06": [
+   "Guia do Closer",
+   "O Closer conduz uma reunião de 45 a 60 minutos em cinco momentos e fala menos de metade do tempo até apresentar a solução. Antes de entrar, lê a ficha de passagem e prepara duas hipóteses de serviço.",
+   [
+    "Os cinco momentos da reunião",
+    "Guiões de abertura e de fecho",
+    "Perguntas de diagnóstico",
+    "Ficha de arranque"
+   ]
+  ],
+  "07": [
+   "Tratamento de objecções",
+   "Uma objecção quase nunca é a razão verdadeira. O vendedor reconhece o que o cliente disse, faz a pergunta que revela a razão real e só depois responde, sem nunca prometer resultados legais.",
+   [
+    "O método em três passos",
+    "Biblioteca de 10 objecções"
+   ]
+  ],
+  "08": [
+   "Follow-up e recuperação",
+   "Cada oportunidade tem seis tentativas em 30 dias, alternando os canais. Sem resposta depois da sexta, passa a Perdido com o motivo «sem resposta» e entra na reactivação aos 90 dias.",
+   [
+    "Cadência de 30 dias",
+    "Modelos de mensagem",
+    "Reactivação"
+   ]
+  ]
+ },
+ "quem_somos": {
+  "pitch": [
+   "A DT Company é uma empresa de Business Advisory & Development que organiza, prepara e verifica o que as empresas precisam para cumprir regras, aceder a financiamento e operar em Moçambique.",
+   "Trabalhamos em quatro pilares: compliance e governança, tax, incorporação e consultoria ESG. A parte fiscal é assegurada pela contabilista certificada parceira e as decisões jurídicas pelo advogado parceiro, para que o cliente tenha um só interlocutor e cada tema nas mãos certas."
+  ],
+  "diferenciais": [
+   [
+    "Quatro pilares, um só interlocutor.",
+    "Compliance e governança, tax, incorporação e ESG organizados pela mesma equipa."
+   ],
+   [
+    "Parceiros certificados em cada fronteira.",
+    "A contabilista certificada assegura a parte fiscal, o advogado parceiro as decisões jurídicas e consultores ambientais registados os estudos de impacto, coordenados pela DT Company."
+   ],
+   [
+    "Relatórios factuais.",
+    "Dizemos o que foi confirmado e o que não foi, sem prometer resultados que não dependem de nós."
+   ],
+   [
+    "Equipa tecnológica própria.",
+    "Ferramentas como o canal de denúncia são montadas pela nossa equipa."
+   ],
+   [
+    "Controlo contínuo por avença.",
+    "Vários serviços continuam depois da entrega: compliance officer externo, monitorização de fornecedores, secretariado societário, controlo de prazos fiscais e gestão de expatriados."
+   ]
+  ],
+  "regras": {
+   "usar": [
+    "organizamos",
+    "preparamos",
+    "verificamos",
+    "informamos",
+    "apoiamos",
+    "controlamos prazos"
+   ],
+   "evitar": [
+    "acompanhamos processos",
+    "representamos",
+    "parecer",
+    "aconselhamento jurídico ou legal",
+    "garantimos (sobre resultados legais)",
+    "consultoria fiscal",
+    "«jurista»"
+   ],
+   "fronteiras": [
+    [
+     "Tax.",
+     "A contabilista certificada aparece sempre como responsável pela parte fiscal."
+    ],
+    [
+     "Incorporação e terrenos.",
+     "Quando há uma decisão jurídica, a referência é o advogado parceiro."
+    ],
+    [
+     "Histórias.",
+     "Apresentadas como exemplos, nunca como casos reais de clientes sem autorização."
+    ],
+    [
+     "Casos concretos.",
+     "Em comentários e mensagens, não responder a perguntas sobre casos concretos: convidar para uma avaliação inicial."
+    ]
+   ]
+  }
+ },
+ "servicos": {
+  "lead": "Cada ficha tem o que é o serviço, que problema resolve, as dores, quem as tem, a transformação, os entregáveis, a fronteira com os parceiros e como apresentar comercialmente.",
+  "regra": [
+   "Não vender características.",
+   "Cada característica liga-se a um problema e a um resultado. Por exemplo: «o relatório classifica o risco em baixo, médio ou alto» (característica) → «sabe, antes de assinar, se deve avançar ou confirmar mais pontos» (resultado)."
+  ],
+  "notas_pilar": {
+   "Tax": "Neste pilar, a análise fiscal, as declarações e o acompanhamento junto da Autoridade Tributária são da contabilista certificada parceira. A DT Company organiza a documentação, controla prazos e prepara dossiers."
+  },
+  "fichas": [
+   {
+    "area": "Compliance e Governança",
+    "nome": "Programa de Compliance e Integridade",
+    "oque": "É um serviço que organiza as regras internas, os controlos e a formação de que a empresa precisa para prevenir fraudes, cumprir as exigências de clientes e financiadores e provar que actua com integridade.",
+    "problema": "Resolve a dificuldade de empresas que perdem contratos e financiamentos por não terem regras internas, e que sofrem fraudes por falta de controlos.",
+    "dores": [
+     "Perde concursos ou financiamentos por não ter um programa de compliance.",
+     "Já sofreu fraudes ou pagamentos desviados, por exemplo com pedidos de mudança de NIB.",
+     "Não tem regras escritas sobre ofertas, brindes ou conflitos de interesse.",
+     "Não tem um canal para receber denúncias.",
+     "Não consegue provar aos parceiros que a equipa foi formada."
+    ],
+    "quem": [
+     "Empresas que concorrem a contratos com grandes clientes, multinacionais ou o Estado.",
+     "Empresas à procura de financiamento de bancos ou financiadores internacionais.",
+     "Empresas que já sofreram fraudes ou desvios de pagamentos.",
+     "Empresas em crescimento, com cada vez mais fornecedores e pagamentos."
+    ],
+    "antes": "Uma empresa sem regras escritas nem controlos, exposta a fraudes e a perder contratos e financiamentos.",
+    "depois": "Uma empresa com regras, controlos, canal de denúncia e equipa formada, capaz de provar a clientes e financiadores que actua com integridade.",
+    "entrega": [
+     "Mapa de riscos de compliance e fraude.",
+     "Código de conduta.",
+     "Políticas: anticorrupção, conflitos de interesse, ofertas e brindes, pagamentos e mudança de NIB.",
+     "Canal de denúncia, montado pela nossa equipa tecnológica.",
+     "Formação da equipa e da direcção, com registo de presenças."
+    ],
+    "avenca": "Compliance officer externo, com relatório mensal.",
+    "pitch": "Ajudamos empresas a organizar as regras, os controlos e a formação que clientes e financiadores exigem. Preparamos o código de conduta, as políticas e o canal de denúncia, para que a empresa reduza o risco de fraude e possa provar que actua com integridade."
+   },
+   {
+    "area": "Compliance e Governança",
+    "nome": "Due Diligence de Terceiros",
+    "oque": "É um serviço de verificação de fornecedores, parceiros, sócios, vendedores, terrenos e imóveis, antes de a empresa assinar ou pagar.",
+    "problema": "Resolve o risco de perder dinheiro com fornecedores, parceiros, sócios ou vendedores que não são o que dizem.",
+    "dores": [
+     "Já pagou a um fornecedor que não entregou.",
+     "Não sabe quem são os verdadeiros donos das empresas com quem negoceia.",
+     "Vai assinar com um sócio ou parceiro que mal conhece.",
+     "Vai comprar um terreno ou imóvel e não sabe se os registos estão em ordem.",
+     "Não tem forma de verificar a base de fornecedores ao longo do tempo."
+    ],
+    "quem": [
+     "Empresas que vão escolher um novo fornecedor ou parceiro.",
+     "Investidores e empresários que vão entrar numa sociedade.",
+     "Quem vai comprar ou arrendar um terreno ou imóvel.",
+     "Empresas com muitos fornecedores e pagamentos frequentes."
+    ],
+    "antes": "Decisões de contratar, pagar ou comprar tomadas com base na confiança, sem verificar quem está do outro lado.",
+    "depois": "Decisões tomadas com um relatório factual: o que foi confirmado, o que não foi, o nível de risco e os pontos a confirmar antes de assinar.",
+    "entrega": [
+     "Relatório de verificação: existência, donos reais, ligações políticas, sanções, reputação e documentos.",
+     "Classificação de risco: baixo, médio ou alto.",
+     "Lista de sinais de alerta e de pontos a confirmar antes de assinar.",
+     "Para terrenos e imóveis: relatório de verificação do DUAT, registos, titulares e ocupantes."
+    ],
+    "avenca": "Monitorização periódica da base de fornecedores.",
+    "fronteira": "Os relatórios são factuais: indicam o que foi confirmado e o que não foi. Nunca dizer que garantem que um negócio ou terreno é seguro ou legal.",
+    "pitch": "Verificamos quem está do outro lado antes de assinar ou pagar. O relatório mostra o que foi confirmado e o que não foi, classifica o risco e lista os pontos a confirmar, para que a decisão seja tomada com informação e não só com confiança."
+   },
+   {
+    "area": "Compliance e Governança",
+    "nome": "Governança Corporativa e Familiar",
+    "oque": "É um serviço que organiza quem decide o quê na empresa, as regras dos órgãos de gestão e a sucessão, para que a empresa não dependa de uma só pessoa.",
+    "problema": "Resolve a dificuldade de empresas que dependem de uma pessoa, têm conflitos entre sócios ou familiares e documentação societária desorganizada, que trava o crédito e o investimento.",
+    "dores": [
+     "Todas as decisões passam por uma só pessoa.",
+     "Há conflitos entre sócios ou entre familiares sobre quem decide.",
+     "Ninguém sabe quem pode aprovar o quê, nem até que valor.",
+     "Actas, livros e documentos societários estão desorganizados ou em falta.",
+     "O banco ou o investidor pede documentação que a empresa não consegue apresentar.",
+     "Não há um plano de sucessão na gestão."
+    ],
+    "quem": [
+     "Empresas familiares a preparar a passagem para a geração seguinte.",
+     "Empresas com vários sócios e decisões travadas.",
+     "Empresas que vão pedir crédito ou receber investimento.",
+     "Empresas que cresceram e já não podem depender do fundador para tudo."
+    ],
+    "antes": "Uma empresa que depende de uma pessoa, com decisões informais, conflitos e documentação que trava o crédito e o investimento.",
+    "depois": "Uma empresa com regras claras de decisão, órgãos a funcionar, documentação em ordem e um plano de sucessão na gestão.",
+    "entrega": [
+     "Diagnóstico de governança.",
+     "Matriz de decisões: quem aprova o quê e até que valor.",
+     "Regimentos da administração, dos comités e do conselho consultivo.",
+     "Regras de governança familiar e plano de sucessão na gestão."
+    ],
+    "avenca": "Secretariado societário: calendário de obrigações, convocatórias, actas e livros.",
+    "fronteira": "Acordos entre sócios, estatutos e documentos de herança são redigidos pelo advogado parceiro.",
+    "pitch": "Organizamos a forma como a empresa decide: quem aprova o quê, como funcionam a administração e os comités e como se prepara a sucessão. A empresa deixa de depender de uma só pessoa e fica com a documentação pronta para o banco e para os investidores."
+   },
+   {
+    "area": "Tax",
+    "nome": "Benefícios Fiscais e Aduaneiros do Investimento",
+    "oque": "É um serviço que identifica os benefícios fiscais e aduaneiros a que um projecto de investimento se pode candidatar, prepara a candidatura e controla as obrigações para os manter.",
+    "problema": "Resolve a perda de dinheiro de investidores que pagam direitos e impostos por inteiro sobre equipamento e investimento por não pedirem os benefícios a que têm direito, ou que os perdem por não cumprirem as obrigações depois.",
+    "dores": [
+     "Pagou direitos aduaneiros por inteiro sobre equipamento que podia ter isenção.",
+     "Não sabe a que benefícios o projecto se pode candidatar.",
+     "Perdeu benefícios por falhar obrigações depois da aprovação.",
+     "Não tem tempo nem equipa para preparar a candidatura."
+    ],
+    "quem": [
+     "Investidores nacionais e estrangeiros com um projecto de investimento novo.",
+     "Empresas que vão importar equipamento ou expandir a operação.",
+     "Empresas que já têm benefícios aprovados e precisam de os manter."
+    ],
+    "antes": "Um investimento que paga impostos e direitos por inteiro, ou que perde os benefícios por falta de controlo das obrigações.",
+    "depois": "Um projecto com os benefícios pedidos, a lista de bens isentos aprovada, as obrigações em calendário e a poupança medida.",
+    "entrega": [
+     "Levantamento dos benefícios a que o projecto se pode candidatar, validado pela contabilista certificada.",
+     "Dossier de candidatura e submissão do projecto de investimento.",
+     "Lista de bens com isenção aduaneira aprovada.",
+     "Calendário das obrigações para manter os benefícios.",
+     "Relatório da poupança obtida."
+    ],
+    "fronteira": "A análise fiscal é validada pela contabilista certificada parceira.",
+    "pitch": "Organizamos a candidatura do seu projecto de investimento aos benefícios fiscais e aduaneiros, com validação da contabilista certificada parceira, e controlamos os prazos para que não os perca depois. No fim, mostramos a poupança obtida."
+   },
+   {
+    "area": "Tax",
+    "nome": "Regularização Fiscal e Certidão de Quitação",
+    "oque": "É um serviço que levanta as pendências fiscais da empresa, organiza a regularização com a contabilista certificada parceira e prepara o pedido da certidão de quitação.",
+    "problema": "Resolve a situação de empresas sem certidão de quitação, que ficam fora de concursos públicos, não recebem pagamentos do Estado e têm problemas com os bancos, muitas vezes sem saber exactamente o que devem.",
+    "dores": [
+     "Ficou fora de um concurso público por não ter certidão de quitação.",
+     "Tem pagamentos do Estado parados.",
+     "O banco pede a certidão e a empresa não a consegue apresentar.",
+     "Não sabe exactamente que declarações, dívidas ou coimas tem em falta.",
+     "Perde prazos fiscais por não ter um calendário."
+    ],
+    "quem": [
+     "Fornecedores do Estado e empresas que concorrem a concursos públicos.",
+     "Empresas com pagamentos do Estado por receber.",
+     "Empresas que precisam da certidão para o banco.",
+     "Empresas com declarações em atraso ou dívidas fiscais."
+    ],
+    "antes": "Uma empresa sem certidão de quitação, fora de concursos e de pagamentos, sem saber o que deve.",
+    "depois": "Uma empresa com as pendências conhecidas, um plano de regularização, a certidão pedida e um calendário fiscal com alertas.",
+    "entrega": [
+     "Levantamento documental das obrigações e pendências fiscais: declarações em falta, dívidas e coimas.",
+     "Plano de regularização coordenado com a contabilista certificada, incluindo a documentação para pedidos de pagamento em prestações.",
+     "Pedido da certidão de quitação.",
+     "Calendário fiscal anual com alertas de prazos."
+    ],
+    "avenca": "Controlo mensal de prazos e documentação.",
+    "fronteira": "A análise fiscal, as declarações e o acompanhamento junto da Autoridade Tributária são assegurados pela contabilista certificada parceira.",
+    "pitch": "Ajudamos empresas a saber exactamente o que está pendente, organizamos a regularização com a contabilista certificada parceira e preparamos o pedido da certidão de quitação. Depois, controlamos os prazos para que a empresa não volte a ficar fora de concursos e pagamentos."
+   },
+   {
+    "area": "Tax",
+    "nome": "Preparação para Inspecções Fiscais",
+    "oque": "É um serviço que organiza a documentação da empresa antes e durante uma inspecção fiscal, com a análise fiscal feita pela contabilista certificada parceira.",
+    "problema": "Resolve a situação de empresas que recebem uma inspecção sem documentos organizados, não sabem responder e acabam com liquidações e multas pesadas.",
+    "dores": [
+     "A inspecção foi anunciada e os documentos estão espalhados.",
+     "Não sabe que documentos a Autoridade Tributária vai pedir.",
+     "Teme liquidações e multas por lacunas que desconhece.",
+     "Uma inspecção anterior terminou com multas pesadas."
+    ],
+    "quem": [
+     "Empresas notificadas para uma inspecção fiscal.",
+     "Empresas que querem rever a documentação antes de serem inspeccionadas.",
+     "Empresas que tiveram multas numa inspecção anterior."
+    ],
+    "antes": "Uma empresa apanhada desprevenida, sem documentos organizados nem respostas, exposta a liquidações e multas.",
+    "depois": "Uma empresa com a documentação revista e organizada numa pasta, as lacunas conhecidas e a resposta à inspecção assegurada pela contabilista certificada.",
+    "entrega": [
+     "Revisão documental preventiva, com identificação de lacunas e inconsistências; a análise fiscal é feita pela contabilista certificada.",
+     "Pasta de documentação organizada para a inspecção.",
+     "Organização da documentação pedida pela Autoridade Tributária.",
+     "Relatório final de organização documental, com as correcções fiscais indicadas pela contabilista certificada.",
+     "Encaminhamento para o advogado se houver contestação judicial."
+    ],
+    "fronteira": "A resposta e o acompanhamento junto da Autoridade Tributária são assegurados pela contabilista certificada parceira. A contestação judicial é do advogado.",
+    "pitch": "Organizamos a documentação da empresa antes e durante a inspecção fiscal, para que nada falte quando a Autoridade Tributária pedir. A análise e a resposta ficam com a contabilista certificada parceira, e a empresa enfrenta a inspecção preparada."
+   },
+   {
+    "area": "Incorporação",
+    "nome": "Constituição e Licenciamento de Empresas",
+    "oque": "É um serviço de apoio administrativo para abrir uma empresa: mapeamos os requisitos e os custos, preparamos e entregamos a documentação dos registos e licenças e deixamos tudo organizado numa pasta digital.",
+    "problema": "Resolve a perda de tempo e de dinheiro de quem quer abrir uma empresa e passa meses entre registos, licenças e entidades diferentes, a pagar a renda de um espaço que ainda não pode abrir.",
+    "dores": [
+     "Não sabe que registos e licenças o negócio precisa, nem quanto custam.",
+     "Anda de entidade em entidade sem saber a ordem certa.",
+     "Paga a renda de um espaço que ainda não pode abrir.",
+     "Perde documentos e não sabe o que já foi entregue.",
+     "Não sabe que obrigações vêm depois da abertura."
+    ],
+    "quem": [
+     "Empreendedores que vão abrir a primeira empresa.",
+     "Empresários que vão abrir um novo negócio ou uma nova actividade.",
+     "Quem já tem o espaço arrendado e precisa de abrir depressa."
+    ],
+    "antes": "Meses perdidos entre registos, licenças e entidades, com custos a correr antes de a empresa poder abrir.",
+    "depois": "Uma empresa registada e licenciada, com NUIT, INSS e licença de actividade, todos os documentos numa pasta digital e as primeiras obrigações em calendário.",
+    "entrega": [
+     "Mapa de requisitos administrativos e custos do negócio específico.",
+     "Apoio administrativo ao registo da empresa: preparação e entrega da documentação, com modelos de estatutos padrão.",
+     "Preparação e entrega dos pedidos de NUIT, inscrição no INSS e licença de actividade.",
+     "Pasta digital com todos os documentos da empresa.",
+     "Calendário das primeiras obrigações: renovações e declarações."
+    ],
+    "fronteira": "Estatutos à medida e acordos entre sócios vão para o advogado parceiro.",
+    "pitch": "Ajudamos quem quer abrir uma empresa a fazê-lo pela ordem certa e sem perder meses. Mapeamos os requisitos e os custos, preparamos e entregamos a documentação dos registos e licenças e entregamos tudo organizado numa pasta digital."
+   },
+   {
+    "area": "Incorporação",
+    "nome": "Instalação de Empresas Estrangeiras",
+    "oque": "É um serviço de apoio administrativo à instalação de empresas estrangeiras em Moçambique, do registo do projecto de investimento à abertura de conta e à instalação operacional.",
+    "problema": "Resolve a dificuldade de empresas estrangeiras que não conhecem o sistema moçambicano, fazem as etapas fora de ordem e, por não registarem o investimento, têm depois dificuldades em repatriar lucros e capital.",
+    "dores": [
+     "Não conhece o sistema moçambicano nem a ordem das etapas.",
+     "Investiu sem registar o investimento e não consegue repatriar lucros.",
+     "Tem dificuldade em abrir conta bancária.",
+     "Não sabe a que benefícios fiscais o investimento pode ter direito."
+    ],
+    "quem": [
+     "Empresas estrangeiras que vão abrir operação em Moçambique.",
+     "Investidores estrangeiros com um projecto de investimento.",
+     "Grupos internacionais que vão instalar uma filial, sucursal ou escritório de representação."
+    ],
+    "antes": "Uma entrada no país feita fora de ordem, com o investimento por registar e dificuldades em repatriar lucros e capital.",
+    "depois": "Uma empresa instalada pela ordem certa, com o investimento registado, a conta aberta e a ligação aos benefícios fiscais.",
+    "entrega": [
+     "Preparação e entrega da documentação para o registo do projecto de investimento.",
+     "Apoio administrativo ao registo do investimento estrangeiro junto do Banco de Moçambique.",
+     "Apoio à abertura de conta bancária e à instalação operacional.",
+     "Ligação ao serviço de Benefícios Fiscais e Aduaneiros do Investimento."
+    ],
+    "fronteira": "A escolha da forma de entrada (filial, sucursal ou escritório de representação) é feita com o advogado parceiro.",
+    "pitch": "Apoiamos empresas estrangeiras a instalar-se em Moçambique pela ordem certa. Preparamos a documentação do registo do investimento, apoiamos o registo no Banco de Moçambique e a abertura de conta, para que a empresa possa operar e repatriar lucros e capital."
+   },
+   {
+    "area": "Incorporação",
+    "nome": "Gestão de Quadros Estrangeiros",
+    "oque": "É um serviço que calcula a quota de trabalhadores estrangeiros, prepara os pedidos de autorização de trabalho, visto e DIRE e controla as renovações de cada expatriado.",
+    "problema": "Resolve a dificuldade de empresas que não conseguem pôr os técnicos estrangeiros a trabalhar a tempo por causa das quotas, autorizações de trabalho, vistos e DIRE, e que arriscam multas.",
+    "dores": [
+     "Os técnicos estrangeiros estão parados à espera de autorização.",
+     "Não sabe quantos estrangeiros pode contratar dentro da quota.",
+     "Perdeu prazos de renovação de vistos ou DIRE.",
+     "Arrisca multas por expatriados com documentos fora de prazo."
+    ],
+    "quem": [
+     "Empresas que contratam técnicos estrangeiros.",
+     "Projectos com equipas internacionais a chegar ao país.",
+     "Empresas com vários expatriados e renovações a controlar."
+    ],
+    "antes": "Técnicos parados à espera de documentos, prazos perdidos e risco de multas.",
+    "depois": "Expatriados a trabalhar a tempo, dentro da quota, com as autorizações em ordem e alertas antes de cada renovação.",
+    "entrega": [
+     "Cálculo da quota de trabalhadores estrangeiros disponível.",
+     "Preparação e entrega dos pedidos de autorização de trabalho e de visto.",
+     "Preparação do processo de DIRE.",
+     "Registo de todos os expatriados, com alertas de renovação."
+    ],
+    "avenca": "Avença por número de expatriados geridos.",
+    "pitch": "Ajudamos empresas a pôr os técnicos estrangeiros a trabalhar a tempo. Calculamos a quota, preparamos os pedidos de autorização de trabalho, visto e DIRE e controlamos as renovações, para que ninguém fique parado nem haja multas."
+   },
+   {
+    "area": "Consultoria ESG",
+    "nome": "Sistema de Gestão Ambiental e Social para Financiamento",
+    "oque": "É um serviço que monta o sistema de gestão ambiental e social exigido por bancos e financiadores internacionais: políticas, procedimentos, responsáveis, registos e relatórios.",
+    "problema": "Resolve o bloqueio de empresas com financiamento aprovado, em que o banco ou o financiador internacional só liberta o dinheiro quando existir um sistema de gestão ambiental e social.",
+    "dores": [
+     "O financiamento está aprovado, mas o dinheiro não é libertado.",
+     "Não sabe exactamente o que o financiador exige.",
+     "Não tem políticas ambientais, sociais, de saúde e segurança.",
+     "Não tem quem prepare os relatórios periódicos ao financiador."
+    ],
+    "quem": [
+     "Empresas com financiamento aprovado por bancos ou financiadores internacionais.",
+     "Empresas que se vão candidatar a esse tipo de financiamento.",
+     "Projectos com exigências ambientais e sociais do financiador."
+    ],
+    "antes": "Financiamento aprovado mas bloqueado, à espera de um sistema que a empresa não tem.",
+    "depois": "Um sistema de gestão ambiental e social em funcionamento, preparado para os requisitos do financiador e com os relatórios periódicos em dia.",
+    "entrega": [
+     "Diagnóstico face aos requisitos do financiador.",
+     "Políticas ambientais, sociais, de saúde e segurança.",
+     "Procedimentos, responsáveis e registos.",
+     "Plano de acção ambiental e social.",
+     "Relatório periódico ao financiador."
+    ],
+    "fronteira": "Os estudos de impacto ambiental são feitos por consultores ambientais registados, que a DT Company coordena.",
+    "pitch": "Preparamos o sistema de gestão ambiental e social que o seu financiador exige: políticas, procedimentos, responsáveis e relatórios. A empresa fica preparada para os requisitos e informa o financiador com regularidade."
+   },
+   {
+    "area": "Consultoria ESG",
+    "nome": "Pronto para Clientes Internacionais",
+    "oque": "É um serviço que prepara fornecedores e exportadores para as avaliações ESG de clientes multinacionais e europeus, com políticas, evidências e respostas aos questionários.",
+    "problema": "Resolve a perda de clientes multinacionais e europeus por fornecedores e exportadores que não conseguem provar boas práticas laborais, ambientais e de direitos humanos.",
+    "dores": [
+     "Recebeu um questionário ESG de um cliente e não sabe responder.",
+     "Perdeu, ou arrisca perder, um cliente internacional numa avaliação.",
+     "Não tem políticas de direitos humanos nem de condições de trabalho escritas.",
+     "Tem boas práticas, mas nenhuma evidência organizada para as provar."
+    ],
+    "quem": [
+     "Exportadores que vendem para mercados europeus.",
+     "Fornecedores de multinacionais a operar em Moçambique.",
+     "Empresas que querem entrar nas cadeias de fornecimento de grandes clientes."
+    ],
+    "antes": "Boas práticas que ninguém consegue provar, questionários sem resposta e clientes internacionais em risco.",
+    "depois": "Questionários respondidos, políticas escritas e uma pasta de evidências pronta, com um plano de melhoria para as próximas avaliações.",
+    "entrega": [
+     "Resposta aos questionários ESG dos clientes.",
+     "Políticas de direitos humanos, condições de trabalho e combate ao trabalho infantil.",
+     "Pasta de evidências organizada: registos, fotografias e certificados.",
+     "Avaliação dos próprios fornecedores do cliente.",
+     "Plano de melhoria para as próximas avaliações."
+    ],
+    "pitch": "Preparamos a sua empresa para as avaliações ESG dos clientes internacionais. Respondemos aos questionários, escrevemos as políticas e organizamos as evidências, para que consiga provar as boas práticas que já tem."
+   },
+   {
+    "area": "Consultoria ESG",
+    "nome": "Relação com Comunidades e Mecanismo de Queixas",
+    "oque": "É um serviço que organiza o envolvimento de um projecto com as comunidades e as partes interessadas, com um plano de comunicação e um mecanismo para receber e responder a queixas.",
+    "problema": "Resolve o risco de projectos em zonas rurais ou costeiras pararem por conflitos com comunidades que não foram ouvidas ou que não têm onde apresentar queixas.",
+    "dores": [
+     "O projecto parou ou atrasou por conflitos com a comunidade.",
+     "A comunidade não sabe a quem se dirigir quando tem uma queixa.",
+     "Não sabe quem são as partes interessadas do projecto.",
+     "O financiador pede um mecanismo de queixas que não existe."
+    ],
+    "quem": [
+     "Projectos em zonas rurais ou costeiras.",
+     "Empresas que vão iniciar obras ou operações perto de comunidades.",
+     "Projectos financiados com exigências de envolvimento das comunidades."
+    ],
+    "antes": "Um projecto exposto a paragens, com comunidades que não foram ouvidas e queixas sem resposta.",
+    "depois": "Comunidades mapeadas e envolvidas, um canal de queixas a funcionar e relatórios das queixas e das respostas.",
+    "entrega": [
+     "Mapa das comunidades e partes interessadas.",
+     "Plano de envolvimento e comunicação com as comunidades.",
+     "Mecanismo de queixas: procedimento, canal e registo.",
+     "Relatórios periódicos das queixas e respostas.",
+     "Apoio na organização de reuniões com as comunidades."
+    ],
+    "pitch": "Organizamos a relação do seu projecto com as comunidades: mapeamos as partes interessadas, preparamos o plano de envolvimento e montamos o mecanismo de queixas. O projecto reduz o risco de paragens e mostra como ouve e responde às comunidades."
+   }
+  ]
+ },
+ "bant": {
+  "lead": "Cada serviço tem o seu cliente ideal, descrito na ficha («Quem tem essa dor?»). A qualificação é igual para todos os serviços: o vendedor confirma os quatro critérios do método BANT antes de passar a oportunidade ao Closer.",
+  "criterios": [
+   {
+    "letra": "N",
+    "nome": "Necessidade",
+    "en": "Need",
+    "confirmar": "Uma dor real, que corresponde a um serviço",
+    "perguntas": [
+     "O que vos levou a procurar-nos agora?",
+     "O que mais preocupa a empresa: regras e controlos, impostos, abrir ou instalar a empresa, ou exigências ambientais e sociais?",
+     "O que acontece se não resolverem nos próximos três meses?"
+    ],
+    "cumprido": "O cliente descreve a dor com as suas palavras, e ela aparece nas dores de uma ficha",
+    "alerta": "Só quer uma opinião sobre um caso concreto, sem intenção de contratar"
+   },
+   {
+    "letra": "A",
+    "nome": "Autoridade",
+    "en": "Authority",
+    "confirmar": "Se fala com quem decide, ou consegue chegar a essa pessoa",
+    "perguntas": [
+     "Além de si, quem participa na decisão?",
+     "Como decidem normalmente um investimento destes?"
+    ],
+    "cumprido": "O decisor está na conversa ou aceita estar na reunião com o Closer",
+    "alerta": "«Vou passar ao meu chefe», sem data nem nome"
+   },
+   {
+    "letra": "B",
+    "nome": "Orçamento",
+    "en": "Budget",
+    "confirmar": "Se a empresa tem capacidade e disposição para investir numa proposta",
+    "perguntas": [
+     "Já têm um valor previsto para isto?",
+     "Este investimento já está aprovado, ou ainda tem de ser?"
+    ],
+    "cumprido": "Tem orçamento disponível ou previsto, ou aceita receber uma proposta para decidir",
+    "alerta": "Sem orçamento nos próximos meses, ou quer apenas o mais barato"
+   },
+   {
+    "letra": "T",
+    "nome": "Prazo",
+    "en": "Timing",
+    "confirmar": "Quando precisa da solução, e porquê nessa data",
+    "perguntas": [
+     "Para quando precisam disto pronto?",
+     "Há alguma data que não pode falhar: um concurso, uma inspecção, um desembolso ou a chegada de técnicos?"
+    ],
+    "cumprido": "Há uma data ou um gatilho concreto",
+    "alerta": "«Um dia», «quando houver tempo»"
+   }
+  ],
+  "regra": "A oportunidade passa ao Closer com <strong>Necessidade, Autoridade e Orçamento</strong> cumpridos. O <strong>Prazo</strong> define a prioridade: com data nos próximos 30 dias, a reunião marca-se primeiro. Sem um dos três obrigatórios, a oportunidade fica em Nutrir, com o critério em falta registado no CRM."
+ },
+ "processo": {
+  "lead": "A passagem do SDR para o Closer só acontece com a reunião marcada e a ficha de passagem preenchida.",
+  "etapas": [
+   [
+    "Novo lead",
+    "SDR",
+    "Responder antes da concorrência",
+    "Registar no CRM e fazer o primeiro contacto pelo canal que o cliente escolheu",
+    "Contacto feito e registado",
+    "1 dia útil depois do pedido (a confirmar)"
+   ],
+   [
+    "Qualificação",
+    "SDR",
+    "Saber se vale a pena uma reunião",
+    "Primeiro contacto e perguntas de qualificação (secção 05)",
+    "Necessidade, Autoridade e Orçamento cumpridos, ou oportunidade desqualificada",
+    "1 a 2 conversas"
+   ],
+   [
+    "Reunião marcada",
+    "SDR",
+    "Passá-la ao Closer sem perder informação",
+    "Marcar a reunião com o decisor e preencher a ficha de passagem",
+    "Reunião no calendário, ficha no CRM e convite aceite",
+    "Até 5 dias úteis depois da qualificação"
+   ],
+   [
+    "Diagnóstico",
+    "Closer",
+    "Perceber a situação, o impacto e a prioridade",
+    "Reunião em cinco momentos (secção 06)",
+    "Dor, serviço indicado, parceiros envolvidos e decisor confirmados",
+    "1 reunião de 45 a 60 minutos"
+   ],
+   [
+    "Proposta",
+    "Closer",
+    "Pôr a solução e o investimento por escrito",
+    "Enviar a proposta com âmbito, entregáveis, fronteira com os parceiros, prazo, investimento e, quando existir, a opção de avença",
+    "Proposta enviada e data de decisão combinada",
+    "2 dias úteis depois do diagnóstico (a confirmar)"
+   ],
+   [
+    "Negociação",
+    "Closer",
+    "Resolver as dúvidas e as objecções",
+    "Tratar objecções (secção 07) dentro das condições aprovadas pela direcção",
+    "Aceite por escrito, ou motivo de perda registado",
+    "Até à data de decisão"
+   ],
+   [
+    "Fecho e passagem",
+    "Closer",
+    "Começar a entrega sem atrito",
+    "Factura, pagamento e ficha de arranque para a entrega",
+    "Pagamento recebido e cliente apresentado a quem entrega",
+    "Dia do pagamento"
+   ]
+  ],
+  "estados": [
+   "Novo",
+   "Em qualificação",
+   "Reunião marcada",
+   "Diagnóstico feito",
+   "Proposta enviada",
+   "Em negociação",
+   "Ganho ou Perdido"
+  ],
+  "estados_nota": "Os estados laterais são Nutrir, para quem ainda não está pronto, e Encaminhado, quando o pedido é só fiscal ou só jurídico e deve ir para a contabilista certificada ou o advogado parceiro. Uma oportunidade perdida leva sempre o motivo."
+ },
+ "sdr": {
+  "script": "Bom dia, [nome]. Fala [SDR], da DT Company. Recebemos o seu pedido sobre [serviço] e gostava de marcar uma breve chamada para perceber melhor a situação da empresa. Assim, a proposta que lhe enviarmos responde exactamente ao que precisa. Tem 5 minutos agora, ou prefere que ligue mais tarde?",
+  "objectivo": "Conseguir 10 minutos de conversa.",
+  "conclusao": "O cliente responde a pelo menos duas perguntas de qualificação.",
+  "preco": [
+   "Se pedir o preço logo no início,",
+   "explicar que o valor depende do âmbito e que a proposta segue depois de duas ou três respostas sobre a situação da empresa."
+  ],
+  "regras": [
+   "Contextualizar sempre: porquê esta pessoa e porquê agora.",
+   "Fazer uma pergunta, não uma apresentação.",
+   "Pedir licença para continuar.",
+   "Não responder a casos concretos: convidar para uma avaliação inicial."
+  ],
+  "perguntas_lead": "Fazer pela ordem e parar quando os critérios estiverem cumpridos.",
+  "perguntas": [
+   [
+    "O que vos levou a procurar-nos agora?",
+    "gatilho e urgência"
+   ],
+   [
+    "O que mais preocupa a empresa: regras e controlos, impostos, abrir ou instalar a empresa, ou exigências ambientais e sociais?",
+    "pilar"
+   ],
+   [
+    "Como é que isso funciona hoje na vossa empresa?",
+    "situação"
+   ],
+   [
+    "Qual é a principal dificuldade neste momento, e há quanto tempo existe?",
+    "dor"
+   ],
+   [
+    "O que já tentaram para resolver, e com quem?",
+    "parceiros actuais, objecções futuras"
+   ],
+   [
+    "O que acontece se não resolverem nos próximos três meses?",
+    "impacto"
+   ],
+   [
+    "Além de si, quem participa na decisão?",
+    "decisor"
+   ],
+   [
+    "Já têm um valor previsto para isto, ou ainda está por definir?",
+    "capacidade de investimento"
+   ],
+   [
+    "Há alguma data que não pode falhar: um concurso, uma inspecção ou um desembolso?",
+    "prazo"
+   ]
+  ],
+  "criterios": "O SDR usa o método BANT da secção 03. As perguntas da lista B cobrem os quatro critérios. A reunião só se marca com <strong>Necessidade, Autoridade e Orçamento</strong> cumpridos, e o <strong>Prazo</strong> define a prioridade. Antes de qualificar, confirmar que o cliente encaixa no público da ficha do serviço.",
+  "ficha_lead": "O SDR preenche a ficha no CRM antes da reunião, e o Closer lê-a antes de entrar:",
+  "ficha": [
+   "Nome, cargo, telefone, email e canal preferido",
+   "Empresa, sector, n.º de colaboradores, país",
+   "Origem do lead",
+   "Dor principal, com as palavras do cliente",
+   "Pilar e serviço de interesse",
+   "Parceiros já envolvidos: contabilista, advogado, consultores",
+   "Quem decide e quem mais participa",
+   "Investimento previsto, se o cliente o disse",
+   "Prazos que não podem falhar",
+   "Data, hora e canal da reunião"
+  ]
+ },
+ "closer": {
+  "lead": "O Closer conduz uma reunião de 45 a 60 minutos em cinco momentos. Deve falar menos de metade do tempo até à apresentação da solução. Antes de entrar, lê a ficha de passagem e prepara duas hipóteses de serviço.",
+  "momentos": [
+   [
+    "Abertura e alinhamento",
+    "5 min",
+    "Criar confiança e controlar a agenda",
+    "Agradecer, confirmar o tempo disponível, dizer o objectivo e o que acontece no fim",
+    "O cliente aceitou a agenda"
+   ],
+   [
+    "Diagnóstico aprofundado",
+    "20 min",
+    "Perceber a situação, o impacto e a prioridade",
+    "Confirmar o que o SDR registou e aprofundar com as perguntas de diagnóstico",
+    "O cliente disse, por palavras dele, o custo de não resolver"
+   ],
+   [
+    "Apresentação da solução",
+    "10 min",
+    "Ligar cada dor a um entregável",
+    "Apresentar o serviço que responde à dor principal, os entregáveis e a fronteira com os parceiros. Se o caso toca outros pilares, mostrar como se ligam",
+    "O cliente confirma que é isto que precisa"
+   ],
+   [
+    "Objecções e condições",
+    "10 min",
+    "Tirar as dúvidas antes da proposta",
+    "Perguntar «o que o impediria de avançar?» e tratar cada resposta (secção 07)",
+    "Não há objecções por esclarecer"
+   ],
+   [
+    "Fecho e próximos passos",
+    "5 min",
+    "Sair com uma decisão ou uma data",
+    "Pedir a decisão, ou combinar a data da proposta e a data da decisão",
+    "Próximo passo com data no calendário"
+   ]
+  ],
+  "abertura": "Obrigado pelo tempo, [nome]. Temos 45 minutos. A ideia é perceber bem a situação da empresa com [tema]. Se fizer sentido, mostro-lhe como trabalharíamos e o investimento. No fim decidimos juntos o próximo passo, mesmo que seja não avançar. Pode ser?",
+  "decisao": "Pelo que me disse, o [serviço] organiza [dor] até [prazo]. Faz sentido avançarmos? Se sim, envio hoje a proposta para começarmos a [data].",
+  "diagnostico": [
+   "Conte-me como chegaram a este ponto.",
+   "Que prazos ou exigências estão em cima da mesa: concurso, banco, financiador ou inspecção?",
+   "Quanto custa à empresa manter as coisas como estão: multas, contratos perdidos ou dinheiro parado?",
+   "Se isto estivesse resolvido daqui a seis meses, o que seria diferente?",
+   "Quem já está envolvido: contabilista, advogado ou consultores?",
+   "Como decidem normalmente um investimento destes, e quem precisa de estar convencido?"
+  ],
+  "arranque": [
+   "Serviço, âmbito e opção de avença acordados",
+   "O que foi prometido e o prazo",
+   "Os documentos que o cliente envia",
+   "O contacto do lado do cliente e os parceiros envolvidos",
+   "As objecções e as sensibilidades que surgiram na venda"
+  ]
+ },
+ "objeccoes": {
+  "lead": "Uma objecção quase nunca é a razão verdadeira. As respostas das páginas seguintes são direcções, não textos para decorar.",
+  "colunas": [
+   "Objecção",
+   "O que pode estar por trás",
+   "Pergunta para descobrir",
+   "Direcção da resposta"
+  ],
+  "metodo": [
+   "Reconhecer o que o cliente disse.",
+   "Fazer a pergunta que revela a razão real.",
+   "Só depois responder, sem prometer resultados legais."
+  ],
+  "lista": [
+   [
+    "«Está muito caro»",
+    "Não viu o valor, compara com outra coisa, ou não tem o dinheiro agora",
+    "Caro comparado com quê?",
+    "Voltar ao custo de não resolver: contratos perdidos, multas ou financiamento parado. Se for preciso, ajustar o âmbito da proposta"
+   ],
+   [
+    "«Preciso de pensar»",
+    "Uma dúvida que não disse",
+    "O que ainda não está claro para si?",
+    "Tratar a dúvida concreta e marcar a data da decisão"
+   ],
+   [
+    "«Vou falar com o meu sócio»",
+    "O decisor não esteve na reunião",
+    "O que é que o seu sócio vai querer saber?",
+    "Oferecer uma conversa de 20 minutos com o sócio e enviar um resumo de uma página"
+   ],
+   [
+    "«Já tenho contabilista»",
+    "Acha que o serviço substitui a contabilista",
+    "O que é que a sua contabilista faz hoje, e o que fica por fazer?",
+    "Explicar que a DT Company organiza a documentação e controla prazos, e que a análise fiscal é sempre assegurada por uma contabilista certificada"
+   ],
+   [
+    "«Isso é trabalho de advogado»",
+    "Não sabe onde acaba o nosso trabalho",
+    "Que parte do processo o preocupa mais?",
+    "Mostrar a fronteira: preparamos e organizamos; quando há uma decisão jurídica, entra o advogado parceiro"
+   ],
+   [
+    "«Garantem que o terreno ou o negócio é seguro?»",
+    "Quer certeza absoluta antes de decidir",
+    "O que precisa de saber para decidir com tranquilidade?",
+    "Nunca garantir. O relatório diz o que foi confirmado e o que não foi, e lista os pontos a confirmar antes de assinar"
+   ],
+   [
+    "«Nunca tivemos problemas, não precisamos»",
+    "Não sente o risco",
+    "O que aconteceria se um cliente ou financiador pedisse hoje as vossas políticas?",
+    "Ligar a uma exigência real: concurso, financiador, cliente internacional ou inspecção"
+   ],
+   [
+    "«Não é o momento»",
+    "Outra prioridade, ou falta de urgência",
+    "O que tem de acontecer para ser o momento?",
+    "Ligar a uma data real (concurso, prazo fiscal, desembolso) ou passar a Nutrir com data de retorno"
+   ],
+   [
+    "«Já tentámos e não resultou»",
+    "Medo de repetir o erro",
+    "O que correu mal?",
+    "Mostrar os entregáveis concretos e o calendário de prazos que fica com a empresa"
+   ],
+   [
+    "«Conhecem algum caso como o meu?»",
+    "Quer prova",
+    "Que tipo de situação lhe daria segurança?",
+    "Apresentar histórias como exemplos, nunca como casos reais de clientes sem autorização"
+   ]
+  ]
+ },
+ "followup": {
+  "lead": "Cada oportunidade tem 6 tentativas em 30 dias, alternando os canais. Sem resposta depois da sexta, passa a Perdido com o motivo «sem resposta» e entra na reactivação aos 90 dias. A cadência é uma proposta, a confirmar pela direcção.",
+  "cadencia": [
+   [
+    "0",
+    "Chamada + WhatsApp",
+    "Primeiro contacto",
+    "Proposta enviada, com a data de decisão combinada"
+   ],
+   [
+    "1",
+    "WhatsApp",
+    "Mensagem 1",
+    "Confirmar que recebeu e se abriu bem"
+   ],
+   [
+    "3",
+    "Chamada",
+    "Segunda chamada, a outra hora do dia",
+    "Perguntar se ficou alguma dúvida"
+   ],
+   [
+    "7",
+    "Email",
+    "Mensagem 2, com um conteúdo útil",
+    "Um exemplo ou um entregável do mesmo serviço"
+   ],
+   [
+    "14",
+    "WhatsApp",
+    "Mensagem 3",
+    "Rever a data de decisão"
+   ],
+   [
+    "30",
+    "Email",
+    "Mensagem de fecho",
+    "Mensagem de fecho"
+   ]
+  ],
+  "modelos_lead": "Adaptar os campos entre parênteses rectos. O tom é sempre curto, directo e com uma pergunta no fim.",
+  "modelos": [
+   [
+    "WhatsApp",
+    "Lead sem resposta (dia 1)",
+    [
+     "Olá, [nome]. Sou [SDR], da DT Company. Tentei ligar sobre o seu pedido de [serviço]. Prefere que falemos por aqui, ou que ligue a uma hora em concreto?"
+    ]
+   ],
+   [
+    "Email",
+    "Conteúdo útil (dia 7)",
+    [
+     "Assunto: [tema] na [empresa]",
+     "[Nome], partilho [guia, exemplo ou modelo] sobre [tema]. Achei útil depois do que me disse sobre [dor]. Se quiser, explico em 15 minutos como o organizaríamos na [empresa]."
+    ]
+   ],
+   [
+    "WhatsApp",
+    "Proposta sem decisão (dia 14)",
+    [
+     "Olá, [nome]. Combinámos decidir a proposta de [serviço] até [data]. Há alguma coisa que precise de ver ou ajustar para conseguir decidir?"
+    ]
+   ],
+   [
+    "Email",
+    "Fecho (dia 30)",
+    [
+     "Assunto: Fecho o seu pedido?",
+     "[Nome], como não tivemos resposta, vou arquivar o pedido de [serviço]. Se o tema voltar a ser prioridade, basta responder a este email e retomamos onde ficámos."
+    ]
+   ],
+   [
+    "Chamada",
+    "Retomar",
+    [
+     "[Nome], liguei porque ficámos de falar sobre [dor]. Isto ainda é prioridade, ou mudou alguma coisa desde então?"
+    ]
+   ]
+  ],
+  "reactivacao": [
+   [
+    "Aos 90 dias.",
+    "Contactar as oportunidades perdidas por «não é o momento» ou «sem orçamento», com um gatilho novo: um concurso, um prazo fiscal, uma inspecção, um financiamento ou um serviço novo."
+   ],
+   [
+    "Clientes ganhos.",
+    "Propor a opção de avença ou um serviço de outro pilar 30 dias depois da entrega."
+   ]
+  ]
+ },
+ "contracapa": {
+  "slogan": "Quatro pilares, um só interlocutor.",
+  "contactos": [],
+  "interno": "Documento de uso interno da equipa comercial. Não distribuir fora da DT Company."
+ }
+}
