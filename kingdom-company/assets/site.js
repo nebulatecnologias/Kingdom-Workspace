@@ -323,6 +323,82 @@
   });
   window.kcEvento = evento;
 
+  // Ferramentas gratuitas: números escritos à moçambicana (250 000 · 1.500 · 2,5)
+  const numero = (v) => {
+    let t = String(v || '').replace(/[\s ]/g, '').replace(/MT|%/gi, '');
+    if (!t) return NaN;
+    if (t.includes(',')) t = t.replace(/\./g, '').replace(',', '.');
+    else if (/^\d{1,3}(\.\d{3})+$/.test(t)) t = t.replace(/\./g, '');
+    const n = Number(t);
+    return Number.isFinite(n) ? n : NaN;
+  };
+  const fmt = (n, casas = 0) => new Intl.NumberFormat('pt-PT', { maximumFractionDigits: casas, minimumFractionDigits: casas }).format(n);
+  const mt = (n) => `${fmt(Math.round(n))} MT`;
+  const linha = (rotulo, valor, forte) => `<div class="ferr-linha${forte ? ' forte' : ''}"><dt>${rotulo}</dt><dd>${valor}</dd></div>`;
+
+  const diag = document.querySelector('[data-diagnostico]');
+  if (diag) {
+    const dados = JSON.parse(document.getElementById('diag-dados').textContent);
+    const saida = diag.querySelector('[data-diag-resultado]');
+    const mostra = () => {
+      const marcadas = [...diag.querySelectorAll('input[name="dor"]:checked')];
+      if (!marcadas.length) { saida.innerHTML = '<p class="ferr-vazio">Marque pelo menos uma frase para ver o resultado.</p>'; return; }
+      const conta = {};
+      marcadas.forEach((c) => { conta[c.dataset.area] = (conta[c.dataset.area] || 0) + 1; });
+      const area = Object.keys(conta).sort((a, b) => conta[b] - conta[a])[0];
+      const servs = marcadas.map((c) => `<li><a href="/${c.value}">${dados.servicos[c.value]}</a></li>`).join('');
+      const um = marcadas.length === 1 ? marcadas[0].value.split('/')[1] : '';
+      saida.innerHTML = `<p class="ferr-titulo">Comece pela área de <a href="/${area}">${dados.areas[area]}</a></p><p>Marcou ${marcadas.length} ${marcadas.length === 1 ? 'frase' : 'frases'}, ${conta[area]} desta área. Estes são os serviços que respondem ao que marcou:</p><ul class="ferr-servs">${servs}</ul><a class="botao botao-acao" href="/pedido-de-cotacao?tipo=avaliacao${um ? `&servico=${um}` : ''}">Pedir avaliação inicial</a>`;
+    };
+    diag.addEventListener('change', mostra);
+    diag.addEventListener('submit', (e) => e.preventDefault());
+  }
+
+  const equi = document.querySelector('[data-equilibrio]');
+  if (equi) {
+    const saida = equi.querySelector('[data-equi-resultado]');
+    const calc = () => {
+      const fixos = numero(equi.querySelector('#e-fixos').value), preco = numero(equi.querySelector('#e-preco').value), varia = numero(equi.querySelector('#e-var').value);
+      if ([fixos, preco, varia].some((n) => Number.isNaN(n) || n < 0)) { saida.innerHTML = '<p class="ferr-vazio">Preencha os três valores para ver o resultado.</p>'; return; }
+      const margem = preco - varia;
+      if (margem <= 0) { saida.innerHTML = '<p class="ferr-alerta">O preço tem de ser maior do que o custo variável. Hoje, cada venda dá prejuízo: reveja o preço ou o custo antes de vender mais.</p>'; return; }
+      const unidades = Math.ceil(fixos / margem);
+      saida.innerHTML = `<dl>${linha('Margem por unidade', `${mt(margem)} (${fmt(margem / preco * 100, 1)}%)`)}${linha('Unidades a vender por mês', fmt(unidades), true)}${linha('Faturação mínima por mês', mt(unidades * preco), true)}${linha('Por dia útil (22 dias)', `${fmt(Math.ceil(unidades / 22))} unidades`)}</dl><p class="ferr-nota">Abaixo destes valores, a empresa perde dinheiro. Para lucrar, venda mais, suba a margem ou baixe os custos fixos.</p>`;
+    };
+    equi.addEventListener('input', calc);
+    equi.addEventListener('submit', (e) => e.preventDefault());
+  }
+
+  const camp = document.querySelector('[data-campanha]');
+  if (camp) {
+    const saida = camp.querySelector('[data-camp-resultado]');
+    const calc = () => {
+      const v = (id) => numero(camp.querySelector(id).value);
+      const inv = v('#c-invest'), cpc = v('#c-cpc'), conv = v('#c-conv'), fecho = v('#c-fecho'), valor = v('#c-valor');
+      if ([inv, cpc, conv, fecho, valor].some((n) => Number.isNaN(n) || n <= 0)) { saida.innerHTML = '<p class="ferr-vazio">Preencha os cinco valores para ver o resultado.</p>'; return; }
+      if (conv > 100 || fecho > 100) { saida.innerHTML = '<p class="ferr-alerta">As percentagens têm de estar entre 0 e 100.</p>'; return; }
+      const cliques = inv / cpc, contactos = cliques * conv / 100, clientes = contactos * fecho / 100, receita = clientes * valor;
+      saida.innerHTML = `<dl>${linha('Visitas ao site', fmt(cliques))}${linha('Contactos', fmt(contactos, 1))}${linha('Clientes', fmt(clientes, 1), true)}${linha('Custo por contacto', contactos ? mt(inv / contactos) : '-')}${linha('Custo por cliente', clientes ? mt(inv / clientes) : '-', true)}${linha('Vendas geradas', mt(receita), true)}</dl><p class="${receita >= inv ? 'ferr-nota' : 'ferr-alerta'}">Por cada 1 MT investido, entram ${fmt(receita / inv, 2)} MT em vendas. ${receita >= inv ? 'Lembre-se de que é faturação, não lucro: desconte o custo de cada venda.' : 'Com estes números, a campanha não paga o investimento: melhore a página, a oferta ou o seguimento dos contactos antes de investir mais.'}</p>`;
+    };
+    camp.addEventListener('input', calc);
+    camp.addEventListener('submit', (e) => e.preventDefault());
+  }
+
+  // Guias e checklists: contagem, memória no navegador e impressão
+  const mat = document.querySelector('.mat-texto');
+  if (mat) {
+    const caixas = [...mat.querySelectorAll('input[type="checkbox"]')], prog = mat.querySelector('[data-mat-progresso]');
+    const chave = `kc-mat:${location.pathname}`;
+    try { (JSON.parse(localStorage.getItem(chave)) || []).forEach((i) => { if (caixas[i]) caixas[i].checked = true; }); } catch (e) { /* sem memória */ }
+    const atualiza = () => {
+      const feitas = caixas.filter((c) => c.checked).length;
+      prog.textContent = `${feitas} de ${caixas.length} pontos confirmados`;
+      try { localStorage.setItem(chave, JSON.stringify(caixas.map((c, i) => (c.checked ? i : -1)).filter((i) => i >= 0))); } catch (e) { /* sem memória */ }
+    };
+    mat.addEventListener('change', atualiza); atualiza();
+  }
+  document.querySelectorAll('[data-imprimir]').forEach((b) => b.addEventListener('click', () => { if (window.kcEvento) window.kcEvento('descarregar_material', { material: location.pathname }); window.print(); }));
+
   // Perguntas: abrir e fechar com movimento
   if (!calmo) document.querySelectorAll('.faq details').forEach((d) => {
     const s = d.querySelector('summary'), corpo = d.querySelector('.faq-resposta');

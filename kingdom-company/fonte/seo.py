@@ -147,6 +147,8 @@ def grafo(rel, url, titulo, desc, corpo):
                         'dateModified': a['data'], 'image': f'{D}{img}', 'articleSection': a.get('categoria', ''),
                         'inLanguage': 'pt-PT', 'mainEntityOfPage': f'{D}{url}', 'author': {'@id': ORG}, 'publisher': {'@id': ORG}})
         nos.append(migalhas(trilho))
+    elif partes and partes[0] == 'materiais-gratuitos' and len(partes) == 2:
+        nos.append(migalhas([('Início', '/'), ('Materiais gratuitos', '/materiais-gratuitos'), (titulo.split(' · ')[0], url)]))
     elif partes:
         nos.append(migalhas([('Início', '/'), (titulo.split(' · ')[0], url)]))
     nos.insert(0, pagina)
@@ -279,11 +281,17 @@ def llms():
         l.append('')
     l += ['## Empresa', '', f'- [Página inicial]({D}/): quem somos, áreas, método, perguntas frequentes',
           f'- [Contactos]({D}/contactos): moradas, telefones, email e mapa',
-          f'- [Pedido de cotação]({D}/pedido-de-cotacao): formulário para pedir cotação ou avaliação inicial', '',
+          f'- [Pedido de cotação]({D}/pedido-de-cotacao): formulário para pedir cotação ou avaliação inicial',
+          f'- [Parceiros]({D}/parceiros): o grupo SDG (Pty) Ltd, o Kingdom Training, a Kingdom Academy e como ser parceiro', '',
+          '## Recursos gratuitos', '',
+          f'- [Ferramentas gratuitas]({D}/ferramentas-gratuitas): diagnóstico do negócio, calculadora do ponto de equilíbrio e calculadora do retorno de campanhas, em meticais']
+    for m in json.loads((SITE / 'fonte' / 'materiais.json').read_text(encoding='utf-8'))['materiais']:
+        l.append(f'- [{m["titulo"]}]({D}/materiais-gratuitos/{m["slug"]}): {m["resumo"]}')
+    l += ['',
           '## Blog', '']
     for slug, a in sorted(ARTIGOS.items(), key=lambda x: x[1]['data'], reverse=True):
         l.append(f'- [{a["titulo"]}]({D}/blog/{slug}): {a["resumo"]}')
-    l += ['', '## Opcional', '', f'- [Política de privacidade]({D}/privacidade)', '']
+    l += ['', '## Opcional', '', f'- [Política de privacidade]({D}/privacidade)', f'- [Termos de utilização]({D}/termos)', '']
     return '\n'.join(l)
 
 

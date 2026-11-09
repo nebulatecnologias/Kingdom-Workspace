@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Gera as 12 páginas de serviço (/<área>/<serviço>), as 4 páginas de área (/<área>)
-a página /pedido-de-cotacao e as páginas legais (/privacidade), a partir de fonte/servicos.json,
+a página /pedido-de-cotacao e as páginas legais (/privacidade, /termos), a partir de fonte/servicos.json,
 fonte/areas.json e fonte/<página>.html.
 
 Uso (na pasta kingdom-company):  python3 fonte/servicos.py
@@ -487,6 +487,11 @@ def main():
     escreve(antes, depois, url, 'Política de privacidade · Kingdom Company',
             'Que dados a Kingdom Company recolhe no site, para que os usa, com quem os partilha e quais são os seus direitos.',
             None, corpo, SITE / 'privacidade.html')
+    url, corpo, _ = pagina_legal('termos', 'Termos de utilização',
+                                  'As regras para usar o site da Kingdom Company, os seus conteúdos, ferramentas e materiais gratuitos.', '2026-11-09')
+    escreve(antes, depois, url, 'Termos de Utilização do Site · Kingdom Company',
+            'Termos de utilização do site da Kingdom Company: informação sobre os serviços, ferramentas e materiais gratuitos, propriedade intelectual e lei aplicável.',
+            None, corpo, SITE / 'termos.html')
     cab = re.sub(r'<title>.*?</title>', '<title>Página não encontrada · Kingdom Company</title>', antes)
     cab = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Esta página não existe no site da Kingdom Company.">', cab)
     (SITE / '404.html').write_text(cab + pagina_404() + depois, encoding='utf-8')

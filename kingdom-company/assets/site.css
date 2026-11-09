@@ -784,12 +784,83 @@ a.pcol-t:hover { color: var(--violeta); }
 .cookies a { color: var(--violeta); }
 .cookies-botoes { display: flex; gap: 10px; }
 .legal-texto [data-cookies-rever] { margin-top: 16px; }
+/* Parceiros, ferramentas e materiais gratuitos */
+.abertura .contexto-claro { margin-bottom: 14px; color: #FF8A5C; }
+.parc-texto p + p { margin-top: 16px; color: var(--cinza); line-height: 1.6; }
+.parc-segmentos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.parc-certs { display: flex; flex-wrap: wrap; gap: 10px; align-content: start; }
+.parc-certs li { padding: 10px 18px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--linha); background: var(--branco); font-weight: 500; color: var(--indigo); }
+.parc-tipos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--linha); }
+.parc-tipos li { padding: 32px 28px 8px; }
+.parc-tipos li:first-child { padding-left: 0; }
+.parc-tipos li + li { border-left: 1px solid var(--linha-fria); }
+.parc-tipos h3 { margin-top: 18px; font-size: 1.25rem; font-weight: 500; color: var(--indigo); }
+.parc-tipos p { margin-top: 10px; color: var(--cinza); line-height: 1.55; }
+.ferr-indice { display: flex; flex-wrap: wrap; gap: 10px; padding-block: 28px; border-bottom: 1px solid var(--linha-fria); }
+.ferr-indice a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px; border-radius: 999px; background: var(--realce); color: var(--indigo); font-weight: 500; text-decoration: none; }
+.ferr-indice a span { font-size: .8125rem; color: var(--luz); }
+.ferr-indice a:hover { background: #E4E0F8; }
+.ferr { scroll-margin-top: var(--topo-altura); }
+.ferr-duas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 40px clamp(40px, 6vw, 96px); align-items: start; }
+.ferr-cabeca { position: sticky; top: calc(var(--topo-altura) + 32px); }
+.ferr-nota { margin-top: 16px; font-size: .9375rem; line-height: 1.55; color: var(--cinza); }
+.ferr-caixa { padding: clamp(24px, 3vw, 36px); border-radius: 20px; background: var(--branco); box-shadow: 0 0 0 1px var(--linha), 0 24px 48px -32px rgba(28, 26, 48, .25); }
+.ferr-caixa fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.ferr-caixa legend { margin-bottom: 12px; font-weight: 500; color: var(--indigo); }
+.ferr-caixa .cot-campo:first-child { margin-top: 0; }
+.ferr-caixa .cot-linha { align-items: end; }
+.diag-lista li + li { border-top: 1px solid var(--linha-fria); }
+.diag-lista label { display: grid; grid-template-columns: 22px 1fr; gap: 14px; align-items: start; padding: 12px 0; cursor: pointer; line-height: 1.45; color: var(--tinta); }
+.diag-lista input, .mat-lista input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--violeta); }
+.ferr-resultado { margin-top: 24px; padding: 22px 24px; border-radius: 14px; background: var(--realce); }
+.ferr-resultado p + p, .ferr-resultado p + ul, .ferr-resultado dl + p { margin-top: 10px; }
+.ferr-resultado .botao { margin-top: 18px; }
+.ferr-resultado a:not(.botao) { color: var(--violeta); }
+.ferr-vazio { color: var(--cinza); }
+.ferr-alerta { color: var(--laranja-texto); font-weight: 500; line-height: 1.5; }
+.ferr-titulo { font-size: 1.25rem; font-weight: 500; color: var(--indigo); }
+.ferr-servs li { position: relative; padding-left: 18px; line-height: 1.7; }
+.ferr-servs li::before { content: ""; position: absolute; left: 2px; top: .75em; width: 6px; height: 6px; border-radius: 50%; background: var(--luz); }
+.ferr-resultado dl { display: grid; gap: 2px; }
+.ferr-linha { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid rgba(91, 82, 201, .14); }
+.ferr-linha dt { color: var(--cinza); }
+.ferr-linha dd { font-weight: 500; color: var(--tinta); text-align: right; font-variant-numeric: tabular-nums; }
+.ferr-linha.forte dd { color: var(--indigo); font-size: 1.125rem; }
+.seccao.mat-corpo > .moldura { padding-block: clamp(48px, 6vw, 80px) clamp(80px, 10vw, 128px); }
+.mat-duas { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px clamp(40px, 6vw, 96px); align-items: start; }
+.mat-progresso { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--realce); font-size: .9375rem; font-weight: 500; color: var(--violeta); }
+.mat-grupo { margin-top: 36px; }
+.seccao .mat-grupo h2 { font-size: 1.375rem; line-height: 1.25; letter-spacing: -.01em; }
+.mat-lista { margin-top: 12px; border-top: 1px solid var(--linha); }
+.mat-lista li { border-bottom: 1px solid var(--linha); }
+.mat-lista label { display: grid; grid-template-columns: 22px 1fr; gap: 14px; padding: 14px 0; cursor: pointer; font-size: 1.0625rem; line-height: 1.5; color: var(--tinta); }
+.mat-lista input:checked + span { color: var(--cinza); text-decoration: line-through; text-decoration-color: rgba(106, 102, 130, .5); }
+.mat-fonte { margin-top: 32px; font-size: .875rem; color: var(--cinza); }
+.mat-lado .botao { margin-top: 20px; }
+.mat-lado .ligacao { margin-top: 8px; }
+.mat-lado-texto { margin-top: 12px; color: var(--cinza); line-height: 1.55; }
+@media print {
+  .topo, footer, .rodape, .abertura-arte, .abertura-luz, .acoes, .mat-lado, .cookies, .mat-progresso, .salto { display: none !important; }
+  body, .abertura, .seccao, .moldura { background: #fff !important; color: #000 !important; box-shadow: none !important; border: 0 !important; }
+  .abertura-curta .abertura-in { padding: 0 0 12px !important; }
+  .abertura h1, .abertura .abertura-desc, .abertura .contexto { color: #000 !important; }
+  .abertura h1 { font-size: 26pt !important; }
+  .seccao.mat-corpo > .moldura { padding: 0 !important; }
+  .mat-duas { display: block; }
+  .mat-grupo { break-inside: avoid; margin-top: 18px; }
+  .mat-lista label { padding: 6px 0; font-size: 11pt; }
+}
 @media (max-width: 1080px) {
   .serv-fases-lista { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .serv-fases-lista li:nth-child(4) { padding-left: 0; border-left: 0; }
 }
 @media (max-width: 860px) {
   .serv-duas { grid-template-columns: 1fr; }
+  .ferr-duas, .mat-duas { grid-template-columns: 1fr; }
+  .ferr-cabeca { position: static; }
+  .parc-segmentos, .parc-tipos { grid-template-columns: 1fr; }
+  .parc-tipos li, .parc-tipos li:first-child { padding: 28px 0 8px; }
+  .parc-tipos li + li { border-left: 0; border-top: 1px solid var(--linha-fria); }
   .legal-duas { grid-template-columns: 1fr; }
   .legal-indice { position: static; }
   .cot-duas { grid-template-columns: 1fr; }

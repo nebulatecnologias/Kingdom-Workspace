@@ -1,0 +1,140 @@
+{
+ "materiais": [
+  {
+   "slug": "checklist-proposta-tecnica",
+   "titulo": "Checklist da proposta técnica para concursos",
+   "seo": ["Checklist da Proposta Técnica para Concursos Públicos", "Checklist gratuita para preparar a proposta técnica de um concurso em Moçambique: do caderno de encargos à entrega, sem perder pontos."],
+   "resumo": "Os pontos a confirmar antes de entregar uma proposta técnica, do caderno de encargos à entrega.",
+   "tipo": "Checklist",
+   "servico": ["desenvolvimento-editorial", "modelos-de-propostas-tecnicas"],
+   "intro": "A maioria das propostas técnicas perde pontos por falhas de forma e de estrutura, não por falta de capacidade. Use esta lista em cada concurso, de preferência com duas pessoas: uma escreve e a outra confirma.",
+   "grupos": [
+    ["Antes de escrever", [
+     "Li o caderno de encargos inteiro e sublinhei tudo o que é obrigatório.",
+     "Fiz uma tabela com os critérios de avaliação e o peso de cada um.",
+     "Confirmei o prazo, a hora e a forma de entrega (papel, plataforma ou email).",
+     "Confirmei os documentos administrativos pedidos e a validade de cada um.",
+     "Defini quem escreve, quem revê e quem aprova, com datas."
+    ]],
+    ["Estrutura", [
+     "A proposta segue a ordem dos critérios de avaliação, com os mesmos títulos.",
+     "Há um índice e as páginas estão numeradas.",
+     "Cada critério tem uma secção que responde só a esse critério.",
+     "O sumário executivo cabe numa página e diz porque somos a melhor escolha."
+    ]],
+    ["Conteúdo técnico", [
+     "A metodologia explica como vamos fazer o trabalho, fase a fase, e não só o que vamos fazer.",
+     "O plano de trabalho tem atividades, prazos e responsáveis, coerentes com o prazo do concurso.",
+     "A equipa proposta tem os perfis pedidos, com currículos no formato exigido.",
+     "A experiência mostra projetos parecidos, com cliente, ano, valor e resultado, e declarações quando são pedidas.",
+     "Os riscos do projeto estão identificados, com a forma de os reduzir."
+    ]],
+    ["Apresentação", [
+     "O texto é claro, em frases curtas, sem copiar o caderno de encargos.",
+     "Tabelas e esquemas resumem o que é complexo.",
+     "A identidade visual é coerente em todo o documento.",
+     "Não há erros de ortografia, nomes errados ou referências a outros concursos."
+    ]],
+    ["Antes de entregar", [
+     "Confirmei, critério a critério, que respondi a tudo o que é avaliado.",
+     "As declarações estão assinadas e carimbadas, onde é pedido.",
+     "O número de cópias, o formato e a identificação dos envelopes estão como pedido.",
+     "Guardei uma cópia final e editável para o próximo concurso."
+    ]]
+   ]
+  },
+  {
+   "slug": "guia-perfil-corporativo",
+   "titulo": "O que deve ter um perfil corporativo",
+   "seo": ["O Que Deve Ter um Perfil Corporativo: Guia e Checklist", "Guia gratuito com a estrutura de um perfil corporativo de empresa: o que incluir, por que ordem e em que formatos, para clientes e financiadores."],
+   "resumo": "A estrutura de um perfil corporativo que convence clientes, parceiros e financiadores.",
+   "tipo": "Guia",
+   "servico": ["desenvolvimento-editorial", "perfis-corporativos"],
+   "intro": "O perfil corporativo é muitas vezes o primeiro documento que um cliente ou financiador lê sobre a sua empresa. Deve mostrar, em poucas páginas, quem são, o que fazem e as provas de que fazem bem.",
+   "grupos": [
+    ["Abertura", [
+     "Capa com o logótipo, o nome da empresa e uma frase que diz o que fazem.",
+     "Uma página de apresentação: o que fazem, para quem e onde, em três ou quatro frases."
+    ]],
+    ["Quem somos", [
+     "A história em poucas linhas: quando começaram e os marcos principais.",
+     "Missão, visão e valores, só se forem usados no dia a dia.",
+     "Números que provam a dimensão: anos de mercado, projetos, clientes, equipa."
+    ]],
+    ["O que fazemos", [
+     "Os serviços ou produtos, agrupados como o cliente os procura.",
+     "Para cada serviço: o problema que resolve e o que o cliente recebe.",
+     "O método de trabalho, em passos simples."
+    ]],
+    ["Provas", [
+     "Projetos de referência, com cliente, ano, o que foi feito e o resultado.",
+     "Logótipos de clientes, só com autorização.",
+     "Certificações, licenças, alvarás e filiações relevantes.",
+     "Testemunhos de clientes, com nome e cargo, e com autorização."
+    ]],
+    ["Equipa e contactos", [
+     "A direção e as pessoas-chave, com fotografia e uma linha de experiência.",
+     "Contactos completos: morada, telefone, email, site e redes.",
+     "Dados legais quando são pedidos: NUIT, registo comercial."
+    ]],
+    ["Formato", [
+     "Entre 8 e 16 páginas para a versão principal.",
+     "Uma versão em PDF para enviar e uma editável (PPTX ou DOCX) para adaptar a cada proposta.",
+     "Fotografias reais da empresa e da equipa, sem imagens de banco.",
+     "A identidade visual da marca em todas as páginas.",
+     "Data de atualização na última página, e revisão pelo menos uma vez por ano."
+    ]]
+   ]
+  },
+  {
+   "slug": "estrutura-plano-de-negocios",
+   "titulo": "Estrutura de um plano de negócios para o banco",
+   "seo": ["Estrutura de um Plano de Negócios para o Banco", "Guia gratuito com a estrutura de um plano de negócios para pedir financiamento a um banco ou investidor em Moçambique, secção a secção."],
+   "resumo": "As secções que um banco ou um investidor espera encontrar num plano de negócios.",
+   "tipo": "Guia",
+   "servico": ["consultoria-estrategica", "plano-de-negocios"],
+   "intro": "Quem financia lê o plano de negócios para responder a três perguntas: o negócio faz sentido, a equipa consegue executá-lo e o dinheiro volta. Esta estrutura segue essas perguntas.",
+   "grupos": [
+    ["Sumário executivo", [
+     "Uma ou duas páginas, escritas no fim: o negócio, o mercado, o que pede e para quê.",
+     "O valor do financiamento, a sua utilização e o prazo de reembolso previsto."
+    ]],
+    ["A empresa e os promotores", [
+     "Forma jurídica, data de constituição, sócios e participações.",
+     "Experiência dos promotores e da equipa de gestão no setor."
+    ]],
+    ["Produto ou serviço", [
+     "O que vende, a quem e que problema resolve.",
+     "O que o distingue da concorrência."
+    ]],
+    ["Mercado e concorrência", [
+     "Dimensão do mercado e tendência, com fontes.",
+     "Os clientes-alvo e como compram.",
+     "Os principais concorrentes, os seus preços e os seus pontos fracos."
+    ]],
+    ["Marketing e vendas", [
+     "Preços e política de preços.",
+     "Canais de venda e de comunicação.",
+     "Metas de vendas por mês no primeiro ano e por ano depois."
+    ]],
+    ["Operações", [
+     "Localização, instalações e equipamentos.",
+     "Fornecedores principais e prazos.",
+     "Equipa necessária, por função, e calendário de contratações."
+    ]],
+    ["Plano financeiro", [
+     "Investimento inicial, item a item.",
+     "Fontes de financiamento: capitais próprios, empréstimo, outros.",
+     "Projeções de vendas, custos e resultados para 3 a 5 anos.",
+     "Mapa de tesouraria mensal no primeiro ano.",
+     "Ponto de equilíbrio e indicadores: margem, VAL, TIR e prazo de recuperação.",
+     "Pressupostos das projeções explicados e realistas."
+    ]],
+    ["Riscos e anexos", [
+     "Os principais riscos e o plano para cada um.",
+     "Anexos: documentos da empresa, orçamentos de fornecedores, licenças e currículos."
+    ]]
+   ]
+  }
+ ]
+}

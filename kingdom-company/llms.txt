@@ -49,6 +49,14 @@ Factos principais:
 - [Página inicial](https://www.kingdomcompany.co.za/): quem somos, áreas, método, perguntas frequentes
 - [Contactos](https://www.kingdomcompany.co.za/contactos): moradas, telefones, email e mapa
 - [Pedido de cotação](https://www.kingdomcompany.co.za/pedido-de-cotacao): formulário para pedir cotação ou avaliação inicial
+- [Parceiros](https://www.kingdomcompany.co.za/parceiros): o grupo SDG (Pty) Ltd, o Kingdom Training, a Kingdom Academy e como ser parceiro
+
+## Recursos gratuitos
+
+- [Ferramentas gratuitas](https://www.kingdomcompany.co.za/ferramentas-gratuitas): diagnóstico do negócio, calculadora do ponto de equilíbrio e calculadora do retorno de campanhas, em meticais
+- [Checklist da proposta técnica para concursos](https://www.kingdomcompany.co.za/materiais-gratuitos/checklist-proposta-tecnica): Os pontos a confirmar antes de entregar uma proposta técnica, do caderno de encargos à entrega.
+- [O que deve ter um perfil corporativo](https://www.kingdomcompany.co.za/materiais-gratuitos/guia-perfil-corporativo): A estrutura de um perfil corporativo que convence clientes, parceiros e financiadores.
+- [Estrutura de um plano de negócios para o banco](https://www.kingdomcompany.co.za/materiais-gratuitos/estrutura-plano-de-negocios): As secções que um banco ou um investidor espera encontrar num plano de negócios.
 
 ## Blog
 
@@ -59,3 +67,4 @@ Factos principais:
 ## Opcional
 
 - [Política de privacidade](https://www.kingdomcompany.co.za/privacidade)
+- [Termos de utilização](https://www.kingdomcompany.co.za/termos)
