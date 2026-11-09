@@ -229,6 +229,59 @@
     campo.addEventListener('input', () => { if (campo.hasAttribute('aria-invalid')) { campo.removeAttribute('aria-invalid'); msg.textContent = ''; } });
   }
 
+  // Pedido de cotação: preenche a partir do link, valida e abre o email com o pedido escrito
+  const cot = document.querySelector('[data-cotacao]');
+  if (cot) {
+    const q = new URLSearchParams(location.search);
+    const sel = cot.querySelector('#c-servico');
+    if (q.get('servico') && sel.querySelector(`option[value="${CSS.escape(q.get('servico'))}"]`)) sel.value = q.get('servico');
+    if (q.get('tipo') === 'avaliacao') cot.querySelector('input[name="tipo"][value="avaliacao"]').checked = true;
+    const regras = {
+      desafio: [(v) => v.length >= 10, 'Escreva em duas ou três frases o que quer resolver.'],
+      nome: [(v) => v.length >= 2, 'Escreva o seu nome.'],
+      empresa: [(v) => v.length >= 2, 'Escreva o nome da empresa.'],
+      email: [(v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v), 'Escreva um email completo, por exemplo nome@empresa.co.mz.'],
+      telefone: [(v) => v.replace(/\D/g, '').length >= 9, 'Escreva um número com o indicativo, por exemplo +258 84 123 4567.'],
+    };
+    const valida = (nome) => {
+      const campo = cot.elements[nome], erro = cot.querySelector(`#c-${nome}-erro`);
+      const [ok, texto] = regras[nome];
+      const bom = ok(campo.value.trim());
+      if (bom) { campo.removeAttribute('aria-invalid'); erro.textContent = ''; } else { campo.setAttribute('aria-invalid', 'true'); erro.textContent = texto; }
+      return bom;
+    };
+    Object.keys(regras).forEach((n) => cot.elements[n].addEventListener('input', () => { if (cot.elements[n].hasAttribute('aria-invalid')) valida(n); }));
+    let pedido = '';
+    cot.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const falhas = Object.keys(regras).filter((n) => !valida(n));
+      if (falhas.length) { cot.elements[falhas[0]].focus(); return; }
+      const v = (n) => (cot.elements[n].value || '').trim();
+      const avaliacao = v('tipo') === 'avaliacao';
+      const servico = sel.value ? sel.options[sel.selectedIndex].text : 'Ainda não sei';
+      const assunto = `${avaliacao ? 'Avaliação inicial' : 'Pedido de cotação'} · ${servico} · ${v('empresa')}`;
+      pedido = [
+        `Tipo de pedido: ${avaliacao ? 'Avaliação inicial' : 'Cotação'}`,
+        `Serviço: ${servico}`,
+        `Para quando: ${v('prazo') || 'Não indicado'}`,
+        '', 'O desafio:', v('desafio'), '',
+        `Nome: ${v('nome')}${v('cargo') ? ` (${v('cargo')})` : ''}`,
+        `Empresa: ${v('empresa')} · ${v('pais')}`,
+        `Email: ${v('email')}`,
+        `Telefone ou WhatsApp: ${v('telefone')}`,
+        `Prefere ser contactado por: ${v('canal')}`,
+      ].join('\n');
+      location.href = `mailto:contact@kingdomcompany.co.za?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(pedido)}`;
+      const feito = cot.querySelector('[data-cot-feito]');
+      feito.hidden = false; feito.focus();
+    });
+    const copiar = cot.querySelector('[data-cot-copiar]'), copiado = cot.querySelector('[data-cot-copiado]');
+    copiar.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(`Para: contact@kingdomcompany.co.za\n\n${pedido}`); copiado.textContent = 'Pedido copiado. Cole-o num email para contact@kingdomcompany.co.za.'; }
+      catch { copiado.textContent = 'Não foi possível copiar. Escreva para contact@kingdomcompany.co.za.'; }
+    });
+  }
+
   // Perguntas: abrir e fechar com movimento
   if (!calmo) document.querySelectorAll('.faq details').forEach((d) => {
     const s = d.querySelector('summary'), corpo = d.querySelector('.faq-resposta');

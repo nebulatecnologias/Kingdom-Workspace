@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Gera as 12 páginas de serviço (/<área>/<serviço>) e as 4 páginas de área (/<área>)
-a partir de fonte/servicos.json e fonte/areas.json.
+"""Gera as 12 páginas de serviço (/<área>/<serviço>), as 4 páginas de área (/<área>)
+e a página /pedido-de-cotacao, a partir de fonte/servicos.json e fonte/areas.json.
 
 Uso (na pasta kingdom-company):  python3 fonte/servicos.py
 
@@ -62,8 +62,8 @@ def pagina(s, todos):
       <h1 id="t-servico">{E(s["nome"])}</h1>
       <p class="abertura-desc">{E(s["oque"])}</p>
       <div class="acoes">
-        <a class="botao botao-acao" href="/pedido-de-cotacao">Pedir cotação {SETA}</a>
-        <a class="botao botao-contorno-claro" href="/pedido-de-cotacao">Pedir avaliação inicial</a>
+        <a class="botao botao-acao" href="/pedido-de-cotacao?servico={s["slug"]}">Pedir cotação {SETA}</a>
+        <a class="botao botao-contorno-claro" href="/pedido-de-cotacao?tipo=avaliacao&amp;servico={s["slug"]}">Pedir avaliação inicial</a>
       </div>
     </div>
   </div>
@@ -143,7 +143,7 @@ def pagina(s, todos):
       <p class="entrada">{E(urg_x)}</p>
       <p class="serv-fecho-passo">Peça hoje a cotação ou a avaliação inicial e saiba por onde começar.</p>
       <div class="acoes">
-        <a class="botao botao-acao" href="/pedido-de-cotacao">Pedir cotação {SETA}</a>
+        <a class="botao botao-acao" href="/pedido-de-cotacao?servico={s["slug"]}">Pedir cotação {SETA}</a>
         <a class="ligacao" href="/contactos">Fale connosco {SETA}</a>
       </div>
     </div>
@@ -196,7 +196,7 @@ def pagina_area(a, todos):
       <p class="abertura-desc">{E(a["resumo"])}</p>
       <div class="acoes">
         <a class="botao botao-acao" href="/pedido-de-cotacao">Pedir cotação {SETA}</a>
-        <a class="botao botao-contorno-claro" href="/pedido-de-cotacao">Pedir avaliação inicial</a>
+        <a class="botao botao-contorno-claro" href="/pedido-de-cotacao?tipo=avaliacao">Pedir avaliação inicial</a>
       </div>
     </div>
   </div>
@@ -260,6 +260,125 @@ def pagina_area(a, todos):
     return url, main, ld
 
 
+def pagina_cotacao(todos):
+    url = '/pedido-de-cotacao'
+    grupos = ''.join(f'''<optgroup label="{E(a["nome"])}">{"".join(f'<option value="{s["slug"]}">{E(s["nome"])}</option>' for s in todos if s["area_slug"] == a["slug"])}</optgroup>''' for a in AREAS)
+    passos = [
+        ('Recebemos o seu pedido', 'Um consultor contacta-o pelo canal que escolher, para perceber melhor o desafio.'),
+        ('Conversa de diagnóstico', 'Uma reunião para perceber o problema, o impacto e a prioridade, com quem decide.'),
+        ('Proposta à medida', 'Recebe por escrito o âmbito, os entregáveis, o prazo e o investimento, pago por marcos do projeto.'),
+    ]
+    lista = ''.join(f'<li><span>{k:02d}</span><div><h3>{E(n)}</h3><p>{E(x)}</p></div></li>' for k, (n, x) in enumerate(passos, 1))
+    ld = {"@context": "https://schema.org", "@type": "ContactPage", "name": "Pedir cotação", "url": f"https://www.kingdomcompany.co.za{url}"}
+    main = f'''<main id="conteudo" class="pag-servico pag-cotacao">
+
+<section class="abertura abertura-curta" aria-labelledby="t-cotacao">
+  <div class="abertura-luz" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="moldura abertura-in">
+    <div class="abertura-arte" aria-hidden="true"><img src="/assets/marca/globo-luz.svg" alt="" width="480" height="480"></div>
+    <div class="abertura-texto">
+      <h1 id="t-cotacao">Pedir cotação</h1>
+      <p class="abertura-desc">Conte-nos o desafio da sua empresa. Um consultor fala consigo e preparamos uma proposta à medida.</p>
+    </div>
+  </div>
+</section>
+
+<section class="seccao cot-seccao" aria-label="Formulário do pedido">
+  <div class="moldura cot-duas">
+    <form class="cot-form" data-cotacao novalidate>
+      <fieldset class="cot-tipo">
+        <legend>O que pretende?</legend>
+        <label><input type="radio" name="tipo" value="cotacao" checked><span><b>Pedir cotação</b><small>Já sabe o serviço de que precisa.</small></span></label>
+        <label><input type="radio" name="tipo" value="avaliacao"><span><b>Pedir avaliação inicial</b><small>Quer ajuda para escolher por onde começar.</small></span></label>
+      </fieldset>
+
+      <h2 class="cot-grupo">O seu desafio</h2>
+      <div class="cot-campo">
+        <label for="c-servico">Serviço</label>
+        <select id="c-servico" name="servico"><option value="">Ainda não sei, quero ajuda a escolher</option>{grupos}</select>
+      </div>
+      <div class="cot-campo">
+        <label for="c-desafio">O que quer resolver? <i>Obrigatório</i></label>
+        <textarea id="c-desafio" name="desafio" rows="5" required aria-describedby="c-desafio-ajuda c-desafio-erro" placeholder="Por exemplo: vamos concorrer a um concurso público em março e as nossas propostas técnicas perdem pontos."></textarea>
+        <p class="cot-ajuda" id="c-desafio-ajuda">Duas ou três frases chegam. Diga o que quer resolver e porquê agora.</p>
+        <p class="cot-erro" id="c-desafio-erro" aria-live="polite"></p>
+      </div>
+      <div class="cot-campo">
+        <label for="c-prazo">Para quando precisa?</label>
+        <select id="c-prazo" name="prazo"><option value="">Escolha uma opção</option><option>Este mês</option><option>Nos próximos 3 meses</option><option>Daqui a mais de 3 meses</option><option>Ainda sem data</option></select>
+      </div>
+
+      <h2 class="cot-grupo">Os seus dados</h2>
+      <div class="cot-linha">
+        <div class="cot-campo">
+          <label for="c-nome">Nome <i>Obrigatório</i></label>
+          <input id="c-nome" name="nome" type="text" autocomplete="name" required aria-describedby="c-nome-erro">
+          <p class="cot-erro" id="c-nome-erro" aria-live="polite"></p>
+        </div>
+        <div class="cot-campo">
+          <label for="c-cargo">Cargo</label>
+          <input id="c-cargo" name="cargo" type="text" autocomplete="organization-title" placeholder="Por exemplo: diretor-geral">
+        </div>
+      </div>
+      <div class="cot-linha">
+        <div class="cot-campo">
+          <label for="c-empresa">Empresa <i>Obrigatório</i></label>
+          <input id="c-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="c-empresa-erro">
+          <p class="cot-erro" id="c-empresa-erro" aria-live="polite"></p>
+        </div>
+        <div class="cot-campo">
+          <label for="c-pais">País</label>
+          <select id="c-pais" name="pais"><option>Moçambique</option><option>África do Sul</option><option>Outro</option></select>
+        </div>
+      </div>
+      <div class="cot-linha">
+        <div class="cot-campo">
+          <label for="c-email">Email <i>Obrigatório</i></label>
+          <input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="c-email-erro">
+          <p class="cot-erro" id="c-email-erro" aria-live="polite"></p>
+        </div>
+        <div class="cot-campo">
+          <label for="c-telefone">Telefone ou WhatsApp <i>Obrigatório</i></label>
+          <input id="c-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+258 ..." aria-describedby="c-telefone-erro">
+          <p class="cot-erro" id="c-telefone-erro" aria-live="polite"></p>
+        </div>
+      </div>
+      <fieldset class="cot-canal">
+        <legend>Como prefere ser contactado?</legend>
+        <label><input type="radio" name="canal" value="Chamada" checked> Chamada</label>
+        <label><input type="radio" name="canal" value="WhatsApp"> WhatsApp</label>
+        <label><input type="radio" name="canal" value="Email"> Email</label>
+      </fieldset>
+
+      <div class="cot-enviar">
+        <button class="botao botao-acao" type="submit">Enviar pedido {SETA}</button>
+        <p class="cot-nota">Usamos estes dados só para responder ao seu pedido.</p>
+      </div>
+      <div class="cot-feito" data-cot-feito hidden tabindex="-1">
+        <h2>O seu pedido está pronto a enviar</h2>
+        <p>Abrimos o seu programa de email com o pedido escrito, para <a href="mailto:contact@kingdomcompany.co.za">contact@kingdomcompany.co.za</a>. Só falta carregar em enviar.</p>
+        <p>Se o programa de email não abriu, copie o pedido e envie-o para o mesmo endereço.</p>
+        <button class="botao botao-contorno" type="button" data-cot-copiar>Copiar o pedido</button>
+        <p class="cot-copiado" data-cot-copiado aria-live="polite"></p>
+      </div>
+    </form>
+
+    <aside class="cot-lado" aria-labelledby="t-depois">
+      <p class="contexto">O que acontece a seguir</p>
+      <h2 id="t-depois">Três passos até à proposta</h2>
+      <ol class="cot-passos">{lista}</ol>
+      <div class="cot-direto">
+        <h3>Prefere falar já?</h3>
+        <p><a href="tel:+258876641836">+258 87 664 1836</a><br><a href="tel:+258851800920">+258 85 1800 920</a><br><a href="mailto:contact@kingdomcompany.co.za">contact@kingdomcompany.co.za</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+</main>'''
+    return url, main, ld
+
+
 def escreve(antes, depois, url, titulo, desc, ld, corpo, destino):
     cab = re.sub(r'<title>.*?</title>', f'<title>{E(titulo)}</title>', antes)
     cab = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{E(desc)}">', cab)
@@ -280,6 +399,10 @@ def main():
         url, corpo, ld = pagina_area(a, DADOS)
         escreve(antes, depois, url, f'{a["nome"]} · Kingdom Company', a['pitch'].partition('. ')[0] + '.', ld, corpo,
                 SITE / a['slug'] / 'index.html')
+    url, corpo, ld = pagina_cotacao(DADOS)
+    escreve(antes, depois, url, 'Pedir cotação · Kingdom Company',
+            'Peça uma cotação ou uma avaliação inicial à Kingdom Company. Um consultor fala consigo e preparamos uma proposta à medida.',
+            ld, corpo, SITE / 'pedido-de-cotacao.html')
     print(f'{len(DADOS)} páginas de serviço e {len(AREAS)} de área (site.css?v={css_v})')
 
 
