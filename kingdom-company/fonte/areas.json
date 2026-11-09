@@ -7,7 +7,14 @@
    "ancora": "area-editorial",
    "resumo": "Documentos que apresentam a sua empresa ao nível do que ela já entrega.",
    "pitch": "Ajudamos empresas a apresentar-se ao nível do que já entregam. Construímos a identidade visual, as propostas técnicas e o perfil corporativo que clientes, júris e financiadores leem antes de decidir, e deixamos modelos que a sua equipa continua a usar.",
-   "urgencia": ["A primeira impressão da sua empresa acontece sem si na sala.", "Clientes, júris e financiadores decidem muitas vezes só pelo que leem e veem."]
+   "urgencia": [
+    "A primeira impressão da sua empresa acontece sem si na sala.",
+    "Clientes, júris e financiadores decidem muitas vezes só pelo que leem e veem."
+   ],
+   "seo": [
+    "Desenvolvimento Editorial para Empresas",
+    "Desenvolvimento editorial para empresas em Moçambique: identidade visual, propostas técnicas para concursos e perfis corporativos."
+   ]
   },
   {
    "slug": "consultoria-estrategica",
@@ -15,7 +22,14 @@
    "ancora": "area-consultoria",
    "resumo": "Decisões com base em dados, não em palpites.",
    "pitch": "Ajudamos donos e diretores a decidir com clareza e a pôr a empresa a trabalhar na mesma direção. Estruturamos o plano de negócios, as prioridades e as decisões importantes com números e cenários, para que avance com segurança.",
-   "urgencia": ["Cada decisão adiada custa mais do que parece.", "Enquanto a direção não está definida, o tempo, o dinheiro e a equipa dispersam-se pelo que não dá resultado."]
+   "urgencia": [
+    "Cada decisão adiada custa mais do que parece.",
+    "Enquanto a direção não está definida, o tempo, o dinheiro e a equipa dispersam-se pelo que não dá resultado."
+   ],
+   "seo": [
+    "Consultoria Estratégica e Empresarial em Maputo",
+    "Consultoria empresarial em Moçambique: plano de negócios, planeamento estratégico e aconselhamento para decisões importantes."
+   ]
   },
   {
    "slug": "assessoria",
@@ -23,7 +37,14 @@
    "ancora": "area-assessoria",
    "resumo": "Conteúdo, redes sociais e campanhas que põem a sua marca à frente de quem decide.",
    "pitch": "Ajudamos empresas a ser vistas por quem decide. Produzimos os vídeos e as fotografias, mantemos as redes ativas e gerimos as campanhas, para que o mercado conheça o seu trabalho e saiba o que cada investimento trouxe.",
-   "urgencia": ["Se o mercado não o vê, escolhe a concorrência.", "Cada mês sem presença regular entrega a atenção dos seus clientes a quem aparece."]
+   "urgencia": [
+    "Se o mercado não o vê, escolhe a concorrência.",
+    "Cada mês sem presença regular entrega a atenção dos seus clientes a quem aparece."
+   ],
+   "seo": [
+    "Assessoria de Marketing e Comunicação em Maputo",
+    "Assessoria de marketing para empresas em Moçambique: produção audiovisual, gestão de redes sociais e campanhas publicitárias."
+   ]
   },
   {
    "slug": "desenvolvimento-tecnologico",
@@ -31,7 +52,14 @@
    "ancora": "area-tecnologia",
    "resumo": "Tecnologia ao serviço da gestão e da operação.",
    "pitch": "Ajudamos empresas a vender e a gerir com sistemas, não com memória e folhas de Excel. Desenvolvemos o site, o CRM e os painéis de gestão, para que os clientes encontrem a sua empresa, nenhuma venda se perca e a direção decida com números em que confia.",
-   "urgencia": ["Cada dia sem sistema é informação e vendas que se perdem.", "Enquanto tudo depende de pessoas e de folhas soltas, os problemas aparecem tarde e os clientes vão para quem responde primeiro."]
+   "urgencia": [
+    "Cada dia sem sistema é informação e vendas que se perdem.",
+    "Enquanto tudo depende de pessoas e de folhas soltas, os problemas aparecem tarde e os clientes vão para quem responde primeiro."
+   ],
+   "seo": [
+    "Sites, CRM e Dashboards para Empresas",
+    "Desenvolvimento tecnológico para empresas em Moçambique: websites e aplicativos, CRM e sistemas de vendas, dashboards de gestão."
+   ]
   }
  ]
 }

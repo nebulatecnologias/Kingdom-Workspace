@@ -1,0 +1,9 @@
+{
+ "dominio": "https://www.kingdomcompany.co.za",
+ "ga4": "",
+ "google_site_verification": "",
+ "bing_site_verification": "",
+ "redes": [],
+ "imagem": "/assets/og/kingdom-company.jpg",
+ "nota": "ga4 = o ID de medição do Google Analytics 4 (G-XXXXXXXXXX). google_site_verification = o código da meta tag do Search Console. redes = links dos perfis oficiais (LinkedIn, Instagram, Facebook), para o Google ligar o site à empresa. Depois de mudar, correr: python3 fonte/seo.py"
+}

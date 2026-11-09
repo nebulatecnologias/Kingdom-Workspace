@@ -146,7 +146,7 @@ def main():
 </section>
 
 </main>'''
-    (BLOG / 'index.html').write_text(pagina(topo, rodape, 'Blog · Kingdom Company', 'Últimas atualizações na área de negócios, tecnologia e inteligência artificial.', main_html), encoding='utf-8')
+    (BLOG / 'index.html').write_text(pagina(topo, rodape, 'Blog de Negócios, Marketing e IA · Kingdom Company', 'Artigos sobre negócios em Moçambique, marketing, tecnologia e inteligência artificial, escritos pela equipa da Kingdom Company.', main_html), encoding='utf-8')
 
     noticias = [{k: a[k] for k in ('titulo', 'resumo', 'categoria', 'ambito', 'data') if a.get(k)} | {'link': f"/blog/{a['slug']}"} | ({'imagem': a['imagem']} if a.get('imagem') else {}) for a in artigos]
     (BLOG / 'noticias.json').write_text(json.dumps(noticias, ensure_ascii=False, indent=1), encoding='utf-8')

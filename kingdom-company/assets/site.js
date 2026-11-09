@@ -273,6 +273,7 @@
         `Prefere ser contactado por: ${v('canal')}`,
       ].join('\n');
       location.href = `mailto:contact@kingdomcompany.co.za?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(pedido)}`;
+      if (window.kcEvento) window.kcEvento('generate_lead', { tipo: avaliacao ? 'avaliacao_inicial' : 'cotacao', servico: sel.value || 'nao_sabe' });
       const feito = cot.querySelector('[data-cot-feito]');
       feito.hidden = false; feito.focus();
     });
@@ -290,6 +291,37 @@
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) marca(e.target.id); }), { rootMargin: '-30% 0px -60% 0px' });
     document.querySelectorAll('.legal-texto section[id]').forEach((s) => io.observe(s));
   }
+
+  // Google Analytics (só quando fonte/seo.json tem o ID): aviso de cookies e eventos de conversão
+  const evento = (nome, dados) => { if (window.KC_GA && typeof window.gtag === 'function') window.gtag('event', nome, dados || {}); };
+  if (window.KC_GA) {
+    const guarda = (v) => { try { localStorage.setItem('kc-consentimento', v); } catch (e) { /* sem armazenamento */ } };
+    let escolha = null; try { escolha = localStorage.getItem('kc-consentimento'); } catch (e) { /* sem armazenamento */ }
+    const aviso = () => {
+      if (document.querySelector('.cookies')) return;
+      const caixa = document.createElement('div');
+      caixa.className = 'cookies'; caixa.setAttribute('role', 'region'); caixa.setAttribute('aria-label', 'Cookies de análise');
+      caixa.innerHTML = '<p>Usamos cookies de análise do Google Analytics para perceber como o site é usado. Só os ativamos se aceitar. <a href="/privacidade#dados">Saber mais</a></p><div class="cookies-botoes"><button type="button" class="botao botao-contorno botao-pequeno" data-c="nao">Recusar</button><button type="button" class="botao botao-acao botao-pequeno" data-c="sim">Aceitar</button></div>';
+      caixa.addEventListener('click', (e) => {
+        const b = e.target.closest('[data-c]'); if (!b) return;
+        guarda(b.dataset.c);
+        window.gtag('consent', 'update', { analytics_storage: b.dataset.c === 'sim' ? 'granted' : 'denied' });
+        caixa.remove();
+      });
+      document.body.appendChild(caixa);
+    };
+    if (!escolha) aviso();
+    document.querySelectorAll('[data-cookies-rever]').forEach((b) => { b.hidden = false; b.addEventListener('click', aviso); });
+  }
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href]'); if (!a) return;
+    const h = a.getAttribute('href');
+    if (h.startsWith('tel:')) evento('contacto', { metodo: 'telefone' });
+    else if (h.startsWith('mailto:')) evento('contacto', { metodo: 'email' });
+    else if (/wa\.me|whatsapp/.test(h)) evento('contacto', { metodo: 'whatsapp' });
+    else if (h.startsWith('/pedido-de-cotacao')) evento('clique_cotacao', { origem: location.pathname, destino: h });
+  });
+  window.kcEvento = evento;
 
   // Perguntas: abrir e fechar com movimento
   if (!calmo) document.querySelectorAll('.faq details').forEach((d) => {

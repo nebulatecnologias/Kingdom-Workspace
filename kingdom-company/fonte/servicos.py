@@ -50,7 +50,7 @@ def pagina(s, todos):
     entrega_cls = 'seccao serv-entrega' + (' so-previa' if s['validar'] else '')
     entrega_nota = '<p class="nota-previa">Entregáveis propostos, a confirmar pela direção antes de publicar.</p>' if s['validar'] else ''
     ld = {"@context": "https://schema.org", "@type": "Service", "name": s['nome'], "description": s['oque'], "serviceType": s['area'],
-          "areaServed": ["MZ", "ZA"], "provider": {"@type": "Organization", "name": "Kingdom Company", "url": "https://www.kingdomcompany.co.za"},
+          "areaServed": ["MZ", "ZA"], "provider": {"@id": "https://www.kingdomcompany.co.za/#organizacao"},
           "url": f"https://www.kingdomcompany.co.za{url}"}
     main = f'''<main id="conteudo" class="pag-servico">
 
@@ -181,7 +181,7 @@ def pagina_area(a, todos):
     escolher = ''.join(f'''<li><ul class="area-sinais">{"".join(f"<li>{E(d)}</li>" for d in s["dores"][:2])}</ul><a href="/{s["area_slug"]}/{s["slug"]}"><span>Precisa de</span><b>{E(s["nome"])}</b>{SETA}</a></li>''' for s in servs)
     rels = ''.join(f'''<li><a href="/{x["slug"]}"><span class="serv-rel-ico" aria-hidden="true"><svg><use href="#{ICONE[x["slug"]]}"/></svg></span><b>{E(x["nome"])}</b><span>{E(x["resumo"])}</span><i>Ver a área {SETA}</i></a></li>''' for x in outras)
     ld = {"@context": "https://schema.org", "@type": "Service", "name": a['nome'], "description": a['resumo'],
-          "areaServed": ["MZ", "ZA"], "provider": {"@type": "Organization", "name": "Kingdom Company", "url": "https://www.kingdomcompany.co.za"},
+          "areaServed": ["MZ", "ZA"], "provider": {"@id": "https://www.kingdomcompany.co.za/#organizacao"},
           "url": f"https://www.kingdomcompany.co.za{url}",
           "hasOfferCatalog": {"@type": "OfferCatalog", "name": a['nome'], "itemListElement": [
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": s['nome'], "url": f"https://www.kingdomcompany.co.za/{s['area_slug']}/{s['slug']}"}} for s in servs]}}
@@ -426,10 +426,41 @@ def data_pt(iso):
     return f'{int(d)} de {meses[int(m) - 1]} de {a}'
 
 
+def pagina_404():
+    main = f'''<main id="conteudo" class="pag-servico pag-404">
+
+<section class="abertura abertura-curta" aria-labelledby="t-404">
+  <div class="abertura-luz" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="moldura abertura-in">
+    <div class="abertura-arte" aria-hidden="true"><img src="/assets/marca/globo-luz.svg" alt="" width="480" height="480"></div>
+    <div class="abertura-texto">
+      <p class="contexto">Erro 404</p>
+      <h1 id="t-404">Esta página não existe</h1>
+      <p class="abertura-desc">O endereço pode ter mudado ou ter um erro. Escolha um dos caminhos abaixo.</p>
+      <div class="acoes">
+        <a class="botao botao-acao" href="/">Ir para a página inicial {SETA}</a>
+        <a class="botao botao-contorno-claro" href="/pedido-de-cotacao">Pedir cotação</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccao" aria-labelledby="t-404-areas">
+  <div class="moldura">
+    <div class="cabeca"><h2 id="t-404-areas">As nossas áreas</h2></div>
+    <ul class="serv-rel">{"".join(f'<li><a href="/{a["slug"]}"><span class="serv-rel-ico" aria-hidden="true"><svg><use href="#{ICONE[a["slug"]]}"/></svg></span><b>{E(a["nome"])}</b><span>{E(a["resumo"])}</span><i>Ver a área {SETA}</i></a></li>' for a in AREAS)}</ul>
+  </div>
+</section>
+
+</main>'''
+    return main
+
+
 def escreve(antes, depois, url, titulo, desc, ld, corpo, destino):
     cab = re.sub(r'<title>.*?</title>', f'<title>{E(titulo)}</title>', antes)
     cab = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{E(desc)}">', cab)
-    cab = cab.replace('</head>', f'<link rel="canonical" href="https://www.kingdomcompany.co.za{url}">\n<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n</head>')
+    if ld:  # o canonical, o Open Graph e o resto do SEO são acrescentados por fonte/seo.py
+        cab = cab.replace('</head>', f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n</head>')
     destino.parent.mkdir(exist_ok=True)
     destino.write_text(cab + corpo + depois, encoding='utf-8')
     print(destino.relative_to(SITE))
@@ -440,21 +471,25 @@ def main():
     css_v = re.search(r'site\.css\?v=(\d+)', antes).group(1)
     for s in DADOS:
         url, corpo, ld = pagina(s, DADOS)
-        escreve(antes, depois, url, f'{s["nome"]} · {s["area"]} · Kingdom Company', s['oque'], ld, corpo,
+        escreve(antes, depois, url, f'{s["seo"][0]} · Kingdom Company', s['seo'][1], ld, corpo,
                 SITE / s['area_slug'] / f'{s["slug"]}.html')
     for a in AREAS:
         url, corpo, ld = pagina_area(a, DADOS)
-        escreve(antes, depois, url, f'{a["nome"]} · Kingdom Company', a['pitch'].partition('. ')[0] + '.', ld, corpo,
+        escreve(antes, depois, url, f'{a["seo"][0]} · Kingdom Company', a['seo'][1], ld, corpo,
                 SITE / a['slug'] / 'index.html')
     url, corpo, ld = pagina_cotacao(DADOS)
+    ld = None
     escreve(antes, depois, url, 'Pedir cotação · Kingdom Company',
             'Peça uma cotação ou uma avaliação inicial à Kingdom Company. Um consultor fala consigo e preparamos uma proposta à medida.',
             ld, corpo, SITE / 'pedido-de-cotacao.html')
-    url, corpo, ld = pagina_legal('privacidade', 'Política de privacidade',
+    url, corpo, _ = pagina_legal('privacidade', 'Política de privacidade',
                                   'Que dados recolhemos neste site, para que os usamos e como pode pedir para os ver, corrigir ou apagar.', '2026-11-09')
     escreve(antes, depois, url, 'Política de privacidade · Kingdom Company',
             'Que dados a Kingdom Company recolhe no site, para que os usa, com quem os partilha e quais são os seus direitos.',
-            ld, corpo, SITE / 'privacidade.html')
+            None, corpo, SITE / 'privacidade.html')
+    cab = re.sub(r'<title>.*?</title>', '<title>Página não encontrada · Kingdom Company</title>', antes)
+    cab = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Esta página não existe no site da Kingdom Company.">', cab)
+    (SITE / '404.html').write_text(cab + pagina_404() + depois, encoding='utf-8')
     print(f'{len(DADOS)} páginas de serviço e {len(AREAS)} de área (site.css?v={css_v})')
 
 
