@@ -263,6 +263,7 @@
       pedido = [
         `Tipo de pedido: ${avaliacao ? 'Avaliação inicial' : 'Cotação'}`,
         `Serviço: ${servico}`,
+        `Fase do negócio: ${v('fase') || 'Não indicada'}`,
         `Para quando: ${v('prazo') || 'Não indicado'}`,
         '', 'O desafio:', v('desafio'), '',
         `Nome: ${v('nome')}${v('cargo') ? ` (${v('cargo')})` : ''}`,

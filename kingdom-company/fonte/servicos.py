@@ -292,13 +292,18 @@ def pagina_cotacao(todos):
         <label><input type="radio" name="tipo" value="avaliacao"><span><b>Pedir avaliação inicial</b><small>Quer ajuda para escolher por onde começar.</small></span></label>
       </fieldset>
 
+      <p class="cot-legenda"><span class="cot-obrig" aria-hidden="true">*</span> Campos obrigatórios</p>
       <h2 class="cot-grupo">O seu desafio</h2>
       <div class="cot-campo">
         <label for="c-servico">Serviço</label>
         <select id="c-servico" name="servico"><option value="">Ainda não sei, quero ajuda a escolher</option>{grupos}</select>
       </div>
       <div class="cot-campo">
-        <label for="c-desafio">O que quer resolver? <i>Obrigatório</i></label>
+        <label for="c-fase">Em que fase está o negócio?</label>
+        <select id="c-fase" name="fase"><option value="">Escolha uma opção</option><option>Ideia ou projeto ainda por lançar</option><option>Empresa a começar, com menos de 2 anos</option><option>Empresa estabelecida</option><option>Empresa em expansão</option><option>Empresa a reestruturar ou a reposicionar-se</option></select>
+      </div>
+      <div class="cot-campo">
+        <label for="c-desafio">O que quer resolver? <span class="cot-obrig" aria-hidden="true">*</span></label>
         <textarea id="c-desafio" name="desafio" rows="5" required aria-describedby="c-desafio-ajuda c-desafio-erro" placeholder="Por exemplo: vamos concorrer a um concurso público em março e as nossas propostas técnicas perdem pontos."></textarea>
         <p class="cot-ajuda" id="c-desafio-ajuda">Duas ou três frases chegam. Diga o que quer resolver e porquê agora.</p>
         <p class="cot-erro" id="c-desafio-erro" aria-live="polite"></p>
@@ -311,7 +316,7 @@ def pagina_cotacao(todos):
       <h2 class="cot-grupo">Os seus dados</h2>
       <div class="cot-linha">
         <div class="cot-campo">
-          <label for="c-nome">Nome <i>Obrigatório</i></label>
+          <label for="c-nome">Nome <span class="cot-obrig" aria-hidden="true">*</span></label>
           <input id="c-nome" name="nome" type="text" autocomplete="name" required aria-describedby="c-nome-erro">
           <p class="cot-erro" id="c-nome-erro" aria-live="polite"></p>
         </div>
@@ -322,7 +327,7 @@ def pagina_cotacao(todos):
       </div>
       <div class="cot-linha">
         <div class="cot-campo">
-          <label for="c-empresa">Empresa <i>Obrigatório</i></label>
+          <label for="c-empresa">Empresa <span class="cot-obrig" aria-hidden="true">*</span></label>
           <input id="c-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="c-empresa-erro">
           <p class="cot-erro" id="c-empresa-erro" aria-live="polite"></p>
         </div>
@@ -333,12 +338,12 @@ def pagina_cotacao(todos):
       </div>
       <div class="cot-linha">
         <div class="cot-campo">
-          <label for="c-email">Email <i>Obrigatório</i></label>
+          <label for="c-email">Email <span class="cot-obrig" aria-hidden="true">*</span></label>
           <input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="c-email-erro">
           <p class="cot-erro" id="c-email-erro" aria-live="polite"></p>
         </div>
         <div class="cot-campo">
-          <label for="c-telefone">Telefone ou WhatsApp <i>Obrigatório</i></label>
+          <label for="c-telefone">Telefone ou WhatsApp <span class="cot-obrig" aria-hidden="true">*</span></label>
           <input id="c-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+258 ..." aria-describedby="c-telefone-erro">
           <p class="cot-erro" id="c-telefone-erro" aria-live="polite"></p>
         </div>
