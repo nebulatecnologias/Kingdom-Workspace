@@ -1,78 +1,154 @@
 {
-  "nome": "DT Company",
-  "slogan": ["Confiança para investir,", "operar e crescer em Moçambique."],
-  "frase_abertura": "A DT Company organiza, regulariza e acompanha o seu negócio — com entregáveis que se verificam, prazos claros e parceiros certificados.",
-  "descricao": "DT Company — Business Advisory & Development: consultoria em compliance e governança, fiscalidade, incorporação e ESG em Moçambique, com entregáveis verificáveis e parceiros certificados.",
-  "logotipo": "logotipo.svg",
-  "simbolo": "simbolo.svg",
-  "grupo": "",
-  "cores": {
-    "principal": "#04123F",
-    "fundo": "#F5F8FF",
-    "acento": "#0A57E7",
-    "acento_texto": "#0A47C2",
-    "texto": "#0E1B3D",
-    "texto_secundario": "#4A5880",
-    "linha": "#DCE6F7",
-    "noite": "#020A24",
-    "luz": "#2D6FF0",
-    "lavanda": "#9DC0FF"
-  },
-  "contactos": {
-    "email": "contacto@dtcompany.example",
-    "telefones": [],
-    "moradas": [{"cidade": "Moçambique", "pais": "", "linhas": ["Morada em actualização"], "principal": true}]
-  },
-  "quem": {
-    "titulo": "Advisory com entregáveis que se verificam.",
-    "paragrafos": [
-      "A DT Company — Business Advisory & Development é uma consultoria moçambicana que apoia empresas e investidores em quatro pilares: Compliance e Governança, Tax, Incorporação e Consultoria ESG.",
-      "Cada mandato parte de um desafio concreto — uma inspecção agendada, um financiamento condicionado, uma operação por instalar — e conclui com instrumentos que permanecem na organização: políticas, dossiers, registos, certidões e calendários de obrigações.",
-      "A delimitação rigorosa do âmbito é parte do serviço: os actos legalmente reservados são executados por um advogado parceiro, um contabilista certificado parceiro e consultores ambientais registados, sob a nossa coordenação."
-    ]
-  },
-  "servicos_entrada": "Quatro pilares, doze serviços. Escolha o que responde ao desafio que tem hoje; articulamos os restantes quando fizer sentido.",
-  "servicos": [
+ "nome": "DT Company",
+ "slogan": [
+  "Confiança para investir,",
+  "operar e crescer em Moçambique."
+ ],
+ "frase_abertura": "A DT Company organiza, prepara e verifica o que a sua empresa precisa para cumprir regras, aceder a financiamento e operar em Moçambique, com parceiros certificados em cada fronteira.",
+ "descricao": "DT Company — Business Advisory & Development: organizamos, preparamos e verificamos o que as empresas precisam para cumprir regras, aceder a financiamento e operar em Moçambique, em compliance e governança, tax, incorporação e ESG.",
+ "logotipo": "logotipo.svg",
+ "simbolo": "simbolo.svg",
+ "grupo": "",
+ "cores": {
+  "principal": "#04123F",
+  "fundo": "#F5F8FF",
+  "acento": "#0A57E7",
+  "acento_texto": "#0A47C2",
+  "texto": "#0E1B3D",
+  "texto_secundario": "#4A5880",
+  "linha": "#DCE6F7",
+  "noite": "#020A24",
+  "luz": "#2D6FF0",
+  "lavanda": "#9DC0FF"
+ },
+ "contactos": {
+  "email": "contacto@dtcompany.example",
+  "telefones": [],
+  "moradas": [
+   {
+    "cidade": "Moçambique",
+    "pais": "",
+    "linhas": [
+     "Morada em actualização"
+    ],
+    "principal": true
+   }
+  ]
+ },
+ "quem": {
+  "titulo": "Advisory com entregáveis que se verificam.",
+  "paragrafos": [
+   "A DT Company — Business Advisory & Development organiza, prepara e verifica o que as empresas precisam para cumprir regras, aceder a financiamento e operar em Moçambique.",
+   "Trabalhamos em quatro pilares: compliance e governança, tax, incorporação e consultoria ESG. A parte fiscal é assegurada pela contabilista certificada parceira e as decisões jurídicas pelo advogado parceiro, para que tenha um só interlocutor e cada tema nas mãos certas.",
+   "Cada mandato parte de um desafio concreto — uma inspecção agendada, um financiamento condicionado, uma operação por instalar — e termina com instrumentos que ficam na empresa: políticas, dossiers, registos e calendários de obrigações."
+  ]
+ },
+ "servicos_entrada": "Quatro pilares, doze serviços. Escolha o que responde ao desafio que tem hoje; articulamos os restantes quando fizer sentido.",
+ "servicos": [
+  {
+   "area": "Compliance e Governança",
+   "frase": "Estruturas de integridade e governança que sustentam contratos, crédito e investimento.",
+   "icone": "documento",
+   "servicos": [
     {
-      "area": "Compliance e Governança",
-      "frase": "Estruturas de integridade e governança que sustentam contratos, crédito e investimento.",
-      "icone": "documento",
-      "servicos": [
-        {"nome": "Programa de Compliance e Integridade", "curto": "Compliance e Integridade", "resumo": "Regras, controlos e formação", "url": "/compliance-e-governanca#programa-de-compliance-e-integridade"},
-        {"nome": "Due Diligence de Terceiros", "resumo": "Verificação antes de assinar", "url": "/compliance-e-governanca#due-diligence-de-terceiros"},
-        {"nome": "Governança Corporativa e Familiar", "curto": "Governança Corporativa", "resumo": "Decisões, órgãos e sucessão", "url": "/compliance-e-governanca#governanca-corporativa-e-familiar"}
-      ]
+     "nome": "Programa de Compliance e Integridade",
+     "curto": "Compliance e Integridade",
+     "resumo": "Regras, controlos e formação",
+     "url": "/compliance-e-governanca#programa-de-compliance-e-integridade"
     },
     {
-      "area": "Tax",
-      "frase": "Benefícios aproveitados, situação regularizada e inspecções preparadas.",
-      "icone": "grafico",
-      "servicos": [
-        {"nome": "Benefícios Fiscais e Aduaneiros do Investimento", "curto": "Benefícios Fiscais e Aduaneiros", "resumo": "Isenções e poupança do investimento", "url": "/tax#beneficios-fiscais-e-aduaneiros-do-investimento"},
-        {"nome": "Regularização Fiscal e Certidão de Quitação", "curto": "Regularização e Quitação", "resumo": "A empresa em dia com o Estado", "url": "/tax#regularizacao-fiscal-e-certidao-de-quitacao"},
-        {"nome": "Preparação e Acompanhamento de Inspecções Fiscais", "curto": "Inspecções Fiscais", "resumo": "Preparação e resposta à AT", "url": "/tax#preparacao-e-acompanhamento-de-inspeccoes-fiscais"}
-      ]
+     "nome": "Due Diligence de Terceiros",
+     "resumo": "Verificação antes de assinar",
+     "url": "/compliance-e-governanca#due-diligence-de-terceiros"
     },
     {
-      "area": "Incorporação",
-      "frase": "Entrada no mercado e mobilidade de quadros, geridas de ponta a ponta.",
-      "icone": "instituicao",
-      "servicos": [
-        {"nome": "Constituição e Licenciamento de Empresas", "curto": "Constituição e Licenciamento", "resumo": "Da ideia à licença de actividade", "url": "/incorporacao#constituicao-e-licenciamento-de-empresas"},
-        {"nome": "Instalação de Empresas Estrangeiras", "curto": "Empresas Estrangeiras", "resumo": "Entrada, registo e repatriação", "url": "/incorporacao#instalacao-de-empresas-estrangeiras"},
-        {"nome": "Gestão de Quadros Estrangeiros", "curto": "Quadros Estrangeiros", "resumo": "Quotas, vistos e DIRE", "url": "/incorporacao#gestao-de-quadros-estrangeiros"}
-      ]
-    },
-    {
-      "area": "Consultoria ESG",
-      "frase": "Sistemas e evidências que libertam financiamento e mantêm clientes internacionais.",
-      "icone": "equipa",
-      "servicos": [
-        {"nome": "Sistema de Gestão Ambiental e Social", "curto": "Gestão Ambiental e Social", "resumo": "Para o desembolso do financiador", "url": "/consultoria-esg#sistema-de-gestao-ambiental-e-social"},
-        {"nome": "Preparação para Clientes Internacionais", "curto": "Clientes Internacionais", "resumo": "Questionários e evidências ESG", "url": "/consultoria-esg#preparacao-para-clientes-internacionais"},
-        {"nome": "Relação com Comunidades e Mecanismo de Queixas", "curto": "Comunidades e Queixas", "resumo": "Envolvimento e canal formal", "url": "/consultoria-esg#relacao-com-comunidades-e-mecanismo-de-queixas"}
-      ]
+     "nome": "Governança Corporativa e Familiar",
+     "curto": "Governança Corporativa",
+     "resumo": "Decisões, órgãos e sucessão",
+     "url": "/compliance-e-governanca#governanca-corporativa-e-familiar"
     }
-  ],
-  "seccoes": {"numeros": false, "clientes": false, "blog": false, "frentes": false}
+   ]
+  },
+  {
+   "area": "Tax",
+   "frase": "Benefícios aproveitados, situação regularizada e inspecções preparadas.",
+   "icone": "grafico",
+   "servicos": [
+    {
+     "nome": "Benefícios Fiscais e Aduaneiros do Investimento",
+     "curto": "Benefícios Fiscais e Aduaneiros",
+     "resumo": "Isenções e poupança do investimento",
+     "url": "/tax#beneficios-fiscais-e-aduaneiros-do-investimento"
+    },
+    {
+     "nome": "Regularização Fiscal e Certidão de Quitação",
+     "curto": "Regularização e Quitação",
+     "resumo": "A empresa em dia com o Estado",
+     "url": "/tax#regularizacao-fiscal-e-certidao-de-quitacao"
+    },
+    {
+     "nome": "Preparação e Acompanhamento de Inspecções Fiscais",
+     "curto": "Inspecções Fiscais",
+     "resumo": "Preparação e resposta à AT",
+     "url": "/tax#preparacao-e-acompanhamento-de-inspeccoes-fiscais"
+    }
+   ]
+  },
+  {
+   "area": "Incorporação",
+   "frase": "Entrada no mercado e mobilidade de quadros, geridas de ponta a ponta.",
+   "icone": "instituicao",
+   "servicos": [
+    {
+     "nome": "Constituição e Licenciamento de Empresas",
+     "curto": "Constituição e Licenciamento",
+     "resumo": "Da ideia à licença de actividade",
+     "url": "/incorporacao#constituicao-e-licenciamento-de-empresas"
+    },
+    {
+     "nome": "Instalação de Empresas Estrangeiras",
+     "curto": "Empresas Estrangeiras",
+     "resumo": "Entrada, registo e repatriação",
+     "url": "/incorporacao#instalacao-de-empresas-estrangeiras"
+    },
+    {
+     "nome": "Gestão de Quadros Estrangeiros",
+     "curto": "Quadros Estrangeiros",
+     "resumo": "Quotas, vistos e DIRE",
+     "url": "/incorporacao#gestao-de-quadros-estrangeiros"
+    }
+   ]
+  },
+  {
+   "area": "Consultoria ESG",
+   "frase": "Sistemas e evidências que libertam financiamento e mantêm clientes internacionais.",
+   "icone": "equipa",
+   "servicos": [
+    {
+     "nome": "Sistema de Gestão Ambiental e Social",
+     "curto": "Gestão Ambiental e Social",
+     "resumo": "Para o desembolso do financiador",
+     "url": "/consultoria-esg#sistema-de-gestao-ambiental-e-social"
+    },
+    {
+     "nome": "Preparação para Clientes Internacionais",
+     "curto": "Clientes Internacionais",
+     "resumo": "Questionários e evidências ESG",
+     "url": "/consultoria-esg#preparacao-para-clientes-internacionais"
+    },
+    {
+     "nome": "Relação com Comunidades e Mecanismo de Queixas",
+     "curto": "Comunidades e Queixas",
+     "resumo": "Envolvimento e canal formal",
+     "url": "/consultoria-esg#relacao-com-comunidades-e-mecanismo-de-queixas"
+    }
+   ]
+  }
+ ],
+ "seccoes": {
+  "numeros": false,
+  "clientes": false,
+  "blog": false,
+  "frentes": false
+ }
 }
