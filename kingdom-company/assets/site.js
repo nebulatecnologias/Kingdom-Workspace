@@ -12,7 +12,8 @@
   if (/^(localhost|127\.|0\.0\.0\.0)/.test(h) || h.endsWith('.vercel.app') || /[?&]previa\b/.test(location.search)) raiz.classList.add('previa');
 
   // Topo com linha por baixo depois de sair do início da página
-  const marcaTopo = () => topo && topo.classList.toggle('solido', scrollY > 8);
+  const fundoClaro = !!document.querySelector('.caso-abertura.claro');
+  const marcaTopo = () => topo && topo.classList.toggle('solido', fundoClaro || scrollY > 8);
   addEventListener('scroll', marcaTopo, { passive: true }); marcaTopo();
 
   // Menu: painéis (computador: passar o rato ou clicar; telemóvel: acordeão)
@@ -206,7 +207,7 @@
     botoes.forEach((b) => b.addEventListener('click', () => {
       const f = b.dataset.filtro;
       botoes.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-      posts.querySelectorAll('.post').forEach((li) => { li.hidden = !!f && li.dataset.categoria !== f; });
+      posts.querySelectorAll('[data-categoria]').forEach((li) => { li.hidden = !!f && li.dataset.categoria !== f; });
     }));
   }
 
@@ -398,6 +399,29 @@
     mat.addEventListener('change', atualiza); atualiza();
   }
   document.querySelectorAll('[data-imprimir]').forEach((b) => b.addEventListener('click', () => { if (window.kcEvento) window.kcEvento('descarregar_material', { material: location.pathname }); window.print(); }));
+
+  // Casos: galeria em carrossel (como o das notícias na página inicial)
+  document.querySelectorAll('[data-galeria]').forEach((gal) => {
+    const itens = [...gal.querySelectorAll('.galeria-item')];
+    if (!itens.length) return;
+    const caixa = gal.closest('section');
+    const num = gal.querySelector('[data-g-n]'), texto = gal.querySelector('[data-g-texto]');
+    let i = 0;
+    const mostra = (n) => {
+      i = (n + itens.length) % itens.length;
+      itens.forEach((li, k) => { li.classList.toggle('ativa', k === i); li.firstElementChild.setAttribute('aria-current', String(k === i)); });
+      [i, (i + 1) % itens.length].forEach((k) => { const im = itens[k].querySelector('img[data-srcset]'); if (im) { im.srcset = im.dataset.srcset; im.removeAttribute('data-srcset'); } });
+      num.textContent = `${String(i + 1).padStart(2, '0')} / ${String(itens.length).padStart(2, '0')}`;
+      texto.textContent = itens[i].firstElementChild.dataset.legenda || '';
+    };
+    itens.forEach((li, k) => li.firstElementChild.addEventListener('click', () => mostra(k)));
+    caixa.querySelector('[data-g-ant]').addEventListener('click', () => mostra(i - 1));
+    caixa.querySelector('[data-g-seg]').addEventListener('click', () => mostra(i + 1));
+    gal.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') mostra(i + 1); if (e.key === 'ArrowLeft') mostra(i - 1); });
+    let toque = null;
+    gal.addEventListener('pointerdown', (e) => { toque = e.clientX; });
+    gal.addEventListener('pointerup', (e) => { if (toque !== null && Math.abs(e.clientX - toque) > 50) mostra(i + (e.clientX < toque ? 1 : -1)); toque = null; });
+  });
 
   // Perguntas: abrir e fechar com movimento
   if (!calmo) document.querySelectorAll('.faq details').forEach((d) => {

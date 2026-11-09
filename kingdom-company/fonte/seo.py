@@ -114,6 +114,16 @@ def artigos():
 
 
 ARTIGOS = artigos()
+
+
+def casos():
+    f = SITE / 'fonte' / 'casos.json'
+    if not f.exists():
+        return {}
+    return {c['slug']: c for c in json.loads(f.read_text(encoding='utf-8')).get('casos', []) if c.get('autorizado')}
+
+
+CASOS = casos()
 AREA_NOME = {a['slug']: a['nome'] for a in AREAS}
 SERV_NOME = {(s['area_slug'], s['slug']): s['nome'] for s in SERVICOS}
 
@@ -147,6 +157,11 @@ def grafo(rel, url, titulo, desc, corpo):
                         'dateModified': a['data'], 'image': f'{D}{img}', 'articleSection': a.get('categoria', ''),
                         'inLanguage': 'pt-PT', 'mainEntityOfPage': f'{D}{url}', 'author': {'@id': ORG}, 'publisher': {'@id': ORG}})
         nos.append(migalhas(trilho))
+    elif partes and partes[0] == 'cases':
+        trilho = [('Início', '/'), ('Cases', '/cases')]
+        if len(partes) == 2 and partes[1] in CASOS:
+            trilho.append((CASOS[partes[1]]['titulo'], url))
+        nos.append(migalhas(trilho))
     elif partes and partes[0] == 'materiais-gratuitos' and len(partes) == 2:
         nos.append(migalhas([('Início', '/'), ('Materiais gratuitos', '/materiais-gratuitos'), (titulo.split(' · ')[0], url)]))
     elif partes:
@@ -170,7 +185,11 @@ def bloco(rel, url, titulo, desc, corpo):
     blog_slug = url.split('/')[-1] if url.startswith('/blog/') else None
     artigo = ARTIGOS.get(blog_slug) if blog_slug else None
     img = (artigo.get('imagem') if artigo else None) or CFG['imagem']
-    img_dims = '' if artigo else '\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">'
+    caso = CASOS.get(url.split('/')[-1]) if url.startswith('/cases/') else None
+    if caso and caso.get('imagens'):
+        base = re.sub(r'[^a-z0-9-]+', '-', Path(caso['imagens'][0][0]).stem.lower()).strip('-')
+        img = f'/img/casos/{caso["slug"]}/{base}-1600.webp'
+    img_dims = '' if artigo or caso else '\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">'
     nao_indexar = rel.as_posix() == '404.html'
     linhas = [
         '<!-- seo -->',
@@ -291,6 +310,9 @@ def llms():
           '## Blog', '']
     for slug, a in sorted(ARTIGOS.items(), key=lambda x: x[1]['data'], reverse=True):
         l.append(f'- [{a["titulo"]}]({D}/blog/{slug}): {a["resumo"]}')
+    if CASOS:
+        l += ['', '## Casos de clientes', '']
+        l += [f'- [{c["titulo"]}]({D}/cases/{c["slug"]}): {c["resumo"]}' for c in CASOS.values()]
     l += ['', '## Opcional', '', f'- [Política de privacidade]({D}/privacidade)', f'- [Termos de utilização]({D}/termos)', '']
     return '\n'.join(l)
 

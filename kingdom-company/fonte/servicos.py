@@ -8,12 +8,18 @@ Uso (na pasta kingdom-company):  python3 fonte/servicos.py
 O cabeçalho, o rodapé e o <head> vêm de contactos.html, para ficarem iguais ao resto do site.
 O conteúdo vem das fichas do Playbook de vendas: a proposta de valor (pitch) logo a seguir à abertura
 e o texto de urgência (urgencia: [título, texto]) no fecho. O site não mostra preços (R36).
-Os entregáveis ainda por validar e o estudo de caso só aparecem na pré-visualização (classe so-previa).
+Os entregáveis ainda por validar só aparecem na pré-visualização (classe so-previa).
+O caso de cada serviço vem de fonte/casos.json (fonte/casos.py): com caso autorizado, aparece o banner;
+sem caso, o lugar reservado só se vê na pré-visualização.
 """
 import html
 import json
 import re
 from pathlib import Path
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from casos import seccao_servico  # noqa: E402
 
 SITE = Path(__file__).resolve().parent.parent
 E = html.escape
@@ -130,11 +136,7 @@ def pagina(s, todos):
   </div>
 </section>
 
-<section class="seccao marfim so-previa" aria-labelledby="t-caso">
-  <div class="moldura">
-    <div class="caso por-receber"><p class="contexto">Estudo de caso</p><h2 id="t-caso">Um caso real deste serviço</h2><p class="entrada">Desafio, solução e resultado de um cliente, com autorização para publicar.</p></div>
-  </div>
-</section>
+{seccao_servico(s["area_slug"], s["slug"])}
 
 <section class="seccao serv-fecho" aria-labelledby="t-fecho">
   <div class="moldura serv-duas">
