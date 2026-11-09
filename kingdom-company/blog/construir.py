@@ -117,7 +117,7 @@ def main():
         <h2 id="t-cta">Quer saber como isto se aplica à sua empresa?</h2>
         <p>Peça uma avaliação inicial. Um consultor analisa o seu desafio e indica o caminho certo, sem compromisso.</p>
       </div>
-      <a class="botao botao-acao" href="/pedido-de-cotacao">Pedir avaliação inicial {SETA}</a>
+      <a class="botao botao-acao" href="/pedido-de-cotacao?tipo=avaliacao">Pedir avaliação inicial {SETA}</a>
     </aside>
   </div>
 </section>

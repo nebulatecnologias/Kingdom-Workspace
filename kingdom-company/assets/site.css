@@ -486,6 +486,11 @@ a.pcol-t:hover { color: var(--violeta); }
 .artigo th, .artigo td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--linha); }
 .artigo th { background: var(--marfim); font-weight: 500; color: var(--indigo); }
 .artigo tr:last-child td { border-bottom: 0; }
+@media (max-width: 560px) {
+  .artigo table { font-size: .9375rem; hyphens: auto; -webkit-hyphens: auto; }
+  .artigo th, .artigo td { padding: 10px 10px; }
+  .artigo th:first-child, .artigo td:first-child { padding-left: 14px; }
+}
 .artigo-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; max-width: 46rem; margin: 64px auto 0; padding: 32px; border-radius: 20px; background: var(--realce); }
 .artigo-cta h2 { font-size: 1.5rem !important; line-height: 1.2; }
 .artigo-cta p { margin-top: 8px; color: var(--tinta); max-width: 48ch; }
