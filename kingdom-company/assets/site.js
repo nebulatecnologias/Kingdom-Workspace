@@ -267,7 +267,7 @@
         `Para quando: ${v('prazo') || 'Não indicado'}`,
         '', 'O desafio:', v('desafio'), '',
         `Nome: ${v('nome')}${v('cargo') ? ` (${v('cargo')})` : ''}`,
-        `Empresa: ${v('empresa')} · ${v('pais')}`,
+        `Empresa: ${v('empresa')}`,
         `Email: ${v('email')}`,
         `Telefone ou WhatsApp: ${v('telefone')}`,
         `Prefere ser contactado por: ${v('canal')}`,
