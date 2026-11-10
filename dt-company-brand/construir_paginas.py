@@ -6,7 +6,7 @@ import re
 import sys
 from pathlib import Path
 
-SITE = Path(sys.argv[1] if len(sys.argv) > 1 else 'dt-company-site')
+SITE = Path(next((a for a in sys.argv[1:] if not a.startswith('--')), 'dt-company-site'))
 idx = (SITE / 'index.html').read_text(encoding='utf-8')
 
 def bloco(s, ini, fim):
@@ -137,7 +137,8 @@ def seccao_servico(s, zebra):
 </section>
 '''
 
-for a in AREAS:
+# As páginas dos pilares passaram a ser geradas por dt-company-site/fonte/servicos.py (a partir do playbook).
+for a in (AREAS if '--pilares-antigos' in sys.argv else []):
     nota = f'''
 <section class="seccao" aria-label="Nota importante">
   <div class="moldura servico-pg"><div class="nota-pilar"><strong>Nota importante.</strong> {a['nota']}</div></div>

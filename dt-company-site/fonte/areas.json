@@ -1,0 +1,77 @@
+{
+ "origem": "Pilares da DT Company: textos escritos a partir das fichas e das regras do playbook",
+ "areas": [
+  {
+   "slug": "compliance-e-governanca",
+   "nome": "Compliance e Governança",
+   "resumo": "Estruturas de integridade e governança que sustentam contratos, crédito e investimento.",
+   "pitch": "Organizamos as regras, os controlos e as decisões de que a empresa precisa para provar que actua com integridade. Preparamos o programa de compliance, verificamos quem está do outro lado antes de assinar e organizamos a forma como a empresa decide, para que clientes, bancos e investidores confiem nela.",
+   "fronteira": "Acordos parassociais, estatutos e documentos sucessórios são redigidos pelo advogado parceiro. Quando há uma decisão jurídica, a referência é o advogado parceiro.",
+   "parceiros": [
+    "Advogado parceiro"
+   ],
+   "urgencia": [
+    "Sem regras que se possam provar, a confiança fica por demonstrar.",
+    "Clientes, bancos e investidores pedem cada vez mais provas de integridade antes de assinar ou financiar."
+   ],
+   "seo": [
+    "Compliance e Governança Corporativa em Moçambique",
+    "Programa de compliance, due diligence de terceiros e governança corporativa e familiar para empresas em Moçambique. Peça uma cotação à medida."
+   ]
+  },
+  {
+   "slug": "tax",
+   "nome": "Tax",
+   "resumo": "Benefícios aproveitados, situação regularizada e inspecções preparadas.",
+   "pitch": "Organizamos a documentação, controlamos os prazos e preparamos os dossiers fiscais da empresa, com a contabilista certificada parceira. A empresa aproveita os benefícios do investimento, regulariza a situação e enfrenta uma inspecção preparada.",
+   "fronteira": "A análise fiscal, as declarações e a relação com a Autoridade Tributária são da contabilista certificada parceira. A DT Company organiza a documentação, controla os prazos e prepara os dossiers.",
+   "parceiros": [
+    "Contabilista certificada parceira"
+   ],
+   "urgencia": [
+    "Uma pendência fiscal hoje pode ser um concurso perdido amanhã.",
+    "Prazos falhados somam multas e podem fechar o acesso a concursos, pagamentos e benefícios."
+   ],
+   "seo": [
+    "Benefícios Fiscais, Quitação e Inspecções em Moçambique",
+    "Benefícios fiscais e aduaneiros ao investimento, certidão de quitação e preparação para inspecções fiscais em Moçambique, com a contabilista certificada parceira."
+   ]
+  },
+  {
+   "slug": "incorporacao",
+   "nome": "Incorporação",
+   "resumo": "Entrada no mercado e mobilidade de quadros, organizadas de ponta a ponta.",
+   "pitch": "Ajudamos empresas moçambicanas e estrangeiras a instalar-se pela ordem certa. Mapeamos requisitos e custos, preparamos a documentação dos registos, das licenças e dos pedidos dos quadros estrangeiros e controlamos os prazos.",
+   "fronteira": "Estatutos à medida e acordos parassociais são remetidos ao advogado parceiro. Quando há uma decisão jurídica, por exemplo sobre a forma de entrada ou um terreno, a referência é o advogado parceiro.",
+   "parceiros": [
+    "Advogado parceiro"
+   ],
+   "urgencia": [
+    "Cada mês a abrir a empresa é um mês sem facturar.",
+    "Começar pela ordem certa poupa meses de idas e voltas e evita técnicos parados à espera de documentos."
+   ],
+   "seo": [
+    "Abrir Empresa e Investir em Moçambique",
+    "Constituição e licenciamento de empresas, instalação de empresas estrangeiras e gestão de quadros estrangeiros em Moçambique: registos, licenças, vistos e DIRE."
+   ]
+  },
+  {
+   "slug": "consultoria-esg",
+   "nome": "Consultoria ESG",
+   "resumo": "Sistemas e evidências que libertam financiamento e mantêm clientes internacionais.",
+   "pitch": "Preparamos os sistemas e as evidências ambientais e sociais que financiadores e clientes internacionais exigem. Montamos o sistema de gestão, respondemos aos questionários ESG e organizamos a relação com as comunidades, para que a empresa prove as boas práticas que tem.",
+   "fronteira": "Os estudos de impacto ambiental são elaborados por consultores ambientais registados, coordenados pela DT Company.",
+   "parceiros": [
+    "Consultores ambientais registados"
+   ],
+   "urgencia": [
+    "Sem evidências ESG, o financiamento e os clientes internacionais esperam.",
+    "Financiadores e compradores internacionais pedem provas antes de desembolsar ou de comprar."
+   ],
+   "seo": [
+    "Consultoria ESG para Empresas em Moçambique",
+    "Sistema de gestão ambiental e social para financiamento, avaliações ESG de clientes internacionais e mecanismo de queixas para projectos em Moçambique."
+   ]
+  }
+ ]
+}

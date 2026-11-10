@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Gera as 12 páginas de serviço do site DT Company (/<pilar>/<serviço>) a partir de fonte/servicos.json.
+"""Gera as 12 páginas de serviço (/<pilar>/<serviço>) e as 4 páginas de pilar (/<pilar>) do site DT Company,
+a partir de fonte/servicos.json e fonte/areas.json.
 
 Uso (na pasta dt-company-site):  python3 fonte/servicos.py
 
@@ -17,6 +18,7 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent
 E = html.escape
 DADOS = json.loads((SITE / 'fonte' / 'servicos.json').read_text(encoding='utf-8'))['servicos']
+AREAS = json.loads((SITE / 'fonte' / 'areas.json').read_text(encoding='utf-8'))['areas']
 ICONE = {'compliance-e-governanca': 'i-documento', 'tax': 'i-grafico', 'incorporacao': 'i-instituicao', 'consultoria-esg': 'i-equipa'}
 FASES = [
     ('Diagnóstico', 'Percebemos o desafio, o contexto e o que a empresa precisa de resolver.'),
@@ -189,6 +191,109 @@ def pagina(s, todos):
     return url, main, ld
 
 
+def pagina_area(a, todos):
+    servs = [s for s in todos if s['area_slug'] == a['slug']]
+    outras = [x for x in AREAS if x['slug'] != a['slug']]
+    url = f'/{a["slug"]}'
+    urg_t, urg_x = a['urgencia']
+    cartoes = ''.join(f'''<li><a href="/{s["area_slug"]}/{s["slug"]}"><span class="area-serv-rot">{E(s["rotulo"])}</span><h3>{E(s["nome"])}</h3><p>{E(s["depois"])}</p><i>Ver o serviço {SETA}</i></a></li>''' for s in servs)
+    escolher = ''.join(f'''<li><ul class="area-sinais">{"".join(f"<li>{E(d)}</li>" for d in s["dores"][:2])}</ul><a href="/{s["area_slug"]}/{s["slug"]}"><span>Precisa de</span><b>{E(s["nome"])}</b>{SETA}</a></li>''' for s in servs)
+    rels = ''.join(f'''<li><a href="/{x["slug"]}"><span class="serv-rel-ico" aria-hidden="true"><svg><use href="#{ICONE[x["slug"]]}"/></svg></span><b>{E(x["nome"])}</b><span>{E(x["resumo"])}</span><i>Ver o pilar {SETA}</i></a></li>''' for x in outras)
+    fases = ''.join(f'<li><span>{k:02d}</span><h3>{E(n)}</h3><p>{E(t)}</p></li>' for k, (n, t) in enumerate(FASES, 1))
+    parceiros = ''.join(f'<li>{E(x)}</li>' for x in a['parceiros'])
+    ld = {"@context": "https://schema.org", "@type": "Service", "name": a['nome'], "description": a['resumo'], "areaServed": ["MZ"],
+          "provider": {"@type": "Organization", "name": "DT Company"},
+          "hasOfferCatalog": {"@type": "OfferCatalog", "name": a['nome'], "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": s['nome']}} for s in servs]}}
+    main = f'''<main id="conteudo" class="pag-servico pag-area">
+
+<section class="abertura abertura-curta" aria-labelledby="t-area">
+  <div class="abertura-luz" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="moldura abertura-in">
+    <div class="abertura-arte" aria-hidden="true"><img src="/assets/marca/globo-luz.svg" alt="" width="480" height="211"></div>
+    <div class="abertura-texto">
+      <nav class="migalhas" aria-label="Caminho"><a href="/#servicos">Serviços</a></nav>
+      <h1 id="t-area">{E(a["nome"])}</h1>
+      <p class="abertura-desc">{E(a["resumo"])}</p>
+      <div class="acoes">
+        <a class="botao botao-acao" href="/pedido-de-cotacao">Pedir cotação {SETA}</a>
+        <a class="botao botao-contorno-claro" href="/pedido-de-cotacao?tipo=avaliacao">Pedir avaliação inicial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{proposta(a["pitch"])}
+
+<section class="seccao marfim" aria-labelledby="t-servs">
+  <div class="moldura">
+    <div class="cabeca">
+      <p class="contexto">Os serviços deste pilar</p>
+      <h2 id="t-servs">{len(servs)} serviços, um só interlocutor</h2>
+      <p class="entrada">Cada serviço resolve um desafio concreto. Quando faz sentido, juntamo-los numa só proposta.</p>
+    </div>
+    <ul class="area-servs">{cartoes}</ul>
+  </div>
+</section>
+
+<section class="seccao" aria-labelledby="t-escolher">
+  <div class="moldura">
+    <div class="cabeca">
+      <p class="contexto">Por onde começar</p>
+      <h2 id="t-escolher">Reconhece alguma destas situações?</h2>
+      <p class="entrada">Encontre a frase que mais se parece com o dia a dia da sua empresa. Se tiver dúvidas, a avaliação inicial indica o serviço certo.</p>
+    </div>
+    <ul class="area-escolher">{escolher}</ul>
+  </div>
+</section>
+
+<section class="seccao marfim serv-fronteira" aria-labelledby="t-fronteira">
+  <div class="moldura serv-duas">
+    <div>
+      <p class="contexto">Fronteiras claras</p>
+      <h2 id="t-fronteira">Onde acaba o nosso trabalho</h2>
+    </div>
+    <div>
+      <p class="entrada">{E(a["fronteira"])}</p>
+      <ul class="serv-parceiros" aria-label="Parceiros envolvidos">{parceiros}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="seccao serv-fases" aria-labelledby="t-fases">
+  <div class="moldura">
+    <div class="cabeca">
+      <p class="contexto">Como trabalhamos</p>
+      <h2 id="t-fases">Do diagnóstico ao controlo contínuo</h2>
+      <p class="entrada">O mesmo método em todos os serviços, com um só interlocutor e relatórios factuais em cada fase.</p>
+    </div>
+    <ol class="serv-fases-lista">{fases}</ol>
+  </div>
+</section>
+
+<section class="seccao marfim serv-fecho" aria-labelledby="t-fecho">
+  <div class="moldura serv-duas">
+    <div>
+      <p class="contexto">O custo de esperar</p>
+      <h2 id="t-fecho">{E(urg_t)}</h2>
+      <p class="entrada">{E(urg_x)}</p>
+      <p class="serv-fecho-passo">Peça hoje a cotação ou a avaliação inicial e saiba por onde começar.</p>
+      <div class="acoes">
+        <a class="botao botao-acao" href="/pedido-de-cotacao">Pedir cotação {SETA}</a>
+        <a class="ligacao" href="/contactos">Fale connosco {SETA}</a>
+      </div>
+    </div>
+    <div>
+      <p class="contexto">Outros pilares</p>
+      <ul class="serv-rel">{rels}</ul>
+    </div>
+  </div>
+</section>
+
+</main>'''
+    return url, main, ld
+
+
 def escreve(antes, depois, url, titulo, desc, ld, corpo, destino):
     cab = re.sub(r'<title>.*?</title>', f'<title>{E(titulo)}</title>', antes)
     cab = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{E(desc)}">', cab)
@@ -205,8 +310,11 @@ def main():
         url, corpo, ld = pagina(s, DADOS)
         escreve(antes, depois, url, f'{s["seo"][0]} · DT Company', s['seo'][1], ld, corpo,
                 SITE / s['area_slug'] / f'{s["slug"]}.html')
+    for a in AREAS:
+        url, corpo, ld = pagina_area(a, DADOS)
+        escreve(antes, depois, url, f'{a["seo"][0]} · DT Company', a['seo'][1], ld, corpo, SITE / f'{a["slug"]}.html')
     css_v = re.search(r'site\.css\?v=(\d+)', antes).group(1)
-    print(f'{len(DADOS)} páginas de serviço (site.css?v={css_v})')
+    print(f'{len(DADOS)} páginas de serviço e {len(AREAS)} de pilar (site.css?v={css_v})')
 
 
 if __name__ == '__main__':
