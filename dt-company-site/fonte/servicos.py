@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Gera as 12 páginas de serviço (/<pilar>/<serviço>) e as 4 páginas de pilar (/<pilar>) do site DT Company,
-a partir de fonte/servicos.json e fonte/areas.json.
+"""Gera as 12 páginas de serviço (/<pilar>/<serviço>), as 4 páginas de pilar (/<pilar>), o pedido de cotação,
+as páginas legais (/privacidade, /termos) e a 404 do site DT Company, a partir de fonte/servicos.json,
+fonte/areas.json e fonte/<página>.html.
 
 Uso (na pasta dt-company-site):  python3 fonte/servicos.py
 
@@ -294,6 +295,201 @@ def pagina_area(a, todos):
     return url, main, ld
 
 
+def pagina_cotacao(todos):
+    url = '/pedido-de-cotacao'
+    grupos = ''.join(f'''<optgroup label="{E(a["nome"])}">{"".join(f'<option value="{s["slug"]}">{E(s["nome"])}</option>' for s in todos if s["area_slug"] == a["slug"])}</optgroup>''' for a in AREAS)
+    passos = [
+        ('Recebemos o seu pedido', 'Um consultor contacta-o pelo canal que escolher, para perceber melhor o desafio.'),
+        ('Conversa de diagnóstico', 'Uma reunião para perceber o problema, o impacto e a prioridade, com quem decide.'),
+        ('Proposta à medida', 'Recebe por escrito o âmbito, os entregáveis, o prazo e o investimento.'),
+    ]
+    lista = ''.join(f'<li><span>{k:02d}</span><div><h3>{E(n)}</h3><p>{E(x)}</p></div></li>' for k, (n, x) in enumerate(passos, 1))
+    ld = {"@context": "https://schema.org", "@type": "ContactPage", "name": "Pedir cotação", "url": f"https://www.kingdomcompany.co.za{url}"}
+    main = f'''<main id="conteudo" class="pag-servico pag-cotacao">
+
+<section class="abertura abertura-curta" aria-labelledby="t-cotacao">
+  <div class="abertura-luz" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="moldura abertura-in">
+    <div class="abertura-arte" aria-hidden="true"><img src="/assets/marca/globo-luz.svg" alt="" width="480" height="480"></div>
+    <div class="abertura-texto">
+      <h1 id="t-cotacao">Pedir cotação</h1>
+      <p class="abertura-desc">Conte-nos o desafio da sua empresa. Um consultor fala consigo e preparamos uma proposta à medida.</p>
+    </div>
+  </div>
+</section>
+
+<section class="seccao cot-seccao" aria-label="Formulário do pedido">
+  <div class="moldura cot-duas">
+    <form class="cot-form" data-cotacao novalidate>
+      <fieldset class="cot-tipo">
+        <legend>O que pretende?</legend>
+        <label><input type="radio" name="tipo" value="cotacao" checked><span><b>Pedir cotação</b><small>Já sabe o serviço de que precisa.</small></span></label>
+        <label><input type="radio" name="tipo" value="avaliacao"><span><b>Pedir avaliação inicial</b><small>Quer ajuda para escolher por onde começar.</small></span></label>
+      </fieldset>
+
+      <p class="cot-legenda"><span class="cot-obrig" aria-hidden="true">*</span> Campos obrigatórios</p>
+      <h2 class="cot-grupo">O seu desafio</h2>
+      <div class="cot-campo">
+        <label for="c-servico">Serviço</label>
+        <select id="c-servico" name="servico"><option value="">Ainda não sei, quero ajuda a escolher</option>{grupos}</select>
+      </div>
+      <div class="cot-campo">
+        <label for="c-fase">Em que fase está o negócio?</label>
+        <select id="c-fase" name="fase"><option value="">Escolha uma opção</option><option>Ideia ou projecto ainda por lançar</option><option>Empresa a começar, com menos de 2 anos</option><option>Empresa estabelecida</option><option>Empresa em expansão</option><option>Empresa a reestruturar ou a reposicionar-se</option><option>Empresa estrangeira a instalar-se em Moçambique</option></select>
+      </div>
+      <div class="cot-campo">
+        <label for="c-desafio">O que quer resolver? <span class="cot-obrig" aria-hidden="true">*</span></label>
+        <textarea id="c-desafio" name="desafio" rows="5" required aria-describedby="c-desafio-ajuda c-desafio-erro" placeholder="Por exemplo: vamos concorrer a um concurso público em março e as nossas propostas técnicas perdem pontos."></textarea>
+        <p class="cot-ajuda" id="c-desafio-ajuda">Duas ou três frases chegam. Diga o que quer resolver e porquê agora.</p>
+        <p class="cot-erro" id="c-desafio-erro" aria-live="polite"></p>
+      </div>
+      <div class="cot-campo">
+        <label for="c-prazo">Para quando precisa?</label>
+        <select id="c-prazo" name="prazo"><option value="">Escolha uma opção</option><option>Este mês</option><option>Nos próximos 3 meses</option><option>Daqui a mais de 3 meses</option><option>Ainda sem data</option></select>
+      </div>
+
+      <h2 class="cot-grupo">Os seus dados</h2>
+      <div class="cot-linha">
+        <div class="cot-campo">
+          <label for="c-nome">Nome <span class="cot-obrig" aria-hidden="true">*</span></label>
+          <input id="c-nome" name="nome" type="text" autocomplete="name" required aria-describedby="c-nome-erro">
+          <p class="cot-erro" id="c-nome-erro" aria-live="polite"></p>
+        </div>
+        <div class="cot-campo">
+          <label for="c-cargo">Cargo</label>
+          <input id="c-cargo" name="cargo" type="text" autocomplete="organization-title" placeholder="Por exemplo: diretor-geral">
+        </div>
+      </div>
+      <div class="cot-campo">
+        <label for="c-empresa">Empresa <span class="cot-obrig" aria-hidden="true">*</span></label>
+        <input id="c-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="c-empresa-erro">
+        <p class="cot-erro" id="c-empresa-erro" aria-live="polite"></p>
+      </div>
+      <div class="cot-linha">
+        <div class="cot-campo">
+          <label for="c-email">Email <span class="cot-obrig" aria-hidden="true">*</span></label>
+          <input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="c-email-erro">
+          <p class="cot-erro" id="c-email-erro" aria-live="polite"></p>
+        </div>
+        <div class="cot-campo">
+          <label for="c-telefone">Telefone ou WhatsApp <span class="cot-obrig" aria-hidden="true">*</span></label>
+          <input id="c-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+258 ..." aria-describedby="c-telefone-erro">
+          <p class="cot-erro" id="c-telefone-erro" aria-live="polite"></p>
+        </div>
+      </div>
+      <fieldset class="cot-canal">
+        <legend>Como prefere ser contactado?</legend>
+        <label><input type="radio" name="canal" value="Chamada" checked> Chamada</label>
+        <label><input type="radio" name="canal" value="WhatsApp"> WhatsApp</label>
+        <label><input type="radio" name="canal" value="Email"> Email</label>
+      </fieldset>
+
+      <div class="cot-enviar">
+        <button class="botao botao-acao" type="submit">Enviar pedido {SETA}</button>
+        <p class="cot-nota">Usamos estes dados só para responder ao seu pedido. <a href="/privacidade">Política de privacidade</a></p>
+      </div>
+      <div class="cot-feito" data-cot-feito hidden tabindex="-1">
+        <h2>O seu pedido está pronto a enviar</h2>
+        <p>Abrimos o seu programa de email com o pedido escrito, para <a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a>. Só falta carregar em enviar.</p>
+        <p>Se o programa de email não abriu, copie o pedido e envie-o para o mesmo endereço.</p>
+        <button class="botao botao-contorno" type="button" data-cot-copiar>Copiar o pedido</button>
+        <p class="cot-copiado" data-cot-copiado aria-live="polite"></p>
+      </div>
+    </form>
+
+    <aside class="cot-lado" aria-labelledby="t-depois">
+      <p class="contexto">O que acontece a seguir</p>
+      <h2 id="t-depois">Três passos até à proposta</h2>
+      <ol class="cot-passos">{lista}</ol>
+      <div class="cot-direto">
+        <h3>Prefere falar já?</h3>
+        <p><a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a><br>Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+</main>'''
+    return url, main, ld
+
+
+def pagina_legal(slug, titulo, desc, data):
+    corpo = (SITE / 'fonte' / f'{slug}.html').read_text(encoding='utf-8')
+    corpo = re.sub(r'^<!--.*?-->\n', '', corpo, flags=re.S)
+    seccoes = re.findall(r'<section id="([a-z-]+)">\s*<h2>(.*?)</h2>', corpo)
+    indice = ''.join(f'<li><a href="#{i}">{t}</a></li>' for i, t in seccoes)
+    url = f'/{slug}'
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": titulo, "url": f"https://www.kingdomcompany.co.za{url}", "dateModified": data}
+    main = f'''<main id="conteudo" class="pag-servico pag-legal">
+
+<section class="abertura abertura-curta" aria-labelledby="t-legal">
+  <div class="abertura-luz" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="moldura abertura-in">
+    <div class="abertura-arte" aria-hidden="true"><img src="/assets/marca/globo-luz.svg" alt="" width="480" height="480"></div>
+    <div class="abertura-texto">
+      <h1 id="t-legal">{E(titulo)}</h1>
+      <p class="abertura-desc">{E(desc)}</p>
+      <p class="legal-data">Última actualização: <time datetime="{data}">{data_pt(data)}</time></p>
+    </div>
+  </div>
+</section>
+
+<div class="seccao legal-seccao">
+  <div class="moldura legal-duas">
+    <nav class="legal-indice" aria-label="Nesta página">
+      <p class="contexto">Nesta página</p>
+      <ol>{indice}</ol>
+    </nav>
+    <div class="legal-texto">
+{corpo}
+      <aside class="legal-duvidas">
+        <h2>Tem dúvidas?</h2>
+        <p>Escreva para <a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a> e respondemos com todo o gosto.</p>
+      </aside>
+    </div>
+  </div>
+</div>
+
+</main>'''
+    return url, main, ld
+
+
+def data_pt(iso):
+    a, m, d = iso.split('-')
+    meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+    return f'{int(d)} de {meses[int(m) - 1]} de {a}'
+
+
+def pagina_404():
+    main = f'''<main id="conteudo" class="pag-servico pag-404">
+
+<section class="abertura abertura-curta" aria-labelledby="t-404">
+  <div class="abertura-luz" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="moldura abertura-in">
+    <div class="abertura-arte" aria-hidden="true"><img src="/assets/marca/globo-luz.svg" alt="" width="480" height="480"></div>
+    <div class="abertura-texto">
+      <p class="contexto">Erro 404</p>
+      <h1 id="t-404">Esta página não existe</h1>
+      <p class="abertura-desc">O endereço pode ter mudado ou ter um erro. Escolha um dos caminhos abaixo.</p>
+      <div class="acoes">
+        <a class="botao botao-acao" href="/">Ir para a página inicial {SETA}</a>
+        <a class="botao botao-contorno-claro" href="/pedido-de-cotacao">Pedir cotação</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccao" aria-labelledby="t-404-areas">
+  <div class="moldura">
+    <div class="cabeca"><h2 id="t-404-areas">Os nossos pilares</h2></div>
+    <ul class="serv-rel">{"".join(f'<li><a href="/{a["slug"]}"><span class="serv-rel-ico" aria-hidden="true"><svg><use href="#{ICONE[a["slug"]]}"/></svg></span><b>{E(a["nome"])}</b><span>{E(a["resumo"])}</span><i>Ver o pilar {SETA}</i></a></li>' for a in AREAS)}</ul>
+  </div>
+</section>
+
+</main>'''
+    return main
+
+
 def escreve(antes, depois, url, titulo, desc, ld, corpo, destino):
     cab = re.sub(r'<title>.*?</title>', f'<title>{E(titulo)}</title>', antes)
     cab = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{E(desc)}">', cab)
@@ -313,6 +509,20 @@ def main():
     for a in AREAS:
         url, corpo, ld = pagina_area(a, DADOS)
         escreve(antes, depois, url, f'{a["seo"][0]} · DT Company', a['seo'][1], ld, corpo, SITE / f'{a["slug"]}.html')
+    url, corpo, _ = pagina_cotacao(DADOS)
+    escreve(antes, depois, url, 'Pedir cotação · DT Company',
+            'Peça uma cotação ou uma avaliação inicial à DT Company. Um consultor fala consigo e preparamos uma proposta à medida, por escrito.',
+            None, corpo, SITE / 'pedido-de-cotacao.html')
+    for slug, titulo, desc, seo_t, seo_d in [
+        ('privacidade', 'Política de privacidade', 'Que dados recolhemos neste site, para que os usamos e como pode pedir para os ver, corrigir ou apagar.',
+         'Política de Privacidade · DT Company', 'Que dados a DT Company recolhe no site, para que os usa, com quem os partilha e quais são os seus direitos.'),
+        ('termos', 'Termos de utilização', 'As regras para usar o site da DT Company e os seus conteúdos.',
+         'Termos de Utilização do Site · DT Company', 'Termos de utilização do site da DT Company: informação sobre os serviços, fronteiras com os parceiros, propriedade intelectual e lei aplicável.')]:
+        url, corpo, _ = pagina_legal(slug, titulo, desc, '2026-11-10')
+        escreve(antes, depois, url, seo_t, seo_d, None, corpo, SITE / f'{slug}.html')
+    cab = re.sub(r'<title>.*?</title>', '<title>Página não encontrada · DT Company</title>', antes)
+    cab = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Esta página não existe no site da DT Company.">', cab)
+    (SITE / '404.html').write_text(cab + pagina_404() + depois, encoding='utf-8')
     css_v = re.search(r'site\.css\?v=(\d+)', antes).group(1)
     print(f'{len(DADOS)} páginas de serviço e {len(AREAS)} de pilar (site.css?v={css_v})')
 

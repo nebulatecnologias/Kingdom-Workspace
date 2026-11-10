@@ -26,12 +26,17 @@
   "telefones": [],
   "moradas": [
    {
-    "cidade": "Moçambique",
-    "pais": "",
+    "cidade": "Maputo",
+    "pais": "Moçambique",
     "linhas": [
-     "Morada em actualização"
+     "Edifício Millenium Park, Av. Vladimir Lenine, n.º 174",
+     "Maputo 1106"
     ],
-    "principal": true
+    "principal": true,
+    "mapa": [
+     -25.9719319,
+     32.5754637
+    ]
    }
   ]
  },

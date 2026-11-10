@@ -19,7 +19,7 @@ if 'i-visto' not in defs:
     defs = defs.replace('</svg>\n', '  <symbol id="i-visto" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>\n</svg>\n')
 header = bloco(idx, '<header class="topo"', '</header>')
 footer = bloco(idx, '<footer class="rodape"', '</footer>')
-head_meta = bloco(idx, '<meta name="theme-color"', 'site.css?v=2026111001">')
+head_meta = bloco(idx, '<meta name="theme-color"', 'site.css?v=2026111002">')
 
 # âncoras de subpágina: só em <a href="#...">, nunca em <use href="#...">
 fora = lambda s: re.sub(r'(<a\b[^>]*?href=")#', r'\1/#', s)
@@ -113,7 +113,7 @@ def pagina(titulo, descricao, corpo):
 
 {footer_fora}
 
-<script src="/assets/site.js?v=2026110823" defer></script>
+<script src="/assets/site.js?v=2026111002" defer></script>
 </body>
 </html>
 '''
@@ -219,24 +219,21 @@ corpo_pedido = f'''
   </div>
 </section>
 '''
-(SITE / 'pedido-de-cotacao.html').write_text(pagina('Pedido de cotação', 'Peça uma cotação ou uma avaliação inicial à DT Company — resposta por escrito, com âmbito, entregáveis e prazo.', corpo_pedido), encoding='utf-8')
-print('página: pedido-de-cotacao.html')
+if '--pedido-antigo' in sys.argv:  # o pedido de cotação passou a ser gerado por dt-company-site/fonte/servicos.py
+    (SITE / 'pedido-de-cotacao.html').write_text(pagina('Pedido de cotação', 'Peça uma cotação ou uma avaliação inicial à DT Company — resposta por escrito, com âmbito, entregáveis e prazo.', corpo_pedido), encoding='utf-8')
+    print('página: pedido-de-cotacao.html')
 
 # ---- contactos.html: cabeçalho/rodapé novos, sem mapa ----
 c = (SITE / 'contactos.html').read_text(encoding='utf-8')
 c = c.replace(bloco(c, '<header class="topo"', '</header>'), header_fora)
 c = c.replace(bloco(c, '<footer class="rodape"', '</footer>'), footer_fora)
-try:
-    mapa = bloco(c, '<section class="seccao marfim" id="mapa"', '</section>')
-    c = c.replace(mapa + '\n', '')
-except ValueError:
-    pass  # mapa já removido numa execução anterior
+# O mapa da página de contactos fica (a DT está no mesmo edifício da Kingdom Company, em Maputo).
 c = c.replace('<p><a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a></p></li>',
               '<p><a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a><br><small>Email provisório — canais definitivos em actualização.</small></p></li>', 1)
 c = c.replace('Escreva-nos, ligue ou venha visitar-nos em Moçambique. Para receber uma proposta, peça uma cotação ou uma avaliação inicial.',
-              'Escreva-nos para receber uma proposta, uma cotação ou uma avaliação inicial. Os canais definitivos estão em actualização.')
+              'Escreva-nos ou visite-nos em Maputo. Para receber uma proposta, peça uma cotação ou uma avaliação inicial.')
 (SITE / 'contactos.html').write_text(c, encoding='utf-8')
-print('contactos.html sincronizado (mapa removido)')
+print('contactos.html sincronizado')
 
 # ---- CSS das páginas de área (idempotente) ----
 css = SITE / 'assets' / 'site.css'
