@@ -19,7 +19,7 @@ if 'i-visto' not in defs:
     defs = defs.replace('</svg>\n', '  <symbol id="i-visto" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>\n</svg>\n')
 header = bloco(idx, '<header class="topo"', '</header>')
 footer = bloco(idx, '<footer class="rodape"', '</footer>')
-head_meta = bloco(idx, '<meta name="theme-color"', 'site.css?v=2026110920">')
+head_meta = bloco(idx, '<meta name="theme-color"', 'site.css?v=2026111001">')
 
 # âncoras de subpágina: só em <a href="#...">, nunca em <use href="#...">
 fora = lambda s: re.sub(r'(<a\b[^>]*?href=")#', r'\1/#', s)
