@@ -316,7 +316,7 @@ def pagina_material(m):
 def main():
     antes, depois = partes_base()
     escreve(antes, depois, '/parceiros', 'Parceiros Certificados · DT Company',
-            'A DT Company trabalha com uma contabilista certificada, um advogado parceiro e consultores ambientais registados, e tem equipa tecnológica própria. Saiba como ser parceiro.',
+            'A DT Company trabalha com uma contabilista certificada, um advogado e consultores ambientais registados, e tem equipa tecnológica própria. Seja parceiro.',
             None, pagina_parceiros(), SITE / 'parceiros.html')
     escreve(antes, depois, '/ferramentas-gratuitas', 'Ferramentas Gratuitas de Compliance · DT Company',
             'Ferramentas gratuitas para empresas em Moçambique: diagnóstico por pilar, autoavaliação de compliance e verificação rápida de risco de um fornecedor.',

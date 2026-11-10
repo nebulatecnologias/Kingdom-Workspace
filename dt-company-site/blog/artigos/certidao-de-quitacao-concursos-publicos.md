@@ -4,6 +4,8 @@ resumo: Sem a certidão de quitação, uma empresa pode ficar fora de um concurs
 categoria: Tax
 ambito: Nacional
 data: 2026-11-10
+seo_titulo: Certidão de Quitação: Concursos e Pagamentos do Estado
+seo_descricao: O que é a certidão de quitação, porque decide concursos públicos e pagamentos do Estado em Moçambique e como organizar a empresa para a ter a tempo.
 ---
 
 Muitas empresas só descobrem que têm um problema fiscal no dia em que precisam da certidão de quitação. O concurso fecha na semana seguinte, o pedido é recusado e ninguém sabe ao certo o que está pendente. Neste artigo explicamos o que é a certidão, porque é pedida e como organizar a empresa para a ter quando é precisa.

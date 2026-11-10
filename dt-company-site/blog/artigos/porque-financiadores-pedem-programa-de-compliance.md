@@ -4,6 +4,8 @@ resumo: Questionários anticorrupção, perguntas sobre o canal de denúncia, pe
 categoria: Compliance e Governança
 ambito: Nacional
 data: 2026-11-03
+seo_titulo: Porque os Financiadores Pedem um Programa de Compliance
+seo_descricao: Porque bancos, financiadores e multinacionais pedem um programa de compliance às empresas moçambicanas, o que perguntam e por onde começar.
 ---
 
 Há poucos anos, a palavra «compliance» aparecia sobretudo em multinacionais. Hoje chega a empresas moçambicanas de todas as dimensões, quase sempre pela mesma porta: um questionário de um banco, de um financiador ou de um cliente grande, com perguntas a que a empresa não sabe responder.

@@ -130,7 +130,7 @@ def main():
   </div>
 </section>
 ''' if outros else '') + '\n</main>'
-        (BLOG / f"{a['slug']}.html").write_text(pagina(topo, rodape, f"{a['titulo']} · DT Company", a['resumo'], main_html), encoding='utf-8')
+        (BLOG / f"{a['slug']}.html").write_text(pagina(topo, rodape, f"{a.get('seo_titulo', a['titulo'])} · DT Company", a.get('seo_descricao', a['resumo']), main_html), encoding='utf-8')
 
     cats = [c for c in CAPAS if any(a['categoria'] == c for a in artigos)]
     filtros = ''.join(f'<button type="button" data-filtro="{c}" aria-pressed="false">{c}</button>' for c in cats)

@@ -11,6 +11,7 @@ python3 dt-company-brand/construir_paginas.py dt-company-site   # sincroniza cab
 cd dt-company-site && python3 fonte/servicos.py                  # 12 serviços, 4 pilares, pedido de cotação, privacidade, termos e 404
 python3 fonte/paginas.py                                          # parceiros, ferramentas gratuitas, materiais gratuitos e os 3 guias
 python3 blog/construir.py                                         # blog: um artigo por blog/artigos/*.md, a lista e blog/noticias.json
+python3 fonte/seo.py                                              # sempre o último: canonical, Open Graph, dados estruturados, Analytics, redes, sitemap.xml, robots.txt, llms.txt
 ```
 
 A versão dos ficheiros `site.css` e `site.js` (`?v=…`) muda só no `index.html`; os scripts levam-na para as outras páginas.
@@ -24,10 +25,11 @@ A página inicial (`index.html`) é editada à mão: o cabeçalho e o rodapé sa
 | `servicos.json` | As 12 fichas do Playbook de vendas da DT, com a fronteira e os parceiros, a avença, o custo de esperar (`urgencia`) e o título e a descrição para o Google (`seo`) |
 | `privacidade.html`, `termos.html` | Os textos da política de privacidade e dos termos de utilização |
 | `areas.json` | Os 4 pilares: resumo, proposta de valor, fronteira, custo de esperar e SEO |
+| `seo.json` | Domínio (provisório: dt-company.vercel.app), ID do Google Analytics 4, verificação do Search Console e do Bing, email e telefones definitivos e redes sociais. Mudar aqui e correr `python3 fonte/seo.py` |
 | `materiais.json` | Os 3 materiais gratuitos (checklists e guia), com os grupos de pontos e o serviço ligado |
 | `paginas.py` | Gera /parceiros, /ferramentas-gratuitas (diagnóstico, autoavaliação de compliance, verificação de fornecedor) e /materiais-gratuitos |
 
-O blog fica em `blog/`: cada artigo é um ficheiro `blog/artigos/<slug>.md` com o cabeçalho `titulo`, `resumo`, `categoria` (Compliance e Governança, Tax, Incorporação ou ESG), `ambito`, `data` e, opcionalmente, `imagem`. O carrossel da página inicial lê `blog/noticias.json`.
+O blog fica em `blog/`: cada artigo é um ficheiro `blog/artigos/<slug>.md` com o cabeçalho `titulo`, `resumo`, opcionalmente `seo_titulo` (até 57 caracteres) e `seo_descricao` (até 160), `categoria` (Compliance e Governança, Tax, Incorporação ou ESG), `ambito`, `data` e, opcionalmente, `imagem`. O carrossel da página inicial lê `blog/noticias.json`.
 
 ## Regras do playbook
 
