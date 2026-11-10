@@ -102,46 +102,8 @@
     }, 0.5);
   }
 
-  // Anel de treino: anima ao aparecer
+  // Elementos que animam ao aparecer (dossier, calendário de obrigações)
   document.querySelectorAll('[data-anima]').forEach((el) => quandoVisivel(el, () => el.classList.add('visivel'), 0.4));
-
-  const parado = false;
-
-  // Plano de ação: a linha de «Hoje» avança semana a semana, as barras enchem e os marcos acendem
-  const gantt = document.querySelector('[data-gantt]');
-  if (gantt) {
-    const marcos = [...gantt.querySelectorAll('.gl-marco')].map((m) => [m, parseFloat(m.style.getPropertyValue('--s'))]);
-    const aplica = (t) => { gantt.style.setProperty('--t', t.toFixed(4)); marcos.forEach(([m, s0]) => m.classList.toggle('feito', t >= s0)); };
-    const ciclo = 14000, espera = 1600;
-    let visivel = false, pedido = 0, decorrido = 0, antes = 0;
-    const f = (agora) => {
-      if (antes && !parado && !document.hidden) decorrido += agora - antes;
-      antes = agora;
-      const p = (decorrido % (ciclo + espera)) / ciclo;
-      aplica(Math.min(1, p) * 0.98 + 0.02);
-      pedido = visivel ? requestAnimationFrame(f) : 0;
-      if (!visivel) antes = 0;
-    };
-    aplica(0.25);
-    if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visivel = e.isIntersecting; if (visivel && !pedido) pedido = requestAnimationFrame(f); }).observe(gantt);
-  }
-
-  // Órbita: as cinco áreas giram à volta do globo, sempre (como no site anterior)
-  const rodas = [...document.querySelectorAll('.orbita .roda')].map((r, k) => ({ r, astros: [...r.querySelectorAll('.astro')], periodo: [28000, 44000, 64000][k] || 50000, sentido: k === 1 ? -1 : 1 }));
-  if (rodas.length) {
-    let visivelO = true;
-    const orb = document.querySelector('.orbita');
-    if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visivelO = e.isIntersecting; }).observe(orb);
-    const gira = (agora) => {
-      if (visivelO && !document.hidden) rodas.forEach(({ r, astros, periodo, sentido }) => {
-        const a = (sentido * 360 * agora / periodo) % 360;
-        r.style.transform = `rotate(${a}deg)`;
-        astros.forEach((x) => { x.style.rotate = `${-a}deg`; });
-      });
-      requestAnimationFrame(gira);
-    };
-    requestAnimationFrame(gira);
-  }
 
   // Faixas de entregáveis: duplica a lista para o movimento contínuo
   document.querySelectorAll('.trilho, .logos-trilho').forEach((ul) => {
