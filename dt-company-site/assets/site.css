@@ -849,6 +849,25 @@ dl.servico-meta dd { color: var(--cinza); font-size: .9688rem; }
 .diag-lista li + li { border-top: 1px solid var(--linha-fria); }
 .diag-lista label { display: grid; grid-template-columns: 22px 1fr; gap: 14px; align-items: start; padding: 12px 0; cursor: pointer; line-height: 1.45; color: var(--tinta); }
 .diag-lista input, .mat-lista input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--violeta); }
+.aval-legenda { margin-bottom: 4px; font-weight: 500; color: var(--indigo); }
+.aval-lista { counter-reset: aval; }
+.aval-lista > li { counter-increment: aval; padding: 16px 0; border-bottom: 1px solid var(--linha-fria); }
+.aval-lista fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.aval-lista legend { display: grid; grid-template-columns: 28px 1fr; padding: 0; line-height: 1.45; color: var(--tinta); }
+.aval-lista legend::before { content: counter(aval, decimal-leading-zero); font-size: .8125rem; line-height: 1.9; color: var(--luz); font-variant-numeric: tabular-nums; }
+.aval-opcoes { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 0 28px; }
+.aval-opcoes label { position: relative; cursor: pointer; }
+.aval-opcoes input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.aval-opcoes span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--linha); font-size: .9375rem; color: var(--tinta); transition: background-color .2s, color .2s, box-shadow .2s; }
+.aval-opcoes label:hover span { box-shadow: inset 0 0 0 1px var(--luz); }
+.aval-opcoes input:checked + span { background: var(--indigo); color: var(--branco); box-shadow: none; }
+.aval-opcoes input:focus-visible + span { outline: 2px solid var(--violeta); outline-offset: 2px; }
+.aval-pct { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.aval-pct b { font-size: 2.25rem; font-weight: 500; letter-spacing: -.03em; color: var(--indigo); font-variant-numeric: tabular-nums; }
+.aval-pct span { font-size: 1.25rem; font-weight: 500; color: var(--indigo); }
+.aval-barra { height: 6px; margin: 12px 0 14px; border-radius: 999px; background: rgba(40, 99, 215, .14); overflow: hidden; }
+.aval-barra i { display: block; height: 100%; background: var(--luz); transform-origin: left; transition: transform .5s var(--sai); }
+@media (prefers-reduced-motion: reduce) { .aval-barra i { transition: none; } }
 .ferr-resultado { margin-top: 24px; padding: 22px 24px; border-radius: 14px; background: var(--realce); }
 .ferr-resultado p + p, .ferr-resultado p + ul, .ferr-resultado dl + p { margin-top: 10px; }
 .ferr-resultado .botao { margin-top: 18px; }

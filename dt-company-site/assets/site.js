@@ -385,6 +385,25 @@
     camp.addEventListener('submit', (e) => e.preventDefault());
   }
 
+  // Autoavaliações (Sim 2 · Em parte 1 · Não 0): percentagem e faixa
+  document.querySelectorAll('[data-avaliacao]').forEach((form) => {
+    const cfg = JSON.parse(form.querySelector('[data-aval-dados]').textContent);
+    const saida = form.querySelector('[data-aval-resultado]');
+    const grupos = [...new Set([...form.querySelectorAll('input[type="radio"]')].map((r) => r.name))];
+    const mostra = () => {
+      const marcadas = [...form.querySelectorAll('input[type="radio"]:checked')];
+      if (marcadas.length < grupos.length) { saida.innerHTML = `<p class="ferr-vazio">Respondeu a ${marcadas.length} de ${grupos.length} perguntas. Responda a todas para ver o resultado.</p>`; return; }
+      const pontos = marcadas.reduce((t, r) => t + Number(r.value), 0);
+      const pct = Math.round(pontos / (grupos.length * 2) * 100);
+      const [, titulo, texto] = cfg.faixas.find((f) => pct >= f[0]);
+      const faltam = marcadas.filter((r) => r.value !== '2').length;
+      saida.innerHTML = `<p class="aval-pct"><b>${pct}%</b> <span>${titulo}</span></p><div class="aval-barra" aria-hidden="true"><i style="transform:scaleX(${pct / 100})"></i></div><p>${texto}</p>${faltam ? `<p class="ferr-nota">${faltam} ${faltam === 1 ? 'ponto' : 'pontos'} por resolver ou confirmar.</p>` : ''}<p>O serviço que responde a isto: <a href="${cfg.url}">${cfg.servico}</a>.</p><a class="botao botao-acao" href="/pedido-de-cotacao?tipo=avaliacao&servico=${cfg.slug}">Pedir avaliação inicial</a>`;
+      if (window.kcEvento && !form.dataset.contado) { form.dataset.contado = '1'; window.kcEvento('usar_ferramenta', { ferramenta: form.closest('section').id }); }
+    };
+    form.addEventListener('change', mostra);
+    form.addEventListener('submit', (e) => e.preventDefault());
+  });
+
   // Guias e checklists: contagem, memória no navegador e impressão
   const mat = document.querySelector('.mat-texto');
   if (mat) {

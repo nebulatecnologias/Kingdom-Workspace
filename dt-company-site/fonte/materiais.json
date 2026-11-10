@@ -1,0 +1,127 @@
+{
+ "materiais": [
+  {
+   "slug": "checklist-inspeccao-fiscal",
+   "titulo": "Checklist para preparar uma inspecção fiscal",
+   "seo": ["Checklist para Preparar uma Inspecção Fiscal em Moçambique", "Checklist gratuita para organizar a documentação da empresa antes e durante uma inspecção da Autoridade Tributária, em Moçambique."],
+   "resumo": "Os documentos a reunir e os passos a organizar antes e durante uma inspecção da Autoridade Tributária.",
+   "tipo": "Checklist",
+   "servico": ["tax", "preparacao-para-inspeccoes-fiscais"],
+   "intro": "Numa inspecção, o que mais pesa é muitas vezes a documentação que não se encontra a tempo. Use esta lista para organizar a pasta da empresa. A lista exacta de documentos e a análise fiscal devem ser confirmadas com a sua contabilista certificada.",
+   "grupos": [
+    ["Quando recebe a notificação", [
+     "Registe a data em que a notificação chegou e quem a recebeu.",
+     "Identifique o período e os impostos que a inspecção vai analisar.",
+     "Informe a contabilista certificada e marque uma reunião de preparação.",
+     "Nomeie uma pessoa da empresa para receber os inspectores e registar os pedidos."
+    ]],
+    ["Documentos da empresa", [
+     "Certidão do registo comercial e estatutos actualizados.",
+     "NUIT da empresa e comprovativos de registo nas entidades.",
+     "Licença de actividade e alvarás em vigor.",
+     "Actas das assembleias e decisões dos órgãos sociais do período."
+    ]],
+    ["Contabilidade e declarações", [
+     "Declarações fiscais entregues no período, com os comprovativos de entrega.",
+     "Comprovativos de pagamento dos impostos.",
+     "Balancetes, razões e demonstrações financeiras do período.",
+     "Extractos bancários de todas as contas da empresa, reconciliados com a contabilidade."
+    ]],
+    ["Facturação, compras e pessoal", [
+     "Facturas emitidas, por ordem e sem falhas na numeração.",
+     "Facturas de fornecedores que suportam os custos lançados.",
+     "Contratos com clientes e fornecedores relevantes.",
+     "Folhas de salários e comprovativos das retenções na fonte e das contribuições para o INSS."
+    ]],
+    ["Durante a inspecção", [
+     "Entregue os documentos pedidos por escrito e guarde uma lista do que entregou e quando.",
+     "Não entregue originais sem ficar com uma cópia.",
+     "Registe cada pedido dos inspectores e o prazo para responder.",
+     "Envie à contabilista certificada qualquer questão de análise fiscal antes de responder."
+    ]]
+   ]
+  },
+  {
+   "slug": "checklist-due-diligence-fornecedor",
+   "titulo": "Checklist de verificação de um fornecedor",
+   "seo": ["Checklist de Due Diligence de Fornecedores em Moçambique", "Checklist gratuita para verificar um fornecedor ou parceiro antes de assinar ou pagar: existência, donos reais, documentos e sinais de alerta."],
+   "resumo": "O que confirmar sobre um fornecedor ou parceiro antes de assinar um contrato ou fazer um pagamento.",
+   "tipo": "Checklist",
+   "servico": ["compliance-e-governanca", "due-diligence-de-terceiros"],
+   "intro": "Muitas perdas começam num fornecedor que ninguém verificou. Use esta lista antes de assinar ou pagar, e guarde as respostas com o processo de compra. Quando um ponto não se confirma, trate-o como um sinal de alerta, não como um detalhe.",
+   "grupos": [
+    ["A empresa existe", [
+     "Pedir a certidão do registo comercial e confirmar que a empresa está activa.",
+     "Confirmar o NUIT e que o nome nas facturas é o mesmo do registo.",
+     "Confirmar a morada e visitar as instalações quando o valor o justifica.",
+     "Confirmar que tem a licença de actividade para o que vai fornecer."
+    ]],
+    ["Quem são os donos", [
+     "Identificar os sócios e os administradores no registo.",
+     "Perguntar quem são os beneficiários efectivos, as pessoas que de facto controlam a empresa.",
+     "Confirmar se algum dono ou administrador tem ligação a alguém da sua empresa.",
+     "Confirmar se algum dono ou administrador ocupa ou ocupou um cargo público."
+    ]],
+    ["Situação e reputação", [
+     "Pedir a certidão de quitação fiscal e a declaração do INSS.",
+     "Pedir duas ou três referências de clientes e contactá-las.",
+     "Pesquisar o nome da empresa e dos donos em notícias e listas públicas de sanções.",
+     "Confirmar se a empresa tem experiência em contratos do mesmo tipo e valor."
+    ]],
+    ["Pagamentos", [
+     "Confirmar que a conta bancária está em nome da própria empresa.",
+     "Confirmar por telefone, com um contacto já conhecido, qualquer pedido de mudança de NIB.",
+     "Evitar adiantamentos altos antes da primeira entrega.",
+     "Pagar só contra factura e comprovativo de entrega."
+    ]],
+    ["Antes de assinar", [
+     "Ter um contrato escrito com o âmbito, os prazos e as penalidades.",
+     "Guardar todos os documentos recolhidos no processo do fornecedor.",
+     "Classificar o risco do fornecedor: baixo, médio ou alto.",
+     "Enviar ao advogado as questões que exigem uma decisão jurídica."
+    ]]
+   ]
+  },
+  {
+   "slug": "guia-documentos-abrir-empresa",
+   "titulo": "Guia dos documentos para abrir uma empresa",
+   "seo": ["Documentos para Abrir uma Empresa em Moçambique: Guia", "Guia gratuito com os documentos e a ordem das etapas para abrir uma empresa em Moçambique: registo, NUIT, INSS e licença de actividade."],
+   "resumo": "Os documentos a preparar e a ordem das etapas para registar e licenciar uma empresa.",
+   "tipo": "Guia",
+   "servico": ["incorporacao", "constituicao-e-licenciamento-de-empresas"],
+   "intro": "Abrir uma empresa custa menos tempo quando os documentos estão prontos antes de cada etapa. Este guia é uma orientação geral: os requisitos mudam com a actividade, o local e a forma da empresa, por isso confirme a lista com a entidade responsável antes de entregar.",
+   "grupos": [
+    ["Antes de começar", [
+     "Definir a actividade da empresa com a descrição que vai constar do registo.",
+     "Escolher a forma da empresa e os sócios, com a participação de cada um.",
+     "Definir o capital social e quem vai administrar a empresa.",
+     "Confirmar se a actividade precisa de uma licença sectorial, além da licença de actividade."
+    ]],
+    ["Documentos dos sócios", [
+     "Documento de identificação de cada sócio: BI ou passaporte.",
+     "NUIT de cada sócio.",
+     "Para sócios que são empresas: certidão do registo e decisão que autoriza a participação.",
+     "Procurações, quando alguém assina em nome de um sócio."
+    ]],
+    ["Registo da empresa", [
+     "Pedido de reserva do nome da empresa.",
+     "Estatutos assinados pelos sócios.",
+     "Comprovativo do capital social, quando exigido.",
+     "Pedido de registo na Conservatória do Registo das Entidades Legais e publicação dos estatutos no Boletim da República."
+    ]],
+    ["Depois do registo", [
+     "Pedido do NUIT da empresa.",
+     "Contrato de arrendamento ou título do espaço da sede.",
+     "Pedido da licença de actividade junto da entidade competente.",
+     "Inscrição da empresa e dos trabalhadores no INSS."
+    ]],
+    ["Para não perder nada", [
+     "Guardar todos os documentos numa pasta digital, com uma cópia de cada comprovativo.",
+     "Abrir a conta bancária em nome da empresa.",
+     "Marcar num calendário as renovações e as primeiras declarações.",
+     "Enviar ao advogado os estatutos à medida e os acordos entre sócios."
+    ]]
+   ]
+  }
+ ]
+}

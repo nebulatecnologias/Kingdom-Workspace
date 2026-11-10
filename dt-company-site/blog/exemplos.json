@@ -1,0 +1,42 @@
+[
+ {
+  "titulo": "Título do artigo de Compliance e Governança",
+  "resumo": "Resumo de duas ou três linhas, escrito pela nossa equipa, com o que muda e o que a empresa pode organizar.",
+  "categoria": "Compliance e Governança",
+  "ambito": "Nacional",
+  "fonte": "Fonte da notícia",
+  "data": "2026-11-08",
+  "link": "/blog",
+  "exemplo": true
+ },
+ {
+  "titulo": "Título do artigo de Tax",
+  "resumo": "Resumo de duas ou três linhas, escrito pela nossa equipa, com o que muda e o que a empresa pode organizar.",
+  "categoria": "Tax",
+  "ambito": "Internacional",
+  "fonte": "Fonte da notícia",
+  "data": "2026-11-07",
+  "link": "/blog",
+  "exemplo": true
+ },
+ {
+  "titulo": "Título do artigo de Incorporação",
+  "resumo": "Resumo de duas ou três linhas, escrito pela nossa equipa, com o que muda e o que a empresa pode organizar.",
+  "categoria": "Incorporação",
+  "ambito": "Internacional",
+  "fonte": "Fonte da notícia",
+  "data": "2026-11-06",
+  "link": "/blog",
+  "exemplo": true
+ },
+ {
+  "titulo": "Título do artigo de ESG",
+  "resumo": "Resumo de duas ou três linhas, escrito pela nossa equipa, com o que muda e o que a empresa pode organizar.",
+  "categoria": "ESG",
+  "ambito": "Regional",
+  "fonte": "Fonte da notícia",
+  "data": "2026-11-05",
+  "link": "/blog",
+  "exemplo": true
+ }
+]
