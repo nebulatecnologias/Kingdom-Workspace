@@ -7,7 +7,7 @@ Uso (na pasta dt-company-site):  python3 fonte/servicos.py
 
 O cabeçalho, o rodapé e o <head> vêm de contactos.html, para ficarem iguais ao resto do site.
 O conteúdo vem das fichas do Playbook de vendas da DT Company. O site não mostra preços:
-cada proposta é feita à medida. Grafia anterior ao Acordo Ortográfico de 1990, como no playbook.
+cada proposta é feita à medida. Não mostra casos de clientes: os dados dos clientes são confidenciais. Grafia anterior ao Acordo Ortográfico de 1990, como no playbook.
 Regras de comunicação do playbook: organizamos, preparamos, verificamos, controlamos prazos;
 nunca «acompanhamos processos», «representamos», «parecer», «consultoria fiscal» nem «garantimos».
 """
@@ -19,8 +19,6 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 E = html.escape
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from casos import seccao_servico  # noqa: E402
 DADOS = json.loads((SITE / 'fonte' / 'servicos.json').read_text(encoding='utf-8'))['servicos']
 AREAS = json.loads((SITE / 'fonte' / 'areas.json').read_text(encoding='utf-8'))['areas']
 ICONE = {'compliance-e-governanca': 'i-documento', 'tax': 'i-grafico', 'incorporacao': 'i-instituicao', 'consultoria-esg': 'i-equipa'}
@@ -164,8 +162,6 @@ def pagina(s, todos):
     <ol class="serv-fases-lista">{fases}</ol>
   </div>
 </section>
-
-{seccao_servico(s["area_slug"], s["slug"])}
 
 <section class="seccao serv-fecho" aria-labelledby="t-fecho">
   <div class="moldura serv-duas">
