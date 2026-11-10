@@ -384,7 +384,7 @@ def pagina_cotacao(todos):
       </div>
       <div class="cot-feito" data-cot-feito hidden tabindex="-1">
         <h2>O seu pedido está pronto a enviar</h2>
-        <p>Abrimos o seu programa de email com o pedido escrito, para <a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a>. Só falta carregar em enviar.</p>
+        <p>Abrimos o seu programa de email com o pedido escrito, para <a href="mailto:contact@dtcompany.co.za">contact@dtcompany.co.za</a>. Só falta carregar em enviar.</p>
         <p>Se o programa de email não abriu, copie o pedido e envie-o para o mesmo endereço.</p>
         <button class="botao botao-contorno" type="button" data-cot-copiar>Copiar o pedido</button>
         <p class="cot-copiado" data-cot-copiado aria-live="polite"></p>
@@ -397,7 +397,7 @@ def pagina_cotacao(todos):
       <ol class="cot-passos">{lista}</ol>
       <div class="cot-direto">
         <h3>Prefere falar já?</h3>
-        <p><a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a><br>Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo</p>
+        <p><a href="mailto:contact@dtcompany.co.za">contact@dtcompany.co.za</a><br>Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo</p>
       </div>
     </aside>
   </div>
@@ -438,7 +438,7 @@ def pagina_legal(slug, titulo, desc, data):
 {corpo}
       <aside class="legal-duvidas">
         <h2>Tem dúvidas?</h2>
-        <p>Escreva para <a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a> e respondemos com todo o gosto.</p>
+        <p>Escreva para <a href="mailto:contact@dtcompany.co.za">contact@dtcompany.co.za</a> e respondemos com todo o gosto.</p>
       </aside>
     </div>
   </div>

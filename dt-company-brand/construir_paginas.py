@@ -214,9 +214,9 @@ corpo_pedido = f'''
       <li>{VISTO}<span><b>A urgência</b> — para quando precisa da solução</span></li>
     </ul>
     <div class="acoes" style="margin-top:28px">
-      <a class="botao botao-acao" href="mailto:contacto@dtcompany.example?subject=Pedido%20de%20cota%C3%A7%C3%A3o%20%E2%80%94%20DT%20Company">Enviar pedido por email {SETA}</a>
+      <a class="botao botao-acao" href="mailto:contact@dtcompany.co.za?subject=Pedido%20de%20cota%C3%A7%C3%A3o%20%E2%80%94%20DT%20Company">Enviar pedido por email {SETA}</a>
     </div>
-    <div class="nota-pilar" style="margin-top:22px"><strong>Nota.</strong> Os canais de contacto definitivos da DT Company estão em actualização; este email é provisório. A proposta é enviada por escrito e não implica qualquer compromisso.</div>
+    <div class="nota-pilar" style="margin-top:22px"><strong>Nota.</strong> A proposta é enviada por escrito e não implica qualquer compromisso.</div>
   </div>
 </section>
 '''
@@ -229,10 +229,6 @@ c = (SITE / 'contactos.html').read_text(encoding='utf-8')
 c = c.replace(bloco(c, '<header class="topo"', '</header>'), header_fora)
 c = c.replace(bloco(c, '<footer class="rodape"', '</footer>'), footer_fora)
 # O mapa da página de contactos fica (a DT está no mesmo edifício da Kingdom Company, em Maputo).
-c = c.replace('<p><a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a></p></li>',
-              '<p><a href="mailto:contacto@dtcompany.example">contacto@dtcompany.example</a><br><small>Email provisório — canais definitivos em actualização.</small></p></li>', 1)
-c = c.replace('Escreva-nos, ligue ou venha visitar-nos em Moçambique. Para receber uma proposta, peça uma cotação ou uma avaliação inicial.',
-              'Escreva-nos ou visite-nos em Maputo. Para receber uma proposta, peça uma cotação ou uma avaliação inicial.')
 c = re.sub(r'(site\.(?:css|js)\?v=)\d+', lambda m: m.group(1) + VERSAO, c)
 (SITE / 'contactos.html').write_text(c, encoding='utf-8')
 print('contactos.html sincronizado')

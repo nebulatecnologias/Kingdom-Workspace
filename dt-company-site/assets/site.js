@@ -223,7 +223,7 @@
       }
       campo.removeAttribute('aria-invalid'); msg.className = 'newsletter-msg';
       const corpo = `Quero receber a newsletter da DT Company neste email: ${email}`;
-      location.href = `mailto:contacto@dtcompany.example?subject=${encodeURIComponent('Subscrever a newsletter')}&body=${encodeURIComponent(corpo)}`;
+      location.href = `mailto:contact@dtcompany.co.za?subject=${encodeURIComponent('Subscrever a newsletter')}&body=${encodeURIComponent(corpo)}`;
       msg.textContent = 'Abrimos o seu programa de email com o pedido pronto. Só falta enviar.';
     });
     campo.addEventListener('input', () => { if (campo.hasAttribute('aria-invalid')) { campo.removeAttribute('aria-invalid'); msg.textContent = ''; } });
@@ -272,15 +272,15 @@
         `Telefone ou WhatsApp: ${v('telefone')}`,
         `Prefere ser contactado por: ${v('canal')}`,
       ].join('\n');
-      location.href = `mailto:contacto@dtcompany.example?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(pedido)}`;
+      location.href = `mailto:contact@dtcompany.co.za?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(pedido)}`;
       if (window.kcEvento) window.kcEvento('generate_lead', { tipo: avaliacao ? 'avaliacao_inicial' : 'cotacao', servico: sel.value || 'nao_sabe' });
       const feito = cot.querySelector('[data-cot-feito]');
       feito.hidden = false; feito.focus();
     });
     const copiar = cot.querySelector('[data-cot-copiar]'), copiado = cot.querySelector('[data-cot-copiado]');
     copiar.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(`Para: contacto@dtcompany.example\n\n${pedido}`); copiado.textContent = 'Pedido copiado. Cole-o num email para contacto@dtcompany.example.'; }
-      catch { copiado.textContent = 'Não foi possível copiar. Escreva para contacto@dtcompany.example.'; }
+      try { await navigator.clipboard.writeText(`Para: contact@dtcompany.co.za\n\n${pedido}`); copiado.textContent = 'Pedido copiado. Cole-o num email para contact@dtcompany.co.za.'; }
+      catch { copiado.textContent = 'Não foi possível copiar. Escreva para contact@dtcompany.co.za.'; }
     });
   }
 

@@ -15,7 +15,7 @@ from servicos import AREAS, DADOS, E, ICONE, SETA, SITE, escreve, partes_base  #
 
 MATERIAIS = json.loads((SITE / 'fonte' / 'materiais.json').read_text(encoding='utf-8'))['materiais']
 SERV = {(s['area_slug'], s['slug']): s for s in DADOS}
-EMAIL = 'contacto@dtcompany.example'
+EMAIL = 'contact@dtcompany.co.za'
 
 
 def abertura(id_, titulo, desc, contexto='', acoes=''):

@@ -25,7 +25,7 @@ A página inicial (`index.html`) é editada à mão: o cabeçalho e o rodapé sa
 | `servicos.json` | As 12 fichas do Playbook de vendas da DT, com a fronteira e os parceiros, a avença, o custo de esperar (`urgencia`) e o título e a descrição para o Google (`seo`) |
 | `privacidade.html`, `termos.html` | Os textos da política de privacidade e dos termos de utilização |
 | `areas.json` | Os 4 pilares: resumo, proposta de valor, fronteira, custo de esperar e SEO |
-| `seo.json` | Domínio (provisório: dt-company.vercel.app), ID do Google Analytics 4, verificação do Search Console e do Bing, email e telefones definitivos e redes sociais. Mudar aqui e correr `python3 fonte/seo.py` |
+| `seo.json` | Domínio (www.dtcompany.co.za), ID do Google Analytics 4, verificação do Search Console e do Bing, email e telefones definitivos e redes sociais. Mudar aqui e correr `python3 fonte/seo.py` |
 | `materiais.json` | Os 3 materiais gratuitos (checklists e guia), com os grupos de pontos e o serviço ligado |
 | `paginas.py` | Gera /parceiros, /ferramentas-gratuitas (diagnóstico, autoavaliação de compliance, verificação de fornecedor) e /materiais-gratuitos |
 

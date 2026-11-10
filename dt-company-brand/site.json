@@ -22,8 +22,11 @@
   "lavanda": "#9DC0FF"
  },
  "contactos": {
-  "email": "contacto@dtcompany.example",
-  "telefones": [],
+  "email": "contact@dtcompany.co.za",
+  "telefones": [
+   "+258 82 987 8424",
+   "+258 87 664 1836"
+  ],
   "moradas": [
    {
     "cidade": "Maputo",

@@ -937,3 +937,9 @@ dl.servico-meta dd { color: var(--cinza); font-size: .9688rem; }
   .serv-fases-lista li, .serv-fases-lista li + li { padding: 22px 0 6px; border-left: 0; border-top: 1px solid var(--linha-fria); }
   .caso { padding: 32px 24px; }
 }
+
+/* Redes sociais no rodapé */
+.rodape-redes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
+.rodape .rodape-redes li { margin: 0; }
+.rodape-redes a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--linha); background: var(--branco); font-size: .9375rem; font-weight: 500; color: var(--indigo); text-decoration: none; transition: box-shadow .2s, color .2s; }
+.rodape-redes a:hover { box-shadow: inset 0 0 0 1px var(--violeta); color: var(--violeta); }

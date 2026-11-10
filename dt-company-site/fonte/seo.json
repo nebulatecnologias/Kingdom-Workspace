@@ -1,11 +1,16 @@
 {
- "dominio": "https://dt-company.vercel.app",
+ "dominio": "https://www.dtcompany.co.za",
  "ga4": "",
  "google_site_verification": "",
  "bing_site_verification": "",
- "email": "",
- "telefones": [],
- "redes": [],
+ "email": "contact@dtcompany.co.za",
+ "telefones": [
+  "+258829878424",
+  "+258876641836"
+ ],
+ "redes": [
+  "https://www.instagram.com/dt_c.ompany/"
+ ],
  "imagem": "/assets/og/dt-company.jpg",
- "nota": "dominio = o endereço definitivo do site (provisório: dt-company.vercel.app). ga4 = o ID de medição do Google Analytics 4 (G-XXXXXXXXXX); sem ID, o site não carrega o Analytics nem mostra o aviso de cookies. google_site_verification = o código da meta tag do Search Console (vazio se a verificação for por DNS). email e telefones = contactos definitivos para os dados estruturados (o email provisório não entra). redes = links dos perfis oficiais (LinkedIn, Instagram, Facebook): aparecem no rodapé e nos dados estruturados. Depois de mudar, correr: python3 fonte/seo.py"
+ "nota": "dominio = o endereço definitivo do site (www.dtcompany.co.za). ga4 = o ID de medição do Google Analytics 4 (G-XXXXXXXXXX); sem ID, o site não carrega o Analytics nem mostra o aviso de cookies. google_site_verification = o código da meta tag do Search Console (vazio se a verificação for por DNS). email e telefones = contactos definitivos para os dados estruturados (o email provisório não entra). redes = links dos perfis oficiais (LinkedIn, Instagram, Facebook): aparecem no rodapé e nos dados estruturados. Depois de mudar, correr: python3 fonte/seo.py"
 }
