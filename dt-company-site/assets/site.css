@@ -932,6 +932,11 @@ dl.servico-meta dd { color: var(--cinza); font-size: .9688rem; }
 .caso-abertura { background: radial-gradient(60% 80% at 92% 10%, color-mix(in srgb, var(--c2) 40%, transparent) 0, transparent 60%), linear-gradient(135deg, color-mix(in srgb, var(--c1) 70%, #000) 0%, var(--c1) 60%, color-mix(in srgb, var(--c1) 85%, var(--c2)) 100%); }
 .caso-abertura-logo { display: inline-grid; place-items: center; height: 84px; margin: 4px 0 24px; padding: 14px 22px; border-radius: 18px; background: #fff; box-shadow: 0 10px 24px -14px rgba(0, 0, 0, .45); }
 .caso-abertura-logo img { height: 56px; width: auto; max-width: 200px; object-fit: contain; }
+.caso-banner-logo.sem-logo svg { width: 46%; height: 46%; color: var(--indigo); }
+.caso-abertura-logo.sem-logo { width: 84px; padding: 0; }
+.caso-abertura-logo.sem-logo svg { width: 40px; height: 40px; color: var(--indigo); }
+.caso-parceiros { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--linha-fria); color: var(--cinza); line-height: 1.55; }
+.caso-parceiros b { color: var(--indigo); font-weight: 500; }
 .caso-ficha { display: flex; flex-wrap: wrap; gap: 16px 40px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .18); }
 .caso-ficha dt { font-size: .875rem; opacity: .7; }
 .caso-ficha dd { margin-top: 4px; font-weight: 500; }

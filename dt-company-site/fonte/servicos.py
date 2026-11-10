@@ -14,10 +14,13 @@ nunca «acompanhamos processos», «representamos», «parecer», «consultoria 
 import html
 import json
 import re
+import sys
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 E = html.escape
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from casos import seccao_servico  # noqa: E402
 DADOS = json.loads((SITE / 'fonte' / 'servicos.json').read_text(encoding='utf-8'))['servicos']
 AREAS = json.loads((SITE / 'fonte' / 'areas.json').read_text(encoding='utf-8'))['areas']
 ICONE = {'compliance-e-governanca': 'i-documento', 'tax': 'i-grafico', 'incorporacao': 'i-instituicao', 'consultoria-esg': 'i-equipa'}
@@ -162,12 +165,7 @@ def pagina(s, todos):
   </div>
 </section>
 
-<section class="seccao serv-caso so-previa" aria-labelledby="t-caso">
-  <div class="moldura">
-    <p class="contexto" id="t-caso">Um caso real deste serviço</p>
-    <div class="caso-banner caso-banner-vazio"><span class="caso-banner-texto"><span class="caso-banner-meta">Caso por receber</span><span class="caso-banner-titulo">O banner do caso aparece aqui, com as cores e o logótipo do cliente</span><span class="caso-banner-res">Só casos reais, com autorização do cliente</span></span></div>
-  </div>
-</section>
+{seccao_servico(s["area_slug"], s["slug"])}
 
 <section class="seccao serv-fecho" aria-labelledby="t-fecho">
   <div class="moldura serv-duas">
