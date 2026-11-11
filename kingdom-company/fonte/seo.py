@@ -60,7 +60,7 @@ def organizacao():
         'logo': {'@type': 'ImageObject', 'url': f'{D}/assets/marca/kingdom-company-horizontal-simples-indigo.svg'},
         'image': f'{D}{CFG["imagem"]}',
         'description': 'Empresa moçambicana de desenvolvimento empresarial, membro da SDG (Pty) Ltd. Reúne numa só equipa '
-                       'desenvolvimento editorial, consultoria estratégica, assessoria e desenvolvimento tecnológico.',
+                       'desenvolvimento editorial, assessoria e desenvolvimento tecnológico.',
         'slogan': 'Um único lugar para desenvolver o seu negócio',
         'email': 'contact@kingdomcompany.co.za',
         'telephone': '+258876641836',
@@ -282,11 +282,11 @@ Sitemap: {D}/sitemap.xml
 def llms():
     l = ['# Kingdom Company', '',
          '> Empresa moçambicana de desenvolvimento empresarial, com sede em Maputo, membro da SDG (Pty) Ltd (Midrand, África do Sul). '
-         'Reúne numa só equipa desenvolvimento editorial, consultoria estratégica, assessoria e desenvolvimento tecnológico, '
+         'Reúne numa só equipa desenvolvimento editorial, assessoria e desenvolvimento tecnológico, '
          'para ajudar empresas a crescer, organizar-se, posicionar-se e competir.', '',
          'Factos principais:',
          '- Serve empresas em Moçambique e na África do Sul: PME, grandes empresas, startups, instituições, associações e empreendedores.',
-         '- 12 serviços em 4 áreas, com o mesmo método em seis fases: diagnóstico, proposição de soluções, implementação, avaliação de resultados, treinamento e acompanhamento.',
+         '- 9 serviços em 3 áreas, com o mesmo método em seis fases: diagnóstico, proposição de soluções, implementação, avaliação de resultados, treinamento e acompanhamento.',
          '- Mais de 50 negócios atendidos, 6 anos de mercado e 5 certificações internacionais em marketing, inteligência artificial e vendas.',
          '- Cada proposta é feita à medida: o site não publica preços. Os projetos pagam-se por marcos.',
          f'- Pedido de cotação ou avaliação inicial: {D}/pedido-de-cotacao',

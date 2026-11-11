@@ -316,7 +316,7 @@ def main():
         escreve(antes, depois, f'/cases/{c["slug"]}', f'{c["titulo"]} · Caso {s["nome"]} · Kingdom Company', c['resumo'],
                 None, pagina_caso(c, servicos, outros), pasta / f'{c["slug"]}.html')
     escreve(antes, depois, '/cases', 'Cases: Projetos de Clientes · Kingdom Company',
-            'Casos reais da Kingdom Company em Moçambique: o desafio de cada cliente, o que fizemos e os resultados, em identidade visual, consultoria, marketing e tecnologia.',
+            'Casos reais da Kingdom Company em Moçambique: o desafio de cada cliente, o que fizemos e os resultados, em identidade visual, marketing e tecnologia.',
             None, pagina_todos(CASOS, AREAS), SITE / 'cases.html')
     print(f'{len(CASOS)} casos publicados em /cases')
 

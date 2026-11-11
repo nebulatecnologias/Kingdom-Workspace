@@ -20,7 +20,7 @@ A Kingdom Company é uma empresa moçambicana de desenvolvimento empresarial, me
 
 ## Positioning
 
-«Um único lugar. Tudo o que precisa para desenvolver o seu negócio.» Cinco áreas debaixo do mesmo método (Diagnóstico, Estratégia, Implementação, Autonomia) e da mesma equipa, em vez de cinco fornecedores: Consultoria Estratégica, Desenvolvimento Editorial, Assessoria em Marketing & Vendas, Desenvolvimento Tecnológico, Treinamento Corporativo. É membro da SDG (Pty) Ltd, com o Kingdom Training e a Kingdom Academy como frentes irmãs; no site usa-se sempre «SDG (Pty) Ltd», nunca «grupo Kingdom» (decisão do cliente, 08/11/2026). O fundador não aparece neste site (decisão do cliente, 08/11/2026): nem fotografia, nem nome.
+«Um único lugar. Tudo o que precisa para desenvolver o seu negócio.» Três áreas debaixo do mesmo método (Diagnóstico, Estratégia, Implementação, Autonomia) e da mesma equipa, em vez de vários fornecedores: Desenvolvimento Editorial, Assessoria e Desenvolvimento Tecnológico (R04). A Consultoria Estratégica e o Treinamento Corporativo passaram para a DT Company a 11/11/2026 (R40). É membro da SDG (Pty) Ltd, com o Kingdom Training e a Kingdom Academy como frentes irmãs; no site usa-se sempre «SDG (Pty) Ltd», nunca «grupo Kingdom» (decisão do cliente, 08/11/2026). O fundador não aparece neste site (decisão do cliente, 08/11/2026): nem fotografia, nem nome.
 
 ## Operating Context
 
@@ -29,7 +29,7 @@ Visitado sobretudo no telemóvel, muitas vezes a partir do Instagram, LinkedIn o
 ## Capabilities and Constraints
 
 - Mapa do site e fichas de serviço: https://claude.ai/artifact/5iC72U3cjHiF4yStgkSJao (uma aba por página).
-- Regras de negócio: `docs/regras-de-negocio.md` (R04 áreas e planos, R08/R09 fecho, R17/R33 Business Advising, R25, R27, R29, R30 preços, R34 marca, R35 contactos).
+- Regras de negócio: `docs/regras-de-negocio.md` (R04 áreas e planos, R08/R09 fecho, R17/R33 Business Advising, R27, R29, R30 preços, R34 marca, R35 contactos, R40 DT Company).
 - Contactos (R35): contact@kingdomcompany.co.za · +258 87 664 1836 · +258 85 1800 920 · Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106 · Midrand: 2 Mushroom Road, Plooysville AH, Joanesburgo 1685 (só neste site).
 - Textos em português europeu, tratamento «a sua empresa».
 - Undecided: preço de 7 serviços novos; vendedor responsável pelos pedidos; preços em rands.

@@ -8,8 +8,8 @@ Na pasta `kingdom-company`, por esta ordem:
 
 ```
 python3 fonte/casos.py      # casos de clientes: /cases, /cases/<slug> e imagens WebP (antes de servicos.py)
-python3 fonte/servicos.py   # 12 serviços, 4 áreas, pedido de cotação, privacidade, termos, 404
-python3 fonte/paginas.py    # parceiros, ferramentas gratuitas, materiais gratuitos (3 guias)
+python3 fonte/servicos.py   # 9 serviços, 3 áreas, pedido de cotação, privacidade, termos, 404
+python3 fonte/paginas.py    # parceiros, ferramentas gratuitas, materiais gratuitos (2 guias)
 python3 blog/construir.py   # blog (só quando há artigos novos; precisa de: pip install markdown)
 python3 fonte/seo.py        # SEO em todas as páginas + sitemap.xml, robots.txt e llms.txt
 ```
@@ -20,8 +20,8 @@ Corra sempre o `seo.py` no fim: os outros refazem as páginas e o SEO tem de ser
 
 | Ficheiro | O que tem |
 |---|---|
-| `servicos.json` | As 12 fichas do playbook: textos, dores, entregáveis, urgência e título e descrição de SEO (`seo`) |
-| `areas.json` | As 4 áreas: resumo, proposta de valor, urgência e SEO |
+| `servicos.json` | As 9 fichas do playbook: textos, dores, entregáveis, urgência e título e descrição de SEO (`seo`) |
+| `areas.json` | As 3 áreas: resumo, proposta de valor, urgência e SEO |
 | `privacidade.html`, `termos.html` | Os textos da política de privacidade e dos termos de utilização |
 | `casos.json` e `casos/<slug>/` | Os casos de clientes (só entram os que têm `"autorizado": true`) e as suas imagens originais |
 | `materiais.json` | Os guias e checklists gratuitos (cada um gera uma página em /materiais-gratuitos) |

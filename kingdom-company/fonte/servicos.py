@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera as 12 páginas de serviço (/<área>/<serviço>), as 4 páginas de área (/<área>)
+"""Gera as 9 páginas de serviço (/<área>/<serviço>), as 3 páginas de área (/<área>)
 a página /pedido-de-cotacao e as páginas legais (/privacidade, /termos), a partir de fonte/servicos.json,
 fonte/areas.json e fonte/<página>.html.
 
@@ -25,7 +25,7 @@ SITE = Path(__file__).resolve().parent.parent
 E = html.escape
 DADOS = json.loads((SITE / 'fonte' / 'servicos.json').read_text(encoding='utf-8'))['servicos']
 AREAS = json.loads((SITE / 'fonte' / 'areas.json').read_text(encoding='utf-8'))['areas']
-ICONE = {'desenvolvimento-editorial': 'i-documento', 'consultoria-estrategica': 'i-alvo', 'assessoria': 'i-camara', 'desenvolvimento-tecnologico': 'i-codigo'}
+ICONE = {'desenvolvimento-editorial': 'i-documento', 'assessoria': 'i-camara', 'desenvolvimento-tecnologico': 'i-codigo'}
 FASES = [
     ('Diagnóstico', 'Percebemos o desafio, o contexto e o que a empresa quer alcançar.'),
     ('Proposição de soluções', 'Propomos a solução, o âmbito e o plano, por escrito.'),

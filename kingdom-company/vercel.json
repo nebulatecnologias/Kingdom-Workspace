@@ -1,1 +1,10 @@
-{"cleanUrls":true,"trailingSlash":false}
+{
+ "cleanUrls": true,
+ "trailingSlash": false,
+ "redirects": [
+  { "source": "/consultoria-estrategica", "destination": "https://www.dtcompany.co.za/consultoria-estrategica", "permanent": true },
+  { "source": "/consultoria-estrategica/:servico", "destination": "https://www.dtcompany.co.za/consultoria-estrategica/:servico", "permanent": true },
+  { "source": "/blog/plano-de-negocios-que-o-banco-aprova", "destination": "/blog", "permanent": true },
+  { "source": "/materiais-gratuitos/estrutura-plano-de-negocios", "destination": "/materiais-gratuitos", "permanent": true }
+ ]
+}
