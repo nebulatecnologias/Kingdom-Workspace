@@ -1,67 +1,59 @@
 # DT Company
 
-> DT Company — Business Advisory & Development, com sede em Maputo, Moçambique. Organiza, prepara e verifica o que as empresas precisam para cumprir regras, aceder a financiamento e operar em Moçambique, em quatro pilares: compliance e governança, tax, incorporação e consultoria ESG.
+> DT Company — Business Advisory & Development, com sede em Maputo, Moçambique. Ajuda as empresas a decidir com estratégia, a organizar as regras e os controlos que protegem o negócio e a preparar as equipas que o fazem crescer, em três pilares: consultoria estratégica, compliance e governança corporativa, e treinamento corporativo.
 
 Factos principais:
-- Serve empresas nacionais e estrangeiras em Moçambique: fornecedores do Estado, empresas com financiamento internacional, investidores e empresas a instalar-se no país.
-- 12 serviços em 4 pilares, com o mesmo método em seis fases: diagnóstico, plano de trabalho, execução e entregas, entregáveis e relatório, formação da equipa e controlo contínuo.
-- Fronteiras claras: a análise fiscal e a relação com a Autoridade Tributária são da contabilista certificada parceira; as decisões jurídicas do advogado parceiro; os estudos de impacto ambiental de consultores ambientais registados. A DT Company organiza a documentação, prepara os dossiers, verifica e controla prazos, como único interlocutor do cliente.
-- Vários serviços continuam por avença depois da entrega: compliance officer externo, monitorização de fornecedores, secretariado societário, controlo de prazos fiscais e gestão de expatriados.
+- Serve empresas em Moçambique: empreendedores e PME, empresas que pedem crédito ou captam investimento, empresas que concorrem a grandes contratos e empresas que querem formar as suas equipas.
+- 11 serviços em 3 pilares, com o mesmo método em seis fases: diagnóstico, plano de trabalho, execução e entregas, entregáveis e relatório, formação da equipa e continuidade.
+- Fronteiras claras: a DT Company não presta serviços jurídicos nem de contabilidade. Quando um tema o exige, indica-o por escrito e o cliente contrata directamente o profissional habilitado. Os relatórios são factuais: dizem o que foi confirmado e o que não foi.
+- Os treinamentos têm avaliação antes e depois, registo de presenças, certificados de participação e relatório final. Formatos: in-company, cursos abertos e seminários, Programa de Desenvolvimento de Lideranças, formação online e Plano Anual de Formação.
+- Vários serviços continuam por avença depois da entrega: compliance officer externo, monitorização de fornecedores, secretariado interno e Plano Anual de Formação.
 - Cada proposta é feita à medida e por escrito: o site não publica preços. Os dados dos clientes são confidenciais: o site não publica casos de clientes.
 - Pedido de cotação ou avaliação inicial: https://www.dtcompany.co.za/pedido-de-cotacao
 - Contactos: contact@dtcompany.co.za · +258829878424 · +258876641836
 - Morada: Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106, Moçambique
 - Língua do site: português europeu, na grafia anterior ao Acordo Ortográfico de 1990.
 
-## Compliance e Governança
+## Consultoria Estratégica
 
-[Compliance e Governança](https://www.dtcompany.co.za/compliance-e-governanca): Organizamos as regras, os controlos e as decisões de que a empresa precisa para provar que actua com integridade. Preparamos o programa de compliance, verificamos quem está do outro lado antes de assinar e organizamos a forma como a empresa decide, para que clientes, bancos e investidores confiem nela.
+[Consultoria Estratégica](https://www.dtcompany.co.za/consultoria-estrategica): Ajudamos donos e directores a decidir com estratégia. Preparamos o plano de negócios que bancos e investidores conseguem avaliar, conduzimos a direcção na definição das prioridades e metas do ano e analisamos consigo as decisões importantes antes de avançar.
+
+- [Plano de Negócios](https://www.dtcompany.co.za/consultoria-estrategica/plano-de-negocios): É um serviço de elaboração do plano de negócios, que estrutura o modelo de negócio, o mercado, a concorrência e as projecções financeiras num documento que bancos, investidores e parceiros conseguem avaliar.
+- [Planeamento Estratégico](https://www.dtcompany.co.za/consultoria-estrategica/planeamento-estrategico): É um serviço de consultoria que conduz a direcção na definição das prioridades, metas e responsáveis para o ano, e transforma essas decisões num plano de acção que se consegue acompanhar.
+- [Advisory (Aconselhamento Empresarial)](https://www.dtcompany.co.za/consultoria-estrategica/aconselhamento-empresarial): É um serviço de aconselhamento empresarial que apoia donos e directores na análise de uma decisão importante, dos seus cenários e riscos, antes de avançar.
+
+## Compliance e Governança Corporativa
+
+[Compliance e Governança Corporativa](https://www.dtcompany.co.za/compliance-e-governanca): Organizamos as regras, os controlos e as decisões de que a empresa precisa para provar que actua com integridade. Preparamos o programa de compliance, verificamos quem está do outro lado antes de assinar, apuramos denúncias e desvios com método e organizamos a forma como a empresa decide.
 
 - [Programa de Compliance e Integridade](https://www.dtcompany.co.za/compliance-e-governanca/programa-de-compliance-e-integridade): É um serviço que organiza as regras internas, os controlos e a formação de que a empresa precisa para prevenir fraudes, cumprir as exigências de clientes e financiadores e provar que actua com integridade.
-- [Due Diligence de Terceiros](https://www.dtcompany.co.za/compliance-e-governanca/due-diligence-de-terceiros): É um serviço de verificação de fornecedores, parceiros, sócios, vendedores, terrenos e imóveis, antes de a empresa assinar ou pagar.
-- [Governança Corporativa e Familiar](https://www.dtcompany.co.za/compliance-e-governanca/governanca-corporativa-e-familiar): É um serviço que organiza quem decide o quê na empresa, as regras dos órgãos de gestão e a sucessão, para que a empresa não dependa de uma só pessoa.
+- [Due Diligence de Terceiros](https://www.dtcompany.co.za/compliance-e-governanca/due-diligence-de-terceiros): É um serviço de verificação de fornecedores, parceiros, sócios e vendedores antes de a empresa assinar ou pagar.
+- [Apuramento Interno de Denúncias e Desvios](https://www.dtcompany.co.za/compliance-e-governanca/apuramento-interno-de-denuncias-e-desvios): É um serviço que apura, de forma factual e organizada, uma suspeita ou denúncia de desvio dentro da empresa, e propõe controlos para que não se repita.
+- [Governança Corporativa e Familiar](https://www.dtcompany.co.za/compliance-e-governanca/governanca-corporativa-e-familiar): É um serviço que organiza quem decide o quê na empresa, os órgãos de gestão e a passagem entre gerações, para que a empresa não dependa de uma só pessoa.
 
-## Tax
+## Treinamento Corporativo
 
-[Tax](https://www.dtcompany.co.za/tax): Organizamos a documentação, controlamos os prazos e preparamos os dossiers fiscais da empresa, com a contabilista certificada parceira. A empresa aproveita os benefícios do investimento, regulariza a situação e enfrenta uma inspecção preparada.
+[Treinamento Corporativo](https://www.dtcompany.co.za/treinamento-corporativo): Formamos as equipas que fazem a empresa crescer: quem lidera, quem atende, quem vende e quem comunica. Cada programa é adaptado à empresa, usa situações reais e tem avaliação antes e depois, registo de presenças, certificados de participação e um relatório final com resultados e recomendações.
 
-- [Benefícios Fiscais e Aduaneiros do Investimento](https://www.dtcompany.co.za/tax/beneficios-fiscais-e-aduaneiros-do-investimento): É um serviço que identifica os benefícios fiscais e aduaneiros a que um projecto de investimento se pode candidatar, prepara a candidatura e controla as obrigações para os manter.
-- [Regularização Fiscal e Certidão de Quitação](https://www.dtcompany.co.za/tax/regularizacao-fiscal-e-certidao-de-quitacao): É um serviço que levanta as pendências fiscais da empresa, organiza a regularização com a contabilista certificada parceira e prepara o pedido da certidão de quitação.
-- [Preparação para Inspecções Fiscais](https://www.dtcompany.co.za/tax/preparacao-para-inspeccoes-fiscais): É um serviço que organiza a documentação da empresa antes e durante uma inspecção fiscal, com a análise fiscal feita pela contabilista certificada parceira.
-
-## Incorporação
-
-[Incorporação](https://www.dtcompany.co.za/incorporacao): Ajudamos empresas moçambicanas e estrangeiras a instalar-se pela ordem certa. Mapeamos requisitos e custos, preparamos a documentação dos registos, das licenças e dos pedidos dos quadros estrangeiros e controlamos os prazos.
-
-- [Constituição e Licenciamento de Empresas](https://www.dtcompany.co.za/incorporacao/constituicao-e-licenciamento-de-empresas): É um serviço de apoio administrativo para abrir uma empresa: mapeamos os requisitos e os custos, preparamos e entregamos a documentação dos registos e licenças e deixamos tudo organizado numa pasta digital.
-- [Instalação de Empresas Estrangeiras](https://www.dtcompany.co.za/incorporacao/instalacao-de-empresas-estrangeiras): É um serviço de apoio administrativo à instalação de empresas estrangeiras em Moçambique, do registo do projecto de investimento à abertura de conta e à instalação operacional.
-- [Gestão de Quadros Estrangeiros](https://www.dtcompany.co.za/incorporacao/gestao-de-quadros-estrangeiros): É um serviço que calcula a quota de trabalhadores estrangeiros, prepara os pedidos de autorização de trabalho, visto e DIRE e controla as renovações de cada expatriado.
-
-## Consultoria ESG
-
-[Consultoria ESG](https://www.dtcompany.co.za/consultoria-esg): Preparamos os sistemas e as evidências ambientais e sociais que financiadores e clientes internacionais exigem. Montamos o sistema de gestão, respondemos aos questionários ESG e organizamos a relação com as comunidades, para que a empresa prove as boas práticas que tem.
-
-- [Sistema de Gestão Ambiental e Social para Financiamento](https://www.dtcompany.co.za/consultoria-esg/sistema-de-gestao-ambiental-e-social): É um serviço que monta o sistema de gestão ambiental e social exigido por bancos e financiadores internacionais: políticas, procedimentos, responsáveis, registos e relatórios.
-- [Pronto para Clientes Internacionais](https://www.dtcompany.co.za/consultoria-esg/pronto-para-clientes-internacionais): É um serviço que prepara fornecedores e exportadores para as avaliações ESG de clientes multinacionais e europeus, com políticas, evidências e respostas aos questionários.
-- [Relação com Comunidades e Mecanismo de Queixas](https://www.dtcompany.co.za/consultoria-esg/relacao-com-comunidades-e-mecanismo-de-queixas): É um serviço que organiza o envolvimento de um projecto com as comunidades e as partes interessadas, com um plano de comunicação e um mecanismo para receber e responder a queixas.
+- [Liderança Corporativa](https://www.dtcompany.co.za/treinamento-corporativo/lideranca-corporativa): É um programa de formação para chefias, adaptado ao nível da empresa, que prepara quem lidera para motivar a equipa, delegar e decidir.
+- [Atendimento ao Cliente](https://www.dtcompany.co.za/treinamento-corporativo/atendimento-ao-cliente): É um programa de formação para quem atende, adaptado ao tipo de atendimento da empresa, que define padrões e prepara a equipa para resolver reclamações e fidelizar.
+- [Vendas](https://www.dtcompany.co.za/treinamento-corporativo/vendas): É um programa de formação para equipas comerciais, adaptado ao produto e ao cliente da empresa, que dá método a todo o processo de venda.
+- [Marketing](https://www.dtcompany.co.za/treinamento-corporativo/marketing): É um programa de formação em marketing, adaptado ao sector e à dimensão da empresa, que ensina a definir o posicionamento, a comunicar e a medir resultados.
 
 ## Empresa
 
 - [Página inicial](https://www.dtcompany.co.za/): quem somos, pilares, método, perguntas frequentes
 - [Contactos](https://www.dtcompany.co.za/contactos): morada, email e mapa
 - [Pedido de cotação](https://www.dtcompany.co.za/pedido-de-cotacao): formulário para pedir cotação ou avaliação inicial
-- [Parceiros](https://www.dtcompany.co.za/parceiros): a contabilista certificada, o advogado parceiro, os consultores ambientais registados e a equipa tecnológica própria
+- [Parceiros](https://www.dtcompany.co.za/parceiros): como trabalhamos com as equipas de tecnologia e de marketing da Kingdom, e como indicar clientes ou criar uma parceria institucional
 
 ## Recursos gratuitos
 
 - [Ferramentas gratuitas](https://www.dtcompany.co.za/ferramentas-gratuitas): diagnóstico por pilar, autoavaliação de compliance e verificação rápida de um fornecedor
-- [Checklist para preparar uma inspecção fiscal](https://www.dtcompany.co.za/materiais-gratuitos/checklist-inspeccao-fiscal): Os documentos a reunir e os passos a organizar antes e durante uma inspecção da Autoridade Tributária.
 - [Checklist de verificação de um fornecedor](https://www.dtcompany.co.za/materiais-gratuitos/checklist-due-diligence-fornecedor): O que confirmar sobre um fornecedor ou parceiro antes de assinar um contrato ou fazer um pagamento.
-- [Guia dos documentos para abrir uma empresa](https://www.dtcompany.co.za/materiais-gratuitos/guia-documentos-abrir-empresa): Os documentos a preparar e a ordem das etapas para registar e licenciar uma empresa.
 
 ## Blog
 
-- [Certidão de quitação: porque decide concursos e pagamentos do Estado](https://www.dtcompany.co.za/blog/certidao-de-quitacao-concursos-publicos): Sem a certidão de quitação, uma empresa pode ficar fora de um concurso público ou ver um pagamento parado. O que é, porque costuma falhar e como organizar o pedido a tempo.
 - [Porque é que bancos, financiadores e clientes pedem um programa de compliance](https://www.dtcompany.co.za/blog/porque-financiadores-pedem-programa-de-compliance): Questionários anticorrupção, perguntas sobre o canal de denúncia, pedidos de políticas escritas. Porque chegam cada vez mais cedo às empresas moçambicanas e o que é preciso ter para responder.
 
 ## Opcional

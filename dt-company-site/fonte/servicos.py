@@ -170,9 +170,9 @@ def pagina(s, todos):
   </div>
 </section>
 
-{formatos(area)}{fronteira(s)}
+{fronteira(s)}
 
-<section class="seccao marfim serv-fases" aria-labelledby="t-fases">
+{formatos(area, ' marfim')}<section class="seccao{'' if area.get('formatos') else ' marfim'} serv-fases" aria-labelledby="t-fases">
   <div class="moldura">
     <div class="cabeca">
       <p class="contexto">Como trabalhamos</p>
@@ -183,7 +183,7 @@ def pagina(s, todos):
   </div>
 </section>
 
-<section class="seccao serv-fecho" aria-labelledby="t-fecho">
+<section class="seccao{' marfim' if area.get('formatos') else ''} serv-fecho" aria-labelledby="t-fecho">
   <div class="moldura serv-duas">
     <div>
       <p class="contexto">O custo de esperar</p>
