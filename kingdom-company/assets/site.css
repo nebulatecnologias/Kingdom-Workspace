@@ -149,6 +149,11 @@ a.pcol-t:hover { color: var(--violeta); }
 .h1-b { color: var(--lavanda); }
 .abertura-desc { margin-top: 28px; max-width: 62ch; font-size: 1.1875rem; line-height: 1.55; color: var(--claro-1); }
 .abertura .acoes { margin-top: 36px; }
+@media (min-width: 1024px) {
+  .abertura-inicio .abertura-texto { margin-inline: auto; text-align: center; }
+  .abertura-inicio .abertura-desc { margin-inline: auto; }
+  .abertura-inicio .acoes { justify-content: center; }
+}
 .faixa-areas { position: relative; z-index: 1; border-top: 1px solid rgba(255, 255, 255, .12); }
 .faixa-areas ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: calc(-1 * var(--dentro)); }
 .faixa-areas li + li { border-left: 1px solid rgba(255, 255, 255, .12); }
