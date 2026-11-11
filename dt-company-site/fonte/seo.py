@@ -63,9 +63,9 @@ def organizacao():
         'url': f'{D}/',
         'logo': {'@type': 'ImageObject', 'url': f'{D}/assets/marca/dt-company-logo.png', 'width': 512, 'height': 512},
         'image': f'{D}{CFG["imagem"]}',
-        'description': 'Empresa de Business Advisory & Development em Moçambique. Organiza, prepara e verifica o que as empresas '
-                       'precisam para cumprir regras, aceder a financiamento e operar no país, em compliance e governança, tax, '
-                       'incorporação e consultoria ESG, com uma contabilista certificada, um advogado e consultores ambientais parceiros.',
+        'description': 'Empresa de Business Advisory & Development em Moçambique. Ajuda as empresas a decidir com estratégia, '
+                       'a organizar as regras e os controlos que protegem o negócio e a preparar as equipas que o fazem crescer, '
+                       'em três pilares: consultoria estratégica, compliance e governança corporativa, e treinamento corporativo.',
         'slogan': 'Confiança para investir, operar e crescer em Moçambique',
         'address': {'@type': 'PostalAddress', 'streetAddress': 'Edifício Millenium Park, Av. Vladimir Lenine, n.º 174',
                     'addressLocality': 'Maputo', 'postalCode': '1106', 'addressCountry': 'MZ'},
@@ -279,16 +279,17 @@ def redes(t):
 
 
 def llms():
-    fases = 'diagnóstico, plano de trabalho, execução e entregas, entregáveis e relatório, formação da equipa e controlo contínuo'
+    fases = 'diagnóstico, plano de trabalho, execução e entregas, entregáveis e relatório, formação da equipa e continuidade'
     l = ['# DT Company', '',
-         '> DT Company — Business Advisory & Development, com sede em Maputo, Moçambique. Organiza, prepara e verifica o que as '
-         'empresas precisam para cumprir regras, aceder a financiamento e operar em Moçambique, em quatro pilares: compliance e '
-         'governança, tax, incorporação e consultoria ESG.', '',
+         '> DT Company — Business Advisory & Development, com sede em Maputo, Moçambique. Ajuda as empresas a decidir com estratégia, '
+         'a organizar as regras e os controlos que protegem o negócio e a preparar as equipas que o fazem crescer, em três pilares: '
+         'consultoria estratégica, compliance e governança corporativa, e treinamento corporativo.', '',
          'Factos principais:',
-         '- Serve empresas nacionais e estrangeiras em Moçambique: fornecedores do Estado, empresas com financiamento internacional, investidores e empresas a instalar-se no país.',
-         f'- 12 serviços em 4 pilares, com o mesmo método em seis fases: {fases}.',
-         '- Fronteiras claras: a análise fiscal e a relação com a Autoridade Tributária são da contabilista certificada parceira; as decisões jurídicas do advogado parceiro; os estudos de impacto ambiental de consultores ambientais registados. A DT Company organiza a documentação, prepara os dossiers, verifica e controla prazos, como único interlocutor do cliente.',
-         '- Vários serviços continuam por avença depois da entrega: compliance officer externo, monitorização de fornecedores, secretariado societário, controlo de prazos fiscais e gestão de expatriados.',
+         '- Serve empresas em Moçambique: empreendedores e PME, empresas que pedem crédito ou captam investimento, empresas que concorrem a grandes contratos e empresas que querem formar as suas equipas.',
+         f'- {len(SERVICOS)} serviços em {len(AREAS)} pilares, com o mesmo método em seis fases: {fases}.',
+         '- Fronteiras claras: a DT Company não presta serviços jurídicos nem de contabilidade. Quando um tema o exige, indica-o por escrito e o cliente contrata directamente o profissional habilitado. Os relatórios são factuais: dizem o que foi confirmado e o que não foi.',
+         '- Os treinamentos têm avaliação antes e depois, registo de presenças, certificados de participação e relatório final. Formatos: in-company, cursos abertos e seminários, Programa de Desenvolvimento de Lideranças, formação online e Plano Anual de Formação.',
+         '- Vários serviços continuam por avença depois da entrega: compliance officer externo, monitorização de fornecedores, secretariado interno e Plano Anual de Formação.',
          '- Cada proposta é feita à medida e por escrito: o site não publica preços. Os dados dos clientes são confidenciais: o site não publica casos de clientes.',
          f'- Pedido de cotação ou avaliação inicial: {D}/pedido-de-cotacao']
     if EMAIL or TELEFONES:
@@ -303,7 +304,7 @@ def llms():
     l += ['## Empresa', '', f'- [Página inicial]({D}/): quem somos, pilares, método, perguntas frequentes',
           f'- [Contactos]({D}/contactos): morada, email e mapa',
           f'- [Pedido de cotação]({D}/pedido-de-cotacao): formulário para pedir cotação ou avaliação inicial',
-          f'- [Parceiros]({D}/parceiros): a contabilista certificada, o advogado parceiro, os consultores ambientais registados e a equipa tecnológica própria', '',
+          f'- [Parceiros]({D}/parceiros): como trabalhamos com as equipas de tecnologia e de marketing da Kingdom, e como indicar clientes ou criar uma parceria institucional', '',
           '## Recursos gratuitos', '',
           f'- [Ferramentas gratuitas]({D}/ferramentas-gratuitas): diagnóstico por pilar, autoavaliação de compliance e verificação rápida de um fornecedor']
     for m in json.loads((SITE / 'fonte' / 'materiais.json').read_text(encoding='utf-8'))['materiais']:

@@ -1,76 +1,59 @@
 {
- "origem": "Pilares da DT Company: textos escritos a partir das fichas e das regras do playbook",
+ "origem": "Pilares da DT Company (Playbook de vendas, versão 2.0): textos escritos a partir das fichas e das regras do playbook",
  "areas": [
   {
-   "slug": "compliance-e-governanca",
-   "nome": "Compliance e Governança",
-   "resumo": "Estruturas de integridade e governança que sustentam contratos, crédito e investimento.",
-   "pitch": "Organizamos as regras, os controlos e as decisões de que a empresa precisa para provar que actua com integridade. Preparamos o programa de compliance, verificamos quem está do outro lado antes de assinar e organizamos a forma como a empresa decide, para que clientes, bancos e investidores confiem nela.",
-   "fronteira": "Acordos parassociais, estatutos e documentos sucessórios são redigidos pelo advogado parceiro. Quando há uma decisão jurídica, a referência é o advogado parceiro.",
-   "parceiros": [
-    "Advogado parceiro"
+   "slug": "consultoria-estrategica",
+   "nome": "Consultoria Estratégica",
+   "curto": "Consultoria Estratégica",
+   "resumo": "Planos, prioridades e decisões preparados com método, para crescer com rumo e com números que se defendem.",
+   "pitch": "Ajudamos donos e directores a decidir com estratégia. Preparamos o plano de negócios que bancos e investidores conseguem avaliar, conduzimos a direcção na definição das prioridades e metas do ano e analisamos consigo as decisões importantes antes de avançar.",
+   "fronteira": "É consultoria de gestão. A DT Company não presta serviços jurídicos nem de contabilidade: decisões com efeitos jurídicos ou fiscais são confirmadas pelo advogado ou pelo contabilista da empresa, contratados directamente por ela.",
+   "urgencia": [
+    "Decidir sem método sai mais caro do que preparar a decisão.",
+    "Um financiamento com prazo, um ano que começa ou uma decisão grande não esperam por um plano feito à pressa."
    ],
+   "seo": [
+    "Consultoria Estratégica para Empresas em Moçambique",
+    "Plano de negócios, planeamento estratégico e aconselhamento empresarial (advisory) para empresas em Moçambique. Peça uma cotação à medida."
+   ]
+  },
+  {
+   "slug": "compliance-e-governanca",
+   "nome": "Compliance e Governança Corporativa",
+   "curto": "Compliance e Governança",
+   "resumo": "Regras, controlos e decisões organizados para prevenir fraudes e sustentar contratos, crédito e investimento.",
+   "pitch": "Organizamos as regras, os controlos e as decisões de que a empresa precisa para provar que actua com integridade. Preparamos o programa de compliance, verificamos quem está do outro lado antes de assinar, apuramos denúncias e desvios com método e organizamos a forma como a empresa decide.",
+   "fronteira": "A DT Company não presta serviços jurídicos nem de contabilidade. Os relatórios são factuais e não concluem sobre a validade jurídica de negócios ou documentos: estatutos, acordos entre sócios, registos, processos disciplinares e queixas às autoridades são tratados pelo advogado da empresa, contratado directamente por ela.",
    "urgencia": [
     "Sem regras que se possam provar, a confiança fica por demonstrar.",
     "Clientes, bancos e investidores pedem cada vez mais provas de integridade antes de assinar ou financiar."
    ],
    "seo": [
     "Compliance e Governança Corporativa em Moçambique",
-    "Programa de compliance, due diligence de terceiros e governança corporativa e familiar para empresas em Moçambique. Peça uma cotação à medida."
+    "Programa de compliance, due diligence de terceiros, apuramento de denúncias e governança corporativa e familiar para empresas em Moçambique."
    ]
   },
   {
-   "slug": "tax",
-   "nome": "Tax",
-   "resumo": "Benefícios aproveitados, situação regularizada e inspecções preparadas.",
-   "pitch": "Organizamos a documentação, controlamos os prazos e preparamos os dossiers fiscais da empresa, com a contabilista certificada parceira. A empresa aproveita os benefícios do investimento, regulariza a situação e enfrenta uma inspecção preparada.",
-   "fronteira": "A análise fiscal, as declarações e a relação com a Autoridade Tributária são da contabilista certificada parceira. A DT Company organiza a documentação, controla os prazos e prepara os dossiers.",
-   "parceiros": [
-    "Contabilista certificada parceira"
+   "slug": "treinamento-corporativo",
+   "nome": "Treinamento Corporativo",
+   "curto": "Treinamento Corporativo",
+   "resumo": "Chefias, atendimento, vendas e marketing: equipas formadas com programas à medida e resultados medidos.",
+   "pitch": "Formamos as equipas que fazem a empresa crescer: quem lidera, quem atende, quem vende e quem comunica. Cada programa é adaptado à empresa, usa situações reais e tem avaliação antes e depois, registo de presenças, certificados de participação e um relatório final com resultados e recomendações.",
+   "fronteira": "Os participantes recebem certificados de participação, não uma certificação profissional reconhecida. Se a sua empresa precisa dela, diga-nos no pedido de cotação.",
+   "formatos": [
+    ["In-company", "À medida, na sua empresa, com situações reais da equipa."],
+    ["Cursos abertos e seminários", "Com calendário trimestral, para participantes de várias empresas."],
+    ["Programa de Desenvolvimento de Lideranças", "De três a seis meses, com plano de desenvolvimento individual e mentoria."],
+    ["Formação online", "Módulos gravados, testes e certificados de participação automáticos, com a tecnologia da Kingdom."],
+    ["Plano Anual de Formação", "Por avença: levantamento de necessidades, plano anual, organização das acções e relatório anual com indicadores."]
    ],
    "urgencia": [
-    "Uma pendência fiscal hoje pode ser um concurso perdido amanhã.",
-    "Prazos falhados somam multas e podem fechar o acesso a concursos, pagamentos e benefícios."
+    "Uma equipa sem preparação custa clientes, vendas e pessoas todos os meses.",
+    "Chefias sem preparação, atendimento sem padrões e vendas sem método pesam nos resultados de cada mês que passa."
    ],
    "seo": [
-    "Benefícios Fiscais, Quitação e Inspecções em Moçambique",
-    "Benefícios fiscais e aduaneiros ao investimento, certidão de quitação e preparação para inspecções fiscais em Moçambique, com a contabilista certificada parceira."
-   ]
-  },
-  {
-   "slug": "incorporacao",
-   "nome": "Incorporação",
-   "resumo": "Entrada no mercado e mobilidade de quadros, organizadas de ponta a ponta.",
-   "pitch": "Ajudamos empresas moçambicanas e estrangeiras a instalar-se pela ordem certa. Mapeamos requisitos e custos, preparamos a documentação dos registos, das licenças e dos pedidos dos quadros estrangeiros e controlamos os prazos.",
-   "fronteira": "Estatutos à medida e acordos parassociais são remetidos ao advogado parceiro. Quando há uma decisão jurídica, por exemplo sobre a forma de entrada ou um terreno, a referência é o advogado parceiro.",
-   "parceiros": [
-    "Advogado parceiro"
-   ],
-   "urgencia": [
-    "Cada mês a abrir a empresa é um mês sem facturar.",
-    "Começar pela ordem certa poupa meses de idas e voltas e evita técnicos parados à espera de documentos."
-   ],
-   "seo": [
-    "Abrir Empresa e Investir em Moçambique",
-    "Constituição e licenciamento de empresas, instalação de empresas estrangeiras e gestão de quadros estrangeiros em Moçambique: registos, licenças, vistos e DIRE."
-   ]
-  },
-  {
-   "slug": "consultoria-esg",
-   "nome": "Consultoria ESG",
-   "resumo": "Sistemas e evidências que libertam financiamento e mantêm clientes internacionais.",
-   "pitch": "Preparamos os sistemas e as evidências ambientais e sociais que financiadores e clientes internacionais exigem. Montamos o sistema de gestão, respondemos aos questionários ESG e organizamos a relação com as comunidades, para que a empresa prove as boas práticas que tem.",
-   "fronteira": "Os estudos de impacto ambiental são elaborados por consultores ambientais registados, coordenados pela DT Company.",
-   "parceiros": [
-    "Consultores ambientais registados"
-   ],
-   "urgencia": [
-    "Sem evidências ESG, o financiamento e os clientes internacionais esperam.",
-    "Financiadores e compradores internacionais pedem provas antes de desembolsar ou de comprar."
-   ],
-   "seo": [
-    "Consultoria ESG para Empresas em Moçambique",
-    "Sistema de gestão ambiental e social para financiamento, avaliações ESG de clientes internacionais e mecanismo de queixas para projectos em Moçambique."
+    "Treinamento Corporativo para Empresas em Moçambique",
+    "Formação in-company em liderança, atendimento ao cliente, vendas e marketing para empresas em Moçambique, com avaliação e relatório final."
    ]
   }
  ]

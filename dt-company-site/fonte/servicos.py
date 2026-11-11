@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera as 12 páginas de serviço (/<pilar>/<serviço>), as 4 páginas de pilar (/<pilar>), o pedido de cotação,
+"""Gera as 11 páginas de serviço (/<pilar>/<serviço>), as 3 páginas de pilar (/<pilar>), o pedido de cotação,
 as páginas legais (/privacidade, /termos) e a 404 do site DT Company, a partir de fonte/servicos.json,
 fonte/areas.json e fonte/<página>.html.
 
@@ -8,8 +8,10 @@ Uso (na pasta dt-company-site):  python3 fonte/servicos.py
 O cabeçalho, o rodapé e o <head> vêm de contactos.html, para ficarem iguais ao resto do site.
 O conteúdo vem das fichas do Playbook de vendas da DT Company. O site não mostra preços:
 cada proposta é feita à medida. Não mostra casos de clientes: os dados dos clientes são confidenciais. Grafia anterior ao Acordo Ortográfico de 1990, como no playbook.
-Regras de comunicação do playbook: organizamos, preparamos, verificamos, controlamos prazos;
-nunca «acompanhamos processos», «representamos», «parecer», «consultoria fiscal» nem «garantimos».
+Regras de comunicação do playbook (versão 2.0): organizamos, preparamos, verificamos, informamos, apoiamos, formamos;
+nunca «mandato», «parecer», «consulta jurídica», «assessoria» ou «aconselhamento jurídico», «garantimos» (sobre resultados legais),
+«auditoria» (fora de sistemas de gestão), «jurista» nem parceiros advogados ou contabilistas: a DT Company não presta serviços
+jurídicos nem de contabilidade e não tem parceiros nessas áreas. Formação: só «certificados de participação».
 """
 import html
 import json
@@ -21,14 +23,14 @@ SITE = Path(__file__).resolve().parent.parent
 E = html.escape
 DADOS = json.loads((SITE / 'fonte' / 'servicos.json').read_text(encoding='utf-8'))['servicos']
 AREAS = json.loads((SITE / 'fonte' / 'areas.json').read_text(encoding='utf-8'))['areas']
-ICONE = {'compliance-e-governanca': 'i-documento', 'tax': 'i-grafico', 'incorporacao': 'i-instituicao', 'consultoria-esg': 'i-equipa'}
+ICONE = {'consultoria-estrategica': 'i-grafico', 'compliance-e-governanca': 'i-documento', 'treinamento-corporativo': 'i-capelo'}
 FASES = [
     ('Diagnóstico', 'Percebemos o desafio, o contexto e o que a empresa precisa de resolver.'),
     ('Plano de trabalho', 'Definimos o âmbito, as fases, os prazos e os responsáveis, por escrito.'),
-    ('Execução e entregas', 'Preparamos e entregamos a documentação, com os parceiros certificados quando é preciso.'),
-    ('Entregáveis e relatório', 'Entregamos os instrumentos e um relatório factual do que foi feito e do que falta.'),
+    ('Execução e entregas', 'Executamos o plano por fases e entregamos o trabalho de cada uma, dentro dos prazos acordados.'),
+    ('Entregáveis e relatório', 'Entregamos o que fica na empresa e um relatório factual do que foi feito e do que falta.'),
     ('Formação da equipa', 'Preparamos a sua equipa para usar o que entregámos no dia a dia.'),
-    ('Controlo contínuo', 'Com a avença, controlamos prazos e obrigações depois da entrega.'),
+    ('Continuidade', 'Com a avença, o trabalho continua depois da entrega, com a mesma equipa.'),
 ]
 SETA = '<svg aria-hidden="true"><use href="#i-seta"/></svg>'
 
@@ -54,11 +56,10 @@ def proposta(texto):
 
 
 def fronteira(s):
-    parceiros = ''.join(f'<li>{E(p)}</li>' for p in s['parceiros'])
     avenca = f'''<div class="serv-avenca">
       <p class="contexto">Depois da entrega</p>
-      <h2 id="t-avenca">Controlo contínuo por avença</h2>
-      <p class="entrada">{E(s["avenca"].rstrip("."))}. Serve para que a empresa não volte a ficar em falta depois do mandato.</p>
+      <h2 id="t-avenca">Continuidade por avença</h2>
+      <p class="entrada">{E(s["avenca"].rstrip("."))}. O trabalho continua depois da entrega, com a mesma equipa.</p>
     </div>''' if s.get('avenca') else ''
     return f'''<section class="seccao serv-fronteira" aria-labelledby="t-fronteira">
   <div class="moldura serv-duas">
@@ -66,14 +67,33 @@ def fronteira(s):
       <p class="contexto">Fronteiras claras</p>
       <h2 id="t-fronteira">Onde acaba o nosso trabalho</h2>
       <p class="entrada">{E(s["fronteira"])}</p>
-      <ul class="serv-parceiros" aria-label="Parceiros envolvidos">{parceiros}</ul>
     </div>
     {avenca}
   </div>
 </section>'''
 
 
+def formatos(a, fundo=''):
+    """Formatos do pilar (só o Treinamento Corporativo os tem, em fonte/areas.json)."""
+    if not a.get('formatos'):
+        return ''
+    itens = ''.join(f'<li><span>{k:02d}</span><h3>{E(n)}</h3><p>{E(t)}</p></li>' for k, (n, t) in enumerate(a['formatos'], 1))
+    return f'''<section class="seccao{fundo}" aria-labelledby="t-formatos">
+  <div class="moldura">
+    <div class="cabeca">
+      <p class="contexto">Formatos</p>
+      <h2 id="t-formatos">Na sua empresa, em sala aberta ou online</h2>
+      <p class="entrada">Escolhemos consigo o formato que serve a equipa. Todos têm avaliação antes e depois, registo de presenças, certificados de participação e relatório final.</p>
+    </div>
+    <ol class="serv-fases-lista serv-formatos">{itens}</ol>
+  </div>
+</section>
+
+'''
+
+
 def pagina(s, todos):
+    area = next(a for a in AREAS if a['slug'] == s['area_slug'])
     rel = [x for x in todos if x['area_slug'] == s['area_slug'] and x['slug'] != s['slug']]
     url = f'/{s["area_slug"]}/{s["slug"]}'
     urg_t, urg_x = s['urgencia']
@@ -150,13 +170,13 @@ def pagina(s, todos):
   </div>
 </section>
 
-{fronteira(s)}
+{formatos(area)}{fronteira(s)}
 
 <section class="seccao marfim serv-fases" aria-labelledby="t-fases">
   <div class="moldura">
     <div class="cabeca">
       <p class="contexto">Como trabalhamos</p>
-      <h2 id="t-fases">Do diagnóstico ao controlo contínuo</h2>
+      <h2 id="t-fases">Do diagnóstico à continuidade</h2>
       <p class="entrada">O mesmo método em todos os serviços, com um só interlocutor e relatórios factuais em cada fase.</p>
     </div>
     <ol class="serv-fases-lista">{fases}</ol>
@@ -195,7 +215,6 @@ def pagina_area(a, todos):
     escolher = ''.join(f'''<li><ul class="area-sinais">{"".join(f"<li>{E(d)}</li>" for d in s["dores"][:2])}</ul><a href="/{s["area_slug"]}/{s["slug"]}"><span>Precisa de</span><b>{E(s["nome"])}</b>{SETA}</a></li>''' for s in servs)
     rels = ''.join(f'''<li><a href="/{x["slug"]}"><span class="serv-rel-ico" aria-hidden="true"><svg><use href="#{ICONE[x["slug"]]}"/></svg></span><b>{E(x["nome"])}</b><span>{E(x["resumo"])}</span><i>Ver o pilar {SETA}</i></a></li>''' for x in outras)
     fases = ''.join(f'<li><span>{k:02d}</span><h3>{E(n)}</h3><p>{E(t)}</p></li>' for k, (n, t) in enumerate(FASES, 1))
-    parceiros = ''.join(f'<li>{E(x)}</li>' for x in a['parceiros'])
     ld = {"@context": "https://schema.org", "@type": "Service", "name": a['nome'], "description": a['resumo'], "areaServed": ["MZ"],
           "provider": {"@type": "Organization", "name": "DT Company"},
           "hasOfferCatalog": {"@type": "OfferCatalog", "name": a['nome'], "itemListElement": [
@@ -227,7 +246,7 @@ def pagina_area(a, todos):
       <h2 id="t-servs">{len(servs)} serviços, um só interlocutor</h2>
       <p class="entrada">Cada serviço resolve um desafio concreto. Quando faz sentido, juntamo-los numa só proposta.</p>
     </div>
-    <ul class="area-servs">{cartoes}</ul>
+    <ul class="area-servs area-servs-{len(servs)}">{cartoes}</ul>
   </div>
 </section>
 
@@ -242,7 +261,7 @@ def pagina_area(a, todos):
   </div>
 </section>
 
-<section class="seccao marfim serv-fronteira" aria-labelledby="t-fronteira">
+{formatos(a, ' marfim')}<section class="seccao{'' if a.get('formatos') else ' marfim'} serv-fronteira" aria-labelledby="t-fronteira">
   <div class="moldura serv-duas">
     <div>
       <p class="contexto">Fronteiras claras</p>
@@ -250,23 +269,22 @@ def pagina_area(a, todos):
     </div>
     <div>
       <p class="entrada">{E(a["fronteira"])}</p>
-      <ul class="serv-parceiros" aria-label="Parceiros envolvidos">{parceiros}</ul>
     </div>
   </div>
 </section>
 
-<section class="seccao serv-fases" aria-labelledby="t-fases">
+<section class="seccao{' marfim' if a.get('formatos') else ''} serv-fases" aria-labelledby="t-fases">
   <div class="moldura">
     <div class="cabeca">
       <p class="contexto">Como trabalhamos</p>
-      <h2 id="t-fases">Do diagnóstico ao controlo contínuo</h2>
+      <h2 id="t-fases">Do diagnóstico à continuidade</h2>
       <p class="entrada">O mesmo método em todos os serviços, com um só interlocutor e relatórios factuais em cada fase.</p>
     </div>
     <ol class="serv-fases-lista">{fases}</ol>
   </div>
 </section>
 
-<section class="seccao marfim serv-fecho" aria-labelledby="t-fecho">
+<section class="seccao{'' if a.get('formatos') else ' marfim'} serv-fecho" aria-labelledby="t-fecho">
   <div class="moldura serv-duas">
     <div>
       <p class="contexto">O custo de esperar</p>
@@ -298,7 +316,7 @@ def pagina_cotacao(todos):
         ('Proposta à medida', 'Recebe por escrito o âmbito, os entregáveis, o prazo e o investimento.'),
     ]
     lista = ''.join(f'<li><span>{k:02d}</span><div><h3>{E(n)}</h3><p>{E(x)}</p></div></li>' for k, (n, x) in enumerate(passos, 1))
-    ld = {"@context": "https://schema.org", "@type": "ContactPage", "name": "Pedir cotação", "url": f"https://www.kingdomcompany.co.za{url}"}
+    ld = {"@context": "https://schema.org", "@type": "ContactPage", "name": "Pedir cotação", "url": f"https://www.dtcompany.co.za{url}"}
     main = f'''<main id="conteudo" class="pag-servico pag-cotacao">
 
 <section class="abertura abertura-curta" aria-labelledby="t-cotacao">
@@ -329,11 +347,11 @@ def pagina_cotacao(todos):
       </div>
       <div class="cot-campo">
         <label for="c-fase">Em que fase está o negócio?</label>
-        <select id="c-fase" name="fase"><option value="">Escolha uma opção</option><option>Ideia ou projecto ainda por lançar</option><option>Empresa a começar, com menos de 2 anos</option><option>Empresa estabelecida</option><option>Empresa em expansão</option><option>Empresa a reestruturar ou a reposicionar-se</option><option>Empresa estrangeira a instalar-se em Moçambique</option></select>
+        <select id="c-fase" name="fase"><option value="">Escolha uma opção</option><option>Ideia ou projecto ainda por lançar</option><option>Empresa a começar, com menos de 2 anos</option><option>Empresa estabelecida</option><option>Empresa em expansão</option><option>Empresa a reestruturar ou a reposicionar-se</option></select>
       </div>
       <div class="cot-campo">
         <label for="c-desafio">O que quer resolver? <span class="cot-obrig" aria-hidden="true">*</span></label>
-        <textarea id="c-desafio" name="desafio" rows="5" required aria-describedby="c-desafio-ajuda c-desafio-erro" placeholder="Por exemplo: vamos concorrer a um concurso público em março e as nossas propostas técnicas perdem pontos."></textarea>
+        <textarea id="c-desafio" name="desafio" rows="5" required aria-describedby="c-desafio-ajuda c-desafio-erro" placeholder="Por exemplo: vamos pedir crédito ao banco em março e precisamos de um plano de negócios que responda às perguntas do banco."></textarea>
         <p class="cot-ajuda" id="c-desafio-ajuda">Duas ou três frases chegam. Diga o que quer resolver e porquê agora.</p>
         <p class="cot-erro" id="c-desafio-erro" aria-live="polite"></p>
       </div>
@@ -413,7 +431,7 @@ def pagina_legal(slug, titulo, desc, data):
     seccoes = re.findall(r'<section id="([a-z-]+)">\s*<h2>(.*?)</h2>', corpo)
     indice = ''.join(f'<li><a href="#{i}">{t}</a></li>' for i, t in seccoes)
     url = f'/{slug}'
-    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": titulo, "url": f"https://www.kingdomcompany.co.za{url}", "dateModified": data}
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": titulo, "url": f"https://www.dtcompany.co.za{url}", "dateModified": data}
     main = f'''<main id="conteudo" class="pag-servico pag-legal">
 
 <section class="abertura abertura-curta" aria-labelledby="t-legal">
@@ -511,8 +529,8 @@ def main():
         ('privacidade', 'Política de privacidade', 'Que dados recolhemos neste site, para que os usamos e como pode pedir para os ver, corrigir ou apagar.',
          'Política de Privacidade · DT Company', 'Que dados a DT Company recolhe no site, para que os usa, com quem os partilha e quais são os seus direitos.'),
         ('termos', 'Termos de utilização', 'As regras para usar o site da DT Company e os seus conteúdos.',
-         'Termos de Utilização do Site · DT Company', 'Termos de utilização do site da DT Company: informação sobre os serviços, fronteiras com os parceiros, propriedade intelectual e lei aplicável.')]:
-        url, corpo, _ = pagina_legal(slug, titulo, desc, '2026-11-10')
+         'Termos de Utilização do Site · DT Company', 'Termos de utilização do site da DT Company: informação sobre os serviços, o que o site não é, propriedade intelectual e lei aplicável.')]:
+        url, corpo, _ = pagina_legal(slug, titulo, desc, '2026-11-11')
         escreve(antes, depois, url, seo_t, seo_d, None, corpo, SITE / f'{slug}.html')
     cab = re.sub(r'<title>.*?</title>', '<title>Página não encontrada · DT Company</title>', antes)
     cab = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Esta página não existe no site da DT Company.">', cab)

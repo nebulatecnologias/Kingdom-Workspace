@@ -1,1 +1,15 @@
-{"cleanUrls":true,"trailingSlash":false}
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/tax", "destination": "/", "permanent": true },
+    { "source": "/tax/:path*", "destination": "/", "permanent": true },
+    { "source": "/incorporacao", "destination": "/", "permanent": true },
+    { "source": "/incorporacao/:path*", "destination": "/", "permanent": true },
+    { "source": "/consultoria-esg", "destination": "/compliance-e-governanca", "permanent": true },
+    { "source": "/consultoria-esg/:path*", "destination": "/compliance-e-governanca", "permanent": true },
+    { "source": "/materiais-gratuitos/checklist-inspeccao-fiscal", "destination": "/materiais-gratuitos", "permanent": true },
+    { "source": "/materiais-gratuitos/guia-documentos-abrir-empresa", "destination": "/materiais-gratuitos", "permanent": true },
+    { "source": "/blog/certidao-de-quitacao-concursos-publicos", "destination": "/blog", "permanent": true }
+  ]
+}

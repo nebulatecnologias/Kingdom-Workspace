@@ -17,7 +17,7 @@ import markdown
 RAIZ = Path(__file__).resolve().parent.parent
 BLOG = RAIZ / 'blog'
 MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
-CAPAS = {'Compliance e Governança': 'capa-negocios', 'Tax': 'capa-tecnologia', 'Incorporação': 'capa-ia', 'ESG': 'capa-areas'}
+CAPAS = {'Consultoria Estratégica': 'capa-tecnologia', 'Compliance e Governança': 'capa-negocios', 'Treinamento Corporativo': 'capa-ia'}
 SETA = '<svg aria-hidden="true"><use href="#i-seta"/></svg>'
 
 
@@ -135,7 +135,7 @@ def main():
     cats = [c for c in CAPAS if any(a['categoria'] == c for a in artigos)]
     filtros = ''.join(f'<button type="button" data-filtro="{c}" aria-pressed="false">{c}</button>' for c in cats)
     main_html = '<main id="conteudo">\n\n' + abertura(
-        'Blog.', 'Compliance, tax, incorporação e ESG em Moçambique.',
+        'Blog.', 'Estratégia, compliance e equipas em Moçambique.',
         'Artigos para quem gere empresas: o que a regra pede, o que costuma falhar e o que pode organizar já.') + f'''
 <section class="seccao" aria-labelledby="t-artigos">
   <div class="moldura">
@@ -146,7 +146,7 @@ def main():
 </section>
 
 </main>'''
-    (BLOG / 'index.html').write_text(pagina(topo, rodape, 'Blog de Compliance, Tax e ESG · DT Company', 'Artigos sobre compliance, governança, tax, incorporação e ESG para empresas em Moçambique, escritos pela equipa da DT Company.', main_html), encoding='utf-8')
+    (BLOG / 'index.html').write_text(pagina(topo, rodape, 'Blog de Estratégia, Compliance e Formação · DT Company', 'Artigos sobre estratégia, compliance, governança e formação de equipas para empresas em Moçambique, escritos pela equipa da DT Company.', main_html), encoding='utf-8')
 
     noticias = [{k: a[k] for k in ('titulo', 'resumo', 'categoria', 'ambito', 'data') if a.get(k)} | {'link': f"/blog/{a['slug']}"} | ({'imagem': a['imagem']} if a.get('imagem') else {}) for a in artigos]
     (BLOG / 'noticias.json').write_text(json.dumps(noticias, ensure_ascii=False, indent=1), encoding='utf-8')

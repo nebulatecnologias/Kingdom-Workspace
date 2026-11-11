@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera /parceiros, /ferramentas-gratuitas, /materiais-gratuitos e um guia por material
+"""Gera /parceiros, /ferramentas-gratuitas, /materiais-gratuitos e uma página por material
 (/materiais-gratuitos/<slug>), a partir de fonte/materiais.json e dos dados dos serviços.
 
 Uso (na pasta dt-company-site), depois de fonte/servicos.py:
@@ -64,55 +64,38 @@ def cartoes(tipos):
 # ---------- Parceiros ----------
 
 def pagina_parceiros():
-    rede = [
-        ('i-grafico', 'Contabilista certificada parceira', 'Faz a análise fiscal, as declarações e a relação com a Autoridade Tributária. A DT Company organiza a documentação, controla os prazos e prepara os dossiers que ela usa.'),
-        ('i-documento', 'Advogado parceiro', 'Toma as decisões jurídicas: estatutos à medida, acordos entre sócios, contratos, terrenos e contestações. Encaminhamos o caso quando o trabalho chega a esse ponto.'),
-        ('i-equipa', 'Consultores ambientais registados', 'Fazem os estudos de impacto ambiental e social. A DT Company organiza o sistema de gestão, os registos e as evidências que o financiador pede.'),
-    ]
-    tec = [
-        ('i-alvo', 'Canal de denúncia', 'Montado pela nossa equipa e entregue pronto a usar, com o registo de cada denúncia.'),
-        ('i-calendario', 'Calendários com alertas', 'Prazos fiscais, renovações de licenças e autorizações de expatriados, com aviso antes de cada data.'),
-        ('i-documento', 'Pastas digitais', 'Os documentos da empresa organizados num só lugar, prontos para uma inspecção, um banco ou um cliente.'),
+    fronteiras = [
+        ('i-documento', 'Temas jurídicos e de contabilidade', 'A DT Company não presta serviços jurídicos nem de contabilidade. Quando um tema o exige, indicamo-lo por escrito e a empresa contrata directamente o profissional habilitado.'),
+        ('i-codigo', 'Tecnologia da Kingdom', 'O canal de denúncia e a formação online são montados com a equipa de tecnologia da Kingdom e entregues prontos a usar no dia a dia da empresa.'),
+        ('i-camara', 'Marketing e comunicação da Kingdom', 'A formação em marketing pode ser dada com a equipa de marketing e comunicação da Kingdom, com exercícios feitos sobre a marca da própria empresa.'),
     ]
     tipos = [
-        ('i-equipa', 'Indicar clientes', 'Conhece uma empresa que precisa de organizar o compliance, ficar em dia com o Estado, instalar-se em Moçambique ou responder a um financiador? Apresente-nos. Tratamos o contacto com o mesmo cuidado com que trataríamos um cliente seu.'),
-        ('i-foguete', 'Profissionais certificados', 'Contabilistas certificados, advogados, consultores ambientais registados e outros profissionais que queiram trabalhar connosco nos mandatos dos clientes, cada um na sua área.'),
-        ('i-instituicao', 'Parcerias institucionais', 'Associações empresariais, câmaras de comércio e instituições que queiram levar aos seus membros formação ou uma avaliação inicial de compliance, tax, incorporação ou ESG.'),
+        ('i-equipa', 'Indicar clientes', 'Conhece uma empresa que precisa de um plano de negócios, de organizar o compliance e a governança ou de formar as suas equipas? Apresente-nos. Tratamos o contacto com o mesmo cuidado com que trataríamos um cliente seu.'),
+        ('i-instituicao', 'Parcerias institucionais', 'Associações empresariais, câmaras de comércio e instituições que queiram levar aos seus membros seminários, cursos abertos ou uma avaliação inicial de estratégia, compliance ou formação.'),
     ]
     return f'''<main id="conteudo" class="pag-servico pag-parceiros">
 
-{abertura('t-parceiros', 'Parceiros', 'A DT Company organiza, prepara e verifica. Nas fronteiras de cada serviço trabalha com parceiros certificados, para que cada parte do trabalho fique com quem a pode assinar.')}
+{abertura('t-parceiros', 'Parceiros', 'Trabalhamos com quem partilha o nosso cuidado com o rigor e com o cliente. Dizemos por escrito, em cada proposta, o que fazemos e onde acaba o nosso trabalho.')}
 
 <section class="seccao" aria-labelledby="t-rede">
   <div class="moldura">
     <div class="cabeca">
-      <p class="contexto">A nossa rede</p>
-      <h2 id="t-rede">Parceiros certificados em cada fronteira</h2>
-      <p class="entrada">O cliente fala sempre com a DT Company. Nós coordenamos os parceiros e dizemos por escrito, em cada proposta, onde acaba o nosso trabalho e começa o deles.</p>
+      <p class="contexto">Como trabalhamos</p>
+      <h2 id="t-rede">Um só interlocutor, com fronteiras claras</h2>
+      <p class="entrada">O cliente fala sempre com a DT Company. Parte do que entregamos é tecnologia e comunicação, montadas com as equipas da Kingdom.</p>
     </div>
-    <ul class="parc-tipos">{cartoes(rede)}</ul>
+    <ul class="parc-tipos">{cartoes(fronteiras)}</ul>
   </div>
 </section>
 
-<section class="seccao marfim" aria-labelledby="t-tec">
-  <div class="moldura">
-    <div class="cabeca">
-      <p class="contexto">Equipa tecnológica própria</p>
-      <h2 id="t-tec">Ferramentas montadas por nós, prontas a usar</h2>
-      <p class="entrada">Parte do que entregamos é tecnologia. A nossa equipa monta-a e deixa-a a funcionar no dia a dia da empresa.</p>
-    </div>
-    <ul class="parc-tipos">{cartoes(tec)}</ul>
-  </div>
-</section>
-
-<section class="seccao" aria-labelledby="t-ser">
+<section class="seccao marfim" aria-labelledby="t-ser">
   <div class="moldura">
     <div class="cabeca">
       <p class="contexto">Seja nosso parceiro</p>
-      <h2 id="t-ser">Três formas de trabalharmos juntos</h2>
+      <h2 id="t-ser">Duas formas de trabalharmos juntos</h2>
       <p class="entrada">Procuramos parceiros que partilhem o nosso cuidado com o rigor, com os prazos e com o cliente.</p>
     </div>
-    <ul class="parc-tipos">{cartoes(tipos)}</ul>
+    <ul class="parc-tipos parc-tipos-2">{cartoes(tipos)}</ul>
     <div class="ajuda">
       <p><strong>Quer ser parceiro?</strong> Escreva-nos a dizer quem é e como gostaria de colaborar.</p>
       <a class="botao botao-acao" href="mailto:{EMAIL}?subject=Parceria%20com%20a%20DT%20Company">Propor uma parceria {SETA}</a>
@@ -161,7 +144,7 @@ AVALIACOES = [
             'A empresa está registada e activa, com o mesmo nome das facturas.',
             'Sabe quem são os donos reais, as pessoas que controlam a empresa.',
             'Nenhum dono ou administrador tem ligação a alguém da sua empresa.',
-            'O fornecedor apresentou a certidão de quitação fiscal.',
+            'O fornecedor apresentou os comprovativos de situação regularizada nas Finanças e no INSS.',
             'Falou com clientes anteriores do fornecedor.',
             'A conta bancária está em nome da própria empresa.',
             'O pagamento não exige um adiantamento alto antes da primeira entrega.',
@@ -245,17 +228,18 @@ def pagina_ferramentas():
 # ---------- Materiais gratuitos ----------
 
 def pagina_materiais():
+    um = len(MATERIAIS) == 1
     itens = ''.join(f'''<li><a href="/materiais-gratuitos/{m["slug"]}"><span class="area-serv-rot">{E(m["tipo"])} · {sum(len(g[1]) for g in m["grupos"])} pontos</span><h3>{E(m["titulo"])}</h3><p>{E(m["resumo"])}</p><i>Abrir o {m["tipo"].lower()} {SETA}</i></a></li>''' for m in MATERIAIS)
     return f'''<main id="conteudo" class="pag-servico pag-materiais">
 
-{abertura('t-mat', 'Materiais gratuitos', 'Checklists e guias para organizar a empresa antes de uma inspecção, de um contrato ou de um registo. Abra, use no ecrã ou guarde em PDF, sem registo.')}
+{abertura('t-mat', 'Materiais gratuitos', 'Checklists para organizar a empresa antes de um contrato ou de um pagamento. Abra, use no ecrã ou guarde em PDF, sem registo.')}
 
 <section class="seccao marfim" aria-labelledby="t-mat-lista">
   <div class="moldura">
     <div class="cabeca">
       <p class="contexto">Para usar já</p>
-      <h2 id="t-mat-lista">{len(MATERIAIS)} materiais para os momentos que pedem documentos em ordem</h2>
-      <p class="entrada">São orientações gerais. Os requisitos mudam com a actividade e com a lei: confirme os pontos fiscais com a sua contabilista certificada e os jurídicos com o seu advogado.</p>
+      <h2 id="t-mat-lista">{'Um material' if um else f'{len(MATERIAIS)} materiais'} para os momentos que pedem documentos em ordem</h2>
+      <p class="entrada">São orientações gerais. Os requisitos mudam com a actividade e com a lei: confirme as questões jurídicas com o advogado da empresa e as fiscais com o seu contabilista.</p>
     </div>
     <ul class="area-servs">{itens}</ul>
   </div>
@@ -298,7 +282,7 @@ def pagina_material(m):
     <div class="mat-texto">
       <p class="mat-progresso" data-mat-progresso aria-live="polite">0 de {k} pontos confirmados</p>
       {grupos}
-      <p class="mat-fonte">DT Company · Orientação geral, a confirmar com os profissionais certificados · {E(s["nome"])}</p>
+      <p class="mat-fonte">DT Company · Orientação geral, a confirmar com os profissionais habilitados · {E(s["nome"])}</p>
     </div>
     <aside class="cot-lado mat-lado">
       <p class="contexto">Precisa de ajuda?</p>
@@ -315,19 +299,19 @@ def pagina_material(m):
 
 def main():
     antes, depois = partes_base()
-    escreve(antes, depois, '/parceiros', 'Parceiros Certificados · DT Company',
-            'A DT Company trabalha com uma contabilista certificada, um advogado e consultores ambientais registados, e tem equipa tecnológica própria. Seja parceiro.',
+    escreve(antes, depois, '/parceiros', 'Parceiros · DT Company',
+            'Como a DT Company trabalha com as equipas de tecnologia e de marketing da Kingdom, e como pode ser parceiro: indicar clientes ou criar uma parceria institucional.',
             None, pagina_parceiros(), SITE / 'parceiros.html')
     escreve(antes, depois, '/ferramentas-gratuitas', 'Ferramentas Gratuitas de Compliance · DT Company',
-            'Ferramentas gratuitas para empresas em Moçambique: diagnóstico por pilar, autoavaliação de compliance e verificação rápida de risco de um fornecedor.',
+            'Ferramentas gratuitas para empresas em Moçambique: diagnóstico por pilar, autoavaliação de compliance e verificação rápida do risco de um fornecedor.',
             None, pagina_ferramentas(), SITE / 'ferramentas-gratuitas.html')
-    escreve(antes, depois, '/materiais-gratuitos', 'Materiais Gratuitos: Checklists e Guias · DT Company',
-            'Checklists e guias gratuitos para empresas em Moçambique: inspecção fiscal, verificação de fornecedores e documentos para abrir uma empresa.',
+    escreve(antes, depois, '/materiais-gratuitos', 'Materiais Gratuitos para Empresas · DT Company',
+            'Materiais gratuitos para empresas em Moçambique: checklist para verificar um fornecedor ou parceiro antes de assinar um contrato ou fazer um pagamento.',
             None, pagina_materiais(), SITE / 'materiais-gratuitos.html')
     for m in MATERIAIS:
         escreve(antes, depois, f'/materiais-gratuitos/{m["slug"]}', f'{m["seo"][0]} · DT Company', m['seo'][1],
                 None, pagina_material(m), SITE / 'materiais-gratuitos' / f'{m["slug"]}.html')
-    print(f'parceiros, ferramentas, materiais + {len(MATERIAIS)} guias')
+    print(f'parceiros, ferramentas, materiais + {len(MATERIAIS)} material(is)')
 
 
 if __name__ == '__main__':

@@ -1,8 +1,133 @@
 {
- "origem": "Playbook de vendas · DT Company (fichas dos serviços); fronteira, urgência e SEO escritos para o site",
+ "origem": "Playbook de vendas · DT Company, versão 2.0 (dt-company-brand/playbook/playbook.json): fichas dos serviços; rótulo, fronteira para o site, urgência e SEO escritos para o site",
  "servicos": [
   {
-   "area": "Compliance e Governança",
+   "area": "Consultoria Estratégica",
+   "area_slug": "consultoria-estrategica",
+   "nome": "Plano de Negócios",
+   "slug": "plano-de-negocios",
+   "rotulo": "Números para bancos e investidores",
+   "oque": "É um serviço de elaboração do plano de negócios, que estrutura o modelo de negócio, o mercado, a concorrência e as projecções financeiras num documento que bancos, investidores e parceiros conseguem avaliar.",
+   "problema": "Resolve a dificuldade de empreendedores e empresas que precisam de financiamento ou de validar um investimento, mas não conseguem demonstrar, com números sólidos, que o negócio é viável.",
+   "dores": [
+    "O banco ou o investidor pede um plano e não sabe por onde começar.",
+    "As projecções financeiras não resistem às primeiras perguntas.",
+    "Não sabe quanto pedir, para quê, nem em quanto tempo consegue pagar.",
+    "A ideia tem potencial, mas não é apresentada de forma convincente.",
+    "Vai investir sem ter validado o mercado, os custos e o retorno."
+   ],
+   "quem": [
+    "Empreendedores que estão a iniciar um negócio.",
+    "Empresas que vão pedir crédito bancário.",
+    "Empresas que querem captar investidores ou sócios.",
+    "Empresas que vão expandir, abrir uma nova unidade ou lançar uma linha de negócio.",
+    "Candidatos a programas de financiamento com prazo de submissão."
+   ],
+   "antes": "Uma ideia ou um projecto de expansão sem estrutura nem números que convençam quem financia.",
+   "depois": "Um plano de negócios sólido, com números que se defendem, pronto a apresentar a bancos e investidores e a orientar o crescimento.",
+   "entrega": [
+    "Análise do mercado e da concorrência.",
+    "Modelo de negócio.",
+    "Projecções financeiras.",
+    "Plano de negócios completo.",
+    "Pitch deck para investidores.",
+    "Modelo financeiro editável.",
+    "Preparação para a reunião com bancos e investidores."
+   ],
+   "fronteira": "A DT Company não presta serviços jurídicos nem de contabilidade. Quando um tema o exige, indicamo-lo por escrito e a empresa contrata directamente o profissional habilitado.",
+   "pitch": "Ajudamos empreendedores e empresas a transformar uma ideia ou um projecto de expansão num plano de negócios sólido. Estruturamos o mercado, o modelo e os números para que chegue ao banco ou ao investidor preparado para responder a todas as perguntas.",
+   "urgencia": [
+    "Sem números que se defendam, o banco ou o investidor diz não.",
+    "Os programas de financiamento têm prazos de submissão, e um plano feito à pressa não resiste às primeiras perguntas."
+   ],
+   "seo": [
+    "Plano de Negócios para Bancos e Investidores",
+    "Plano de negócios em Moçambique: mercado, modelo de negócio, projecções financeiras, pitch deck e preparação para bancos e investidores."
+   ]
+  },
+  {
+   "area": "Consultoria Estratégica",
+   "area_slug": "consultoria-estrategica",
+   "nome": "Planeamento Estratégico",
+   "slug": "planeamento-estrategico",
+   "rotulo": "Prioridades, metas e responsáveis",
+   "oque": "É um serviço de consultoria que conduz a direcção na definição das prioridades, metas e responsáveis para o ano, e transforma essas decisões num plano de acção que se consegue acompanhar.",
+   "problema": "Resolve a dificuldade de empresas que crescem ou mudam sem um rumo claro, em que a equipa trabalha muito mas sem prioridades, metas nem responsabilidades definidas.",
+   "dores": [
+    "A empresa trabalha muito, mas não sabe para onde vai.",
+    "Tudo é urgente e nada avança.",
+    "As metas ficam no papel e ninguém responde por elas.",
+    "O dono passa o dia a apagar fogos em vez de dirigir.",
+    "Sócios e directores puxam em direcções diferentes."
+   ],
+   "quem": [
+    "Empresas em crescimento que perderam o foco.",
+    "Empresas no início de um novo ano fiscal.",
+    "Empresas com vendas ou resultados estagnados.",
+    "Empresas com novos sócios, nova direcção ou uma mudança de estratégia."
+   ],
+   "antes": "Uma empresa que reage ao dia a dia, com uma equipa ocupada mas desalinhada.",
+   "depois": "Uma empresa com um rumo definido, metas claras, responsáveis por cada uma e uma direcção que acompanha os resultados.",
+   "entrega": [
+    "Diagnóstico da situação actual.",
+    "Sessões de trabalho com a direcção.",
+    "Prioridades e metas para o ano.",
+    "Plano de acção com responsáveis e prazos.",
+    "Indicadores de acompanhamento.",
+    "Reuniões de acompanhamento da execução."
+   ],
+   "fronteira": "A DT Company não presta serviços jurídicos nem de contabilidade. Quando um tema o exige, indicamo-lo por escrito e a empresa contrata directamente o profissional habilitado.",
+   "pitch": "Ajudamos a direcção a definir para onde a empresa vai e como lá chegar. Transformamos as prioridades em metas, responsáveis e um plano de acção acompanhado, para que a equipa trabalhe na mesma direcção e os resultados apareçam.",
+   "urgencia": [
+    "Cada mês sem rumo é um mês de esforço na direcção errada.",
+    "Sem prioridades, metas e responsáveis, a equipa continua ocupada e os resultados continuam por aparecer."
+   ],
+   "seo": [
+    "Planeamento Estratégico para Empresas em Moçambique",
+    "Planeamento estratégico com a direcção: prioridades, metas, responsáveis e um plano de acção acompanhado, para empresas em Moçambique."
+   ]
+  },
+  {
+   "area": "Consultoria Estratégica",
+   "area_slug": "consultoria-estrategica",
+   "nome": "Advisory (Aconselhamento Empresarial)",
+   "slug": "aconselhamento-empresarial",
+   "rotulo": "Decisões importantes, com cenários",
+   "oque": "É um serviço de aconselhamento empresarial que apoia donos e directores na análise de uma decisão importante, dos seus cenários e riscos, antes de avançar.",
+   "problema": "Resolve a dificuldade de quem tem de tomar decisões com grande impacto na empresa sem uma opinião independente e experiente com quem as discutir.",
+   "dores": [
+    "Decide sozinho, sem ninguém de confiança com quem discutir.",
+    "Tem uma decisão grande à frente e muito em jogo.",
+    "Já perdeu dinheiro por decidir com pressa ou sem informação.",
+    "Os conselhos que recebe vêm de quem tem algo a ganhar.",
+    "Adia a decisão porque não consegue ver os riscos com clareza."
+   ],
+   "quem": [
+    "Donos e sócios perante um investimento importante.",
+    "Empresas a escolher um novo sócio, parceiro ou mercado.",
+    "Directores perante uma reestruturação, uma contratação-chave ou uma mudança de modelo de negócio."
+   ],
+   "antes": "Uma decisão adiada ou tomada às cegas, com medo de errar.",
+   "depois": "Uma decisão tomada com clareza e segurança, conhecendo os cenários, os riscos e o plano B.",
+   "entrega": [
+    "Sessão para perceber a decisão e o contexto.",
+    "Análise de cenários e riscos.",
+    "Recomendação por escrito.",
+    "Sessões de acompanhamento da execução."
+   ],
+   "fronteira": "É aconselhamento de gestão. Decisões com efeitos jurídicos ou fiscais são confirmadas pelo advogado ou pelo contabilista do cliente, contratados directamente por ele.",
+   "pitch": "Ajudamos donos e directores a tomar decisões importantes com mais clareza e menos risco. Analisamos consigo os cenários e as consequências, para que avance com segurança e com um plano para o que pode correr mal.",
+   "urgencia": [
+    "Uma decisão grande tomada às cegas sai mais cara do que prepará-la.",
+    "Analisar os cenários e os riscos antes de avançar custa menos do que corrigir uma decisão já tomada."
+   ],
+   "seo": [
+    "Advisory: Aconselhamento Empresarial em Moçambique",
+    "Aconselhamento empresarial a donos e directores em Moçambique: cenários, riscos e recomendação por escrito antes de uma decisão importante."
+   ]
+  },
+  {
+   "area": "Compliance e Governança Corporativa",
    "area_slug": "compliance-e-governanca",
    "nome": "Programa de Compliance e Integridade",
    "slug": "programa-de-compliance-e-integridade",
@@ -14,7 +139,7 @@
     "Já sofreu fraudes ou pagamentos desviados, por exemplo com pedidos de mudança de NIB.",
     "Não tem regras escritas sobre ofertas, brindes ou conflitos de interesse.",
     "Não tem um canal para receber denúncias.",
-    "Não consegue provar aos parceiros que a equipa foi formada."
+    "Não consegue provar aos clientes e financiadores que a equipa foi formada."
    ],
    "quem": [
     "Empresas que concorrem a contratos com grandes clientes, multinacionais ou o Estado.",
@@ -28,14 +153,12 @@
     "Mapa de riscos de compliance e fraude.",
     "Código de conduta.",
     "Políticas: anticorrupção, conflitos de interesse, ofertas e brindes, pagamentos e mudança de NIB.",
-    "Canal de denúncia, montado pela nossa equipa tecnológica.",
-    "Formação da equipa e da direcção, com registo de presenças."
+    "Controlos anti-fraude: caixa, compras, recepção de mercadoria, stock e pagamentos.",
+    "Canal de denúncia, montado com a equipa de tecnologia da Kingdom.",
+    "Formação em ética, anticorrupção e prevenção de fraude, com registo de presenças."
    ],
    "avenca": "Compliance officer externo, com relatório mensal.",
-   "fronteira": "O canal de denúncia é montado pela nossa equipa tecnológica. Quando uma denúncia ou um risco exigir uma decisão jurídica, a referência é o advogado parceiro.",
-   "parceiros": [
-    "Advogado parceiro"
-   ],
+   "fronteira": "A DT Company não presta serviços jurídicos nem de contabilidade. Quando uma denúncia ou um risco exige uma decisão jurídica, indicamo-lo por escrito e a empresa contrata directamente o profissional habilitado.",
    "pitch": "Ajudamos empresas a organizar as regras, os controlos e a formação que clientes e financiadores exigem. Preparamos o código de conduta, as políticas e o canal de denúncia, para que a empresa reduza o risco de fraude e possa provar que actua com integridade.",
    "urgencia": [
     "Sem regras que se possam provar, o próximo cliente ou financiador pode dizer não.",
@@ -43,43 +166,38 @@
    ],
    "seo": [
     "Programa de Compliance e Integridade em Moçambique",
-    "Programa de compliance para empresas em Moçambique: código de conduta, políticas, canal de denúncia e formação. Peça uma cotação à medida."
+    "Programa de compliance para empresas em Moçambique: mapa de riscos, código de conduta, políticas, controlos anti-fraude, canal de denúncia e formação."
    ]
   },
   {
-   "area": "Compliance e Governança",
+   "area": "Compliance e Governança Corporativa",
    "area_slug": "compliance-e-governanca",
    "nome": "Due Diligence de Terceiros",
    "slug": "due-diligence-de-terceiros",
    "rotulo": "Verificação antes de assinar",
-   "oque": "É um serviço de verificação de fornecedores, parceiros, sócios, vendedores, terrenos e imóveis, antes de a empresa assinar ou pagar.",
+   "oque": "É um serviço de verificação de fornecedores, parceiros, sócios e vendedores antes de a empresa assinar ou pagar.",
    "problema": "Resolve o risco de perder dinheiro com fornecedores, parceiros, sócios ou vendedores que não são o que dizem.",
    "dores": [
     "Já pagou a um fornecedor que não entregou.",
     "Não sabe quem são os verdadeiros donos das empresas com quem negoceia.",
     "Vai assinar com um sócio ou parceiro que mal conhece.",
-    "Vai comprar um terreno ou imóvel e não sabe se os registos estão em ordem.",
     "Não tem forma de verificar a base de fornecedores ao longo do tempo."
    ],
    "quem": [
     "Empresas que vão escolher um novo fornecedor ou parceiro.",
     "Investidores e empresários que vão entrar numa sociedade.",
-    "Quem vai comprar ou arrendar um terreno ou imóvel.",
     "Empresas com muitos fornecedores e pagamentos frequentes."
    ],
    "antes": "Decisões de contratar, pagar ou comprar tomadas com base na confiança, sem verificar quem está do outro lado.",
    "depois": "Decisões tomadas com um relatório factual: o que foi confirmado, o que não foi, o nível de risco e os pontos a confirmar antes de assinar.",
    "entrega": [
-    "Relatório de verificação: existência, donos reais, ligações políticas, sanções, reputação e documentos.",
+    "Relatório de verificação: existência, sócios e beneficiários efectivos declarados, ligações políticas, sanções e reputação, com base em fontes públicas e documentos fornecidos.",
+    "Visita ao local e verificação no terreno.",
     "Classificação de risco: baixo, médio ou alto.",
-    "Lista de sinais de alerta e de pontos a confirmar antes de assinar.",
-    "Para terrenos e imóveis: relatório de verificação do DUAT, registos, titulares e ocupantes."
+    "Lista de sinais de alerta e de pontos a confirmar antes de assinar."
    ],
    "avenca": "Monitorização periódica da base de fornecedores.",
-   "fronteira": "O relatório diz o que foi confirmado e o que não foi, e classifica o risco. Quando há uma decisão jurídica, por exemplo sobre um terreno ou um contrato, a referência é o advogado parceiro.",
-   "parceiros": [
-    "Advogado parceiro"
-   ],
+   "fronteira": "Os relatórios são factuais: indicam o que foi confirmado e o que não foi, e não concluem sobre a validade jurídica de negócios ou documentos. Consultas em conservatórias e no cadastro, queixas às autoridades, processos disciplinares, acordos entre sócios, estatutos e registos são tratados pelo advogado do cliente, contratado directamente por ele.",
    "pitch": "Verificamos quem está do outro lado antes de assinar ou pagar. O relatório mostra o que foi confirmado e o que não foi, classifica o risco e lista os pontos a confirmar, para que a decisão seja tomada com informação e não só com confiança.",
    "urgencia": [
     "Depois de pagar, já é tarde para verificar.",
@@ -87,17 +205,57 @@
    ],
    "seo": [
     "Due Diligence de Terceiros em Moçambique",
-    "Due diligence de fornecedores, parceiros, sócios, terrenos e imóveis em Moçambique, com classificação de risco antes de assinar ou pagar."
+    "Due diligence de fornecedores, parceiros, sócios e vendedores em Moçambique, com relatório factual e classificação de risco antes de assinar ou pagar."
    ]
   },
   {
-   "area": "Compliance e Governança",
+   "area": "Compliance e Governança Corporativa",
+   "area_slug": "compliance-e-governanca",
+   "nome": "Apuramento Interno de Denúncias e Desvios",
+   "slug": "apuramento-interno-de-denuncias-e-desvios",
+   "rotulo": "Denúncias tratadas com método",
+   "oque": "É um serviço que apura, de forma factual e organizada, uma suspeita ou denúncia de desvio dentro da empresa, e propõe controlos para que não se repita.",
+   "problema": "Resolve a dificuldade de empresas em que suspeitas e denúncias de desvios ficam sem resposta ou são tratadas de forma informal, e o problema repete-se.",
+   "dores": [
+    "Recebeu uma denúncia e não sabe como a tratar sem criar conflito.",
+    "Desconfia de um desvio, mas não tem factos para decidir.",
+    "Os casos são tratados de forma informal e acabam esquecidos.",
+    "O mesmo tipo de desvio volta a acontecer.",
+    "Tem medo de acusar alguém sem provas organizadas."
+   ],
+   "quem": [
+    "Empresas que receberam uma denúncia pelo canal ou por outra via.",
+    "Empresas com diferenças de caixa, stock ou pagamentos por explicar.",
+    "Direcções que precisam de factos organizados antes de decidir.",
+    "Empresas com programa de compliance que precisam de tratar as denúncias recebidas."
+   ],
+   "antes": "Uma suspeita sem resposta, tratada de forma informal, e um problema que se repete.",
+   "depois": "Factos organizados num relatório, uma decisão tomada com informação e controlos novos para que não se repita.",
+   "entrega": [
+    "Recolha e análise factual de documentos e registos.",
+    "Entrevistas e cronologia dos factos.",
+    "Relatório factual do que foi apurado e do que não foi.",
+    "Recomendações de controlo para que não se repita."
+   ],
+   "fronteira": "Os relatórios são factuais e não concluem sobre a validade jurídica de negócios ou documentos. Consultas em conservatórias e no cadastro, queixas às autoridades, processos disciplinares, acordos entre sócios, estatutos e registos são tratados pelo advogado do cliente, contratado directamente por ele.",
+   "pitch": "Ajudamos a direcção a tratar suspeitas e denúncias com método. Organizamos os documentos, as entrevistas e a cronologia num relatório factual do que foi apurado e do que não foi, e propomos os controlos para que não se repita.",
+   "urgencia": [
+    "Uma denúncia sem resposta é um desvio que se pode repetir.",
+    "Quanto mais tempo passa, mais difícil é reunir os documentos e os registos e reconstruir os factos."
+   ],
+   "seo": [
+    "Apuramento Interno de Denúncias e Desvios",
+    "Apuramento factual de denúncias e suspeitas de desvio na empresa: documentos, entrevistas, cronologia, relatório e controlos para que não se repita."
+   ]
+  },
+  {
+   "area": "Compliance e Governança Corporativa",
    "area_slug": "compliance-e-governanca",
    "nome": "Governança Corporativa e Familiar",
    "slug": "governanca-corporativa-e-familiar",
    "rotulo": "Decisões, órgãos e sucessão",
-   "oque": "É um serviço que organiza quem decide o quê na empresa, as regras dos órgãos de gestão e a sucessão, para que a empresa não dependa de uma só pessoa.",
-   "problema": "Resolve a dificuldade de empresas que dependem de uma pessoa, têm conflitos entre sócios ou familiares e documentação societária desorganizada, que trava o crédito e o investimento.",
+   "oque": "É um serviço que organiza quem decide o quê na empresa, os órgãos de gestão e a passagem entre gerações, para que a empresa não dependa de uma só pessoa.",
+   "problema": "Resolve a dificuldade de empresas que dependem de uma pessoa, com conflitos entre sócios ou familiares e documentação societária desorganizada que trava crédito e investimento.",
    "dores": [
     "Todas as decisões passam por uma só pessoa.",
     "Há conflitos entre sócios ou entre familiares sobre quem decide.",
@@ -117,14 +275,11 @@
    "entrega": [
     "Diagnóstico de governança.",
     "Matriz de decisões: quem aprova o quê e até que valor.",
-    "Regimentos da administração, dos comités e do conselho consultivo.",
+    "Regimentos da administração, comités e conselho consultivo.",
     "Regras de governança familiar e plano de sucessão na gestão."
    ],
-   "avenca": "Secretariado societário: calendário de obrigações, convocatórias, actas e livros.",
-   "fronteira": "Acordos parassociais, estatutos e documentos sucessórios são redigidos pelo advogado parceiro.",
-   "parceiros": [
-    "Advogado parceiro"
-   ],
+   "avenca": "Secretariado interno: calendário de obrigações, convocatórias, actas e livros.",
+   "fronteira": "A DT Company não presta serviços jurídicos nem de contabilidade. Consultas em conservatórias e no cadastro, queixas às autoridades, processos disciplinares, acordos entre sócios, estatutos e registos são tratados pelo advogado do cliente, contratado directamente por ele.",
    "pitch": "Organizamos a forma como a empresa decide: quem aprova o quê, como funcionam a administração e os comités e como se prepara a sucessão. A empresa deixa de depender de uma só pessoa e fica com a documentação pronta para o banco e para os investidores.",
    "urgencia": [
     "Uma empresa que depende de uma só pessoa está sempre a uma ausência de parar.",
@@ -132,397 +287,176 @@
    ],
    "seo": [
     "Governança Corporativa e Familiar em Moçambique",
-    "Governança corporativa e familiar em Moçambique: matriz de decisões, regras dos órgãos de gestão e sucessão, prontas para o banco e os investidores."
+    "Governança corporativa e familiar em Moçambique: matriz de decisões, regimentos dos órgãos de gestão e plano de sucessão, prontos para o banco e investidores."
    ]
   },
   {
-   "area": "Tax",
-   "area_slug": "tax",
-   "nome": "Benefícios Fiscais e Aduaneiros do Investimento",
-   "slug": "beneficios-fiscais-e-aduaneiros-do-investimento",
-   "rotulo": "Isenções e poupança do investimento",
-   "oque": "É um serviço que identifica os benefícios fiscais e aduaneiros a que um projecto de investimento se pode candidatar, prepara a candidatura e controla as obrigações para os manter.",
-   "problema": "Resolve a perda de dinheiro de investidores que pagam direitos e impostos por inteiro sobre equipamento e investimento por não pedirem os benefícios a que têm direito, ou que os perdem por não cumprirem as obrigações depois.",
+   "area": "Treinamento Corporativo",
+   "area_slug": "treinamento-corporativo",
+   "nome": "Liderança Corporativa",
+   "slug": "lideranca-corporativa",
+   "rotulo": "Chefias que motivam, delegam e decidem",
+   "oque": "É um programa de formação para chefias, adaptado ao nível da empresa, que prepara quem lidera para motivar a equipa, delegar e decidir.",
+   "problema": "Resolve a dificuldade de empresas com chefias promovidas sem preparação: equipas desmotivadas, conflitos, rotatividade alta e decisões que dependem sempre do dono.",
    "dores": [
-    "Pagou direitos aduaneiros por inteiro sobre equipamento que podia ter isenção.",
-    "Não sabe a que benefícios o projecto se pode candidatar.",
-    "Perdeu benefícios por falhar obrigações depois da aprovação.",
-    "Não tem tempo nem equipa para preparar a candidatura."
+    "Promoveu bons técnicos que não sabem liderar.",
+    "A equipa está desmotivada e há conflitos que ninguém resolve.",
+    "A rotatividade é alta.",
+    "Todas as decisões voltam para o dono.",
+    "As chefias não dão feedback nem delegam."
    ],
    "quem": [
-    "Investidores nacionais e estrangeiros com um projecto de investimento novo.",
-    "Empresas que vão importar equipamento ou expandir a operação.",
-    "Empresas que já têm benefícios aprovados e precisam de os manter."
+    "Directores, gestores e chefias.",
+    "Sobretudo chefias promovidas recentemente.",
+    "Empresas em crescimento que precisam de novas lideranças."
    ],
-   "antes": "Um investimento que paga impostos e direitos por inteiro, ou que perde os benefícios por falta de controlo das obrigações.",
-   "depois": "Um projecto com os benefícios pedidos, a lista de bens isentos aprovada, as obrigações em calendário e a poupança medida.",
+   "antes": "Chefias sem preparação, equipas desmotivadas e um dono que decide tudo.",
+   "depois": "Chefias preparadas para motivar, delegar e decidir, com um plano de desenvolvimento para cada uma.",
    "entrega": [
-    "Levantamento dos benefícios a que o projecto se pode candidatar, validado pela contabilista certificada.",
-    "Dossier de candidatura e submissão do projecto de investimento.",
-    "Lista de bens com isenção aduaneira aprovada.",
-    "Calendário das obrigações para manter os benefícios.",
-    "Relatório da poupança obtida."
+    "Programa adaptado ao nível das chefias da empresa.",
+    "Módulos: papel do líder, gestão e motivação de equipas, delegação, comunicação e feedback, gestão de conflitos, tomada de decisão e gestão do tempo.",
+    "Exercícios práticos com situações reais da empresa.",
+    "Plano de desenvolvimento individual para cada participante.",
+    "Avaliação antes e depois, registo de presenças e certificados de participação.",
+    "Relatório final com resultados e recomendações."
    ],
-   "avenca": null,
-   "fronteira": "A análise fiscal, as declarações e a relação com a Autoridade Tributária são da contabilista certificada parceira. A DT Company organiza a documentação, controla os prazos e prepara os dossiers.",
-   "parceiros": [
-    "Contabilista certificada parceira"
-   ],
-   "pitch": "Organizamos a candidatura do seu projecto de investimento aos benefícios fiscais e aduaneiros, com validação da contabilista certificada parceira, e controlamos os prazos para que não os perca depois. No fim, mostramos a poupança obtida.",
+   "avenca": "Plano Anual de Formação: levantamento de necessidades, plano anual, organização das acções e relatório anual com indicadores.",
+   "fronteira": "Os participantes recebem certificados de participação, não uma certificação profissional reconhecida. Se a sua empresa precisa dela, diga-nos no pedido de cotação.",
+   "pitch": "Preparamos as chefias para liderar: motivar a equipa, delegar, dar feedback e decidir. O programa usa situações reais da empresa e termina com um plano de desenvolvimento para cada participante.",
    "urgencia": [
-    "Benefícios que não se pedem a tempo podem não voltar.",
-    "Os benefícios do investimento têm prazos e condições: depois do arranque, parte deles pode ficar perdida."
+    "Cada chefia sem preparação custa pessoas, tempo e decisões.",
+    "Equipas desmotivadas e rotatividade alta pesam nos resultados todos os meses, e as decisões continuam a voltar para o dono."
    ],
    "seo": [
-    "Benefícios Fiscais ao Investimento em Moçambique",
-    "Candidatura de projectos de investimento aos benefícios fiscais e aduaneiros em Moçambique, com a contabilista certificada parceira e controlo de prazos."
+    "Formação em Liderança para Chefias em Moçambique",
+    "Programa de liderança corporativa para chefias: motivação de equipas, delegação, feedback, conflitos e decisão, com plano de desenvolvimento individual."
    ]
   },
   {
-   "area": "Tax",
-   "area_slug": "tax",
-   "nome": "Regularização Fiscal e Certidão de Quitação",
-   "slug": "regularizacao-fiscal-e-certidao-de-quitacao",
-   "rotulo": "A empresa em dia com o Estado",
-   "oque": "É um serviço que levanta as pendências fiscais da empresa, organiza a regularização com a contabilista certificada parceira e prepara o pedido da certidão de quitação.",
-   "problema": "Resolve a situação de empresas sem certidão de quitação, que ficam fora de concursos públicos, não recebem pagamentos do Estado e têm problemas com os bancos, muitas vezes sem saber exactamente o que devem.",
+   "area": "Treinamento Corporativo",
+   "area_slug": "treinamento-corporativo",
+   "nome": "Atendimento ao Cliente",
+   "slug": "atendimento-ao-cliente",
+   "rotulo": "Padrões, reclamações e fidelização",
+   "oque": "É um programa de formação para quem atende, adaptado ao tipo de atendimento da empresa, que define padrões e prepara a equipa para resolver reclamações e fidelizar.",
+   "problema": "Resolve a dificuldade de empresas que perdem clientes por mau atendimento, reclamações mal resolvidas e más avaliações que afastam novos clientes.",
    "dores": [
-    "Ficou fora de um concurso público por não ter certidão de quitação.",
-    "Tem pagamentos do Estado parados.",
-    "O banco pede a certidão e a empresa não a consegue apresentar.",
-    "Não sabe exactamente que declarações, dívidas ou coimas tem em falta.",
-    "Perde prazos fiscais por não ter um calendário."
+    "Perde clientes por mau atendimento.",
+    "As reclamações são mal resolvidas ou ficam sem resposta.",
+    "As más avaliações afastam novos clientes.",
+    "Cada colaborador atende à sua maneira.",
+    "A equipa não sabe lidar com clientes difíceis."
    ],
    "quem": [
-    "Fornecedores do Estado e empresas que concorrem a concursos públicos.",
-    "Empresas com pagamentos do Estado por receber.",
-    "Empresas que precisam da certidão para o banco.",
-    "Empresas com declarações em atraso ou dívidas fiscais."
+    "Equipas de loja, recepção, call center, apoio ao cliente e serviços.",
+    "Empresas que atendem por telefone, WhatsApp ou e-mail.",
+    "Empresas com muitas reclamações ou más avaliações."
    ],
-   "antes": "Uma empresa sem certidão de quitação, fora de concursos e de pagamentos, sem saber o que deve.",
-   "depois": "Uma empresa com as pendências conhecidas, um plano de regularização, a certidão pedida e um calendário fiscal com alertas.",
+   "antes": "Um atendimento que depende de quem está ao balcão, com reclamações mal resolvidas.",
+   "depois": "Uma equipa com padrões de atendimento claros, que resolve reclamações e fideliza clientes.",
    "entrega": [
-    "Levantamento documental das obrigações e pendências fiscais: declarações em falta, dívidas e coimas.",
-    "Plano de regularização coordenado com a contabilista certificada, incluindo a documentação para pedidos de pagamento em prestações.",
-    "Pedido da certidão de quitação.",
-    "Calendário fiscal anual com alertas de prazos."
+    "Programa adaptado ao tipo de atendimento da empresa: presencial, telefone, WhatsApp e e-mail.",
+    "Módulos: padrões de atendimento, comunicação com o cliente, gestão de reclamações e clientes difíceis, fidelização e experiência do cliente.",
+    "Simulações de atendimento (role-play).",
+    "Guia de padrões de atendimento da empresa, para usar no dia a dia.",
+    "Avaliação antes e depois, registo de presenças e certificados de participação.",
+    "Relatório final com resultados e recomendações."
    ],
-   "avenca": "Controlo mensal de prazos e documentação.",
-   "fronteira": "A análise fiscal, as declarações e a relação com a Autoridade Tributária são da contabilista certificada parceira. A DT Company organiza a documentação, controla os prazos e prepara os dossiers.",
-   "parceiros": [
-    "Contabilista certificada parceira"
-   ],
-   "pitch": "Ajudamos empresas a saber exactamente o que está pendente, organizamos a regularização com a contabilista certificada parceira e preparamos o pedido da certidão de quitação. Depois, controlamos os prazos para que a empresa não volte a ficar fora de concursos e pagamentos.",
+   "avenca": "Plano Anual de Formação: levantamento de necessidades, plano anual, organização das acções e relatório anual com indicadores.",
+   "fronteira": "Os participantes recebem certificados de participação, não uma certificação profissional reconhecida. Se a sua empresa precisa dela, diga-nos no pedido de cotação.",
+   "pitch": "Formamos a equipa que atende para que cada cliente seja bem tratado, em todos os canais. Definimos os padrões da empresa, treinamos com simulações e deixamos um guia para usar no dia a dia.",
    "urgencia": [
-    "Sem certidão de quitação, a empresa fica fora de concursos e pagamentos.",
-    "Cada mês com pendências fiscais soma multas e juros e fecha portas que estavam abertas."
+    "Cada cliente mal atendido pode não voltar, e conta a outros.",
+    "Uma má avaliação continua a afastar novos clientes muito depois de a reclamação ter sido esquecida."
    ],
    "seo": [
-    "Certidão de Quitação e Regularização Fiscal",
-    "Levantamento das pendências fiscais, regularização com a contabilista certificada parceira e pedido da certidão de quitação, para voltar aos concursos."
+    "Formação em Atendimento ao Cliente em Moçambique",
+    "Formação em atendimento ao cliente presencial, por telefone, WhatsApp e e-mail: padrões, reclamações, clientes difíceis e fidelização."
    ]
   },
   {
-   "area": "Tax",
-   "area_slug": "tax",
-   "nome": "Preparação para Inspecções Fiscais",
-   "slug": "preparacao-para-inspeccoes-fiscais",
-   "rotulo": "Documentação pronta para a AT",
-   "oque": "É um serviço que organiza a documentação da empresa antes e durante uma inspecção fiscal, com a análise fiscal feita pela contabilista certificada parceira.",
-   "problema": "Resolve a situação de empresas que recebem uma inspecção sem documentos organizados, não sabem responder e acabam com liquidações e multas pesadas.",
+   "area": "Treinamento Corporativo",
+   "area_slug": "treinamento-corporativo",
+   "nome": "Vendas",
+   "slug": "vendas",
+   "rotulo": "Método do primeiro contacto ao fecho",
+   "oque": "É um programa de formação para equipas comerciais, adaptado ao produto e ao cliente da empresa, que dá método a todo o processo de venda.",
+   "problema": "Resolve a dificuldade de equipas comerciais sem método: propostas que não fecham, descontos excessivos e metas que não se cumprem.",
    "dores": [
-    "A inspecção foi anunciada e os documentos estão espalhados.",
-    "Não sabe que documentos a Autoridade Tributária vai pedir.",
-    "Teme liquidações e multas por lacunas que desconhece.",
-    "Uma inspecção anterior terminou com multas pesadas."
+    "As propostas não fecham.",
+    "A equipa dá descontos para conseguir vender.",
+    "As metas não se cumprem.",
+    "Cada vendedor vende à sua maneira, sem processo.",
+    "Não sabem tratar objecções nem negociar."
    ],
    "quem": [
-    "Empresas notificadas para uma inspecção fiscal.",
-    "Empresas que querem rever a documentação antes de serem inspeccionadas.",
-    "Empresas que tiveram multas numa inspecção anterior."
+    "Equipas comerciais e vendedores.",
+    "Gestores de conta.",
+    "Empresas com metas de vendas por cumprir."
    ],
-   "antes": "Uma empresa apanhada desprevenida, sem documentos organizados nem respostas, exposta a liquidações e multas.",
-   "depois": "Uma empresa com a documentação revista e organizada numa pasta, as lacunas conhecidas e a resposta à inspecção assegurada pela contabilista certificada.",
+   "antes": "Uma equipa comercial sem método, que fecha pouco e dá descontos a mais.",
+   "depois": "Uma equipa com um processo de venda, um guião próprio e metas por vendedor.",
    "entrega": [
-    "Revisão documental preventiva, com identificação de lacunas e inconsistências; a análise fiscal é feita pela contabilista certificada.",
-    "Pasta de documentação organizada para a inspecção.",
-    "Organização da documentação pedida pela Autoridade Tributária.",
-    "Relatório final de organização documental, com as correcções fiscais indicadas pela contabilista certificada.",
-    "Encaminhamento para o advogado se houver contestação judicial."
+    "Programa adaptado ao produto e ao cliente da empresa.",
+    "Módulos: processo de venda, prospecção, apresentação da proposta, tratamento de objecções, negociação comercial, fecho e acompanhamento pós-venda.",
+    "Simulações de venda e de negociação.",
+    "Guião de vendas e de tratamento de objecções da empresa.",
+    "Indicadores comerciais e metas por vendedor.",
+    "Avaliação antes e depois, registo de presenças e certificados de participação.",
+    "Relatório final com resultados e recomendações."
    ],
-   "avenca": null,
-   "fronteira": "A análise fiscal, as declarações e a relação com a Autoridade Tributária são da contabilista certificada parceira. A DT Company organiza a documentação, controla os prazos e prepara os dossiers. Se houver contestação judicial, o caso segue para o advogado parceiro.",
-   "parceiros": [
-    "Contabilista certificada parceira",
-    "Advogado parceiro"
-   ],
-   "pitch": "Organizamos a documentação da empresa antes e durante a inspecção fiscal, para que nada falte quando a Autoridade Tributária pedir. A análise e a resposta ficam com a contabilista certificada parceira, e a empresa enfrenta a inspecção preparada.",
+   "avenca": "Plano Anual de Formação: levantamento de necessidades, plano anual, organização das acções e relatório anual com indicadores.",
+   "fronteira": "Os participantes recebem certificados de participação, não uma certificação profissional reconhecida. Se a sua empresa precisa dela, diga-nos no pedido de cotação.",
+   "pitch": "Damos método à equipa comercial: do primeiro contacto ao fecho. Treinamos com simulações do vosso produto e deixamos um guião de vendas e metas por vendedor.",
    "urgencia": [
-    "Uma inspecção não espera pela documentação.",
-    "Quanto mais cedo a documentação estiver organizada, menos a empresa fica exposta quando a Autoridade Tributária pedir."
+    "Cada proposta que não fecha é trabalho comercial perdido.",
+    "Sem método, a equipa continua a dar descontos para vender e as metas continuam por cumprir."
    ],
    "seo": [
-    "Preparação para Inspecções Fiscais em Moçambique",
-    "Documentação organizada antes e durante a inspecção fiscal, com a análise feita pela contabilista certificada parceira. Peça uma avaliação inicial."
+    "Formação em Vendas para Equipas Comerciais",
+    "Formação em vendas adaptada ao seu produto: prospecção, proposta, objecções, negociação e fecho, com guião de vendas e metas por vendedor."
    ]
   },
   {
-   "area": "Incorporação",
-   "area_slug": "incorporacao",
-   "nome": "Constituição e Licenciamento de Empresas",
-   "slug": "constituicao-e-licenciamento-de-empresas",
-   "rotulo": "Da ideia à licença de actividade",
-   "oque": "É um serviço de apoio administrativo para abrir uma empresa: mapeamos os requisitos e os custos, preparamos e entregamos a documentação dos registos e licenças e deixamos tudo organizado numa pasta digital.",
-   "problema": "Resolve a perda de tempo e de dinheiro de quem quer abrir uma empresa e passa meses entre registos, licenças e entidades diferentes, a pagar a renda de um espaço que ainda não pode abrir.",
+   "area": "Treinamento Corporativo",
+   "area_slug": "treinamento-corporativo",
+   "nome": "Marketing",
+   "slug": "marketing",
+   "rotulo": "Posicionamento, conteúdos e medição",
+   "oque": "É um programa de formação em marketing, adaptado ao sector e à dimensão da empresa, que ensina a definir o posicionamento, a comunicar e a medir resultados.",
+   "problema": "Resolve a dificuldade de empresas que investem em redes sociais e publicidade sem estratégia nem resultados mensuráveis.",
    "dores": [
-    "Não sabe que registos e licenças o negócio precisa, nem quanto custam.",
-    "Anda de entidade em entidade sem saber a ordem certa.",
-    "Paga a renda de um espaço que ainda não pode abrir.",
-    "Perde documentos e não sabe o que já foi entregue.",
-    "Não sabe que obrigações vêm depois da abertura."
+    "Investe em redes sociais e publicidade sem ver resultados.",
+    "Não sabe a quem está a vender nem como se diferenciar.",
+    "Publica sem plano nem objectivos.",
+    "Não mede o que traz clientes.",
+    "Depende de fornecedores para tudo o que é marketing."
    ],
    "quem": [
-    "Empreendedores que vão abrir a primeira empresa.",
-    "Empresários que vão abrir um novo negócio ou uma nova actividade.",
-    "Quem já tem o espaço arrendado e precisa de abrir depressa."
+    "Donos de PME.",
+    "Equipas de marketing.",
+    "Equipas comerciais."
    ],
-   "antes": "Meses perdidos entre registos, licenças e entidades, com custos a correr antes de a empresa poder abrir.",
-   "depois": "Uma empresa registada e licenciada, com NUIT, INSS e licença de actividade, todos os documentos numa pasta digital e as primeiras obrigações em calendário.",
+   "antes": "Investimento em marketing sem estratégia nem resultados que se meçam.",
+   "depois": "Uma equipa que conhece o cliente, comunica com posicionamento claro e mede resultados, com um plano para 90 dias.",
    "entrega": [
-    "Mapa de requisitos administrativos e custos do negócio específico.",
-    "Apoio administrativo ao registo da empresa: preparação e entrega da documentação, com modelos de estatutos padrão.",
-    "Preparação e entrega dos pedidos de NUIT, inscrição no INSS e licença de actividade.",
-    "Pasta digital com todos os documentos da empresa.",
-    "Calendário das primeiras obrigações: renovações e declarações."
+    "Programa adaptado ao sector e à dimensão da empresa.",
+    "Módulos: fundamentos de marketing, conhecer o cliente, posicionamento e marca, marketing digital e redes sociais, conteúdos que vendem e medição de resultados.",
+    "Exercícios aplicados à marca da própria empresa.",
+    "Plano de acção de marketing para 90 dias.",
+    "Avaliação antes e depois, registo de presenças e certificados de participação.",
+    "Relatório final com resultados e recomendações."
    ],
-   "avenca": null,
-   "fronteira": "Estatutos à medida e acordos parassociais são remetidos ao advogado parceiro.",
-   "parceiros": [
-    "Advogado parceiro"
-   ],
-   "pitch": "Ajudamos quem quer abrir uma empresa a fazê-lo pela ordem certa e sem perder meses. Mapeamos os requisitos e os custos, preparamos e entregamos a documentação dos registos e licenças e entregamos tudo organizado numa pasta digital.",
+   "avenca": "Plano Anual de Formação: levantamento de necessidades, plano anual, organização das acções e relatório anual com indicadores.",
+   "fronteira": "Pode ser dado com a equipa de marketing e comunicação da Kingdom. Os participantes recebem certificados de participação, não uma certificação profissional reconhecida. Se a sua empresa precisa dela, diga-nos no pedido de cotação.",
+   "pitch": "Ensinamos a equipa a fazer marketing com estratégia: conhecer o cliente, posicionar a marca, comunicar e medir. Os exercícios são feitos com a marca da própria empresa e o programa termina com um plano para 90 dias.",
    "urgencia": [
-    "Cada licença pedida fora de ordem atrasa o arranque.",
-    "Começar pela ordem certa poupa meses e evita voltar atrás com documentos rejeitados."
+    "Investir sem estratégia é pagar sem saber o que funciona.",
+    "Sem posicionamento claro nem medição, o orçamento de marketing gasta-se sem trazer clientes que se possam contar."
    ],
    "seo": [
-    "Constituir e Licenciar Empresa em Moçambique",
-    "Abrir empresa em Moçambique pela ordem certa: requisitos, custos, registos e licenças preparados e organizados numa pasta digital."
-   ]
-  },
-  {
-   "area": "Incorporação",
-   "area_slug": "incorporacao",
-   "nome": "Instalação de Empresas Estrangeiras",
-   "slug": "instalacao-de-empresas-estrangeiras",
-   "rotulo": "Entrada, registo e repatriação",
-   "oque": "É um serviço de apoio administrativo à instalação de empresas estrangeiras em Moçambique, do registo do projecto de investimento à abertura de conta e à instalação operacional.",
-   "problema": "Resolve a dificuldade de empresas estrangeiras que não conhecem o sistema moçambicano, fazem as etapas fora de ordem e, por não registarem o investimento, têm depois dificuldades em repatriar lucros e capital.",
-   "dores": [
-    "Não conhece o sistema moçambicano nem a ordem das etapas.",
-    "Investiu sem registar o investimento e não consegue repatriar lucros.",
-    "Tem dificuldade em abrir conta bancária.",
-    "Não sabe a que benefícios fiscais o investimento pode ter direito."
-   ],
-   "quem": [
-    "Empresas estrangeiras que vão abrir operação em Moçambique.",
-    "Investidores estrangeiros com um projecto de investimento.",
-    "Grupos internacionais que vão instalar uma filial, sucursal ou escritório de representação."
-   ],
-   "antes": "Uma entrada no país feita fora de ordem, com o investimento por registar e dificuldades em repatriar lucros e capital.",
-   "depois": "Uma empresa instalada pela ordem certa, com o investimento registado, a conta aberta e a ligação aos benefícios fiscais.",
-   "entrega": [
-    "Preparação e entrega da documentação para o registo do projecto de investimento.",
-    "Apoio administrativo ao registo do investimento estrangeiro junto do Banco de Moçambique.",
-    "Apoio à abertura de conta bancária e à instalação operacional.",
-    "Ligação ao serviço de Benefícios Fiscais e Aduaneiros do Investimento."
-   ],
-   "avenca": null,
-   "fronteira": "Quando há uma decisão jurídica, por exemplo sobre a forma de entrada ou um contrato, a referência é o advogado parceiro. A parte fiscal é da contabilista certificada parceira.",
-   "parceiros": [
-    "Advogado parceiro",
-    "Contabilista certificada parceira"
-   ],
-   "pitch": "Apoiamos empresas estrangeiras a instalar-se em Moçambique pela ordem certa. Preparamos a documentação do registo do investimento, apoiamos o registo no Banco de Moçambique e a abertura de conta, para que a empresa possa operar e repatriar lucros e capital.",
-   "urgencia": [
-    "Um investimento mal registado pode complicar a repatriação de lucros e capital.",
-    "Organizar o registo desde o início evita refazer passos quando quiser tirar o dinheiro do país."
-   ],
-   "seo": [
-    "Instalação de Empresas Estrangeiras em Moçambique",
-    "Apoio à instalação de empresas estrangeiras em Moçambique: registo do investimento, Banco de Moçambique, abertura de conta e instalação operacional."
-   ]
-  },
-  {
-   "area": "Incorporação",
-   "area_slug": "incorporacao",
-   "nome": "Gestão de Quadros Estrangeiros",
-   "slug": "gestao-de-quadros-estrangeiros",
-   "rotulo": "Quotas, vistos e DIRE",
-   "oque": "É um serviço que calcula a quota de trabalhadores estrangeiros, prepara os pedidos de autorização de trabalho, visto e DIRE e controla as renovações de cada expatriado.",
-   "problema": "Resolve a dificuldade de empresas que não conseguem pôr os técnicos estrangeiros a trabalhar a tempo por causa das quotas, autorizações de trabalho, vistos e DIRE, e que arriscam multas.",
-   "dores": [
-    "Os técnicos estrangeiros estão parados à espera de autorização.",
-    "Não sabe quantos estrangeiros pode contratar dentro da quota.",
-    "Perdeu prazos de renovação de vistos ou DIRE.",
-    "Arrisca multas por expatriados com documentos fora de prazo."
-   ],
-   "quem": [
-    "Empresas que contratam técnicos estrangeiros.",
-    "Projectos com equipas internacionais a chegar ao país.",
-    "Empresas com vários expatriados e renovações a controlar."
-   ],
-   "antes": "Técnicos parados à espera de documentos, prazos perdidos e risco de multas.",
-   "depois": "Expatriados a trabalhar a tempo, dentro da quota, com as autorizações em ordem e alertas antes de cada renovação.",
-   "entrega": [
-    "Cálculo da quota de trabalhadores estrangeiros disponível.",
-    "Preparação e entrega dos pedidos de autorização de trabalho e de visto.",
-    "Preparação do processo de DIRE.",
-    "Registo de todos os expatriados, com alertas de renovação."
-   ],
-   "avenca": "Avença por número de expatriados geridos.",
-   "fronteira": "Preparamos os pedidos e controlamos os prazos; a decisão é das entidades competentes. Questões jurídicas laborais seguem para o advogado parceiro.",
-   "parceiros": [
-    "Advogado parceiro"
-   ],
-   "pitch": "Ajudamos empresas a pôr os técnicos estrangeiros a trabalhar a tempo. Calculamos a quota, preparamos os pedidos de autorização de trabalho, visto e DIRE e controlamos as renovações, para que ninguém fique parado nem haja multas.",
-   "urgencia": [
-    "Um técnico parado à espera de visto custa todos os dias.",
-    "Uma renovação esquecida pode significar multas e um técnico impedido de trabalhar."
-   ],
-   "seo": [
-    "Vistos, DIRE e Quotas para Expatriados",
-    "Gestão de quadros estrangeiros em Moçambique: cálculo da quota, autorização de trabalho, visto e DIRE, com controlo das renovações."
-   ]
-  },
-  {
-   "area": "Consultoria ESG",
-   "area_slug": "consultoria-esg",
-   "nome": "Sistema de Gestão Ambiental e Social para Financiamento",
-   "slug": "sistema-de-gestao-ambiental-e-social",
-   "rotulo": "Para o desembolso do financiador",
-   "oque": "É um serviço que monta o sistema de gestão ambiental e social exigido por bancos e financiadores internacionais: políticas, procedimentos, responsáveis, registos e relatórios.",
-   "problema": "Resolve o bloqueio de empresas com financiamento aprovado, em que o banco ou o financiador internacional só liberta o dinheiro quando existir um sistema de gestão ambiental e social.",
-   "dores": [
-    "O financiamento está aprovado, mas o dinheiro não é libertado.",
-    "Não sabe exactamente o que o financiador exige.",
-    "Não tem políticas ambientais, sociais, de saúde e segurança.",
-    "Não tem quem prepare os relatórios periódicos ao financiador."
-   ],
-   "quem": [
-    "Empresas com financiamento aprovado por bancos ou financiadores internacionais.",
-    "Empresas que se vão candidatar a esse tipo de financiamento.",
-    "Projectos com exigências ambientais e sociais do financiador."
-   ],
-   "antes": "Financiamento aprovado mas bloqueado, à espera de um sistema que a empresa não tem.",
-   "depois": "Um sistema de gestão ambiental e social em funcionamento, preparado para os requisitos do financiador e com os relatórios periódicos em dia.",
-   "entrega": [
-    "Diagnóstico face aos requisitos do financiador.",
-    "Políticas ambientais, sociais, de saúde e segurança.",
-    "Procedimentos, responsáveis e registos.",
-    "Plano de acção ambiental e social.",
-    "Relatório periódico ao financiador."
-   ],
-   "avenca": null,
-   "fronteira": "Os estudos de impacto ambiental são elaborados por consultores ambientais registados, coordenados pela DT Company.",
-   "parceiros": [
-    "Consultores ambientais registados"
-   ],
-   "pitch": "Preparamos o sistema de gestão ambiental e social que o seu financiador exige: políticas, procedimentos, responsáveis e relatórios. A empresa fica preparada para os requisitos e informa o financiador com regularidade.",
-   "urgencia": [
-    "Sem o sistema exigido, o desembolso pode ficar parado.",
-    "Os financiadores internacionais pedem o sistema de gestão ambiental e social antes de libertar o dinheiro."
-   ],
-   "seo": [
-    "Sistema de Gestão Ambiental e Social (SGAS)",
-    "Sistema de gestão ambiental e social (SGAS) exigido por bancos e financiadores internacionais: políticas, procedimentos, responsáveis e relatórios."
-   ]
-  },
-  {
-   "area": "Consultoria ESG",
-   "area_slug": "consultoria-esg",
-   "nome": "Pronto para Clientes Internacionais",
-   "slug": "pronto-para-clientes-internacionais",
-   "rotulo": "Questionários e evidências ESG",
-   "oque": "É um serviço que prepara fornecedores e exportadores para as avaliações ESG de clientes multinacionais e europeus, com políticas, evidências e respostas aos questionários.",
-   "problema": "Resolve a perda de clientes multinacionais e europeus por fornecedores e exportadores que não conseguem provar boas práticas laborais, ambientais e de direitos humanos.",
-   "dores": [
-    "Recebeu um questionário ESG de um cliente e não sabe responder.",
-    "Perdeu, ou arrisca perder, um cliente internacional numa avaliação.",
-    "Não tem políticas de direitos humanos nem de condições de trabalho escritas.",
-    "Tem boas práticas, mas nenhuma evidência organizada para as provar."
-   ],
-   "quem": [
-    "Exportadores que vendem para mercados europeus.",
-    "Fornecedores de multinacionais a operar em Moçambique.",
-    "Empresas que querem entrar nas cadeias de fornecimento de grandes clientes."
-   ],
-   "antes": "Boas práticas que ninguém consegue provar, questionários sem resposta e clientes internacionais em risco.",
-   "depois": "Questionários respondidos, políticas escritas e uma pasta de evidências pronta, com um plano de melhoria para as próximas avaliações.",
-   "entrega": [
-    "Resposta aos questionários ESG dos clientes.",
-    "Políticas de direitos humanos, condições de trabalho e combate ao trabalho infantil.",
-    "Pasta de evidências organizada: registos, fotografias e certificados.",
-    "Avaliação dos próprios fornecedores do cliente.",
-    "Plano de melhoria para as próximas avaliações."
-   ],
-   "avenca": null,
-   "fronteira": "Respondemos aos questionários com base nas práticas e evidências que a empresa já tem. Os estudos de impacto ambiental são elaborados por consultores ambientais registados, coordenados pela DT Company.",
-   "parceiros": [
-    "Consultores ambientais registados"
-   ],
-   "pitch": "Preparamos a sua empresa para as avaliações ESG dos clientes internacionais. Respondemos aos questionários, escrevemos as políticas e organizamos as evidências, para que consiga provar as boas práticas que já tem.",
-   "urgencia": [
-    "Um questionário ESG sem resposta pode custar o cliente.",
-    "Os clientes multinacionais avaliam os fornecedores: quem não prova as boas práticas pode ficar fora da lista."
-   ],
-   "seo": [
-    "Avaliações ESG de Clientes Internacionais",
-    "Preparação de fornecedores e exportadores para as avaliações ESG de clientes multinacionais: políticas, evidências e respostas aos questionários."
-   ]
-  },
-  {
-   "area": "Consultoria ESG",
-   "area_slug": "consultoria-esg",
-   "nome": "Relação com Comunidades e Mecanismo de Queixas",
-   "slug": "relacao-com-comunidades-e-mecanismo-de-queixas",
-   "rotulo": "Envolvimento e canal formal",
-   "oque": "É um serviço que organiza o envolvimento de um projecto com as comunidades e as partes interessadas, com um plano de comunicação e um mecanismo para receber e responder a queixas.",
-   "problema": "Resolve o risco de projectos em zonas rurais ou costeiras pararem por conflitos com comunidades que não foram ouvidas ou que não têm onde apresentar queixas.",
-   "dores": [
-    "O projecto parou ou atrasou por conflitos com a comunidade.",
-    "A comunidade não sabe a quem se dirigir quando tem uma queixa.",
-    "Não sabe quem são as partes interessadas do projecto.",
-    "O financiador pede um mecanismo de queixas que não existe."
-   ],
-   "quem": [
-    "Projectos em zonas rurais ou costeiras.",
-    "Empresas que vão iniciar obras ou operações perto de comunidades.",
-    "Projectos financiados com exigências de envolvimento das comunidades."
-   ],
-   "antes": "Um projecto exposto a paragens, com comunidades que não foram ouvidas e queixas sem resposta.",
-   "depois": "Comunidades mapeadas e envolvidas, um canal de queixas a funcionar e relatórios das queixas e das respostas.",
-   "entrega": [
-    "Mapa das comunidades e partes interessadas.",
-    "Plano de envolvimento e comunicação com as comunidades.",
-    "Mecanismo de queixas: procedimento, canal e registo.",
-    "Relatórios periódicos das queixas e respostas.",
-    "Apoio na organização de reuniões com as comunidades."
-   ],
-   "avenca": null,
-   "fronteira": "Os estudos de impacto ambiental são elaborados por consultores ambientais registados, coordenados pela DT Company. Questões sobre terra e DUAT seguem para o advogado parceiro.",
-   "parceiros": [
-    "Consultores ambientais registados",
-    "Advogado parceiro"
-   ],
-   "pitch": "Organizamos a relação do seu projecto com as comunidades: mapeamos as partes interessadas, preparamos o plano de envolvimento e montamos o mecanismo de queixas. O projecto reduz o risco de paragens e mostra como ouve e responde às comunidades.",
-   "urgencia": [
-    "Uma queixa sem resposta pode parar um projecto.",
-    "Um mecanismo de queixas organizado mostra às comunidades e ao financiador como o projecto ouve e responde."
-   ],
-   "seo": [
-    "Mecanismo de Queixas e Relação com Comunidades",
-    "Plano de envolvimento com as comunidades e mecanismo de queixas para projectos em Moçambique, com registo e resposta a cada queixa."
+    "Formação em Marketing para Empresas em Moçambique",
+    "Formação em marketing para PME: cliente, posicionamento, marketing digital, conteúdos e medição de resultados, com plano de acção para 90 dias."
    ]
   }
  ]
