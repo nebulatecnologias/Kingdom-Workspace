@@ -1,6 +1,6 @@
 # Kingdom Company
 
-> Empresa moçambicana de desenvolvimento empresarial, com sede em Maputo, membro da SDG (Pty) Ltd (Midrand, África do Sul). Reúne numa só equipa desenvolvimento editorial, assessoria e desenvolvimento tecnológico, para ajudar empresas a crescer, organizar-se, posicionar-se e competir.
+> Empresa moçambicana de desenvolvimento empresarial, com sede em Maputo, membro da SDG (Pty) Ltd (Midrand, África do Sul). Reúne numa só equipa desenvolvimento editorial, assessoria estratégica e desenvolvimento tecnológico, para ajudar empresas a crescer, organizar-se, posicionar-se e competir.
 
 Factos principais:
 - Serve empresas em Moçambique e na África do Sul: PME, grandes empresas, startups, instituições, associações e empreendedores.
@@ -20,9 +20,9 @@ Factos principais:
 - [Modelos de Propostas Técnicas](https://www.kingdomcompany.co.za/desenvolvimento-editorial/modelos-de-propostas-tecnicas): É um serviço de construção de propostas técnicas para concursos, feitas a partir do caderno de encargos e dos critérios de avaliação, que deixa à empresa modelos editáveis para os concursos seguintes.
 - [Perfis Corporativos](https://www.kingdomcompany.co.za/desenvolvimento-editorial/perfis-corporativos): É um serviço de redação e paginação do perfil corporativo, o documento que apresenta a empresa (história, serviços, equipa, clientes e projetos) em reuniões, propostas, parcerias e candidaturas.
 
-## Assessoria
+## Assessoria Estratégica
 
-[Assessoria](https://www.kingdomcompany.co.za/assessoria): Ajudamos empresas a ser vistas por quem decide. Produzimos os vídeos e as fotografias, mantemos as redes ativas e gerimos as campanhas, para que o mercado conheça o seu trabalho e saiba o que cada investimento trouxe.
+[Assessoria Estratégica](https://www.kingdomcompany.co.za/assessoria): Ajudamos empresas a ser vistas por quem decide. Produzimos os vídeos e as fotografias, mantemos as redes ativas e gerimos as campanhas, para que o mercado conheça o seu trabalho e saiba o que cada investimento trouxe.
 
 - [Produção Audiovisual](https://www.kingdomcompany.co.za/assessoria/producao-audiovisual): É um serviço de produção de vídeo e fotografia, do guião à edição, que mostra a empresa, a equipa, os produtos e os projetos com qualidade profissional.
 - [Gestão de Redes Sociais](https://www.kingdomcompany.co.za/assessoria/gestao-de-redes-sociais): É um serviço mensal de gestão das redes sociais da empresa, que planeia, cria e publica os conteúdos e mede o que resultou.

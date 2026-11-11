@@ -60,7 +60,7 @@ def organizacao():
         'logo': {'@type': 'ImageObject', 'url': f'{D}/assets/marca/kingdom-company-horizontal-simples-indigo.svg'},
         'image': f'{D}{CFG["imagem"]}',
         'description': 'Empresa moçambicana de desenvolvimento empresarial, membro da SDG (Pty) Ltd. Reúne numa só equipa '
-                       'desenvolvimento editorial, assessoria e desenvolvimento tecnológico.',
+                       'desenvolvimento editorial, assessoria estratégica e desenvolvimento tecnológico.',
         'slogan': 'Um único lugar para desenvolver o seu negócio',
         'email': 'contact@kingdomcompany.co.za',
         'telephone': '+258876641836',
@@ -282,7 +282,7 @@ Sitemap: {D}/sitemap.xml
 def llms():
     l = ['# Kingdom Company', '',
          '> Empresa moçambicana de desenvolvimento empresarial, com sede em Maputo, membro da SDG (Pty) Ltd (Midrand, África do Sul). '
-         'Reúne numa só equipa desenvolvimento editorial, assessoria e desenvolvimento tecnológico, '
+         'Reúne numa só equipa desenvolvimento editorial, assessoria estratégica e desenvolvimento tecnológico, '
          'para ajudar empresas a crescer, organizar-se, posicionar-se e competir.', '',
          'Factos principais:',
          '- Serve empresas em Moçambique e na África do Sul: PME, grandes empresas, startups, instituições, associações e empreendedores.',
