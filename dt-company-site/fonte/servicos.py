@@ -369,7 +369,7 @@ def pagina_cotacao(todos):
         </div>
         <div class="cot-campo">
           <label for="c-cargo">Cargo</label>
-          <input id="c-cargo" name="cargo" type="text" autocomplete="organization-title" placeholder="Por exemplo: diretor-geral">
+          <input id="c-cargo" name="cargo" type="text" autocomplete="organization-title" placeholder="Por exemplo: director-geral">
         </div>
       </div>
       <div class="cot-campo">
