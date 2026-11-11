@@ -9,6 +9,7 @@
  "furo": 0.3,
  "dist_centro": 200.0,
  "canto": 4.8,
+ "canto_concavo": 6.0,
  "angulo": 58.0,
  "largura": 607.0,
  "altura": 232.5,

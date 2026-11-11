@@ -19,11 +19,12 @@ from shapely import affinity
 from shapely.ops import unary_union
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
+SAIDA = os.environ.get('SAIDA', AQUI)          # para gerar variantes noutra pasta
 T = 60.0
 ANG = 32.0                                   # inclinação face à vertical (58° face à horizontal)
 K = -math.tan(math.radians(ANG)); COS = math.cos(math.radians(ANG))
 M = dict(t=T, c=.875 * T, larg_central=1.0 * T, larg_d=1.25 * T, canal=.625 * T, concordancia=.4 * T,
-         proporcao_elipse=1.2, furo=.3, dist_centro=10 / 3 * T, canto=.08 * T, angulo=90 - ANG)
+         proporcao_elipse=1.2, furo=.3, dist_centro=10 / 3 * T, canto=float(os.environ.get('CANTO', .08)) * T, canto_concavo=.1 * T, angulo=90 - ANG)
 C = M['c']; HB = 2 * T + C; HT = 3 * T + C
 BO = HB / 2; AO = M['proporcao_elipse'] * BO; BI = C / 2; AI = M['furo'] * AO
 XC, YC = 0.0, HT / 2                         # centro de rotação (as coordenadas finais são deslocadas no fim)
@@ -82,9 +83,11 @@ letra_d = unary_union([barriga_d, traco_d, pescoco])
 
 barriga_p = affinity.rotate(barriga_d, 180, origin=(XC, YC))
 simbolo = unary_union([barriga_d, traco_d, barriga_p, central]).intersection(box(-9999, Y0, 9999, Y0 + HT))
-r = M['canto']                                   # arredondamento dos cantos, antes da concordância (que tem de ficar tangente)
-simbolo = simbolo.buffer(-r, join_style=1, quad_segs=32).buffer(r, join_style=1, quad_segs=32)
-simbolo = simbolo.buffer(r, join_style=1, quad_segs=32).buffer(-r, join_style=1, quad_segs=32)
+# arredondamento dos cantos, antes da concordância (que tem de ficar tangente):
+# convexo (as pontas) com o raio escolhido; côncavo com um raio pequeno, abaixo de metade do canal, para não o fechar
+r = M['canto']; rc = M['canto_concavo']
+simbolo = simbolo.buffer(-r, join_style=1, quad_segs=48).buffer(r, join_style=1, quad_segs=48)
+simbolo = simbolo.buffer(rc, join_style=1, quad_segs=48).buffer(-rc, join_style=1, quad_segs=48)
 simbolo = unary_union([simbolo, pescoco])
 
 # deslocar para começar em (0, 0)
@@ -109,16 +112,16 @@ def svg(conteudo, w, h, vb=None):
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb or f"0 0 {w:.2f} {h:.2f}"}">{conteudo}</svg>\n'
 
 
-os.makedirs(os.path.join(AQUI, 'simbolo', 'pecas'), exist_ok=True)
+os.makedirs(os.path.join(SAIDA, 'simbolo', 'pecas'), exist_ok=True)
 D = caminho(mover(simbolo))
-open(os.path.join(AQUI, 'simbolo', 'dt-simbolo.svg'), 'w').write(svg(f'<path fill="#04123F" fill-rule="evenodd" d="{D}"/>', W, H))
+open(os.path.join(SAIDA, 'simbolo', 'dt-simbolo.svg'), 'w').write(svg(f'<path fill="#04123F" fill-rule="evenodd" d="{D}"/>', W, H))
 
 # peças (mesmo viewBox do símbolo) para as páginas de significado e construção
 pecas = {'letra-d': letra_d.intersection(simbolo), 'letra-p': unary_union([barriga_p, central]).intersection(simbolo),
          'traco-central': central.intersection(simbolo), 'barriga-d': barriga_d.intersection(simbolo),
          'barriga-p': barriga_p.intersection(simbolo), 'traco-d': unary_union([traco_d, pescoco]).intersection(simbolo)}
 for nome, geo in pecas.items():
-    open(os.path.join(AQUI, 'simbolo', 'pecas', f'{nome}.svg'), 'w').write(svg(f'<path fill="#04123F" fill-rule="evenodd" d="{caminho(mover(geo))}"/>', W, H))
+    open(os.path.join(SAIDA, 'simbolo', 'pecas', f'{nome}.svg'), 'w').write(svg(f'<path fill="#04123F" fill-rule="evenodd" d="{caminho(mover(geo))}"/>', W, H))
 
 # ®: anel e «R» da Google Sans Bold, centrado no canto inferior direito do d
 from fontTools.ttLib import TTFont
@@ -193,15 +196,15 @@ def logo_horizontal(cor):
 
 
 CORES = {'indigo': '#04123F', 'azul': '#0A57E7', 'branco': '#FFFFFF', 'preto': '#000000'}
-os.makedirs(os.path.join(AQUI, 'logotipo'), exist_ok=True)
+os.makedirs(os.path.join(SAIDA, 'logotipo'), exist_ok=True)
 for nome, cor in CORES.items():
-    open(os.path.join(AQUI, 'logotipo', f'dt-company-vertical-{nome}.svg'), 'w').write(logo_vertical(cor))
-    open(os.path.join(AQUI, 'logotipo', f'dt-company-horizontal-{nome}.svg'), 'w').write(logo_horizontal(cor))
-    open(os.path.join(AQUI, 'logotipo', f'dt-company-simbolo-{nome}.svg'), 'w').write(logo_vertical(cor, com_desc=False))
+    open(os.path.join(SAIDA, 'logotipo', f'dt-company-vertical-{nome}.svg'), 'w').write(logo_vertical(cor))
+    open(os.path.join(SAIDA, 'logotipo', f'dt-company-horizontal-{nome}.svg'), 'w').write(logo_horizontal(cor))
+    open(os.path.join(SAIDA, 'logotipo', f'dt-company-simbolo-{nome}.svg'), 'w').write(logo_vertical(cor, com_desc=False))
 
 json.dump({**{k: round(v, 4) if isinstance(v, float) else v for k, v in M.items()}, 'largura': round(W, 2), 'altura': round(H, 2),
            'elipse_exterior': [round(AO, 2), round(BO, 2)], 'elipse_furo': [round(AI, 2), round(BI, 2)],
            'registo': {'centro': [round(reg_c[0], 2), round(reg_c[1], 2)], 'raio': round(RD, 2)},
            'descritor': {'texto': DESC, 'tamanho': round(tam, 2), 'largura': round(larg, 2), 'espaco_simbolo': GAP}},
-          open(os.path.join(AQUI, 'simbolo', 'medidas.json'), 'w'), indent=1, ensure_ascii=False)
+          open(os.path.join(SAIDA, 'simbolo', 'medidas.json'), 'w'), indent=1, ensure_ascii=False)
 print(f'símbolo {W:.1f} × {H:.1f} (t = {T:.0f}) · descritor {tam:.1f} · {len(CORES)} cores')
