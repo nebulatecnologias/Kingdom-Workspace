@@ -1,0 +1,16 @@
+{
+ "nome": "DT Company",
+ "slug": "dt-company",
+ "saida": "marca",
+ "descritor": "Business Advisory & Development",
+ "simbolo": "simbolo/dt-simbolo.svg",
+ "fontes": {
+  "familia": "Google Sans",
+  "logotipo": "fontes/google-sans-400.ttf",
+  "peso_logotipo": 400
+ },
+ "cores": {
+  "principal": {"nome": "Índigo DT", "hex": "#04123F", "uso": "Logótipo, títulos e blocos escuros"},
+  "acento": {"nome": "Azul DT", "hex": "#0A57E7", "uso": "Botões e destaques"}
+ }
+}

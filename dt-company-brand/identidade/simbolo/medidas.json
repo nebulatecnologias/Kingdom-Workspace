@@ -1,0 +1,36 @@
+{
+ "t": 60.0,
+ "c": 52.5,
+ "larg_central": 60.0,
+ "larg_d": 75.0,
+ "canal": 37.5,
+ "concordancia": 24.0,
+ "proporcao_elipse": 1.2,
+ "furo": 0.3,
+ "dist_centro": 200.0,
+ "canto": 4.8,
+ "angulo": 58.0,
+ "largura": 607.0,
+ "altura": 232.5,
+ "elipse_exterior": [
+  103.5,
+  86.25
+ ],
+ "elipse_furo": [
+  31.05,
+  26.25
+ ],
+ "registo": {
+  "centro": [
+   355.7,
+   215.29
+  ],
+  "raio": 22.2
+ },
+ "descritor": {
+  "texto": "Business Advisory & Development",
+  "tamanho": 47.46,
+  "largura": 722.33,
+  "espaco_simbolo": 49.199999999999996
+ }
+}
