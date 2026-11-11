@@ -2,7 +2,7 @@
 
 Pasta da identidade da DT Company (Business Advisory & Development). Fonte de verdade para os scripts: `marca.json`.
 
-## Símbolo e logótipo (11/11/2026 · por aprovar)
+## Símbolo e logótipo (aprovados a 11/11/2026)
 - O símbolo «dp» foi recriado a partir da imagem oficial (branco sobre gradiente azul), com geometria exata: `construir_simbolo.py` gera tudo.
 - Regra de construção, numa só unidade t (espessura da faixa, 60 no desenho):
   - as barrigas do d e do p têm a mesma altura, 2t + c, com o furo c = 7/8 t;
@@ -15,8 +15,9 @@ Pasta da identidade da DT Company (Business Advisory & Development). Fonte de ve
 - Coincidência com o original: 97,6% (IoU) com esta regra; 98,1% no ajuste livre.
 - Logótipo: símbolo, ® e o descritor «Business Advisory & Development» em Google Sans Regular, com 1,19 × a largura do símbolo e 0,82t por baixo, como no original. Texto em curvas.
 - Versões geradas: vertical (a do original), horizontal (proposta: descritor em duas linhas à direita) e símbolo, em índigo #04123F, azul #0A57E7, branco e preto.
-- Proposta: abaixo de 64 px de largura, usar o símbolo sem o ®.
+- O logótipo fica como o original: símbolo, ® e descritor, sem as palavras «DT Company» (decisão de 11/11/2026).
+- A versão horizontal (descritor em duas linhas à direita do símbolo) está aprovada.
+- Abaixo de 64 px de largura usa-se o símbolo sem o ® (aprovado).
 
 ## Por decidir
-- Se o nome «DT Company» entra no logótipo ou fica só o símbolo com o descritor, como no original.
 - Paleta, tipografia (Google Sans, já usada no site), padrão, papelaria e brandbook.

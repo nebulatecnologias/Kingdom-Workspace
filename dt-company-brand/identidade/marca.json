@@ -10,7 +10,92 @@
   "peso_logotipo": 400
  },
  "cores": {
-  "principal": {"nome": "Índigo DT", "hex": "#04123F", "uso": "Logótipo, títulos e blocos escuros"},
-  "acento": {"nome": "Azul DT", "hex": "#0A57E7", "uso": "Botões e destaques"}
- }
+  "principal": {
+   "nome": "Índigo DT",
+   "hex": "#04123F",
+   "uso": "Logótipo, títulos e blocos escuros"
+  },
+  "acento": {
+   "nome": "Azul DT",
+   "hex": "#0A57E7",
+   "uso": "Botões e destaques"
+  }
+ },
+ "opcoes_paleta": [
+  {
+   "nome": "Índigo e azul eléctrico",
+   "nota": "Fiel ao logótipo: o azul do gradiente original como cor de acção. Tecnológico e confiável.",
+   "frase": "Confiança para investir, operar e crescer em Moçambique.",
+   "cores": [
+    {
+     "nome": "Gelo",
+     "hex": "#F5F8FF",
+     "papel": "fundo",
+     "peso": 6
+    },
+    {
+     "nome": "Índigo DT",
+     "hex": "#04123F",
+     "papel": "marca",
+     "peso": 3
+    },
+    {
+     "nome": "Azul Eléctrico",
+     "hex": "#0066FF",
+     "papel": "ação",
+     "peso": 1
+    }
+   ]
+  },
+  {
+   "nome": "Índigo e azul sóbrio",
+   "nota": "Fundo branco e um azul mais fechado: mais institucional, próximo de bancos e auditoras. É a base do site atual.",
+   "frase": "Confiança para investir, operar e crescer em Moçambique.",
+   "cores": [
+    {
+     "nome": "Branco",
+     "hex": "#FFFFFF",
+     "papel": "fundo",
+     "peso": 6
+    },
+    {
+     "nome": "Índigo DT",
+     "hex": "#04123F",
+     "papel": "marca",
+     "peso": 3
+    },
+    {
+     "nome": "Azul DT",
+     "hex": "#0A57E7",
+     "papel": "ação",
+     "peso": 1
+    }
+   ]
+  },
+  {
+   "nome": "Índigo e âmbar",
+   "nota": "O azul fica no logótipo e o âmbar marca a acção: contraste quente, como um selo de aprovação. Para texto pequeno, precisa de um âmbar escuro.",
+   "frase": "Confiança para investir, operar e crescer em Moçambique.",
+   "cores": [
+    {
+     "nome": "Papel",
+     "hex": "#F7F6F2",
+     "papel": "fundo",
+     "peso": 6
+    },
+    {
+     "nome": "Índigo DT",
+     "hex": "#04123F",
+     "papel": "marca",
+     "peso": 3
+    },
+    {
+     "nome": "Âmbar",
+     "hex": "#F2A516",
+     "papel": "ação",
+     "peso": 1
+    }
+   ]
+  }
+ ]
 }
