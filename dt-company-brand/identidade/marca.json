@@ -15,87 +15,101 @@
    "hex": "#04123F",
    "uso": "Logótipo, títulos e blocos escuros"
   },
+  "fundo": {
+   "nome": "Gelo",
+   "hex": "#F5F8FF",
+   "uso": "Fundo de páginas e documentos"
+  },
   "acento": {
-   "nome": "Azul DT",
-   "hex": "#0A57E7",
+   "nome": "Azul Eléctrico",
+   "hex": "#0066FF",
    "uso": "Botões e destaques"
+  },
+  "acento_texto": {
+   "nome": "Azul Fundo",
+   "hex": "#0052CC",
+   "uso": "Links e texto azul pequeno"
+  },
+  "texto": {
+   "nome": "Tinta",
+   "hex": "#0E1B3D",
+   "uso": "Texto principal"
+  },
+  "texto_secundario": {
+   "nome": "Cinza Índigo",
+   "hex": "#4A5880",
+   "uso": "Texto secundário"
+  },
+  "linha": {
+   "nome": "Linha",
+   "hex": "#DCE6F7",
+   "uso": "Divisórias e contornos"
   }
  },
- "opcoes_paleta": [
+ "slogan": [
+  "Confiança para investir,",
+  "operar e crescer em Moçambique."
+ ],
+ "cores_logo": {
+  "indigo": "#04123F",
+  "branco": "#FFFFFF",
+  "preto": "#000000"
+ },
+ "cores_icone": {
+  "indigo": "#04123F",
+  "azul": "#0066FF"
+ },
+ "proporcao": [
+  60,
+  30,
+  10
+ ],
+ "gradiente_tons": {
+  "noite": "#00042D",
+  "luz": "#0066FF",
+  "lavanda": "#9DC0FF"
+ },
+ "gradientes": [
   {
-   "nome": "Índigo e azul eléctrico",
-   "nota": "Fiel ao logótipo: o azul do gradiente original como cor de acção. Tecnológico e confiável.",
-   "frase": "Confiança para investir, operar e crescer em Moçambique.",
-   "cores": [
-    {
-     "nome": "Gelo",
-     "hex": "#F5F8FF",
-     "papel": "fundo",
-     "peso": 6
-    },
-    {
-     "nome": "Índigo DT",
-     "hex": "#04123F",
-     "papel": "marca",
-     "peso": 3
-    },
-    {
-     "nome": "Azul Eléctrico",
-     "hex": "#0066FF",
-     "papel": "ação",
-     "peso": 1
-    }
-   ]
+   "nome": "Original",
+   "css": "linear-gradient(225deg,#0068FF 0%,#0045BA 30%,#000633 75%,#00042D 100%)",
+   "paragens": "#0068FF → #0045BA → #00042D",
+   "uso": "O fundo do logótipo: capas, perfil e vídeo."
   },
   {
-   "nome": "Índigo e azul sóbrio",
-   "nota": "Fundo branco e um azul mais fechado: mais institucional, próximo de bancos e auditoras. É a base do site atual.",
-   "frase": "Confiança para investir, operar e crescer em Moçambique.",
-   "cores": [
-    {
-     "nome": "Branco",
-     "hex": "#FFFFFF",
-     "papel": "fundo",
-     "peso": 6
-    },
-    {
-     "nome": "Índigo DT",
-     "hex": "#04123F",
-     "papel": "marca",
-     "peso": 3
-    },
-    {
-     "nome": "Azul DT",
-     "hex": "#0A57E7",
-     "papel": "ação",
-     "peso": 1
-    }
-   ]
+   "nome": "Noite",
+   "css": "linear-gradient(160deg,#00042D 0%,#04123F 55%,#0B2A80 100%)",
+   "paragens": "#00042D → #04123F → #0B2A80",
+   "uso": "Apresentações e páginas escuras, com texto branco."
   },
   {
-   "nome": "Índigo e âmbar",
-   "nota": "O azul fica no logótipo e o âmbar marca a acção: contraste quente, como um selo de aprovação. Para texto pequeno, precisa de um âmbar escuro.",
-   "frase": "Confiança para investir, operar e crescer em Moçambique.",
-   "cores": [
-    {
-     "nome": "Papel",
-     "hex": "#F7F6F2",
-     "papel": "fundo",
-     "peso": 6
-    },
-    {
-     "nome": "Índigo DT",
-     "hex": "#04123F",
-     "papel": "marca",
-     "peso": 3
-    },
-    {
-     "nome": "Âmbar",
-     "hex": "#F2A516",
-     "papel": "ação",
-     "peso": 1
-    }
-   ]
+   "nome": "Céu",
+   "css": "linear-gradient(160deg,#04123F 0%,#0066FF 60%,#9DC0FF 100%)",
+   "paragens": "#04123F → #0066FF → #9DC0FF",
+   "uso": "Frases e destaques nas redes."
+  }
+ ],
+ "exemplo_preco": "125 000,00 MT",
+ "opcoes_tipografia": [
+  {
+   "titulos": "Google Sans",
+   "texto": "Google Sans",
+   "nota": "Uma só família, a mesma do descritor do logótipo e do site. Clara e moderna."
+  },
+  {
+   "titulos": "IBM Plex Sans",
+   "texto": "IBM Plex Sans",
+   "nota": "Técnica e institucional, desenhada para relatórios e dados. Tom de auditoria."
+  },
+  {
+   "titulos": "Inter",
+   "texto": "Inter",
+   "nota": "Neutra e muito legível em ecrã. Corporativa, sem personalidade forte."
+  },
+  {
+   "titulos": "Manrope",
+   "texto": "Manrope",
+   "nota": "Geométrica e arredondada, combina com as curvas do símbolo. Mais leve."
   }
  ]
 }

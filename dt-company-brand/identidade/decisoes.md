@@ -19,5 +19,19 @@ Pasta da identidade da DT Company (Business Advisory & Development). Fonte de ve
 - A versão horizontal (descritor em duas linhas à direita do símbolo) está aprovada.
 - Abaixo de 64 px de largura usa-se o símbolo sem o ® (aprovado).
 
+## Paleta (opção A, aprovada a 11/11/2026)
+Índigo e azul eléctrico, fiel ao logótipo. Proporção 60 / 30 / 10.
+| Papel | Nome | Hex | Contraste sobre o Gelo |
+|---|---|---|---|
+| Fundo (60%) | Gelo | #F5F8FF | — |
+| Principal (30%) | Índigo DT | #04123F | 17,0:1 |
+| Acção (10%) | Azul Eléctrico | #0066FF | 4,55:1 (branco sobre ele: 4,83:1) |
+| Texto azul pequeno | Azul Fundo | #0052CC | 6,4:1 |
+| Texto | Tinta | #0E1B3D | 15,9:1 |
+| Texto secundário | Cinza Índigo | #4A5880 | 6,6:1 |
+| Linhas | Linha | #DCE6F7 | — |
+
+Proposta, por aprovar: gradientes Original (o fundo do logótipo, #0068FF → #00042D), Noite e Céu; tons só para gradientes: #00042D, #0066FF e #9DC0FF.
+
 ## Por decidir
-- Paleta, tipografia (Google Sans, já usada no site), padrão, papelaria e brandbook.
+- Tipografia (Google Sans, já usada no site), padrão, papelaria e brandbook.
