@@ -1,0 +1,7930 @@
+[
+ {
+  "type": "p",
+  "h": 1,
+  "runs": [
+   {
+    "t": "Playbook de vendas · Kingdom Company",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": " · ",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 2,
+  "runs": [
+   {
+    "t": "Como usar este playbook",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Um só playbook para o SDR e o Closer da Kingdom Company, em oito secções. As três primeiras são a base comum: quem somos, o que vendemos e como qualificamos. A 04 define o processo comercial, a 05 e a 06 são o guia de cada função, e a 07 e a 08 servem de consulta rápida durante uma conversa.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Secção",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "SDR",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Closer",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "01 Quem somos",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Domina",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Domina",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "02 O que vendemos: fichas dos serviços",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Sabe explicar",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Domina",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "03 Qualificação BANT",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Aplica",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Confirma",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "04 Processo comercial",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "✓",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "✓",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "05 Guia do SDR",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "✓",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "—",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "06 Guia do Closer",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "—",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "✓",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "07 Tratamento de objeções",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "As do primeiro contacto",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Todas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "08 Follow-up e recuperação",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Leads e reuniões",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Propostas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Cada etapa do processo tem três elementos: ",
+    "b": false,
+    "i": false
+   },
+   {
+    "t": "objetivo",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " (o que tem de conseguir), ",
+    "b": false,
+    "i": false
+   },
+   {
+    "t": "execução",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " (o que fazer, perguntar ou dizer) e ",
+    "b": false,
+    "i": false
+   },
+   {
+    "t": "critério de conclusão",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " (como saber que pode avançar).",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "O que fica de fora, por não ser essencial para vender:",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " história e missão da empresa, teoria de vendas, guiões para decorar e serviços que não são vendidos por esta equipa. Ficam de fora o Business Advising com o Shelton, que fecha direto no site (R08), o treino de equipas, que passou para o Kingdom Training, e a Consultoria Estratégica (Plano de Negócios, Planeamento Estratégico e Advisory), que passou para a DT Company (R04). No PDF, cada página responde a uma só consulta: um vendedor deve encontrar o que precisa em menos de 30 segundos.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Os textos marcados ",
+    "b": false,
+    "i": false
+   },
+   {
+    "t": "A confirmar",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " ainda dependem de uma decisão do Shelton e têm de ser fechados antes do PDF.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 2,
+  "runs": [
+   {
+    "t": "01 · Quem somos",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "O vendedor apresenta a Kingdom Company em 30 segundos e explica porque deve ser a escolhida, sem depender de mais ninguém.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 3,
+  "runs": [
+   {
+    "t": "A empresa em 30 segundos",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "blockquote",
+  "kind": null,
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "A Kingdom Company é uma empresa moçambicana, baseada em Maputo, que ajuda empresas a superar os desafios estratégicos e operacionais que condicionam o seu crescimento, a sua organização, o seu posicionamento e a sua competitividade, através de soluções integradas de desenvolvimento empresarial.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Reunimos diferentes competências numa só equipa, que integra desenvolvimento editorial, assessoria empresarial e desenvolvimento tecnológico. Assim, alinhamos estratégia, estrutura, comunicação e operações para fortalecer o desempenho da empresa e criar bases sólidas para um crescimento sustentável, sem que o cliente tenha de investir tempo e recursos a contratar e coordenar vários fornecedores.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 3,
+  "runs": [
+   {
+    "t": "Porque escolher a Kingdom Company",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "São cinco diferenciais, e valem para todos os serviços:",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "kind": "ordered",
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Uma só equipa, com competências integradas.",
+       "b": true,
+       "i": false
+      },
+      {
+       "t": " Desenvolvimento editorial, assessoria e tecnologia trabalham juntas. O cliente não gasta tempo nem recursos a contratar e coordenar fornecedores.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Estratégia, estrutura, comunicação e operações alinhadas.",
+       "b": true,
+       "i": false
+      },
+      {
+       "t": " Cada serviço liga-se aos outros pelo mesmo método em seis fases, do diagnóstico ao acompanhamento.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Conhecemos o mercado.",
+       "b": true,
+       "i": false
+      },
+      {
+       "t": " Temos uma base de conhecimento nacional e regional, através da SDG (Pty) Ltd na África do Sul e de parceiros internacionais.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Equipa certificada.",
+       "b": true,
+       "i": false
+      },
+      {
+       "t": " O nosso quadro de consultores tem certificações da Google, da Anthropic, da Semrush, da Wix e da Universidade Rock Content.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Entregáveis que ficam.",
+       "b": true,
+       "i": false
+      },
+      {
+       "t": " O cliente recebe documentos, modelos e sistemas que continua a usar depois do projeto.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 2,
+  "runs": [
+   {
+    "t": "02 · O que vendemos: fichas dos serviços",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "A Kingdom Company vende 9 serviços em três áreas, e cada um tem uma ficha em seis partes: o que é, que problema resolve, quem tem essa dor, a transformação, o que entregamos e como apresentar comercialmente. O vendedor usa as dores para reconhecer o cliente: quando o ouve descrever uma delas, sabe que serviço apresentar. Os entregáveis marcados (A confirmar) são propostas ainda por validar.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Regra: não vender características.",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " Cada característica liga-se a um problema e a um resultado. Por exemplo: «o perfil vem em PDF, PPTX e DOCX» (característica) → «a sua equipa adapta-o a cada proposta sem pedir a um designer» (resultado).",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Desenvolvimento Editorial · Identidade Visual",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Identidade Visual",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de desenvolvimento estratégico e criativo da identidade visual de uma marca, que transforma o seu posicionamento, personalidade e valores em elementos visuais que orientam a forma como a empresa se apresenta e é reconhecida no mercado.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas que não possuem uma identidade visual profissional, coerente e alinhada com o seu posicionamento, prejudicando a perceção de credibilidade, diferenciação e consistência da marca.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• A empresa apresenta uma imagem amadora. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• O logótipo não representa a dimensão ou a qualidade do negócio. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• A marca não se diferencia dos concorrentes. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Existe inconsistência nos materiais de comunicação. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• A imagem não acompanha a evolução da empresa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empreendedores que estão a iniciar um negócio. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que pretendem reposicionar ou modernizar a sua marca.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Negócios em expansão que precisam de profissionalizar a sua comunicação.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas cuja identidade visual já não corresponde ao seu posicionamento atual.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma empresa com uma apresentação visual pouco estruturada, inconsistente ou incapaz de comunicar adequadamente a sua identidade.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma marca com identidade visual definida, coerente e profissional, preparada para se apresentar de forma consistente nos seus diferentes pontos de contacto.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Desenvolvimento do conceito visual. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Criação do logótipo. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Definição da paleta cromática. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Seleção tipográfica. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Elementos gráficos complementares. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Manual de identidade visual. ",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Aplicações da marca em materiais selecionados.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos empresas a construir uma identidade visual profissional e estratégica, alinhada com o seu posicionamento e com a imagem que pretendem transmitir ao mercado. Desenvolvemos os elementos visuais que permitem apresentar a marca com maior consistência, personalidade e credibilidade nos seus diferentes pontos de contacto.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Desenvolvimento Editorial · Modelos de Propostas Técnicas",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Modelos de Propostas Técnicas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de construção de propostas técnicas para concursos, feitas a partir do caderno de encargos e dos critérios de avaliação, que deixa à empresa modelos editáveis para os concursos seguintes.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas com capacidade técnica que perdem concursos pela forma como apresentam as propostas, por falta de método na estruturação das propostas, de tempo ou de conhecimento dos critérios de avaliação.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Perde concursos por pontos na parte técnica, não no preço.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• As propostas são montadas à pressa na véspera do prazo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Reutiliza textos de concursos antigos que não respondem aos critérios.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Corre o risco de exclusão por documentos em falta ou requisitos mal interpretados.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• A equipa técnica perde dias a escrever em vez de executar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que concorrem a concursos públicos.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Fornecedores de ONG, agências de cooperação e doadores.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que querem entrar no mercado dos concursos e não sabem por onde começar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com um concurso em curso e uma data-limite próxima.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Propostas improvisadas, feitas à pressa, que perdem pontos e concursos que a empresa tinha capacidade para ganhar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Propostas estruturadas, que respondem a cada critério de avaliação, e modelos prontos para preparar o próximo concurso em menos tempo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Análise do caderno de encargos e dos critérios de avaliação.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Checklist de desenvolvimento da proposta.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Proposta técnica redigida e paginada com a marca da empresa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Sugestão de proposta financeira.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Checklist de submissão e revisão final.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Acompanhamento até à submissão e aos pedidos de esclarecimento.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Modelos editáveis para as próximas propostas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos empresas a apresentar propostas técnicas que respondem exatamente ao que o júri avalia. Construímos a proposta a partir do caderno de encargos e deixamos modelos prontos, para que a empresa concorra com mais qualidade e menos esforço em cada concurso.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Desenvolvimento Editorial · Perfis Corporativos",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Perfis Corporativos",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de redação e paginação do perfil corporativo, o documento que apresenta a empresa (história, serviços, equipa, clientes e projetos) em reuniões, propostas, parcerias e candidaturas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas que não têm uma apresentação escrita à altura do que já entregam, perdendo credibilidade nos primeiros contactos com clientes, parceiros e financiadores.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• A empresa envia um PDF antigo, com informação desatualizada.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• A apresentação não mostra a dimensão dos projetos e dos clientes que a empresa já tem.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Cada colaborador apresenta a empresa de forma diferente.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Grandes clientes e instituições pedem um perfil, e o que existe não convence.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Sempre que é preciso apresentar a empresa, alguém monta um documento de raiz.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com clientes e projetos realizados, mas sem um documento que os mostre.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que se registam como fornecedoras de grandes empresas, instituições ou ONG.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que vão a reuniões comerciais, parcerias ou candidaturas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que mudaram de serviços, de dimensão ou de marca.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma empresa que se apresenta com documentos improvisados, que não fazem justiça ao que já realizou.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma empresa que é levada a sério à primeira, com uma apresentação profissional, atualizada e fácil de adaptar a cada oportunidade.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Entrevista com a direção.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Redação e revisão dos textos.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Paginação com a marca da empresa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Portefólio de projetos e clientes.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Versões em PDF, PPTX e DOCX, prontas a enviar e a editar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Versão para impressão.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos empresas a apresentar-se ao nível do que já entregam. Escrevemos e desenhamos o perfil corporativo que mostra a história, os serviços e os projetos da empresa, pronto a enviar a clientes, parceiros e financiadores.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Assessoria · Produção Audiovisual",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Produção Audiovisual",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de produção de vídeo e fotografia, do guião à edição, que mostra a empresa, a equipa, os produtos e os projetos com qualidade profissional.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas que não têm conteúdo visual próprio capaz de mostrar a qualidade do que fazem, e por isso não são vistas nem lembradas por quem decide.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• O mercado não conhece a empresa nem o que ela faz.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Usa fotografias de banco ou vídeos de telemóvel que não mostram a qualidade real do trabalho.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Os clientes só percebem o valor depois de uma longa conversa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Quer comunicar nas redes e no site, mas não tem material próprio.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Os lançamentos e os eventos passam sem que ninguém repare.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que vão lançar um produto, uma unidade ou um serviço.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que querem mostrar instalações, equipa ou projetos a clientes e investidores.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que vão renovar o site ou as redes sociais.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que organizam ou participam em eventos.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma empresa invisível ou mal representada, que depende de longas conversas para mostrar o seu valor.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma empresa vista e lembrada, com conteúdo profissional que mostra a sua qualidade antes da primeira reunião.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos? (A confirmar)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Guião e plano de filmagem.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Captação de vídeo e fotografia.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Edição e pós-produção.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Vídeo institucional.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Versões curtas para as redes sociais.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos empresas a mostrar o que fazem com a qualidade que merecem. Produzimos vídeos e fotografias que apresentam a empresa, a equipa e os projetos, para que os clientes percebam o seu valor antes de falarem consigo.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Assessoria · Gestão de Redes Sociais",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Gestão de Redes Sociais",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço mensal de gestão das redes sociais da empresa, que planeia, cria e publica os conteúdos e mede o que resultou.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas que não têm tempo nem equipa para manter uma presença regular e profissional nas redes, onde os clientes as procuram antes de comprar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• As páginas estão paradas há meses e passam a ideia de que a empresa fechou.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Ninguém na empresa tem tempo para publicar com regularidade.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Publica promoções avulsas, sem estratégia nem linha visual.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Não sabe se as redes trazem algum cliente.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Concorrentes mais pequenos parecem maiores online.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas sem equipa de comunicação ou marketing.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas cujos clientes as procuram no Instagram, no Facebook ou no LinkedIn.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que renovaram a marca e querem mostrá-la.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Donos que publicam eles próprios, quando têm tempo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Redes paradas ou irregulares, que tiram confiança a quem as visita.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma presença constante e profissional, que gera confiança e contactos sem ocupar o tempo da direção.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos? (A confirmar)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Estratégia e linha editorial.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Calendário mensal de publicações.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Criação dos conteúdos (texto e design).",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Publicação nas redes acordadas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Relatório mensal de resultados.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos empresas a manter uma presença profissional e constante nas redes sociais. Planeamos, criamos e publicamos os conteúdos todos os meses, para que a sua empresa transmita confiança a quem a procura, sem ocupar o seu tempo.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Assessoria · Produção de Campanhas Publicitárias",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Produção de Campanhas Publicitárias",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de planeamento e produção de campanhas publicitárias, do objetivo e da mensagem aos criativos e aos anúncios, com o resultado medido no fim.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas que investem em publicidade sem estratégia, sem saber o que cada anúncio traz, ou que têm um lançamento sem plano de comunicação.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Já gastou em anúncios e não sabe o que trouxeram.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Impulsiona publicações ao acaso, à espera que alguma resulte.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Tem uma data de lançamento e nenhum plano de comunicação.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Os anúncios chegam a muita gente, mas não às pessoas certas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Não sabe quanto lhe custa cada cliente conquistado.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que vão lançar um produto, um serviço ou uma loja.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com uma época forte de vendas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com uma meta comercial e orçamento para publicidade.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que já anunciam, mas sem resultados claros.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dinheiro gasto em anúncios sem estratégia e sem saber o que trouxe.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Campanhas com objetivo, mensagem e público definidos, e cada metical investido ligado a um resultado medido.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos? (A confirmar)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Objetivo, público e mensagem da campanha.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Conceito criativo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Criativos em imagem e vídeo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Configuração e gestão dos anúncios.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Relatório de resultados.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos empresas a transformar o investimento em publicidade em resultados. Definimos o objetivo, a mensagem e o público, produzimos os criativos e gerimos os anúncios, para que saiba exatamente o que cada campanha trouxe.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Desenvolvimento Tecnológico · Dashboards de Gestão",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dashboards de Gestão",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de desenvolvimento de painéis de gestão que reúnem os dados da empresa (vendas, finanças e operações) num só lugar, com os indicadores que a direção precisa de acompanhar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas que decidem sem dados fiáveis e a tempo, porque a informação está espalhada, chega tarde ou depende de uma só pessoa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Toma decisões por intuição porque os números chegam tarde.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• A informação está em várias folhas de Excel que não batem certo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Leva dias, ou semanas, a saber como correu o mês.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Só uma pessoa sabe montar os relatórios.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Os problemas são descobertos quando o prejuízo já aconteceu.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com vários departamentos, lojas, filiais ou projetos.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Diretores que precisam de prestar contas a sócios ou investidores.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas em crescimento cujos relatórios já não dão conta do volume.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma direção que decide às cegas, à espera de relatórios que chegam tarde e não batem certo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma direção que vê a empresa em tempo real e decide a tempo, com números em que todos confiam.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos? (A confirmar)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Levantamento dos indicadores com a direção.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Ligação às fontes de dados da empresa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Painel de gestão com os indicadores.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Acessos para a direção e a equipa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Formação para usar o painel.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Manutenção mensal.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos a direção a ver a empresa em tempo real. Reunimos os dados de vendas, finanças e operações num só painel, para que decida a tempo e com números em que confia.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Desenvolvimento Tecnológico · Websites e Aplicativos",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Websites e Aplicativos",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de desenho e desenvolvimento de sites e aplicações pensados para apresentar a empresa com credibilidade e gerar contactos e vendas, com alojamento e manutenção.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas que não são encontradas online, ou que têm um site que não transmite confiança nem traz clientes.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Os clientes procuram a empresa na internet e não a encontram.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• O site é antigo, lento ou não abre bem no telemóvel.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• O site existe, mas não traz pedidos de contacto nem vendas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Concorrentes com melhor presença digital ficam com os clientes.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Quando um cliente pede o site, a empresa sente que perde pontos.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que ainda não têm site.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com um site desatualizado ou que não gera contactos.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que mudaram de marca ou de serviços.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que querem vender ou receber pedidos online.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma empresa invisível ou mal representada online, que perde clientes para a concorrência.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Um canal de credibilidade e de vendas aberto 24 horas, que trabalha pela empresa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Estrutura e textos das páginas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Design para computador e telemóvel.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Desenvolvimento e publicação no domínio da empresa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Botões para WhatsApp, chamada, email ou formulário.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Título, descrição e imagem de partilha.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Alojamento, certificado de segurança e manutenção mensal.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos empresas a ter uma presença digital que transmite confiança e traz clientes. Desenhamos e desenvolvemos o site ou a aplicação, e cuidamos do alojamento e da manutenção, para que a sua empresa venda também enquanto dorme.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Desenvolvimento Tecnológico · CRM e Sistemas de Vendas",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "CRM e Sistemas de Vendas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de implementação de um CRM e de um processo de vendas, que regista cada cliente, oportunidade e conversa, e organiza o acompanhamento comercial da equipa.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas que perdem vendas por falta de seguimento e não conseguem prever nem controlar o trabalho da equipa comercial.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Clientes interessados ficam esquecidos por falta de seguimento.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Os contactos estão no telemóvel de cada vendedor e saem com ele.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Não sabe quanto vai faturar no próximo mês.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Não sabe em que fase está cada negócio nem o que cada vendedor está a fazer.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Cada vendedor trabalha à sua maneira, e o cliente sente a diferença.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com equipa comercial, ou a montá-la.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com um volume de clientes que já não cabe numa folha de cálculo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Diretores comerciais que precisam de prever e controlar as vendas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Vendas que dependem da memória de cada vendedor, com oportunidades perdidas e resultados imprevisíveis.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Um processo comercial organizado, com nenhum cliente esquecido e uma direção que sabe o que vai entrar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos? (A confirmar)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Mapeamento do processo comercial.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Configuração do CRM (etapas, campos e utilizadores).",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Importação dos contactos existentes.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Painel de vendas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Formação da equipa comercial.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Manutenção mensal.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos empresas a vender de forma organizada e previsível. Implementamos um sistema que acompanha cada cliente e cada oportunidade, para que nenhuma venda se perca por falta de seguimento e saiba sempre o que vai entrar.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 2,
+  "runs": [
+   {
+    "t": "03 · Como qualificamos: método BANT",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Cada serviço tem o seu cliente ideal, descrito na ficha (parte 3, «Quem tem essa dor?»). A qualificação é igual para todos os serviços: o vendedor confirma os quatro critérios do método BANT antes de passar a oportunidade ao Closer.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Critério",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O que confirmar",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Perguntas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Cumprido quando",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Sinal de alerta",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "N · Necessidade",
+        "b": true,
+        "i": false
+       },
+       {
+        "t": " (Need)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma dor real, que corresponde a um serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O que vos levou a procurar-nos agora? O que mais trava a empresa: crescer, organizar-se, posicionar-se ou competir? O que acontece se não resolverem nos próximos três meses?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O cliente descreve a dor com as suas palavras, e ela aparece nas «Dores identificadas» de uma ficha",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Só quer «ver preços», sem problema concreto",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "A · Autoridade",
+        "b": true,
+        "i": false
+       },
+       {
+        "t": " (Authority)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Se fala com quem decide, ou consegue chegar a essa pessoa",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Além de si, quem participa na decisão? Como decidem normalmente um investimento destes?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O decisor está na conversa ou aceita estar na reunião com o Closer",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Vou passar ao meu chefe», sem data nem nome",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "B · Orçamento",
+        "b": true,
+        "i": false
+       },
+       {
+        "t": " (Budget)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Se a empresa tem capacidade e disposição para investir numa proposta à medida",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Já têm um valor previsto para isto? Este investimento já está aprovado, ou ainda tem de ser?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Tem orçamento disponível ou previsto, ou aceita receber uma proposta à medida para decidir",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Sem orçamento nos próximos meses, ou quer apenas o mais barato",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "T · Prazo",
+        "b": true,
+        "i": false
+       },
+       {
+        "t": " (Timing)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Quando precisa da solução, e porquê nessa data",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Para quando precisam disto pronto? Há alguma data que não pode falhar (concurso, evento, lançamento)?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Há uma data ou um gatilho concreto",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Um dia», «quando houver tempo»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Regra de passagem:",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " a oportunidade passa ao Closer com ",
+    "b": false,
+    "i": false
+   },
+   {
+    "t": "Necessidade, Autoridade e Orçamento",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " cumpridos. O ",
+    "b": false,
+    "i": false
+   },
+   {
+    "t": "Prazo",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " define a prioridade: com data nos próximos 30 dias, a reunião marca-se primeiro. Sem um dos três obrigatórios, a oportunidade fica em Nutrir, com o critério em falta registado no CRM.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 2,
+  "runs": [
+   {
+    "t": "04 · Processo comercial e responsabilidades",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "O processo tem sete etapas: o SDR conduz as três primeiras e o Closer as quatro seguintes. Cada oportunidade tem sempre um responsável com nome e um canal: chamada, videoconferência ou WhatsApp (R09).",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "embed",
+  "caption": "processo comercial · 7 etapas, 2 funções"
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "A passagem do SDR para o Closer só acontece com a reunião marcada e a ficha de passagem preenchida.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Etapa",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Quem",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Objetivo",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Execução",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Critério de conclusão",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Prazo",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. Novo lead",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "SDR",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Responder antes da concorrência",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Registar no CRM e fazer o primeiro contacto pelo canal que o cliente escolheu",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Contacto feito e registado",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1 dia útil depois do pedido (A confirmar)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Qualificação",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "SDR",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Saber se vale a pena uma reunião",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Primeiro contacto e perguntas de qualificação (secção 05)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Os critérios obrigatórios estão cumpridos, ou a oportunidade foi desqualificada",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1 a 2 conversas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Reunião marcada",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "SDR",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Passá-la ao Closer sem perder informação",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Marcar a reunião com o decisor e preencher a ficha de passagem",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Reunião no calendário, ficha no CRM e convite aceite",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Até 5 dias úteis depois da qualificação",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Diagnóstico",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Closer",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Perceber o problema, o impacto e a prioridade",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Reunião em cinco momentos (secção 06)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dor, serviço indicado e decisor confirmados",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1 reunião de 45 a 60 minutos",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. Proposta",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Closer",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Pôr a solução e o investimento por escrito",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Enviar a proposta à medida, com âmbito, entregáveis, prazo e investimento",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Proposta enviada e data de decisão combinada",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2 dias úteis depois do diagnóstico (A confirmar)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Negociação",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Closer",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolver as dúvidas e as objeções",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Tratar objeções (secção 07) dentro das regras: pagamento por marcos (R38) e sem descontos (R39)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Aceite por escrito, ou motivo de perda registado",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Até à data de decisão",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "7. Fecho e passagem",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Closer",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Começar a entrega sem atrito",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Fatura, pagamento, ficha de arranque para a entrega",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Pagamento recebido e cliente apresentado a quem entrega",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dia do pagamento",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Estados da oportunidade no CRM:",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Novo → Em qualificação → Reunião marcada → Diagnóstico feito → Proposta enviada → Em negociação → Ganho ou Perdido.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Os estados laterais são Nutrir, para quem ainda não está pronto, e Encaminhado, para o Training, a Academy ou o Business Advising. Uma oportunidade perdida leva sempre o motivo. ",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 2,
+  "runs": [
+   {
+    "t": "05 · Guia do SDR",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "O SDR não vende serviços: vende a reunião com o Closer. Para isso tem três tarefas, por esta ordem: abrir a conversa, qualificar e passar a oportunidade sem perder informação.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 3,
+  "runs": [
+   {
+    "t": "A. Primeiro contacto",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Objetivo:",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " conseguir 10 minutos de conversa. ",
+    "b": false,
+    "i": false
+   },
+   {
+    "t": "Conclusão:",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " o cliente responde a pelo menos duas perguntas de qualificação.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Pedido de cotação ou avaliação inicial (lead que chegou):",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "blockquote",
+  "kind": null,
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Bom dia, [nome]. Fala [SDR], da Kingdom Company. Recebemos o seu pedido sobre [serviço] e gostava de marcar uma breve chamada para perceber melhor que solução procura. Assim, a proposta que lhe enviarmos responde exatamente ao que precisa. Tem 5 minutos agora, ou prefere que ligue mais tarde?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Três regras para não parecer insistente:",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "kind": "ordered",
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Contextualizar sempre: porquê esta pessoa e porquê agora.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Fazer uma pergunta, não uma apresentação.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Pedir licença para continuar.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Se o cliente pedir o preço logo no início, explicar que cada proposta é feita à medida e que o valor certo depende de duas ou três respostas sobre o que precisa.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 3,
+  "runs": [
+   {
+    "t": "B. Perguntas de qualificação",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Fazer pela ordem e parar quando os critérios estiverem cumpridos.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "kind": "ordered",
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "O que vos levou a procurar-nos agora? ",
+       "b": false,
+       "i": false
+      },
+      {
+       "t": "(gatilho e urgência)",
+       "b": false,
+       "i": true
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Hoje, o que mais trava a empresa: crescer, organizar-se, posicionar-se ou competir? ",
+       "b": false,
+       "i": false
+      },
+      {
+       "t": "(dimensão do desafio)",
+       "b": false,
+       "i": true
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Como é que isso funciona hoje na vossa empresa? ",
+       "b": false,
+       "i": false
+      },
+      {
+       "t": "(situação)",
+       "b": false,
+       "i": true
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Qual é a principal dificuldade neste momento, e há quanto tempo existe? ",
+       "b": false,
+       "i": false
+      },
+      {
+       "t": "(dor)",
+       "b": false,
+       "i": true
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "O que já tentaram para resolver, e com quantos fornecedores? ",
+       "b": false,
+       "i": false
+      },
+      {
+       "t": "(fornecedores anteriores, objeções futuras)",
+       "b": false,
+       "i": true
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "O que acontece se não resolverem nos próximos três meses? ",
+       "b": false,
+       "i": false
+      },
+      {
+       "t": "(impacto)",
+       "b": false,
+       "i": true
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Além de si, quem participa na decisão? ",
+       "b": false,
+       "i": false
+      },
+      {
+       "t": "(decisor)",
+       "b": false,
+       "i": true
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Já têm um valor previsto para isto, ou ainda está por definir? ",
+       "b": false,
+       "i": false
+      },
+      {
+       "t": "(capacidade de investimento)",
+       "b": false,
+       "i": true
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Para quando precisam disto pronto? ",
+       "b": false,
+       "i": false
+      },
+      {
+       "t": "(prazo)",
+       "b": false,
+       "i": true
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 3,
+  "runs": [
+   {
+    "t": "C. Critérios de qualificação",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "O SDR usa o método BANT da secção 03. As perguntas da lista B cobrem os quatro critérios. A reunião só se marca com ",
+    "b": false,
+    "i": false
+   },
+   {
+    "t": "Necessidade, Autoridade e Orçamento",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " cumpridos, e o ",
+    "b": false,
+    "i": false
+   },
+   {
+    "t": "Prazo",
+    "b": true,
+    "i": false
+   },
+   {
+    "t": " define a prioridade. Antes de qualificar, confirmar que o cliente encaixa no público da ficha do serviço (parte 3).",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 3,
+  "runs": [
+   {
+    "t": "D. Ficha de passagem ao Closer",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "O SDR preenche a ficha no CRM antes da reunião, e o Closer lê-a antes de entrar:",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "kind": "bullet",
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Nome, cargo, telefone, email e canal preferido",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Empresa, setor, n.º de colaboradores, país",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Origem do lead",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Dor principal, com as palavras do cliente",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Serviço de interesse",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Quem decide e quem mais participa",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Investimento previsto, se o cliente o disse",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Objeções que já apareceram",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Data, hora e canal da reunião",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 2,
+  "runs": [
+   {
+    "t": "06 · Guia do Closer",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "O Closer conduz uma reunião de 45 a 60 minutos em cinco momentos. Deve falar menos de metade do tempo até à apresentação da solução. Antes de entrar, lê a ficha de passagem e prepara duas hipóteses de serviço.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Momento",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Tempo",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Objetivo",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Execução",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Pode avançar quando",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. Abertura e alinhamento",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5 min",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Criar confiança e controlar a agenda",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Agradecer, confirmar o tempo disponível, dizer o objetivo e o que acontece no fim",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O cliente aceitou a agenda",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Diagnóstico aprofundado",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "20 min",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Perceber o problema, o impacto e a prioridade",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Confirmar o que o SDR registou e aprofundar com as perguntas abaixo",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O cliente disse, por palavras dele, o custo de não resolver",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Apresentação da solução",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "10 min",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ligar cada dor a um entregável",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Apresentar o serviço que responde à dor principal, o método e o resultado esperado. Se o desafio toca outras dimensões, mostrar como os serviços se ligam numa só equipa",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O cliente confirma que é isto que precisa",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Objeções e condições",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "10 min",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Tirar as dúvidas antes da proposta",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Perguntar «o que o impediria de avançar?» e tratar cada resposta (secção 07)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Não há objeções por esclarecer",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. Fecho e próximos passos",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5 min",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Sair com uma decisão ou uma data",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Pedir a decisão, ou combinar a data da proposta e a data da decisão",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Próximo passo com data no calendário",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Abertura (exemplo):",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "blockquote",
+  "kind": null,
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Obrigado pelo tempo, [nome]. Temos 45 minutos. A ideia é perceber bem o vosso desafio com [tema]. Se fizer sentido, mostro-lhe como trabalharíamos e o investimento. No fim decidimos juntos o próximo passo, mesmo que seja não avançar. Pode ser?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Perguntas de diagnóstico:",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "kind": "ordered",
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Conte-me como chegaram a este ponto.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Como mede hoje este problema? Em vendas, tempo, concursos ou clientes?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Quanto custa por mês manter as coisas como estão?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Se isto estivesse resolvido daqui a seis meses, o que seria diferente?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Porquê agora, e não há seis meses?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Como decidem normalmente um investimento destes, e quem precisa de estar convencido?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Pedir a decisão (exemplo):",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "blockquote",
+  "kind": null,
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Pelo que me disse, a [solução] resolve [dor] até [prazo]. Faz sentido avançarmos? Se sim, envio hoje a proposta e a fatura para começarmos a [data].",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Ficha de arranque (passagem à entrega):",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "kind": "bullet",
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "serviço e âmbito acordado;",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "o que foi prometido e o prazo;",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "os materiais que o cliente envia;",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "o contacto do lado do cliente;",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "as objeções e as sensibilidades que surgiram na venda.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 2,
+  "runs": [
+   {
+    "t": "07 · Tratamento de objeções",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Uma objeção quase nunca é a razão verdadeira. O método tem três passos:",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "kind": "ordered",
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Reconhecer o que o cliente disse.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Fazer a pergunta que revela a razão real.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Só depois responder.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "As respostas abaixo são direções, não textos para decorar.",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Objeção",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O que pode estar por trás",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Pergunta para descobrir",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Direção da resposta",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Está muito caro»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Não viu o valor, compara com outra coisa, ou não tem o dinheiro agora",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Caro comparado com quê?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Voltar ao custo de não resolver, que o cliente disse no diagnóstico. Se for preciso, ajustar o âmbito da proposta, nunca o preço do mesmo âmbito (R39)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Preciso de pensar»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma dúvida que não disse",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O que ainda não está claro para si?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Tratar a dúvida concreta e marcar a data da decisão",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Vou falar com o meu sócio»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O decisor não esteve na reunião",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O que é que o seu sócio vai querer saber?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Oferecer uma conversa de 20 minutos com o sócio e enviar um resumo de uma página",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Não tenho orçamento»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Não é prioridade, ou o momento financeiro é mau",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Se tivesse o orçamento, avançava hoje?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Se sim: âmbito menor ou pagamento por marcos (R38), nunca desconto (R39). Se não: voltar à dor",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Já tenho um fornecedor»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Está satisfeito, ou tem medo de mudar",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "De 0 a 10, quanto está satisfeito? O que faria disso um 10?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Explorar o que falta e quanto custa coordenar vários fornecedores. Propor o que o fornecedor atual não faz, integrado com o resto numa só equipa",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Não é o momento»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Outra prioridade, ou falta de urgência",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O que tem de acontecer para ser o momento?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ligar a uma data real (concurso, ano fiscal, lançamento) ou passar a Nutrir com data de retorno",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Envie só o preço por WhatsApp»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Está a comparar preços",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Está a comparar com outras propostas? O que pesa mais na escolha?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Explicar que cada proposta é feita à medida e propor 15 minutos para perceber o que precisa",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Posso fazer isto internamente»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Subestima o trabalho, ou quer poupar",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Quem faria, e quanto tempo dele levaria?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Comparar o custo do tempo interno com o prazo e a qualidade. Os entregáveis ficam para a equipa usar",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Já contratei uma agência e não resultou»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Medo de repetir o erro",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "O que correu mal?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Mostrar o método: diagnóstico, indicadores e relatório de progresso",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Quero ver trabalhos vossos»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Falta de prova",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Que tipo de trabalho lhe daria segurança?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Mostrar casos e entregáveis do mesmo serviço (A confirmar: a pasta de portefólio)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 2,
+  "runs": [
+   {
+    "t": "08 · Follow-up e recuperação",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Cada oportunidade tem 6 tentativas em 30 dias, alternando os canais. Sem resposta depois da sexta, passa a Perdido com o motivo «sem resposta» e entra na reativação aos 90 dias. ",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dia",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Canal",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Lead sem resposta (SDR)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Proposta sem decisão (Closer)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "0",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Chamada + WhatsApp",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Primeiro contacto",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Proposta enviada, com a data de decisão combinada",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "WhatsApp",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Mensagem 1",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Confirmar que recebeu e se abriu bem",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Chamada",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Segunda chamada, a outra hora do dia",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Perguntar se ficou alguma dúvida",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "7",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Email",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Mensagem 2, com um conteúdo útil",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Um caso ou um entregável do mesmo serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "14",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "WhatsApp",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Mensagem 3",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Rever a data de decisão",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "30",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Email",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Mensagem de fecho",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Mensagem de fecho",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 3,
+  "runs": [
+   {
+    "t": "Modelos de mensagem",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "WhatsApp · lead sem resposta (dia 1):",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "blockquote",
+  "kind": null,
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Olá, [nome]. Sou [SDR], da Kingdom Company. Tentei ligar sobre o seu pedido de [serviço]. Prefere que falemos por aqui, ou que ligue a uma hora em concreto?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "WhatsApp · proposta sem decisão (dia 14):",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "blockquote",
+  "kind": null,
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Olá, [nome]. Combinámos decidir a proposta de [serviço] até [data]. Há alguma coisa que precise de ver ou ajustar para conseguir decidir?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Email · conteúdo útil (dia 7):",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "blockquote",
+  "kind": null,
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Assunto: [tema da dor] na [empresa]",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "[Nome], partilho [artigo, caso ou modelo] sobre [tema]. Achei útil depois do que me disse sobre [dor]. Se quiser, explico em 15 minutos como o aplicaríamos na [empresa].",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Email · fecho (dia 30):",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "blockquote",
+  "kind": null,
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Assunto: Fecho o seu pedido?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "[Nome], como não tivemos resposta, vou arquivar o pedido de [serviço]. Se o tema voltar a ser prioridade, basta responder a este email e retomamos onde ficámos.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 0,
+  "runs": [
+   {
+    "t": "Chamada · retomar:",
+    "b": true,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "blockquote",
+  "kind": null,
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "[Nome], liguei porque ficámos de falar sobre [dor]. Isto ainda é prioridade, ou mudou alguma coisa desde então?",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 3,
+  "runs": [
+   {
+    "t": "Reativação",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "kind": "bullet",
+  "items": [
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Aos 90 dias, contactar as oportunidades perdidas por «não é o momento» ou «sem orçamento», com um gatilho novo: um concurso, o início do ano fiscal ou um serviço novo.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "type": "p",
+     "h": 0,
+     "runs": [
+      {
+       "t": "Clientes ganhos: propor o próximo degrau da escada de valor 30 dias depois da entrega.",
+       "b": false,
+       "i": false
+      }
+     ]
+    }
+   ]
+  ]
+ }
+]

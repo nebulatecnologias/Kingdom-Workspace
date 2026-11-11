@@ -3,7 +3,7 @@
 Cópia das regras gravadas no separador **Regras e estratégia** do [Mapa Kingdom](https://claude.ai/artifact/GdnhABbW2DhtKcopjLHz8c).
 A versão de referência é a do mapa (coleção `regras` da base de dados do artefacto). Este ficheiro é atualizado sempre que uma regra muda.
 
-Última atualização: 09/11/2026.
+Última atualização: 11/11/2026.
 
 ## Estrutura
 
@@ -15,7 +15,7 @@ O núcleo é o Shelton Douglas (O Conselheiro). Os três braços são a Kingdom 
 
 ### R34 · Arquitectura de marca: Kingdom Company, Kingdom Training e Kingdom Academy
 
-A Kingdom Company é uma empresa moçambicana de desenvolvimento empresarial, membro da SDG (Pty) Ltd, um grupo de empresas de negócios, educação e tecnologia com sede em Midrand, África do Sul (08/11/2026). O braço de serviços para empresas deixa de se chamar InCompany e passa a ser a própria Kingdom Company: desenvolvimento empresarial focado em estratégia, crescimento e gestão (desenvolvimento editorial, consultoria estratégica, assessoria e desenvolvimento tecnológico; o treinamento corporativo passou para o Kingdom Training a 08/11/2026, R04). O Kingdom Training é o braço educacional e a Kingdom Academy é a plataforma de educação online. O núcleo continua a ser o Shelton Douglas (O Conselheiro). A marca Kingdom Company usa a paleta C e a letra Google Sans (R14, docs/marca/kingdom-company.md). As três marcas usam o mesmo símbolo, o globo (docs/marca/globo/), com o nome completo numa só linha (ex.: «Kingdom Company»). Kingdom Company: descritor «Desenvolvimento Empresarial, Educação e Tecnologia» por baixo do nome; slogan «Um único lugar. Tudo o que precisa para desenvolver o seu negócio.»
+A Kingdom Company é uma empresa moçambicana de desenvolvimento empresarial, membro da SDG (Pty) Ltd, um grupo de empresas de negócios, educação e tecnologia com sede em Midrand, África do Sul (08/11/2026). O braço de serviços para empresas deixa de se chamar InCompany e passa a ser a própria Kingdom Company: desenvolvimento empresarial focado em estratégia, crescimento e gestão (desenvolvimento editorial, assessoria e desenvolvimento tecnológico; o treinamento corporativo passou para o Kingdom Training a 08/11/2026 e a consultoria estratégica para a DT Company a 11/11/2026, R04). O Kingdom Training é o braço educacional e a Kingdom Academy é a plataforma de educação online. O núcleo continua a ser o Shelton Douglas (O Conselheiro). A marca Kingdom Company usa a paleta C e a letra Google Sans (R14, docs/marca/kingdom-company.md). As três marcas usam o mesmo símbolo, o globo (docs/marca/globo/), com o nome completo numa só linha (ex.: «Kingdom Company»). Kingdom Company: descritor «Desenvolvimento Empresarial, Educação e Tecnologia» por baixo do nome; slogan «Um único lugar. Tudo o que precisa para desenvolver o seu negócio.»
 
 *08/11/2026 · Decisão do Shelton*
 
@@ -33,7 +33,7 @@ Cada braço tem a sua escada de valor:
 
 - Academy: livros → curso Escala 10X → plataforma de cursos.
 - Training: livro O Bloqueio Invisível → curso 10X Mindset → mentoria Kingdom Founders → mastermind Kingdom Tracktion.
-- Kingdom Company: Desenvolvimento Editorial → Consultoria Estratégica → Assessoria → Desenvolvimento Tecnológico.
+- Kingdom Company: Desenvolvimento Editorial → Assessoria → Desenvolvimento Tecnológico (a Consultoria Estratégica passou para a DT Company a 11/11/2026, R40).
 
 Os braços servem-se uns aos outros: a Academy dá a área de membros ao Training; o Training dá os treinamentos corporativos à Kingdom Company.
 
@@ -66,11 +66,17 @@ O Training tem como entrada o livro O Bloqueio Invisível e três ofertas: 10X M
 
 *10/10/2026 · Decisão do Shelton*
 
-### R04 · Kingdom Company: 4 áreas, 12 serviços e 3 planos por serviço
+### R04 · Kingdom Company: 3 áreas, 9 serviços e 3 planos por serviço
 
-A Kingdom Company tem 4 áreas, na ordem da escada de valor (R20): Desenvolvimento Editorial (Identidade Visual, Modelos de Propostas Técnicas, Perfis Corporativos); Consultoria Estratégica (Plano de Negócios, Planeamento Estratégico, Advisory · Aconselhamento Empresarial); Assessoria (Produção Audiovisual, Gestão de Redes Sociais, Produção de Campanhas Publicitárias); Desenvolvimento Tecnológico (Dashboards de Gestão, Websites e Aplicativos, CRM e Sistemas de Vendas; este substituiu o Sistema de Pesquisa de Dados no mesmo dia). Estrutura de 08/11/2026: o Treinamento Corporativo saiu do site e o treino de equipas fica no Kingdom Training; foram eliminados Diagnóstico Empresarial, Playbooks, Expert Led Growth, Brand 121, MediaTrack, Automação de processos e Segurança cibernética. O Advisory é um serviço da Consultoria, diferente do Business Advising com o Shelton (R17), que não aparece neste site. O site oficial é www.kingdomcompany.co.za (R35); é o único sítio onde aparece a morada da África do Sul. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta; no site nenhum plano mostra preço (R36). Os preços da tabela são a âncora das outras ofertas (R16). A Assessoria de Eventos foi eliminada.
+A Kingdom Company tem 3 áreas, na ordem da escada de valor (R20): Desenvolvimento Editorial (Identidade Visual, Modelos de Propostas Técnicas, Perfis Corporativos); Assessoria (Produção Audiovisual, Gestão de Redes Sociais, Produção de Campanhas Publicitárias); Desenvolvimento Tecnológico (Dashboards de Gestão, Websites e Aplicativos, CRM e Sistemas de Vendas; este substituiu o Sistema de Pesquisa de Dados no mesmo dia). Estrutura de 08/11/2026: o Treinamento Corporativo saiu do site e o treino de equipas fica no Kingdom Training; foram eliminados Diagnóstico Empresarial, Playbooks, Expert Led Growth, Brand 121, MediaTrack, Automação de processos e Segurança cibernética. A 11/11/2026 a Consultoria Estratégica (Plano de Negócios, Planeamento Estratégico, Advisory · Aconselhamento Empresarial) saiu da Kingdom Company e passou para a DT Company (R40): sai do playbook, do site e do plano de 1 milhão da Kingdom. O Business Advising com o Shelton (R17) continua fora deste site. O site oficial é www.kingdomcompany.co.za (R35); é o único sítio onde aparece a morada da África do Sul. Cada serviço tem 3 planos: Essencial com o preço da tabela comercial, Profissional e Premium sob consulta; no site nenhum plano mostra preço (R36). Os preços da tabela são a âncora das outras ofertas (R16). A Assessoria de Eventos foi eliminada.
 
-*10/10/2026 · Decisão do Shelton; revista a 08/11/2026*
+*10/10/2026 · Decisão do Shelton; revista a 08/11/2026 e a 11/11/2026*
+
+### R40 · DT Company: três pilares e 11 serviços
+
+A DT Company (www.dtcompany.co.za) tem três pilares. Consultoria Estratégica: Plano de Negócios, Planeamento Estratégico e Advisory (Aconselhamento Empresarial), que vieram da Kingdom Company a 11/11/2026 (R04). Compliance e Governança Corporativa: Programa de Compliance e Integridade, Due Diligence de Terceiros, Apuramento Interno de Denúncias e Desvios, e Governança Corporativa e Familiar. Treinamento Corporativo: Liderança Corporativa, Atendimento ao Cliente, Vendas e Marketing. Saíram Tax, Incorporação e Consultoria ESG. A DT Company não presta serviços jurídicos nem de contabilidade e não trabalha com parceiros advogados ou contabilistas: quando um tema o exige, indica-o por escrito e o cliente contrata directamente o profissional habilitado. Os serviços de entrada e os pacotes ficam fora do playbook de vendas. O Advisory da DT é diferente do Business Advising com o Shelton (R17).
+
+*11/11/2026 · Decisão do Shelton*
 
 ### R16 · Tracktion: 3 meses, 6 pessoas, 12.800 MT por mês
 
@@ -80,7 +86,7 @@ Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas, com no máximo 4 t
 
 ### R17 · Business Advising no piso: 2.650 MT por hora online, 5.800 MT presencial
 
-O Business Advising fica no piso da R22. Online: 2.650 MT por hora. Presencial: 5.800 MT até 2 horas (2 × 2.650 MT mais cerca de 500 MT de deslocação). Fecha direto no site (R08). Não aparece no site da Kingdom Company (R36); o Advisory da Consultoria Estratégica é um serviço diferente (R04).
+O Business Advising fica no piso da R22. Online: 2.650 MT por hora. Presencial: 5.800 MT até 2 horas (2 × 2.650 MT mais cerca de 500 MT de deslocação). Fecha direto no site (R08). Não aparece no site da Kingdom Company (R36); o Advisory da DT Company é um serviço diferente (R40).
 
 *10/10/2026 · Decisão do Shelton; revista a 08/11/2026*
 
@@ -148,7 +154,7 @@ Na Kingdom Company, o desenvolvimento de websites custa de 15.000 MT a 65.000 MT
 
 ### R29 · Preços da Kingdom Company
 
-Perfis Corporativos: 9.500 MT. Modelos de Propostas Técnicas (antes Propostas Comerciais e de Concursos): 18.500 MT. Plano de Negócios (antes Business Plan, Consultoria Estratégica): 32.500 MT; passa a 45.000 MT se levar mais de 11 horas do Shelton. Websites e Aplicativos seguem a R27 e têm manutenção mensal obrigatória a partir de 1.500 MT por mês; sistemas, a partir de 5.000 MT por mês. Preço por definir: Identidade Visual, Planeamento Estratégico, Advisory, Produção Audiovisual, Gestão de Redes Sociais, Produção de Campanhas Publicitárias, Dashboards de Gestão e CRM e Sistemas de Vendas (os sistemas seguem a R27: 95.000 a 350.000 MT). MediaTrack, Expert Led Growth, Brand 121 e Gestão Comercial e Marketing deixaram de existir a 08/11/2026 (R04).
+Perfis Corporativos: 9.500 MT. Modelos de Propostas Técnicas (antes Propostas Comerciais e de Concursos): 18.500 MT. Websites e Aplicativos seguem a R27 e têm manutenção mensal obrigatória a partir de 1.500 MT por mês; sistemas, a partir de 5.000 MT por mês. Preço por definir: Identidade Visual, Produção Audiovisual, Gestão de Redes Sociais, Produção de Campanhas Publicitárias, Dashboards de Gestão e CRM e Sistemas de Vendas (os sistemas seguem a R27: 95.000 a 350.000 MT). MediaTrack, Expert Led Growth, Brand 121 e Gestão Comercial e Marketing deixaram de existir a 08/11/2026 (R04). A Consultoria Estratégica passou para a DT Company a 11/11/2026 (R40), com o preço que tinha: Plano de Negócios 32.500 MT (45.000 MT se levar mais de 11 horas do Shelton); Planeamento Estratégico e Advisory por definir. Os preços na DT estão por confirmar.
 
 *10/10/2026 · Decisão do Shelton; revista a 08/11/2026*
 
@@ -264,7 +270,7 @@ Todas as ofertas de entrada levam anúncios de vendas (livros, livro + mastercla
 
 ### R36 · O site da Kingdom Company não mostra preços
 
-O site da Kingdom Company (www.kingdomcompany.co.za) não mostra preços, sem exceções. Todos os serviços passam por um pedido de cotação ou por uma avaliação inicial (conversa com um consultor). O Business Advising com o Shelton não aparece no site (R17); o Advisory da Consultoria Estratégica aparece, sem preço. Os preços da tabela (R17, R25, R27, R29, R30) ficam para uso interno e para as propostas. Os planos Essencial, Profissional e Premium continuam a existir, mas são apresentados sem valores.
+O site da Kingdom Company (www.kingdomcompany.co.za) não mostra preços, sem exceções. Todos os serviços passam por um pedido de cotação ou por uma avaliação inicial (conversa com um consultor). O Business Advising com o Shelton não aparece no site (R17). Os preços da tabela (R17, R25, R27, R29, R30) ficam para uso interno e para as propostas. Os planos Essencial, Profissional e Premium continuam a existir, mas são apresentados sem valores.
 
 *08/11/2026 · Decisão do Shelton*
 

@@ -1,0 +1,10 @@
+import { createRequire } from 'module'; const { chromium } = createRequire('/opt/node22/lib/node_modules/')('playwright');
+const b = await chromium.launch();
+let p = await b.newPage({ viewport: { width: 416, height: 739 }, deviceScaleFactor: 2 });
+await p.goto('file:///tmp/claude-0/-home-user-Kingdom-Workspace/e9e5cd6c-72ca-5360-967b-48368ca416ce/scratchpad/pb-movel/fundo.html'); await p.waitForTimeout(300);
+await p.screenshot({ path: '/tmp/claude-0/-home-user-Kingdom-Workspace/e9e5cd6c-72ca-5360-967b-48368ca416ce/scratchpad/pb-movel/img/capa-fundo.jpg', type: 'jpeg', quality: 78 });
+p = await b.newPage({ viewport: { width: 900, height: 900 } });
+await p.goto('file:///tmp/claude-0/-home-user-Kingdom-Workspace/e9e5cd6c-72ca-5360-967b-48368ca416ce/scratchpad/pb-movel/logos.html'); await p.waitForTimeout(300);
+await p.locator('#h').screenshot({ path: '/tmp/claude-0/-home-user-Kingdom-Workspace/e9e5cd6c-72ca-5360-967b-48368ca416ce/scratchpad/pb-movel/img/logo-h.png', omitBackground: true });
+await p.locator('#v').screenshot({ path: '/tmp/claude-0/-home-user-Kingdom-Workspace/e9e5cd6c-72ca-5360-967b-48368ca416ce/scratchpad/pb-movel/img/logo-v.png', omitBackground: true });
+await b.close();
