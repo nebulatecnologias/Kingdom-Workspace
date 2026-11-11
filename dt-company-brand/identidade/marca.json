@@ -5,9 +5,26 @@
  "descritor": "Business Advisory & Development",
  "simbolo": "simbolo/dt-simbolo.svg",
  "fontes": {
-  "familia": "Google Sans",
+  "familia": "Manrope",
   "logotipo": "fontes/google-sans-400.ttf",
-  "peso_logotipo": 400
+  "peso_logotipo": 400,
+  "pesos": [
+   [
+    400,
+    "Regular",
+    "Texto corrido"
+   ],
+   [
+    600,
+    "SemiBold",
+    "Títulos e números"
+   ],
+   [
+    700,
+    "Bold",
+    "Botões e etiquetas"
+   ]
+  ]
  },
  "cores": {
   "principal": {
@@ -89,27 +106,5 @@
    "uso": "Frases e destaques nas redes."
   }
  ],
- "exemplo_preco": "125 000,00 MT",
- "opcoes_tipografia": [
-  {
-   "titulos": "Google Sans",
-   "texto": "Google Sans",
-   "nota": "Uma só família, a mesma do descritor do logótipo e do site. Clara e moderna."
-  },
-  {
-   "titulos": "IBM Plex Sans",
-   "texto": "IBM Plex Sans",
-   "nota": "Técnica e institucional, desenhada para relatórios e dados. Tom de auditoria."
-  },
-  {
-   "titulos": "Inter",
-   "texto": "Inter",
-   "nota": "Neutra e muito legível em ecrã. Corporativa, sem personalidade forte."
-  },
-  {
-   "titulos": "Manrope",
-   "texto": "Manrope",
-   "nota": "Geométrica e arredondada, combina com as curvas do símbolo. Mais leve."
-  }
- ]
+ "exemplo_preco": "125 000,00 MT"
 }

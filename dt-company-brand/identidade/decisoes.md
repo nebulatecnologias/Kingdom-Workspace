@@ -33,5 +33,9 @@ Pasta da identidade da DT Company (Business Advisory & Development). Fonte de ve
 
 Proposta, por aprovar: gradientes Original (o fundo do logótipo, #0068FF → #00042D), Noite e Céu; tons só para gradientes: #00042D, #0066FF e #9DC0FF.
 
+## Tipografia (opção D, aprovada a 11/11/2026)
+Manrope, uma só família (geométrica e arredondada, combina com as curvas do símbolo), escolhida entre Google Sans, IBM Plex Sans, Inter e Manrope. Proposta de pesos: 400 texto, 600 títulos e números, 700 botões e etiquetas.
+Por decidir: o descritor do logótipo continua em Google Sans (como o original) ou passa a Manrope (400 ou 500). O site da DT usa Google Sans e terá de mudar para Manrope.
+
 ## Por decidir
 - Tipografia (Google Sans, já usada no site), padrão, papelaria e brandbook.

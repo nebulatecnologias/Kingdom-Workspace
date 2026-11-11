@@ -159,13 +159,14 @@ def texto_curvas(texto, fonte, tam, tracking=0.0):
     return d, x, tt['OS/2'].sCapHeight * e
 
 
+FONTE_DESC = os.path.join(AQUI, 'fontes', os.environ.get('FONTE_DESC', 'google-sans-400.ttf'))   # letra do descritor
 DESC = 'Business Advisory & Development'
 # na referência, o descritor tem 1,19 × a largura do símbolo e maiúsculas de 0,56t
 tam = .56 * T / .716
-d_desc, larg, cap = texto_curvas(DESC, os.path.join(AQUI, 'fontes', 'google-sans-400.ttf'), tam)
+d_desc, larg, cap = texto_curvas(DESC, FONTE_DESC, tam)
 escala_d = 1.19 * W / larg
 tam *= escala_d
-d_desc, larg, cap = texto_curvas(DESC, os.path.join(AQUI, 'fontes', 'google-sans-400.ttf'), tam)
+d_desc, larg, cap = texto_curvas(DESC, FONTE_DESC, tam)
 GAP = .82 * T
 
 
@@ -185,8 +186,8 @@ def logo_horizontal(cor):
     """símbolo à esquerda, descritor em duas linhas à direita, centrado na altura do símbolo"""
     l1, l2 = 'Business Advisory', '& Development'
     t2 = .30 * H / .716                               # maiúsculas a 30% da altura do símbolo
-    a, la, ca = texto_curvas(l1, os.path.join(AQUI, 'fontes', 'google-sans-400.ttf'), t2)
-    b, lb, _ = texto_curvas(l2, os.path.join(AQUI, 'fontes', 'google-sans-400.ttf'), t2)
+    a, la, ca = texto_curvas(l1, FONTE_DESC, t2)
+    b, lb, _ = texto_curvas(l2, FONTE_DESC, t2)
     x = W + .75 * T
     entre = ca * 1.65
     y1 = H / 2 - entre / 2 + ca / 2 - ca * .05
