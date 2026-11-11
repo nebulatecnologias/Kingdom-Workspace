@@ -10,7 +10,8 @@ Pasta da identidade da DT Company (Business Advisory & Development). Fonte de ve
   - o d fica uma faixa abaixo do p: as linhas horizontais das duas barrigas coincidem;
   - traços oblíquos a 58° da horizontal: o central mede t, o do d 1,25t e o canal entre eles 5/8 t;
   - as pontas são elipses concêntricas na proporção 1,2 : 1; o furo é a elipse exterior a 0,3;
-  - o pescoço do d tem uma concordância de raio 0,4t, tangente; os cantos levam 0,08t.
+  - o pescoço do d tem uma concordância de raio 0,4t, tangente;
+  - arestas: as pontas levam um raio de 0,16t (opção B, escolhida a 11/11/2026 entre 0,08t, 0,16t, 0,24t e 0,32t); os cantos interiores 0,1t, abaixo de metade do canal para as letras não colarem.
 - Coincidência com o original: 97,6% (IoU) com esta regra; 98,1% no ajuste livre.
 - Logótipo: símbolo, ® e o descritor «Business Advisory & Development» em Google Sans Regular, com 1,19 × a largura do símbolo e 0,82t por baixo, como no original. Texto em curvas.
 - Versões geradas: vertical (a do original), horizontal (proposta: descritor em duas linhas à direita) e símbolo, em índigo #04123F, azul #0A57E7, branco e preto.

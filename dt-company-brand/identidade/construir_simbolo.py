@@ -7,7 +7,7 @@ O símbolo «dp» assenta numa só unidade, t (a espessura da faixa), igual a 60
 - os traços oblíquos fazem 58° com a horizontal; o central mede t, o do d 1,25t,
   e o canal entre eles 5/8 t (medidas na perpendicular ao traço);
 - as pontas das barrigas são elipses concêntricas na proporção 1,2 : 1; o furo é a elipse exterior a 0,3;
-- o pescoço do d tem uma concordância de raio 0,4t; os cantos levam um arredondamento de 0,08t.
+- o pescoço do d tem uma concordância de raio 0,4t; as pontas levam um arredondamento de 0,16t e os cantos interiores 0,1t.
 Ajustado à imagem original da marca: coincidência (IoU) de 0,976.
 
 Uso: python3 construir_simbolo.py   (grava simbolo/, logotipo/ e medidas.json nesta pasta)
@@ -24,7 +24,7 @@ T = 60.0
 ANG = 32.0                                   # inclinação face à vertical (58° face à horizontal)
 K = -math.tan(math.radians(ANG)); COS = math.cos(math.radians(ANG))
 M = dict(t=T, c=.875 * T, larg_central=1.0 * T, larg_d=1.25 * T, canal=.625 * T, concordancia=.4 * T,
-         proporcao_elipse=1.2, furo=.3, dist_centro=10 / 3 * T, canto=float(os.environ.get('CANTO', .08)) * T, canto_concavo=.1 * T, angulo=90 - ANG)
+         proporcao_elipse=1.2, furo=.3, dist_centro=10 / 3 * T, canto=float(os.environ.get('CANTO', .16)) * T, canto_concavo=.1 * T, angulo=90 - ANG)
 C = M['c']; HB = 2 * T + C; HT = 3 * T + C
 BO = HB / 2; AO = M['proporcao_elipse'] * BO; BI = C / 2; AI = M['furo'] * AO
 XC, YC = 0.0, HT / 2                         # centro de rotação (as coordenadas finais são deslocadas no fim)
