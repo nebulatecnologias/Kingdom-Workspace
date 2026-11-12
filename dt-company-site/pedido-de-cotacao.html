@@ -10,7 +10,7 @@
 <link rel="icon" href="/assets/marca/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/letra/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v=2026111201">
+<link rel="stylesheet" href="/assets/site.css?v=2026111202">
 <!-- seo -->
 <link rel="canonical" href="https://www.dtcompany.co.za/pedido-de-cotacao">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -210,6 +210,11 @@
         <button class="botao botao-acao" type="submit">Enviar pedido <svg aria-hidden="true"><use href="#i-seta"/></svg></button>
         <p class="cot-nota">Usamos estes dados só para responder ao seu pedido. <a href="/privacidade">Política de privacidade</a></p>
       </div>
+      <div class="cot-feito" data-cot-recebido hidden tabindex="-1">
+        <h2>Recebemos o seu pedido</h2>
+        <p>Obrigado. O pedido chegou à nossa equipa, que o vai analisar e contactá-lo pelo canal que escolheu.</p>
+        <p>Se quiser acrescentar alguma coisa, escreva para <a href="mailto:contact@dtcompany.co.za">contact@dtcompany.co.za</a>.</p>
+      </div>
       <div class="cot-feito" data-cot-feito hidden tabindex="-1">
         <h2>O seu pedido está pronto a enviar</h2>
         <p>Abrimos o seu programa de email com o pedido escrito, para <a href="mailto:contact@dtcompany.co.za">contact@dtcompany.co.za</a>. Só falta carregar em enviar.</p>
@@ -274,6 +279,7 @@
   </div>
 </footer>
 
-<script src="/assets/site.js?v=2026111201" defer></script>
+<script src="/assets/painel-recolha.js?v=1" data-site="065e672366b70fc5f9a9cd5bcdd0e9a191c4" data-api="https://epqfotzxrcyligwpauwk.supabase.co/functions/v1/painel-recolher" defer></script>
+<script src="/assets/site.js?v=2026111202" defer></script>
 </body>
 </html>

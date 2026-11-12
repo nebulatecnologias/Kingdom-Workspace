@@ -356,6 +356,11 @@ def pagina_cotacao(todos):
         <button class="botao botao-acao" type="submit">Enviar pedido {SETA}</button>
         <p class="cot-nota">Usamos estes dados só para responder ao seu pedido. <a href="/privacidade">Política de privacidade</a></p>
       </div>
+      <div class="cot-feito" data-cot-recebido hidden tabindex="-1">
+        <h2>Recebemos o seu pedido</h2>
+        <p>Obrigado. O pedido chegou à nossa equipa, que o vai analisar e contactá-lo pelo canal que escolheu.</p>
+        <p>Se quiser acrescentar alguma coisa, escreva para <a href="mailto:contact@kingdomcompany.co.za">contact@kingdomcompany.co.za</a>.</p>
+      </div>
       <div class="cot-feito" data-cot-feito hidden tabindex="-1">
         <h2>O seu pedido está pronto a enviar</h2>
         <p>Abrimos o seu programa de email com o pedido escrito, para <a href="mailto:contact@kingdomcompany.co.za">contact@kingdomcompany.co.za</a>. Só falta carregar em enviar.</p>

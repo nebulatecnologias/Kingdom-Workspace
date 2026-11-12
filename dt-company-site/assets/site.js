@@ -184,9 +184,18 @@
         msg.textContent = 'Escreva um email completo, por exemplo nome@empresa.co.mz.'; campo.focus(); return;
       }
       campo.removeAttribute('aria-invalid'); msg.className = 'newsletter-msg';
-      const corpo = `Quero receber a newsletter da DT Company neste email: ${email}`;
-      location.href = `mailto:contact@dtcompany.co.za?subject=${encodeURIComponent('Subscrever a newsletter')}&body=${encodeURIComponent(corpo)}`;
-      msg.textContent = 'Abrimos o seu programa de email com o pedido pronto. Só falta enviar.';
+      const porEmail = () => {
+        const corpo = `Quero receber a newsletter da DT Company neste email: ${email}`;
+        location.href = `mailto:contact@dtcompany.co.za?subject=${encodeURIComponent('Subscrever a newsletter')}&body=${encodeURIComponent(corpo)}`;
+        msg.textContent = 'Abrimos o seu programa de email com o pedido pronto. Só falta enviar.';
+      };
+      if (!window.Painel) { porEmail(); return; }
+      msg.textContent = 'A enviar…';
+      window.Painel.enviar({ tipo: 'newsletter', email }).then((r) => {
+        if (!r.ok) { porEmail(); return; }
+        msg.textContent = 'Subscrição feita. Vai receber as novidades neste email.';
+        form.reset();
+      });
     });
     campo.addEventListener('input', () => { if (campo.hasAttribute('aria-invalid')) { campo.removeAttribute('aria-invalid'); msg.textContent = ''; } });
   }
@@ -234,10 +243,25 @@
         `Telefone ou WhatsApp: ${v('telefone')}`,
         `Prefere ser contactado por: ${v('canal')}`,
       ].join('\n');
-      location.href = `mailto:contact@dtcompany.co.za?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(pedido)}`;
       if (window.kcEvento) window.kcEvento('generate_lead', { tipo: avaliacao ? 'avaliacao_inicial' : 'cotacao', servico: sel.value || 'nao_sabe' });
-      const feito = cot.querySelector('[data-cot-feito]');
-      feito.hidden = false; feito.focus();
+      const porEmail = () => {
+        location.href = `mailto:contact@dtcompany.co.za?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(pedido)}`;
+        const feito = cot.querySelector('[data-cot-feito]');
+        feito.hidden = false; feito.focus();
+      };
+      const recebido = cot.querySelector('[data-cot-recebido]');
+      if (!window.Painel || !recebido) { porEmail(); return; }
+      const botao = cot.querySelector('[type="submit"]');
+      if (botao) botao.disabled = true;
+      window.Painel.enviar({
+        tipo: avaliacao ? 'avaliacao' : 'cotacao', servico: sel.value ? servico : '', assunto, mensagem: v('desafio'),
+        nome: v('nome'), cargo: v('cargo'), empresa: v('empresa'), email: v('email'), telefone: v('telefone'),
+        dados: { 'Fase do negócio': v('fase'), 'Para quando': v('prazo'), 'Prefere ser contactado por': v('canal') },
+      }).then((r) => {
+        if (botao) botao.disabled = false;
+        if (!r.ok) { porEmail(); return; }
+        recebido.hidden = false; recebido.focus();
+      });
     });
     const copiar = cot.querySelector('[data-cot-copiar]'), copiado = cot.querySelector('[data-cot-copiado]');
     copiar.addEventListener('click', async () => {
