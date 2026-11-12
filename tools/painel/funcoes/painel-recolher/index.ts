@@ -101,7 +101,7 @@ Deno.serve(async (req) => {
   await db.from("painel_actividades").insert({ site_id: site.id, contacto_id: contactoId, tipo: "mensagem", texto: assunto, dados: { mensagem_id: msg.id, origem: d.origem || null } });
 
   // Aviso por email à equipa (quando a Resend está configurada)
-  const RESEND = Deno.env.get("RESEND_API_KEY");
+  const RESEND = Deno.env.get("PAINEL_RESEND_API_KEY");
   if (RESEND && site.email_remetente && tipo !== "newsletter") {
     const linhas = [assunto, "", `Nome: ${campos.nome || "-"}`, `Empresa: ${campos.empresa || "-"}`, `Email: ${email || "-"}`, `Telefone: ${campos.telefone || "-"}`, "", corta(d.mensagem, 5000) || "", ...Object.entries(dados).map(([k, v]) => `${k}: ${v}`)];
     fetch("https://api.resend.com/emails", {

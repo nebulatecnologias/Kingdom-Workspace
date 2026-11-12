@@ -23,7 +23,7 @@ Deno.serve(async (req) => {
   if (!m) return resp(403, { erro: "sem acesso a este site" });
   const { data: site } = await admin.from("painel_sites").select("nome, email_remetente, nome_remetente").eq("id", site_id).single();
 
-  const RESEND = Deno.env.get("RESEND_API_KEY");
+  const RESEND = Deno.env.get("PAINEL_RESEND_API_KEY");
   if (!RESEND || !site?.email_remetente) return resp(400, { erro: "dominio_nao_configurado: o envio de email ainda não está configurado para este site" });
 
   const html = `<div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#1b1b1f">${esc(String(corpo)).replace(/\n/g, "<br>")}</div>`;
