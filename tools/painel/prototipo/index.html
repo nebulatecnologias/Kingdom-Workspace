@@ -2,447 +2,508 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..500&display=swap">
 <style>
-/* Layout: barra lateral branca + área de trabalho lavanda; cartões brancos de cantos largos (como a referência), índigo como base, laranja só em acções */
+/* Mundo: o painel da Kingdom Academy (lona de pedra quente, cartões brancos de 22px, pílulas, Google Sans 400/500)
+   com só duas cores de marca: índigo (dados, selecção, texto forte) e laranja (a única acção e o que pede atenção). */
 :root {
-  --fundo: #F3F2FA;          /* lavanda muito claro */
-  --cartao: #FFFFFF;
-  --lateral: #FFFFFF;
-  --tinta: #1C1A33;          /* texto principal, índigo quase negro */
-  --tinta-2: #5E5B7A;        /* texto secundário */
-  --tinta-3: #6A6688;        /* rótulos */
-  --linha: #E7E5F3;
-  --indigo: #2B2850;
-  --indigo-2: #4A4580;
-  --lavanda: #B9B3F2;
-  --lavanda-suave: #E9E6FC;
-  --lavanda-forte: #6359D1;
-  --marfim: #FAF9F5;
-  --laranja: #FF521A;
-  --laranja-texto: #D9400F;
-  --sobre-laranja: #1C1A33;
-  --verde: #17803F; --verde-suave: #E3F5EA;
-  --ambar: #8A5A0E; --ambar-suave: #FDF3DD;
-  --vermelho: #B42318; --vermelho-suave: #FCE7E5;
-  --sombra: 0 1px 2px rgba(43, 40, 80, .04), 0 8px 24px rgba(43, 40, 80, .06);
-  --raio: 20px; --raio-p: 12px;
-  --letra: "Google Sans Flex", "Google Sans", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --letra-dados: "Google Sans Flex", Inter, system-ui, sans-serif;
+  --lona: #F5F3F0; --lona-2: #EFECE8; --cartao: #FFFFFF; --cartao-2: #FBFAF8; --fundo-baixo: #F1EEEA;
+  --linha: #E8E3DD; --linha-forte: #D9D3CB;
+  --tinta: #1E1C33; --tinta-2: #3B3852; --suave: #66627A;
+  --indigo: #2B2850; --sobre-indigo: #FFFFFF;
+  --indigo-6: rgba(43, 40, 80, .06); --indigo-12: rgba(43, 40, 80, .12); --indigo-24: rgba(43, 40, 80, .24); --indigo-48: rgba(43, 40, 80, .48);
+  --laranja: #FF521A; --sobre-laranja: #1C1A17; --laranja-suave: #FFF0E9; --laranja-tinta: #B23C08;
+  --verde-suave: #E3F6EA; --verde-tinta: #0F7A37; --vermelho-suave: #FDE8EA; --vermelho-tinta: #B4202D;
+  --vivo: #15803D;
+  --sombra-1: 0 1px 2px rgba(28, 22, 16, .05), 0 6px 18px -8px rgba(28, 22, 16, .10);
+  --sombra-2: 0 2px 6px rgba(28, 22, 16, .06), 0 18px 40px -16px rgba(28, 22, 16, .22);
+  --sombra-pop: 0 12px 32px -8px rgba(28, 22, 16, .28), 0 2px 8px rgba(28, 22, 16, .08);
+  --anel: 0 0 0 3px rgba(255, 82, 26, .28);
+  --letra: "Google Sans Flex", "Google Sans", "Product Sans", "Segoe UI", Roboto, system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --ease: cubic-bezier(.22, 1, .36, 1);
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --fundo: #14121F; --cartao: #1E1B2E; --lateral: #19172A; --tinta: #F1EFFA; --tinta-2: #B7B3D1; --tinta-3: #A29EC2; --linha: #2E2A45;
-  --indigo: #C9C4F6; --indigo-2: #A49DEB; --lavanda: #7B72E0; --lavanda-suave: #2A2645; --lavanda-forte: #A49DEB; --marfim: #1E1B2E;
-  --laranja: #FF6A38; --laranja-texto: #FF8A5F; --sobre-laranja: #1C0F08;
-  --verde: #4CC285; --verde-suave: #183324; --ambar: #E5B04F; --ambar-suave: #352A14; --vermelho: #F07466; --vermelho-suave: #3A1C1A;
-  --sombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25); color-scheme: dark } }
+  --lona: #141311; --lona-2: #191816; --cartao: #1E1C19; --cartao-2: #1B1917; --fundo-baixo: #26231F;
+  --linha: #2E2B27; --linha-forte: #3D3934; --tinta: #F4F0EA; --tinta-2: #D6D1CA; --suave: #A6A097;
+  --indigo: #B3ADF0; --sobre-indigo: #16142B;
+  --indigo-6: rgba(179, 173, 240, .07); --indigo-12: rgba(179, 173, 240, .14); --indigo-24: rgba(179, 173, 240, .26); --indigo-48: rgba(179, 173, 240, .5);
+  --laranja-suave: #3A2216; --laranja-tinta: #FF9A6B; --verde-suave: #16301F; --verde-tinta: #6FD39A; --vermelho-suave: #3A1A1D; --vermelho-tinta: #F28B95; --vivo: #4CC285;
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 18px -8px rgba(0, 0, 0, .5);
+  --sombra-2: 0 2px 6px rgba(0, 0, 0, .4), 0 18px 40px -16px rgba(0, 0, 0, .6);
+  --sombra-pop: 0 12px 32px -8px rgba(0, 0, 0, .7), 0 2px 8px rgba(0, 0, 0, .4);
+  color-scheme: dark } }
 :root[data-theme="dark"] {
-  --fundo: #14121F; --cartao: #1E1B2E; --lateral: #19172A; --tinta: #F1EFFA; --tinta-2: #B7B3D1; --tinta-3: #A29EC2; --linha: #2E2A45;
-  --indigo: #C9C4F6; --indigo-2: #A49DEB; --lavanda: #7B72E0; --lavanda-suave: #2A2645; --lavanda-forte: #A49DEB; --marfim: #1E1B2E;
-  --laranja: #FF6A38; --laranja-texto: #FF8A5F; --sobre-laranja: #1C0F08;
-  --verde: #4CC285; --verde-suave: #183324; --ambar: #E5B04F; --ambar-suave: #352A14; --vermelho: #F07466; --vermelho-suave: #3A1C1A;
-  --sombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25); color-scheme: dark }
+  --lona: #141311; --lona-2: #191816; --cartao: #1E1C19; --cartao-2: #1B1917; --fundo-baixo: #26231F;
+  --linha: #2E2B27; --linha-forte: #3D3934; --tinta: #F4F0EA; --tinta-2: #D6D1CA; --suave: #A6A097;
+  --indigo: #B3ADF0; --sobre-indigo: #16142B;
+  --indigo-6: rgba(179, 173, 240, .07); --indigo-12: rgba(179, 173, 240, .14); --indigo-24: rgba(179, 173, 240, .26); --indigo-48: rgba(179, 173, 240, .5);
+  --laranja-suave: #3A2216; --laranja-tinta: #FF9A6B; --verde-suave: #16301F; --verde-tinta: #6FD39A; --vermelho-suave: #3A1A1D; --vermelho-tinta: #F28B95; --vivo: #4CC285;
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 18px -8px rgba(0, 0, 0, .5);
+  --sombra-2: 0 2px 6px rgba(0, 0, 0, .4), 0 18px 40px -16px rgba(0, 0, 0, .6);
+  --sombra-pop: 0 12px 32px -8px rgba(0, 0, 0, .7), 0 2px 8px rgba(0, 0, 0, .4);
+  color-scheme: dark }
 
 * { box-sizing: border-box }
 html, body { height: 100% }
-body { margin: 0; background: var(--fundo); color: var(--tinta); font: 400 15px/1.5 var(--letra); -webkit-font-smoothing: antialiased }
+body { margin: 0; background: var(--lona); color: var(--tinta); font: 400 15px/1.5 var(--letra); -webkit-font-smoothing: antialiased }
 button, input, select, textarea { font: inherit; color: inherit }
 button { cursor: pointer }
-a { color: inherit }
-:focus-visible { outline: 2px solid var(--lavanda-forte); outline-offset: 2px; border-radius: 8px }
+a { color: inherit; text-underline-offset: 3px }
+::selection { background: rgba(255, 82, 26, .28) }
+:focus-visible { outline: none; box-shadow: var(--anel) }
+h1, h2, h3 { font-weight: 500; margin: 0; text-wrap: balance }
 .num { font-variant-numeric: tabular-nums }
-svg.i { width: 20px; height: 20px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round }
+.sr { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap }
+svg.i { width: 18px; height: 18px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round }
+* { scrollbar-width: thin; scrollbar-color: var(--linha-forte) transparent }
 
 /* ---------- moldura ---------- */
-.app { display: grid; grid-template-columns: 248px minmax(0, 1fr); min-height: 100% }
-.lateral { background: var(--lateral); border-right: 1px solid var(--linha); padding: 24px 16px; display: flex; flex-direction: column; gap: 4px; position: sticky; top: 0; height: 100vh; overflow-y: auto }
-.marca { display: flex; align-items: center; gap: 10px; padding: 0 10px 22px; font-weight: 600; font-size: 17px }
-.marca svg { width: 30px; height: 30px; color: var(--indigo) }
-.marca small { display: block; font-weight: 400; font-size: 12px; color: var(--tinta-3) }
-.grupo { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-3); padding: 16px 12px 6px }
-.nav a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; text-decoration: none; color: var(--tinta-2); font-weight: 500; min-height: 44px }
-.nav a:hover { background: var(--lavanda-suave); color: var(--tinta) }
-.nav a[aria-current="page"] { background: var(--indigo); color: #fff }
-:root[data-theme="dark"] .nav a[aria-current="page"] { color: #14121F }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nav a[aria-current="page"] { color: #14121F } }
-.nav .conta { margin-left: auto; min-width: 22px; height: 22px; padding: 0 7px; border-radius: 11px; background: var(--laranja); color: var(--sobre-laranja); font-size: 12px; font-weight: 600; display: grid; place-items: center }
-.lateral .rodape { margin-top: auto; padding: 14px 12px 0; border-top: 1px solid var(--linha); display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--tinta-2) }
+.app { display: grid; grid-template-columns: 252px minmax(0, 1fr); min-height: 100% }
+.lateral { background: var(--lona-2); border-right: 1px solid var(--linha); padding: 22px 14px 18px; display: flex; flex-direction: column; gap: 2px; position: sticky; top: 0; height: 100vh; overflow-y: auto }
+.marca { display: flex; align-items: center; gap: 10px; padding: 0 10px 22px; text-decoration: none }
+.marca .simbolo { width: 34px; height: 34px; border-radius: 11px; background: var(--indigo); color: var(--sobre-indigo); display: grid; place-items: center }
+.marca .simbolo svg { width: 20px; height: 20px }
+.marca b { display: block; font-weight: 500; font-size: 16px; letter-spacing: -.015em }
+.marca small { display: block; font-size: 12.5px; color: var(--suave) }
+.grupo { font-size: 12.5px; color: var(--suave); padding: 16px 12px 6px }
+.nav a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 14px; text-decoration: none; color: var(--tinta-2); font-weight: 500; min-height: 44px; transition: background-color .15s var(--ease) }
+.nav a:hover { background: var(--fundo-baixo) }
+.nav a[aria-current="page"] { background: var(--cartao); color: var(--tinta); box-shadow: var(--sombra-1) }
+.nav a[aria-current="page"] svg { color: var(--laranja) }
+.conta { margin-left: auto; min-width: 24px; height: 22px; padding: 0 8px; border-radius: 999px; background: var(--laranja-suave); color: var(--laranja-tinta); font-size: 12.5px; font-weight: 500; display: inline-grid; place-items: center }
+.ponto-vivo { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--suave) }
+.ponto-vivo i, .vivo-i { width: 8px; height: 8px; border-radius: 50%; background: var(--vivo); display: inline-block }
+.lateral .pe { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--linha) }
 
-.principal { min-width: 0; padding-block: 20px 40px; padding-left: max(28px, env(safe-area-inset-left, 0px)); padding-right: max(28px, env(safe-area-inset-right, 0px)) }
-.topo { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; flex-wrap: wrap }
-.topo h1 { font-size: 26px; font-weight: 600; margin: 0; letter-spacing: -.01em; text-wrap: balance }
-.site { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 12px; background: var(--cartao); border: 1px solid var(--linha); font-weight: 500 }
-.site .ponto { width: 8px; height: 8px; border-radius: 50%; background: var(--indigo) }
-.pesquisa { flex: 1 1 240px; max-width: 420px; display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px; border-radius: 14px; background: var(--cartao); border: 1px solid var(--linha); color: var(--tinta-3) }
+.principal { min-width: 0; padding-block: 22px 64px; padding-left: max(clamp(16px, 3vw, 40px), env(safe-area-inset-left, 0px)); padding-right: max(clamp(16px, 3vw, 40px), env(safe-area-inset-right, 0px)) }
+.topo { display: flex; align-items: center; gap: 12px; margin-bottom: 26px }
+.pesquisa { flex: 0 1 420px; display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px; border-radius: 999px; background: var(--cartao); border: 1px solid var(--linha); color: var(--suave) }
 .pesquisa input { border: 0; background: none; outline: none; width: 100%; color: var(--tinta) }
+.pesquisa input::placeholder { color: var(--suave) }
+.site { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 999px; background: var(--cartao); border: 1px solid var(--linha); font-weight: 500; color: var(--tinta-2) }
 .topo .direita { margin-left: auto; display: flex; align-items: center; gap: 10px }
-.redondo { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--cartao); border: 1px solid var(--linha); color: var(--tinta-2); position: relative }
-.redondo .marca-n { position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--laranja); border: 2px solid var(--cartao) }
-.perfil { display: flex; align-items: center; gap: 10px; font-size: 14px }
-.avatar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; background: var(--lavanda); color: var(--indigo); flex: none; font-size: 14px }
-:root[data-theme="dark"] .avatar { color: #14121F }
-.perfil b { display: block; font-weight: 600; line-height: 1.2 }
-.perfil small { color: var(--tinta-3) }
-
-.exemplo { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--ambar); background: var(--ambar-suave); padding: 4px 10px; border-radius: 99px }
+.marca-prot { font-size: 12.5px; color: var(--suave); padding: 6px 12px; border-radius: 999px; border: 1px dashed var(--linha-forte) }
+.b-icone { width: 44px; height: 44px; border-radius: 999px; display: inline-grid; place-items: center; background: var(--cartao); border: 1px solid var(--linha); color: var(--tinta-2); position: relative; transition: background-color .15s var(--ease) }
+.b-icone:hover { background: var(--cartao-2); border-color: var(--linha-forte) }
+.b-icone .sinal { position: absolute; top: 10px; right: 11px; width: 8px; height: 8px; border-radius: 50%; background: var(--laranja); box-shadow: 0 0 0 2px var(--cartao) }
+.avatar { width: 40px; height: 40px; border-radius: 50%; display: inline-grid; place-items: center; font-weight: 500; font-size: 14px; background: var(--indigo-12); color: var(--tinta); flex: none }
+.cabeca-pag { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px; flex-wrap: wrap }
+.cabeca-pag h1 { font-size: clamp(26px, 3.2vw, 34px); letter-spacing: -.025em; line-height: 1.2 }
+.cabeca-pag p { margin: 6px 0 0; color: var(--suave); max-width: 60ch }
 
 /* ---------- peças ---------- */
-.cartao { background: var(--cartao); border-radius: var(--raio); box-shadow: var(--sombra); padding: 22px; min-width: 0 }
-.cartao h2 { font-size: 17px; font-weight: 600; margin: 0; letter-spacing: -.005em }
-.cartao .sub { font-size: 13px; color: var(--tinta-3); margin: 2px 0 0 }
+.cartao { background: linear-gradient(180deg, var(--cartao), var(--cartao-2)); border: 1px solid var(--linha); border-radius: 22px; box-shadow: var(--sombra-1); padding: 22px; min-width: 0 }
+.cartao > h2, .cab h2 { font-size: 17px; letter-spacing: -.015em; line-height: 1.3 }
 .cab { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap }
-.grelha { display: grid; gap: 20px }
-.pilula { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 14px; border-radius: 99px; border: 1px solid var(--linha); background: var(--cartao); font-size: 13px; font-weight: 500; color: var(--tinta-2) }
-.pilula[aria-pressed="true"] { background: var(--lavanda-suave); border-color: transparent; color: var(--tinta) }
-.botao { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 14px; border: 0; font-weight: 600; font-size: 14px; transition: transform .15s ease, background-color .15s ease }
-.botao:active { transform: scale(.98) }
-.botao.accao { background: var(--laranja); color: var(--sobre-laranja) }
-.botao.accao:hover { filter: brightness(.94) }
-.botao.sec { background: var(--cartao); border: 1px solid var(--linha); color: var(--tinta) }
-.botao.sec:hover { background: var(--lavanda-suave) }
-.botao.peq { min-height: 36px; padding: 0 12px; font-size: 13px; border-radius: 10px }
-.chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 99px; background: var(--lavanda-suave); color: var(--indigo-2); white-space: nowrap }
-.chip.verde { background: var(--verde-suave); color: var(--verde) }
-.chip.ambar { background: var(--ambar-suave); color: var(--ambar) }
-.chip.vermelho { background: var(--vermelho-suave); color: var(--vermelho) }
-.var { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 99px }
-.var.sobe { color: var(--verde); background: var(--verde-suave) }
-.var.desce { color: var(--vermelho); background: var(--vermelho-suave) }
+.cab p { margin: 2px 0 0; font-size: 13.5px; color: var(--suave) }
+.grelha { display: grid; gap: 18px }
+.botao { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 42px; padding: 0 18px; border-radius: 999px; border: 1px solid transparent; font-weight: 500; font-size: 14px; white-space: nowrap; text-decoration: none; transition: background-color .15s var(--ease), border-color .15s var(--ease), transform .15s var(--ease) }
+.botao:active { transform: translateY(1px) }
+.botao.accao { background: linear-gradient(180deg, #FF7A45, var(--laranja)); color: var(--sobre-laranja); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 6px 16px -4px rgba(226, 78, 12, .5) }
+.botao.accao:hover { background: linear-gradient(180deg, #FF8B5A, #FF6630) }
+.botao.fantasma { background: var(--cartao); border-color: var(--linha); color: var(--tinta) }
+.botao.fantasma:hover { background: var(--cartao-2); border-color: var(--linha-forte) }
+.botao.calmo { background: none; color: var(--tinta-2) }
+.botao.calmo:hover { background: var(--fundo-baixo) }
+.botao.peq { height: 34px; padding: 0 14px; font-size: 13.5px }
+.segmentos { display: inline-flex; gap: 2px; padding: 4px; border-radius: 999px; background: var(--fundo-baixo) }
+.segmentos button { border: 0; background: none; height: 34px; padding: 0 14px; border-radius: 999px; font-size: 13.5px; font-weight: 500; color: var(--tinta-2); white-space: nowrap; display: inline-flex; align-items: center; gap: 6px }
+.segmentos button[aria-pressed="true"] { background: var(--cartao); color: var(--tinta); box-shadow: var(--sombra-1) }
+.pilula { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px; border-radius: 999px; font-size: 12.5px; font-weight: 500; background: var(--fundo-baixo); color: var(--tinta-2); white-space: nowrap }
+.pilula svg.i { width: 14px; height: 14px }
+.pilula.indigo { background: var(--indigo-12); color: var(--tinta) }
+.pilula.laranja { background: var(--laranja-suave); color: var(--laranja-tinta) }
+.pilula.verde { background: var(--verde-suave); color: var(--verde-tinta) }
+.pilula.vermelho { background: var(--vermelho-suave); color: var(--vermelho-tinta) }
+.delta { font-size: 12.5px; font-weight: 500 }
+.delta.sobe { color: var(--verde-tinta) }
+.delta.desce { color: var(--vermelho-tinta) }
+.delta.neutro { color: var(--suave) }
 
 /* ---------- dashboard ---------- */
-.boas { background: var(--lavanda-suave); border-radius: var(--raio); padding: 26px 28px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; align-items: center; position: relative; overflow: hidden }
-.boas h2 { font-size: 24px; font-weight: 600; margin: 0 0 4px; letter-spacing: -.01em }
-.boas p { margin: 0 0 18px; color: var(--tinta-2) }
-.boas .pastilhas { display: flex; flex-wrap: wrap; gap: 10px }
-.pastilha { display: inline-flex; align-items: center; gap: 10px; background: var(--cartao); border-radius: 12px; padding: 7px 14px 7px 7px; font-size: 14px; font-weight: 500; text-decoration: none }
-.pastilha b { min-width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: var(--lavanda-forte); color: #fff; font-size: 14px }
-.boas .periodo { display: flex; gap: 6px; background: var(--cartao); padding: 4px; border-radius: 12px; align-self: start }
-.boas .periodo button { border: 0; background: none; padding: 7px 12px; border-radius: 9px; font-size: 13px; font-weight: 500; color: var(--tinta-2); min-height: 36px }
-.boas .periodo button[aria-pressed="true"] { background: var(--indigo); color: #fff }
-:root[data-theme="dark"] .boas .periodo button[aria-pressed="true"] { color: #14121F }
-.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px }
-.kpi { display: flex; gap: 14px; align-items: flex-start }
-.kpi .ico { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--indigo); color: #fff; flex: none }
-:root[data-theme="dark"] .kpi .ico { color: #14121F }
-.kpi .ico.lav { background: var(--lavanda-forte); color: #fff }
-.kpi small { display: block; font-size: 13px; color: var(--tinta-3) }
-.kpi strong { display: block; font-size: 28px; font-weight: 600; letter-spacing: -.02em; line-height: 1.15 }
-.kpi .linha-var { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--tinta-3); margin-top: 4px }
+.saudacao { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px 24px; align-items: center }
+.saudacao h1 { font-size: clamp(26px, 3.2vw, 34px); letter-spacing: -.025em; line-height: 1.2 }
+.saudacao p { margin: 6px 0 16px; color: var(--suave) }
+.atalhos { display: flex; flex-wrap: wrap; gap: 10px }
+.atalho { display: inline-flex; align-items: center; gap: 10px; height: 42px; padding: 0 16px 0 6px; border-radius: 999px; background: var(--cartao); border: 1px solid var(--linha); text-decoration: none; font-weight: 500; font-size: 14px; box-shadow: var(--sombra-1); transition: transform .2s var(--ease), box-shadow .2s var(--ease) }
+.atalho:hover { transform: translateY(-2px); box-shadow: var(--sombra-2) }
+.atalho b { min-width: 30px; height: 30px; padding: 0 8px; border-radius: 999px; display: grid; place-items: center; font-weight: 500; background: var(--indigo); color: var(--sobre-indigo) }
+.atalho.urgente b { background: var(--laranja); color: var(--sobre-laranja) }
 
-.duas { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 20px }
-.tres { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px }
+.kpi { padding: 18px 20px 20px; display: grid; gap: 14px; align-content: space-between }
+.kpi-rot { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--tinta-2) }
+.kpi-linha { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px }
+.kpi-valor { font-size: 38px; font-weight: 500; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap }
+.kpi-valor small { font-size: 18px; letter-spacing: -.01em; color: var(--tinta-2) }
+.barras { display: flex; align-items: flex-end; gap: 4px; height: 38px; flex: none }
+.barras i { width: 7px; border-radius: 4px; background: var(--indigo-24) }
+.barras i:last-child { background: var(--laranja) }
+
+.principal-graf { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 18px }
 .grafico { width: 100%; height: auto; display: block; overflow: visible }
-.grafico text { fill: var(--tinta-3); font: 12px var(--letra-dados) }
-.grafico .grelha-l { stroke: var(--linha); stroke-width: 1 }
-.legenda { display: flex; gap: 16px; font-size: 13px; color: var(--tinta-2); flex-wrap: wrap }
-.legenda i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px }
-.dica { position: absolute; pointer-events: none; background: var(--cartao); border: 1px solid var(--linha); box-shadow: var(--sombra); border-radius: 10px; padding: 8px 10px; font-size: 12px; white-space: nowrap; transform: translate(-50%, -110%) }
-.dica b { display: block; font-size: 15px }
-.ref-grafico { position: relative }
+.grafico text { fill: var(--suave); font: 12px var(--letra); font-variant-numeric: tabular-nums }
+.grafico .gl { stroke: var(--linha); stroke-width: 1 }
+.legenda { display: flex; gap: 16px; font-size: 13px; color: var(--tinta-2); flex-wrap: wrap; align-items: center }
+.legenda .amostra { display: inline-block; width: 14px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: 0 }
+.ref-graf { position: relative }
+.dica { position: absolute; pointer-events: none; background: var(--cartao); box-shadow: var(--sombra-pop); border-radius: 12px; padding: 8px 12px; font-size: 12.5px; white-space: nowrap; transform: translate(-50%, calc(-100% - 10px)); color: var(--tinta-2); z-index: 5 }
+.dica b { display: block; font-size: 15px; font-weight: 500; color: var(--tinta) }
+details.numeros { margin-top: 10px; font-size: 13.5px; color: var(--suave) }
+details.numeros summary { cursor: pointer; width: max-content; border-radius: 8px }
 
-.fontes { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 18px; align-items: center }
-.fontes ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px }
-.fontes li { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto auto; gap: 10px; align-items: center; font-size: 14px }
-.fontes li i { width: 10px; height: 10px; border-radius: 50% }
-.fontes li span:last-child { color: var(--tinta-3); font-size: 13px; width: 42px; text-align: right }
+.agora { display: grid; gap: 14px; align-content: start }
+.agora .grande { display: flex; align-items: baseline; gap: 10px }
+.agora .grande strong { font-size: 38px; font-weight: 500; letter-spacing: -.03em; line-height: 1 }
+.agora ul { list-style: none; margin: 0; padding: 0; display: grid }
+.agora li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 10px 0; border-top: 1px solid var(--linha); font-size: 13.5px }
+.agora li span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--tinta-2) }
+.agora li span:last-child { color: var(--suave) }
 
-.lista-barras { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px }
-.lista-barras li { display: grid; gap: 6px }
-.lista-barras .l1 { display: flex; justify-content: space-between; gap: 10px; font-size: 14px }
-.lista-barras .l1 span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
-.lista-barras .l1 span:last-child { color: var(--tinta-2); font-weight: 500 }
-.barra { height: 8px; border-radius: 99px; background: var(--lavanda-suave); overflow: hidden }
-.barra i { display: block; height: 100%; border-radius: 99px; background: var(--indigo) }
-.barra.lav i { background: var(--lavanda-forte) }
-
-.funil { display: grid; gap: 10px }
-.funil .etapa { display: grid; grid-template-columns: 150px minmax(0, 1fr) 70px; gap: 12px; align-items: center; font-size: 14px }
-.funil .etapa .faixa { height: 34px; border-radius: 10px; background: var(--lavanda-suave); position: relative; overflow: hidden }
-.funil .etapa .faixa i { position: absolute; inset: 0 auto 0 0; border-radius: 10px; background: var(--indigo) }
-.funil .etapa .faixa span { position: relative; z-index: 1; padding-left: 12px; line-height: 34px; color: #fff; font-weight: 600; font-size: 13px }
-:root[data-theme="dark"] .funil .etapa .faixa span { color: #14121F }
-.funil .etapa .faixa span.fora { color: var(--tinta) !important }
-.funil .etapa > span:last-child { color: var(--tinta-3); text-align: right; font-size: 13px }
-
-.accoes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px }
-.accao { border: 1px solid var(--linha); border-radius: 14px; padding: 14px; display: flex; gap: 12px; align-items: center }
-.accao .ico { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: var(--lavanda-suave); color: var(--indigo-2); flex: none }
-.accao strong { display: block; font-size: 20px; font-weight: 600; line-height: 1.1 }
-.accao small { color: var(--tinta-3); font-size: 12px }
+.duas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px }
 
 table { width: 100%; border-collapse: collapse; font-size: 14px }
-th { text-align: left; font-weight: 500; font-size: 12px; color: var(--tinta-3); padding: 0 10px 10px; border-bottom: 1px solid var(--linha); white-space: nowrap }
+th { text-align: left; font-weight: 500; font-size: 12.5px; color: var(--suave); padding: 0 10px 10px; border-bottom: 1px solid var(--linha); white-space: nowrap }
 td { padding: 12px 10px; border-bottom: 1px solid var(--linha); vertical-align: middle }
-tbody tr:hover { background: var(--fundo) }
+tbody tr { transition: background-color .15s var(--ease) }
+tbody tr:hover { background: var(--fundo-baixo) }
 tbody tr:last-child td { border-bottom: 0 }
+th:first-child, td:first-child { padding-left: 0 }
+th:last-child, td:last-child { padding-right: 0 }
+.d { text-align: right; white-space: nowrap }
 .tabela { overflow-x: auto }
-td.direita, th.direita { text-align: right }
-.url { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; color: var(--tinta-2) }
+.url { font-family: var(--mono); font-size: 12.5px; color: var(--suave); overflow-wrap: anywhere }
+.barra-celula { display: grid; grid-template-columns: minmax(60px, 1fr) 52px; align-items: center; gap: 10px }
+.trilho { height: 8px; border-radius: 999px; background: var(--fundo-baixo); overflow: hidden; display: block }
+.trilho i { display: block; height: 100%; border-radius: 999px; background: var(--indigo) }
 
-.vivo { display: inline-flex; align-items: center; gap: 8px; font-weight: 600 }
-.vivo i { width: 9px; height: 9px; border-radius: 50%; background: var(--verde); box-shadow: 0 0 0 4px var(--verde-suave) }
-@media (prefers-reduced-motion: no-preference) { .vivo i { animation: pulso 2s ease-in-out infinite } }
-@keyframes pulso { 50% { box-shadow: 0 0 0 7px transparent } }
+.lista-accoes { list-style: none; margin: 0; padding: 0; display: grid }
+.lista-accoes li { display: grid; grid-template-columns: 36px minmax(0, 1fr) 56px 110px; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px solid var(--linha) }
+.lista-accoes li:first-child { border-top: 0 }
+.lista-accoes .ic { width: 36px; height: 36px; border-radius: 999px; display: grid; place-items: center; background: var(--indigo-6); color: var(--tinta-2) }
+.lista-accoes .n { font-weight: 500; text-align: right }
+
+.funil { display: grid; gap: 4px }
+.funil .passo { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; align-items: center }
+.funil .passo .nome { font-size: 14px; color: var(--tinta-2) }
+.funil .passo .val { font-weight: 500 }
+.funil .passo .trilho { grid-column: 1 / -1; height: 12px }
+.funil .passo.fim .trilho i { background: var(--laranja) }
+.funil .taxa { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--suave); padding: 6px 0 6px 2px }
+.funil .taxa svg { width: 14px; height: 14px }
+.funil .taxa b { font-weight: 500; color: var(--tinta-2) }
+
+.dividida { display: flex; height: 14px; border-radius: 999px; overflow: hidden; gap: 3px; margin: 6px 0 12px }
+.dividida i { display: block; height: 100% }
+.dividida i:nth-child(1) { background: var(--indigo) } .dividida i:nth-child(2) { background: var(--indigo-48) } .dividida i:nth-child(3) { background: var(--indigo-24) }
+.leg-div { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; color: var(--tinta-2) }
+.leg-div span { display: inline-flex; align-items: center; gap: 7px }
+.leg-div i { width: 10px; height: 10px; border-radius: 3px }
+.paises { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px }
+.paises li { display: grid; grid-template-columns: 110px minmax(0, 1fr) 56px; gap: 10px; align-items: center; font-size: 14px }
+.paises li span:last-child { text-align: right; color: var(--tinta-2) }
+
+/* ---------- ao vivo ---------- */
+.pessoa { display: flex; align-items: center; gap: 10px; min-width: 0 }
+.pessoa .avatar { width: 34px; height: 34px; font-size: 12.5px }
+.avatar.anon { background: var(--fundo-baixo); color: var(--suave) }
+.pessoa b { display: block; font-weight: 500; white-space: nowrap }
+.pessoa small { color: var(--suave); font-size: 12.5px }
 
 /* ---------- inbox ---------- */
-.inbox { display: grid; grid-template-columns: 300px minmax(0, 1fr) 300px; gap: 0; height: calc(100vh - 120px); min-height: 560px; padding: 0; overflow: hidden }
+.inbox { display: grid; grid-template-columns: 312px minmax(0, 1fr) 300px; height: calc(100vh - 140px); min-height: 580px; padding: 0; overflow: hidden }
 .inbox > * { min-width: 0; min-height: 0 }
 .col-lista { border-right: 1px solid var(--linha); display: flex; flex-direction: column }
 .col-lista .filtros { padding: 16px; display: grid; gap: 10px; border-bottom: 1px solid var(--linha) }
-.abas { display: flex; gap: 4px; background: var(--fundo); padding: 4px; border-radius: 12px }
-.abas button { flex: 1; border: 0; background: none; padding: 7px 6px; border-radius: 9px; font-size: 13px; font-weight: 500; color: var(--tinta-2); min-height: 36px; white-space: nowrap }
-.abas button[aria-pressed="true"] { background: var(--cartao); color: var(--tinta); box-shadow: var(--sombra) }
-.abas button em { font-style: normal; color: var(--laranja-texto); margin-left: 4px }
+.col-lista .filtros .segmentos { display: flex }
+.col-lista .filtros .segmentos button { flex: 1; padding: 0 8px; justify-content: center }
+.selects { display: flex; gap: 8px }
+.sel { flex: 1; min-width: 0; height: 36px; border-radius: 999px; border: 1px solid var(--linha); background: var(--cartao); padding: 0 12px; font-size: 13.5px; color: var(--tinta-2) }
 .conversas { overflow-y: auto; flex: 1 }
-.conv { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 12px; padding: 14px 16px; border: 0; background: none; text-align: left; width: 100%; border-bottom: 1px solid var(--linha) }
-.conv:hover { background: var(--fundo) }
-.conv[aria-current="true"] { background: var(--lavanda-suave) }
+.conv { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 14px 16px; border: 0; background: none; text-align: left; width: 100%; border-bottom: 1px solid var(--linha); transition: background-color .15s var(--ease) }
+.conv:hover { background: var(--fundo-baixo) }
+.conv[aria-current="true"] { background: var(--indigo-6) }
 .conv .av { position: relative }
-.conv .av .canal { position: absolute; right: -3px; bottom: -3px; width: 20px; height: 20px; border-radius: 50%; background: var(--cartao); display: grid; place-items: center; color: var(--indigo-2); box-shadow: 0 0 0 2px var(--cartao) }
-.conv .av .canal svg { width: 12px; height: 12px }
+.conv .canal { position: absolute; right: -4px; bottom: -4px; width: 20px; height: 20px; border-radius: 50%; background: var(--cartao); display: grid; place-items: center; color: var(--tinta-2); box-shadow: 0 0 0 2px var(--cartao) }
+.conv .canal svg { width: 12px; height: 12px }
 .conv .l1 { display: flex; justify-content: space-between; gap: 8px; align-items: baseline }
-.conv .l1 b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
-.conv .l1 small { color: var(--tinta-3); font-size: 12px; white-space: nowrap }
-.conv p { margin: 2px 0 0; font-size: 13px; color: var(--tinta-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
-.conv.nao-lida p { color: var(--tinta); font-weight: 500 }
-.conv .naolida { width: 8px; height: 8px; border-radius: 50%; background: var(--laranja); display: inline-block; margin-left: 6px }
+.conv .l1 b { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.conv .l1 small { color: var(--suave); font-size: 12.5px; white-space: nowrap }
+.conv p { margin: 2px 0 0; font-size: 13.5px; color: var(--suave); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.conv.por-ler p { color: var(--tinta) }
+.conv .por-ler-p { width: 8px; height: 8px; border-radius: 50%; background: var(--laranja); display: inline-block; margin-left: 6px; vertical-align: 1px }
 
-.col-conv { display: flex; flex-direction: column; background: var(--marfim) }
-.conv-cab { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--cartao); border-bottom: 1px solid var(--linha) }
-.conv-cab .quem b { display: block; font-weight: 600 }
-.conv-cab .quem small { color: var(--tinta-3); font-size: 12px }
-.conv-cab .ferr { margin-left: auto; display: flex; gap: 6px }
-.icone-b { width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--linha); background: var(--cartao); display: grid; place-items: center; color: var(--tinta-2) }
-.icone-b:hover { background: var(--lavanda-suave); color: var(--tinta) }
+.col-conv { display: flex; flex-direction: column; background: var(--lona) }
+.conv-cab { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--cartao); border-bottom: 1px solid var(--linha) }
+.conv-cab .quem { min-width: 0 }
+.conv-cab .quem b { display: block; font-weight: 500 }
+.conv-cab .quem small { display: flex; align-items: center; gap: 6px; color: var(--suave); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.conv-cab .ferr { margin-left: auto; display: flex; gap: 6px; flex: none }
+.voltar { display: none }
 .fio { flex: 1; overflow-y: auto; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px }
-.dia-sep { align-self: center; font-size: 12px; color: var(--tinta-3); background: var(--cartao); padding: 3px 12px; border-radius: 99px }
-.msg { max-width: 78%; display: grid; gap: 4px }
-.msg .bolha { padding: 11px 14px; border-radius: 16px; font-size: 14px; line-height: 1.5 }
-.msg small { font-size: 11px; color: var(--tinta-3) }
+.dia { align-self: center; font-size: 12.5px; color: var(--suave); background: var(--cartao); padding: 3px 12px; border-radius: 999px; border: 1px solid var(--linha) }
+.msg { max-width: 76%; display: grid; gap: 4px }
+.msg .bolha { padding: 11px 14px; border-radius: 18px; font-size: 14.5px; line-height: 1.5 }
+.msg small { font-size: 12.5px; color: var(--suave) }
 .msg.visitante { align-self: flex-start }
 .msg.visitante .bolha { background: var(--cartao); border: 1px solid var(--linha); border-top-left-radius: 6px }
-.msg.agente { align-self: flex-end; text-align: right }
-.msg.agente .bolha { background: var(--indigo); color: #fff; border-top-right-radius: 6px; text-align: left }
-:root[data-theme="dark"] .msg.agente .bolha { color: #14121F }
-.msg.interna { align-self: flex-end }
-.msg.interna .bolha { background: var(--ambar-suave); color: var(--tinta); border: 1px dashed var(--ambar); text-align: left }
-.formulario-dados { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; font-size: 13px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--linha) }
-.formulario-dados dt { color: var(--tinta-3) }
-.formulario-dados dd { margin: 0 }
+.msg.agente { align-self: flex-end; justify-items: end }
+.msg.agente .bolha { background: var(--indigo); color: var(--sobre-indigo); border-top-right-radius: 6px }
+.msg.interna { align-self: flex-end; justify-items: end }
+.msg.interna .bolha { background: var(--fundo-baixo); border: 1.5px dashed var(--linha-forte); color: var(--tinta) }
+.msg.interna .rot { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; color: var(--tinta-2); margin-bottom: 4px }
+.msg.interna .rot svg { width: 14px; height: 14px }
 .compositor { background: var(--cartao); border-top: 1px solid var(--linha); padding: 12px 16px 14px }
-.compositor .modos { display: flex; gap: 4px; margin-bottom: 10px }
-.compositor .modos button { border: 0; background: none; padding: 6px 12px; border-radius: 9px; font-size: 13px; font-weight: 600; color: var(--tinta-3); min-height: 34px }
-.compositor .modos button[aria-pressed="true"] { background: var(--lavanda-suave); color: var(--tinta) }
-.compositor .modos button[data-m="comentario"][aria-pressed="true"] { background: var(--ambar-suave); color: var(--ambar) }
-.compositor textarea { width: 100%; border: 1px solid var(--linha); border-radius: 12px; padding: 10px 12px; resize: none; min-height: 72px; background: var(--fundo) }
-.compositor.comentario textarea { background: var(--ambar-suave); border-color: var(--ambar) }
-.compositor .l2 { display: flex; align-items: center; gap: 6px; margin-top: 10px }
+.compositor .segmentos { margin-bottom: 10px }
+.compositor textarea { width: 100%; border: 1px solid var(--linha-forte); border-radius: 16px; padding: 12px 14px; resize: none; min-height: 76px; background: var(--cartao); display: block }
+.compositor textarea:focus { outline: none; border-color: var(--laranja); box-shadow: var(--anel) }
+.compositor.interno textarea { background: var(--fundo-baixo); border-style: dashed }
+.compositor .l2 { display: flex; align-items: center; gap: 10px; margin-top: 10px }
+.compositor .via { font-size: 12.5px; color: var(--suave); min-width: 0 }
 .compositor .l2 .botao { margin-left: auto }
-.compositor .via { font-size: 12px; color: var(--tinta-3) }
 
-.col-det { border-left: 1px solid var(--linha); overflow-y: auto; padding: 20px 18px; display: grid; gap: 18px; align-content: start }
-.det-topo { text-align: center; display: grid; justify-items: center; gap: 6px }
-.det-topo .avatar { width: 64px; height: 64px; font-size: 22px }
-.det-topo b { font-size: 16px }
-.secao h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--tinta-3); margin: 0 0 10px; font-weight: 500 }
-.campos { display: grid; gap: 8px; font-size: 13px }
-.campos div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 8px }
-.campos dt { color: var(--tinta-3) }
+.col-det { border-left: 1px solid var(--linha); overflow-y: auto; padding: 22px 18px; display: grid; gap: 22px; align-content: start }
+.det-topo { text-align: center; display: grid; justify-items: center; gap: 8px }
+.det-topo .avatar { width: 60px; height: 60px; font-size: 20px }
+.det-topo b { font-size: 17px; font-weight: 500 }
+.bloco h3 { font-size: 14px; color: var(--tinta-2); margin-bottom: 10px }
+.campos { display: grid; gap: 8px; font-size: 13.5px; margin: 0 }
+.campos div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px }
+.campos dt { color: var(--suave) }
 .campos dd { margin: 0; overflow-wrap: anywhere }
-.percurso { list-style: none; margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--lavanda-suave); display: grid; gap: 10px; font-size: 13px }
+.percurso { list-style: none; margin: 0; padding: 0 0 0 16px; border-left: 2px solid var(--linha); display: grid; gap: 10px; font-size: 13.5px }
 .percurso li { position: relative }
-.percurso li::before { content: ""; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--lavanda); border: 2px solid var(--cartao) }
+.percurso li::before { content: ""; position: absolute; left: -22px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--indigo-48); box-shadow: 0 0 0 3px var(--cartao) }
 .percurso li.chave::before { background: var(--laranja) }
-.percurso small { display: block; color: var(--tinta-3); font-size: 12px }
-.botoes-crm { display: grid; gap: 8px }
+.percurso small { display: block; color: var(--suave); font-size: 12.5px }
+.empilha { display: grid; gap: 8px }
 
-/* ---------- kanban ---------- */
-.barra-funil { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 18px }
-.resumo-funil { display: flex; gap: 24px; flex-wrap: wrap; margin-left: auto; font-size: 13px; color: var(--tinta-3) }
-.resumo-funil b { display: block; font-size: 18px; color: var(--tinta); font-weight: 600 }
-.quadro { display: grid; grid-auto-flow: column; grid-auto-columns: 286px; gap: 16px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x proximity }
-.coluna { background: var(--cartao); border-radius: var(--raio); padding: 14px; display: flex; flex-direction: column; gap: 10px; min-height: 420px; scroll-snap-align: start; box-shadow: var(--sombra) }
-.coluna.alvo { outline: 2px dashed var(--lavanda-forte); outline-offset: -2px }
-.col-cab { display: grid; gap: 4px; padding: 2px 4px 8px; border-bottom: 1px solid var(--linha) }
-.col-cab .l1 { display: flex; align-items: center; gap: 8px; font-weight: 600 }
-.col-cab .l1 i { width: 10px; height: 10px; border-radius: 50% }
-.col-cab .l1 em { font-style: normal; margin-left: auto; font-size: 12px; background: var(--fundo); padding: 2px 9px; border-radius: 99px; color: var(--tinta-2) }
-.col-cab .l2 { font-size: 12px; color: var(--tinta-3); display: flex; justify-content: space-between }
-.negocio { border: 1px solid var(--linha); border-radius: 14px; padding: 12px 12px 10px; background: var(--cartao); display: grid; gap: 8px; cursor: grab }
-.negocio:hover { border-color: var(--lavanda) }
-.negocio.arrasta { opacity: .5 }
-.negocio .t { font-weight: 600; font-size: 14px; line-height: 1.3 }
-.negocio .q { font-size: 12px; color: var(--tinta-3); margin-top: -4px }
-.negocio .l3 { display: flex; align-items: center; justify-content: space-between; gap: 8px }
-.negocio .valor { font-weight: 600 }
-.bant { display: inline-flex; gap: 3px }
-.bant i { width: 7px; height: 7px; border-radius: 50%; background: var(--linha) }
-.bant i.s { background: var(--verde) }
-.negocio .prox { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--tinta-2); border-top: 1px solid var(--linha); padding-top: 8px }
-.negocio .prox.atraso { color: var(--vermelho) }
+/* ---------- negócios ---------- */
+.barra-neg { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 18px }
+.resumo { display: flex; gap: 28px; flex-wrap: wrap; margin-left: auto; font-size: 13px; color: var(--suave) }
+.resumo b { display: block; font-size: 20px; color: var(--tinta); font-weight: 500; letter-spacing: -.015em }
+.quadro { display: grid; grid-template-columns: repeat(6, minmax(164px, 1fr)); gap: 12px; overflow-x: auto; padding: 2px 2px 14px }
+.coluna { background: var(--lona-2); border: 1px solid var(--linha); border-radius: 22px; padding: 10px; display: flex; flex-direction: column; gap: 10px; min-height: 440px; transition: background-color .15s var(--ease) }
+.coluna.alvo { background: var(--indigo-6); border-style: dashed; border-color: var(--indigo-48) }
+.col-cab { display: grid; gap: 8px; padding: 4px 4px 6px }
+.col-cab .l1 { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 14.5px }
+.col-cab .l1 .pilula { margin-left: auto; height: 24px; padding: 0 9px; background: var(--cartao) }
+.col-cab .l2 { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2px 8px; font-size: 12.5px; color: var(--suave) }
+.col-cab .l2 span { white-space: nowrap }
+.col-cab .prob { height: 4px; border-radius: 999px; background: var(--indigo-12); overflow: hidden }
+.col-cab .prob i { display: block; height: 100%; background: var(--indigo) }
+.col-cab.ganho .prob i { background: var(--verde-tinta) }
+.negocio { position: relative; background: var(--cartao); border: 1px solid var(--linha); border-radius: 16px; padding: 12px; display: grid; gap: 8px; cursor: grab; box-shadow: var(--sombra-1); transition: transform .25s var(--ease), box-shadow .25s var(--ease) }
+.negocio:hover { transform: translateY(-2px); box-shadow: var(--sombra-2) }
+.negocio.arrasta { opacity: .45 }
+.negocio .t { font-weight: 500; font-size: 14px; line-height: 1.3 }
+.negocio .q { font-size: 12.5px; color: var(--suave); margin-top: -4px }
+.negocio .l3 { display: flex; align-items: center; justify-content: space-between; gap: 4px 8px; flex-wrap: wrap }
+.negocio .valor { white-space: nowrap }
+.negocio .valor { font-weight: 500 }
+.negocio .valor.vazio { color: var(--suave); font-weight: 400; font-size: 13px }
+.bant { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--suave) }
+.bant span { display: inline-flex; gap: 2px }
+.bant span i { width: 5px; height: 12px; border-radius: 2px; background: var(--indigo-12) }
+.bant span i.s { background: var(--indigo) }
+.negocio .prox { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--tinta-2); border-top: 1px solid var(--linha); padding-top: 8px; min-width: 0 }
+.negocio .prox span { min-width: 0 }
+.negocio .prox.atraso { color: var(--vermelho-tinta) }
 .negocio .prox svg { width: 14px; height: 14px }
-.negocio .mover { margin-left: auto; border: 0; background: none; color: var(--tinta-3); font-size: 12px; padding: 4px 6px; border-radius: 6px; min-height: 28px }
-.negocio .mover:hover { background: var(--lavanda-suave); color: var(--tinta) }
+.mover { border: 1px solid var(--linha); background: var(--cartao); border-radius: 999px; height: 30px; padding: 0 10px; font-size: 12.5px; color: var(--tinta-2); width: 100% }
+
+dialog { border: 0; padding: 0; border-radius: 26px; background: var(--cartao); color: var(--tinta); box-shadow: var(--sombra-pop); width: min(440px, calc(100% - 32px)) }
+dialog::backdrop { background: rgba(20, 19, 17, .4) }
+dialog form { padding: 24px; display: grid; gap: 14px }
+dialog h2 { font-size: 21px; letter-spacing: -.015em }
+dialog p { margin: 0; color: var(--suave) }
+.campo { display: grid; gap: 7px; font-size: 13.5px; font-weight: 500; color: var(--tinta-2) }
+.campo input, .campo select { height: 48px; border-radius: 14px; border: 1px solid var(--linha-forte); background: var(--cartao); padding: 0 16px; font-weight: 400; color: var(--tinta) }
+.campo input:focus, .campo select:focus { outline: none; border-color: var(--laranja); box-shadow: var(--anel) }
+.campo.erro input { border-color: var(--vermelho-tinta) }
+.campo .msg-erro { font-size: 12.5px; font-weight: 400; color: var(--vermelho-tinta) }
+.acoes-d { display: flex; gap: 10px; justify-content: flex-end; margin-top: 4px; flex-wrap: wrap }
 
 /* ---------- contactos ---------- */
-.construtor { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px; border: 1px dashed var(--linha); border-radius: 14px; margin-bottom: 16px }
-.condicao { display: inline-flex; align-items: center; gap: 6px; background: var(--lavanda-suave); border-radius: 10px; padding: 6px 10px; font-size: 13px }
-.condicao b { font-weight: 600 }
-.logica { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--tinta-3) }
-.pessoa { display: flex; align-items: center; gap: 10px }
-.pessoa .avatar { width: 34px; height: 34px; font-size: 12px }
-.pessoa b { display: block; font-weight: 600 }
-.pessoa small { color: var(--tinta-3); font-size: 12px }
+.filtro-construtor { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px; border-radius: 18px; background: var(--fundo-baixo); margin-bottom: 14px }
+.cond { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 6px 0 12px; border-radius: 999px; background: var(--cartao); border: 1px solid var(--linha); font-size: 13.5px }
+.cond em { font-style: normal; color: var(--suave) }
+.cond button { width: 24px; height: 24px; border-radius: 50%; border: 0; background: none; display: grid; place-items: center; color: var(--suave) }
+.cond button svg { width: 14px; height: 14px }
+.logica { font-size: 12.5px; font-weight: 500; color: var(--suave) }
+.massa { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 6px 6px 6px 18px; border-radius: 999px; background: var(--indigo); color: var(--sobre-indigo); margin-bottom: 14px; font-size: 14px }
+.massa .botao { color: var(--sobre-indigo) }
+.massa .botao:hover { background: rgba(255, 255, 255, .12) }
+input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--laranja) }
 
-.gaveta-fundo { position: fixed; inset: 0; background: rgba(28, 26, 51, .35); z-index: 40 }
-.gaveta { position: fixed; top: 0; right: 0; bottom: 0; width: min(520px, 100%); background: var(--fundo); z-index: 41; overflow-y: auto; padding: 22px max(22px, env(safe-area-inset-right, 0px)) 30px 22px; display: grid; gap: 16px; align-content: start; box-shadow: -20px 0 40px rgba(28,26,51,.15) }
+.gaveta-fundo { position: fixed; inset: 0; background: rgba(20, 19, 17, .4); z-index: 40 }
+.gaveta { position: fixed; top: 0; right: 0; bottom: 0; width: min(500px, 100%); background: var(--lona); z-index: 41; overflow-y: auto; padding-block: 22px 32px; padding-left: 22px; padding-right: max(22px, env(safe-area-inset-right, 0px)); display: grid; gap: 16px; align-content: start; box-shadow: var(--sombra-pop) }
 .gaveta .fechar { justify-self: end }
 .historico { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px }
 .historico li { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; font-size: 14px }
-.historico .ico { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; background: var(--lavanda-suave); color: var(--indigo-2) }
-.historico small { display: block; color: var(--tinta-3); font-size: 12px }
+.historico .ic { width: 36px; height: 36px; border-radius: 999px; display: grid; place-items: center; background: var(--indigo-6); color: var(--tinta-2) }
+.historico small { display: block; color: var(--suave); font-size: 12.5px }
+.historico .dia-h { display: block; font-size: 12.5px; color: var(--suave); margin-top: 4px }
 
 /* ---------- tarefas ---------- */
-.tarefa { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 4px; border-bottom: 1px solid var(--linha) }
-.tarefa:last-child { border-bottom: 0 }
-.tarefa input { width: 20px; height: 20px; accent-color: var(--indigo) }
+.tarefa { display: grid; grid-template-columns: 24px 36px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--linha) }
+.tarefa:first-child { border-top: 0 }
+.tarefa .ic { width: 36px; height: 36px; border-radius: 999px; display: grid; place-items: center; background: var(--indigo-6); color: var(--tinta-2) }
 .tarefa b { font-weight: 500; display: block }
-.tarefa small { color: var(--tinta-3); font-size: 12px }
-.tarefa .quando { font-size: 13px; font-weight: 500; text-align: right }
-.tarefa .quando.atraso { color: var(--vermelho) }
+.tarefa small { color: var(--suave); font-size: 12.5px }
+.tarefa.feita b { text-decoration: line-through; color: var(--suave) }
 
-/* ---------- widget de chat ---------- */
-.palco { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 20px; align-items: start }
-.site-falso { border-radius: var(--raio); overflow: hidden; background: linear-gradient(135deg, #1C1A33, #2B2850 60%, #3B3478); min-height: 560px; position: relative; color: #fff; padding: 30px }
-.site-falso h3 { font-size: 30px; font-weight: 600; max-width: 14ch; margin: 40px 0 10px; line-height: 1.1 }
-.site-falso p { color: #CFCBF2; max-width: 40ch }
-.widget { position: absolute; right: 22px; bottom: 22px; width: min(340px, calc(100% - 44px)); background: #fff; color: #1C1A33; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,.35); overflow: hidden; display: flex; flex-direction: column }
+/* ---------- widget ---------- */
+.palco { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 18px; align-items: start }
+.site-falso { border-radius: 22px; overflow: hidden; background: linear-gradient(140deg, #1C1A33, #2B2850 58%, #3B3478); min-height: 580px; position: relative; color: #fff; padding: 28px }
+.site-falso .txt { max-width: 46% }
+.site-falso h3 { font-size: 30px; font-weight: 500; letter-spacing: -.025em; margin: 40px 0 10px; line-height: 1.1 }
+.site-falso p { color: #D8D4F4; margin: 0 }
+.widget { position: absolute; right: 22px; bottom: 22px; width: min(340px, calc(100% - 44px)); background: #fff; color: #1E1C33; border-radius: 22px; box-shadow: 0 20px 50px rgba(0, 0, 0, .35); overflow: hidden; display: flex; flex-direction: column }
 .widget .w-cab { background: #2B2850; color: #fff; padding: 16px 18px; display: flex; gap: 12px; align-items: center }
-.widget .w-cab b { display: block; font-size: 15px }
-.widget .w-cab small { color: #CFCBF2; font-size: 12px; display: flex; align-items: center; gap: 6px }
-.widget .w-cab small i { width: 8px; height: 8px; border-radius: 50%; background: #4CC285 }
-.widget .w-corpo { padding: 16px; display: grid; gap: 10px; background: #FAF9F5; min-height: 210px; align-content: start }
-.widget .w-msg { background: #fff; border: 1px solid #E7E5F3; padding: 10px 12px; border-radius: 14px; border-top-left-radius: 4px; font-size: 14px; max-width: 85% }
-.widget .w-msg.eu { justify-self: end; background: #2B2850; color: #fff; border-color: transparent; border-radius: 14px; border-top-right-radius: 4px }
-.widget .w-pe { display: flex; gap: 8px; padding: 12px; border-top: 1px solid #E7E5F3 }
-.widget .w-pe input { flex: 1; border: 1px solid #E7E5F3; border-radius: 12px; padding: 10px 12px; min-height: 44px; color: #1C1A33; background: #fff }
-.widget .w-pe button { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #FF521A; color: #1C1A33; display: grid; place-items: center }
-.widget form.offline { display: grid; gap: 8px; padding: 14px 16px 16px }
-.widget form.offline label { font-size: 12px; color: #5E5B7A; display: grid; gap: 4px }
-.widget form.offline input, .widget form.offline textarea { border: 1px solid #E7E5F3; border-radius: 10px; padding: 9px 10px; color: #1C1A33; background: #fff }
-.widget form.offline .cons { display: flex; gap: 8px; align-items: flex-start; font-size: 12px }
-.widget form.offline button { min-height: 44px; border: 0; border-radius: 12px; background: #FF521A; color: #1C1A33; font-weight: 600 }
-.bolha-chat { position: absolute; right: 22px; bottom: 22px; width: 58px; height: 58px; border-radius: 50%; background: #FF521A; display: grid; place-items: center; color: #fff; box-shadow: 0 10px 24px rgba(255, 82, 26, .4) }
+.widget .w-cab .avatar { background: rgba(255, 255, 255, .14); color: #fff; width: 38px; height: 38px }
+.widget .w-cab b { display: block; font-size: 15px; font-weight: 500 }
+.widget .w-cab small { color: #D8D4F4; font-size: 12.5px; display: flex; align-items: center; gap: 6px }
+.widget .w-corpo { padding: 16px; display: grid; gap: 10px; background: #F5F3F0; min-height: 210px; align-content: start }
+.widget .w-msg { background: #fff; border: 1px solid #E8E3DD; padding: 10px 13px; border-radius: 16px; border-top-left-radius: 5px; font-size: 14px; max-width: 86% }
+.widget .w-msg.eu { justify-self: end; background: #2B2850; color: #fff; border-color: transparent; border-radius: 16px; border-top-right-radius: 5px }
+.widget .w-pe { display: flex; gap: 8px; padding: 12px; border-top: 1px solid #E8E3DD; background: #fff }
+.widget .w-pe input { flex: 1; min-width: 0; border: 1px solid #D9D3CB; border-radius: 999px; padding: 0 16px; height: 44px; color: #1E1C33; background: #fff }
+.widget .w-pe button, .widget form.offline button { border: 0; background: linear-gradient(180deg, #FF7A45, #FF521A); color: #1C1A17 }
+.widget .w-pe button { width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center; flex: none }
+.widget form.offline { display: grid; gap: 10px; padding: 16px; background: #fff }
+.widget form.offline p { margin: 0; font-size: 14px; color: #3B3852 }
+.widget form.offline label { font-size: 13px; font-weight: 500; color: #3B3852; display: grid; gap: 5px }
+.widget form.offline input, .widget form.offline textarea { border: 1px solid #D9D3CB; border-radius: 12px; padding: 10px 12px; color: #1E1C33; background: #fff; font-weight: 400 }
+.widget form.offline .cons { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; font-size: 12.5px }
+.widget form.offline button { height: 44px; border-radius: 999px; font-weight: 500 }
 
-.aviso { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--tinta); color: var(--cartao); padding: 12px 18px; border-radius: 14px; font-size: 14px; box-shadow: var(--sombra); z-index: 60; max-width: calc(100% - 32px) }
-.aviso.erro { background: var(--vermelho) ; color: #fff }
+.aviso { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; align-items: center; gap: 10px; background: var(--tinta); color: var(--lona); padding: 12px 18px; border-radius: 999px; font-size: 14px; box-shadow: var(--sombra-pop); z-index: 60; max-width: calc(100% - 32px) }
+.aviso svg { color: var(--vivo) }
 
-.tabbar { display: none }
+.tabbar, .folha, .topo-m { display: none }
 
-/* ---------- responsivo ---------- */
 @media (max-width: 1280px) {
-  .inbox { grid-template-columns: 280px minmax(0, 1fr) }
+  .inbox { grid-template-columns: 290px minmax(0, 1fr) }
   .col-det { display: none }
   .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .principal-graf { grid-template-columns: minmax(0, 1fr) }
 }
-@media (max-width: 1080px) {
-  .duas, .tres, .palco { grid-template-columns: minmax(0, 1fr) }
-}
-@media (max-width: 860px) {
+@media (max-width: 1080px) { .duas, .palco { grid-template-columns: minmax(0, 1fr) } .site-falso .txt { max-width: 100% } }
+@media (max-width: 980px) {
   .app { grid-template-columns: minmax(0, 1fr) }
-  .lateral { display: none }
-  .principal { padding-block: 16px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
-  .topo h1 { font-size: 22px; width: 100% }
-  .perfil div, .site { display: none }
-  .boas { grid-template-columns: minmax(0, 1fr); padding: 20px }
-  .kpis { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px }
-  .kpi { flex-direction: column; gap: 10px }
-  .kpi strong { font-size: 24px }
-  .fontes { grid-template-columns: minmax(0, 1fr) }
-  .fontes svg { max-width: 180px; justify-self: center }
-  .accoes { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) }
-  .funil .etapa { grid-template-columns: 110px minmax(0, 1fr) 52px }
+  .lateral, .topo { display: none }
+  .topo-m { display: flex; align-items: center; gap: 10px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; margin: -22px calc(-1 * max(16px, env(safe-area-inset-right, 0px))) 18px calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding: 10px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); background: color-mix(in srgb, var(--lona) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--linha) }
+  .topo-m .marca { padding: 0; margin-right: auto }
+  .principal { padding-block: 22px 104px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+  .saudacao { grid-template-columns: minmax(0, 1fr) }
+  .saudacao .segmentos { justify-self: start; max-width: 100%; overflow-x: auto }
+  .kpis { gap: 12px }
+  .kpi { padding: 14px }
+  .kpi-valor { font-size: 30px }
+  .barras { display: none }
+  .lista-accoes li { grid-template-columns: 36px minmax(0, 1fr) 48px }
+  .lista-accoes li .trilho { display: none }
   .inbox { grid-template-columns: minmax(0, 1fr); height: auto; min-height: 0 }
   .col-lista { border-right: 0 }
-  .inbox.ver-conversa .col-lista, .inbox:not(.ver-conversa) .col-conv { display: none }
-  .col-conv { min-height: 70vh }
-  .quadro { grid-auto-columns: 84% }
-  .tabbar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--lateral); border-top: 1px solid var(--linha); padding: 6px max(8px, env(safe-area-inset-right, 0px)) calc(6px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); justify-content: space-around }
-  .tabbar a { display: grid; justify-items: center; gap: 2px; font-size: 11px; color: var(--tinta-3); text-decoration: none; min-width: 56px; min-height: 48px; padding-top: 4px; border-radius: 10px; position: relative }
-  .tabbar a[aria-current="page"] { color: var(--indigo); font-weight: 600 }
-  .tabbar a .conta { position: absolute; top: 0; right: 8px; min-width: 18px; height: 18px; border-radius: 9px; background: var(--laranja); color: var(--sobre-laranja); font-size: 11px; display: grid; place-items: center; padding: 0 5px }
-  .site-falso { min-height: 620px; padding: 22px }
+  .inbox.ver .col-lista, .inbox:not(.ver) .col-conv { display: none }
+  .col-conv { min-height: 72vh }
+  .voltar { display: inline-grid }
+  .conv-cab .ferr .rotulo { display: none }
+  .quadro { grid-template-columns: repeat(6, 82%); scroll-snap-type: x mandatory }
+  .coluna { scroll-snap-align: start; min-height: 0 }
+  .tabbar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--cartao); border-top: 1px solid var(--linha); padding: 6px max(8px, env(safe-area-inset-right, 0px)) calc(6px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); justify-content: space-around }
+  .tabbar a, .tabbar button { display: grid; justify-items: center; gap: 2px; font-size: 11.5px; color: var(--suave); text-decoration: none; min-width: 60px; min-height: 50px; padding-top: 6px; border: 0; background: none; position: relative; border-radius: 12px }
+  .tabbar [aria-current="page"] { color: var(--laranja-tinta) }
+  .tabbar [aria-current="page"] svg { color: var(--laranja) }
+  .tabbar .conta { position: absolute; top: 0; right: 6px; height: 18px; min-width: 18px; padding: 0 5px; font-size: 11px }
+  .folha { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: var(--cartao); border-radius: 26px 26px 0 0; box-shadow: var(--sombra-pop); padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(20px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)) }
+  .folha.aberta { display: block }
+  .folha .nav a { min-height: 52px }
+  .aviso { bottom: calc(84px + env(safe-area-inset-bottom, 0px)) }
+  .site-falso { min-height: 640px; padding: 22px }
 }
-@media (max-width: 420px) {
-  .accoes { grid-template-columns: minmax(0, 1fr) }
+@media (max-width: 560px) {
+  .kpis { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) }
+  .kpi-valor { font-size: 26px }
+  .paises li { grid-template-columns: 96px minmax(0, 1fr) 48px }
+  .barra-celula { grid-template-columns: minmax(0, 1fr) }
+  .barra-celula .trilho { display: none }
+  .resumo { margin-left: 0; gap: 18px }
 }
+@media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; animation-duration: .01ms !important } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-grade" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
-  <symbol id="i-vivo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4M19 5a10 10 0 0 1 0 14M5 19A10 10 0 0 1 5 5"/></symbol>
-  <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6Z"/></symbol>
-  <symbol id="i-pessoas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.3-6 6.5-6s5.9 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2c1.9.7 3.2 2.8 3.5 5.8"/></symbol>
-  <symbol id="i-funil" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="11" rx="1.5"/><rect x="17" y="4" width="4" height="7" rx="1.5"/></symbol>
-  <symbol id="i-tarefa" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16.5" rx="3"/><path d="m8 12 3 3 5-6"/></symbol>
-  <symbol id="i-relat" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="m7 15 4-4 3 3 5-6"/></symbol>
-  <symbol id="i-blog" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
-  <symbol id="i-def" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-5.6A8 8 0 1 1 21 12Z"/></symbol>
-  <symbol id="i-form" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
-  <symbol id="i-email" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
-  <symbol id="i-olho" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
-  <symbol id="i-utilizador" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4.2 4-7 8-7s7.2 2.8 8 7"/></symbol>
-  <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-  <symbol id="i-alvo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
-  <symbol id="i-pesquisa" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
-  <symbol id="i-sino" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
-  <symbol id="i-utilizador-mais" viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M2.5 21c.8-4.2 3.8-7 7.5-7 1.5 0 2.9.4 4 1.2M19 14v6M16 17h6"/></symbol>
-  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></symbol>
-  <symbol id="i-enviar" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></symbol>
-  <symbol id="i-whats" viewBox="0 0 24 24"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.1Z"/><path d="M9 9.5c.3 2 2.5 4.3 4.6 4.8l1.2-1.2 2 1-.6 1.6c-3.6.4-8-3.8-8-7.4l1.5-.7 1.1 1.9Z"/></symbol>
-  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
-  <symbol id="i-descarregar" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
-  <symbol id="i-cotacao" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
-  <symbol id="i-nota" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></symbol>
-  <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
-  <symbol id="i-globo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
-  <symbol id="i-tel-m" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
-  <symbol id="i-pc" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
-  <symbol id="i-fechar-conv" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
-  <symbol id="i-banir" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></symbol>
+  <symbol id="dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+  <symbol id="radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4M19.1 4.9a10 10 0 0 1 0 14.2M4.9 19.1a10 10 0 0 1 0-14.2"/></symbol>
+  <symbol id="message" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+  <symbol id="inbox" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"/></symbol>
+  <symbol id="users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 14a6 6 0 0 1 3.5 6"/></symbol>
+  <symbol id="kanban" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="11" rx="1.5"/><rect x="17" y="4" width="4" height="7" rx="1.5"/></symbol>
+  <symbol id="check-sq" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="m8 12.5 3 3 5-6"/></symbol>
+  <symbol id="settings" viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/></symbol>
+  <symbol id="eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="arrowRight" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="arrowDown" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="chevronLeft" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="whatsapp" viewBox="0 0 24 24"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.1z"/><path d="M9 9.5c.3 2 2.5 4.3 4.6 4.8l1.2-1.2 2 1-.6 1.6c-3.6.4-8-3.8-8-7.4l1.5-.7 1.1 1.9z"/></symbol>
+  <symbol id="download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/></symbol>
+  <symbol id="send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></symbol>
+  <symbol id="userPlus" viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M2.5 21a7.5 7.5 0 0 1 11.5-6.3M19 14v6M16 17h6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></symbol>
+  <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+  <symbol id="calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></symbol>
+  <symbol id="lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/></symbol>
+  <symbol id="list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
 </svg>
 
 <div class="app">
   <aside class="lateral" aria-label="Navegação principal">
-    <div class="marca"><svg viewBox="0 0 24 24" class="i" aria-hidden="true"><use href="#i-globo"/></svg><span>Kingdom<small>Painel do site</small></span></div>
+    <a class="marca" href="#dashboard"><span class="simbolo"><svg class="i" aria-hidden="true"><use href="#globe"/></svg></span><span><b>Kingdom</b><small>Painel do site</small></span></a>
     <nav class="nav" aria-label="Secções">
       <div class="grupo">Site</div>
-      <a href="#dashboard" data-v="dashboard"><svg class="i"><use href="#i-grade"/></svg>Dashboard</a>
-      <a href="#ao-vivo" data-v="ao-vivo"><svg class="i"><use href="#i-vivo"/></svg>Ao vivo<span class="conta num" style="background:var(--verde);color:#fff">7</span></a>
+      <a href="#dashboard" data-v="dashboard"><svg class="i" aria-hidden="true"><use href="#dashboard"/></svg>Dashboard</a>
+      <a href="#ao-vivo" data-v="ao-vivo"><svg class="i" aria-hidden="true"><use href="#radar"/></svg>Ao vivo<span class="ponto-vivo"><i></i><span class="num">7</span></span></a>
       <div class="grupo">Conversas</div>
-      <a href="#inbox" data-v="inbox"><svg class="i"><use href="#i-inbox"/></svg>Inbox<span class="conta num">3</span></a>
-      <a href="#widget" data-v="widget"><svg class="i"><use href="#i-chat"/></svg>Chat do site</a>
+      <a href="#inbox" data-v="inbox"><svg class="i" aria-hidden="true"><use href="#inbox"/></svg>Inbox<span class="conta num" aria-label="3 por ler">3</span></a>
+      <a href="#widget" data-v="widget"><svg class="i" aria-hidden="true"><use href="#message"/></svg>Chat do site</a>
       <div class="grupo">CRM</div>
-      <a href="#contactos" data-v="contactos"><svg class="i"><use href="#i-pessoas"/></svg>Contactos</a>
-      <a href="#negocios" data-v="negocios"><svg class="i"><use href="#i-funil"/></svg>Negócios</a>
-      <a href="#tarefas" data-v="tarefas"><svg class="i"><use href="#i-tarefa"/></svg>Tarefas<span class="conta num" style="background:var(--vermelho);color:#fff">2</span></a>
+      <a href="#contactos" data-v="contactos"><svg class="i" aria-hidden="true"><use href="#users"/></svg>Contactos</a>
+      <a href="#negocios" data-v="negocios"><svg class="i" aria-hidden="true"><use href="#kanban"/></svg>Negócios</a>
+      <a href="#tarefas" data-v="tarefas"><svg class="i" aria-hidden="true"><use href="#check-sq"/></svg>Tarefas<span class="conta num" aria-label="2 atrasadas">2</span></a>
     </nav>
-    <div class="rodape"><svg class="i"><use href="#i-def"/></svg>Definições</div>
+    <div class="pe nav"><a href="#dashboard"><svg class="i" aria-hidden="true"><use href="#settings"/></svg>Definições</a></div>
   </aside>
 
-  <main class="principal" id="principal">
+  <main class="principal">
+    <div class="topo-m">
+      <a class="marca" href="#dashboard"><span class="simbolo"><svg class="i" aria-hidden="true"><use href="#globe"/></svg></span><span><b>Kingdom</b></span></a>
+      <button class="b-icone" type="button" aria-label="Procurar"><svg class="i" aria-hidden="true"><use href="#search"/></svg></button>
+      <button class="b-icone" type="button" aria-label="Notificações, 1 nova"><svg class="i" aria-hidden="true"><use href="#bell"/></svg><span class="sinal"></span></button>
+    </div>
     <header class="topo">
-      <h1 id="titulo">Dashboard</h1>
-      <span class="site"><span class="ponto"></span>Kingdom Company</span>
-      <label class="pesquisa"><svg class="i"><use href="#i-pesquisa"/></svg><input id="pesquisa-geral" type="search" placeholder="Procurar contactos, conversas ou negócios" aria-label="Procurar"></label>
+      <label class="pesquisa"><svg class="i" aria-hidden="true"><use href="#search"/></svg><span class="sr">Procurar</span><input type="search" id="procurar" placeholder="Procurar contactos, conversas ou negócios"></label>
+      <span class="site">Kingdom Company</span>
       <div class="direita">
-        <span class="exemplo">Protótipo · dados de exemplo</span>
-        <button class="redondo" type="button" aria-label="Notificações"><svg class="i"><use href="#i-sino"/></svg><span class="marca-n"></span></button>
-        <div class="perfil"><span class="avatar">SD</span><div><b>Shelton</b><small>Administrador</small></div></div>
+        <span class="marca-prot">Protótipo com dados de exemplo</span>
+        <button class="b-icone" type="button" aria-label="Notificações, 1 nova"><svg class="i" aria-hidden="true"><use href="#bell"/></svg><span class="sinal"></span></button>
+        <span class="avatar" aria-label="Shelton">SD</span>
       </div>
     </header>
     <div id="vista"></div>
@@ -450,330 +511,261 @@ td.direita, th.direita { text-align: right }
 </div>
 
 <nav class="tabbar" aria-label="Navegação">
-  <a href="#dashboard" data-v="dashboard"><svg class="i"><use href="#i-grade"/></svg>Início</a>
-  <a href="#inbox" data-v="inbox"><svg class="i"><use href="#i-inbox"/></svg>Inbox<span class="conta">3</span></a>
-  <a href="#negocios" data-v="negocios"><svg class="i"><use href="#i-funil"/></svg>Negócios</a>
-  <a href="#contactos" data-v="contactos"><svg class="i"><use href="#i-pessoas"/></svg>Contactos</a>
-  <a href="#ao-vivo" data-v="ao-vivo"><svg class="i"><use href="#i-vivo"/></svg>Ao vivo</a>
+  <a href="#dashboard" data-v="dashboard"><svg class="i" aria-hidden="true"><use href="#dashboard"/></svg>Início</a>
+  <a href="#inbox" data-v="inbox"><svg class="i" aria-hidden="true"><use href="#inbox"/></svg>Inbox<span class="conta num">3</span></a>
+  <a href="#negocios" data-v="negocios"><svg class="i" aria-hidden="true"><use href="#kanban"/></svg>Negócios</a>
+  <a href="#tarefas" data-v="tarefas"><svg class="i" aria-hidden="true"><use href="#check-sq"/></svg>Tarefas<span class="conta num">2</span></a>
+  <button type="button" id="b-mais" aria-expanded="false" aria-controls="folha"><svg class="i" aria-hidden="true"><use href="#more"/></svg>Mais</button>
 </nav>
+<div class="folha" id="folha" role="dialog" aria-label="Mais secções">
+  <nav class="nav">
+    <a href="#ao-vivo" data-v="ao-vivo"><svg class="i" aria-hidden="true"><use href="#radar"/></svg>Ao vivo<span class="ponto-vivo"><i></i><span class="num">7</span></span></a>
+    <a href="#contactos" data-v="contactos"><svg class="i" aria-hidden="true"><use href="#users"/></svg>Contactos</a>
+    <a href="#widget" data-v="widget"><svg class="i" aria-hidden="true"><use href="#message"/></svg>Chat do site</a>
+  </nav>
+</div>
+
+<dialog id="d-etapa"><form method="dialog" id="f-etapa"></form></dialog>
 
 <script>
 const $ = (s, r = document) => r.querySelector(s);
-const ico = (n) => `<svg class="i" aria-hidden="true"><use href="#i-${n}"/></svg>`;
-const fmt = (n) => new Intl.NumberFormat('pt-PT').format(n);
-const mt = (n) => fmt(n).replace(/\s/g, ' ') + ' MT';
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const ic = (n, cls = 'i') => `<svg class="${cls}" aria-hidden="true"><use href="#${n}"/></svg>`;
+const n2 = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+const pct = (n, c = 1) => n.toFixed(c).replace('.', ',') + '%';
+const mt = (n) => n2(n) + ' MT';
+const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-/* ---------- dados de exemplo ---------- */
-const DIAS = 30;
-const hoje = new Date(2026, 10, 12);
+/* ---------- dados de exemplo (coerentes entre si) ---------- */
+const DIAS = 30, hoje = new Date(2026, 10, 12);
 const serie = Array.from({ length: DIAS }, (_, i) => {
   const d = new Date(hoje); d.setDate(d.getDate() - (DIAS - 1 - i));
   const fds = [0, 6].includes(d.getDay());
-  const base = 118 + i * 2.1 + Math.sin(i / 2.3) * 14;
-  const v = Math.round(base * (fds ? 0.62 : 1));
-  return { d, visitas: v, visitantes: Math.round(v * 0.74) };
+  const v = Math.round((112 + i * 1.9 + Math.sin(i * 1.7) * 9) * (fds ? 0.6 : 1));
+  return { d, v };
 });
-const FONTES = [
-  { n: 'Google', v: 1712, c: 'var(--indigo)' },
-  { n: 'Directo', v: 968, c: 'var(--lavanda-forte)' },
-  { n: 'Instagram', v: 571, c: 'var(--lavanda)' },
-  { n: 'LinkedIn', v: 326, c: '#E0A458' },
-  { n: 'Facebook', v: 284, c: '#8FB3E8' },
-  { n: 'WhatsApp', v: 203, c: '#7CC6A4' },
-];
-const SEMANA = [['Seg', 214, 371], ['Ter', 236, 402], ['Qua', 251, 388], ['Qui', 229, 417], ['Sex', 198, 356], ['Sáb', 74, 231], ['Dom', 61, 208]];
-const PAGINAS = [
-  ['/', 'Página inicial', 2140, 1622], ['/desenvolvimento-tecnologico/websites-e-aplicativos', 'Websites e Aplicativos', 812, 640],
-  ['/pedido-de-cotacao', 'Pedido de cotação', 604, 471], ['/desenvolvimento-editorial/perfis-corporativos', 'Perfis Corporativos', 433, 352],
-  ['/blog/quanto-custa-criar-um-site-em-mocambique', 'Quanto custa criar um site', 398, 351], ['/assessoria/gestao-de-redes-sociais', 'Gestão de Redes Sociais', 287, 230],
-];
+const TOTAL = serie.reduce((a, s) => a + s.v, 0);
+const media7 = serie.map((_, i) => { const j = serie.slice(Math.max(0, i - 6), i + 1); return j.reduce((a, s) => a + s.v, 0) / j.length; });
+const CANAIS = [['Google', 1712, 16], ['Directo', 968, 8], ['Instagram', 571, 4], ['LinkedIn', 326, 6], ['WhatsApp', 203, 3], ['Outros', 284, 0]];
+const LEADS = CANAIS.reduce((a, c) => a + c[2], 0);
+const PAGINAS = [['/', 'Página inicial', 2140, 9], ['/desenvolvimento-tecnologico/websites-e-aplicativos', 'Websites e Aplicativos', 812, 11], ['/pedido-de-cotacao', 'Pedido de cotação', 604, 31], ['/desenvolvimento-editorial/perfis-corporativos', 'Perfis Corporativos', 433, 5], ['/blog/quanto-custa-criar-um-site-em-mocambique', 'Quanto custa criar um site', 398, 4]];
 
-/* ---------- gráficos (SVG à escala) ---------- */
-function grafLinhas(el) {
-  const W = Math.max(340, Math.round(el.clientWidth || 720)), H = 260, P = { e: 40, d: 12, t: 16, b: 30 };
-  const max = Math.ceil(Math.max(...serie.map((s) => s.visitas)) / 50) * 50;
-  const x = (i) => P.e + (i / (DIAS - 1)) * (W - P.e - P.d);
-  const y = (v) => H - P.b - (v / max) * (H - P.t - P.b);
-  const curva = (k) => serie.map((s, i) => {
-    const px = x(i), py = y(s[k]);
-    if (!i) return `M${px},${py}`;
-    const qx = x(i - 1), qy = y(serie[i - 1][k]), cx = (qx + px) / 2;
-    return `C${cx},${qy} ${cx},${py} ${px},${py}`;
-  }).join(' ');
-  const passos = [0, max / 4, max / 2, (3 * max) / 4, max];
-  const ultimo = serie[DIAS - 1];
-  el.innerHTML = `<svg class="grafico" viewBox="0 0 ${W} ${H}" role="img" aria-label="Visitas e visitantes únicos por dia nos últimos 30 dias">
-    <defs><linearGradient id="ga" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--lavanda)" stop-opacity=".55"/><stop offset="1" stop-color="var(--lavanda)" stop-opacity="0"/></linearGradient></defs>
-    ${passos.map((p) => `<line class="grelha-l" x1="${P.e}" x2="${W - P.d}" y1="${y(p)}" y2="${y(p)}"/><text x="${P.e - 8}" y="${y(p) + 4}" text-anchor="end">${fmt(p)}</text>`).join('')}
-    ${serie.map((s, i) => (i % (W < 500 ? 10 : 5) === 0 || i === DIAS - 1) ? `<text x="${x(i)}" y="${H - 8}" text-anchor="middle">${s.d.getDate()} ${s.d.toLocaleDateString('pt-PT', { month: 'short' }).replace('.', '')}</text>` : '').join('')}
-    <path d="${curva('visitas')} L${x(DIAS - 1)},${H - P.b} L${x(0)},${H - P.b} Z" fill="url(#ga)"/>
-    <path d="${curva('visitas')}" fill="none" stroke="var(--lavanda-forte)" stroke-width="2.5"/>
-    <path d="${curva('visitantes')}" fill="none" stroke="var(--indigo)" stroke-width="2.5" stroke-dasharray="6 5"/>
-    <line id="cursor" x1="0" x2="0" y1="${P.t}" y2="${H - P.b}" stroke="var(--tinta-3)" stroke-dasharray="3 4" opacity="0"/>
-    <circle cx="${x(DIAS - 1)}" cy="${y(ultimo.visitas)}" r="5" fill="var(--lavanda-forte)" stroke="var(--cartao)" stroke-width="2"/>
-    <rect x="${P.e}" y="0" width="${W - P.e - P.d}" height="${H}" fill="transparent" id="zona"/>
+/* ---------- gráfico principal: barras por dia + média de 7 dias ---------- */
+function monotona(pts) {
+  const n = pts.length, dx = [], m = [], t = [];
+  for (let i = 0; i < n - 1; i++) { dx[i] = pts[i + 1][0] - pts[i][0]; m[i] = (pts[i + 1][1] - pts[i][1]) / dx[i]; }
+  t[0] = m[0]; t[n - 1] = m[n - 2];
+  for (let i = 1; i < n - 1; i++) t[i] = m[i - 1] * m[i] <= 0 ? 0 : (3 * (dx[i - 1] + dx[i])) / ((2 * dx[i] + dx[i - 1]) / m[i - 1] + (dx[i] + 2 * dx[i - 1]) / m[i]);
+  let d = `M${pts[0][0]},${pts[0][1]}`;
+  for (let i = 0; i < n - 1; i++) { const h = dx[i] / 3; d += ` C${pts[i][0] + h},${pts[i][1] + t[i] * h} ${pts[i + 1][0] - h},${pts[i + 1][1] - t[i + 1] * h} ${pts[i + 1][0]},${pts[i + 1][1]}`; }
+  return d;
+}
+function grafVisitas(el) {
+  const W = Math.max(320, Math.round(el.clientWidth || 760)), H = 260, P = { e: 36, d: 6, t: 14, b: 28 };
+  const max = Math.ceil(Math.max(...serie.map((s) => s.v)) / 50) * 50;
+  const larg = (W - P.e - P.d) / DIAS, bw = Math.max(3, larg * 0.62);
+  const cx = (i) => P.e + larg * i + larg / 2, y = (v) => H - P.b - (v / max) * (H - P.t - P.b);
+  const passo = W < 520 ? 10 : 5;
+  el.innerHTML = `<svg class="grafico" viewBox="0 0 ${W} ${H}" role="img" aria-label="Visitas por dia nos últimos 30 dias, com a média de 7 dias">
+    ${[0, max / 2, max].map((p) => `<line class="gl" x1="${P.e}" x2="${W - P.d}" y1="${y(p)}" y2="${y(p)}"/><text x="${P.e - 8}" y="${y(p) + 4}" text-anchor="end">${n2(p)}</text>`).join('')}
+    ${serie.map((s, i) => `<rect x="${cx(i) - bw / 2}" y="${y(s.v)}" width="${bw}" height="${H - P.b - y(s.v)}" rx="${Math.min(4, bw / 2)}" fill="${i === DIAS - 1 ? 'var(--laranja)' : 'var(--indigo-24)'}" data-i="${i}"/>`).join('')}
+    <path d="${monotona(media7.map((v, i) => [cx(i), y(v)]))}" fill="none" stroke="var(--indigo)" stroke-width="2"/>
+    ${serie.map((s, i) => (i % passo === 0 && DIAS - 1 - i >= passo / 2) || i === DIAS - 1 ? `<text x="${cx(i)}" y="${H - 8}" text-anchor="${i === DIAS - 1 ? 'end' : 'middle'}">${i === DIAS - 1 ? 'Hoje' : s.d.getDate() + ' ' + s.d.toLocaleDateString('pt-PT', { month: 'short' }).replace('.', '')}</text>` : '').join('')}
   </svg><div class="dica" hidden></div>`;
-  const svg = el.querySelector('svg'), dica = el.querySelector('.dica'), cur = el.querySelector('#cursor');
-  const mostra = (cx) => {
-    const r = svg.getBoundingClientRect(); const vx = ((cx - r.left) / r.width) * W;
-    const i = Math.max(0, Math.min(DIAS - 1, Math.round(((vx - P.e) / (W - P.e - P.d)) * (DIAS - 1))));
-    const s = serie[i]; cur.setAttribute('x1', x(i)); cur.setAttribute('x2', x(i)); cur.setAttribute('opacity', 1);
-    dica.hidden = false; dica.style.left = (x(i) / W) * r.width + 'px'; dica.style.top = (y(s.visitas) / H) * r.height + 'px';
-    dica.innerHTML = `${s.d.toLocaleDateString('pt-PT', { weekday: 'short', day: 'numeric', month: 'short' })}<b class="num">${fmt(s.visitas)} visitas</b>${fmt(s.visitantes)} visitantes únicos`;
+  const svg = $('svg', el), dica = $('.dica', el);
+  const mostra = (i) => {
+    const r = svg.getBoundingClientRect(), s = serie[i];
+    $$('rect', svg).forEach((b) => b.setAttribute('opacity', +b.dataset.i === i ? 1 : 0.55));
+    dica.hidden = false; dica.style.left = Math.min(Math.max((cx(i) / W) * r.width, 90), r.width - 90) + 'px'; dica.style.top = (y(s.v) / H) * r.height + 'px';
+    dica.innerHTML = `${s.d.toLocaleDateString('pt-PT', { weekday: 'long', day: 'numeric', month: 'short' })}<b class="num">${n2(s.v)} visitas</b>média de 7 dias: ${n2(media7[i])}`;
   };
-  svg.addEventListener('pointermove', (e) => mostra(e.clientX));
-  svg.addEventListener('pointerleave', () => { dica.hidden = true; cur.setAttribute('opacity', 0); });
-}
-
-function grafBarras(el) {
-  const W = Math.max(300, Math.round(el.clientWidth || 420)), H = 230, P = { e: 34, d: 6, t: 14, b: 28 };
-  const max = 450, bw = Math.min(16, Math.floor((W - 40) / 7 / 2) - 4), gw = (W - P.e - P.d) / SEMANA.length;
-  const y = (v) => H - P.b - (v / max) * (H - P.t - P.b);
-  el.innerHTML = `<svg class="grafico" viewBox="0 0 ${W} ${H}" role="img" aria-label="Visitas por dia da semana, computador e telemóvel">
-    ${[0, 150, 300, 450].map((p) => `<line class="grelha-l" x1="${P.e}" x2="${W - P.d}" y1="${y(p)}" y2="${y(p)}"/><text x="${P.e - 6}" y="${y(p) + 4}" text-anchor="end">${p}</text>`).join('')}
-    ${SEMANA.map(([d, pc, tm], i) => { const cx = P.e + gw * i + gw / 2; return `
-      <rect x="${cx - bw - 2}" y="${y(pc)}" width="${bw}" height="${H - P.b - y(pc)}" rx="5" fill="var(--indigo)"><title>${d}: ${pc} no computador</title></rect>
-      <rect x="${cx + 2}" y="${y(tm)}" width="${bw}" height="${H - P.b - y(tm)}" rx="5" fill="var(--lavanda)"><title>${d}: ${tm} no telemóvel</title></rect>
-      <text x="${cx}" y="${H - 8}" text-anchor="middle">${d}</text>`; }).join('')}
-  </svg>`;
-}
-
-function donut(el) {
-  const total = FONTES.reduce((a, f) => a + f.v, 0), R = 70, r = 46, C = 85;
-  let a0 = -Math.PI / 2;
-  const arcos = FONTES.map((f) => {
-    const a1 = a0 + (f.v / total) * Math.PI * 2, g = a1 - a0 > Math.PI ? 1 : 0;
-    const p = (rr, a) => `${C + rr * Math.cos(a)},${C + rr * Math.sin(a)}`;
-    const d = `M${p(R, a0)} A${R},${R} 0 ${g} 1 ${p(R, a1 - 0.012)} L${p(r, a1 - 0.012)} A${r},${r} 0 ${g} 0 ${p(r, a0)} Z`;
-    a0 = a1; return `<path d="${d}" fill="${f.c}"><title>${f.n}: ${Math.round((f.v / total) * 100)}%</title></path>`;
-  }).join('');
-  el.innerHTML = `<svg viewBox="0 0 170 170" role="img" aria-label="Fontes de tráfego">${arcos}
-      <text x="85" y="80" text-anchor="middle" style="fill:var(--tinta-3);font:12px var(--letra)">Visitas</text>
-      <text x="85" y="102" text-anchor="middle" class="num" style="fill:var(--tinta);font:600 20px var(--letra)">${fmt(total)}</text></svg>
-    <ul>${FONTES.map((f) => `<li><i style="background:${f.c}"></i><span>${f.n}</span><span class="num">${fmt(f.v)}</span><span class="num">${Math.round((f.v / total) * 100)}%</span></li>`).join('')}</ul>`;
+  svg.addEventListener('pointermove', (e) => { const r = svg.getBoundingClientRect(); const vx = ((e.clientX - r.left) / r.width) * W; mostra(Math.max(0, Math.min(DIAS - 1, Math.floor((vx - P.e) / larg)))); });
+  svg.addEventListener('pointerleave', () => { dica.hidden = true; $$('rect', svg).forEach((b) => b.removeAttribute('opacity')); });
 }
 
 /* ---------- vistas ---------- */
 const V = {};
+const kpi = (icone, rot, valor, barras, delta, cls = 'sobe') => `
+  <div class="cartao kpi"><div class="kpi-rot">${ic(icone)}${rot}</div>
+    <div class="kpi-linha"><div><div class="kpi-valor">${valor}</div><div class="delta ${cls}" style="margin-top:8px">${delta}</div></div>
+    <div class="barras" aria-hidden="true">${barras.map((h) => `<i style="height:${h}%"></i>`).join('')}</div></div></div>`;
+
 V.dashboard = () => `
   <div class="grelha">
-    <section class="boas" aria-label="Resumo de hoje">
-      <div>
-        <h2>Bom dia, Shelton</h2>
-        <p>Hoje o site já teve 186 visitas. Há 7 pessoas no site agora.</p>
-        <div class="pastilhas">
-          <a class="pastilha" href="#inbox"><b class="num">3</b>Conversas por responder</a>
-          <a class="pastilha" href="#contactos"><b class="num">5</b>Leads novos esta semana</a>
-          <a class="pastilha" href="#tarefas"><b class="num" style="background:var(--vermelho)">2</b>Tarefas atrasadas</a>
-        </div>
-      </div>
-      <div class="periodo" role="group" aria-label="Período">
-        <button type="button" aria-pressed="false">Hoje</button><button type="button" aria-pressed="false">7 dias</button><button type="button" aria-pressed="true">30 dias</button><button type="button" aria-pressed="false">12 meses</button>
-      </div>
+    <section class="cartao saudacao" aria-labelledby="t-ola">
+      <div><h1 id="t-ola">Bom dia, Shelton</h1><p>O site teve <span class="num">${n2(serie[DIAS - 1].v)}</span> visitas hoje e há 7 pessoas a navegar agora.</p>
+        <div class="atalhos"><a class="atalho urgente" href="#inbox"><b class="num">3</b>Conversas por responder</a><a class="atalho" href="#contactos"><b class="num">5</b>Leads novos esta semana</a><a class="atalho urgente" href="#tarefas"><b class="num">2</b>Tarefas atrasadas</a></div></div>
+      <div class="segmentos" role="group" aria-label="Período"><button type="button" aria-pressed="false">Hoje</button><button type="button" aria-pressed="false">7 dias</button><button type="button" aria-pressed="true">30 dias</button><button type="button" aria-pressed="false">12 meses</button></div>
     </section>
 
-    <section class="kpis" aria-label="Indicadores do site">
-      <div class="cartao kpi"><span class="ico">${ico('olho')}</span><div><small>Visitas</small><strong class="num">4 064</strong><span class="linha-var"><span class="var sobe">+18%</span>vs 30 dias antes</span></div></div>
-      <div class="cartao kpi"><span class="ico lav">${ico('utilizador')}</span><div><small>Visitantes únicos</small><strong class="num">2 991</strong><span class="linha-var"><span class="var sobe">+12%</span>vs 30 dias antes</span></div></div>
-      <div class="cartao kpi"><span class="ico">${ico('relogio')}</span><div><small>Tempo médio por visita</small><strong class="num">2 min 41 s</strong><span class="linha-var"><span class="var desce">−6%</span>2,8 páginas por visita</span></div></div>
-      <div class="cartao kpi"><span class="ico lav">${ico('alvo')}</span><div><small>Leads gerados</small><strong class="num">37</strong><span class="linha-var"><span class="var sobe">+9</span>conversão de 0,91%</span></div></div>
+    <section class="kpis" aria-label="Indicadores dos últimos 30 dias">
+      ${kpi('eye', 'Visitas', n2(TOTAL), [52, 61, 58, 70, 84], '+18% face aos 30 dias anteriores')}
+      ${kpi('user', 'Visitantes únicos', n2(TOTAL * 0.74), [55, 60, 57, 69, 80], '+12% face aos 30 dias anteriores')}
+      ${kpi('clock', 'Tempo médio por visita', '2<small> min </small>41<small> s</small>', [80, 76, 82, 74, 71], '2,8 páginas por visita', 'neutro')}
+      ${kpi('target', 'Leads gerados', LEADS, [40, 55, 48, 66, 92], '+9 · conversão de ' + pct((LEADS / TOTAL) * 100, 2))}
     </section>
 
-    <div class="duas">
+    <div class="principal-graf">
       <section class="cartao" aria-labelledby="t-visitas">
-        <div class="cab"><div><h2 id="t-visitas">Visitas ao site</h2><p class="sub">Últimos 30 dias, por dia</p></div>
-          <div class="legenda"><span><i style="background:var(--lavanda-forte)"></i>Visitas</span><span><i style="background:var(--indigo)"></i>Visitantes únicos (tracejado)</span></div></div>
-        <div class="ref-grafico" id="g-linhas"></div>
+        <div class="cab"><div><h2 id="t-visitas">Visitas por dia</h2><p>Últimos 30 dias. Os fins-de-semana têm menos movimento.</p></div>
+          <div class="legenda"><span><i class="amostra" style="background:var(--indigo-24)"></i>Visitas</span><span><i class="amostra" style="height:2px;background:var(--indigo)"></i>Média de 7 dias</span><span><i class="amostra" style="background:var(--laranja)"></i>Hoje</span></div></div>
+        <div class="ref-graf" id="g-visitas"></div>
+        <details class="numeros"><summary>Ver os números por dia</summary><div class="tabela" style="max-height:220px;margin-top:8px"><table><thead><tr><th>Dia</th><th class="d">Visitas</th></tr></thead><tbody>${serie.slice().reverse().map((s) => `<tr><td>${s.d.toLocaleDateString('pt-PT', { weekday: 'short', day: 'numeric', month: 'short' })}</td><td class="d num">${n2(s.v)}</td></tr>`).join('')}</tbody></table></div></details>
       </section>
-      <section class="cartao" aria-labelledby="t-fontes">
-        <div class="cab"><div><h2 id="t-fontes">Fontes de tráfego</h2><p class="sub">De onde vêm as visitas</p></div><span class="chip">30 dias</span></div>
-        <div class="fontes" id="g-donut"></div>
+      <section class="cartao agora" aria-labelledby="t-agora">
+        <div class="cab" style="margin:0"><h2 id="t-agora">No site agora</h2><a class="botao fantasma peq" href="#ao-vivo">Ver todos</a></div>
+        <div class="grande"><strong class="num">7</strong><span class="ponto-vivo" style="margin:0"><i></i>pessoas a navegar</span></div>
+        <ul>
+          <li><span>Ana Mabunda · Websites e Aplicativos</span><span>no chat</span></li>
+          <li><span>Anónimo · Pedido de cotação</span><span>4 min</span></li>
+          <li><span>Carlos Nhantumbo · Gestão de Redes Sociais</span><span>2 min</span></li>
+          <li><span>Anónimo · Página inicial</span><span>1 min</span></li>
+        </ul>
       </section>
     </div>
 
+    <section class="cartao" aria-labelledby="t-canais">
+      <div class="cab"><div><h2 id="t-canais">De onde vêm as visitas e os clientes</h2><p>O LinkedIn traz menos visitas, mas converte duas vezes mais do que o Google.</p></div></div>
+      <div class="tabela"><table>
+        <thead><tr><th>Fonte</th><th>Visitas</th><th class="d">Leads</th><th class="d">Conversão</th></tr></thead>
+        <tbody>${CANAIS.map(([f, v, l]) => { const c = l ? (l / v) * 100 : 0; return `<tr><td>${f}</td>
+          <td><div class="barra-celula"><span class="trilho"><i style="width:${(v / CANAIS[0][1]) * 100}%"></i></span><span class="num d">${n2(v)}</span></div></td>
+          <td class="d num">${l || '–'}</td><td class="d">${f === 'LinkedIn' ? `<span class="pilula laranja num">${pct(c, 2)} · a melhor</span>` : `<span class="num">${l ? pct(c, 2) : '–'}</span>`}</td></tr>`; }).join('')}</tbody>
+      </table></div>
+    </section>
+
     <div class="duas">
-      <section class="cartao" aria-labelledby="t-acoes">
-        <div class="cab"><div><h2 id="t-acoes">O que os visitantes fazem</h2><p class="sub">Acções registadas no site</p></div></div>
-        <div class="accoes">
-          <div class="accao"><span class="ico">${ico('cotacao')}</span><div><strong class="num">212</strong><small>Cliques em «Pedir cotação»</small></div></div>
-          <div class="accao"><span class="ico">${ico('form')}</span><div><strong class="num">31</strong><small>Formulários enviados</small></div></div>
-          <div class="accao"><span class="ico">${ico('whats')}</span><div><strong class="num">94</strong><small>Cliques no WhatsApp</small></div></div>
-          <div class="accao"><span class="ico">${ico('chat')}</span><div><strong class="num">18</strong><small>Conversas no chat</small></div></div>
-          <div class="accao"><span class="ico">${ico('tel')}</span><div><strong class="num">46</strong><small>Cliques no telefone</small></div></div>
-          <div class="accao"><span class="ico">${ico('descarregar')}</span><div><strong class="num">63</strong><small>Materiais descarregados</small></div></div>
-        </div>
+      <section class="cartao" aria-labelledby="t-accoes">
+        <div class="cab"><div><h2 id="t-accoes">O que os visitantes fazem</h2><p>Cliques e envios nos últimos 30 dias</p></div></div>
+        <ul class="lista-accoes">${[['arrowRight', 'Clicaram em «Pedir cotação»', 212], ['whatsapp', 'Abriram o WhatsApp', 94], ['download', 'Descarregaram um material', 63], ['phone', 'Clicaram no telefone', 46], ['file', 'Enviaram o formulário de cotação', 31], ['message', 'Começaram uma conversa no chat', 18]]
+          .map(([i, t, n]) => `<li><span class="ic">${ic(i)}</span><span>${t}</span><span class="n num">${n2(n)}</span><span class="trilho"><i style="width:${(n / 212) * 100}%"></i></span></li>`).join('')}</ul>
       </section>
       <section class="cartao" aria-labelledby="t-funil">
-        <div class="cab"><div><h2 id="t-funil">Do clique ao lead</h2><p class="sub">Visitas que avançaram em cada passo</p></div></div>
+        <div class="cab"><div><h2 id="t-funil">Do clique ao lead</h2><p>Quantas visitas avançam em cada passo</p></div></div>
         <div class="funil">
-          <div class="etapa"><span>Visitas</span><div class="faixa"><i style="width:100%"></i><span class="num">4 064</span></div><span>100%</span></div>
-          <div class="etapa"><span>Viram um serviço</span><div class="faixa"><i style="width:46%"></i><span class="num">1 870</span></div><span>46%</span></div>
-          <div class="etapa"><span>Abriram a cotação</span><div class="faixa"><i style="width:14.9%"></i><span class="num fora" style="padding-left:calc(14.9% + 8px)">604</span></div><span>15%</span></div>
-          <div class="etapa"><span>Tornaram-se lead</span><div class="faixa"><i style="width:4%;background:var(--laranja)"></i><span class="num fora" style="padding-left:calc(4% + 8px)">37</span></div><span>0,9%</span></div>
+          <div class="passo"><span class="nome">Visitas</span><span class="val num">${n2(TOTAL)}</span><span class="trilho"><i style="width:100%"></i></span></div>
+          <div class="taxa">${ic('arrowDown')}<span><b class="num">46%</b> abrem uma página de serviço</span></div>
+          <div class="passo"><span class="nome">Viram um serviço</span><span class="val num">1 870</span><span class="trilho"><i style="width:46%"></i></span></div>
+          <div class="taxa">${ic('arrowDown')}<span><b class="num">32%</b> abrem a cotação</span></div>
+          <div class="passo"><span class="nome">Abriram a cotação</span><span class="val num">604</span><span class="trilho"><i style="width:15%"></i></span></div>
+          <div class="taxa">${ic('arrowDown')}<span><b class="num">6%</b> enviam o pedido</span></div>
+          <div class="passo fim"><span class="nome">Tornaram-se lead</span><span class="val num">${LEADS}</span><span class="trilho"><i style="width:${Math.max(2, (LEADS / TOTAL) * 100)}%"></i></span></div>
         </div>
       </section>
     </div>
 
-    <div class="tres">
-      <section class="cartao" aria-labelledby="t-semana">
-        <div class="cab"><div><h2 id="t-semana">Dispositivos por dia</h2><p class="sub">Média por dia da semana</p></div></div>
-        <div class="legenda" style="margin:-8px 0 8px"><span><i style="background:var(--indigo)"></i>Computador</span><span><i style="background:var(--lavanda)"></i>Telemóvel</span></div>
-        <div id="g-barras"></div>
+    <div class="duas">
+      <section class="cartao" aria-labelledby="t-paginas">
+        <div class="cab"><div><h2 id="t-paginas">Páginas mais vistas</h2><p>E quantos leads começaram em cada uma</p></div></div>
+        <div class="tabela"><table><thead><tr><th>Página</th><th class="d">Vistas</th><th class="d">Leads</th></tr></thead>
+          <tbody>${PAGINAS.map(([u, t, v, l]) => `<tr><td>${t}<div class="url">${u}</div></td><td class="d num">${n2(v)}</td><td class="d num">${l}</td></tr>`).join('')}</tbody></table></div>
       </section>
-      <section class="cartao" aria-labelledby="t-origem-lead">
-        <div class="cab"><div><h2 id="t-origem-lead">Leads por fonte</h2><p class="sub">Qual canal traz clientes</p></div></div>
-        <ul class="lista-barras">
-          <li><div class="l1"><span>Google</span><span class="num">16 · 0,93%</span></div><div class="barra"><i style="width:100%"></i></div></li>
-          <li><div class="l1"><span>Directo</span><span class="num">8 · 0,83%</span></div><div class="barra"><i style="width:50%"></i></div></li>
-          <li><div class="l1"><span>LinkedIn</span><span class="num">6 · 1,84%</span></div><div class="barra"><i style="width:37.5%"></i></div></li>
-          <li><div class="l1"><span>Instagram</span><span class="num">4 · 0,70%</span></div><div class="barra"><i style="width:25%"></i></div></li>
-          <li><div class="l1"><span>WhatsApp</span><span class="num">3 · 1,48%</span></div><div class="barra"><i style="width:18.75%"></i></div></li>
-        </ul>
-      </section>
-      <section class="cartao" aria-labelledby="t-paises">
-        <div class="cab"><div><h2 id="t-paises">De onde visitam</h2><p class="sub">País do visitante</p></div></div>
-        <ul class="lista-barras">
-          <li><div class="l1"><span>Moçambique</span><span class="num">3 128</span></div><div class="barra lav"><i style="width:100%"></i></div></li>
-          <li><div class="l1"><span>África do Sul</span><span class="num">512</span></div><div class="barra lav"><i style="width:16.4%"></i></div></li>
-          <li><div class="l1"><span>Portugal</span><span class="num">198</span></div><div class="barra lav"><i style="width:6.3%"></i></div></li>
-          <li><div class="l1"><span>Brasil</span><span class="num">121</span></div><div class="barra lav"><i style="width:3.9%"></i></div></li>
-          <li><div class="l1"><span>Outros</span><span class="num">105</span></div><div class="barra lav"><i style="width:3.4%"></i></div></li>
-        </ul>
+      <section class="cartao" aria-labelledby="t-publico">
+        <div class="cab"><div><h2 id="t-publico">Quem visita</h2><p>Dispositivo e país</p></div></div>
+        <div class="dividida" role="img" aria-label="Telemóvel 62%, computador 34%, tablet 4%"><i style="width:62%"></i><i style="width:34%"></i><i style="width:4%"></i></div>
+        <div class="leg-div"><span><i style="background:var(--indigo)"></i>Telemóvel 62%</span><span><i style="background:var(--indigo-48)"></i>Computador 34%</span><span><i style="background:var(--indigo-24)"></i>Tablet 4%</span></div>
+        <ul class="paises">${[['Moçambique', Math.round(TOTAL * 0.77)], ['África do Sul', Math.round(TOTAL * 0.13)], ['Portugal', Math.round(TOTAL * 0.05)], ['Brasil', Math.round(TOTAL * 0.03)], ['Outros', Math.round(TOTAL * 0.02)]].map(([p, v], i, a) => `<li><span>${p}</span><span class="trilho"><i style="width:${(v / a[0][1]) * 100}%"></i></span><span class="num">${n2(v)}</span></li>`).join('')}</ul>
       </section>
     </div>
-
-    <section class="cartao" aria-labelledby="t-paginas">
-      <div class="cab"><div><h2 id="t-paginas">Páginas mais vistas</h2><p class="sub">30 dias</p></div><a class="botao sec peq" href="#ao-vivo">Ver quem está no site</a></div>
-      <div class="tabela"><table>
-        <thead><tr><th>Página</th><th class="direita">Vistas</th><th class="direita">Visitantes</th><th class="direita">Leads a partir daqui</th></tr></thead>
-        <tbody>${PAGINAS.map(([u, t, v, vis], i) => `<tr><td><b style="font-weight:500">${t}</b><div class="url">${u}</div></td><td class="direita num">${fmt(v)}</td><td class="direita num">${fmt(vis)}</td><td class="direita num">${[9, 11, 31, 5, 4, 2][i]}</td></tr>`).join('')}</tbody>
-      </table></div>
-    </section>
   </div>`;
-V.dashboard.depois = () => { grafLinhas($('#g-linhas')); donut($('#g-donut')); grafBarras($('#g-barras')); };
+V.dashboard.depois = () => grafVisitas($('#g-visitas'));
 
 const VIVOS = [
-  ['Visitante anónimo', '/pedido-de-cotacao', 'Google', 'tel-m', 'Maputo, Moçambique', '4 min', 6, 'A preencher a cotação'],
-  ['Ana Mabunda', '/desenvolvimento-tecnologico/websites-e-aplicativos', 'LinkedIn', 'pc', 'Maputo, Moçambique', '11 min', 9, 'Em conversa no chat'],
-  ['Visitante anónimo', '/', 'Directo', 'pc', 'Joanesburgo, África do Sul', '1 min', 1, 'A navegar'],
-  ['Visitante anónimo', '/blog/quanto-custa-criar-um-site-em-mocambique', 'Google', 'tel-m', 'Beira, Moçambique', '3 min', 2, 'A navegar'],
-  ['Visitante anónimo', '/desenvolvimento-editorial/perfis-corporativos', 'Instagram', 'tel-m', 'Matola, Moçambique', '6 min', 4, 'A navegar'],
-  ['Carlos Nhantumbo', '/assessoria/gestao-de-redes-sociais', 'E-mail', 'pc', 'Maputo, Moçambique', '2 min', 3, 'A navegar'],
-  ['Visitante anónimo', '/materiais-gratuitos/guia-perfil-corporativo', 'Facebook', 'tel-m', 'Nampula, Moçambique', '8 min', 5, 'A ler um guia'],
+  ['Ana Mabunda', '/desenvolvimento-tecnologico/websites-e-aplicativos', 'LinkedIn', 'Computador', 'Maputo', '11 min', 9, 'chat'],
+  ['', '/pedido-de-cotacao', 'Google', 'Telemóvel', 'Maputo', '4 min', 6, 'cotacao'],
+  ['Carlos Nhantumbo', '/assessoria/gestao-de-redes-sociais', 'Email', 'Computador', 'Maputo', '2 min', 3, ''],
+  ['', '/', 'Directo', 'Computador', 'Joanesburgo', '1 min', 1, ''],
+  ['', '/blog/quanto-custa-criar-um-site-em-mocambique', 'Google', 'Telemóvel', 'Beira', '3 min', 2, ''],
+  ['', '/desenvolvimento-editorial/perfis-corporativos', 'Instagram', 'Telemóvel', 'Matola', '6 min', 4, ''],
+  ['', '/materiais-gratuitos/guia-perfil-corporativo', 'Facebook', 'Telemóvel', 'Nampula', '8 min', 5, ''],
 ];
 V['ao-vivo'] = () => `
-  <div class="grelha">
-    <section class="kpis" aria-label="Agora">
-      <div class="cartao kpi"><span class="ico" style="background:var(--verde)">${ico('vivo')}</span><div><small>No site agora</small><strong class="num">7</strong><span class="linha-var vivo"><i></i>actualizado há 5 s</span></div></div>
-      <div class="cartao kpi"><span class="ico lav">${ico('olho')}</span><div><small>Visitas hoje</small><strong class="num">186</strong><span class="linha-var">até às 11:42</span></div></div>
-      <div class="cartao kpi"><span class="ico">${ico('chat')}</span><div><small>Em conversa no chat</small><strong class="num">1</strong><span class="linha-var">1 agente online</span></div></div>
-      <div class="cartao kpi"><span class="ico lav">${ico('form')}</span><div><small>Na página de cotação</small><strong class="num">1</strong><span class="linha-var">pode tornar-se lead</span></div></div>
-    </section>
-    <section class="cartao" aria-labelledby="t-vivos">
-      <div class="cab"><div><h2 id="t-vivos">Quem está no site</h2><p class="sub">Visitas activas nos últimos 5 minutos. O nome só aparece quando o visitante já se identificou num formulário ou no chat.</p></div></div>
-      <div class="tabela"><table>
-        <thead><tr><th>Visitante</th><th>Página actual</th><th>Origem</th><th>Local</th><th class="direita">No site há</th><th class="direita">Páginas</th><th>Estado</th><th></th></tr></thead>
-        <tbody>${VIVOS.map(([n, p, o, d, l, t, pg, e]) => `<tr>
-          <td><div class="pessoa"><span class="avatar" ${n.startsWith('Visitante') ? 'style="background:var(--fundo);color:var(--tinta-3)"' : ''}>${n.startsWith('Visitante') ? ico(d) : n.split(' ').map((x) => x[0]).join('')}</span><div><b>${n}</b><small>${d === 'pc' ? 'Computador' : 'Telemóvel'}</small></div></div></td>
-          <td class="url">${p}</td><td>${o}</td><td>${l}</td><td class="direita num">${t}</td><td class="direita num">${pg}</td>
-          <td><span class="chip ${e.startsWith('Em conversa') ? 'verde' : e.startsWith('A preencher') ? 'ambar' : ''}">${e}</span></td>
-          <td>${e.startsWith('Em conversa') ? '<a class="botao sec peq" href="#inbox">Abrir</a>' : '<button class="botao sec peq" type="button" data-iniciar>Iniciar conversa</button>'}</td></tr>`).join('')}</tbody>
-      </table></div>
-    </section>
-  </div>`;
-V['ao-vivo'].depois = () => document.querySelectorAll('[data-iniciar]').forEach((b) => b.addEventListener('click', () => aviso('Mensagem enviada: o visitante vê o chat abrir com «Olá! Em que podemos ajudar?»')));
+  <div class="cabeca-pag"><div><h1>Ao vivo</h1><p>Quem está no site nos últimos 5 minutos. O nome só aparece depois de a pessoa se identificar num formulário ou no chat.</p></div><span class="ponto-vivo" style="margin:0;font-size:14px"><i></i>7 pessoas · actualizado há 5 s</span></div>
+  <section class="cartao"><div class="tabela"><table>
+    <thead><tr><th>Visitante</th><th>Página actual</th><th>Origem</th><th>Local</th><th class="d">No site</th><th class="d">Páginas</th><th><span class="sr">Acção</span></th></tr></thead>
+    <tbody>${VIVOS.map(([n, p, o, d, l, t, pg, e]) => `<tr>
+      <td><div class="pessoa"><span class="avatar ${n ? '' : 'anon'}">${n ? n.split(' ').map((x) => x[0]).join('') : ic('user')}</span><div><b>${n || 'Anónimo'}</b><small>${d}</small></div></div></td>
+      <td class="url">${p}</td><td>${o}</td><td>${l}</td><td class="d num">${t}</td><td class="d num">${pg}</td>
+      <td class="d">${e === 'chat' ? '<a class="botao fantasma peq" href="#inbox">Abrir conversa</a>' : e === 'cotacao' ? '<span class="pilula laranja">Na cotação</span>' : `<button class="botao calmo peq" type="button" data-falar>${ic('message')}Falar</button>`}</td></tr>`).join('')}</tbody>
+  </table></div></section>`;
+V['ao-vivo'].depois = () => $$('[data-falar]').forEach((b) => b.addEventListener('click', () => aviso('O chat abriu no ecrã do visitante com «Olá! Em que podemos ajudar?»', true)));
 
 const CONVS = [
-  { id: 1, n: 'Ana Mabunda', e: 'ana.mabunda@mabunda-logistica.co.mz', c: 'chat', t: 'agora', p: 'Quanto tempo demora um site com área de clientes?', nl: 2, empresa: 'Mabunda Logística' },
-  { id: 2, n: 'Hélder Cossa', e: 'helder@cossaefilhos.co.mz', c: 'formulario', t: '25 min', p: 'Pedido de cotação · Gestão de Redes Sociais', nl: 1, empresa: 'Cossa & Filhos' },
-  { id: 3, n: 'Marta Sitoe', e: 'marta.sitoe@clinicapolana.co.mz', c: 'email', t: '1 h', p: 'Re: Proposta para o site da clínica', nl: 0, empresa: 'Clínica Polana' },
-  { id: 4, n: 'Visitante #2193', e: '', c: 'chat', t: '2 h', p: 'Fazem perfis corporativos em inglês?', nl: 0, empresa: '' },
-  { id: 5, n: 'Nélio Macuácua', e: 'nelio@langa.co.mz', c: 'formulario', t: 'ontem', p: 'Avaliação inicial · Dashboards de Gestão', nl: 0, empresa: 'Grupo Langa' },
+  { n: 'Ana Mabunda', c: 'message', t: 'agora', p: 'Quanto tempo demora um site com área de clientes?', pl: 1 },
+  { n: 'Hélder Cossa', c: 'file', t: '25 min', p: 'Pedido de cotação · Gestão de Redes Sociais', pl: 1 },
+  { n: 'Marta Sitoe', c: 'mail', t: '1 h', p: 'Re: Proposta para o site da clínica', pl: 0 },
+  { n: 'Anónimo', c: 'message', t: '2 h', p: 'Fazem perfis corporativos em inglês?', pl: 0 },
+  { n: 'Nélio Macuácua', c: 'file', t: 'ontem', p: 'Avaliação inicial · Dashboards de Gestão', pl: 0 },
 ];
-const iniciais = (n) => n.startsWith('Visitante') ? '#' : n.split(' ').map((x) => x[0]).slice(0, 2).join('');
+const ini = (n) => n === 'Anónimo' ? ic('user') : n.split(' ').map((x) => x[0]).slice(0, 2).join('');
+const CANAL = { message: 'Chat do site', file: 'Formulário', mail: 'Email' };
 V.inbox = () => `
   <section class="cartao inbox" aria-label="Inbox">
     <div class="col-lista">
       <div class="filtros">
-        <div class="abas" role="group" aria-label="Vista"><button type="button" aria-pressed="false">Minhas</button><button type="button" aria-pressed="false">Não atrib.<em>2</em></button><button type="button" aria-pressed="true">Todas</button></div>
-        <div style="display:flex;gap:8px"><button class="pilula" type="button" aria-pressed="true">Abertas</button><button class="pilula" type="button">Fechadas</button><button class="pilula" type="button" style="margin-left:auto">Mais recentes</button></div>
+        <div class="segmentos" role="group" aria-label="Vista"><button type="button" aria-pressed="false">Minhas</button><button type="button" aria-pressed="false">Sem dono <span class="num">2</span></button><button type="button" aria-pressed="true">Todas</button></div>
+        <div class="selects"><label class="sr" for="s-estado">Estado</label><select class="sel" id="s-estado"><option>Abertas</option><option>Fechadas</option></select><label class="sr" for="s-ordem">Ordem</label><select class="sel" id="s-ordem"><option>Mais recentes</option><option>Mais antigas</option></select></div>
       </div>
-      <div class="conversas">${CONVS.map((c) => `<button type="button" class="conv ${c.nl ? 'nao-lida' : ''}" data-conv="${c.id}" ${c.id === 1 ? 'aria-current="true"' : ''}>
-        <span class="av"><span class="avatar">${iniciais(c.n)}</span><span class="canal" title="${c.c === 'chat' ? 'Chat do site' : c.c === 'email' ? 'Email' : 'Formulário'}">${ico(c.c === 'chat' ? 'chat' : c.c === 'email' ? 'email' : 'form')}</span></span>
-        <span style="min-width:0"><span class="l1"><b>${c.n}${c.nl ? '<span class="naolida" aria-label="não lida"></span>' : ''}</b><small>${c.t}</small></span><p>${c.p}</p></span></button>`).join('')}</div>
+      <div class="conversas">${CONVS.map((c, i) => `<button type="button" class="conv ${c.pl ? 'por-ler' : ''}" data-conv="${i}" ${i === 0 ? 'aria-current="true"' : ''}>
+        <span class="av"><span class="avatar ${c.n === 'Anónimo' ? 'anon' : ''}">${ini(c.n)}</span><span class="canal" title="${CANAL[c.c]}">${ic(c.c)}</span></span>
+        <span style="min-width:0"><span class="l1"><b>${c.n}${c.pl ? '<span class="por-ler-p"></span><span class="sr">, por ler</span>' : ''}</b><small>${c.t}</small></span><p>${c.p}</p></span></button>`).join('')}</div>
     </div>
     <div class="col-conv">
       <div class="conv-cab">
-        <button class="icone-b" type="button" data-voltar aria-label="Voltar à lista" style="display:none">${ico('cotacao')}</button>
-        <span class="avatar">AM</span><span class="quem"><b>Ana Mabunda</b><small class="vivo" style="font-weight:400"><i></i>No site agora · /websites-e-aplicativos</small></span>
+        <button class="b-icone voltar" type="button" data-voltar aria-label="Voltar às conversas">${ic('chevronLeft')}</button>
+        <span class="avatar">AM</span><span class="quem"><b>Ana Mabunda</b><small><i class="vivo-i"></i>No site agora · Websites e Aplicativos</small></span>
         <div class="ferr">
-          <button class="icone-b" type="button" aria-label="Atribuir">${ico('utilizador-mais')}</button>
-          <button class="icone-b" type="button" aria-label="Banir visitante">${ico('banir')}</button>
-          <button class="icone-b" type="button" aria-label="Fechar conversa" data-fechar>${ico('fechar-conv')}</button>
+          <button class="botao fantasma peq" type="button" title="Atribuir a alguém da equipa">${ic('userPlus')}<span class="rotulo">Atribuir</span></button>
+          <button class="botao fantasma peq" type="button" data-fechar title="Fechar a conversa">${ic('check')}<span class="rotulo">Fechar</span></button>
+          <button class="b-icone" type="button" data-banir aria-label="Bloquear este visitante" title="Bloquear este visitante" style="width:34px;height:34px">${ic('ban')}</button>
         </div>
       </div>
       <div class="fio" id="fio">
-        <span class="dia-sep">Hoje</span>
-        <div class="msg visitante"><div class="bolha">Bom dia. Vi no site que fazem websites com área de clientes. Somos uma transportadora e queremos que os clientes acompanhem as cargas.</div><small>Ana · 11:28 · chat</small></div>
+        <span class="dia">Hoje</span>
+        <div class="msg visitante"><div class="bolha">Bom dia. Vi no site que fazem websites com área de clientes. Somos uma transportadora e queremos que os clientes acompanhem as cargas.</div><small>Ana · 11:28 · chat do site</small></div>
         <div class="msg agente"><div class="bolha">Bom dia, Ana! Fazemos sim. Quantos clientes acederiam à área e que informação precisam de ver?</div><small>Shelton · 11:30</small></div>
-        <div class="msg interna"><div class="bolha"><b>Comentário interno:</b> empresa já pediu perfil corporativo em agosto. Vale juntar as duas coisas na proposta.</div><small>Shelton · 11:31 · só a equipa vê</small></div>
+        <div class="msg interna"><div class="bolha"><span class="rot">${ic('lock')}Comentário interno</span>Já pediu um perfil corporativo em outubro. Vale juntar as duas coisas na proposta.</div><small>Shelton · 11:31 · só a equipa vê</small></div>
         <div class="msg visitante"><div class="bolha">Cerca de 40 empresas. Precisam do estado da carga e das facturas.</div><small>Ana · 11:40</small></div>
         <div class="msg visitante"><div class="bolha">Quanto tempo demora um site com área de clientes?</div><small>Ana · agora</small></div>
       </div>
       <form class="compositor" id="compositor">
-        <div class="modos" role="group" aria-label="Tipo de mensagem"><button type="button" data-m="responder" aria-pressed="true">Responder</button><button type="button" data-m="comentario" aria-pressed="false">Comentário interno</button></div>
-        <label class="visual-oculto" for="txt" style="position:absolute;left:-9999px">Mensagem</label>
+        <div class="segmentos" role="group" aria-label="Tipo de mensagem"><button type="button" data-m="r" aria-pressed="true">Responder</button><button type="button" data-m="c" aria-pressed="false">${ic('lock')}Comentário interno</button></div>
+        <label class="sr" for="txt">Mensagem</label>
         <textarea id="txt" placeholder="Escreva a resposta. Use / para as respostas guardadas."></textarea>
-        <div class="l2"><span class="via" id="via">Vai pelo chat do site. Se a Ana sair, segue por email.</span><button class="botao accao" type="submit">${ico('enviar')}Enviar</button></div>
+        <div class="l2"><span class="via" id="via">Vai pelo chat. Se a Ana sair do site, segue por email.</span><button class="botao accao" type="submit">${ic('send')}Enviar</button></div>
       </form>
     </div>
-    <aside class="col-det" aria-label="Detalhes do contacto">
-      <div class="det-topo"><span class="avatar">AM</span><b>Ana Mabunda</b><span class="chip">Mabunda Logística</span></div>
-      <div class="secao"><h3>Contacto</h3><dl class="campos">
-        <div><dt>Email</dt><dd>ana.mabunda@mabunda-logistica.co.mz</dd></div>
-        <div><dt>Telefone</dt><dd class="num">+258 84 123 4567</dd></div>
-        <div><dt>Responsável</dt><dd>Shelton</dd></div></dl></div>
-      <div class="secao"><h3>Visita actual</h3><dl class="campos">
-        <div><dt>Origem</dt><dd>LinkedIn · campanha «sites-nov»</dd></div>
-        <div><dt>Local</dt><dd>Maputo, Moçambique</dd></div>
-        <div><dt>Dispositivo</dt><dd>Computador · Chrome · Windows</dd></div>
-        <div><dt>No site há</dt><dd>11 min · 9 páginas</dd></div></dl></div>
-      <div class="secao"><h3>Percurso no site</h3><ol class="percurso">
-        <li>Página inicial<small>11:29</small></li><li>Websites e Aplicativos<small>11:31 · 3 min</small></li>
-        <li>Quanto custa criar um site (blog)<small>11:35</small></li><li class="chave">Abriu o chat<small>11:28</small></li></ol></div>
-      <div class="secao"><h3>CRM</h3><div class="botoes-crm">
-        <button class="botao sec peq" type="button" data-criar-negocio>${ico('funil')}Criar negócio</button>
-        <button class="botao sec peq" type="button">${ico('tarefa')}Criar tarefa</button>
-        <a class="botao sec peq" href="#contactos">${ico('pessoas')}Abrir ficha</a></div></div>
+    <aside class="col-det" aria-label="Sobre a Ana Mabunda">
+      <div class="det-topo"><span class="avatar">AM</span><b>Ana Mabunda</b><span class="pilula indigo">Mabunda Logística</span></div>
+      <div class="bloco"><h3>Contacto</h3><dl class="campos"><div><dt>Email</dt><dd>ana.mabunda@mabunda-logistica.co.mz</dd></div><div><dt>Telefone</dt><dd class="num">+258 84 123 4567</dd></div><div><dt>Responsável</dt><dd>Shelton</dd></div></dl></div>
+      <div class="bloco"><h3>Esta visita</h3><dl class="campos"><div><dt>Veio de</dt><dd>LinkedIn, campanha «sites-nov»</dd></div><div><dt>Local</dt><dd>Maputo, Moçambique</dd></div><div><dt>Dispositivo</dt><dd>Computador · Chrome</dd></div><div><dt>No site</dt><dd>11 min · 9 páginas</dd></div></dl></div>
+      <div class="bloco"><h3>Percurso até ao chat</h3><ol class="percurso"><li>Página inicial<small>11:24</small></li><li>Websites e Aplicativos<small>11:25 · 3 min</small></li><li>Quanto custa criar um site<small>11:27</small></li><li class="chave">Abriu o chat<small>11:28</small></li></ol></div>
+      <div class="bloco"><h3>No CRM</h3><div class="empilha"><button class="botao fantasma peq" type="button" data-criar>${ic('kanban')}Criar negócio</button><button class="botao fantasma peq" type="button">${ic('calendar')}Criar tarefa</button><a class="botao calmo peq" href="#contactos">${ic('users')}Abrir a ficha</a></div></div>
     </aside>
   </section>`;
 V.inbox.depois = () => {
   const box = $('.inbox'), comp = $('#compositor');
-  document.querySelectorAll('[data-conv]').forEach((b) => b.addEventListener('click', () => {
-    document.querySelectorAll('[data-conv]').forEach((x) => x.removeAttribute('aria-current'));
-    b.setAttribute('aria-current', 'true'); b.classList.remove('nao-lida'); box.classList.add('ver-conversa');
-  }));
-  const voltar = $('[data-voltar]'); if (matchMedia('(max-width: 860px)').matches) voltar.style.display = 'grid';
-  voltar.addEventListener('click', () => box.classList.remove('ver-conversa'));
-  comp.querySelectorAll('[data-m]').forEach((b) => b.addEventListener('click', () => {
-    comp.querySelectorAll('[data-m]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    const c = b.dataset.m === 'comentario'; comp.classList.toggle('comentario', c);
-    $('#via').textContent = c ? 'Só a equipa vê. O cliente nunca recebe.' : 'Vai pelo chat do site. Se a Ana sair, segue por email.';
+  $$('[data-conv]').forEach((b) => b.addEventListener('click', () => { $$('[data-conv]').forEach((x) => x.removeAttribute('aria-current')); b.setAttribute('aria-current', 'true'); b.classList.remove('por-ler'); box.classList.add('ver'); }));
+  $('[data-voltar]').addEventListener('click', () => box.classList.remove('ver'));
+  $$('[data-m]', comp).forEach((b) => b.addEventListener('click', () => {
+    $$('[data-m]', comp).forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    const c = b.dataset.m === 'c'; comp.classList.toggle('interno', c);
+    $('#via').textContent = c ? 'Só a equipa vê. A Ana nunca recebe.' : 'Vai pelo chat. Se a Ana sair do site, segue por email.';
+    $('#txt').placeholder = c ? 'Escreva uma nota para a equipa.' : 'Escreva a resposta. Use / para as respostas guardadas.';
   }));
   comp.addEventListener('submit', (e) => {
-    e.preventDefault(); const t = $('#txt').value.trim(); if (!t) return;
-    const c = comp.classList.contains('comentario');
-    $('#fio').insertAdjacentHTML('beforeend', `<div class="msg ${c ? 'interna' : 'agente'}"><div class="bolha">${c ? '<b>Comentário interno:</b> ' : ''}${t.replace(/</g, '&lt;')}</div><small>Shelton · agora${c ? ' · só a equipa vê' : ''}</small></div>`);
+    e.preventDefault(); const t = $('#txt').value.trim();
+    if (!t) { $('#txt').focus(); $('#via').textContent = 'Escreva a mensagem antes de enviar.'; return; }
+    const c = comp.classList.contains('interno');
+    $('#fio').insertAdjacentHTML('beforeend', c ? `<div class="msg interna"><div class="bolha"><span class="rot">${ic('lock')}Comentário interno</span>${esc(t)}</div><small>Shelton · agora · só a equipa vê</small></div>` : `<div class="msg agente"><div class="bolha">${esc(t)}</div><small>Shelton · agora</small></div>`);
     $('#txt').value = ''; $('#fio').scrollTop = 1e6;
   });
-  $('[data-fechar]').addEventListener('click', () => aviso('Conversa fechada. Se a Ana voltar a escrever, reabre sozinha.'));
-  $('[data-criar-negocio]').addEventListener('click', () => aviso('Negócio «Site com área de clientes · Mabunda Logística» criado em Novo lead.'));
+  $('[data-fechar]').addEventListener('click', () => aviso('Conversa fechada. Se a Ana voltar a escrever, reabre sozinha.', true));
+  $('[data-criar]').addEventListener('click', () => aviso('Negócio «Site com área de clientes» criado em Novo lead.', true));
+  $('[data-banir]').addEventListener('click', () => confirmar('Bloquear este visitante?', 'A Ana deixa de poder escrever no chat. Pode desbloquear nas definições.', 'Bloquear', () => aviso('Visitante bloqueado.')));
 };
 
-const ETAPAS = [
-  { n: 'Novo lead', c: '#8A8FA8', p: 10 }, { n: 'Qualificação', c: '#6C63D9', p: 20 }, { n: 'Reunião marcada', c: '#3B82F6', p: 40 },
-  { n: 'Proposta', c: '#F59E0B', p: 60 }, { n: 'Negociação', c: '#F97316', p: 80 }, { n: 'Ganho', c: '#16A34A', p: 100, regra: ['valor', 'data de fecho'] },
-];
+const ETAPAS = [['Novo lead', 10], ['Qualificação', 20], ['Reunião marcada', 40], ['Proposta', 60], ['Negociação', 80], ['Ganho', 100]];
 let NEG = [
   { id: 1, e: 0, t: 'Site com área de clientes', q: 'Mabunda Logística · Ana Mabunda', v: 0, b: 1, prox: 'Responder no chat', d: 'Hoje' },
   { id: 2, e: 0, t: 'Gestão de redes sociais', q: 'Cossa & Filhos · Hélder Cossa', v: 0, b: 1, prox: 'Ligar para qualificar', d: 'Amanhã' },
@@ -782,171 +774,195 @@ let NEG = [
   { id: 5, e: 3, t: 'CRM comercial', q: 'Matola Gás · Celso Matsinhe', v: 1250000, b: 3, prox: 'Enviar proposta revista', d: '10 nov', atraso: true },
   { id: 6, e: 3, t: 'Perfil corporativo', q: 'Tete Mineração · Osvaldo Langa', v: 95000, b: 4, prox: 'Confirmar recepção', d: '13 nov' },
   { id: 7, e: 4, t: 'Identidade visual', q: 'Maputo Agro · Edson Mondlane', v: 420000, b: 4, prox: 'Negociar prazo', d: '16 nov' },
-  { id: 8, e: 5, t: 'Modelo de proposta técnica', q: 'Guambe Engenharia', v: 185000, b: 4, prox: '', d: '' },
+  { id: 8, e: 5, t: 'Modelo de proposta técnica', q: 'Guambe Engenharia', v: 185000, b: 4, prox: '', d: '', fecho: '4 nov' },
 ];
-const card = (n) => `<article class="negocio" draggable="true" data-neg="${n.id}" aria-label="${n.t}">
+const cartaoNeg = (n) => `<article class="negocio" draggable="true" data-neg="${n.id}" aria-label="${esc(n.t)}">
   <div class="t">${n.t}</div><div class="q">${n.q}</div>
-  <div class="l3"><span class="valor num">${n.v ? mt(n.v) : '<span style="color:var(--tinta-3);font-weight:400">Sem valor</span>'}</span><span class="bant" title="BANT: ${n.b} de 4">${[0, 1, 2, 3].map((i) => `<i class="${i < n.b ? 's' : ''}"></i>`).join('')}</span></div>
-  ${n.prox ? `<div class="prox ${n.atraso ? 'atraso' : ''}">${ico('calendario')}<span>${n.prox} · ${n.d}${n.atraso ? ' · atrasada' : ''}</span><button class="mover" type="button" data-mover="${n.id}">Mover</button></div>` : `<div class="prox"><span>Fechado a 4 nov</span><button class="mover" type="button" data-mover="${n.id}">Mover</button></div>`}
+  <div class="l3"><span class="valor num ${n.v ? '' : 'vazio'}">${n.v ? mt(n.v) : 'Sem valor'}</span><span class="bant" aria-label="BANT: ${n.b} de 4 critérios confirmados" title="BANT: necessidade, autoridade, orçamento e prazo"><span>${[0, 1, 2, 3].map((i) => `<i class="${i < n.b ? 's' : ''}"></i>`).join('')}</span><span class="num">${n.b}/4</span></span></div>
+  ${n.prox ? `<div class="prox ${n.atraso ? 'atraso' : ''}">${ic(n.atraso ? 'alert' : 'calendar')}<span>${n.atraso ? 'Atrasada · ' : ''}${n.prox} · ${n.d}</span></div>` : `<div class="prox">${ic('check')}<span>Ganho a ${n.fecho}</span></div>`}
+  <label class="sr" for="m${n.id}">Mover «${esc(n.t)}» para</label>
+  <select class="mover" id="m${n.id}" data-mover="${n.id}"><option value="">Mover para…</option>${ETAPAS.map(([e], i) => i === n.e ? '' : `<option value="${i}">${e}</option>`).join('')}<option value="perdido">Perdido</option></select>
 </article>`;
 V.negocios = () => {
-  const abertos = NEG.filter((n) => n.e < 5), total = abertos.reduce((a, n) => a + n.v, 0);
-  const pond = abertos.reduce((a, n) => a + (n.v * ETAPAS[n.e].p) / 100, 0);
-  return `<div class="barra-funil">
-      <button class="pilula" type="button" aria-pressed="true">Cartões</button><button class="pilula" type="button">Lista</button>
-      <button class="pilula" type="button">Toda a equipa</button>
-      <div class="resumo-funil"><span>Negócios abertos<b class="num">${abertos.length}</b></span><span>Valor do funil<b class="num">${mt(total)}</b></span><span>Receita estimada<b class="num">${mt(Math.round(pond))}</b></span><span>Taxa de ganho (90 dias)<b class="num">42%</b></span></div>
-      <button class="botao accao" type="button">${ico('mais')}Criar negócio</button>
-    </div>
-    <div class="quadro" id="quadro">${ETAPAS.map((e, i) => { const ns = NEG.filter((n) => n.e === i), s = ns.reduce((a, n) => a + n.v, 0); return `
-      <section class="coluna" data-etapa="${i}" aria-label="${e.n}">
-        <div class="col-cab"><div class="l1"><i style="background:${e.c}"></i>${e.n}<em class="num">${ns.length}</em></div>
-        <div class="l2"><span class="num">${mt(s)}</span><span>${e.p}% de probabilidade</span></div></div>
-        ${ns.map(card).join('') || '<p style="color:var(--tinta-3);font-size:13px;text-align:center;margin:20px 0">Arraste um negócio para aqui</p>'}
+  const ab = NEG.filter((n) => n.e < 5), tot = ab.reduce((a, n) => a + n.v, 0), est = ab.reduce((a, n) => a + (n.v * ETAPAS[n.e][1]) / 100, 0);
+  return `<div class="cabeca-pag"><div><h1>Negócios</h1><p>Arraste um cartão para mudar de etapa, ou use «Mover para…».</p></div><button class="botao accao" type="button">${ic('plus')}Criar negócio</button></div>
+    <div class="barra-neg"><div class="segmentos" role="group" aria-label="Vista"><button type="button" aria-pressed="true">${ic('kanban')}Quadro</button><button type="button" aria-pressed="false">${ic('list')}Lista</button></div>
+      <div class="resumo"><span>Abertos<b class="num">${ab.length}</b></span><span>Valor em aberto<b class="num">${mt(tot)}</b></span><span title="Valor de cada negócio multiplicado pela probabilidade da etapa">Receita estimada<b class="num">${mt(est)}</b></span><span>Taxa de ganho, 90 dias<b class="num">42%</b></span></div></div>
+    <div class="quadro">${ETAPAS.map(([nome, p], i) => { const ns = NEG.filter((n) => n.e === i), s = ns.reduce((a, n) => a + n.v, 0); return `
+      <section class="coluna" data-etapa="${i}" aria-label="${nome}">
+        <div class="col-cab ${i === 5 ? 'ganho' : ''}"><div class="l1">${nome}<span class="pilula num">${ns.length}</span></div>
+          <div class="prob" title="Probabilidade de fecho: ${p}%"><i style="width:${p}%"></i></div>
+          <div class="l2"><span class="num">${mt(s)}</span><span>${i === 5 ? 'fechados' : p + '% de fecho'}</span></div></div>
+        ${ns.map(cartaoNeg).join('') || '<p style="color:var(--suave);font-size:13px;text-align:center;margin:24px 0">Sem negócios nesta etapa</p>'}
       </section>`; }).join('')}</div>`;
 };
-V.negocios.depois = () => {
-  const move = (id, para) => {
-    const n = NEG.find((x) => x.id === id), e = ETAPAS[para];
-    if (e.regra && (!n.v || !n.d)) { aviso(`Para mover para «${e.n}» falta preencher: ${!n.v ? 'valor, ' : ''}data de fecho.`, true); return; }
-    n.e = para; render(); aviso(`Movido para «${e.n}». Fica registado no histórico.`);
+function moveNeg(id, para) {
+  const n = NEG.find((x) => x.id === id);
+  if (para === 'perdido') return pedeMotivo(n);
+  para = +para;
+  if (para === 5 && !n.v) return pedeGanho(n);
+  n.e = para; if (para === 5) n.fecho = '12 nov';
+  render(); aviso(para === 5 ? `Negócio ganho: «${n.t}», ${mt(n.v)}.` : `Movido para «${ETAPAS[para][0]}». Fica no histórico do negócio.`, true);
+}
+function pedeGanho(n) {
+  const d = $('#d-etapa'), f = $('#f-etapa');
+  f.innerHTML = `<h2>Fechar como ganho</h2><p>Para marcar «${esc(n.t)}» como ganho falta o valor e a data de fecho.</p>
+    <label class="campo" id="c-valor">Valor do negócio (MT)<input id="i-valor" inputmode="numeric" autocomplete="off" placeholder="Por exemplo: 450 000"><span class="msg-erro" id="e-valor"></span></label>
+    <label class="campo">Data de fecho<input id="i-data" type="date" value="2026-11-12"></label>
+    <div class="acoes-d"><button class="botao calmo" value="cancel" formnovalidate>Cancelar</button><button class="botao accao" id="b-ganho" value="ok">Marcar como ganho</button></div>`;
+  d.showModal(); $('#i-valor').focus();
+  $('#b-ganho').onclick = (e) => {
+    const v = Number($('#i-valor').value.replace(/\D/g, ''));
+    if (!v) { e.preventDefault(); $('#c-valor').classList.add('erro'); $('#e-valor').textContent = 'Escreva o valor acordado com o cliente.'; return; }
+    n.v = v; setTimeout(() => moveNeg(n.id, 5));
   };
+}
+function pedeMotivo(n) {
+  const d = $('#d-etapa'), f = $('#f-etapa');
+  f.innerHTML = `<h2>Marcar como perdido</h2><p>Porque é que «${esc(n.t)}» não avançou?</p>
+    <label class="campo">Motivo<select id="i-motivo"><option>Preço</option><option>Escolheu outro fornecedor</option><option>Sem orçamento</option><option>Sem resposta</option><option>Adiou a decisão</option></select></label>
+    <div class="acoes-d"><button class="botao calmo" value="cancel">Cancelar</button><button class="botao fantasma" value="ok" id="b-perd">Marcar como perdido</button></div>`;
+  d.showModal();
+  $('#b-perd').onclick = () => { const m = $('#i-motivo').value; NEG = NEG.filter((x) => x !== n); setTimeout(() => { render(); aviso(`«${n.t}» marcado como perdido: ${m}.`); }); };
+}
+V.negocios.depois = () => {
   let arr = null;
-  document.querySelectorAll('[data-neg]').forEach((c) => {
-    c.addEventListener('dragstart', () => { arr = +c.dataset.neg; c.classList.add('arrasta'); });
-    c.addEventListener('dragend', () => c.classList.remove('arrasta'));
-  });
-  document.querySelectorAll('[data-etapa]').forEach((col) => {
+  $$('[data-neg]').forEach((c) => { c.addEventListener('dragstart', () => { arr = +c.dataset.neg; c.classList.add('arrasta'); }); c.addEventListener('dragend', () => c.classList.remove('arrasta')); });
+  $$('[data-etapa]').forEach((col) => {
     col.addEventListener('dragover', (e) => { e.preventDefault(); col.classList.add('alvo'); });
     col.addEventListener('dragleave', () => col.classList.remove('alvo'));
-    col.addEventListener('drop', (e) => { e.preventDefault(); col.classList.remove('alvo'); if (arr) move(arr, +col.dataset.etapa); arr = null; });
+    col.addEventListener('drop', (e) => { e.preventDefault(); col.classList.remove('alvo'); if (arr && NEG.find((x) => x.id === arr).e !== +col.dataset.etapa) moveNeg(arr, col.dataset.etapa); arr = null; });
   });
-  document.querySelectorAll('[data-mover]').forEach((b) => b.addEventListener('click', (e) => {
-    e.stopPropagation(); const n = NEG.find((x) => x.id === +b.dataset.mover); const prox = Math.min(n.e + 1, ETAPAS.length - 1);
-    if (prox === n.e) return aviso('Já está na última etapa.'); move(n.id, prox);
-  }));
+  $$('[data-mover]').forEach((s) => s.addEventListener('change', () => { if (s.value) moveNeg(+s.dataset.mover, s.value); }));
 };
 
 const CONTACTOS = [
-  ['Ana Mabunda', 'ana.mabunda@mabunda-logistica.co.mz', 'Mabunda Logística', 'LinkedIn', 'Lead quente', 'hoje'],
-  ['Hélder Cossa', 'helder@cossaefilhos.co.mz', 'Cossa & Filhos', 'Instagram', 'Novo', 'hoje'],
-  ['Marta Sitoe', 'marta.sitoe@clinicapolana.co.mz', 'Clínica Polana', 'Google', 'Em proposta', 'ontem'],
+  ['Ana Mabunda', 'ana.mabunda@mabunda-logistica.co.mz', 'Mabunda Logística', 'LinkedIn', 'Lead quente', 'Hoje'],
+  ['Hélder Cossa', 'helder@cossaefilhos.co.mz', 'Cossa & Filhos', 'Instagram', 'Novo', 'Hoje'],
+  ['Marta Sitoe', 'marta.sitoe@clinicapolana.co.mz', 'Clínica Polana', 'Google', 'Em proposta', 'Ontem'],
   ['Nélio Macuácua', 'nelio@langa.co.mz', 'Grupo Langa', 'Directo', 'Qualificação', '10 nov'],
   ['Celso Matsinhe', 'celso.m@matolagas.co.mz', 'Matola Gás', 'Google', 'Em proposta', '8 nov'],
   ['Osvaldo Langa', 'osvaldo@tetemineracao.co.mz', 'Tete Mineração', 'Indicação', 'Em proposta', '6 nov'],
   ['Edson Mondlane', 'edson@maputoagro.co.mz', 'Maputo Agro', 'Google', 'Negociação', '2 nov'],
 ];
+const iniN = (n) => n.split(' ').map((x) => x[0]).slice(0, 2).join('');
 V.contactos = () => `
+  <div class="cabeca-pag"><div><h1>Contactos</h1><p><span class="num">214</span> contactos. A mostrar os que cumprem os filtros abaixo.</p></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="botao fantasma" type="button">Importar CSV</button><button class="botao accao" type="button">${ic('plus')}Criar contacto</button></div></div>
   <section class="cartao">
-    <div class="cab"><div><h2>Contactos</h2><p class="sub"><span class="num">214</span> contactos · lista «Leads do site»</p></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="botao sec" type="button">Importar CSV</button><button class="botao accao" type="button">${ico('mais')}Criar contacto</button></div></div>
-    <div class="construtor" aria-label="Filtros">
-      <span class="condicao">Origem <b>é</b> Google; LinkedIn</span><span class="logica">E</span>
-      <span class="condicao">Visitou página <b>contém</b> /websites</span><span class="logica">E</span>
-      <span class="condicao">Criado <b>nos últimos</b> 30 dias</span><span class="logica">OU</span>
-      <span class="condicao">Membro da lista <b>Newsletter</b></span>
-      <button class="pilula" type="button">${ico('mais')}Adicionar filtro</button><button class="pilula" type="button" style="margin-left:auto">Guardar como segmento</button>
+    <div class="filtro-construtor" aria-label="Filtros activos">
+      <span class="cond">Origem <em>é</em> Google ou LinkedIn<button type="button" aria-label="Remover filtro">${ic('x')}</button></span><span class="logica">e</span>
+      <span class="cond">Visitou uma página <em>com</em> /websites<button type="button" aria-label="Remover filtro">${ic('x')}</button></span><span class="logica">ou</span>
+      <span class="cond">Está na lista <em>Newsletter</em><button type="button" aria-label="Remover filtro">${ic('x')}</button></span>
+      <button class="botao calmo peq" type="button">${ic('plus')}Filtro</button><button class="botao fantasma peq" type="button" style="margin-left:auto">Guardar como segmento</button>
     </div>
+    <div class="massa" id="massa" hidden><span id="n-sel" class="num"></span><button class="botao calmo peq" type="button">Adicionar a uma lista</button><button class="botao calmo peq" type="button">Atribuir</button><button class="botao calmo peq" type="button">Exportar CSV</button></div>
     <div class="tabela"><table>
-      <thead><tr><th><input type="checkbox" aria-label="Seleccionar todos"></th><th>Contacto</th><th>Empresa</th><th>Origem</th><th>Situação</th><th>Última actividade</th></tr></thead>
+      <thead><tr><th style="width:32px"><input type="checkbox" id="todos" aria-label="Seleccionar todos"></th><th>Contacto</th><th>Empresa</th><th>Origem</th><th>Situação</th><th class="d">Última actividade</th></tr></thead>
       <tbody>${CONTACTOS.map(([n, e, emp, o, s, d], i) => `<tr data-contacto="${i}" style="cursor:pointer">
-        <td><input type="checkbox" aria-label="Seleccionar ${n}"></td>
-        <td><div class="pessoa"><span class="avatar">${iniciais(n)}</span><div><b>${n}</b><small>${e}</small></div></div></td>
-        <td>${emp}</td><td>${o}</td><td><span class="chip ${s === 'Lead quente' ? 'ambar' : s === 'Negociação' ? 'verde' : ''}">${s}</span></td><td>${d}</td></tr>`).join('')}</tbody>
+        <td><input type="checkbox" class="sel-c" aria-label="Seleccionar ${n}"></td>
+        <td><div class="pessoa"><span class="avatar">${iniN(n)}</span><div style="min-width:0"><b>${n}</b><small>${e}</small></div></div></td>
+        <td>${emp}</td><td>${o}</td><td><span class="pilula ${s === 'Lead quente' ? 'laranja' : ''}">${s}</span></td><td class="d">${d}</td></tr>`).join('')}</tbody>
     </table></div>
   </section>`;
-V.contactos.depois = () => document.querySelectorAll('[data-contacto]').forEach((tr) => tr.addEventListener('click', (e) => { if (e.target.matches('input')) return; ficha(CONTACTOS[+tr.dataset.contacto]); }));
-
+V.contactos.depois = () => {
+  const actual = () => { const n = $$('.sel-c').filter((c) => c.checked).length; $('#massa').hidden = !n; $('#n-sel').textContent = `${n} seleccionado${n > 1 ? 's' : ''}`; };
+  $$('.sel-c').forEach((c) => c.addEventListener('change', actual));
+  $('#todos').addEventListener('change', (e) => { $$('.sel-c').forEach((c) => (c.checked = e.target.checked)); actual(); });
+  $$('[data-contacto]').forEach((tr) => tr.addEventListener('click', (e) => { if (e.target.matches('input')) return; ficha(CONTACTOS[+tr.dataset.contacto]); }));
+};
 function ficha([n, e, emp, o]) {
   const f = document.createElement('div');
   f.innerHTML = `<div class="gaveta-fundo" data-f></div><aside class="gaveta" role="dialog" aria-modal="true" aria-label="Ficha de ${n}">
-    <button class="icone-b fechar" type="button" data-f aria-label="Fechar">${ico('x')}</button>
-    <div class="cartao" style="display:flex;gap:14px;align-items:center"><span class="avatar" style="width:56px;height:56px;font-size:18px">${iniciais(n)}</span><div style="min-width:0"><b style="font-size:18px">${n}</b><div style="color:var(--tinta-3);font-size:13px;overflow-wrap:anywhere">${e}</div><span class="chip" style="margin-top:6px">${emp}</span></div></div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="botao sec peq" type="button">${ico('nota')}Nota</button><button class="botao sec peq" type="button">${ico('email')}Email</button><button class="botao sec peq" type="button">${ico('tel')}Chamada</button><button class="botao sec peq" type="button">${ico('tarefa')}Tarefa</button><button class="botao sec peq" type="button">${ico('funil')}Negócio</button></div>
-    <div class="cartao"><h2 style="font-size:15px;margin-bottom:12px">Informação</h2><dl class="campos">
-      <div><dt>Origem</dt><dd>${o} · primeira visita a 28 out</dd></div><div><dt>Telefone</dt><dd class="num">+258 84 123 4567</dd></div>
-      <div><dt>Listas</dt><dd>Leads do site, Newsletter</dd></div><div><dt>Consentimento</dt><dd>Email marketing · aceite a 28 out</dd></div>
-      <div><dt>Visitas</dt><dd><span class="num">4</span> visitas · <span class="num">17</span> páginas</dd></div></dl></div>
-    <div class="cartao"><h2 style="font-size:15px;margin-bottom:14px">Histórico</h2><ul class="historico">
-      <li><span class="ico">${ico('chat')}</span><div>Iniciou uma conversa no chat<small>Hoje, 11:28 · Websites e Aplicativos</small></div></li>
-      <li><span class="ico">${ico('funil')}</span><div>Negócio criado: Site com área de clientes<small>Hoje, 11:45 · por Shelton</small></div></li>
-      <li><span class="ico">${ico('olho')}</span><div>Visitou 3 páginas: Página inicial, Websites e Aplicativos, Blog<small>Hoje, 11:29</small></div></li>
-      <li><span class="ico">${ico('form')}</span><div>Pediu cotação de Perfis Corporativos<small>28 out · vinda do LinkedIn</small></div></li>
-      <li><span class="ico">${ico('nota')}</span><div>Nota: quer apresentar o perfil a mineradoras em Tete<small>29 out · por Shelton</small></div></li>
+    <button class="b-icone fechar" type="button" data-f aria-label="Fechar a ficha">${ic('x')}</button>
+    <div class="cartao" style="display:flex;gap:14px;align-items:center"><span class="avatar" style="width:56px;height:56px;font-size:18px">${iniN(n)}</span><div style="min-width:0"><h2 style="font-size:21px;letter-spacing:-.015em">${n}</h2><div style="color:var(--suave);font-size:13.5px;overflow-wrap:anywhere">${e}</div></div></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="botao fantasma peq" type="button">${ic('edit')}Nota</button><button class="botao fantasma peq" type="button">${ic('mail')}Email</button><button class="botao fantasma peq" type="button">${ic('calendar')}Tarefa</button><button class="botao fantasma peq" type="button">${ic('kanban')}Negócio</button></div>
+    <div class="cartao"><h2 style="font-size:17px;margin-bottom:12px">Informação</h2><dl class="campos">
+      <div><dt>Empresa</dt><dd>${emp}</dd></div><div><dt>Veio de</dt><dd>${o}, primeira visita a 28 out</dd></div><div><dt>Telefone</dt><dd class="num">+258 84 123 4567</dd></div>
+      <div><dt>Listas</dt><dd>Leads do site, Newsletter</dd></div><div><dt>Consentimento</dt><dd>Email de marketing, aceite a 28 out</dd></div><div><dt>No site</dt><dd><span class="num">4</span> visitas, <span class="num">17</span> páginas</dd></div></dl></div>
+    <div class="cartao"><h2 style="font-size:17px;margin-bottom:14px">Histórico</h2><ul class="historico">
+      <li class="dia-h">Hoje</li>
+      <li><span class="ic">${ic('kanban')}</span><div>Negócio criado: Site com área de clientes<small>11:45 · por Shelton</small></div></li>
+      <li><span class="ic">${ic('message')}</span><div>Começou uma conversa no chat<small>11:28 · em Websites e Aplicativos</small></div></li>
+      <li><span class="ic">${ic('eye')}</span><div>Viu 3 páginas: Página inicial, Websites e Aplicativos, Quanto custa criar um site<small>11:24</small></div></li>
+      <li class="dia-h">28 de outubro</li>
+      <li><span class="ic">${ic('file')}</span><div>Pediu cotação de Perfis Corporativos<small>vinda do LinkedIn</small></div></li>
     </ul></div></aside>`;
   document.body.appendChild(f);
-  f.querySelectorAll('[data-f]').forEach((b) => b.addEventListener('click', () => f.remove()));
-  document.addEventListener('keydown', function esc(ev) { if (ev.key === 'Escape') { f.remove(); document.removeEventListener('keydown', esc); } });
-  f.querySelector('.fechar').focus();
+  const fecha = () => { f.remove(); document.removeEventListener('keydown', escTecla); };
+  const escTecla = (ev) => { if (ev.key === 'Escape') fecha(); };
+  $$('[data-f]', f).forEach((b) => b.addEventListener('click', fecha)); document.addEventListener('keydown', escTecla);
+  $('.fechar', f).focus();
 }
 
-V.tarefas = () => `
+const TAREFAS = [
+  ['phone', 'Enviar proposta revista', 'CRM comercial · Matola Gás', 'Atrasada · 10 nov', 'a'],
+  ['mail', 'Confirmar recepção do perfil', 'Perfil corporativo · Tete Mineração', 'Atrasada · ontem', 'a'],
+  ['message', 'Responder no chat', 'Site com área de clientes · Mabunda Logística', 'Hoje, 12:00', 'h'],
+  ['phone', 'Ligar para qualificar', 'Gestão de redes sociais · Cossa & Filhos', 'Hoje, 15:00', 'h'],
+  ['calendar', 'Reunião na clínica', 'Site da segunda unidade · Clínica Polana', 'Sex 15 nov, 17:30', 's'],
+];
+let filtroT = 'a';
+const daTarefa = (t, k) => k === 't' || t[4] === k || (k === 's' && t[4] !== 'a');
+V.tarefas = () => `<div class="cabeca-pag"><div><h1>Tarefas</h1><p>O seguimento de cada lead e de cada negócio.</p></div><button class="botao accao" type="button">${ic('plus')}Criar tarefa</button></div>
   <section class="cartao">
-    <div class="cab"><div><h2>Tarefas</h2><p class="sub">Seguimento de leads e negócios</p></div><button class="botao accao" type="button">${ico('mais')}Criar tarefa</button></div>
-    <div class="abas" role="group" aria-label="Filtro" style="max-width:520px;margin-bottom:12px"><button type="button" aria-pressed="false">Todas <span class="num">9</span></button><button type="button" aria-pressed="true">Atrasadas <span class="num">2</span></button><button type="button" aria-pressed="false">Hoje <span class="num">3</span></button><button type="button" aria-pressed="false">Esta semana <span class="num">4</span></button></div>
-    <div>
-      ${[['Enviar proposta revista', 'chamada', 'CRM comercial · Matola Gás', '10 nov', 1], ['Confirmar recepção do perfil', 'email', 'Perfil corporativo · Tete Mineração', 'ontem', 1], ['Responder no chat', 'chat', 'Site com área de clientes · Mabunda Logística', 'Hoje 12:00'], ['Ligar para qualificar', 'tel', 'Gestão de redes sociais · Cossa & Filhos', 'Hoje 15:00'], ['Reunião na clínica', 'calendario', 'Site da segunda unidade · Clínica Polana', '15 nov 17:30']]
-        .map(([t, i, q, d, at]) => `<label class="tarefa"><input type="checkbox"><span><b>${t}</b><small>${q}</small></span><span class="quando ${at ? 'atraso' : ''}">${d}</span></label>`).join('')}
-    </div>
+    <div class="segmentos" role="group" aria-label="Mostrar" style="margin-bottom:10px;max-width:100%;overflow-x:auto">${[['a', 'Atrasadas'], ['h', 'Hoje'], ['s', 'Esta semana'], ['t', 'Todas']].map(([k, r]) => `<button type="button" data-t="${k}" aria-pressed="${k === filtroT}">${r} <span class="num">${TAREFAS.filter((t) => daTarefa(t, k)).length}</span></button>`).join('')}</div>
+    <div>${TAREFAS.filter((t) => daTarefa(t, filtroT)).map(([i, t, q, d, k]) => `<label class="tarefa"><input type="checkbox"><span class="ic">${ic(i)}</span><span style="min-width:0"><b>${t}</b><small>${q}</small></span>${k === 'a' ? `<span class="pilula vermelho">${ic('alert')}${d}</span>` : `<span class="pilula">${d}</span>`}</label>`).join('')}</div>
   </section>`;
-V.tarefas.depois = () => document.querySelectorAll('.tarefa input').forEach((c) => c.addEventListener('change', () => c.checked && aviso('Tarefa concluída. Fica no histórico do contacto.')));
+V.tarefas.depois = () => {
+  $$('[data-t]').forEach((b) => b.addEventListener('click', () => { filtroT = b.dataset.t; render(); }));
+  $$('.tarefa input').forEach((c) => c.addEventListener('change', () => { c.closest('.tarefa').classList.toggle('feita', c.checked); if (c.checked) aviso('Tarefa concluída. Fica no histórico do contacto.', true); }));
+};
 
 V.widget = () => `
+  <div class="cabeca-pag"><div><h1>Chat do site</h1><p>Assim o chat aparece aos visitantes da Kingdom Company.</p></div><div class="segmentos" role="group" aria-label="Estado da equipa"><button type="button" aria-pressed="true" data-w="on">Equipa online</button><button type="button" aria-pressed="false" data-w="off">Equipa offline</button></div></div>
   <div class="palco">
-    <section class="cartao" style="padding:0;overflow:hidden">
-      <div class="site-falso" id="site-falso">
-        <span style="font-weight:600">Kingdom Company</span>
-        <h3>Um único lugar. Tudo o que precisa.</h3>
-        <p>Assim o chat aparece aos visitantes do site, no canto inferior direito.</p>
-        <div class="widget" id="widget"></div>
-      </div>
-    </section>
+    <section class="site-falso" aria-label="Pré-visualização no site"><div class="txt"><span style="font-weight:500">Kingdom Company</span><h3>Um único lugar. Tudo o que precisa.</h3><p>O chat fica no canto inferior direito de todas as páginas.</p></div><div class="widget" id="widget"></div></section>
     <section class="cartao" aria-labelledby="t-wcfg">
-      <div class="cab"><div><h2 id="t-wcfg">Chat do site</h2><p class="sub">Como o visitante vê o chat</p></div></div>
-      <div class="abas" role="group" aria-label="Estado da equipa" style="margin-bottom:16px"><button type="button" aria-pressed="true" data-w="online">Equipa online</button><button type="button" aria-pressed="false" data-w="offline">Equipa offline</button></div>
+      <h2 id="t-wcfg" style="margin-bottom:14px">Definições do chat</h2>
       <dl class="campos">
         <div><dt>Saudação</dt><dd>Olá! Em que podemos ajudar?</dd></div>
-        <div><dt>Cor</dt><dd><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#2B2850;vertical-align:-2px"></span> Índigo · botão laranja</dd></div>
+        <div><dt>Cores</dt><dd>Cabeçalho índigo, botão de enviar laranja</dd></div>
         <div><dt>Posição</dt><dd>Canto inferior direito</dd></div>
-        <div><dt>Sem ninguém</dt><dd>Formulário com nome, email e consentimento; a resposta segue por email</dd></div>
+        <div><dt>Sem ninguém online</dt><dd>Formulário com nome, email e consentimento; a resposta segue por email</dd></div>
         <div><dt>Avisos</dt><dd>Notificação no painel e email a cada conversa nova</dd></div>
       </dl>
     </section>
   </div>`;
 V.widget.depois = () => {
-  const w = $('#widget');
-  const online = () => { w.innerHTML = `<div class="w-cab"><span class="avatar" style="width:38px;height:38px;background:#B9B3F2;color:#2B2850">K</span><div><b>Kingdom Company</b><small><i></i>Respondemos em poucos minutos</small></div></div>
-    <div class="w-corpo"><div class="w-msg">Olá! Em que podemos ajudar?</div><div class="w-msg eu">Quanto tempo demora um site com área de clientes?</div><div class="w-msg">Depende do que a área precisa de mostrar. Pode dizer-me quantos clientes vão entrar?</div></div>
-    <form class="w-pe" onsubmit="event.preventDefault()"><input aria-label="Mensagem" placeholder="Escreva a sua mensagem"><button aria-label="Enviar">${ico('enviar')}</button></form>`; };
-  const offline = () => { w.innerHTML = `<div class="w-cab"><span class="avatar" style="width:38px;height:38px;background:#B9B3F2;color:#2B2850">K</span><div><b>Kingdom Company</b><small><i style="background:#8E8BA6"></i>Estamos offline</small></div></div>
-    <form class="offline" onsubmit="event.preventDefault()"><p style="margin:0 0 4px;font-size:14px">Neste momento não estamos online. Deixe o seu contacto e respondemos por email.</p>
-      <label>Nome<input autocomplete="name"></label><label>Email<input type="email" autocomplete="email"></label><label>Mensagem<textarea rows="2"></textarea></label>
-      <label class="cons"><input type="checkbox"> Aceito que a Kingdom Company guarde estes dados para me responder.</label><button>Enviar mensagem</button></form>`; };
-  online();
-  document.querySelectorAll('[data-w]').forEach((b) => b.addEventListener('click', () => {
-    document.querySelectorAll('[data-w]').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); (b.dataset.w === 'online' ? online : offline)();
-  }));
+  const w = $('#widget'), cab = (on) => `<div class="w-cab"><span class="avatar">K</span><div><b>Kingdom Company</b><small><i class="vivo-i" style="${on ? '' : 'background:#A6A097'}"></i>${on ? 'Respondemos em poucos minutos' : 'Estamos offline'}</small></div></div>`;
+  const on = () => { w.innerHTML = cab(true) + `<div class="w-corpo"><div class="w-msg">Olá! Em que podemos ajudar?</div><div class="w-msg eu">Quanto tempo demora um site com área de clientes?</div><div class="w-msg">Depende do que a área precisa de mostrar. Quantos clientes vão entrar?</div></div><form class="w-pe" onsubmit="event.preventDefault()"><label class="sr" for="w-in">Mensagem</label><input id="w-in" placeholder="Escreva a sua mensagem"><button aria-label="Enviar">${ic('send')}</button></form>`; };
+  const off = () => { w.innerHTML = cab(false) + `<form class="offline" onsubmit="event.preventDefault()"><p>Neste momento não estamos online. Deixe o seu contacto e respondemos por email.</p><label>Nome<input autocomplete="name"></label><label>Email<input type="email" autocomplete="email"></label><label>Mensagem<textarea rows="2"></textarea></label><label class="cons"><input type="checkbox"> Aceito que a Kingdom Company guarde estes dados para me responder.</label><button>Enviar mensagem</button></form>`; };
+  on();
+  $$('[data-w]').forEach((b) => b.addEventListener('click', () => { $$('[data-w]').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); (b.dataset.w === 'on' ? on : off)(); }));
 };
 
-/* ---------- router ---------- */
-const TITULOS = { dashboard: 'Dashboard', 'ao-vivo': 'Ao vivo', inbox: 'Inbox', contactos: 'Contactos', negocios: 'Negócios', tarefas: 'Tarefas', widget: 'Chat do site' };
-function render() {
-  const v = (location.hash.slice(1) || 'dashboard'); const k = V[v] ? v : 'dashboard';
-  $('#titulo').textContent = TITULOS[k];
-  $('#vista').innerHTML = V[k]();
-  document.querySelectorAll('[data-v]').forEach((a) => a.dataset.v === k ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
-  V[k].depois && V[k].depois();
-  document.querySelectorAll('.periodo button, .abas button').forEach((b) => b.addEventListener('click', () => {
-    if (b.dataset.w || b.closest('.compositor')) return;
-    b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-  }));
+/* ---------- confirmação, avisos, router ---------- */
+function confirmar(titulo, texto, accao, feito) {
+  const d = $('#d-etapa'), f = $('#f-etapa');
+  f.innerHTML = `<h2>${titulo}</h2><p>${texto}</p><div class="acoes-d"><button class="botao calmo" value="cancel">Cancelar</button><button class="botao fantasma" value="ok" id="b-conf" style="color:var(--vermelho-tinta)">${accao}</button></div>`;
+  d.showModal(); $('#b-conf').onclick = () => setTimeout(feito);
 }
 let tempo;
-function aviso(t, erro) {
-  document.querySelector('.aviso')?.remove(); clearTimeout(tempo);
-  const a = document.createElement('div'); a.className = 'aviso' + (erro ? ' erro' : ''); a.setAttribute('role', 'status'); a.textContent = t;
-  document.body.appendChild(a); tempo = setTimeout(() => a.remove(), 3600);
+function aviso(t, bom) {
+  $('.aviso')?.remove(); clearTimeout(tempo);
+  const a = document.createElement('div'); a.className = 'aviso'; a.setAttribute('role', 'status');
+  a.innerHTML = (bom ? ic('check') : '') + `<span>${esc(t)}</span>`;
+  document.body.appendChild(a); tempo = setTimeout(() => a.remove(), 4200);
 }
+const TITULOS = { dashboard: 'Dashboard', 'ao-vivo': 'Ao vivo', inbox: 'Inbox', contactos: 'Contactos', negocios: 'Negócios', tarefas: 'Tarefas', widget: 'Chat do site' };
+function render() {
+  const k = V[location.hash.slice(1)] ? location.hash.slice(1) : 'dashboard';
+  $('#vista').innerHTML = V[k]();
+  $$('[data-v]').forEach((a) => a.dataset.v === k ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+  if (['ao-vivo', 'contactos', 'widget'].includes(k)) $('#b-mais').setAttribute('aria-current', 'page'); else $('#b-mais').removeAttribute('aria-current');
+  V[k].depois && V[k].depois();
+  $$('.saudacao .segmentos button, .barra-neg .segmentos button, .filtros .segmentos button').forEach((b) => b.addEventListener('click', () => b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)))));
+  document.title = (k === 'dashboard' ? '' : TITULOS[k] + ' · ') + 'Painel Kingdom';
+}
+const folha = $('#folha'), bMais = $('#b-mais');
+bMais.addEventListener('click', () => { const ab = folha.classList.toggle('aberta'); bMais.setAttribute('aria-expanded', String(ab)); });
+$$('a', folha).forEach((a) => a.addEventListener('click', () => { folha.classList.remove('aberta'); bMais.setAttribute('aria-expanded', 'false'); }));
 addEventListener('hashchange', () => { render(); scrollTo(0, 0); });
 render();
 </script>
