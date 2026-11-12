@@ -45,7 +45,7 @@ Factos principais:
 - [Página inicial](https://www.dtcompany.co.za/): quem somos, pilares, método, perguntas frequentes
 - [Contactos](https://www.dtcompany.co.za/contactos): morada, email e mapa
 - [Pedido de cotação](https://www.dtcompany.co.za/pedido-de-cotacao): formulário para pedir cotação ou avaliação inicial
-- [Parceiros](https://www.dtcompany.co.za/parceiros): como trabalhamos com as equipas de tecnologia e de marketing da Kingdom, e como indicar clientes ou criar uma parceria institucional
+- [Parceiros](https://www.dtcompany.co.za/parceiros): como trabalhamos com as nossas equipas de tecnologia e de marketing, e como indicar clientes ou criar uma parceria institucional
 
 ## Recursos gratuitos
 

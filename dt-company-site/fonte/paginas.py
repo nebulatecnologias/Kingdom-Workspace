@@ -66,8 +66,8 @@ def cartoes(tipos):
 def pagina_parceiros():
     fronteiras = [
         ('i-documento', 'Temas jurídicos e de contabilidade', 'A DT Company não presta serviços jurídicos nem de contabilidade. Quando um tema o exige, indicamo-lo por escrito e a empresa contrata directamente o profissional habilitado.'),
-        ('i-codigo', 'Tecnologia da Kingdom', 'O canal de denúncia e a formação online são montados com a equipa de tecnologia da Kingdom e entregues prontos a usar no dia a dia da empresa.'),
-        ('i-camara', 'Marketing e comunicação da Kingdom', 'A formação em marketing pode ser dada com a equipa de marketing e comunicação da Kingdom, com exercícios feitos sobre a marca da própria empresa.'),
+        ('i-codigo', 'Equipa de tecnologia', 'O canal de denúncia e a formação online são montados pela nossa equipa de tecnologia e entregues prontos a usar no dia a dia da empresa.'),
+        ('i-camara', 'Equipa de marketing e comunicação', 'A formação em marketing pode ser dada com a nossa equipa de marketing e comunicação, com exercícios feitos sobre a marca da própria empresa.'),
     ]
     tipos = [
         ('i-equipa', 'Indicar clientes', 'Conhece uma empresa que precisa de um plano de negócios, de organizar o compliance e a governança ou de formar as suas equipas? Apresente-nos. Tratamos o contacto com o mesmo cuidado com que trataríamos um cliente seu.'),
@@ -82,7 +82,7 @@ def pagina_parceiros():
     <div class="cabeca">
       <p class="contexto">Como trabalhamos</p>
       <h2 id="t-rede">Um só interlocutor, com fronteiras claras</h2>
-      <p class="entrada">O cliente fala sempre com a DT Company. Parte do que entregamos é tecnologia e comunicação, montadas com as equipas da Kingdom.</p>
+      <p class="entrada">O cliente fala sempre com a DT Company. Parte do que entregamos é tecnologia e comunicação, montadas pelas nossas equipas.</p>
     </div>
     <ul class="parc-tipos">{cartoes(fronteiras)}</ul>
   </div>
@@ -300,7 +300,7 @@ def pagina_material(m):
 def main():
     antes, depois = partes_base()
     escreve(antes, depois, '/parceiros', 'Parceiros · DT Company',
-            'Como a DT Company trabalha com as equipas de tecnologia e de marketing da Kingdom, e como pode ser parceiro: indicar clientes ou criar uma parceria institucional.',
+            'Como a DT Company trabalha com as suas equipas de tecnologia e de marketing, e como pode ser parceiro: indicar clientes ou criar uma parceria institucional.',
             None, pagina_parceiros(), SITE / 'parceiros.html')
     escreve(antes, depois, '/ferramentas-gratuitas', 'Ferramentas Gratuitas de Compliance · DT Company',
             'Ferramentas gratuitas para empresas em Moçambique: diagnóstico por pilar, autoavaliação de compliance e verificação rápida do risco de um fornecedor.',

@@ -304,7 +304,7 @@ def llms():
     l += ['## Empresa', '', f'- [Página inicial]({D}/): quem somos, pilares, método, perguntas frequentes',
           f'- [Contactos]({D}/contactos): morada, email e mapa',
           f'- [Pedido de cotação]({D}/pedido-de-cotacao): formulário para pedir cotação ou avaliação inicial',
-          f'- [Parceiros]({D}/parceiros): como trabalhamos com as equipas de tecnologia e de marketing da Kingdom, e como indicar clientes ou criar uma parceria institucional', '',
+          f'- [Parceiros]({D}/parceiros): como trabalhamos com as nossas equipas de tecnologia e de marketing, e como indicar clientes ou criar uma parceria institucional', '',
           '## Recursos gratuitos', '',
           f'- [Ferramentas gratuitas]({D}/ferramentas-gratuitas): diagnóstico por pilar, autoavaliação de compliance e verificação rápida de um fornecedor']
     for m in json.loads((SITE / 'fonte' / 'materiais.json').read_text(encoding='utf-8'))['materiais']:
