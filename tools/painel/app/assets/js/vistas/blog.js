@@ -31,12 +31,12 @@ export async function montar(el, ctx) {
     const lista = artigos.filter((a) => (!estado || a.estado === estado) && (!t || semAcentos([a.titulo, a.categoria, a.resumo].filter(Boolean).join(' ')).includes(t)))
     if (!lista.length) { caixa.appendChild(vazio({ icone: 'procurar', titulo: 'Nenhum artigo encontrado', texto: 'Experimente outro estado ou outra pesquisa.' })); return }
     caixa.appendChild(h('div', { class: 'tabela-caixa' }, h('table', { class: 'tabela' },
-      h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Título'), h('th', { scope: 'col', class: 'c-cat' }, 'Categoria'), h('th', { scope: 'col' }, 'Estado'), h('th', { scope: 'col' }, 'Atualizado'), h('th', { scope: 'col', class: 'c-pub' }, 'Publicado'))),
+      h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Título'), h('th', { scope: 'col', class: 'c-cat' }, 'Categoria'), h('th', { scope: 'col' }, 'Estado'), h('th', { scope: 'col', class: 'c-act' }, 'Atualizado'), h('th', { scope: 'col', class: 'c-pub' }, 'Publicado'))),
       h('tbody', null, lista.map((a) => h('tr', { class: 'artigo-linha' },
         h('td', null, h('a', { class: 'titulo', href: '#/blog/' + a.id }, a.titulo), a.resumo ? h('span', { class: 'resumo' }, a.resumo) : null),
         h('td', { class: 'c-cat' }, a.categoria || h('span', { class: 'texto-fraco' }, '—')),
         h('td', null, a.estado === 'publicado' ? chip('Publicado', { tom: 'sucesso', icone: 'certo' }) : chip('Rascunho', { tom: 'aviso', icone: 'editar' })),
-        h('td', { class: 'data' }, fmtRelativo(a.actualizado_em)),
+        h('td', { class: 'data c-act' }, fmtRelativo(a.actualizado_em)),
         h('td', { class: 'data c-pub' }, a.publicado_em ? fmtData(a.publicado_em) : '—')))))))
   }
   try { artigos = await dados.artigos() } catch (e) { erro(e, 'Não foi possível carregar os artigos') }

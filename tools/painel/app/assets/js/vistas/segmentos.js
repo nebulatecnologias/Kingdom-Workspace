@@ -105,7 +105,7 @@ export async function montar(el, ctx, params) {
         else { const s = await dados.criarSegmento({ nome, filtros: f }); segmentos = [...segmentos, s].sort((a, b) => a.nome.localeCompare(b.nome, 'pt')); aviso('Segmento guardado.', { tipo: 'sucesso' }); ctx.navegar('#/segmentos/' + s.id) }
       } catch (e) { erro(e, 'Não foi possível guardar'); guardar.disabled = false }
     } })
-    accoes.append(guardar,
+    accoes.append(...[guardar,
       actual ? h('a', { class: 'btn btn-secundario', href: '#/contactos?segmento=' + actual.id }, icone('contactos', 18), h('span', null, 'Ver contactos')) : null,
       botao('Exportar CSV', { icone: 'exportar', disabled: !resultado.length, onclick: () => {
         const nome = `segmento-${(iNome.value.trim() || 'sem-nome').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-')}-${hojeISO()}.csv`
@@ -116,7 +116,7 @@ export async function montar(el, ctx, params) {
       actual ? botao('Apagar', { tipo: 'perigo-suave', icone: 'apagar', onclick: async () => {
         if (!(await confirmar(`Apagar o segmento «${actual.nome}»? Os contactos não são apagados.`, { titulo: 'Apagar segmento', accao: 'Apagar', perigo: true }))) return
         try { await dados.apagarSegmento(actual.id); segmentos = segmentos.filter((s) => s.id !== actual.id); aviso('Segmento apagado.'); ctx.navegar('#/segmentos') } catch (e) { erro(e) }
-      } }) : null)
+      } }) : null].filter(Boolean))
   }
   iNome.addEventListener('input', () => desenharAccoes())
 

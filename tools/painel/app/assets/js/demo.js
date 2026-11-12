@@ -91,24 +91,24 @@ function semente() {
     criado_em: haDias(c[9], 9 + (i % 8), (i * 7) % 60), actualizado_em: haDias(Math.max(0, c[9] - 1)), utm: c[10], notas: null,
   }))
   db.painel_contactos.find((c) => c.id === cid(5)).notas = 'Quer reorganizar a gestão da clínica antes de abrir a segunda unidade na Sommerschield. Prefere reuniões ao fim da tarde.'
-  db.painel_contactos.find((c) => c.id === cid(6)).notas = 'Cliente desde março (planeamento estratégico). Decide rápido quando vê números.'
+  db.painel_contactos.find((c) => c.id === cid(6)).notas = 'Cliente desde março (identidade visual). Decide rápido quando vê números.'
 
   // ---- Mensagens da Kingdom Company ----
   const M = [
-    [0, 'cotacao', 'Plano de Negócios', 'Pedido de cotação: Plano de Negócios', 'Bom dia. Estamos a preparar um pedido de financiamento ao BCI para comprar dois camiões novos e precisamos de um plano de negócios sólido. Qual é o prazo e o valor para um trabalho deste tipo?', { 'Nº de colaboradores': '35', 'Orçamento previsto': '300 000 – 500 000 MT', 'Prazo': 'Até fim de janeiro', 'Como nos conheceu': 'Google' }, '/servicos/plano-de-negocios', 'nova', 0.4],
-    [1, 'cotacao', 'Marketing e Vendas', 'Pedido de cotação: Marketing e Vendas', 'Temos duas lojas na Matola e as vendas caíram desde agosto. Queremos uma estratégia para o Instagram e formação para a equipa de balcão.', { 'Nº de colaboradores': '12', 'Orçamento previsto': 'Até 150 000 MT', 'Prazo': 'Dezembro' }, '/servicos/marketing-e-vendas', 'nova', 5],
-    [2, 'avaliacao', 'Consultoria Estratégica', 'Avaliação gratuita: Consultoria Estratégica', 'Gostaríamos de uma avaliação inicial. Somos uma empresa de serviços agrícolas com 60 trabalhadores e queremos crescer para a província de Gaza.', { 'Nº de colaboradores': '60', 'Principal desafio': 'Expansão para novas províncias', 'Disponibilidade': 'Terças e quintas de manhã' }, '/servicos/consultoria-estrategica', 'nova', 26],
+    [0, 'cotacao', 'Perfis Corporativos', 'Pedido de cotação: Perfis Corporativos', 'Bom dia. Vamos concorrer a contratos de transporte com mineradoras e precisamos de um perfil corporativo profissional, em PDF e PowerPoint.', { 'Nº de colaboradores': '35', 'Orçamento previsto': '300 000 – 500 000 MT', 'Prazo': 'Até fim de janeiro', 'Como nos conheceu': 'Google' }, '/servicos/plano-de-negocios', 'nova', 0.4],
+    [1, 'cotacao', 'Gestão de Redes Sociais', 'Pedido de cotação: Gestão de Redes Sociais', 'Temos duas lojas na Matola e as vendas caíram desde agosto. Queremos alguém que trate do Instagram e do Facebook todos os meses.', { 'Nº de colaboradores': '12', 'Orçamento previsto': 'Até 150 000 MT', 'Prazo': 'Dezembro' }, '/servicos/marketing-e-vendas', 'nova', 5],
+    [2, 'avaliacao', 'Identidade Visual', 'Avaliação inicial: Identidade Visual', 'Somos uma empresa de serviços agrícolas com 60 trabalhadores e a nossa marca já não corresponde ao que somos hoje. Gostaríamos de uma avaliação inicial.', { 'Nº de colaboradores': '60', 'Principal desafio': 'Expansão para novas províncias', 'Disponibilidade': 'Terças e quintas de manhã' }, '/servicos/consultoria-estrategica', 'nova', 26],
     [3, 'newsletter', null, 'Inscrição na newsletter', null, { 'Interesses': 'Gestão, finanças pessoais' }, '/blog/cinco-erros-de-tesouraria', 'lida', 70],
-    [4, 'cotacao', 'Assessoria Corporativa', 'Pedido de cotação: Assessoria Corporativa', 'Precisamos de apoio na reorganização societária da empresa e na preparação da assembleia de sócios de dezembro.', { 'Nº de colaboradores': '120', 'Orçamento previsto': 'A definir', 'Prazo': 'Urgente' }, '/servicos/assessoria-corporativa', 'nova', 98],
+    [4, 'cotacao', 'Modelos de Propostas Técnicas', 'Pedido de cotação: Modelos de Propostas Técnicas', 'Vamos concorrer a três concursos públicos em dezembro e queremos um modelo de proposta técnica que a equipa possa reutilizar.', { 'Nº de colaboradores': '120', 'Orçamento previsto': 'A definir', 'Prazo': 'Urgente' }, '/servicos/assessoria-corporativa', 'nova', 98],
     [5, 'contacto', null, 'Segunda unidade da clínica', 'Olá, foi a Dra. Lurdes que me indicou. Vamos abrir uma segunda clínica e preciso de ajuda com a gestão e os processos. Podem ligar-me?', { 'Melhor horário': 'Depois das 17h' }, '/contactos', 'lida', 146],
-    [7, 'cotacao', 'Marketing e Vendas', 'Pedido de cotação: Marketing e Vendas', 'Queremos estruturar uma equipa comercial para vender gás a restaurantes e hotéis. Hoje vendemos só por contactos pessoais.', { 'Nº de colaboradores': '48', 'Orçamento previsto': '200 000 – 400 000 MT', 'Prazo': 'Primeiro trimestre de 2027' }, '/servicos/marketing-e-vendas', 'lida', 212],
-    [8, 'avaliacao', 'Plano de Negócios', 'Avaliação gratuita: Plano de Negócios', 'Tenho um hotel pequeno em Xai-Xai e quero remodelar 10 quartos. O banco pediu um plano de negócios.', { 'Nº de quartos': '18', 'Principal desafio': 'Financiamento da remodelação' }, '/servicos/plano-de-negocios', 'lida', 260],
-    [11, 'cotacao', 'Desenvolvimento Tecnológico', 'Pedido de cotação: Desenvolvimento Tecnológico', 'Precisamos de um sistema simples de stock para três farmácias, com relatórios por loja.', { 'Nº de lojas': '3', 'Orçamento previsto': '250 000 MT', 'Prazo': 'Março' }, '/servicos/desenvolvimento-tecnologico', 'lida', 380],
-    [12, 'contacto', null, 'Formação de liderança para chefes de turno', 'Bom dia. Somos uma empresa de serviços mineiros em Tete. Queremos formação de liderança para 25 chefes de turno. Fazem formação fora de Maputo?', { 'Participantes': '25' }, '/contactos', 'lida', 452],
-    [14, 'cotacao', 'Plano de Negócios', 'Pedido de cotação: Plano de Negócios', 'Queremos abrir um lodge em Pemba e procurar investidores. Que informação precisam de nós para começar?', { 'Orçamento previsto': 'Até 300 000 MT', 'Prazo': 'Sem pressa' }, '/servicos/plano-de-negocios', 'arquivada', 575],
-    [15, 'cotacao', 'Consultoria Estratégica', 'Pedido de cotação: Consultoria Estratégica', 'Procuramos apoio para definir a estratégia comercial de 2027 para a imobiliária.', { 'Nº de colaboradores': '9', 'Orçamento previsto': '150 000 – 250 000 MT' }, '/servicos/consultoria-estrategica', 'lida', 650],
-    [17, 'avaliacao', 'Assessoria Corporativa', 'Avaliação gratuita: Assessoria Corporativa', 'A nossa transportadora cresceu muito e os sócios querem separar a gestão da propriedade. Gostava de perceber como funciona.', { 'Nº de viaturas': '40' }, '/servicos/assessoria-corporativa', 'lida', 722],
-    [18, 'cotacao', 'Desenvolvimento Editorial', 'Pedido de cotação: Desenvolvimento Editorial', 'Queremos publicar um livro sobre 20 anos de agricultura familiar na Zambézia. Fazem revisão e paginação?', { 'Nº de páginas (estimado)': '180', 'Prazo': 'Junho de 2027' }, '/servicos/desenvolvimento-editorial', 'lida', 790],
+    [7, 'cotacao', 'CRM e Sistemas de Vendas', 'Pedido de cotação: CRM e Sistemas de Vendas', 'Queremos organizar a equipa comercial que vende gás a restaurantes e hotéis. Hoje os contactos estão em cadernos e no WhatsApp de cada vendedor.', { 'Nº de colaboradores': '48', 'Orçamento previsto': '200 000 – 400 000 MT', 'Prazo': 'Primeiro trimestre de 2027' }, '/servicos/marketing-e-vendas', 'lida', 212],
+    [8, 'avaliacao', 'Websites e Aplicativos', 'Avaliação inicial: Websites e Aplicativos', 'Tenho um hotel pequeno em Xai-Xai e quero um site com reservas directas, para depender menos das plataformas.', { 'Nº de quartos': '18', 'Principal desafio': 'Financiamento da remodelação' }, '/servicos/plano-de-negocios', 'lida', 260],
+    [11, 'cotacao', 'Websites e Aplicativos', 'Pedido de cotação: Websites e Aplicativos', 'Precisamos de uma aplicação simples de stock para três farmácias, com relatórios por loja.', { 'Nº de lojas': '3', 'Orçamento previsto': '250 000 MT', 'Prazo': 'Março' }, '/servicos/desenvolvimento-tecnologico', 'lida', 380],
+    [12, 'contacto', null, 'Vídeo institucional em Tete', 'Bom dia. Somos uma empresa de serviços mineiros em Tete. Queremos um vídeo institucional e fotografias das operações para apresentar a novos clientes. Fazem gravações fora de Maputo?', { 'Participantes': '25' }, '/contactos', 'lida', 452],
+    [14, 'cotacao', 'Produção de Campanhas Publicitárias', 'Pedido de cotação: Produção de Campanhas Publicitárias', 'Vamos abrir um lodge em Pemba em março e queremos uma campanha de lançamento nas redes sociais e no Google.', { 'Orçamento previsto': 'Até 300 000 MT', 'Prazo': 'Sem pressa' }, '/servicos/plano-de-negocios', 'arquivada', 575],
+    [15, 'cotacao', 'Dashboards de Gestão', 'Pedido de cotação: Dashboards de Gestão', 'Procuramos um painel com as vendas e as visitas de cada agente da imobiliária, actualizado todas as semanas.', { 'Nº de colaboradores': '9', 'Orçamento previsto': '150 000 – 250 000 MT' }, '/servicos/consultoria-estrategica', 'lida', 650],
+    [17, 'avaliacao', 'Produção Audiovisual', 'Avaliação inicial: Produção Audiovisual', 'A nossa transportadora faz 20 anos e queremos um vídeo sobre a história da empresa para o evento de aniversário.', { 'Nº de viaturas': '40' }, '/servicos/assessoria-corporativa', 'lida', 722],
+    [18, 'cotacao', 'Identidade Visual', 'Pedido de cotação: Identidade Visual', 'Queremos renovar o logótipo e as cores da cooperativa antes da feira de março.', { 'Nº de páginas (estimado)': '180', 'Prazo': 'Junho de 2027' }, '/servicos/desenvolvimento-editorial', 'lida', 790],
     [19, 'newsletter', null, 'Inscrição na newsletter', null, { 'Interesses': 'Empreendedorismo' }, '/', 'lida', 864],
   ]
   const mid = (i) => `kc-m${String(i + 1).padStart(2, '0')}`
@@ -125,18 +125,18 @@ function semente() {
   const E = (n) => `${KC}-e${n}`
   // [etapa, titulo, contacto, servico, valor, prox_accao, prox_data(offset), bant, mensagem, dias, responsavel]
   const O = [
-    [1, 'Plano de Negócios · Mabunda Logística', 0, 'Plano de Negócios', 420000, 'Ligar para qualificar o pedido', 0, { necessidade: 'Financiamento BCI para 2 camiões', orcamento: '300 – 500 mil MT' }, 0, 0, EU.id],
-    [1, 'Marketing e Vendas · Cossa & Filhos', 1, 'Marketing e Vendas', 150000, 'Responder com proposta de diagnóstico', 1, { necessidade: true }, 1, 0, OUTRO_1],
-    [2, 'Consultoria Estratégica · Maputo Agro', 2, 'Consultoria Estratégica', 780000, 'Confirmar avaliação de terça', 2, { necessidade: 'Expansão para Gaza', autoridade: true }, 2, 1, EU.id],
-    [3, 'Gestão da segunda unidade · Clínica Polana', 5, 'Consultoria Estratégica', 650000, 'Reunião na clínica às 17h30', 3, { necessidade: 'Processos para 2.ª unidade', autoridade: 'Dra. Fátima decide', prazo: 'Abertura em março' }, 5, 6, EU.id],
-    [4, 'Equipa comercial · Matola Gás', 7, 'Marketing e Vendas', 1250000, 'Enviar relatório de diagnóstico', -2, { necessidade: true, autoridade: 'Conselho de administração', orcamento: '200 – 400 mil MT' }, 6, 9, OUTRO_1],
-    [5, 'Plano de Negócios · Xai-Xai Hotelaria', 8, 'Plano de Negócios', 380000, 'Enviar proposta revista', -1, { necessidade: true, autoridade: true, orcamento: true }, 7, 11, EU.id],
-    [5, 'Sistema de stock · Farmácia Central', 11, 'Desenvolvimento Tecnológico', 960000, 'Apresentar proposta à gerência', 5, { necessidade: true, autoridade: true, orcamento: '250 mil MT', prazo: 'Março' }, 8, 16, OUTRO_2],
-    [6, 'Formação de liderança · Tete Mineração', 12, 'Kingdom Training', 2400000, 'Negociar datas da 1.ª turma', 4, { necessidade: true, autoridade: true, orcamento: true, prazo: 'Fevereiro' }, 9, 19, EU.id],
-    [7, 'Planeamento Estratégico 2027 · Grupo Langa', 6, 'Consultoria Estratégica', 1800000, null, null, { necessidade: true, autoridade: true, orcamento: true, prazo: true }, null, 50, EU.id],
-    [7, 'Reorganização societária · Guambe Advogados', 19, 'Assessoria Corporativa', 540000, null, null, { necessidade: true, autoridade: true, orcamento: true, prazo: true }, null, 70, OUTRO_1],
-    [8, 'Plano de Negócios · Pemba Turismo', 14, 'Plano de Negócios', 300000, null, null, { necessidade: true }, 10, 24, OUTRO_2],
-    [8, 'Estratégia comercial · Inhambane Imobiliária', 15, 'Consultoria Estratégica', 220000, null, null, { necessidade: true, autoridade: true }, 11, 27, EU.id],
+    [1, 'Perfil corporativo · Mabunda Logística', 0, 'Perfis Corporativos', 420000, 'Ligar para qualificar o pedido', 0, { necessidade: 'Perfil para concursos de mineradoras', orcamento: '300 – 500 mil MT' }, 0, 0, EU.id],
+    [1, 'Redes sociais · Cossa & Filhos', 1, 'Gestão de Redes Sociais', 150000, 'Responder com proposta de diagnóstico', 1, { necessidade: true }, 1, 0, OUTRO_1],
+    [2, 'Identidade Visual · Maputo Agro', 2, 'Identidade Visual', 780000, 'Confirmar avaliação de terça', 2, { necessidade: 'Marca nova antes da expansão', autoridade: true }, 2, 1, EU.id],
+    [3, 'Site da segunda unidade · Clínica Polana', 5, 'Websites e Aplicativos', 650000, 'Reunião na clínica às 17h30', 3, { necessidade: 'Site para a 2.ª unidade', autoridade: 'Dra. Fátima decide', prazo: 'Abertura em março' }, 5, 6, EU.id],
+    [4, 'CRM comercial · Matola Gás', 7, 'CRM e Sistemas de Vendas', 1250000, 'Enviar relatório de diagnóstico', -2, { necessidade: true, autoridade: 'Conselho de administração', orcamento: '200 – 400 mil MT' }, 6, 9, OUTRO_1],
+    [5, 'Site com reservas · Xai-Xai Hotelaria', 8, 'Websites e Aplicativos', 380000, 'Enviar proposta revista', -1, { necessidade: true, autoridade: true, orcamento: true }, 7, 11, EU.id],
+    [5, 'Aplicação de stock · Farmácia Central', 11, 'Websites e Aplicativos', 960000, 'Apresentar proposta à gerência', 5, { necessidade: true, autoridade: true, orcamento: '250 mil MT', prazo: 'Março' }, 8, 16, OUTRO_2],
+    [6, 'Vídeo institucional · Tete Mineração', 12, 'Produção Audiovisual', 2400000, 'Combinar datas da gravação', 4, { necessidade: true, autoridade: true, orcamento: true, prazo: 'Fevereiro' }, 9, 19, EU.id],
+    [7, 'Painel de gestão · Grupo Langa', 6, 'Dashboards de Gestão', 1800000, null, null, { necessidade: true, autoridade: true, orcamento: true, prazo: true }, null, 50, EU.id],
+    [7, 'Proposta técnica · Guambe Advogados', 19, 'Modelos de Propostas Técnicas', 540000, null, null, { necessidade: true, autoridade: true, orcamento: true, prazo: true }, null, 70, OUTRO_1],
+    [8, 'Campanha de lançamento · Pemba Turismo', 14, 'Produção de Campanhas Publicitárias', 300000, null, null, { necessidade: true }, 10, 24, OUTRO_2],
+    [8, 'Painel de vendas · Inhambane Imobiliária', 15, 'Dashboards de Gestão', 220000, null, null, { necessidade: true, autoridade: true }, 11, 27, EU.id],
   ]
   O.forEach((o, i) => {
     const etapa = db.painel_etapas.find((e) => e.id === E(o[0]))
@@ -156,13 +156,13 @@ function semente() {
   A(cid(5), 'kc-o04', 'nota', 'Enviar antes da reunião o caso da Clínica Vida (com autorização).', 2)
   A(cid(7), 'kc-o05', 'reuniao', 'Reunião com o Celso e o administrador. Vendem 70 % a particulares; querem chegar a 40 hotéis e restaurantes.', 8, OUTRO_1)
   A(cid(7), 'kc-o05', 'etapa', 'Reunião marcada → Diagnóstico', 7, OUTRO_1, { de: E(3), para: E(4) })
-  A(cid(8), 'kc-o06', 'email', 'Proposta enviada: Plano de Negócios para remodelação de 10 quartos (380 000 MT).', 6)
+  A(cid(8), 'kc-o06', 'email', 'Proposta enviada: site com reservas directas (380 000 MT).', 6)
   A(cid(8), 'kc-o06', 'etapa', 'Diagnóstico → Proposta', 6, EU.id, { de: E(4), para: E(5) })
   A(cid(12), 'kc-o08', 'chamada', 'O Osvaldo confirmou orçamento aprovado para 25 participantes. Falta fechar datas.', 3)
   A(cid(12), 'kc-o08', 'etapa', 'Proposta → Negociação', 3, EU.id, { de: E(5), para: E(6) })
   A(cid(6), 'kc-o09', 'etapa', 'Negociação → Ganho', 40, EU.id, { de: E(6), para: E(7) })
   A(cid(14), 'kc-o11', 'etapa', 'Proposta → Perdido (motivo: Sem orçamento este ano)', 14, OUTRO_2, { de: E(5), para: E(8) })
-  A(cid(0), 'kc-o01', 'sistema', 'Oportunidade criada a partir da mensagem «Pedido de cotação: Plano de Negócios»', haHoras(0.3))
+  A(cid(0), 'kc-o01', 'sistema', 'Oportunidade criada a partir da mensagem «Pedido de cotação: Perfis Corporativos»', haHoras(0.3))
 
   // ---- Segmentos ----
   db.painel_segmentos.push(
@@ -399,7 +399,7 @@ export function criarClienteDemo() {
     novaMensagem(siteId = 'site-kingdom') {
       const c = { id: uid(), site_id: siteId, nome: 'Zacarias Mavie', email: 'zacarias.mavie@maviecomercial.co.mz', telefone: '+258 84 702 3315', empresa: 'Mavie Comercial', cargo: 'Gerente', cidade: 'Maputo', origem: 'google', utm: { source: 'google', medium: 'cpc', campaign: 'plano-negocios-nov' }, etiquetas: [], consentimento: true, notas: null, criado_em: new Date().toISOString(), actualizado_em: new Date().toISOString() }
       motor.db.painel_contactos.push(c)
-      const m = { id: uid(), site_id: siteId, contacto_id: c.id, tipo: 'cotacao', servico: 'Plano de Negócios', assunto: 'Pedido de cotação: Plano de Negócios', corpo: 'Boa tarde. Preciso de um plano de negócios para apresentar ao Fundo de Desenvolvimento. Podem enviar uma estimativa?', dados: { Nome: c.nome, Email: c.email, Telefone: c.telefone, Empresa: c.empresa, 'Orçamento previsto': 'Até 250 000 MT' }, pagina: '/servicos/plano-de-negocios', estado: 'nova', respondida_em: null, criado_em: new Date().toISOString() }
+      const m = { id: uid(), site_id: siteId, contacto_id: c.id, tipo: 'cotacao', servico: 'Websites e Aplicativos', assunto: 'Pedido de cotação: Websites e Aplicativos', corpo: 'Boa tarde. Precisamos de um site novo com formulário de pedidos de orçamento. Podem enviar uma estimativa?', dados: { Nome: c.nome, Email: c.email, Telefone: c.telefone, Empresa: c.empresa, 'Orçamento previsto': 'Até 250 000 MT' }, pagina: '/servicos/plano-de-negocios', estado: 'nova', respondida_em: null, criado_em: new Date().toISOString() }
       motor.db.painel_mensagens.push(m)
       motor.emitir('painel_mensagens', 'INSERT', m)
       return m.id

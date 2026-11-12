@@ -8,7 +8,7 @@ const DEMO = new URLSearchParams(location.search).get('demo') === '1'
 
 const ROTAS = [
   { id: 'inicio', texto: 'Início', icone: 'inicio' },
-  { id: 'caixa', texto: 'Caixa de mensagens', curto: 'Caixa', icone: 'caixa' },
+  { id: 'caixa', texto: 'Caixa de mensagens', nav: 'Mensagens', curto: 'Caixa', icone: 'caixa' },
   { id: 'contactos', texto: 'Contactos', icone: 'contactos' },
   { id: 'segmentos', texto: 'Segmentos', icone: 'segmentos' },
   { id: 'funil', texto: 'Funil de vendas', curto: 'Funil', icone: 'funil' },
@@ -149,7 +149,7 @@ function montarMoldura() {
   const recolhida = lerLocal('lateral-recolhida', false)
   const nav = h('nav', { class: 'lateral-nav', 'aria-label': 'Módulos' },
     ROTAS.map((r) => h('a', { href: '#/' + r.id, class: 'lateral-item', dataset: { rota: r.id }, title: r.texto },
-      icone(r.icone, 20), h('span', { class: 'lateral-texto' }, r.texto),
+      icone(r.icone, 20), h('span', { class: 'lateral-texto' }, r.nav || r.texto),
       r.id === 'caixa' ? h('span', { class: 'contagem', hidden: true, 'aria-label': 'mensagens por ler' }) : null)))
   const recolher = h('button', { class: 'lateral-recolher', type: 'button', 'aria-label': recolhida ? 'Expandir barra lateral' : 'Recolher barra lateral', 'aria-pressed': String(recolhida), onclick: () => {
     const app = raiz.querySelector('.app'); const nova = !app.classList.contains('recolhida')

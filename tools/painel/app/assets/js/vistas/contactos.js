@@ -22,7 +22,7 @@ export async function montar(el, ctx, params) {
 
   const sub = h('p', { class: 'sub' })
   const faixa = h('div')
-  const iPesq = h('input', { type: 'search', placeholder: 'Nome, email, empresa ou telefone', 'aria-label': 'Procurar contactos', value: f.pesquisa })
+  const iPesq = h('input', { type: 'search', placeholder: 'Procurar contactos', 'aria-label': 'Procurar contactos', value: f.pesquisa })
   const sOrigem = h('select', { 'aria-label': 'Origem' })
   const sEtiq = h('select', { 'aria-label': 'Etiqueta' })
   const sServ = h('select', { 'aria-label': 'Serviço pedido' })
@@ -51,7 +51,7 @@ export async function montar(el, ctx, params) {
     try { valores = await dados.valoresDistintos() } catch {}
     limpar(sOrigem).append(h('option', { value: '' }, 'Todas as origens'), ...valores.origens.map((o) => h('option', { value: o, selected: o === f.origem }, rotuloOrigem(o))))
     limpar(sEtiq).append(h('option', { value: '' }, 'Todas as etiquetas'), ...valores.etiquetas.map((o) => h('option', { value: o, selected: o === f.etiqueta }, o)))
-    limpar(sServ).append(h('option', { value: '' }, 'Qualquer serviço pedido'), ...valores.servicosPedidos.map((o) => h('option', { value: o }, o)))
+    limpar(sServ).append(h('option', { value: '' }, 'Qualquer serviço'), ...valores.servicosPedidos.map((o) => h('option', { value: o }, o)))
   }
 
   async function prepararSegmento() {
@@ -250,6 +250,7 @@ export async function montar(el, ctx, params) {
 
   await Promise.all([prepararFiltros(), prepararSegmento()])
   await carregar()
+  if (q.get('novo') === '1') history.replaceState(null, '', location.pathname + location.search + '#/contactos')
   if (q.get('novo') === '1') abrirNovoContacto(ctx, (c) => ctx.navegar('#/contactos/' + c.id))
   return {}
 }

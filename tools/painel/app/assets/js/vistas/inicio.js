@@ -132,7 +132,8 @@ function ranking(pares, textoVazio) {
 }
 
 function graficoSemanas(semanas) {
-  const W = 640, H = 210, esq = 28, base = H - 28, topo = 16
+  const estreito = innerWidth <= 768
+  const W = estreito ? 340 : 640, H = estreito ? 190 : 210, esq = 24, base = H - 28, topo = 16
   const max = Math.max(4, ...semanas.map((s) => s.n))
   const passo = Math.ceil(max / 4)
   const teto = passo * 4
@@ -160,7 +161,7 @@ function graficoSemanas(semanas) {
     const caminho = alt > 0 ? `M${x},${base} V${yt + r} Q${x},${yt} ${x + r},${yt} H${x + barraW - r} Q${x + barraW},${yt} ${x + barraW},${yt + r} V${base} Z` : ''
     const barra = el('path', { d: caminho, class: 'barra' + (i === semanas.length - 1 ? ' barra-actual' : '') })
     svg.appendChild(barra)
-    const rot = el('text', { x: cx, y: base + 18, 'text-anchor': 'middle', class: 'eixo' }); rot.textContent = i === semanas.length - 1 ? 'Esta semana' : fmtData(s.inicio, { curta: true }); svg.appendChild(rot)
+    const rot = el('text', { x: cx, y: base + 18, 'text-anchor': 'middle', class: 'eixo' }); rot.textContent = i === semanas.length - 1 ? (estreito ? 'Agora' : 'Esta semana') : (estreito && i % 2) ? '' : fmtData(s.inicio, { curta: true }); svg.appendChild(rot)
     if (i === semanas.length - 1) { const v = el('text', { x: cx, y: yt - 6, 'text-anchor': 'middle', class: 'rotulo-valor' }); v.textContent = s.n; svg.appendChild(v) }
     const alvo = el('rect', { x: esq + largura * i, y: topo, width: largura, height: base - topo, class: 'alvo-barra' })
     alvo.addEventListener('pointerenter', () => {

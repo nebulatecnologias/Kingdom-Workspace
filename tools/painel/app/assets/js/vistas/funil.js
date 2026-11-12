@@ -38,7 +38,7 @@ export async function montar(el, ctx, params) {
     // filtros
     const servicos = [...new Set(ops.map((o) => o.servico).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'pt'))
     limpar(sServ).append(h('option', { value: '' }, 'Todos os serviços'), ...servicos.map((s) => h('option', { value: s, selected: s === f.servico }, s)))
-    limpar(sResp).append(h('option', { value: '' }, 'Todos os responsáveis'), h('option', { value: 'eu', selected: f.resp === 'eu' }, 'As minhas'), h('option', { value: 'nenhum', selected: f.resp === 'nenhum' }, 'Sem responsável'),
+    limpar(sResp).append(h('option', { value: '' }, 'Toda a equipa'), h('option', { value: 'eu', selected: f.resp === 'eu' }, 'As minhas'), h('option', { value: 'nenhum', selected: f.resp === 'nenhum' }, 'Sem responsável'),
       ...ctx.membros.filter((m) => m.user_id !== ctx.eu?.id).map((m) => h('option', { value: m.user_id, selected: f.resp === m.user_id }, ctx.rotuloMembro(m.user_id))))
     return true
   }
