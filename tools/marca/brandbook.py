@@ -396,7 +396,7 @@ pag(f'''{cab('07 · O tom de voz', 'Como escrevemos', 'Como um consultor experie
 pag(f'''<div class="cols"><div>{cab('07 · Contactos', 'Contactos oficiais', 'Usar sempre estes contactos em documentos, assinaturas, cartões e redes.')}<div class="ct-g">{globo(LIN, '62mm')}</div></div>
 <div class="cts"><div><small>Email</small>contact@kingdomcompany.co.za</div><div><small>Telefones</small>+258 87 664 1836<br>+258 85 1800 920</div>
 <div><small>Morada</small>Edifício Millenium Park<br>Av. Vladimir Lenine, n.º 174<br>Maputo 1106, Moçambique</div><div><small>Site</small>{SITE}</div>
-<p class="nota">A morada da África do Sul aparece só no site. Para receber os ficheiros originais da marca, pedir à equipa Kingdom Company.</p></div></div>''', 'branca', 'Contactos')
+<p class="nota">Para receber os ficheiros originais da marca, pedir à equipa Kingdom Company.</p></div></div>''', 'branca', 'Contactos')
 
 # fecho
 pag(f'''{efeitos(feixes=3)}<div class="fim">{logo('kingdom-company-vertical', '#FFFFFF', w='92mm')}<p>Um único lugar. Tudo o que precisa para desenvolver o seu negócio.</p></div>

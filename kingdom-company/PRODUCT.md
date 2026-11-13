@@ -12,11 +12,11 @@ Static HTML/CSS/JS, like every other site in this workspace (Vercel, `cleanUrls`
 
 ## Users
 
-Gestores, CEOs e diretores de pequenas, médias e grandes empresas e instituições em Moçambique e na África do Sul. Chegam com um problema concreto (vender mais, organizar a empresa, apresentar-se melhor, um concurso, tecnologia) e pouco tempo. O trabalho deles na página: perceber em segundos o que a Kingdom Company faz, encontrar o serviço que resolve o problema e pedir uma cotação ou uma avaliação inicial.
+Gestores, CEOs e diretores de pequenas, médias e grandes empresas e instituições em Moçambique. Chegam com um problema concreto (vender mais, organizar a empresa, apresentar-se melhor, um concurso, tecnologia) e pouco tempo. O trabalho deles na página: perceber em segundos o que a Kingdom Company faz, encontrar o serviço que resolve o problema e pedir uma cotação ou uma avaliação inicial.
 
 ## Product Purpose
 
-A Kingdom Company é uma empresa moçambicana de desenvolvimento empresarial, membro da SDG (Pty) Ltd (grupo de negócios, educação e tecnologia com sede em Midrand, África do Sul): um parceiro estratégico com soluções integradas. O site existe para levar decisores ao pedido de cotação ou à avaliação inicial com um consultor (passa por um vendedor, R08/R09). Desde 08/11/2026 o site não mostra preços, nem do Business Advising (R36). Sucesso: pedidos de cotação qualificados.
+A Kingdom Company é uma empresa moçambicana de desenvolvimento empresarial, membro da SDG (Pty) Ltd (grupo de negócios, educação e tecnologia): um parceiro estratégico com soluções integradas. O site existe para levar decisores ao pedido de cotação ou à avaliação inicial com um consultor (passa por um vendedor, R08/R09). Desde 08/11/2026 o site não mostra preços, nem do Business Advising (R36). Sucesso: pedidos de cotação qualificados.
 
 ## Positioning
 
@@ -30,7 +30,7 @@ Visitado sobretudo no telemóvel, muitas vezes a partir do Instagram, LinkedIn o
 
 - Mapa do site e fichas de serviço: https://claude.ai/artifact/5iC72U3cjHiF4yStgkSJao (uma aba por página).
 - Regras de negócio: `docs/regras-de-negocio.md` (R04 áreas e planos, R08/R09 fecho, R17/R33 Business Advising, R27, R29, R30 preços, R34 marca, R35 contactos, R40 DT Company).
-- Contactos (R35): contact@kingdomcompany.co.za · +258 87 664 1836 · +258 85 1877 115 · Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106 · Midrand: 2 Mushroom Road, Plooysville AH, Joanesburgo 1685 (só neste site).
+- Contactos (R35): contact@kingdomcompany.co.za · +258 87 664 1836 · +258 85 1877 115 · Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106.
 - Textos em português europeu, tratamento «a sua empresa».
 - Undecided: preço de 7 serviços novos; vendedor responsável pelos pedidos; preços em rands.
 

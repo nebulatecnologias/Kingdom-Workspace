@@ -9,7 +9,7 @@ saida = sys.argv[1]; exemplo = '--exemplo' in sys.argv
 def svg(nome, largura_mm):
     s = open(L + nome).read().strip()
     return re.sub(r'width="\d+" height="\d+"', f'width="{largura_mm}mm"', s, count=1)
-# contactos oficiais (R35); a morada da África do Sul só aparece no site
+# contactos oficiais (R35): só Moçambique
 MORADA = 'Edifício Millenium Park, Av. Vladimir Lenine, n.º 174<br>Maputo 1106, Moçambique'
 CONTACTOS = '+258 87 664 1836 &nbsp;·&nbsp; +258 85 1800 920<br>contact@kingdomcompany.co.za<br>www.kingdomcompany.co.za'
 RODAPE = f'<div class="rodape"><span><b>Kingdom Company</b><br>{MORADA}</span><span class="dir">{CONTACTOS}</span></div>'

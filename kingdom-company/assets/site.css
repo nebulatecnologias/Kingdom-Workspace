@@ -437,7 +437,7 @@ a.pcol-t:hover { color: var(--violeta); }
 
 /* Página de contactos */
 .abertura-curta .abertura-in { padding-block: calc(var(--topo-altura) + clamp(48px, 7vw, 96px)) clamp(56px, 7vw, 96px); }
-.contactos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; overflow: hidden; border-radius: 16px; background: var(--linha); box-shadow: 0 0 0 1px var(--linha); }
+.contactos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; overflow: hidden; border-radius: 16px; background: var(--linha); box-shadow: 0 0 0 1px var(--linha); }
 .contactos li { padding: 32px 28px; background: var(--branco); }
 .contacto-ico { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--realce); color: var(--indigo); }
 .contacto-ico svg { width: 22px; height: 22px; }
@@ -589,6 +589,7 @@ a.pcol-t:hover { color: var(--violeta); }
   .porque h2 { position: static; }
   .bento { grid-template-columns: minmax(0, 1fr); }
   .contactos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contactos li:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .jornada { grid-template-columns: minmax(0, 1fr); }
   .jornada li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--linha); }
   .jornada li:not(:last-child)::after { content: none; }

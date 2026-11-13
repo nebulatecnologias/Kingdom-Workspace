@@ -77,7 +77,7 @@ def pagina_parceiros():
       <h2 id="t-grupo">Membro da SDG (Pty) Ltd</h2>
     </div>
     <div class="parc-texto">
-      <p class="entrada">A SDG (Pty) Ltd é um grupo de empresas de negócios, educação e tecnologia, com sede em Midrand, na África do Sul.</p>
+      <p class="entrada">A SDG (Pty) Ltd é um grupo de empresas de negócios, educação e tecnologia.</p>
       <p>Através do grupo e de parceiros de negócios internacionais, reunimos uma base de conhecimento nacional e regional. Acompanhamos o que muda em cada setor e damos aos clientes acesso às tendências do seu mercado a tempo de decidir primeiro.</p>
     </div>
   </div>

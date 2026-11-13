@@ -56,7 +56,7 @@ def pagina(s, todos):
     entrega_cls = 'seccao serv-entrega' + (' so-previa' if s['validar'] else '')
     entrega_nota = '<p class="nota-previa">Entregáveis propostos, a confirmar pela direção antes de publicar.</p>' if s['validar'] else ''
     ld = {"@context": "https://schema.org", "@type": "Service", "name": s['nome'], "description": s['oque'], "serviceType": s['area'],
-          "areaServed": ["MZ", "ZA"], "provider": {"@id": "https://www.kingdomcompany.co.za/#organizacao"},
+          "areaServed": ["MZ"], "provider": {"@id": "https://www.kingdomcompany.co.za/#organizacao"},
           "url": f"https://www.kingdomcompany.co.za{url}"}
     main = f'''<main id="conteudo" class="pag-servico">
 
@@ -183,7 +183,7 @@ def pagina_area(a, todos):
     escolher = ''.join(f'''<li><ul class="area-sinais">{"".join(f"<li>{E(d)}</li>" for d in s["dores"][:2])}</ul><a href="/{s["area_slug"]}/{s["slug"]}"><span>Precisa de</span><b>{E(s["nome"])}</b>{SETA}</a></li>''' for s in servs)
     rels = ''.join(f'''<li><a href="/{x["slug"]}"><span class="serv-rel-ico" aria-hidden="true"><svg><use href="#{ICONE[x["slug"]]}"/></svg></span><b>{E(x["nome"])}</b><span>{E(x["resumo"])}</span><i>Ver a área {SETA}</i></a></li>''' for x in outras)
     ld = {"@context": "https://schema.org", "@type": "Service", "name": a['nome'], "description": a['resumo'],
-          "areaServed": ["MZ", "ZA"], "provider": {"@id": "https://www.kingdomcompany.co.za/#organizacao"},
+          "areaServed": ["MZ"], "provider": {"@id": "https://www.kingdomcompany.co.za/#organizacao"},
           "url": f"https://www.kingdomcompany.co.za{url}",
           "hasOfferCatalog": {"@type": "OfferCatalog", "name": a['nome'], "itemListElement": [
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": s['nome'], "url": f"https://www.kingdomcompany.co.za/{s['area_slug']}/{s['slug']}"}} for s in servs]}}

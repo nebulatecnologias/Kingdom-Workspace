@@ -33,12 +33,11 @@ Uma só família: **Google Sans** (a mesma dos outros sites do ecossistema).
 - Paleta: post Aureva (cores) e template Koneksi (uso de um só laranja forte, muito espaço, tipografia grande).
 - Comparação das 3 paletas: `docs/marca/kingdom-company-paleta-c.png`.
 
-## Contactos oficiais (R35, 08/11/2026)
+## Contactos oficiais (R35, revista a 13/11/2026)
 - Email: contact@kingdomcompany.co.za
-- Telefones: +258 87 664 1836 · +258 85 1800 920
+- Telefones: +258 87 664 1836 · +258 85 1877 115
 - Morada: Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106, Moçambique
 - Site: www.kingdomcompany.co.za
-- África do Sul (só no site): 2 Mushroom Road, Plooysville AH, Midrand, Joanesburgo 1685
 
 ## Nome e arquitectura (R34, 08/11/2026)
 - **Kingdom Company**: desenvolvimento empresarial (estratégia, crescimento e gestão). Era a «Kingdom InCompany».
