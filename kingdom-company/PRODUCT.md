@@ -30,7 +30,7 @@ Visitado sobretudo no telemóvel, muitas vezes a partir do Instagram, LinkedIn o
 
 - Mapa do site e fichas de serviço: https://claude.ai/artifact/5iC72U3cjHiF4yStgkSJao (uma aba por página).
 - Regras de negócio: `docs/regras-de-negocio.md` (R04 áreas e planos, R08/R09 fecho, R17/R33 Business Advising, R27, R29, R30 preços, R34 marca, R35 contactos, R40 DT Company).
-- Contactos (R35): contact@kingdomcompany.co.za · +258 87 664 1836 · +258 85 1800 920 · Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106 · Midrand: 2 Mushroom Road, Plooysville AH, Joanesburgo 1685 (só neste site).
+- Contactos (R35): contact@kingdomcompany.co.za · +258 87 664 1836 · +258 85 1877 115 · Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106 · Midrand: 2 Mushroom Road, Plooysville AH, Joanesburgo 1685 (só neste site).
 - Textos em português europeu, tratamento «a sua empresa».
 - Undecided: preço de 7 serviços novos; vendedor responsável pelos pedidos; preços em rands.
 

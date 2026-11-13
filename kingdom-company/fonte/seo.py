@@ -73,7 +73,7 @@ def organizacao():
         'geo': {'@type': 'GeoCoordinates', 'latitude': -25.9719319, 'longitude': 32.5754637},
         'areaServed': [{'@type': 'Country', 'name': 'Moçambique'}, {'@type': 'Country', 'name': 'África do Sul'}],
         'contactPoint': [{'@type': 'ContactPoint', 'contactType': 'sales', 'email': 'contact@kingdomcompany.co.za',
-                          'telephone': ['+258876641836', '+258851800920'], 'availableLanguage': ['pt', 'en'],
+                          'telephone': ['+258876641836', '+258851877115'], 'availableLanguage': ['pt', 'en'],
                           'areaServed': ['MZ', 'ZA'], 'url': f'{D}/pedido-de-cotacao'}],
         'parentOrganization': {'@type': 'Organization', 'name': 'SDG (Pty) Ltd'},
         'knowsAbout': [s['nome'] for s in SERVICOS],
@@ -290,7 +290,7 @@ def llms():
          '- Mais de 50 negócios atendidos, 6 anos de mercado e 5 certificações internacionais em marketing, inteligência artificial e vendas.',
          '- Cada proposta é feita à medida: o site não publica preços. Os projetos pagam-se por marcos.',
          f'- Pedido de cotação ou avaliação inicial: {D}/pedido-de-cotacao',
-         '- Contactos: contact@kingdomcompany.co.za · +258 87 664 1836 · +258 85 1800 920',
+         '- Contactos: contact@kingdomcompany.co.za · +258 87 664 1836 · +258 85 1877 115',
          '- Moradas: Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106, Moçambique · 2 Mushroom Road, Plooysville AH, Midrand, Joanesburgo 1685, África do Sul',
          '- Língua do site: português europeu.', '']
     for a in AREAS:

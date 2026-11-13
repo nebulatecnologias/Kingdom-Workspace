@@ -21,7 +21,7 @@ A Kingdom Company é uma empresa moçambicana de desenvolvimento empresarial, me
 
 ### R35 · Contactos oficiais da Kingdom Company
 
-Contactos oficiais da Kingdom Company: email contact@kingdomcompany.co.za; telefones +258 87 664 1836 e +258 85 1800 920; morada em Moçambique: Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106; site www.kingdomcompany.co.za (o domínio novo da marca). A empresa tem também base na África do Sul (2 Mushroom Road, Plooysville AH, Midrand, Joanesburgo 1685), que só aparece no site. Papelaria, assinaturas de email, cartões e redes mostram só os contactos de Moçambique.
+Contactos oficiais da Kingdom Company: email contact@kingdomcompany.co.za; telefones +258 87 664 1836 e +258 85 1877 115 (desde 13/11/2026; antes +258 85 1800 920); morada em Moçambique: Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106; site www.kingdomcompany.co.za (o domínio novo da marca). A empresa tem também base na África do Sul (2 Mushroom Road, Plooysville AH, Midrand, Joanesburgo 1685), que só aparece no site. Papelaria, assinaturas de email, cartões e redes mostram só os contactos de Moçambique.
 
 *08/11/2026 · Decisão do Shelton*
 

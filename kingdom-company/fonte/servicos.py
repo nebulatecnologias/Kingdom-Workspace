@@ -376,7 +376,7 @@ def pagina_cotacao(todos):
       <ol class="cot-passos">{lista}</ol>
       <div class="cot-direto">
         <h3>Prefere falar já?</h3>
-        <p><a href="tel:+258876641836">+258 87 664 1836</a><br><a href="tel:+258851800920">+258 85 1800 920</a><br><a href="mailto:contact@kingdomcompany.co.za">contact@kingdomcompany.co.za</a></p>
+        <p><a href="tel:+258876641836">+258 87 664 1836</a><br><a href="tel:+258851877115">+258 85 1877 115</a><br><a href="mailto:contact@kingdomcompany.co.za">contact@kingdomcompany.co.za</a></p>
       </div>
     </aside>
   </div>
