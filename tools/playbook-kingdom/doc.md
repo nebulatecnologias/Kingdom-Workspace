@@ -12,22 +12,22 @@ Um só playbook para o SDR e o Closer da Kingdom Company, em oito secções. As 
 | 07 Tratamento de objeções | As do primeiro contacto | Todas
 | 08 Follow-up e recuperação | Leads e reuniões | Propostas
 Cada etapa do processo tem três elementos: **objetivo** (o que tem de conseguir), **execução** (o que fazer, perguntar ou dizer) e **critério de conclusão** (como saber que pode avançar).
-**O que fica de fora, por não ser essencial para vender:** história e missão da empresa, teoria de vendas, guiões para decorar e serviços que não são vendidos por esta equipa. Ficam de fora o Business Advising com o Shelton, que fecha direto no site (R08), o treino de equipas, que passou para o Kingdom Training, e a Consultoria Estratégica (Plano de Negócios, Planeamento Estratégico e Advisory), que passou para a DT Company (R04). No PDF, cada página responde a uma só consulta: um vendedor deve encontrar o que precisa em menos de 30 segundos.
+**O que fica de fora, por não ser essencial para vender:** história e missão da empresa, teoria de vendas, guiões para decorar e serviços que não são vendidos por esta equipa. Ficam de fora o Business Advising com o Shelton, que fecha direto no site (R08), e o treino de equipas, que é da DT Company (R40). A Consultoria Estratégica é vendida por esta equipa e também pela DT Company (R04). No PDF, cada página responde a uma só consulta: um vendedor deve encontrar o que precisa em menos de 30 segundos.
 Os textos marcados **A confirmar** ainda dependem de uma decisão do Shelton e têm de ser fechados antes do PDF.
 ## 01 · Quem somos
 O vendedor apresenta a Kingdom Company em 30 segundos e explica porque deve ser a escolhida, sem depender de mais ninguém.
 ### A empresa em 30 segundos
 > A Kingdom Company é uma empresa moçambicana, baseada em Maputo, que ajuda empresas a superar os desafios estratégicos e operacionais que condicionam o seu crescimento, a sua organização, o seu posicionamento e a sua competitividade, através de soluções integradas de desenvolvimento empresarial.
-> Reunimos diferentes competências numa só equipa, que integra desenvolvimento editorial, assessoria empresarial e desenvolvimento tecnológico. Assim, alinhamos estratégia, estrutura, comunicação e operações para fortalecer o desempenho da empresa e criar bases sólidas para um crescimento sustentável, sem que o cliente tenha de investir tempo e recursos a contratar e coordenar vários fornecedores.
+> Reunimos diferentes competências numa só equipa, que integra desenvolvimento editorial, consultoria estratégica, assessoria estratégica e desenvolvimento tecnológico. Assim, alinhamos estratégia, estrutura, comunicação e operações para fortalecer o desempenho da empresa e criar bases sólidas para um crescimento sustentável, sem que o cliente tenha de investir tempo e recursos a contratar e coordenar vários fornecedores.
 ### Porque escolher a Kingdom Company
 São cinco diferenciais, e valem para todos os serviços:
-- **Uma só equipa, com competências integradas.** Desenvolvimento editorial, assessoria e tecnologia trabalham juntas. O cliente não gasta tempo nem recursos a contratar e coordenar fornecedores.
+- **Uma só equipa, com competências integradas.** Desenvolvimento editorial, consultoria estratégica, assessoria estratégica e tecnologia trabalham juntas. O cliente não gasta tempo nem recursos a contratar e coordenar fornecedores.
 - **Estratégia, estrutura, comunicação e operações alinhadas.** Cada serviço liga-se aos outros pelo mesmo método em seis fases, do diagnóstico ao acompanhamento.
 - **Conhecemos o mercado.** Temos uma base de conhecimento nacional e regional, através da SDG (Pty) Ltd na África do Sul e de parceiros internacionais.
 - **Equipa certificada.** O nosso quadro de consultores tem certificações da Google, da Anthropic, da Semrush, da Wix e da Universidade Rock Content.
 - **Entregáveis que ficam.** O cliente recebe documentos, modelos e sistemas que continua a usar depois do projeto.
 ## 02 · O que vendemos: fichas dos serviços
-A Kingdom Company vende 9 serviços em três áreas, e cada um tem uma ficha em seis partes: o que é, que problema resolve, quem tem essa dor, a transformação, o que entregamos e como apresentar comercialmente. O vendedor usa as dores para reconhecer o cliente: quando o ouve descrever uma delas, sabe que serviço apresentar. Os entregáveis marcados (A confirmar) são propostas ainda por validar.
+A Kingdom Company vende 12 serviços em quatro áreas, e cada um tem uma ficha em seis partes: o que é, que problema resolve, quem tem essa dor, a transformação, o que entregamos e como apresentar comercialmente. O vendedor usa as dores para reconhecer o cliente: quando o ouve descrever uma delas, sabe que serviço apresentar. Os entregáveis marcados (A confirmar) são propostas ainda por validar.
 **Regra: não vender características.** Cada característica liga-se a um problema e a um resultado. Por exemplo: «o perfil vem em PDF, PPTX e DOCX» (característica) → «a sua equipa adapta-o a cada proposta sem pedir a um designer» (resultado).
 #### Desenvolvimento Editorial · Identidade Visual
 | Ficha do serviço | Identidade Visual
@@ -59,7 +59,37 @@ A Kingdom Company vende 9 serviços em três áreas, e cada um tem uma ficha em 
 | 4. Transformação: depois | Uma empresa que é levada a sério à primeira, com uma apresentação profissional, atualizada e fácil de adaptar a cada oportunidade.
 | 5. O que entregamos? | • Entrevista com a direção. / • Redação e revisão dos textos. / • Paginação com a marca da empresa. / • Portefólio de projetos e clientes. / • Versões em PDF, PPTX e DOCX, prontas a enviar e a editar. / • Versão para impressão.
 | 6. Como apresentar comercialmente? | «Ajudamos empresas a apresentar-se ao nível do que já entregam. Escrevemos e desenhamos o perfil corporativo que mostra a história, os serviços e os projetos da empresa, pronto a enviar a clientes, parceiros e financiadores.»
-#### Assessoria · Produção Audiovisual
+#### Consultoria Estratégica · Plano de Negócios
+| Ficha do serviço | Plano de Negócios
+| 1. O que é? | É um serviço de elaboração do plano de negócios, que estrutura o modelo de negócio, o mercado, a concorrência e as projeções financeiras num documento que bancos, investidores e parceiros conseguem avaliar.
+| 2. Que problema resolve? | Resolve a dificuldade de empreendedores e empresas que precisam de financiamento ou de validar um investimento, mas não conseguem demonstrar, com números sólidos, que o negócio é viável.
+| Dores identificadas | • O banco ou o investidor pede um plano e não sabe por onde começar. / • As projeções financeiras não resistem às primeiras perguntas. / • Não sabe quanto pedir, para quê, nem em quanto tempo consegue pagar. / • A ideia tem potencial, mas não é apresentada de forma convincente. / • Vai investir sem ter validado o mercado, os custos e o retorno.
+| 3. Quem tem essa dor? | • Empreendedores que estão a iniciar um negócio. / • Empresas que vão pedir crédito bancário. / • Empresas que querem captar investidores ou sócios. / • Empresas que vão expandir, abrir uma nova unidade ou lançar uma linha de negócio. / • Candidatos a programas de financiamento com prazo de submissão.
+| 4. Transformação: antes | Uma ideia ou um projeto de expansão sem estrutura nem números que convençam quem financia.
+| 4. Transformação: depois | Um plano de negócios sólido, com números que se defendem, pronto a apresentar a bancos e investidores e a orientar o crescimento.
+| 5. O que entregamos? | • Análise do mercado e da concorrência. / • Modelo de negócio. / • Projeções financeiras. / • Plano de negócios completo. / • Pitch deck para investidores. / • Modelo financeiro editável. / • Preparação para a reunião com bancos e investidores.
+| 6. Como apresentar comercialmente? | «Ajudamos empreendedores e empresas a transformar uma ideia ou um projeto de expansão num plano de negócios sólido. Estruturamos o mercado, o modelo e os números para que chegue ao banco ou ao investidor preparado para responder a todas as perguntas.»
+#### Consultoria Estratégica · Planeamento Estratégico
+| Ficha do serviço | Planeamento Estratégico
+| 1. O que é? | É um serviço de consultoria que conduz a direção na definição das prioridades, metas e responsáveis para o ano, e transforma essas decisões num plano de ação que se consegue acompanhar.
+| 2. Que problema resolve? | Resolve a dificuldade de empresas que crescem ou mudam sem um rumo claro, em que a equipa trabalha muito mas sem prioridades, metas nem responsabilidades definidas.
+| Dores identificadas | • A empresa trabalha muito, mas não sabe para onde vai. / • Tudo é urgente e nada avança. / • As metas ficam no papel e ninguém responde por elas. / • O dono passa o dia a apagar fogos em vez de dirigir. / • Sócios e diretores puxam em direções diferentes.
+| 3. Quem tem essa dor? | • Empresas em crescimento que perderam o foco. / • Empresas no início de um novo ano fiscal. / • Empresas com vendas ou resultados estagnados. / • Empresas com novos sócios, nova direção ou uma mudança de estratégia.
+| 4. Transformação: antes | Uma empresa que reage ao dia a dia, com uma equipa ocupada mas desalinhada.
+| 4. Transformação: depois | Uma empresa com um rumo definido, metas claras, responsáveis por cada uma e uma direção que acompanha os resultados.
+| 5. O que entregamos? (A confirmar) | • Diagnóstico da situação atual. / • Sessões de trabalho com a direção. / • Prioridades e metas para o ano. / • Plano de ação com responsáveis e prazos. / • Indicadores de acompanhamento. / • Reuniões de acompanhamento da execução.
+| 6. Como apresentar comercialmente? | «Ajudamos a direção a definir para onde a empresa vai e como lá chegar. Transformamos as prioridades em metas, responsáveis e um plano de ação acompanhado, para que a equipa trabalhe na mesma direção e os resultados apareçam.»
+#### Consultoria Estratégica · Advisory (Aconselhamento Empresarial)
+| Ficha do serviço | Advisory (Aconselhamento Empresarial)
+| 1. O que é? | É um serviço de aconselhamento empresarial que apoia donos e diretores na análise de uma decisão importante, dos seus cenários e riscos, antes de avançar.
+| 2. Que problema resolve? | Resolve a dificuldade de quem tem de tomar decisões com grande impacto na empresa sem uma opinião independente e experiente com quem as discutir.
+| Dores identificadas | • Decide sozinho, sem ninguém de confiança com quem discutir. / • Tem uma decisão grande à frente e muito em jogo. / • Já perdeu dinheiro por decidir com pressa ou sem informação. / • Os conselhos que recebe vêm de quem tem algo a ganhar. / • Adia a decisão porque não consegue ver os riscos com clareza.
+| 3. Quem tem essa dor? | • Donos e sócios perante um investimento importante. / • Empresas a escolher um novo sócio, parceiro ou mercado. / • Diretores perante uma reestruturação, uma contratação-chave ou uma mudança de modelo de negócio.
+| 4. Transformação: antes | Uma decisão adiada ou tomada às cegas, com medo de errar.
+| 4. Transformação: depois | Uma decisão tomada com clareza e segurança, conhecendo os cenários, os riscos e o plano B.
+| 5. O que entregamos? (A confirmar) | • Sessão para perceber a decisão e o contexto. / • Análise de cenários e riscos. / • Recomendação por escrito. / • Sessões de acompanhamento da execução.
+| 6. Como apresentar comercialmente? | «Ajudamos donos e diretores a tomar decisões importantes com mais clareza e menos risco. Analisamos consigo os cenários e as consequências, para que avance com segurança e com um plano para o que pode correr mal.»
+#### Assessoria Estratégica · Produção Audiovisual
 | Ficha do serviço | Produção Audiovisual
 | 1. O que é? | É um serviço de produção de vídeo e fotografia, do guião à edição, que mostra a empresa, a equipa, os produtos e os projetos com qualidade profissional.
 | 2. Que problema resolve? | Resolve a dificuldade de empresas que não têm conteúdo visual próprio capaz de mostrar a qualidade do que fazem, e por isso não são vistas nem lembradas por quem decide.
@@ -69,7 +99,7 @@ A Kingdom Company vende 9 serviços em três áreas, e cada um tem uma ficha em 
 | 4. Transformação: depois | Uma empresa vista e lembrada, com conteúdo profissional que mostra a sua qualidade antes da primeira reunião.
 | 5. O que entregamos? (A confirmar) | • Guião e plano de filmagem. / • Captação de vídeo e fotografia. / • Edição e pós-produção. / • Vídeo institucional. / • Versões curtas para as redes sociais.
 | 6. Como apresentar comercialmente? | «Ajudamos empresas a mostrar o que fazem com a qualidade que merecem. Produzimos vídeos e fotografias que apresentam a empresa, a equipa e os projetos, para que os clientes percebam o seu valor antes de falarem consigo.»
-#### Assessoria · Gestão de Redes Sociais
+#### Assessoria Estratégica · Gestão de Redes Sociais
 | Ficha do serviço | Gestão de Redes Sociais
 | 1. O que é? | É um serviço mensal de gestão das redes sociais da empresa, que planeia, cria e publica os conteúdos e mede o que resultou.
 | 2. Que problema resolve? | Resolve a dificuldade de empresas que não têm tempo nem equipa para manter uma presença regular e profissional nas redes, onde os clientes as procuram antes de comprar.
@@ -79,7 +109,7 @@ A Kingdom Company vende 9 serviços em três áreas, e cada um tem uma ficha em 
 | 4. Transformação: depois | Uma presença constante e profissional, que gera confiança e contactos sem ocupar o tempo da direção.
 | 5. O que entregamos? (A confirmar) | • Estratégia e linha editorial. / • Calendário mensal de publicações. / • Criação dos conteúdos (texto e design). / • Publicação nas redes acordadas. / • Relatório mensal de resultados.
 | 6. Como apresentar comercialmente? | «Ajudamos empresas a manter uma presença profissional e constante nas redes sociais. Planeamos, criamos e publicamos os conteúdos todos os meses, para que a sua empresa transmita confiança a quem a procura, sem ocupar o seu tempo.»
-#### Assessoria · Produção de Campanhas Publicitárias
+#### Assessoria Estratégica · Produção de Campanhas Publicitárias
 | Ficha do serviço | Produção de Campanhas Publicitárias
 | 1. O que é? | É um serviço de planeamento e produção de campanhas publicitárias, do objetivo e da mensagem aos criativos e aos anúncios, com o resultado medido no fim.
 | 2. Que problema resolve? | Resolve a dificuldade de empresas que investem em publicidade sem estratégia, sem saber o que cada anúncio traz, ou que têm um lançamento sem plano de comunicação.

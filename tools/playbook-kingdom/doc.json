@@ -468,7 +468,7 @@
     "i": false
    },
    {
-    "t": " história e missão da empresa, teoria de vendas, guiões para decorar e serviços que não são vendidos por esta equipa. Ficam de fora o Business Advising com o Shelton, que fecha direto no site (R08), o treino de equipas, que passou para o Kingdom Training, e a Consultoria Estratégica (Plano de Negócios, Planeamento Estratégico e Advisory), que passou para a DT Company (R04). No PDF, cada página responde a uma só consulta: um vendedor deve encontrar o que precisa em menos de 30 segundos.",
+    "t": " história e missão da empresa, teoria de vendas, guiões para decorar e serviços que não são vendidos por esta equipa. Ficam de fora o Business Advising com o Shelton, que fecha direto no site (R08), e o treino de equipas, que é da DT Company (R40). A Consultoria Estratégica é vendida por esta equipa e também pela DT Company (R04). No PDF, cada página responde a uma só consulta: um vendedor deve encontrar o que precisa em menos de 30 segundos.",
     "b": false,
     "i": false
    }
@@ -551,7 +551,7 @@
      "h": 0,
      "runs": [
       {
-       "t": "Reunimos diferentes competências numa só equipa, que integra desenvolvimento editorial, assessoria empresarial e desenvolvimento tecnológico. Assim, alinhamos estratégia, estrutura, comunicação e operações para fortalecer o desempenho da empresa e criar bases sólidas para um crescimento sustentável, sem que o cliente tenha de investir tempo e recursos a contratar e coordenar vários fornecedores.",
+       "t": "Reunimos diferentes competências numa só equipa, que integra desenvolvimento editorial, consultoria estratégica, assessoria estratégica e desenvolvimento tecnológico. Assim, alinhamos estratégia, estrutura, comunicação e operações para fortalecer o desempenho da empresa e criar bases sólidas para um crescimento sustentável, sem que o cliente tenha de investir tempo e recursos a contratar e coordenar vários fornecedores.",
        "b": false,
        "i": false
       }
@@ -597,7 +597,7 @@
        "i": false
       },
       {
-       "t": " Desenvolvimento editorial, assessoria e tecnologia trabalham juntas. O cliente não gasta tempo nem recursos a contratar e coordenar fornecedores.",
+       "t": " Desenvolvimento editorial, consultoria estratégica, assessoria estratégica e tecnologia trabalham juntas. O cliente não gasta tempo nem recursos a contratar e coordenar fornecedores.",
        "b": false,
        "i": false
       }
@@ -694,7 +694,7 @@
   "h": 0,
   "runs": [
    {
-    "t": "A Kingdom Company vende 9 serviços em três áreas, e cada um tem uma ficha em seis partes: o que é, que problema resolve, quem tem essa dor, a transformação, o que entregamos e como apresentar comercialmente. O vendedor usa as dores para reconhecer o cliente: quando o ouve descrever uma delas, sabe que serviço apresentar. Os entregáveis marcados (A confirmar) são propostas ainda por validar.",
+    "t": "A Kingdom Company vende 12 serviços em quatro áreas, e cada um tem uma ficha em seis partes: o que é, que problema resolve, quem tem essa dor, a transformação, o que entregamos e como apresentar comercialmente. O vendedor usa as dores para reconhecer o cliente: quando o ouve descrever uma delas, sabe que serviço apresentar. Os entregáveis marcados (A confirmar) são propostas ainda por validar.",
     "b": false,
     "i": false
    }
@@ -1943,7 +1943,1196 @@
   "h": 4,
   "runs": [
    {
-    "t": "Assessoria · Produção Audiovisual",
+    "t": "Consultoria Estratégica · Plano de Negócios",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Plano de Negócios",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de elaboração do plano de negócios, que estrutura o modelo de negócio, o mercado, a concorrência e as projeções financeiras num documento que bancos, investidores e parceiros conseguem avaliar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empreendedores e empresas que precisam de financiamento ou de validar um investimento, mas não conseguem demonstrar, com números sólidos, que o negócio é viável.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• O banco ou o investidor pede um plano e não sabe por onde começar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• As projeções financeiras não resistem às primeiras perguntas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Não sabe quanto pedir, para quê, nem em quanto tempo consegue pagar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• A ideia tem potencial, mas não é apresentada de forma convincente.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Vai investir sem ter validado o mercado, os custos e o retorno.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empreendedores que estão a iniciar um negócio.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que vão pedir crédito bancário.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que querem captar investidores ou sócios.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas que vão expandir, abrir uma nova unidade ou lançar uma linha de negócio.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Candidatos a programas de financiamento com prazo de submissão.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma ideia ou um projeto de expansão sem estrutura nem números que convençam quem financia.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Um plano de negócios sólido, com números que se defendem, pronto a apresentar a bancos e investidores e a orientar o crescimento.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Análise do mercado e da concorrência.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Modelo de negócio.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Projeções financeiras.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Plano de negócios completo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Pitch deck para investidores.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Modelo financeiro editável.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Preparação para a reunião com bancos e investidores.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos empreendedores e empresas a transformar uma ideia ou um projeto de expansão num plano de negócios sólido. Estruturamos o mercado, o modelo e os números para que chegue ao banco ou ao investidor preparado para responder a todas as perguntas.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Consultoria Estratégica · Planeamento Estratégico",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Planeamento Estratégico",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de consultoria que conduz a direção na definição das prioridades, metas e responsáveis para o ano, e transforma essas decisões num plano de ação que se consegue acompanhar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de empresas que crescem ou mudam sem um rumo claro, em que a equipa trabalha muito mas sem prioridades, metas nem responsabilidades definidas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• A empresa trabalha muito, mas não sabe para onde vai.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Tudo é urgente e nada avança.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• As metas ficam no papel e ninguém responde por elas.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• O dono passa o dia a apagar fogos em vez de dirigir.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Sócios e diretores puxam em direções diferentes.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas em crescimento que perderam o foco.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas no início de um novo ano fiscal.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com vendas ou resultados estagnados.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas com novos sócios, nova direção ou uma mudança de estratégia.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma empresa que reage ao dia a dia, com uma equipa ocupada mas desalinhada.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma empresa com um rumo definido, metas claras, responsáveis por cada uma e uma direção que acompanha os resultados.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos? (A confirmar)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Diagnóstico da situação atual.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Sessões de trabalho com a direção.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Prioridades e metas para o ano.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Plano de ação com responsáveis e prazos.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Indicadores de acompanhamento.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Reuniões de acompanhamento da execução.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos a direção a definir para onde a empresa vai e como lá chegar. Transformamos as prioridades em metas, responsáveis e um plano de ação acompanhado, para que a equipa trabalhe na mesma direção e os resultados apareçam.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Consultoria Estratégica · Advisory (Aconselhamento Empresarial)",
+    "b": false,
+    "i": false
+   }
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Ficha do serviço",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Advisory (Aconselhamento Empresarial)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "1. O que é?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "É um serviço de aconselhamento empresarial que apoia donos e diretores na análise de uma decisão importante, dos seus cenários e riscos, antes de avançar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "2. Que problema resolve?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Resolve a dificuldade de quem tem de tomar decisões com grande impacto na empresa sem uma opinião independente e experiente com quem as discutir.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Dores identificadas",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Decide sozinho, sem ninguém de confiança com quem discutir.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Tem uma decisão grande à frente e muito em jogo.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Já perdeu dinheiro por decidir com pressa ou sem informação.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Os conselhos que recebe vêm de quem tem algo a ganhar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Adia a decisão porque não consegue ver os riscos com clareza.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "3. Quem tem essa dor?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Donos e sócios perante um investimento importante.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Empresas a escolher um novo sócio, parceiro ou mercado.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Diretores perante uma reestruturação, uma contratação-chave ou uma mudança de modelo de negócio.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: antes",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma decisão adiada ou tomada às cegas, com medo de errar.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "4. Transformação: depois",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "Uma decisão tomada com clareza e segurança, conhecendo os cenários, os riscos e o plano B.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "5. O que entregamos? (A confirmar)",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Sessão para perceber a decisão e o contexto.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Análise de cenários e riscos.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Recomendação por escrito.",
+        "b": false,
+        "i": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "• Sessões de acompanhamento da execução.",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ],
+   [
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "6. Como apresentar comercialmente?",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ],
+    [
+     {
+      "type": "p",
+      "h": 0,
+      "runs": [
+       {
+        "t": "«Ajudamos donos e diretores a tomar decisões importantes com mais clareza e menos risco. Analisamos consigo os cenários e as consequências, para que avance com segurança e com um plano para o que pode correr mal.»",
+        "b": false,
+        "i": false
+       }
+      ]
+     }
+    ]
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "h": 4,
+  "runs": [
+   {
+    "t": "Assessoria Estratégica · Produção Audiovisual",
     "b": false,
     "i": false
    }
@@ -2332,7 +3521,7 @@
   "h": 4,
   "runs": [
    {
-    "t": "Assessoria · Gestão de Redes Sociais",
+    "t": "Assessoria Estratégica · Gestão de Redes Sociais",
     "b": false,
     "i": false
    }
@@ -2721,7 +3910,7 @@
   "h": 4,
   "runs": [
    {
-    "t": "Assessoria · Produção de Campanhas Publicitárias",
+    "t": "Assessoria Estratégica · Produção de Campanhas Publicitárias",
     "b": false,
     "i": false
    }

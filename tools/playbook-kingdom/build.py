@@ -67,7 +67,7 @@ for i, b in enumerate(doc):
             'validar': 'confirmar' in chave5,
             'pitch': cel(d['6. Como apresentar comercialmente?'])[0],
         })
-assert len(fichas) == 9, len(fichas)
+assert len(fichas) == 12, len(fichas)
 
 bant = tabela('Critério')
 processo = tabela('Etapa')
@@ -179,7 +179,7 @@ paginas.append(f'''<section class="pagina escura capa">
     <span class="selo">Uso interno · Equipa comercial</span>
     <h1>Playbook<br>de vendas</h1>
     <p>Guia de abordagem, qualificação e conversão comercial para o SDR e o Closer.</p>
-    <span class="meta">Versão 1.1 · Novembro de 2026</span>
+    <span class="meta">Versão 1.2 · Novembro de 2026</span>
   </div>
 </section>''')
 paginas.append('__COMO__')
@@ -203,15 +203,15 @@ pagina(f'''{cabeca('Porque escolher a Kingdom Company', 'Cinco diferenciais que 
 
 # ---------- 02 ----------
 capa_seccao('02', 'O que vendemos',
-            'Nove serviços em três áreas, cada um com uma ficha em seis partes. O vendedor usa as dores para reconhecer o cliente: quando o ouve descrever uma delas, sabe que serviço apresentar.',
-            ['Mapa dos 9 serviços', 'Regra: não vender características', 'As 9 fichas comerciais'])
+            'Doze serviços em quatro áreas, cada um com uma ficha em seis partes. O vendedor usa as dores para reconhecer o cliente: quando o ouve descrever uma delas, sabe que serviço apresentar.',
+            ['Mapa dos 12 serviços', 'Regra: não vender características', 'As 12 fichas comerciais'])
 areas = {}
 for k, f in enumerate(fichas):
     areas.setdefault(f['area'], []).append((k, f['nome']))
 cols = []
 for a, ss in areas.items():
     cols.append(f'<h4 class="gt">{E(a)}</h4><ol class="servs">' + ''.join(f'<li><span>{k+1:02d}</span>{E(n)}</li>' for k, n in ss) + '</ol>')
-pagina(f'''{cabeca('Nove serviços, três áreas', 'Cada ficha tem seis partes: o que é, que problema resolve, quem tem essa dor, a transformação, o que entregamos e como apresentar comercialmente.', centro=True)}
+pagina(f'''{cabeca('Doze serviços, quatro áreas', 'Cada ficha tem seis partes: o que é, que problema resolve, quem tem essa dor, a transformação, o que entregamos e como apresentar comercialmente.', centro=True)}
 {grade(cols)}
 <div class="regra-l"><span class="rot">Regra</span>{destaque('Não vender características.', 'Cada característica liga-se a um problema e a um resultado. Por exemplo: «o perfil vem em PDF, PPTX e DOCX» (característica) → «a sua equipa adapta-o a cada proposta sem pedir a um designer» (resultado).')}<p class="nota">Os entregáveis marcados <span class="tag">a validar</span> aguardam confirmação da direção.</p></div>''', '02 · O que vendemos')
 
@@ -219,13 +219,13 @@ for k, f in enumerate(fichas, 1):
     tag = ' <span class="tag">a validar</span>' if f['validar'] else ''
     sec = f'02 · Ficha {k:02d} · {f["nome"]}'
     # página A: o serviço e o cliente
-    pagina(f'''<div class="ficha-cab"><span class="rot">{E(f['area'])} · Ficha {k:02d} de 9</span><h2>{E(f['nome'])}</h2></div>
+    pagina(f'''<div class="ficha-cab"><span class="rot">{E(f['area'])} · Ficha {k:02d} de {len(fichas)}</span><h2>{E(f['nome'])}</h2></div>
 {grade([f'{icone("1")}<h4 class="gt">O que é?</h4><p class="cz">{f["oque"]}</p>',
         f'{icone("2")}<h4 class="gt">Que problema resolve?</h4><p class="cz">{f["problema"]}</p>'], 2, 'grande')}
 {grade([f'<span class="ico alerta">!</span><h4 class="gt">Dores identificadas</h4>{lista_html(f["dores"], "dores")}',
         f'{icone("3")}<h4 class="gt">Quem tem essa dor?</h4>{lista_html(f["quem"])}'], 2, 'sem-topo')}''', sec)
     # página B: a solução e como vender
-    pagina(f'''<div class="ficha-cab"><span class="rot">{E(f['area'])} · Ficha {k:02d} de 9</span><h2>{E(f['nome'])}</h2></div>
+    pagina(f'''<div class="ficha-cab"><span class="rot">{E(f['area'])} · Ficha {k:02d} de {len(fichas)}</span><h2>{E(f['nome'])}</h2></div>
 {grade([f'{icone("4")}<h4 class="gt">Qual é a transformação?</h4><div class="ad"><p class="antes"><span>Antes</span>{f["antes"]}</p><p class="depois"><span>Depois</span>{f["depois"]}</p></div>',
         f'{icone("5")}<h4 class="gt">O que entregamos?{tag}</h4>{lista_html(f["entrega"], "checks")}'], 2, 'grande')}
 <div class="pitch"><blockquote class="citacao media">«{re.sub(r"^«|»$", "", f["pitch"])}»</blockquote><p class="cit-autor"><strong>6 · Como apresentar comercialmente.</strong> Dizer por palavras próprias, ligado à dor que o cliente descreveu.</p></div>''', sec)

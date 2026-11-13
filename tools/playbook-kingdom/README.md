@@ -8,4 +8,4 @@ A fonte é o documento do Claude «Playbook de vendas · Kingdom Company»
 3. PDF A4 horizontal: `python3 build.py && node render.mjs "$PWD"` (gera `playbook.pdf`).
 4. PDF para telemóvel: `python3 movel.py && node render-movel.mjs "$PWD"`.
 
-Versão 1.1 (11/11/2026): 3 áreas e 9 serviços. A Consultoria Estratégica passou para a DT Company (R04, R40).
+Versão 1.2 (13/11/2026): 4 áreas e 12 serviços. A Consultoria Estratégica voltou à Kingdom Company e existe também na DT Company (R04, R40); a área Assessoria chama-se Assessoria Estratégica.
