@@ -288,7 +288,7 @@ def main():
             'Ferramentas gratuitas para empresas: diagnóstico do negócio, calculadora do ponto de equilíbrio e calculadora do retorno de campanhas, em meticais.',
             None, pagina_ferramentas(), SITE / 'ferramentas-gratuitas.html')
     escreve(antes, depois, '/materiais-gratuitos', 'Materiais Gratuitos: Guias e Checklists · Kingdom Company',
-            'Guias e checklists gratuitos para empresas em Moçambique: proposta técnica para concursos e perfil corporativo.',
+            'Guias e checklists gratuitos para empresas em Moçambique: proposta técnica para concursos, perfil corporativo e plano de negócios para o banco.',
             None, pagina_materiais(), SITE / 'materiais-gratuitos' / 'index.html')
     for m in MATERIAIS:
         escreve(antes, depois, f'/materiais-gratuitos/{m["slug"]}', f'{m["seo"][0]} · Kingdom Company', m['seo'][1],

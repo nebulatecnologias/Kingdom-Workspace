@@ -17,6 +17,21 @@
    ]
   },
   {
+   "slug": "consultoria-estrategica",
+   "nome": "Consultoria Estratégica",
+   "ancora": "area-consultoria",
+   "resumo": "Decisões com base em dados, não em palpites.",
+   "pitch": "Ajudamos donos e diretores a decidir com clareza e a pôr a empresa a trabalhar na mesma direção. Estruturamos o plano de negócios, as prioridades e as decisões importantes com números e cenários, para que avance com segurança.",
+   "urgencia": [
+    "Cada decisão adiada custa mais do que parece.",
+    "Enquanto a direção não está definida, o tempo, o dinheiro e a equipa dispersam-se pelo que não dá resultado."
+   ],
+   "seo": [
+    "Consultoria Estratégica e Empresarial em Maputo",
+    "Consultoria empresarial em Moçambique: plano de negócios, planeamento estratégico e aconselhamento para decisões importantes."
+   ]
+  },
+  {
    "slug": "assessoria",
    "nome": "Assessoria Estratégica",
    "ancora": "area-assessoria",

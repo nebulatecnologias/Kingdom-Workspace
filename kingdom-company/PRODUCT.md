@@ -20,7 +20,7 @@ A Kingdom Company é uma empresa moçambicana de desenvolvimento empresarial, me
 
 ## Positioning
 
-«Um único lugar. Tudo o que precisa para desenvolver o seu negócio.» Três áreas debaixo do mesmo método (Diagnóstico, Estratégia, Implementação, Autonomia) e da mesma equipa, em vez de vários fornecedores: Desenvolvimento Editorial, Assessoria e Desenvolvimento Tecnológico (R04). A Consultoria Estratégica e o Treinamento Corporativo passaram para a DT Company a 11/11/2026 (R40). É membro da SDG (Pty) Ltd, com o Kingdom Training e a Kingdom Academy como frentes irmãs; no site usa-se sempre «SDG (Pty) Ltd», nunca «grupo Kingdom» (decisão do cliente, 08/11/2026). O fundador não aparece neste site (decisão do cliente, 08/11/2026): nem fotografia, nem nome.
+«Um único lugar. Tudo o que precisa para desenvolver o seu negócio.» Quatro áreas debaixo do mesmo método (Diagnóstico, Estratégia, Implementação, Autonomia) e da mesma equipa, em vez de vários fornecedores: Desenvolvimento Editorial, Consultoria Estratégica, Assessoria Estratégica e Desenvolvimento Tecnológico (R04). A Consultoria Estratégica existe também na DT Company desde 11/11/2026 e voltou a este site a 13/11/2026; o Treinamento Corporativo é só da DT (R40). É membro da SDG (Pty) Ltd, com o Kingdom Training e a Kingdom Academy como frentes irmãs; no site usa-se sempre «SDG (Pty) Ltd», nunca «grupo Kingdom» (decisão do cliente, 08/11/2026). O fundador não aparece neste site (decisão do cliente, 08/11/2026): nem fotografia, nem nome.
 
 ## Operating Context
 

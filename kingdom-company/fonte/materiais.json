@@ -130,6 +130,86 @@
      ]
     ]
    ]
+  },
+  {
+   "slug": "estrutura-plano-de-negocios",
+   "titulo": "Estrutura de um plano de negócios para o banco",
+   "seo": [
+    "Estrutura de um Plano de Negócios para o Banco",
+    "Guia gratuito com a estrutura de um plano de negócios para pedir financiamento a um banco ou investidor em Moçambique, secção a secção."
+   ],
+   "resumo": "As secções que um banco ou um investidor espera encontrar num plano de negócios.",
+   "tipo": "Guia",
+   "servico": [
+    "consultoria-estrategica",
+    "plano-de-negocios"
+   ],
+   "intro": "Quem financia lê o plano de negócios para responder a três perguntas: o negócio faz sentido, a equipa consegue executá-lo e o dinheiro volta. Esta estrutura segue essas perguntas.",
+   "grupos": [
+    [
+     "Sumário executivo",
+     [
+      "Uma ou duas páginas, escritas no fim: o negócio, o mercado, o que pede e para quê.",
+      "O valor do financiamento, a sua utilização e o prazo de reembolso previsto."
+     ]
+    ],
+    [
+     "A empresa e os promotores",
+     [
+      "Forma jurídica, data de constituição, sócios e participações.",
+      "Experiência dos promotores e da equipa de gestão no setor."
+     ]
+    ],
+    [
+     "Produto ou serviço",
+     [
+      "O que vende, a quem e que problema resolve.",
+      "O que o distingue da concorrência."
+     ]
+    ],
+    [
+     "Mercado e concorrência",
+     [
+      "Dimensão do mercado e tendência, com fontes.",
+      "Os clientes-alvo e como compram.",
+      "Os principais concorrentes, os seus preços e os seus pontos fracos."
+     ]
+    ],
+    [
+     "Marketing e vendas",
+     [
+      "Preços e política de preços.",
+      "Canais de venda e de comunicação.",
+      "Metas de vendas por mês no primeiro ano e por ano depois."
+     ]
+    ],
+    [
+     "Operações",
+     [
+      "Localização, instalações e equipamentos.",
+      "Fornecedores principais e prazos.",
+      "Equipa necessária, por função, e calendário de contratações."
+     ]
+    ],
+    [
+     "Plano financeiro",
+     [
+      "Investimento inicial, item a item.",
+      "Fontes de financiamento: capitais próprios, empréstimo, outros.",
+      "Projeções de vendas, custos e resultados para 3 a 5 anos.",
+      "Mapa de tesouraria mensal no primeiro ano.",
+      "Ponto de equilíbrio e indicadores: margem, VAL, TIR e prazo de recuperação.",
+      "Pressupostos das projeções explicados e realistas."
+     ]
+    ],
+    [
+     "Riscos e anexos",
+     [
+      "Os principais riscos e o plano para cada um.",
+      "Anexos: documentos da empresa, orçamentos de fornecedores, licenças e currículos."
+     ]
+    ]
+   ]
   }
  ]
 }
