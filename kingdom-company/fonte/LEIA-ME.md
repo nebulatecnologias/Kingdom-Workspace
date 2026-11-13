@@ -46,7 +46,7 @@ No Google Analytics, marque `generate_lead` como evento-chave (conversão).
 
 ## Publicar um caso de cliente
 
-Os dados vêm da ficha preenchida no documento «Casos por serviço».
+Os dados vêm da ficha preenchida no documento «Casos de clientes · Kingdom Company» (https://claude.ai/artifact/W6gb5bXbthJYdfaZ5F75sV), com um separador por serviço.
 
 1. Criar a pasta `fonte/casos/<slug>/` com o logótipo do cliente (versão normal, a cores; SVG ou PNG) e pelo menos 6 imagens do projeto, com nomes que digam o que mostram.
 2. Acrescentar o caso a `fonte/casos.json`:
