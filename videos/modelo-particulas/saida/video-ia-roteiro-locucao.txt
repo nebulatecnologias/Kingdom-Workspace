@@ -1,0 +1,32 @@
+ROTEIRO PARA LOCUÇÃO — cada linha começa no tempo indicado (min:seg)
+Ritmo do vídeo: ~2,8 palavras por segundo.
+
+[0:00.45]  Em 1950,
+[0:01.24]  Alan Turing fez uma pergunta simples:
+[0:04.95]  As máquinas podem pensar?
+[0:08.33]  Por décadas,
+[0:09.31]  a resposta foi:
+[0:10.88]  ainda não.
+[0:12.80]  Em 1997,
+[0:13.59]  uma máquina vence Kasparov no xadrez.
+[0:17.30]  Em 2012,
+[0:18.09]  ela aprende a ver.
+[0:20.99]  Em 2017,
+[0:21.77]  um artigo do Google muda tudo.
+[0:25.45]  Em 2022,
+[0:26.23]  ela aprende a conversar.
+[0:28.32]  Cem milhões de pessoas em dois meses.
+[0:32.32]  Hoje, ela já não só responde.
+[0:34.96]  Ela age.
+[0:35.99]  Isso tem nome:
+[0:37.39]  agentes.
+[0:39.63]  Recebe um objetivo,
+[0:41.10]  pesquisa, planeja,
+[0:42.54]  executa, testa e entrega.
+[0:45.95]  E o tamanho das tarefas que ela
+[0:48.34]  faz sozinha dobra a cada sete meses.
+[0:52.66]  A pergunta de Turing mudou.
+[0:55.05]  Não é mais se as máquinas podem
+[0:57.39]  pensar.
+[0:59.38]  É o que você vai fazer com
+[1:01.48]  elas.
