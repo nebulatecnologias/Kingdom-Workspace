@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-MZ">
+<head>
+<meta charset="utf-8">
+<title>Kingdom Company: modelos de post</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+/* 3 modelos 1080x1350 para Instagram: claro (marfim), índigo em gradiente (Aurora), preto fosco com poeira e vidro.
+   Regras do manual: logótipo numa só cor e sem efeitos; gradientes sempre com grão e texto branco; laranja só em botões e destaques. */
+body{ background:#3a3848; display:flex; gap:40px; padding:40px; width:max-content; }
+.post{ position:relative; width:1080px; height:1350px; overflow:hidden; isolation:isolate; }
+.cam{ position:absolute; inset:0; pointer-events:none; }
+.grao{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.topo{ position:absolute; left:88px; right:88px; top:84px; display:flex; justify-content:space-between; align-items:center; }
+.pilula{ display:inline-flex; align-items:center; gap:14px; height:52px; padding:0 26px; border-radius:999px; font-weight:700; font-size:20px; letter-spacing:.16em; text-transform:uppercase; }
+.rodape{ position:absolute; left:88px; right:88px; bottom:78px; display:flex; justify-content:space-between; align-items:center; font-size:24px; }
+.seta{ width:30px; height:30px; }
+
+/* ---------- 1 · Claro (marfim) ---------- */
+.claro{ background:var(--marfim); color:var(--indigo); }
+.claro .padrao{ position:absolute; left:0; top:0; width:100%; height:760px; opacity:.07; color:var(--indigo);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 100%); }
+.claro .pilula{ border:1.5px solid var(--indigo); color:var(--indigo); height:46px; font-size:18px; }
+.mosaico{ position:absolute; left:88px; right:88px; top:214px; display:grid; grid-template-columns:1fr 1.12fr 1fr; gap:34px; align-items:end; }
+.mosaico figure{ display:flex; flex-direction:column; align-items:center; gap:22px; }
+.mosaico figcaption{ font-size:24px; font-weight:500; letter-spacing:-0.01em; color:var(--cinza-indigo); }
+.mosaico .ativo figcaption{ color:var(--indigo); }
+.ladrilho{ width:100%; aspect-ratio:1; border-radius:48px; display:grid; place-items:center; background:#fff;
+  border:1.5px solid var(--linha); box-shadow:0 1px 2px rgba(28,26,48,.04), 0 18px 40px -24px rgba(28,26,48,.22); }
+.ladrilho svg{ width:38%; height:38%; color:var(--cinza-indigo); }
+.ativo .ladrilho{ background:var(--indigo); border-color:var(--indigo); box-shadow:0 2px 4px rgba(28,26,48,.08), 0 30px 60px -26px rgba(28,26,48,.4); }
+.ativo .ladrilho svg{ width:56%; height:56%; color:#fff; }
+.ligacao{ position:absolute; left:88px; right:88px; top:214px; height:248px; pointer-events:none; }
+.ligacao i{ position:absolute; top:50%; height:0; border-top:2px dashed var(--linha); }
+.claro .bloco{ position:absolute; left:88px; right:88px; top:650px; }
+.claro .t-etq{ color:var(--laranja-fundo); }
+.claro h1{ font-size:84px; margin-top:28px; color:var(--indigo); }
+.claro .t-sub{ font-size:34px; color:var(--cinza-indigo); margin-top:30px; font-weight:400; letter-spacing:-0.01em; }
+.botao{ display:inline-flex; align-items:center; gap:16px; height:84px; padding:0 40px 0 44px; border-radius:999px; background:var(--laranja); color:#fff; font-weight:700; font-size:28px; letter-spacing:-0.005em; margin-top:48px; }
+.claro .rodape{ color:var(--cinza-indigo); border-top:1.5px solid var(--linha); padding-top:28px; bottom:64px; }
+
+/* ---------- 2 · Índigo em gradiente (Aurora) ---------- */
+.aurora{ background:var(--g-aurora); color:#fff; }
+.aurora .luz{ position:absolute; border-radius:50%; filter:blur(90px); }
+.aurora .feixe{ position:absolute; width:260px; height:2200px; top:-400px; filter:blur(60px); transform:rotate(-32deg); background:linear-gradient(180deg,transparent,rgba(255,255,255,.12),transparent); }
+.aurora .padrao{ position:absolute; inset:0; width:100%; height:100%; opacity:.10; color:#fff; -webkit-mask-image:radial-gradient(70% 55% at 95% 100%,#000,transparent 75%); }
+.moldura i{ position:absolute; background:rgba(255,255,255,.14); }
+.aurora .t-etq{ color:#fff; opacity:.86; font-size:20px; }
+.aurora h1{ position:absolute; left:88px; right:88px; top:250px; font-size:92px; line-height:1.04; }
+.aurora h1 .ab{ color:rgba(255,255,255,.72); }
+.aurora .simbolo{ position:absolute; right:88px; bottom:190px; width:300px; height:300px; color:#fff; }
+.aurora .pilula{ border:1.5px solid rgba(255,255,255,.55); color:#fff; height:56px; font-size:18px; }
+.aurora .rodape{ color:rgba(255,255,255,.8); }
+
+/* ---------- 3 · Preto fosco com poeira e vidro ---------- */
+.fosco{ background:#0B0A10; color:#fff; }
+.fosco .bruma{ position:absolute; border-radius:50%; filter:blur(110px); }
+.fosco .globo-fundo{ position:absolute; width:1500px; height:1500px; left:-210px; top:130px; color:#fff; opacity:.05; }
+.curva{ position:absolute; left:0; top:200px; width:1080px; height:470px; overflow:visible; }
+.no-rot{ position:absolute; font-size:22px; font-weight:500; letter-spacing:-0.005em; color:var(--lavanda); transform:translateX(-50%); white-space:nowrap; }
+.vidro{ position:absolute; left:88px; right:88px; top:596px; height:590px; border-radius:46px; padding:52px 56px;
+  background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.04) 55%,rgba(255,255,255,.08));
+  -webkit-backdrop-filter:blur(18px) saturate(140%); backdrop-filter:blur(18px) saturate(140%);
+  border:1.5px solid rgba(255,255,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 40px 80px -40px rgba(0,0,0,.8); }
+.vidro .linha-topo{ display:flex; justify-content:space-between; font-size:22px; line-height:1.35; color:rgba(255,255,255,.72); }
+.vidro .linha-topo b{ font-weight:500; color:#fff; }
+.vidro h1{ font-size:84px; margin-top:52px; }
+.vidro p{ font-size:32px; line-height:1.35; color:rgba(255,255,255,.76); margin-top:24px; max-width:760px; }
+.vidro .linha-fim{ position:absolute; left:56px; right:56px; bottom:48px; display:flex; justify-content:space-between; align-items:center; }
+.circulo{ width:76px; height:76px; border-radius:50%; border:2px solid rgba(255,255,255,.85); display:grid; place-items:center; }
+.circulo svg{ width:32px; height:32px; }
+.vidro .estrela{ width:58px; height:60px; color:#fff; }
+.fosco .rodape{ color:rgba(255,255,255,.62); bottom:66px; }
+.fosco .rodape .botao{ margin:0; height:64px; font-size:22px; padding:0 30px 0 34px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="globo" viewBox="0 0 2000 2000"><path fill="currentColor" fill-rule="evenodd" d="M963.0 1999.4C877.7 1995.3 797.5 1982.5 725.1 1961.5C621.1 1931.3 528.2 1887.8 438.7 1827.4C289.6 1726.7 170.7 1587.0 93.5 1422.0C18.1 1260.8 -12.6 1079.7 5.0 901.5C15.5 796.4 42.3 693.7 84.2 598.5C158.8 429.0 277.5 284.8 429.5 178.8C474.9 147.2 526.0 117.8 576.5 94.2C654.9 57.7 739.1 30.8 819.5 16.6C887.5 4.5 932.7 0.5 1000.0 0.6C1072.7 0.6 1124.9 5.7 1196.5 19.6C1309.9 41.7 1426.0 87.6 1527.5 150.4C1598.5 194.4 1671.0 253.6 1726.3 312.8C1803.4 395.3 1860.1 478.7 1906.5 578.0C1981.8 739.2 2012.6 920.4 1995.0 1098.5C1980.1 1248.0 1932.7 1390.1 1854.8 1518.9C1810.3 1592.4 1754.4 1662.0 1691.7 1721.9C1582.0 1826.8 1455.5 1902.7 1310.5 1950.3C1230.9 1976.5 1150.9 1991.9 1064.0 1998.0C1048.5 1999.1 977.2 2000.1 963.0 1999.4ZM948.5 1628.0C948.5 1348.5 949.0 1370.3 942.4 1336.9C923.3 1238.7 859.9 1149.6 773.0 1098.8C731.0 1074.2 682.8 1058.6 638.1 1055.1C630.7 1054.5 609.2 1054.0 590.3 1054.0L556.0 1054.0L556.0 1059.8C556.0 1075.4 559.8 1134.1 563.1 1169.0C573.5 1280.7 598.3 1400.4 630.4 1494.8C647.8 1545.8 661.4 1578.7 683.5 1623.5C719.0 1695.4 755.2 1748.0 800.5 1793.5C836.7 1829.9 871.5 1854.0 911.9 1870.5C923.8 1875.4 944.7 1882.1 947.0 1881.7C948.3 1881.5 948.5 1852.5 948.5 1628.0ZM1069.4 1877.3C1119.7 1861.4 1170.0 1827.1 1213.6 1778.9C1253.4 1735.0 1284.7 1687.9 1315.5 1625.5C1338.1 1579.8 1350.0 1551.2 1367.7 1500.0C1402.6 1398.9 1428.5 1271.8 1438.4 1152.0C1441.1 1119.6 1444.0 1071.9 1444.0 1059.1L1444.0 1053.8L1400.8 1054.3C1354.9 1054.8 1350.5 1055.1 1325.0 1060.6C1275.2 1071.2 1225.9 1094.8 1184.5 1128.0C1167.5 1141.7 1143.1 1166.1 1129.6 1183.0C1093.7 1228.1 1068.6 1281.6 1057.6 1336.5C1051.2 1369.0 1051.6 1347.1 1051.3 1625.9C1051.1 1765.3 1051.2 1880.0 1051.5 1880.8C1052.1 1882.5 1054.4 1882.0 1069.4 1877.3ZM681.9 1839.1C681.1 1838.0 674.7 1829.8 667.7 1820.8C653.2 1802.4 627.7 1764.8 613.7 1741.3C574.7 1675.8 541.4 1602.1 515.0 1522.9C494.0 1459.9 481.3 1411.9 466.4 1338.5C459.6 1305.1 454.5 1287.3 446.0 1267.9C411.8 1190.2 352.9 1126.7 281.0 1090.0C254.0 1076.3 234.7 1068.9 209.0 1062.5C182.3 1055.9 164.5 1054.0 127.8 1054.0L103.0 1054.0L103.0 1058.6C103.0 1061.2 103.7 1071.0 104.5 1080.4C117.6 1226.7 167.5 1370.3 247.6 1492.0C272.0 1529.2 304.5 1571.7 329.4 1599.0C409.4 1686.7 491.8 1749.9 595.0 1802.7C617.9 1814.4 678.3 1840.9 682.4 1841.0C682.9 1841.0 682.6 1840.1 681.9 1839.1ZM1333.5 1835.0C1522.7 1759.5 1682.2 1620.1 1782.5 1442.5C1838.9 1342.5 1875.6 1233.8 1891.0 1120.3C1893.4 1103.1 1897.0 1065.8 1897.0 1058.8L1897.0 1054.0L1872.2 1054.0C1835.5 1054.0 1817.7 1055.9 1791.0 1062.5C1722.5 1079.5 1657.4 1120.9 1610.0 1177.5C1580.3 1213.0 1556.2 1256.2 1543.1 1297.3C1541.4 1302.7 1537.1 1321.3 1533.5 1338.8C1518.3 1413.7 1505.9 1460.5 1484.2 1525.0C1457.3 1605.0 1425.8 1674.6 1386.9 1740.2C1372.5 1764.5 1347.1 1802.1 1332.3 1820.8C1315.2 1842.6 1316.0 1841.4 1319.0 1840.5C1320.4 1840.1 1326.9 1837.6 1333.5 1835.0ZM164.5 945.0C194.3 942.4 229.2 933.6 256.9 921.6C341.6 884.9 408.1 818.2 446.0 732.1C454.5 712.7 459.6 694.9 466.4 661.5C481.3 588.0 494.1 539.6 515.1 476.8C555.5 356.0 612.2 247.5 676.7 167.6C680.2 163.3 682.9 159.5 682.6 159.3C681.6 158.3 649.0 171.9 618.6 186.0C475.5 252.6 350.9 357.9 260.3 489.0C179.5 606.0 126.8 742.8 108.5 883.5C105.9 904.0 103.0 933.9 103.0 941.4L103.0 946.0L127.8 946.0C141.4 946.0 157.9 945.5 164.5 945.0ZM653.0 943.6C704.6 935.2 745.7 919.3 790.0 890.5C826.1 867.0 863.7 829.6 888.3 792.7C914.7 753.0 933.5 708.2 942.4 663.5C948.8 631.0 948.4 653.0 948.7 373.2C949.0 160.5 948.8 118.9 947.7 118.4C947.0 118.2 941.0 119.6 934.4 121.5C838.8 150.5 752.3 237.9 685.0 373.5C662.3 419.2 647.9 453.8 630.4 505.2C598.3 599.5 573.6 719.3 563.0 831.5C559.8 865.9 556.0 924.6 556.0 940.4L556.0 946.2L599.2 945.7C633.3 945.4 644.7 944.9 653.0 943.6ZM1443.6 930.2C1439.5 834.1 1429.8 752.1 1412.4 666.5C1392.5 569.0 1365.0 481.3 1330.3 405.0C1292.3 321.6 1249.2 256.2 1199.5 206.5C1162.9 169.8 1128.4 146.0 1088.1 129.5C1075.3 124.3 1054.2 117.7 1052.3 118.4C1051.2 118.9 1051.0 160.5 1051.3 373.2C1051.6 652.9 1051.1 630.2 1057.6 663.2C1076.7 761.1 1140.3 850.5 1227.0 901.2C1268.3 925.3 1317.4 941.4 1360.5 944.9C1366.0 945.4 1387.1 945.8 1407.4 945.9L1444.3 946.0L1443.6 930.2ZM1897.0 941.2C1897.0 934.2 1893.4 896.9 1891.0 879.7C1872.6 744.7 1823.7 615.0 1748.8 502.7C1724.3 466.0 1694.6 427.3 1670.6 401.0C1590.7 313.3 1508.1 250.1 1405.0 197.3C1379.5 184.3 1318.7 157.9 1317.4 159.3C1317.1 159.5 1319.8 163.3 1323.3 167.6C1367.0 222.0 1409.0 292.2 1441.3 365.0C1460.4 408.1 1469.8 432.2 1484.2 475.0C1505.9 539.5 1518.3 586.3 1533.5 661.2C1542.3 704.3 1547.6 720.4 1563.6 752.1C1597.7 819.8 1653.7 876.6 1719.0 910.0C1746.0 923.7 1765.2 931.1 1791.0 937.5C1817.8 944.2 1832.1 945.7 1870.2 945.9L1897.0 946.0L1897.0 941.2Z"/></symbol><symbol id="estrela" viewBox="-89.95 -93.25 179.90 186.50"><path fill="currentColor" d="M-12.35 -93.25 L12.35 -93.25 L12.35 -93.04 L12.36 -92.42 L12.40 -91.38 L12.49 -89.95 L12.65 -88.15 L12.91 -85.98 L13.28 -83.49 L13.80 -80.70 L14.48 -77.65 L15.34 -74.37 L16.41 -70.90 L17.69 -67.28 L19.20 -63.56 L20.94 -59.77 L22.93 -55.95 L25.16 -52.15 L27.62 -48.40 L30.31 -44.74 L33.22 -41.20 L36.32 -37.82 L39.59 -34.62 L43.01 -31.62 L46.55 -28.84 L50.18 -26.29 L53.86 -23.99 L57.55 -21.93 L61.22 -20.13 L64.83 -18.57 L68.33 -17.24 L71.68 -16.14 L74.86 -15.25 L77.81 -14.55 L80.51 -14.01 L82.92 -13.63 L85.01 -13.36 L86.76 -13.20 L88.14 -13.11 L89.14 -13.06 L89.75 -13.05 L89.95 -13.05 L89.95 13.05 L89.75 13.05 L89.14 13.06 L88.14 13.11 L86.76 13.20 L85.01 13.36 L82.92 13.63 L80.51 14.01 L77.81 14.55 L74.86 15.25 L71.68 16.14 L68.33 17.24 L64.83 18.57 L61.22 20.13 L57.55 21.93 L53.86 23.99 L50.18 26.29 L46.55 28.84 L43.01 31.62 L39.59 34.62 L36.32 37.82 L33.22 41.20 L30.31 44.74 L27.62 48.40 L25.16 52.15 L22.93 55.95 L20.94 59.77 L19.20 63.56 L17.69 67.28 L16.41 70.90 L15.34 74.37 L14.48 77.65 L13.80 80.70 L13.28 83.49 L12.91 85.98 L12.65 88.15 L12.49 89.95 L12.40 91.38 L12.36 92.42 L12.35 93.04 L12.35 93.25 L-12.35 93.25 L-12.35 93.04 L-12.36 92.42 L-12.40 91.38 L-12.49 89.95 L-12.65 88.15 L-12.91 85.98 L-13.28 83.49 L-13.80 80.70 L-14.48 77.65 L-15.34 74.37 L-16.41 70.90 L-17.69 67.28 L-19.20 63.56 L-20.94 59.77 L-22.93 55.95 L-25.16 52.15 L-27.62 48.40 L-30.31 44.74 L-33.22 41.20 L-36.32 37.82 L-39.59 34.62 L-43.01 31.62 L-46.55 28.84 L-50.18 26.29 L-53.86 23.99 L-57.55 21.93 L-61.22 20.13 L-64.83 18.57 L-68.33 17.24 L-71.68 16.14 L-74.86 15.25 L-77.81 14.55 L-80.51 14.01 L-82.92 13.63 L-85.01 13.36 L-86.76 13.20 L-88.14 13.11 L-89.14 13.06 L-89.75 13.05 L-89.95 13.05 L-89.95 -13.05 L-89.75 -13.05 L-89.14 -13.06 L-88.14 -13.11 L-86.76 -13.20 L-85.01 -13.36 L-82.92 -13.63 L-80.51 -14.01 L-77.81 -14.55 L-74.86 -15.25 L-71.68 -16.14 L-68.33 -17.24 L-64.83 -18.57 L-61.22 -20.13 L-57.55 -21.93 L-53.86 -23.99 L-50.18 -26.29 L-46.55 -28.84 L-43.01 -31.62 L-39.59 -34.62 L-36.32 -37.82 L-33.22 -41.20 L-30.31 -44.74 L-27.62 -48.40 L-25.16 -52.15 L-22.93 -55.95 L-20.94 -59.77 L-19.20 -63.56 L-17.69 -67.28 L-16.41 -70.90 L-15.34 -74.37 L-14.48 -77.65 L-13.80 -80.70 L-13.28 -83.49 L-12.91 -85.98 L-12.65 -88.15 L-12.49 -89.95 L-12.40 -91.38 L-12.36 -92.42 L-12.35 -93.04 L-12.35 -93.25Z"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-estrategia" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="9"/><path d="M24 2v8M24 38v8M2 24h8M38 24h8"/></symbol>
+    <symbol id="i-tecnologia" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="14" height="14" rx="4"/><rect x="30" y="6" width="14" height="14" rx="4"/><rect x="17" y="28" width="14" height="14" rx="4"/><path d="M18 13h12M11 20v6a4 4 0 0 0 4 4h2M37 20v6a4 4 0 0 1-4 4h-2"/></symbol>
+    <filter id="f-grao" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <filter id="f-brilho" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+    <pattern id="p-estrelas" width="240" height="208" patternUnits="userSpaceOnUse"><use href="#estrela" x="36" y="27" width="48" height="50"/><use href="#estrela" x="156" y="131" width="48" height="50"/></pattern>
+  </defs>
+</svg>
+
+<!-- 01 · Claro (marfim): ladrilhos + título + botão -->
+<section class="post claro" data-file="01-claro">
+  <svg class="padrao"><rect width="100%" height="100%" fill="url(#p-estrelas)"/></svg>
+  <div class="topo"><span class="logo" style="--g:54px"><svg><use href="#globo"/></svg><span>Kingdom Company</span></span><span class="pilula">Consultoria Estratégica</span></div>
+  <div class="ligacao"><i style="left:30%;right:56%"></i><i style="left:62%;right:30%"></i></div>
+  <div class="mosaico">
+    <figure><div class="ladrilho"><svg><use href="#i-estrategia"/></svg></div><figcaption>Estratégia</figcaption></figure>
+    <figure class="ativo"><div class="ladrilho"><svg><use href="#globo"/></svg></div><figcaption>Um único lugar</figcaption></figure>
+    <figure><div class="ladrilho"><svg><use href="#i-tecnologia"/></svg></div><figcaption>Tecnologia</figcaption></figure>
+  </div>
+  <div class="bloco">
+    <span class="t-etq">Desenvolvimento empresarial</span>
+    <h1 class="t-titulo">Estratégia, vendas e tecnologia num <span class="marca-sub">único lugar.</span></h1>
+    <p class="t-sub">Do diagnóstico à autonomia, com um plano à vista.</p>
+    <span class="botao">Marcar diagnóstico<svg class="seta"><use href="#i-seta"/></svg></span>
+  </div>
+  <div class="rodape"><span>kingdomcompany.co.za</span><span>Guarde e partilhe com a equipa</span></div>
+  <svg class="grao" style="opacity:.05;mix-blend-mode:multiply"><rect width="100%" height="100%" filter="url(#f-grao)"/></svg>
+</section>
+
+<!-- 02 · Índigo em gradiente (Aurora): frase com destaques -->
+<section class="post aurora" data-file="02-aurora">
+  <div class="luz" style="width:900px;height:900px;right:-300px;top:-380px;background:radial-gradient(circle,rgba(185,179,242,.85),rgba(185,179,242,0) 70%)"></div>
+  <div class="luz" style="width:700px;height:700px;left:-320px;bottom:-320px;background:radial-gradient(circle,rgba(14,12,31,.7),rgba(14,12,31,0) 70%)"></div>
+  <div class="feixe" style="left:520px"></div><div class="feixe" style="left:760px;opacity:.6"></div>
+  <svg class="padrao"><rect width="100%" height="100%" fill="url(#p-estrelas)"/></svg>
+  <div class="moldura"><i style="left:0;right:0;top:64px;height:1px"></i><i style="left:0;right:0;bottom:64px;height:1px"></i><i style="top:0;bottom:0;left:48px;width:1px"></i><i style="top:0;bottom:0;right:48px;width:1px"></i></div>
+  <div class="topo" style="top:112px"><span class="logo" style="--g:52px"><svg><use href="#globo"/></svg><span>Kingdom Company</span></span><span class="t-etq">O método</span></div>
+  <h1 class="t-titulo"><span class="ab">Crescer não é fazer mais.</span> É crescer com <span class="marca-sub">direção</span>, <span class="marca-sub">estrutura</span> e <span class="marca-sub">método</span>.</h1>
+  <svg class="simbolo"><use href="#globo"/></svg>
+  <div class="rodape" style="bottom:112px"><span class="pilula">Arraste<svg class="seta" style="width:24px;height:24px"><use href="#i-seta"/></svg></span><span></span></div>
+  <svg class="grao" style="opacity:.16;mix-blend-mode:overlay"><rect width="100%" height="100%" filter="url(#f-grao)"/></svg>
+</section>
+
+<!-- 03 · Preto fosco com poeira e vidro: curva do método + cartão de vidro -->
+<section class="post fosco" data-file="03-fosco-vidro">
+  <div class="bruma" style="width:820px;height:820px;right:-260px;top:120px;background:radial-gradient(circle,rgba(111,103,214,.55),rgba(111,103,214,0) 70%)"></div>
+  <div class="bruma" style="width:640px;height:640px;left:-260px;top:620px;background:radial-gradient(circle,rgba(43,40,80,.9),rgba(43,40,80,0) 70%)"></div>
+  <div class="bruma" style="width:420px;height:420px;left:40px;top:860px;background:radial-gradient(circle,rgba(255,82,26,.38),rgba(255,82,26,0) 70%)"></div>
+  <svg class="globo-fundo"><use href="#globo"/></svg>
+  <canvas class="poeira cam" width="1080" height="1350"></canvas>
+  <svg class="curva" viewBox="0 0 1080 470">
+    <defs><linearGradient id="g-curva" x1="0" x2="1"><stop offset="0" stop-color="#6F67D6" stop-opacity="0"/><stop offset=".25" stop-color="#B9B3F2"/><stop offset="1" stop-color="#E4E1FF"/></linearGradient></defs>
+    <path id="curva-d" d="M-20 390 C 150 400, 210 300, 300 300 S 450 360, 560 300 S 720 150, 820 170 S 1000 110, 1110 60" fill="none" stroke="#6F67D6" stroke-width="16" opacity=".55" filter="url(#f-brilho)"/>
+    <path d="M-20 390 C 150 400, 210 300, 300 300 S 450 360, 560 300 S 720 150, 820 170 S 1000 110, 1110 60" fill="none" stroke="url(#g-curva)" stroke-width="3.5" stroke-linecap="round"/>
+    <g class="nos"></g>
+  </svg>
+  <div class="rotulos"></div>
+  <div class="topo"><span class="logo" style="--g:50px"><svg><use href="#globo"/></svg><span>Kingdom Company</span></span><span class="t-etq" style="font-size:18px;color:rgba(255,255,255,.7)">Como trabalhamos</span></div>
+  <div class="vidro">
+    <div class="linha-topo"><span><b>Kingdom Company</b><br>Desenvolvimento empresarial</span><span style="text-align:right">Diagnóstico · Estratégia<br>Implementação · Autonomia</span></div>
+    <h1 class="t-titulo">Do diagnóstico à autonomia.</h1>
+    <p>Fazemos com a equipa, não por ela. O resultado fica na empresa.</p>
+    <div class="linha-fim"><span class="circulo"><svg><use href="#i-seta"/></svg></span><svg class="estrela"><use href="#estrela"/></svg></div>
+  </div>
+  <div class="rodape"><span>kingdomcompany.co.za</span><span class="botao">Marcar diagnóstico<svg class="seta" style="width:24px;height:24px"><use href="#i-seta"/></svg></span></div>
+  <svg class="grao" style="opacity:.22;mix-blend-mode:overlay"><rect width="100%" height="100%" filter="url(#f-grao)"/></svg>
+</section>
+
+<script>
+// Poeira (determinística): partículas finas concentradas na luz, algumas desfocadas como bokeh.
+(function(){
+  var s = 20261114; function r(){ s = (s * 1664525 + 1013904223) % 4294967296; return s / 4294967296; }
+  document.querySelectorAll('canvas.poeira').forEach(function(c){
+    var x = c.getContext('2d');
+    for (var i = 0; i < 520; i++){
+      var px = r() * 1080, py = r() * 1350;
+      var luz = Math.exp(-Math.pow((px - 860) / 520, 2) - Math.pow((py - 520) / 520, 2));
+      var a = (0.06 + r() * 0.5) * (0.25 + luz), rad = r() < 0.92 ? 0.6 + r() * 1.6 : 3 + r() * 7;
+      x.beginPath(); x.arc(px, py, rad, 0, 6.2832);
+      x.fillStyle = 'rgba(232,228,255,' + (rad > 3 ? a * 0.18 : a).toFixed(3) + ')';
+      if (rad > 3) x.filter = 'blur(2px)'; else x.filter = 'none';
+      x.fill();
+    }
+  });
+  // Nós do método sobre a curva, com rótulos.
+  var nomes = ['Diagnóstico', 'Estratégia', 'Implementação', 'Autonomia'], pos = [0.2, 0.43, 0.64, 0.84];
+  document.querySelectorAll('.fosco').forEach(function(post){
+    var p = post.querySelector('#curva-d'), g = post.querySelector('.nos'), rot = post.querySelector('.rotulos'), L = p.getTotalLength();
+    pos.forEach(function(t, i){
+      var pt = p.getPointAtLength(L * t), ns = 'http://www.w3.org/2000/svg';
+      var halo = document.createElementNS(ns, 'circle'); halo.setAttribute('cx', pt.x); halo.setAttribute('cy', pt.y); halo.setAttribute('r', i === 3 ? 26 : 18); halo.setAttribute('fill', '#B9B3F2'); halo.setAttribute('opacity', i === 3 ? .35 : .2); halo.setAttribute('filter', 'url(#f-brilho)'); g.appendChild(halo);
+      var no = document.createElementNS(ns, 'circle'); no.setAttribute('cx', pt.x); no.setAttribute('cy', pt.y); no.setAttribute('r', i === 3 ? 13 : 8); no.setAttribute('fill', i === 3 ? '#FFFFFF' : '#E4E1FF'); g.appendChild(no);
+      var d = document.createElement('span'); d.className = 'no-rot'; d.textContent = nomes[i];
+      d.style.left = pt.x + 'px'; d.style.top = (200 + pt.y - 62) + 'px'; if (i === 3) d.style.color = '#fff';
+      rot.appendChild(d);
+    });
+  });
+})();
+</script>
+</body>
+</html>

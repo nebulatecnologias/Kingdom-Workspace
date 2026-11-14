@@ -1,0 +1,33 @@
+/* Kingdom Company: tokens do Manual de Marca v2.0 (novembro de 2026), em assets/kingdom-company-manual-de-marca.pdf.
+   Google Sans (OFL) em fonts/: 400 texto, 500 títulos e nome, 700 botões e etiquetas. */
+@font-face{ font-family:'Google Sans'; font-style:normal; font-weight:400 700; font-display:block; src:url(fonts/GoogleSans-Variable.woff2) format('woff2'); }
+@font-face{ font-family:'Google Sans'; font-style:italic; font-weight:400 700; font-display:block; src:url(fonts/GoogleSans-Italic-Variable.woff2) format('woff2'); }
+:root{
+  /* principais */
+  --indigo:#2B2850;      /* Índigo Kingdom: logótipo, títulos, blocos escuros */
+  --marfim:#FAF9F5;      /* Marfim: fundo de páginas e documentos */
+  --laranja:#FF521A;     /* Laranja: botões, preços, destaques */
+  /* apoio */
+  --tinta:#1C1A30;       /* Texto principal */
+  --laranja-fundo:#D63E12; /* Links e texto laranja pequeno */
+  --cinza-indigo:#6A6682;/* Texto secundário */
+  --linha:#E8E4DC;       /* Divisórias e contornos */
+  /* só para gradientes (nunca sólidos nem no logótipo) */
+  --noite:#0E0C1F; --indigo-luz:#6F67D6; --lavanda:#B9B3F2;
+  --g-noite:linear-gradient(160deg,#0E0C1F 0%,#1C1A30 45%,#2B2850 100%);
+  --g-aurora:linear-gradient(160deg,#2B2850 0%,#6F67D6 70%,#B9B3F2 100%);
+  --g-brasa:linear-gradient(160deg,#0E0C1F 0%,#2B2850 60%,#FF521A 100%);
+  --sans:'Google Sans','Product Sans',Arial,sans-serif;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+/* Hierarquia do manual: títulos 500 com -4%, subtítulos 500 -2%, texto 400, botões e etiquetas 700. */
+.t-titulo{ font-weight:500; letter-spacing:-0.04em; line-height:1.02; text-wrap:balance; }
+.t-sub{ font-weight:500; letter-spacing:-0.02em; line-height:1.3; text-wrap:pretty; }
+.t-etq{ font-weight:700; font-size:22px; letter-spacing:.18em; text-transform:uppercase; }
+/* Destaque: sublinhado laranja por baixo da palavra (manual, p. 13). */
+.marca-sub{ background:linear-gradient(var(--laranja),var(--laranja)) left 92%/100% .14em no-repeat; padding-bottom:.02em; }
+/* Logótipo horizontal simples: globo + nome, Google Sans 500, -2,5%, espaço globo-nome = G/4. Sempre uma só cor. */
+.logo{ display:inline-flex; align-items:center; gap:calc(var(--g,56px) / 4); color:currentColor; }
+.logo svg{ width:var(--g,56px); height:var(--g,56px); }
+.logo span{ font-weight:500; letter-spacing:-0.025em; font-size:calc(var(--g,56px) * .56); line-height:1; }
