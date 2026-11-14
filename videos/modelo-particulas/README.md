@@ -1,8 +1,8 @@
 # Modelo de vídeo "partículas" (9:16)
 
 Recria o estilo do vídeo de referência: fundo escuro com vinheta e grão, objetos em pontilhado/partículas,
-wireframes com etiquetas mono, régua com ano em serifa, contadores, palavra gigante feita de partículas,
-citação em serifa itálica e legenda palavra-a-palavra (palavra atual em negrito branco, anteriores em cinza).
+wireframes com etiquetas, régua com ano, contadores, palavra gigante feita de partículas,
+citação em itálico e legenda palavra-a-palavra (palavra atual em negrito branco, anteriores em cinza).
 
 Saída: 1080×1920, 30 fps, MP4 com efeitos sonoros + trilha só de efeitos (`-sfx.wav`) + legenda `.srt` + roteiro de locução com tempos.
 
