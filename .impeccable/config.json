@@ -404,6 +404,150 @@
         ],
         "createdAt": "2026-10-15T15:06:03.734Z",
         "reason": "Claude: arte de post 1080x1350 de tamanho fixo (não é UI web): títulos de display, entrelinha apertada, margens absolutas de 90 px, recorte do canvas e grelha da marca (site v2 e referências do utilizador) são intencionais"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.217Z",
+        "reason": "Claude: arte de post 1080x1350 de tamanho fixo; o overflow:hidden é o recorte da prancheta e só corta luzes decorativas (verificado pelo revisor B)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.229Z",
+        "reason": "Claude: pranchetas de post com margens absolutas de 88 px medidas pelo revisor B; não é UI web"
+      },
+      {
+        "rule": "oversized-h1",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.240Z",
+        "reason": "Claude: títulos de cartaz num post visto a 1/3 da escala; não há dobra de página"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.252Z",
+        "reason": "Pedido do utilizador: modelo 2 segue a referência enviada, com o número gigante em gradiente"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.263Z",
+        "reason": "Pedido do utilizador: gradiente do modelo 2 com brilho lavanda no topo, como na referência enviada"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.276Z",
+        "reason": "Pedido do utilizador: modelo 3 em preto fosco com poeira, vidro e luz (referências enviadas); canto Brasa do manual p.18"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.297Z",
+        "reason": "Claude: riscas só nos espaços reservados das fotos, até o utilizador enviar as fotos reais"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.311Z",
+        "reason": "Pedido do utilizador: linha luminosa do método no modelo 3, a partir da referência enviada"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.src.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.326Z",
+        "reason": "Claude: arte de post 1080x1350 de tamanho fixo; o overflow:hidden é o recorte da prancheta e só corta luzes decorativas (verificado pelo revisor B)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.src.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.338Z",
+        "reason": "Claude: pranchetas de post com margens absolutas de 88 px medidas pelo revisor B; não é UI web"
+      },
+      {
+        "rule": "oversized-h1",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.src.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.350Z",
+        "reason": "Claude: títulos de cartaz num post visto a 1/3 da escala; não há dobra de página"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.src.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.363Z",
+        "reason": "Pedido do utilizador: modelo 2 segue a referência enviada, com o número gigante em gradiente"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.src.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.377Z",
+        "reason": "Pedido do utilizador: gradiente do modelo 2 com brilho lavanda no topo, como na referência enviada"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.src.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.392Z",
+        "reason": "Pedido do utilizador: modelo 3 em preto fosco com poeira, vidro e luz (referências enviadas); canto Brasa do manual p.18"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.src.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.404Z",
+        "reason": "Claude: riscas só nos espaços reservados das fotos, até o utilizador enviar as fotos reais"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "content/brand/kingdom-company/templates.src.html"
+        ],
+        "createdAt": "2026-11-14T19:21:39.416Z",
+        "reason": "Pedido do utilizador: linha luminosa do método no modelo 3, a partir da referência enviada"
       }
     ]
   }

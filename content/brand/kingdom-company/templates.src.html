@@ -12,32 +12,33 @@ body{ background:#3a3848; display:flex; gap:40px; padding:40px; width:max-conten
 .cam{ position:absolute; inset:0; pointer-events:none; }
 .grao{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
 .topo{ position:absolute; left:88px; right:88px; top:84px; display:flex; justify-content:space-between; align-items:center; }
-.pilula{ display:inline-flex; align-items:center; gap:14px; height:52px; padding:0 26px; border-radius:999px; font-weight:700; font-size:20px; letter-spacing:.16em; text-transform:uppercase; }
-.rodape{ position:absolute; left:88px; right:88px; bottom:78px; display:flex; justify-content:space-between; align-items:center; font-size:24px; }
+.topo .logo{ --g:62px; }
+.etq-topo{ font-weight:700; font-size:24px; letter-spacing:.16em; text-transform:uppercase; }
+.rodape{ position:absolute; left:88px; right:88px; bottom:78px; display:flex; justify-content:space-between; align-items:center; font-size:28px; }
 .seta{ width:30px; height:30px; }
+/* Destaque: sublinhado laranja (manual, p. 13), sem cortar descendentes. */
+.marca-sub{ background:none; text-decoration:underline; text-decoration-color:var(--laranja); text-decoration-thickness:.11em; text-underline-offset:.1em; text-decoration-skip-ink:auto; }
 
 /* ---------- 1 · Claro (marfim) ---------- */
 .claro{ background:var(--marfim); color:var(--indigo); }
 .claro .padrao{ position:absolute; left:0; top:0; width:100%; height:760px; opacity:.07; color:var(--indigo);
-  -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 100%); }
-.claro .pilula{ border:1.5px solid var(--indigo); color:var(--indigo); height:46px; font-size:18px; }
-.mosaico{ position:absolute; left:88px; right:88px; top:214px; display:grid; grid-template-columns:1fr 1.12fr 1fr; gap:34px; align-items:end; }
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.5) 45%,transparent 90%), linear-gradient(90deg,transparent 0%,transparent 38%,#000 70%); -webkit-mask-composite:source-in; }
+.mosaico{ position:absolute; left:88px; right:88px; top:236px; display:grid; grid-template-columns:repeat(3,1fr); gap:34px; }
 .mosaico figure{ display:flex; flex-direction:column; align-items:center; gap:22px; }
-.mosaico figcaption{ font-size:24px; font-weight:500; letter-spacing:-0.01em; color:var(--cinza-indigo); }
+.mosaico figcaption{ font-size:30px; font-weight:500; letter-spacing:-0.02em; color:var(--cinza-indigo); }
 .mosaico .ativo figcaption{ color:var(--indigo); }
-.ladrilho{ width:100%; aspect-ratio:1; border-radius:48px; display:grid; place-items:center; background:#fff;
-  border:1.5px solid var(--linha); box-shadow:0 1px 2px rgba(28,26,48,.04), 0 18px 40px -24px rgba(28,26,48,.22); }
-.ladrilho svg{ width:38%; height:38%; color:var(--cinza-indigo); }
-.ativo .ladrilho{ background:var(--indigo); border-color:var(--indigo); box-shadow:0 2px 4px rgba(28,26,48,.08), 0 30px 60px -26px rgba(28,26,48,.4); }
-.ativo .ladrilho svg{ width:56%; height:56%; color:#fff; }
-.ligacao{ position:absolute; left:88px; right:88px; top:214px; height:248px; pointer-events:none; }
-.ligacao i{ position:absolute; top:50%; height:0; border-top:2px dashed var(--linha); }
-.claro .bloco{ position:absolute; left:88px; right:88px; top:650px; }
-.claro .t-etq{ color:var(--laranja-fundo); }
-.claro h1{ font-size:84px; margin-top:28px; color:var(--indigo); }
-.claro .t-sub{ font-size:34px; color:var(--cinza-indigo); margin-top:30px; font-weight:400; letter-spacing:-0.01em; }
-.botao{ display:inline-flex; align-items:center; gap:16px; height:84px; padding:0 40px 0 44px; border-radius:999px; background:var(--laranja); color:#fff; font-weight:700; font-size:28px; letter-spacing:-0.005em; margin-top:48px; }
-.claro .rodape{ color:var(--cinza-indigo); border-top:1.5px solid var(--linha); padding-top:28px; bottom:64px; }
+.ladrilho{ width:100%; aspect-ratio:1; border-radius:48px; display:grid; place-items:center; background:#fff; border:1.5px solid var(--linha); }
+.ladrilho svg{ width:40%; height:40%; color:var(--cinza-indigo); }
+.ativo .ladrilho{ background:var(--indigo); border-color:var(--indigo); }
+.ativo .ladrilho svg{ color:#fff; }
+.claro .bloco{ position:absolute; left:88px; right:88px; top:640px; }
+.claro .t-etq{ color:var(--laranja-fundo); font-size:26px; }
+.claro h1{ font-size:84px; margin-top:26px; color:var(--indigo); }
+.claro .t-sub{ font-size:36px; color:var(--cinza-indigo); margin-top:28px; font-weight:400; letter-spacing:-0.01em; }
+.botao{ display:inline-flex; align-items:center; gap:16px; height:84px; padding:0 40px 0 44px; border-radius:999px; background:var(--laranja); color:#fff; font-weight:700; font-size:30px; letter-spacing:-0.005em; }
+.acao{ display:flex; align-items:center; gap:28px; margin-top:48px; }
+.acao small{ font-size:28px; color:var(--cinza-indigo); }
+.claro .rodape{ color:var(--cinza-indigo); border-top:1.5px solid var(--linha); padding-top:26px; bottom:64px; }
 
 /* ---------- 2 · Índigo em gradiente (brilho lavanda no topo, estrutura centrada) ---------- */
 .indigo{ background:linear-gradient(180deg,#2A2366 0%,#1B1647 34%,#120F30 66%,#0B0A1C 100%); color:#fff; text-align:center; }
@@ -55,39 +56,34 @@ body{ background:#3a3848; display:flex; gap:40px; padding:40px; width:max-conten
 .rostos .ph{ width:84px; height:84px; border-radius:50%; border:3px solid #E8E4FF; margin-left:-18px; display:grid; place-items:center;
   background:repeating-linear-gradient(135deg,#3A3478 0 8px,#2F2A66 8px 16px); font-size:13px; font-weight:700; letter-spacing:.12em; color:#C9C4F5; }
 .rostos .ph:first-child{ margin-left:0; }
-.rostos p{ text-align:left; font-size:21px; line-height:1.15; color:rgba(255,255,255,.82); }
+.rostos p{ text-align:left; font-size:26px; line-height:1.15; color:rgba(255,255,255,.82); }
 .rostos p b{ font-weight:700; color:#fff; }
 .numero{ position:absolute; left:0; right:0; top:330px; font-size:470px; font-weight:400; letter-spacing:-0.06em; line-height:1;
   background:linear-gradient(100deg,#FFFFFF 30%,#D9D4FF 52%,#6F67D6 80%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.indigo .frase{ position:absolute; left:120px; right:120px; top:820px; font-size:84px; letter-spacing:-0.045em; line-height:1.02; }
+.indigo .frase{ position:absolute; left:60px; right:60px; top:792px; font-size:84px; white-space:nowrap; letter-spacing:-0.045em; line-height:1.02; }
 .indigo .frase span{ display:block; font-weight:400; }
 .indigo .frase b{ display:block; font-weight:700; letter-spacing:-0.05em; }
-.pilula-luz{ position:absolute; left:50%; top:1036px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:16px; height:84px; padding:0 42px 0 46px; border-radius:999px;
+.pilula-luz{ position:absolute; left:50%; top:1012px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:16px; height:84px; padding:0 42px 0 46px; border-radius:999px;
   background:linear-gradient(90deg,#B9B3F2 0%,#E8E4FF 55%,#FFFFFF 100%); color:var(--tinta); font-size:30px; font-weight:500; letter-spacing:-0.025em; white-space:nowrap; }
 .pilula-luz svg{ width:28px; height:28px; color:var(--laranja); }
-.indigo .logo-base{ position:absolute; left:0; right:0; bottom:104px; display:flex; justify-content:center; }
+.indigo .logo-base{ position:absolute; left:0; right:0; bottom:96px; display:flex; justify-content:center; }
 
 /* ---------- 3 · Preto fosco com poeira e vidro ---------- */
-.fosco{ background:#0B0A10; color:#fff; }
-.fosco .bruma{ position:absolute; border-radius:50%; filter:blur(110px); }
-.fosco .globo-fundo{ position:absolute; width:1500px; height:1500px; left:-210px; top:130px; color:#fff; opacity:.05; }
-.curva{ position:absolute; left:0; top:200px; width:1080px; height:470px; overflow:visible; }
-.no-rot{ position:absolute; font-size:22px; font-weight:500; letter-spacing:-0.005em; color:var(--lavanda); transform:translateX(-50%); white-space:nowrap; }
-.vidro{ position:absolute; left:88px; right:88px; top:596px; height:590px; border-radius:46px; padding:52px 56px;
-  background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.04) 55%,rgba(255,255,255,.08));
-  -webkit-backdrop-filter:blur(18px) saturate(140%); backdrop-filter:blur(18px) saturate(140%);
-  border:1.5px solid rgba(255,255,255,.18);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 40px 80px -40px rgba(0,0,0,.8); }
-.vidro .linha-topo{ display:flex; justify-content:space-between; font-size:22px; line-height:1.35; color:rgba(255,255,255,.72); }
-.vidro .linha-topo b{ font-weight:500; color:#fff; }
-.vidro h1{ font-size:84px; margin-top:52px; }
-.vidro p{ font-size:32px; line-height:1.35; color:rgba(255,255,255,.76); margin-top:24px; max-width:760px; }
-.vidro .linha-fim{ position:absolute; left:56px; right:56px; bottom:48px; display:flex; justify-content:space-between; align-items:center; }
-.circulo{ width:76px; height:76px; border-radius:50%; border:2px solid rgba(255,255,255,.85); display:grid; place-items:center; }
-.circulo svg{ width:32px; height:32px; }
-.vidro .estrela{ width:58px; height:60px; color:#fff; }
-.fosco .rodape{ color:rgba(255,255,255,.62); bottom:66px; }
-.fosco .rodape .botao{ margin:0; height:64px; font-size:22px; padding:0 30px 0 34px; }
+.fosco{ background:linear-gradient(180deg,#0E0C1F 0%,#050409 55%,#000 100%); color:#fff; }
+.fosco .bruma{ position:absolute; border-radius:50%; filter:blur(100px); }
+.fosco .globo-fundo{ position:absolute; width:1300px; height:1300px; left:330px; top:300px; color:#fff; opacity:.05; }
+.curva{ position:absolute; left:0; top:220px; width:1080px; height:300px; overflow:visible; }
+.no-rot{ position:absolute; font-size:28px; font-weight:500; letter-spacing:-0.015em; color:rgba(255,255,255,.78); transform:translateX(-50%); white-space:nowrap; }
+.fosco .topo .etq-topo{ color:rgba(255,255,255,.8); }
+.vidro{ position:absolute; left:88px; right:88px; top:600px; height:520px; border-radius:46px; padding:64px 60px;
+  background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.05) 55%,rgba(255,255,255,.09));
+  -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%);
+  border:1.5px solid rgba(255,255,255,.2); box-shadow:inset 0 1px 0 rgba(255,255,255,.24); }
+.vidro .t-etq{ font-size:24px; color:rgba(255,255,255,.8); }
+.vidro h1{ font-size:84px; margin-top:34px; }
+.vidro p{ font-size:36px; line-height:1.32; color:#fff; margin-top:30px; max-width:800px; }
+.fosco .rodape{ color:rgba(255,255,255,.82); bottom:72px; }
+.fosco .rodape .botao{ height:76px; font-size:28px; }
 </style>
 </head>
 <body>
@@ -97,29 +93,29 @@ body{ background:#3a3848; display:flex; gap:40px; padding:40px; width:max-conten
     <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
     <symbol id="i-estrategia" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="9"/><path d="M24 2v8M24 38v8M2 24h8M38 24h8"/></symbol>
     <symbol id="i-tecnologia" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="14" height="14" rx="4"/><rect x="30" y="6" width="14" height="14" rx="4"/><rect x="17" y="28" width="14" height="14" rx="4"/><path d="M18 13h12M11 20v6a4 4 0 0 0 4 4h2M37 20v6a4 4 0 0 1-4 4h-2"/></symbol>
+    <symbol id="i-vendas" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h38L29 26v12l-10 5V26z"/></symbol>
     <filter id="f-grao" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
     <filter id="f-brilho" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
     <pattern id="p-estrelas" width="240" height="208" patternUnits="userSpaceOnUse"><use href="#estrela" x="36" y="27" width="48" height="50"/><use href="#estrela" x="156" y="131" width="48" height="50"/></pattern>
   </defs>
 </svg>
 
-<!-- 01 · Claro (marfim): ladrilhos + título + botão -->
+<!-- 01 · Claro (marfim): três áreas em ladrilhos + título + botão -->
 <section class="post claro" data-file="01-claro">
   <svg class="padrao"><rect width="100%" height="100%" fill="url(#p-estrelas)"/></svg>
-  <div class="topo"><span class="logo" style="--g:54px"><svg><use href="#globo"/></svg><span>Kingdom Company</span></span><span class="pilula">Consultoria Estratégica</span></div>
-  <div class="ligacao"><i style="left:30%;right:56%"></i><i style="left:62%;right:30%"></i></div>
+  <div class="topo"><span class="logo"><svg><use href="#globo"/></svg><span>Kingdom Company</span></span></div>
   <div class="mosaico">
     <figure><div class="ladrilho"><svg><use href="#i-estrategia"/></svg></div><figcaption>Estratégia</figcaption></figure>
-    <figure class="ativo"><div class="ladrilho"><svg><use href="#globo"/></svg></div><figcaption>Um único lugar</figcaption></figure>
+    <figure class="ativo"><div class="ladrilho"><svg><use href="#i-vendas"/></svg></div><figcaption>Vendas</figcaption></figure>
     <figure><div class="ladrilho"><svg><use href="#i-tecnologia"/></svg></div><figcaption>Tecnologia</figcaption></figure>
   </div>
   <div class="bloco">
     <span class="t-etq">Desenvolvimento empresarial</span>
     <h1 class="t-titulo">Estratégia, vendas e tecnologia num <span class="marca-sub">único lugar.</span></h1>
     <p class="t-sub">Do diagnóstico à autonomia, com um plano à vista.</p>
-    <span class="botao">Marcar diagnóstico<svg class="seta"><use href="#i-seta"/></svg></span>
+    <div class="acao"><span class="botao">Marcar diagnóstico<svg class="seta"><use href="#i-seta"/></svg></span><small>Link na bio</small></div>
   </div>
-  <div class="rodape"><span>kingdomcompany.co.za</span><span>Guarde e partilhe com a equipa</span></div>
+  <div class="rodape"><span>www.kingdomcompany.co.za</span><span>Maputo, Moçambique</span></div>
   <svg class="grao" style="opacity:.05;mix-blend-mode:multiply"><rect width="100%" height="100%" filter="url(#f-grao)"/></svg>
 </section>
 
@@ -133,35 +129,34 @@ body{ background:#3a3848; display:flex; gap:40px; padding:40px; width:max-conten
   <div class="medalha" style="right:-170px;bottom:40px;filter:blur(3px);transform:perspective(900px) rotateY(-40deg) rotateZ(-10deg) scale(.86)"><div class="aro"></div><div class="face"><svg><use href="#estrela"/></svg></div></div>
   <div class="rostos"><div class="fila"><span class="ph">FOTO</span><span class="ph">FOTO</span><span class="ph">FOTO</span></div><p>Desenvolvimento<br><b>empresarial</b><br>em Moçambique</p></div>
   <div class="numero">4</div>
-  <h1 class="frase"><span>fases entre o diagnóstico</span><b>e a autonomia.</b></h1>
+  <h1 class="frase"><span>fases do diagnóstico</span><b>à autonomia.</b></h1>
   <span class="pilula-luz">Conheça o método<svg><use href="#i-seta"/></svg></span>
-  <div class="logo-base"><span class="logo" style="--g:52px"><svg><use href="#globo"/></svg><span>Kingdom Company</span></span></div>
+  <div class="logo-base"><span class="logo" style="--g:62px"><svg><use href="#globo"/></svg><span>Kingdom Company</span></span></div>
   <svg class="grao" style="opacity:.14;mix-blend-mode:overlay"><rect width="100%" height="100%" filter="url(#f-grao)"/></svg>
 </section>
 
-<!-- 03 · Preto fosco com poeira e vidro: curva do método + cartão de vidro -->
+<!-- 03 · Preto fosco com poeira e vidro: o método numa linha que assenta + cartão de vidro -->
 <section class="post fosco" data-file="03-fosco-vidro">
-  <div class="bruma" style="width:820px;height:820px;right:-260px;top:120px;background:radial-gradient(circle,rgba(111,103,214,.55),rgba(111,103,214,0) 70%)"></div>
-  <div class="bruma" style="width:640px;height:640px;left:-260px;top:620px;background:radial-gradient(circle,rgba(43,40,80,.9),rgba(43,40,80,0) 70%)"></div>
-  <div class="bruma" style="width:420px;height:420px;left:40px;top:860px;background:radial-gradient(circle,rgba(255,82,26,.38),rgba(255,82,26,0) 70%)"></div>
+  <div class="bruma" style="width:760px;height:760px;right:-200px;top:520px;background:radial-gradient(circle,rgba(111,103,214,.75),rgba(111,103,214,0) 70%)"></div>
+  <div class="bruma" style="width:560px;height:560px;left:-120px;top:760px;background:radial-gradient(circle,rgba(43,40,80,.95),rgba(43,40,80,0) 70%)"></div>
+  <div class="bruma" style="width:300px;height:300px;left:40px;top:980px;filter:blur(70px);background:radial-gradient(circle,rgba(255,82,26,.75),rgba(255,82,26,0) 70%)"></div>
   <svg class="globo-fundo"><use href="#globo"/></svg>
   <canvas class="poeira cam" width="1080" height="1350"></canvas>
-  <svg class="curva" viewBox="0 0 1080 470">
-    <defs><linearGradient id="g-curva" x1="0" x2="1"><stop offset="0" stop-color="#6F67D6" stop-opacity="0"/><stop offset=".25" stop-color="#B9B3F2"/><stop offset="1" stop-color="#E4E1FF"/></linearGradient></defs>
-    <path id="curva-d" d="M-20 390 C 150 400, 210 300, 300 300 S 450 360, 560 300 S 720 150, 820 170 S 1000 110, 1110 60" fill="none" stroke="#6F67D6" stroke-width="16" opacity=".55" filter="url(#f-brilho)"/>
-    <path d="M-20 390 C 150 400, 210 300, 300 300 S 450 360, 560 300 S 720 150, 820 170 S 1000 110, 1110 60" fill="none" stroke="url(#g-curva)" stroke-width="3.5" stroke-linecap="round"/>
+  <svg class="curva" viewBox="0 0 1080 300">
+    <defs><linearGradient id="g-curva" x1="0" x2="1"><stop offset="0" stop-color="#6F67D6"/><stop offset=".5" stop-color="#B9B3F2"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient></defs>
+    <path d="M110 250 C 230 250, 280 160, 400 160 S 560 160, 680 160 S 860 160, 960 160" fill="none" stroke="#6F67D6" stroke-width="10" opacity=".5" filter="url(#f-brilho)"/>
+    <path id="curva-d" d="M110 250 C 230 250, 280 160, 400 160 S 560 160, 680 160 S 860 160, 960 160" fill="none" stroke="url(#g-curva)" stroke-width="3.5" stroke-linecap="round"/>
     <g class="nos"></g>
   </svg>
   <div class="rotulos"></div>
-  <div class="topo"><span class="logo" style="--g:50px"><svg><use href="#globo"/></svg><span>Kingdom Company</span></span><span class="t-etq" style="font-size:18px;color:rgba(255,255,255,.7)">Como trabalhamos</span></div>
+  <div class="topo"><span class="logo"><svg><use href="#globo"/></svg><span>Kingdom Company</span></span><span class="etq-topo">O método</span></div>
   <div class="vidro">
-    <div class="linha-topo"><span><b>Kingdom Company</b><br>Desenvolvimento empresarial</span><span style="text-align:right">Diagnóstico · Estratégia<br>Implementação · Autonomia</span></div>
+    <span class="t-etq">Como trabalhamos</span>
     <h1 class="t-titulo">Do diagnóstico à autonomia.</h1>
     <p>Fazemos com a equipa, não por ela. O resultado fica na empresa.</p>
-    <div class="linha-fim"><span class="circulo"><svg><use href="#i-seta"/></svg></span><svg class="estrela"><use href="#estrela"/></svg></div>
   </div>
-  <div class="rodape"><span>kingdomcompany.co.za</span><span class="botao">Marcar diagnóstico<svg class="seta" style="width:24px;height:24px"><use href="#i-seta"/></svg></span></div>
-  <svg class="grao" style="opacity:.22;mix-blend-mode:overlay"><rect width="100%" height="100%" filter="url(#f-grao)"/></svg>
+  <div class="rodape"><span>Link na bio</span><span class="botao">Marcar diagnóstico<svg class="seta" style="width:26px;height:26px"><use href="#i-seta"/></svg></span></div>
+  <svg class="grao" style="opacity:.2;mix-blend-mode:overlay"><rect width="100%" height="100%" filter="url(#f-grao)"/></svg>
 </section>
 
 <script>
@@ -180,16 +175,19 @@ body{ background:#3a3848; display:flex; gap:40px; padding:40px; width:max-conten
       x.fill();
     }
   });
-  // Nós do método sobre a curva, com rótulos.
-  var nomes = ['Diagnóstico', 'Estratégia', 'Implementação', 'Autonomia'], pos = [0.2, 0.43, 0.64, 0.84];
+  // Nós do método sobre a linha; o último é a estrela da marca (Direção).
+  var nomes = ['Diagnóstico', 'Estratégia', 'Implementação', 'Autonomia'], pos = [0.04, 0.36, 0.66, 1];
   document.querySelectorAll('.fosco').forEach(function(post){
-    var p = post.querySelector('#curva-d'), g = post.querySelector('.nos'), rot = post.querySelector('.rotulos'), L = p.getTotalLength();
+    var p = post.querySelector('#curva-d'), g = post.querySelector('.nos'), rot = post.querySelector('.rotulos'), L = p.getTotalLength(), ns = 'http://www.w3.org/2000/svg';
     pos.forEach(function(t, i){
-      var pt = p.getPointAtLength(L * t), ns = 'http://www.w3.org/2000/svg';
-      var halo = document.createElementNS(ns, 'circle'); halo.setAttribute('cx', pt.x); halo.setAttribute('cy', pt.y); halo.setAttribute('r', i === 3 ? 26 : 18); halo.setAttribute('fill', '#B9B3F2'); halo.setAttribute('opacity', i === 3 ? .35 : .2); halo.setAttribute('filter', 'url(#f-brilho)'); g.appendChild(halo);
-      var no = document.createElementNS(ns, 'circle'); no.setAttribute('cx', pt.x); no.setAttribute('cy', pt.y); no.setAttribute('r', i === 3 ? 13 : 8); no.setAttribute('fill', i === 3 ? '#FFFFFF' : '#E4E1FF'); g.appendChild(no);
+      var pt = p.getPointAtLength(L * t);
+      if (i === 3){
+        var u = document.createElementNS(ns, 'use'); u.setAttribute('href', '#estrela'); u.setAttribute('x', pt.x - 24); u.setAttribute('y', pt.y - 25); u.setAttribute('width', 48); u.setAttribute('height', 50); u.setAttribute('fill', '#fff'); u.style.color = '#fff'; g.appendChild(u);
+      } else {
+        var no = document.createElementNS(ns, 'circle'); no.setAttribute('cx', pt.x); no.setAttribute('cy', pt.y); no.setAttribute('r', 9); no.setAttribute('fill', '#fff'); g.appendChild(no);
+      }
       var d = document.createElement('span'); d.className = 'no-rot'; d.textContent = nomes[i];
-      d.style.left = pt.x + 'px'; d.style.top = (200 + pt.y - 62) + 'px'; if (i === 3) d.style.color = '#fff';
+      d.style.left = Math.min(Math.max(pt.x, 150), 930) + 'px'; d.style.top = (220 + pt.y - 76) + 'px'; if (i === 3) d.style.color = '#fff';
       rot.appendChild(d);
     });
   });
