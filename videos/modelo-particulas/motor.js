@@ -25,9 +25,9 @@
   const eo5 = p => 1 - Math.pow(1 - p, 5);
   const eio = p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
   const lerp = (a, b, p) => a + (b - a) * p;
-  const MONO = '"JetBrains Mono", monospace';
-  const SANS = 'Inter, "Liberation Sans", Arial, sans-serif';
-  const SERIF = '"Liberation Serif", "DejaVu Serif", serif';
+  // Todos os textos em Google Sans (fontes/google-sans.css, variável 400–700, normal e itálico)
+  const FONTE = '"Google Sans", sans-serif';
+  const MONO = FONTE, SANS = FONTE, SERIF = FONTE;
   const BRANCO = '#f2f2f2', CINZA = '#8c8c8c';
 
   /* ---------- camada de partículas ---------- */
@@ -180,9 +180,14 @@
     ctx.save(); ctx.globalAlpha *= a; ctx.font = `${o.italico ? 'italic ' : ''}${tam}px ${SERIF}`; ctx.fillStyle = o.cor || '#e8e8e8';
     ctx.textAlign = o.alinha || 'center'; ctx.textBaseline = 'middle'; ctx.letterSpacing = o.ls || '0px'; ctx.fillText(txt, x, y); ctx.restore();
   }
-  function mono(txt, x, y, tam, a = 1, o = {}) {
+  function mono(txt, x, y, tam, a = 1, o = {}) { // algarismos em células de largura fixa: o número não "treme" ao contar
     ctx.save(); ctx.globalAlpha *= a; ctx.font = `${o.peso || 600} ${tam}px ${MONO}`; ctx.fillStyle = o.cor || BRANCO;
-    ctx.textAlign = o.alinha || 'center'; ctx.textBaseline = 'middle'; ctx.letterSpacing = o.ls || '0px'; ctx.fillText(txt, x, y); ctx.restore();
+    ctx.textBaseline = 'middle'; ctx.textAlign = 'center'; ctx.letterSpacing = '0px';
+    const ls = parseFloat(o.ls || '0'), cel = Math.max(...'0123456789'.split('').map(d => ctx.measureText(d).width));
+    const larg = [...txt].map(ch => (/\d/.test(ch) ? cel : ctx.measureText(ch).width) + ls), tot = larg.reduce((p, q) => p + q, 0) - ls;
+    let xx = o.alinha === 'left' ? x : o.alinha === 'right' ? x - tot : x - tot / 2;
+    [...txt].forEach((ch, i) => { ctx.fillText(ch, xx + (larg[i] - ls) / 2, y); xx += larg[i]; });
+    ctx.restore();
   }
   function brilho(x, y, r, a) {
     const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, `rgba(255,255,255,${a})`); g.addColorStop(1, 'rgba(255,255,255,0)');
@@ -362,7 +367,7 @@
         cam = new Camada(seed);
         cam.grupo(0).traco([[dx, dy], [dx + dw - 40, dy], [dx + dw, dy + 40], [dx + dw, dy + dh], [dx, dy + dh], [dx, dy]], { den: 1.2 });
         cam.traco([[dx + dw - 40, dy], [dx + dw - 40, dy + 40], [dx + dw, dy + 40]], { den: 1, a: .7 });
-        (c.titulo || []).forEach((l, i) => cam.texto(l, dx + 26, dy + 48 + i * 26, `bold 21px ${SERIF}`, { alinha: 'esq', passo: 1, prob: .75, hal: .02, s: 1.1, a: 1, amin: .6 }));
+        (c.titulo || []).forEach((l, i) => cam.texto(l, dx + 26, dy + 48 + i * 26, `700 21px ${SANS}`, { alinha: 'esq', passo: 1, prob: .75, hal: .02, s: 1.1, a: 1, amin: .6 }));
         cam.grupo(1).linhasTexto(dx + 26, dy + 112, 170, 1, 10, { dens: .45, a: .6 });
         cam.linhasTexto(dx + 26, dy + 140, dw - 52, 5, 11);
         cam.grupo(2).rret(CX - 70, dy + 222, 140, 40, 8, { den: 1.1 }).rret(CX - 70, dy + 282, 140, 40, 8, { den: 1.1 });
@@ -428,8 +433,8 @@
     return {
       prep(seed) {
         cam = new Camada(seed); const tmp = document.createElement('canvas').getContext('2d');
-        let tam = 140; tmp.font = `900 ${tam}px "Inter Display", ${SANS}`; const w = tmp.measureText(c.texto).width; tam = Math.min(tam, tam * 600 / w);
-        cam.texto(c.texto, CX, CY - 10, `900 ${tam}px "Inter Display", ${SANS}`, { passo: 2.1, prob: .8, di: 1.1, s: 1.6, hal: .07, ls: '-2px' });
+        let tam = 140; tmp.font = `700 ${tam}px ${SANS}`; const w = tmp.measureText(c.texto).width; tam = Math.min(tam, tam * 600 / w);
+        cam.texto(c.texto, CX, CY - 10, `700 ${tam}px ${SANS}`, { passo: 2.1, prob: .8, di: 1.1, s: 1.6, hal: .07, ls: '-3px' });
       },
       draw(S) {
         const tf = S.w[c.iForma] - 0.55, nuvem = 0.42 * (1 - eio(pr(S.t, tf, 0.9)));
@@ -511,6 +516,67 @@
     };
   };
 
+  /* ---------- EFEITOS SONOROS ----------
+     Cada tipo devolve deixas [tempoLocal, som, ganho, duração?]. Os tempos seguem as mesmas
+     fórmulas do desenho, então cada som cai no quadro exato. sons.py sintetiza e mistura. */
+  function tiques(S, valor, ganho = 0.3, de = 0, ate = S.dur) { // um tique sempre que o valor mostrado muda
+    const out = []; let ant = valor(de);
+    for (let t = de; t < ate; t += 1 / 30) { const v = valor(t); if (v !== ant) { out.push([t, 'tique', ganho]); ant = v; } }
+    return out;
+  }
+  const sopro = (S, g = 0.7, antes = 0.34) => [[S.dur - antes, 'sopro', g]];
+  const SONS = {
+    retrato(c, S) {
+      const iE = c.iEtiqueta ?? 0, out = [[0.02, 'formar', 0.9, 1.1], [S.w[iE] - 0.25, 'digitar', 0.45, 0.35]];
+      if (c.regua) {
+        const g = c.regua, a0 = S.w[g.de ?? 0] - 0.3, d = Math.max(0.3, S.w[g.ate ?? 1] - S.w[g.de ?? 0] + 0.3);
+        out.push(...tiques(S, t => g.texto ? g.texto(eio(pr(t, a0, d)), S) : '', 0.32));
+      }
+      return out.concat(sopro(S, 0.75, 0.38));
+    },
+    citacao(c, S) {
+      const out = c.ponto ? [[0.05, 'ping', 0.28, 0, 1318]] : [];
+      if (c.dissolver) { const td = S.dur - c.dissolver; out.push([td - 0.05, 'dissolver', 0.9, 1.2], [td + 0.5, 'ping', 0.3, 0, 880]); }
+      else out.push(...sopro(S, 0.55, 0.32));
+      return out;
+    },
+    linhaTempo(c, S) {
+      const p = t => eio(pr(t, S.w[0] - 0.1, (S.w[S.w.length - 1] + 0.25) - S.w[0])), ano = t => Math.round(lerp(c.de, c.ate, p(t)));
+      const out = [[0, 'formar', 0.45, 0.7], ...tiques(S, ano, 0.26)];
+      c.marcos.forEach((m, k) => { for (let t = 0; t < S.dur; t += 1 / 30) if (ano(t) >= m[0]) { out.push([t, 'ping', 0.32, 0, 1046 * Math.pow(1.122, k)]); break; } });
+      return out.concat(sopro(S));
+    },
+    visao(c, S) {
+      const s0 = 0.15, s1 = Math.max(s0 + 0.6, S.w[c.iDetecta] - 0.25);
+      return [[0, 'formar', 0.35, 0.6], [0.1, 'digitar', 0.35, 0.3], [s0, 'varredura', 0.5, s1 - s0], [S.w[c.iDetecta] - 0.08, 'trava', 0.6], ...sopro(S)];
+    },
+    documento(c, S) {
+      return [[0.02, 'formar', 0.7, 0.9], [0.15, 'digitar', 0.45, 0.6], [S.w[1] - 0.2, 'formar', 0.35, 0.6], [S.w[3] - 0.2, 'formar', 0.35, 0.6],
+        [S.w[c.iDestaque] - 0.1, 'ping', 0.38, 0, 1568], ...sopro(S, 0.75, 0.38)];
+    },
+    chat(c, S) {
+      const k = c.contador, iC = k.iInicio, a0 = S.w[iC] - 0.1, d = (S.w[k.iFim] ?? S.w[iC] + 1) - S.w[iC] + 0.2;
+      const v = t => Math.round(lerp(k.de, k.ate, eo(pr(t, a0, d))));
+      return [[0, 'formar', 0.7, 1.0], [S.w[c.iPergunta] - 0.1, 'pop', 0.55], [S.w[c.iPergunta] + 0.3, 'digitar', 0.22, S.w[c.iResposta] - S.w[c.iPergunta] - 0.3],
+        [S.w[c.iResposta] - 0.1, 'formar', 0.3, 0.8], ...tiques(S, v, 0.2), [a0 + d, 'ping', 0.4, 0, 1318], ...sopro(S, 0.75, 0.38)];
+    },
+    palavra(c, S) {
+      const tf = S.w[c.iForma] - 0.55;
+      return [[0, 'formar', 0.5, 2.0], [tf - 0.5, 'subida', 0.55, 0.85], [tf + 0.4, 'impacto', 0.9], [tf + 0.4, 'formar', 0.6, 0.9], ...sopro(S, 0.85, 0.45)];
+    },
+    rota(c, S) {
+      const out = [];
+      c.etapas.forEach((e, k) => out.push([S.w[e[1]] - 0.03, 'ping', 0.3, 0, 784 * Math.pow(1.122, k)], [S.w[e[1]] - 0.03, 'tique', 0.3]));
+      return out.concat(sopro(S));
+    },
+    grafico(c, S) {
+      const t0 = S.w[0], t1 = S.w[S.w.length - 1] + 0.2, D = c.dobras || 10, out = [[0, 'formar', 0.45, 0.7], [0.1, 'digitar', 0.35, 0.35], [t0, 'subida', 0.3, t1 - t0]];
+      for (let k = D - 2; k <= D; k++) out.push([S.w[c.iDobra] + (k - D + 3) * 0.14, 'ping', 0.3, 0, 1046 * Math.pow(1.26, k - D + 2)]);
+      return out.concat([[t1 - 0.05, 'trava', 0.45]], sopro(S, 0.75, 0.38));
+    },
+    simbolo(c, S) { const td = S.w[c.iDispersa] - 0.1; return [[0, 'formar', 0.9, 1.4], [td, 'dissolver', 0.75, Math.max(0.6, S.dur - td)], [td + 0.2, 'ping', 0.25, 0, 880]]; },
+  };
+
   /* ---------- montagem do roteiro (tempos de cada palavra) ---------- */
   const CENAS = [], PALAVRAS = [], FRASES = [], IMAGENS = {};
   const ritmo = Object.assign({ base: 0.14, porLetra: 0.048, virgula: 0.16, ponto: 0.4, frase: 0.06, entrada: 0.45, saida: 0.35 }, window.RITMO || {});
@@ -586,10 +652,21 @@
   }
 
   async function iniciar() {
-    await Promise.all([`700 31px ${SANS}`, `400 31px ${SANS}`, `900 120px "Inter Display"`, `700 10px ${MONO}`, `500 10px ${MONO}`, `italic 40px ${SERIF}`, `40px ${SERIF}`, `bold 20px ${SERIF}`].map(f => document.fonts.load(f).catch(() => {})));
+    await Promise.all([`400 31px ${FONTE}`, `500 31px ${FONTE}`, `700 31px ${FONTE}`, `italic 400 40px ${FONTE}`, `italic 700 40px ${FONTE}`].map(f => document.fonts.load(f).catch(() => {})));
     await Promise.all(Object.entries(window.IMAGENS_ROTEIRO || {}).map(([k, src]) => new Promise(ok => { const im = new Image(); im.onload = () => { IMAGENS[k] = im; ok(); }; im.onerror = ok; im.src = src; })));
     montar();
     CENAS.forEach(c => c.tipo.prep(c.seed));
+    window.__sons = [];
+    CENAS.forEach(c => {
+      const S = { dur: c.t1 - c.t0, w: c.w.map(x => x - c.t0) }, fn = c.c.sons !== false && SONS[c.c.tipo];
+      let deixas = fn ? fn(c.c, S) : [];
+      if (c === CENAS[CENAS.length - 1]) deixas = deixas.filter(d => d[1] !== 'sopro');
+      deixas.concat(c.c.sonsExtra || []).forEach(([t, som, ganho, dur, tom]) => {
+        const tg = +(c.t0 + t).toFixed(3); if (tg < 0) return;
+        window.__sons.push({ t: tg, som, ganho, dur: dur || 0, tom: tom || 0 });
+        window.__events.push({ t: tg, frame: Math.round(tg * 30), type: 'sfx', label: [som, ganho, dur || 0, tom || 0].join('|') });
+      });
+    });
     quadro(0);
   }
   window.__ready = iniciar();
