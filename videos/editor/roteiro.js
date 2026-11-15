@@ -12,6 +12,9 @@
 // Marca d'água fixa em todas as cenas, logo abaixo da legenda (opacidade 0–1; y em coordenadas 720×1280)
 window.MARCA_DAGUA = { texto: '@kingdomtraining.center', y: 1050, tamanho: 17, opacidade: 0.4, opacidadeSelo: 0.8 };
 
+// Logo fixo no topo, centrado (símbolo laranja da Kingdom Training)
+window.LOGO_TOPO = { src: 'logo-kingdom.png', y: 92, tamanho: 46, opacidade: 0.95 };
+
 window.ROTEIRO = [
   { tipo: 'abertura', frases: ['Só um lembrete *amigo,*', ['à luz da *Palavra.*', 0.2]] },
 

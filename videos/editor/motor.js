@@ -250,6 +250,16 @@
     ctx.restore();
     seloVerificado(x0 + w + gap + r, y, r, aS);
   }
+  /* ---------- logo no topo, configurado em roteiro.js: window.LOGO_TOPO = { src, y, tamanho, opacidade } ---------- */
+  let LOGO_IMG = null;
+  function logoTopo() {
+    const l = window.LOGO_TOPO; if (!l || !LOGO_IMG) return;
+    const tam = l.tamanho ?? 46, y = l.y ?? 92;
+    ctx.save(); ctx.globalAlpha = l.opacidade ?? 0.95;
+    ctx.shadowColor = 'rgba(255,90,0,.55)'; ctx.shadowBlur = 18 * K;
+    ctx.drawImage(LOGO_IMG, CX - tam / 2, y - tam / 2, tam, tam);
+    ctx.restore();
+  }
   const partesRef = ref => { const m = ref.match(/^(.*?)(\d+:\d+(?:-\d+)?)$/); return m ? [[m[1], false], [m[2], true]] : [[ref, true]]; };
 
   /* ---------- OBJETOS SIMBÓLICOS (um por princípio) ---------- */
@@ -586,6 +596,7 @@
     esmaecerBase();
     legenda(t);
     marcaDagua();
+    logoTopo();
     // selo da referência bíblica
     if (c.verso && cena.verso0 != null) selo(partesRef(c.verso.ref), PILL_Y, eo(pr(lt, cena.verso0 - 0.05, 0.35)) * (1 - pr(lt, dur - 0.25, 0.22)));
     if (c.tipo === 'cta') {
@@ -597,6 +608,7 @@
 
   async function iniciar() {
     await Promise.all([`400 26px ${F}`, `600 26px ${F}`, `700 26px ${F}`, `italic 400 26px ${F}`, `italic 600 26px ${F}`].map(f => document.fonts.load(f).catch(() => {})));
+    if (window.LOGO_TOPO && window.LOGO_TOPO.src) await new Promise(ok => { const im = new Image(); im.onload = () => { LOGO_IMG = im; ok(); }; im.onerror = ok; im.src = window.LOGO_TOPO.src; });
     montar(); quadro(0);
   }
   window.__ready = iniciar();
