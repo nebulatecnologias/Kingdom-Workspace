@@ -347,7 +347,7 @@ button { cursor: pointer; }
     // cenas
     h += `<div class="trilha">` + CENAS.map(c => `<button class="bloco cena" data-k="cena:${c.i}" style="${pos(c.t0, c.t1)};background:${c.cor}">${miniaturas[c.i] ? `<img src="${miniaturas[c.i]}" alt="">` : ''}${esc(c.nome)}</button>`).join('') + `</div>`;
     const IN = window.INTRO_LOGO;
-    h += `<div class="trilha">` + (IN ? `<button class="bloco anim" data-k="intro:0" style="${pos(0, IN.duracao || 2)}">Abertura do logo</button>` : '') + CENAS.filter(c => c.obj).map(c => `<button class="bloco anim" data-k="anim:${c.i}" style="${pos(c.t0, c.t1)}">${esc(c.obj)}</button>`).join('') + `</div>`;
+    h += `<div class="trilha">` + (IN ? `<button class="bloco anim" data-k="intro:0" style="${pos(0, IN.duracao || 2)}">Abertura do logo</button>` : '') + (window.OUTRO_LOGO ? `<button class="bloco anim" data-k="outro:0" style="${pos(DUR - (window.OUTRO_LOGO.duracao || 3.6), DUR)}">Encerramento · Seguir</button>` : '') + CENAS.filter(c => c.obj).map(c => `<button class="bloco anim" data-k="anim:${c.i}" style="${pos(c.t0, c.t1)}">${esc(c.obj)}</button>`).join('') + `</div>`;
     h += `<div class="trilha">` + LEG.filter(l => !l.verso).map(l => `<button class="bloco leg" data-k="leg:${l.i}" style="${pos(l.t0, l.t1)}">${esc(l.texto.replace(/\*/g, ''))}</button>`).join('') + `</div>`;
     h += `<div class="trilha">` + VERSOS.map((v, i) => `<button class="bloco verso" data-k="verso:${i}" style="${pos(v.t0, v.t1)}">${esc(v.ref)}</button>`).join('') + `</div>`;
     h += `<div class="trilha">` + SONS.map((s, i) => s.dur > 0.4 ? `<button class="sfx longo" data-k="sfx:${i}" style="${pos(s.t0, s.t0 + s.dur)}" aria-label="${esc(NOMES_SOM[s.som] || s.som)}"></button>` : `<button class="sfx${s.som === 'impacto' || s.som === 'sopro' ? ' grave' : ''}" data-k="sfx:${i}" style="left:${s.t0 * pps}px" aria-label="${esc(NOMES_SOM[s.som] || s.som)} em ${fmt(s.t0)}"></button>`).join('') + `</div>`;
@@ -393,6 +393,7 @@ button { cursor: pointer; }
     if (tipo === 'verso') { const v = VERSOS[n]; return { tipo, t0: v.t0, t1: v.t1, v }; }
     if (tipo === 'sfx') { const s = SONS[n]; return { tipo, t0: s.t0, t1: s.t0 + Math.max(.2, s.dur), s }; }
     if (tipo === 'intro') { const d = (window.INTRO_LOGO || {}).duracao || 2; return { tipo, t0: 0, t1: d }; }
+    if (tipo === 'outro') { const d = (window.OUTRO_LOGO || {}).duracao || 3.6; return { tipo, t0: DUR - d, t1: DUR }; }
   }
   function descrever(a) {
     if (!a) return '';
@@ -402,6 +403,7 @@ button { cursor: pointer; }
     if (a.tipo === 'verso') return `Versículo ${a.v.ref}`;
     if (a.tipo === 'sfx') return `Som ${NOMES_SOM[a.s.som] || a.s.som}`;
     if (a.tipo === 'intro') return 'Abertura do logo';
+    if (a.tipo === 'outro') return 'Encerramento (seguir a página)';
   }
   function selecionar(k, mover = true) {
     selecionado = k; const a = alvoDe(k); if (mover && a) irPara(a.t0 + 0.02);
@@ -424,6 +426,7 @@ button { cursor: pointer; }
     } else if (a.tipo === 'leg') { tipo = 'Legenda'; titulo = a.l.texto.replace(/\*/g, ''); h = tempos + L('Estilo', 'Google Sans 26 px · karaokê'); }
     else if (a.tipo === 'verso') { tipo = 'Versículo'; titulo = a.v.ref; h = tempos + L('Texto', esc(a.v.texto)) + L('Tradução', 'NVI'); }
     else if (a.tipo === 'intro') { const I = window.INTRO_LOGO || {}, LG = window.LOGO_TOPO || {}; tipo = 'Animação'; titulo = 'Abertura do logo'; h = tempos + L('Logo', 'Símbolo Kingdom Training') + L('Tamanho', `${I.tamanhoInicial || 140} → ${LG.tamanho || 46} px`, 1) + L('Revelação', `círculo a partir do logo · zoom ${I.zoom || 1.15}× → 1×`) + L('Conteúdo entra', fmt(I.inicioConteudo ?? 1.2), 1); }
+    else if (a.tipo === 'outro') { const O = window.OUTRO_LOGO || {}; tipo = 'Animação'; titulo = 'Encerramento'; h = tempos + L('Movimento', 'inverso da abertura: o logo desce ao centro') + L('Chamada', esc(O.chamada || 'Siga a página')) + L('Perfil', esc(O.handle || '')) + L('Botão', `${esc(O.botao || 'Seguir')} → ${esc(O.botaoFeito || 'Seguindo')} (toque do cursor)`); }
     else if (a.tipo === 'sfx') { tipo = 'Efeito sonoro'; titulo = NOMES_SOM[a.s.som] || a.s.som; h = L('Momento', fmt(a.s.t0), 1) + L('Ganho', a.s.ganho.toFixed(2), 1) + (a.s.dur ? L('Duração', a.s.dur.toFixed(2) + ' s', 1) : '') + (a.s.tom ? L('Tom', Math.round(a.s.tom) + ' Hz', 1) : '') + L('Origem', 'Sintetizado por código'); }
     el.innerHTML = `<div class="tipo">${tipo}</div><h2>${esc(titulo)}</h2><dl class="props">${h}</dl><button class="btn" id="pedir-aqui" type="button">Pedir alteração neste elemento</button>`;
     $('pedir-aqui').onclick = () => { $('msg').focus(); };

@@ -241,14 +241,14 @@
     ctx.beginPath(); ctx.moveTo(x - r * .42, y + r * .02); ctx.lineTo(x - r * .1, y + r * .34); ctx.lineTo(x + r * .45, y - r * .3); ctx.stroke();
     ctx.restore();
   }
-  function marcaDagua() {
-    const m = window.MARCA_DAGUA; if (!m || !m.texto) return;
+  function marcaDagua(f = 1) {
+    const m = window.MARCA_DAGUA; if (!m || !m.texto || f <= 0) return;
     const y = m.y ?? 1050, tam = m.tamanho ?? 17, aT = m.opacidade ?? 0.4, aS = m.opacidadeSelo ?? 0.8;
     ctx.save(); ctx.font = `500 ${tam}px ${F}`; ctx.letterSpacing = '0.3px'; ctx.textBaseline = 'middle';
     const w = ctx.measureText(m.texto).width, r = tam * 0.52, gap = 6, x0 = CX - (w + gap + 2 * r) / 2;
-    ctx.globalAlpha = aT; ctx.fillStyle = '#ffffff'; ctx.fillText(m.texto, x0, y + 1);
+    ctx.globalAlpha = aT * f; ctx.fillStyle = '#ffffff'; ctx.fillText(m.texto, x0, y + 1);
     ctx.restore();
-    seloVerificado(x0 + w + gap + r, y, r, aS);
+    seloVerificado(x0 + w + gap + r, y, r, aS * f);
   }
   /* ---------- logo no topo, configurado em roteiro.js: window.LOGO_TOPO = { src, y, tamanho, opacidade } ---------- */
   let LOGO_IMG = null;
@@ -279,6 +279,71 @@
     ctx.shadowColor = 'rgba(255,90,0,.7)'; ctx.shadowBlur = lerp(60, 18, p) * K;
     ctx.drawImage(LOGO_IMG, CX - tam / 2, y - tam / 2, tam, tam);
     ctx.restore();
+  }
+  /* ---------- encerramento: movimento inverso, o logo desce ao centro com a chamada para seguir (window.OUTRO_LOGO) ---------- */
+  const OUTRO = window.OUTRO_LOGO || null;
+  let T_FIM = 0; // fim do conteúdo; o encerramento vem depois
+  const outroTempos = () => { const ida = OUTRO.descida ?? 1.4; return { ida, toque: ida + (OUTRO.atrasoToque ?? 1.05) }; };
+  function outroZoom(tr) { if (!OUTRO || tr <= T_FIM) return 1; return lerp(1, OUTRO.zoom ?? 1.15, eio(pr(tr - T_FIM, 0, outroTempos().ida))); }
+  function cursorSeta(x, y, a, s = 1) {
+    ctx.save(); ctx.globalAlpha = a; ctx.translate(x, y); ctx.scale(s, s);
+    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 26); ctx.lineTo(7, 20); ctx.lineTo(12, 31); ctx.lineTo(17, 29); ctx.lineTo(12, 18); ctx.lineTo(21, 18); ctx.closePath();
+    ctx.fillStyle = '#ffffff'; ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 8 * K; ctx.fill(); ctx.shadowBlur = 0;
+    ctx.strokeStyle = '#1a1917'; ctx.lineWidth = 1.5; ctx.lineJoin = 'round'; ctx.stroke(); ctx.restore();
+  }
+  function encerramento(u) {
+    const l = window.LOGO_TOPO || {}, o = OUTRO, { ida, toque } = outroTempos();
+    const yF = l.y ?? 92, tamF = l.tamanho ?? 46, yC = o.yLogo ?? 470, tamC = o.tamanhoLogo ?? 130;
+    const p = eio(pr(u, 0, ida)), y = lerp(yF, yC, p), tam = lerp(tamF, tamC, p);
+    // véu fecha em direção ao logo (o inverso da abertura)
+    const rv = 1 - eio(pr(u, 0, ida)), rIn = lerp(0, 1500, rv), rOut = rIn + 260;
+    const g = ctx.createRadialGradient(CX, y, rIn, CX, y, rOut); g.addColorStop(0, 'rgba(26,25,23,0)'); g.addColorStop(1, 'rgba(26,25,23,1)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    const cobre = eo(pr(u, ida * 0.75, ida * 0.3)); if (cobre > 0) { ctx.fillStyle = `rgba(26,25,23,${cobre})`; ctx.fillRect(0, 0, W, H); }
+    // halo e logo
+    if (LOGO_IMG) {
+      ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.5 * p;
+      const hg = ctx.createRadialGradient(CX, y, 0, CX, y, tam * 2.2); hg.addColorStop(0, 'rgba(255,90,0,.35)'); hg.addColorStop(1, 'rgba(255,90,0,0)'); ctx.fillStyle = hg; ctx.fillRect(CX - tam * 2.2, y - tam * 2.2, tam * 4.4, tam * 4.4); ctx.restore();
+      ctx.save(); ctx.globalAlpha = l.opacidade ?? 0.95; ctx.shadowColor = 'rgba(255,90,0,.7)'; ctx.shadowBlur = lerp(18, 50, p) * K;
+      ctx.drawImage(LOGO_IMG, CX - tam / 2, y - tam / 2, tam, tam); ctx.restore();
+    }
+    // chamada e @
+    const pc = eo(pr(u, ida - 0.15, 0.5)), pa = eo(pr(u, ida + 0.05, 0.5));
+    ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.globalAlpha = pc; ctx.fillStyle = '#ffffff'; ctx.font = `600 34px ${F}`; ctx.letterSpacing = '-0.3px';
+    ctx.fillText(o.chamada || 'Siga a página', CX, yC + 118 + 12 * (1 - pc));
+    ctx.restore();
+    const hTxt = o.handle || (window.MARCA_DAGUA || {}).texto || '';
+    if (hTxt && pa > 0) {
+      ctx.save(); ctx.font = `500 22px ${F}`; ctx.textBaseline = 'middle'; const w = ctx.measureText(hTxt).width, r = 11, x0 = CX - (w + 8 + 2 * r) / 2, yy = yC + 162 + 10 * (1 - pa);
+      ctx.globalAlpha = pa * 0.85; ctx.fillStyle = '#ffffff'; ctx.fillText(hTxt, x0, yy + 1); ctx.restore();
+      seloVerificado(x0 + w + 8 + r, yy, r, pa);
+    }
+    // botão Seguir → Seguindo, tocado por um cursor
+    const pb = pr(u, ida + 0.3, 0.45);
+    if (pb > 0) {
+      const press = pr(u, toque - 0.06, 0.16), feito = u >= toque + 0.04, bw = 230, bh = 54, by = yC + 236;
+      const s = (0.7 + 0.3 * eob(pb)) * (1 - 0.07 * Math.sin(Math.PI * press));
+      ctx.save(); ctx.globalAlpha = cl(pb * 2.5); ctx.translate(CX, by); ctx.scale(s, s);
+      ctx.beginPath(); ctx.roundRect(-bw / 2, -bh / 2, bw, bh, 12);
+      if (feito) { ctx.fillStyle = '#2b2a28'; ctx.fill(); ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 1.2; ctx.stroke(); }
+      else { ctx.fillStyle = '#ff5a00'; ctx.shadowColor = 'rgba(255,90,0,.6)'; ctx.shadowBlur = 20 * K; ctx.fill(); ctx.shadowBlur = 0; }
+      ctx.fillStyle = '#ffffff'; ctx.font = `600 22px ${F}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const txt = feito ? (o.botaoFeito || 'Seguindo') : (o.botao || 'Seguir');
+      if (feito) { const tw = ctx.measureText(txt).width; ctx.fillText(txt, 12, 1); ctx.strokeStyle = '#ff7a27'; ctx.lineWidth = 2.6; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); const cx0 = 12 - tw / 2 - 20; ctx.moveTo(cx0 - 6, 0); ctx.lineTo(cx0 - 1.5, 5); ctx.lineTo(cx0 + 7, -6); ctx.stroke(); }
+      else ctx.fillText(txt, 0, 1);
+      ctx.restore();
+      // onda do toque
+      const pr2 = pr(u, toque, 0.55);
+      if (pr2 > 0 && pr2 < 1) { ctx.save(); ctx.globalAlpha = 0.6 * (1 - pr2); ctx.strokeStyle = '#ff7a27'; ctx.lineWidth = 2; ctx.beginPath(); ctx.roundRect(CX - bw / 2 - 14 * pr2, by - bh / 2 - 14 * pr2, bw + 28 * pr2, bh + 28 * pr2, 12 + 10 * pr2); ctx.stroke(); ctx.restore(); }
+      if (feito) estrela(CX + bw / 2 - 6, by - bh / 2 + 4, 8 * (1 - pr(u, toque + 0.1, 0.8)) + 2, 1 - pr(u, toque + 0.4, 0.8));
+      // cursor entra, toca e sai
+      const ent = eo(pr(u, toque - 0.65, 0.55)), sai = eio(pr(u, toque + 0.35, 0.5));
+      if (ent > 0 && sai < 1) {
+        const cx = lerp(CX + 190, CX + 30, ent) + 120 * sai, cy = lerp(by + 170, by + 6, ent) + 80 * sai;
+        cursorSeta(cx, cy, (1 - sai) * ent, 1.15 * (1 - 0.12 * Math.sin(Math.PI * press)));
+      }
+    }
   }
   const partesRef = ref => { const m = ref.match(/^(.*?)(\d+:\d+(?:-\d+)?)$/); return m ? [[m[1], false], [m[2], true]] : [[ref, true]]; };
 
@@ -504,6 +569,7 @@
       t += c.saidaExtra ?? 0; cena.t1 = t + (c.saida ?? ritmo.saida); t = cena.t1; CENAS.push(cena);
     });
     FRASES.forEach((f, i) => { const u = PALAVRAS[f.i1], prox = FRASES[i + 1]; f.t1 = Math.min(prox ? prox.t0 - 0.02 : 1e9, u.t + u.d + 0.9, CENAS[f.cena].t1 - 0.05); });
+    T_FIM = t; if (OUTRO) t += OUTRO.duracao ?? 3.6;
     window.__duration = t;
     window.__events = [];
     CENAS.forEach(c => window.__events.push({ t: c.t0, frame: Math.round(c.t0 * 30), type: 'cut', label: c.c.tipo }));
@@ -515,6 +581,7 @@
   const ESCALA = [523, 587, 659, 698, 784, 880, 988, 1046, 1175, 1318];
   function sons() {
     const S = [];
+    if (OUTRO) { const { ida, toque } = outroTempos(), f = T_FIM; S.push([f + 0.02, 'sopro', 0.5], [f + 0.1, 'dissolver', 0.45, ida], [f + ida - 0.05, 'impacto', 0.35], [f + ida + 0.3, 'pop', 0.45], [f + toque, 'tique', 0.6], [f + toque + 0.05, 'ping', 0.45, 0, 1318], [f + toque + 0.12, 'formar', 0.3, 0.8]); }
     if (INTRO) { const d = INTRO.duracao ?? 2; S.push([0.05, 'formar', 0.55, d * 0.9], [0.15, 'subida', 0.3, d - 0.2], [d - 0.02, 'ping', 0.4, 0, 1046]); }
     CENAS.forEach((cena, i) => {
       const c = cena.c, t0 = cena.t0, w = cena.w;
@@ -567,8 +634,9 @@
 
   /* ---------- quadro ---------- */
   function quadro(t) {
+    const tReal = t; if (OUTRO && t > T_FIM) t = T_FIM - 0.001; // no encerramento o conteúdo fica parado no último quadro
     ctx.setTransform(K, 0, 0, K, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
-    fundo(t);
+    fundo(tReal);
     let ci = CENAS.findIndex(c => t >= c.t0 && t < c.t1); if (ci < 0) ci = t < CENAS[0].t0 ? 0 : CENAS.length - 1;
     const cena = CENAS[ci], c = cena.c, lt = t - cena.t0, dur = cena.t1 - cena.t0;
     const S = { t: lt, dur, w: cena.w.map(x => x - cena.t0), palavras: cena.palavras };
@@ -581,7 +649,7 @@
     if (c.tipo === 'abertura') dy = 700;
     else if (ant && ant.c.tipo === 'abertura') dy = 700 * (1 - eio(pr(lt, 0, 1.0)));
     if (c.tipo === 'final' || c.tipo === 'cta') dy = c.tipo === 'cta' ? 700 : 700 * eio(pr(lt, 0, 1.0));
-    const z = (1 + 0.025 * Math.sin(t * 0.25)) * introZoom(t);
+    const z = (1 + 0.025 * Math.sin(t * 0.25)) * introZoom(t) * outroZoom(tReal);
     ctx.save(); ctx.translate(CX, 640); ctx.scale(z, z); ctx.translate(-CX, -640);
     holofote(t, 1); fios(c.tipo === 'abertura' || c.tipo === 'final' || c.tipo === 'cta' ? .5 : 1);
     domo(t, cor, dy, 1);
@@ -616,7 +684,7 @@
     ctx.restore();
     esmaecerBase();
     legenda(t);
-    marcaDagua();
+    marcaDagua(OUTRO ? 1 - pr(tReal, T_FIM, 0.35) : 1);
     // selo da referência bíblica
     if (c.verso && cena.verso0 != null) selo(partesRef(c.verso.ref), PILL_Y, eo(pr(lt, cena.verso0 - 0.05, 0.35)) * (1 - pr(lt, dur - 0.25, 0.22)));
     if (c.tipo === 'cta') {
@@ -624,7 +692,7 @@
       selo(c.selo1 || [['COMENTE ', false], ['ASCENDER', true]], PILL_Y, p1 * (1 - troca));
       selo(c.selo2 || [['SUBA PARA ', false], ['A LISTA', true]], PILL_Y, troca);
     }
-    introLogo(t);
+    if (OUTRO && tReal > T_FIM) encerramento(tReal - T_FIM); else introLogo(t);
   }
 
   async function iniciar() {
