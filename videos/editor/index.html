@@ -64,7 +64,7 @@ button { cursor: pointer; }
 .legenda-item time { font-family: var(--f-cod); color: var(--suave); font-size: 12px; }
 .legenda-item .tx { min-width: 0; }
 .legenda-item.verso .tx { font-style: italic; }
-.ref { display: inline-block; margin-top: 4px; font-family: var(--f-cod); font-size: 11px; letter-spacing: .06em; border: 1px solid var(--linha-2); border-radius: 999px; padding: 1px 8px; color: var(--suave); font-style: normal; }
+.ref { display: inline-block; margin-top: 4px; font-family: var(--f-cod); font-size: 11px; letter-spacing: .06em; border: 1px solid var(--linha-2); border-radius: 999px; padding: 2px 10px; color: var(--suave); font-style: normal; }
 
 /* palco */
 .palco { display: grid; grid-template-rows: minmax(0, 1fr) auto; min-height: 0; background: radial-gradient(ellipse at 50% 40%, #1d1c1a 0%, var(--bg) 70%); }
@@ -102,7 +102,7 @@ button { cursor: pointer; }
 .pedido { background: var(--painel-2); border: 1px solid var(--linha); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
 .pedido .linha1 { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
 .pedido time { font-family: var(--f-cod); font-size: 11px; color: var(--fraco); }
-.estado { font-size: 11px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--laranja); color: var(--laranja-3); white-space: nowrap; }
+.estado { font-size: 11px; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--laranja); color: var(--laranja-3); white-space: nowrap; }
 .estado.andamento { background: var(--laranja); color: var(--branco); }
 .estado.feito { border-color: var(--branco); color: var(--branco); }
 .pedido .contexto { font-family: var(--f-cod); font-size: 11px; color: var(--suave); }
@@ -110,7 +110,7 @@ button { cursor: pointer; }
 .pedido .resposta { border-left: 2px solid var(--laranja); padding-left: 8px; color: var(--suave); white-space: pre-wrap; }
 .pedido .resposta b { color: var(--texto); font-weight: 500; }
 .compor { padding: 10px 12px 12px; border-top: 1px solid var(--linha); display: flex; flex-direction: column; gap: 8px; }
-.chip { align-self: flex-start; font-family: var(--f-cod); font-size: 11px; background: var(--laranja-bg); color: var(--laranja-3); border-radius: 999px; padding: 2px 8px; display: flex; gap: 6px; align-items: center; max-width: 100%; }
+.chip { align-self: flex-start; font-family: var(--f-cod); font-size: 11px; background: var(--laranja-bg); color: var(--laranja-3); border-radius: 999px; padding: 4px 10px; display: flex; gap: 6px; align-items: center; max-width: 100%; }
 .chip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .chip button { border: 0; background: none; padding: 0; color: inherit; }
 .compor textarea { resize: none; min-height: 64px; border-radius: 10px; border: 1px solid var(--linha-2); background: var(--painel-2); padding: 9px 10px; line-height: 1.45; }
@@ -133,7 +133,7 @@ button { cursor: pointer; }
 .regua .marca-t { position: absolute; top: 0; height: 100%; border-left: 1px solid var(--linha-2); font-family: var(--f-cod); font-size: 11px; color: var(--fraco); padding: 4px 0 0 4px; }
 .regua .marca-t.peq { height: 6px; top: auto; bottom: 0; }
 .trilha { height: 32px; position: relative; border-bottom: 1px solid var(--linha); }
-.bloco { position: absolute; top: 4px; height: 24px; border-radius: 5px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 11.5px; padding: 0 7px; line-height: 24px; border: 1px solid transparent; cursor: pointer; text-align: left; }
+.bloco { position: absolute; top: 4px; height: 24px; border-radius: 5px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 11.5px; padding: 0 8px; line-height: 24px; border: 1px solid transparent; cursor: pointer; text-align: left; }
 .bloco:hover { filter: brightness(1.12); }
 .bloco.sel { border-color: var(--branco); box-shadow: 0 0 0 1px var(--branco); }
 .bloco.cena { color: #1a1917; font-weight: 600; padding-left: 4px; display: flex; align-items: center; gap: 6px; }
