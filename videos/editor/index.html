@@ -475,7 +475,13 @@ button { cursor: pointer; }
   }
 
   /* ---------- capacidades: pedidos (db), ficheiros (assets) ---------- */
-  let db = null, assets = null, user = null, podeCarregar = false, contexto = null, meuId = null;
+  let db = null, assets = null, user = null, comentarios = null, ouvindo = 'off', podeCarregar = false, contexto = null, meuId = null;
+  const ROTULO_OUVINDO = { available: 'Claude a ouvir', no_session: 'Claude fora da sessão — pedidos guardados', writers_only: 'só editores avisam o Claude', off: 'pedidos guardados' };
+  async function atualizarOuvindo() {
+    if (comentarios) { try { ouvindo = await comentarios.canSendToClaude(); } catch (e) { ouvindo = 'off'; } }
+    if (db) $('estado-db').textContent = ROTULO_OUVINDO[ouvindo] || ROTULO_OUVINDO.off;
+    $('nota-envio').textContent = ouvindo === 'available' ? 'Enter envia direto ao Claude · Shift+Enter quebra linha' : 'Enter guarda o pedido · diga "veja os pedidos" no chat';
+  }
   function mostrarChip() {
     const ch = $('chip-contexto'), tx = contexto ? `${contexto.rotulo} · ${fmt(contexto.t0)}` : `Momento ${fmt(t)}`;
     $('chip-texto').textContent = tx; ch.hidden = false; $('chip-limpar').hidden = !contexto;
@@ -485,18 +491,38 @@ button { cursor: pointer; }
     const el = $('pedidos');
     if (!lista.length) { el.innerHTML = `<p class="vazio" style="margin:4px 0">Nenhum pedido ainda. Escreva abaixo o que quer mudar: o Claude lê estes pedidos, aplica no vídeo e responde aqui com o estado.</p>`; return; }
     const ESTADOS = { pendente: 'Pendente', andamento: 'Em andamento', feito: 'Feito' };
-    el.innerHTML = lista.map(p => `<article class="pedido"><div class="linha1"><time>${new Date(p.criadoEm).toLocaleString('pt-PT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</time><span class="estado ${p.estado || 'pendente'}">${ESTADOS[p.estado] || 'Pendente'}</span></div>${p.contexto ? `<div class="contexto">${esc(p.contexto)}</div>` : ''}<div class="texto">${esc(p.texto)}</div>${p.resposta ? `<div class="resposta"><b>Claude:</b> ${esc(p.resposta)}</div>` : ''}</article>`).join('');
+    el.innerHTML = lista.map(p => `<article class="pedido"><div class="linha1"><time>${new Date(p.criadoEm).toLocaleString('pt-PT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</time><span class="estado ${p.estado || 'pendente'}">${ESTADOS[p.estado] || 'Pendente'}</span></div>${p.contexto ? `<div class="contexto">${esc(p.contexto)}${p.avisado ? ' · Claude avisado' : ''}</div>` : ''}<div class="texto">${esc(p.texto)}</div>${p.resposta ? `<div class="resposta"><b>Claude:</b> ${esc(p.resposta)}</div>` : ''}</article>`).join('');
     el.scrollTop = el.scrollHeight;
   }
   let rascunho = []; // fallback sem db
   async function enviar(texto) {
     texto = texto.trim(); if (!texto) return;
     const ctxTxt = contexto ? `${contexto.rotulo} · ${fmt(contexto.t0)}–${fmt(contexto.t1)}` : `Momento ${fmt(t)} · formato ${formato}`;
-    const doc = { texto, contexto: ctxTxt, alvo: contexto ? contexto.k : null, tempo: +t.toFixed(2), formato, criadoEm: new Date().toISOString(), estado: 'pendente', resposta: '', autor: meuId || '' };
+    const id = 'p' + Date.now().toString(36);
+    const doc = { id, texto, contexto: ctxTxt, alvo: contexto ? contexto.k : null, tempo: +t.toFixed(2), formato, criadoEm: new Date().toISOString(), estado: 'pendente', resposta: '', autor: meuId || '', avisado: false, threadId: '' };
     $('msg').value = ''; try { localStorage.removeItem('rascunho-msg'); } catch (e) {}
-    if (!db) { rascunho.push(doc); renderPedidos(rascunho); try { await navigator.clipboard.writeText(`${ctxTxt}\n${texto}`); } catch (e) {} toast('Sem ligação: pedido copiado — cole no chat do Claude'); return; }
-    try { await db.collection('pedidos').add(doc); toast('Pedido enviado ao Claude'); }
-    catch (e) { toast('Não foi enviado: ' + (e?.message || e?.code || 'erro')); $('msg').value = texto; }
+    // 1) avisa o Claude já, ainda dentro do gesto de quem clicou: vira um comentário que acorda a sessão
+    let envio = null;
+    if (comentarios && ouvindo === 'available') {
+      const el = (selecionado && conteudo.querySelector(`[data-k="${selecionado}"]`)) || $('moldura');
+      envio = comentarios.anchorFor(el).then(anchor => comentarios.sendToClaude({ anchor, text: `Pedido ${id} · ${ctxTxt}\n${texto}` })).catch(e => ({ erro: e }));
+    }
+    const MOTIVO = { consent_required: 'autorize os comentários para avisar o Claude', claude_unavailable: 'o Claude não está a ouvir agora', rate_limited: 'muitos envios seguidos, aguarde um pouco', forbidden: 'avisos ao Claude desligados nesta vista' };
+    if (!db) {
+      rascunho.push(doc); renderPedidos(rascunho);
+      const r = envio ? await envio : null;
+      if (r && !r.erro) { toast('Enviado ao Claude'); return; }
+      try { await navigator.clipboard.writeText(`${ctxTxt}\n${texto}`); } catch (e) {} toast('Sem ligação: pedido copiado — cole no chat do Claude'); return;
+    }
+    try {
+      const ref = db.collection('pedidos').doc(id); await ref.set(doc);
+      if (envio) {
+        const r = await envio;
+        if (r && !r.erro) { await ref.update({ avisado: true, threadId: r.threadId }); toast('Pedido enviado — o Claude foi avisado'); }
+        else { toast('Pedido guardado; ' + (MOTIVO[r?.erro?.code] || 'não deu para avisar o Claude') + '. Diga "veja os pedidos" no chat.'); atualizarOuvindo(); }
+      } else toast('Pedido guardado — diga "veja os pedidos" no chat do Claude');
+    }
+    catch (e) { toast('Não foi guardado: ' + (e?.message || e?.code || 'erro')); $('msg').value = texto; }
   }
   $('compor').addEventListener('submit', e => { e.preventDefault(); enviar($('msg').value); });
   $('msg').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); enviar($('msg').value); } });
@@ -519,12 +545,13 @@ button { cursor: pointer; }
   async function ligarCapacidades() {
     if (!window.claude?.use) { $('estado-db').textContent = 'offline'; renderPedidos([]); return; }
     const timer = setTimeout(() => { if (!db) { $('estado-db').textContent = 'sem ligação'; renderPedidos(rascunho); } }, 10000);
-    [db, assets, user] = await Promise.all([claude.use('db'), claude.use('assets'), claude.use('user')]);
+    [db, assets, user, comentarios] = await Promise.all([claude.use('db'), claude.use('assets'), claude.use('user'), claude.use('comments')]);
     clearTimeout(timer);
     podeCarregar = !!assets; montarFicheiros();
     if (user) { try { meuId = await user.id(); } catch (e) {} }
     if (!db) { $('estado-db').textContent = 'inicie sessão para guardar'; renderPedidos(rascunho); return; }
-    $('estado-db').textContent = 'ligado';
+    $('estado-db').textContent = 'ligado'; atualizarOuvindo();
+    $('msg').addEventListener('focus', atualizarOuvindo);
     db.collection('pedidos').orderBy('criadoEm').onSnapshot(s => renderPedidos(s.docs.map(d => d.data())), e => { $('estado-db').textContent = 'erro ao ler'; });
     db.collection('ficheiros').orderBy('criadoEm').onSnapshot(s => { carregados = s.docs.map(d => d.data()); montarFicheiros(); }, () => {});
   }
