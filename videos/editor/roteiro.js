@@ -15,6 +15,9 @@ window.MARCA_DAGUA = { texto: '@kingdomtraining.center', y: 1050, tamanho: 17, o
 // Logo fixo no topo, centrado (símbolo laranja da Kingdom Training)
 window.LOGO_TOPO = { src: 'logo-kingdom.png', y: 92, tamanho: 46, opacidade: 0.95 };
 
+// Abertura fixa: o logo sobe do centro ao topo em 2 s, maior no centro, revelando o conteúdo com zoom out
+window.INTRO_LOGO = { duracao: 2.0, inicioConteudo: 1.2, tamanhoInicial: 140, yInicial: 600, zoom: 1.15 };
+
 window.ROTEIRO = [
   { tipo: 'abertura', frases: ['Só um lembrete *amigo,*', ['à luz da *Palavra.*', 0.2]] },
 

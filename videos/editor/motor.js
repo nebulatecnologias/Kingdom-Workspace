@@ -260,6 +260,26 @@
     ctx.drawImage(LOGO_IMG, CX - tam / 2, y - tam / 2, tam, tam);
     ctx.restore();
   }
+  /* ---------- abertura: o logo sobe do centro ao topo revelando o conteúdo (window.INTRO_LOGO) ---------- */
+  const INTRO = window.INTRO_LOGO || null;
+  function introZoom(t) { if (!INTRO) return 1; const d = INTRO.duracao ?? 2; return lerp(INTRO.zoom ?? 1.15, 1, eio(pr(t, d * 0.3, d * 0.85))); }
+  function introLogo(t) {
+    const l = window.LOGO_TOPO || {}, d = INTRO ? (INTRO.duracao ?? 2) : 0;
+    if (!INTRO || !LOGO_IMG || t >= d) { logoTopo(); return; }
+    const yF = l.y ?? 92, tamF = l.tamanho ?? 46, y0 = INTRO.yInicial ?? 600, tam0 = INTRO.tamanhoInicial ?? 140;
+    const p = eio(pr(t, 0.2, d - 0.2)), y = lerp(y0, yF, p), tam = lerp(tam0, tamF, p) * (0.85 + 0.15 * eo(pr(t, 0, 0.35)));
+    // véu escuro com um buraco que se abre a partir do logo: o conteúdo é revelado
+    const rv = eio(pr(t, d * 0.3, d * 0.7)), rIn = lerp(0, 1500, rv), rOut = rIn + 260;
+    const g = ctx.createRadialGradient(CX, y, rIn, CX, y, rOut);
+    g.addColorStop(0, 'rgba(26,25,23,0)'); g.addColorStop(1, 'rgba(26,25,23,1)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    const cobre = 1 - eo(pr(t, d * 0.3, d * 0.2)); if (cobre > 0) { ctx.fillStyle = `rgba(26,25,23,${cobre})`; ctx.fillRect(0, 0, W, H); }
+    // logo com brilho que diminui à medida que sobe
+    ctx.save(); ctx.globalAlpha = (l.opacidade ?? 0.95) * eo(pr(t, 0, 0.3));
+    ctx.shadowColor = 'rgba(255,90,0,.7)'; ctx.shadowBlur = lerp(60, 18, p) * K;
+    ctx.drawImage(LOGO_IMG, CX - tam / 2, y - tam / 2, tam, tam);
+    ctx.restore();
+  }
   const partesRef = ref => { const m = ref.match(/^(.*?)(\d+:\d+(?:-\d+)?)$/); return m ? [[m[1], false], [m[2], true]] : [[ref, true]]; };
 
   /* ---------- OBJETOS SIMBÓLICOS (um por princípio) ---------- */
@@ -464,7 +484,7 @@
     return out;
   }
   function montar() {
-    let t = 0;
+    let t = INTRO ? (INTRO.inicioConteudo ?? 1.2) : 0;
     window.ROTEIRO.forEach((c, ci) => {
       const cena = { c, t0: t, w: [], palavras: [], ci, verso0: null };
       t += c.entrada ?? ritmo.entrada;
@@ -495,6 +515,7 @@
   const ESCALA = [523, 587, 659, 698, 784, 880, 988, 1046, 1175, 1318];
   function sons() {
     const S = [];
+    if (INTRO) { const d = INTRO.duracao ?? 2; S.push([0.05, 'formar', 0.55, d * 0.9], [0.15, 'subida', 0.3, d - 0.2], [d - 0.02, 'ping', 0.4, 0, 1046]); }
     CENAS.forEach((cena, i) => {
       const c = cena.c, t0 = cena.t0, w = cena.w;
       if (i > 0) S.push([t0 - 0.1, 'sopro', 0.55]);
@@ -548,7 +569,7 @@
   function quadro(t) {
     ctx.setTransform(K, 0, 0, K, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
     fundo(t);
-    let ci = CENAS.findIndex(c => t >= c.t0 && t < c.t1); if (ci < 0) ci = CENAS.length - 1;
+    let ci = CENAS.findIndex(c => t >= c.t0 && t < c.t1); if (ci < 0) ci = t < CENAS[0].t0 ? 0 : CENAS.length - 1;
     const cena = CENAS[ci], c = cena.c, lt = t - cena.t0, dur = cena.t1 - cena.t0;
     const S = { t: lt, dur, w: cena.w.map(x => x - cena.t0), palavras: cena.palavras };
     const ant = CENAS[ci - 1];
@@ -560,7 +581,7 @@
     if (c.tipo === 'abertura') dy = 700;
     else if (ant && ant.c.tipo === 'abertura') dy = 700 * (1 - eio(pr(lt, 0, 1.0)));
     if (c.tipo === 'final' || c.tipo === 'cta') dy = c.tipo === 'cta' ? 700 : 700 * eio(pr(lt, 0, 1.0));
-    const z = 1 + 0.025 * Math.sin(t * 0.25);
+    const z = (1 + 0.025 * Math.sin(t * 0.25)) * introZoom(t);
     ctx.save(); ctx.translate(CX, 640); ctx.scale(z, z); ctx.translate(-CX, -640);
     holofote(t, 1); fios(c.tipo === 'abertura' || c.tipo === 'final' || c.tipo === 'cta' ? .5 : 1);
     domo(t, cor, dy, 1);
@@ -596,7 +617,6 @@
     esmaecerBase();
     legenda(t);
     marcaDagua();
-    logoTopo();
     // selo da referência bíblica
     if (c.verso && cena.verso0 != null) selo(partesRef(c.verso.ref), PILL_Y, eo(pr(lt, cena.verso0 - 0.05, 0.35)) * (1 - pr(lt, dur - 0.25, 0.22)));
     if (c.tipo === 'cta') {
@@ -604,6 +624,7 @@
       selo(c.selo1 || [['COMENTE ', false], ['ASCENDER', true]], PILL_Y, p1 * (1 - troca));
       selo(c.selo2 || [['SUBA PARA ', false], ['A LISTA', true]], PILL_Y, troca);
     }
+    introLogo(t);
   }
 
   async function iniciar() {
