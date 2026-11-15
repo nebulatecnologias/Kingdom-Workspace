@@ -9,6 +9,9 @@
    Objetos: edificar, incluir, comunicar, limites, focar, paz, deixar,
             encorajar, apoiar, celebrar, reflexo, valor
    ===================================================================== */
+// Marca d'água fixa em todas as cenas, logo abaixo da legenda (opacidade 0–1; y em coordenadas 720×1280)
+window.MARCA_DAGUA = { texto: '@kingdomtraining.center', y: 1050, tamanho: 17, opacidade: 0.4, opacidadeSelo: 0.8 };
+
 window.ROTEIRO = [
   { tipo: 'abertura', frases: ['Só um lembrete *amigo,*', ['à luz da *Palavra.*', 0.2]] },
 

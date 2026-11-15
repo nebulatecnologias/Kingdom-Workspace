@@ -232,6 +232,24 @@
     partes.forEach(([txt, b]) => { ctx.font = `${b ? 700 : 400} ${fs}px ${F}`; ctx.fillStyle = b ? '#ffffff' : 'rgba(255,255,255,.82)'; ctx.fillText(txt, x, yy + .5); x += ctx.measureText(txt).width; });
     ctx.restore();
   }
+  /* ---------- marca d'água (@ + selo de verificado), configurada em roteiro.js: window.MARCA_DAGUA ---------- */
+  function seloVerificado(x, y, r, a) {
+    ctx.save(); ctx.globalAlpha = a; ctx.beginPath();
+    for (let k = 0; k <= 48; k++) { const an = k / 48 * Math.PI * 2, rr = r * (0.88 + 0.12 * Math.cos(an * 8)); const px = x + Math.cos(an) * rr, py = y + Math.sin(an) * rr; k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.closePath(); ctx.fillStyle = '#ff5a00'; ctx.fill();
+    ctx.strokeStyle = '#ffffff'; ctx.lineWidth = r * 0.26; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(x - r * .42, y + r * .02); ctx.lineTo(x - r * .1, y + r * .34); ctx.lineTo(x + r * .45, y - r * .3); ctx.stroke();
+    ctx.restore();
+  }
+  function marcaDagua() {
+    const m = window.MARCA_DAGUA; if (!m || !m.texto) return;
+    const y = m.y ?? 1050, tam = m.tamanho ?? 17, aT = m.opacidade ?? 0.4, aS = m.opacidadeSelo ?? 0.8;
+    ctx.save(); ctx.font = `500 ${tam}px ${F}`; ctx.letterSpacing = '0.3px'; ctx.textBaseline = 'middle';
+    const w = ctx.measureText(m.texto).width, r = tam * 0.52, gap = 6, x0 = CX - (w + gap + 2 * r) / 2;
+    ctx.globalAlpha = aT; ctx.fillStyle = '#ffffff'; ctx.fillText(m.texto, x0, y + 1);
+    ctx.restore();
+    seloVerificado(x0 + w + gap + r, y, r, aS);
+  }
   const partesRef = ref => { const m = ref.match(/^(.*?)(\d+:\d+(?:-\d+)?)$/); return m ? [[m[1], false], [m[2], true]] : [[ref, true]]; };
 
   /* ---------- OBJETOS SIMBÓLICOS (um por princípio) ---------- */
@@ -567,6 +585,7 @@
     ctx.restore();
     esmaecerBase();
     legenda(t);
+    marcaDagua();
     // selo da referência bíblica
     if (c.verso && cena.verso0 != null) selo(partesRef(c.verso.ref), PILL_Y, eo(pr(lt, cena.verso0 - 0.05, 0.35)) * (1 - pr(lt, dur - 0.25, 0.22)));
     if (c.tipo === 'cta') {
