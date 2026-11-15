@@ -396,7 +396,7 @@
    "+258 87 664 1836"
   ],
   "morada": [
-   "Edifício Millenium Park, Av. Vladimir Lenine, n.º 174",
+   "Edifício Millennium Park, Av. Vladimir Lenine, n.º 174",
    "Maputo 1106, Moçambique"
   ],
   "site": "www.dtcompany.co.za",
@@ -422,5 +422,14 @@
    "6",
    "Fases de trabalho, do diagnóstico à continuidade"
   ]
- ]
+ ],
+ "papelaria": {
+  "tom_simbolo": "#EEF3FD",
+  "canto": {
+   "tamanho_mm": 170,
+   "direita_mm": -62,
+   "baixo_mm": 30
+  },
+  "exemplo_html": "<p class=\"data\">Maputo, 15 de Novembro de 2026</p><p class=\"dest\"><b>Nome do destinatário</b><br>Cargo · Empresa<br>Endereço</p><p class=\"ass\"><b>Assunto:</b> Proposta de due diligence de fornecedores</p><p>Exmo. Senhor,</p><p>Na sequência da reunião de dia 10, enviamos a proposta para a verificação dos fornecedores activos da sua empresa. O documento descreve o âmbito, as fases, os prazos e os entregáveis, e indica por escrito os temas jurídicos que ficam fora do nosso trabalho.</p><p>Ficamos ao dispor para esclarecer qualquer ponto.</p><p>Com os melhores cumprimentos,</p><p class=\"assin\"><b>Nome Apelido</b><br>Cargo</p>"
+ }
 }

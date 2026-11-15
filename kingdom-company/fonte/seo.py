@@ -65,7 +65,7 @@ def organizacao():
         'email': 'contact@kingdomcompany.co.za',
         'telephone': '+258876641836',
         'address': [
-            {'@type': 'PostalAddress', 'streetAddress': 'Edifício Millenium Park, Av. Vladimir Lenine, n.º 174',
+            {'@type': 'PostalAddress', 'streetAddress': 'Edifício Millennium Park, Av. Vladimir Lenine, n.º 174',
              'addressLocality': 'Maputo', 'postalCode': '1106', 'addressCountry': 'MZ'},
         ],
         'geo': {'@type': 'GeoCoordinates', 'latitude': -25.9719319, 'longitude': 32.5754637},
@@ -289,7 +289,7 @@ def llms():
          '- Cada proposta é feita à medida: o site não publica preços. Os projetos pagam-se por marcos.',
          f'- Pedido de cotação ou avaliação inicial: {D}/pedido-de-cotacao',
          '- Contactos: contact@kingdomcompany.co.za · +258 87 664 1836 · +258 85 1877 115',
-         '- Morada: Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106, Moçambique',
+         '- Morada: Edifício Millennium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106, Moçambique',
          '- Língua do site: português europeu.', '']
     for a in AREAS:
         l += [f'## {a["nome"]}', '', f'[{a["nome"]}]({D}/{a["slug"]}): {a["pitch"]}', '']

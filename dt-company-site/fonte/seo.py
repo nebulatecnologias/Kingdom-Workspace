@@ -67,7 +67,7 @@ def organizacao():
                        'a organizar as regras e os controlos que protegem o negócio e a preparar as equipas que o fazem crescer, '
                        'em três pilares: consultoria estratégica, compliance e governança corporativa, e treinamento corporativo.',
         'slogan': 'Confiança para investir, operar e crescer em Moçambique',
-        'address': {'@type': 'PostalAddress', 'streetAddress': 'Edifício Millenium Park, Av. Vladimir Lenine, n.º 174',
+        'address': {'@type': 'PostalAddress', 'streetAddress': 'Edifício Millennium Park, Av. Vladimir Lenine, n.º 174',
                     'addressLocality': 'Maputo', 'postalCode': '1106', 'addressCountry': 'MZ'},
         'geo': {'@type': 'GeoCoordinates', 'latitude': -25.9719319, 'longitude': 32.5754637},
         'areaServed': {'@type': 'Country', 'name': 'Moçambique'},
@@ -294,7 +294,7 @@ def llms():
          f'- Pedido de cotação ou avaliação inicial: {D}/pedido-de-cotacao']
     if EMAIL or TELEFONES:
         l.append('- Contactos: ' + ' · '.join([EMAIL] * bool(EMAIL) + TELEFONES))
-    l += ['- Morada: Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106, Moçambique',
+    l += ['- Morada: Edifício Millennium Park, Av. Vladimir Lenine, n.º 174, Maputo 1106, Moçambique',
           '- Língua do site: português europeu, na grafia anterior ao Acordo Ortográfico de 1990.', '']
     for a in AREAS:
         l += [f'## {a["nome"]}', '', f'[{a["nome"]}]({D}/{a["slug"]}): {a["pitch"]}', '']

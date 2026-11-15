@@ -342,7 +342,7 @@ paginas.append(f'''<section class="pagina escura contracapa">
   <div class="cc-in">
     <img class="logo-v" src="{LOGO_VERT}" alt="Kingdom Company">
     <p class="slogan">Um único lugar. Tudo o que precisa para desenvolver o seu negócio.</p>
-    <div class="contactos"><span>contact@kingdomcompany.co.za</span><span>+258 87 664 1836 · +258 85 1800 920</span><span>Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo</span><span>www.kingdomcompany.co.za</span></div>
+    <div class="contactos"><span>contact@kingdomcompany.co.za</span><span>+258 87 664 1836 · +258 85 1800 920</span><span>Edifício Millennium Park, Av. Vladimir Lenine, n.º 174, Maputo</span><span>www.kingdomcompany.co.za</span></div>
     <p class="interno">Documento de uso interno da equipa comercial. Não distribuir fora da Kingdom Company.</p>
   </div>
 </section>''')

@@ -30,7 +30,8 @@ f_logo = next((f for f in (f'{LOGO}/{S_}-horizontal-{cor_logo}.svg', f'{LOGO}/{S
 if not f_logo: raise SystemExit('correr logotipo.py primeiro')
 
 if modo == 'timbrado':
-    logo = re.sub(r'width="\d+" height="\d+"', 'width="74mm"', open(f_logo).read().strip(), count=1)
+    logo = open(f_logo).read().strip()
+    logo = re.sub(r'width="\d+" height="\d+"', 'width="74mm"', logo, count=1) if re.search(r'<svg[^>]*width=', logo) else logo.replace('<svg ', '<svg width="74mm" ', 1)
     cn = cfg.get('papelaria', {}).get('canto', {})   # {tamanho_mm, direita_mm, baixo_mm}: símbolo grande no canto
     canto = SIM.svg(TOM, largura=f"{cn.get('tamanho_mm', 150)}mm", estilo=f"position:absolute;right:{cn.get('direita_mm', -48)}mm;bottom:{cn.get('baixo_mm', -40)}mm")
     sim_peq = SIM.svg(PRI, altura='9mm')
@@ -57,16 +58,20 @@ body{{font-family:'{fam}',sans-serif;color:{TIN};-webkit-print-color-adjust:exac
 elif modo == 'carta':
     rec = saida(cfg, 'papelaria', 'recursos')
     f_canto = os.path.join(rec, 'simbolo-canto.svg')
-    # recorte do símbolo visível no canto (102 × 110 mm de um símbolo de 150 mm)
-    k = SIM.vh / 150
-    open(f_canto, 'w').write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{SIM.vx} {SIM.vy} {102 * k:.2f} {110 * k:.2f}" width="1632" height="1760">'
+    # recorte da parte do símbolo do canto que fica dentro da folha A4, com a mesma posição do timbrado (papelaria.canto)
+    cn = cfg.get('papelaria', {}).get('canto', {}); Wm = cn.get('tamanho_mm', 150); Hm = Wm / SIM.proporcao
+    x0 = 210 - cn.get('direita_mm', -48) - Wm; y0 = 297 - cn.get('baixo_mm', -40) - Hm
+    bx0, by0, bx1, by1 = max(x0, 0), max(y0, 0), min(x0 + Wm, 210), min(y0 + Hm, 297); k = SIM.vw / Wm
+    CANTO_CX = dict(x=round(bx0, 2), y=round(by0, 2), w=round(bx1 - bx0, 2), h=round(by1 - by0, 2))
+    pw = 1632; ph = round(pw * (by1 - by0) / (bx1 - bx0))
+    open(f_canto, 'w').write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{SIM.vx + (bx0 - x0) * k:.2f} {SIM.vy + (by0 - y0) * k:.2f} {(bx1 - bx0) * k:.2f} {(by1 - by0) * k:.2f}" width="{pw}" height="{ph}">'
                              + ''.join(f'<path fill="{TOM}" fill-rule="evenodd" d="{d}"/>' for d in SIM.ds) + '</svg>')
     f_sim = os.path.join(rec, 'simbolo.svg'); open(f_sim, 'w').write(SIM.svg(PRI, largura='480', altura=f'{480 / SIM.proporcao:.0f}'))
     svg_para_png([(f_canto, f_canto[:-4] + '.png', 1632), (f_sim, f_sim[:-4] + '.png', 480), (f_logo, os.path.join(rec, 'logo.png'), 2000)])
     from PIL import Image
     lw, lh = Image.open(os.path.join(rec, 'logo.png')).size
     dados = dict(nome=cfg['nome'], fam=fam, PRI=PRI[1:], ACE=ACE[1:], CIN=CIN[1:], LIN=LIN[1:], TIN=TIN[1:], morada=MORADA, contactos=CONTACTOS,
-                 logo=os.path.join(rec, 'logo.png'), logo_ratio=lh / lw, simbolo=f_sim[:-4] + '.png', sim_ratio=1 / SIM.proporcao, canto=f_canto[:-4] + '.png',
+                 logo=os.path.join(rec, 'logo.png'), logo_ratio=lh / lw, simbolo=f_sim[:-4] + '.png', sim_ratio=1 / SIM.proporcao, canto=f_canto[:-4] + '.png', canto_cx=CANTO_CX,
                  saida=os.path.join(OUT, f'{S_}-modelo-carta.pptx'))
     js = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'carta.js')
     env = dict(os.environ)

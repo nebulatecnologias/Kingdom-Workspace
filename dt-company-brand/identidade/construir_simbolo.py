@@ -196,7 +196,7 @@ def logo_horizontal(cor):
     return svg(f'<g fill="{cor}">{partes}</g>', x + max(la, lb), max(H, reg_bottom))
 
 
-CORES = {'indigo': '#04123F', 'azul': '#0A57E7', 'branco': '#FFFFFF', 'preto': '#000000'}
+CORES = {'indigo': '#04123F', 'azul': '#0066FF', 'branco': '#FFFFFF', 'preto': '#000000'}
 os.makedirs(os.path.join(SAIDA, 'logotipo'), exist_ok=True)
 for nome, cor in CORES.items():
     open(os.path.join(SAIDA, 'logotipo', f'dt-company-vertical-{nome}.svg'), 'w').write(logo_vertical(cor))

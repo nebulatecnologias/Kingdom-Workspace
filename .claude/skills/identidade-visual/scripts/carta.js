@@ -12,7 +12,7 @@ function rodape() {
   const linha = (t, i, x, w, cor, align) => ({ text: { text: t, options: { x, y: mm(268.2 + i * 3.6), w, h: mm(3.4), fontSize: 7.6, color: cor, margin: 0, valign: "middle", align } } });
   const esq = [[D.nome, D.PRI], ...D.morada.map(t => [t, D.CIN])];
   return [
-    { image: { path: D.canto, x: mm(108), y: mm(187), w: mm(102), h: mm(110) } },
+    { image: { path: D.canto, x: mm(D.canto_cx ? D.canto_cx.x : 108), y: mm(D.canto_cx ? D.canto_cx.y : 187), w: mm(D.canto_cx ? D.canto_cx.w : 102), h: mm(D.canto_cx ? D.canto_cx.h : 110) } },
     { line: { x: ESQ, y: mm(265.6), w: LARG, h: 0, line: { color: D.LIN, width: 0.75 } } },
     ...esq.map(([t, cor], i) => linha(t, i, ESQ, mm(95), cor, "left")),
     ...D.contactos.map((t, i) => linha(t, i, ESQ + mm(95), LARG - mm(95), D.CIN, "right")),

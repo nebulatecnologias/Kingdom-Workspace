@@ -43,7 +43,7 @@ Decidido a 15/11/2026: o descritor do logótipo passa a Manrope Medium (500); o 
 - Protecção: t livre à volta do logótipo (t = espessura da faixa). Mínimos: vertical 35 mm / 130 px; horizontal 30 mm / 120 px; símbolo com ® 24 mm / 64 px; símbolo sem ® 6 mm / 16 px.
 - Ícones (Índigo DT e Azul Eléctrico) e favicon novos, com o símbolo reconstruído.
 - Propostas por aprovar: manifesto «Confiança que se verifica», personalidade (Rigorosa, Factual, Discreta, Próxima), tom de voz, gradientes (Original, Noite, Céu), padrão (símbolo inteiro em fiadas), frase «Duas letras, um só traço».
-- Por alinhar: o logótipo azul usa #0A57E7 (o azul do original); a paleta aprovada tem o Azul Eléctrico #0066FF. O manual mostra o logótipo azul em #0066FF.
+- O logótipo azul passou de #0A57E7 (o azul do original) para o Azul Eléctrico #0066FF da paleta (15/11/2026).
 
 ## Por decidir
 - Papelaria (papel timbrado, carta) e aplicações.

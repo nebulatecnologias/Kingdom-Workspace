@@ -420,7 +420,7 @@ def pagina_cotacao(todos):
       <ol class="cot-passos">{lista}</ol>
       <div class="cot-direto">
         <h3>Prefere falar já?</h3>
-        <p><a href="mailto:contact@dtcompany.co.za">contact@dtcompany.co.za</a><br>Edifício Millenium Park, Av. Vladimir Lenine, n.º 174, Maputo</p>
+        <p><a href="mailto:contact@dtcompany.co.za">contact@dtcompany.co.za</a><br>Edifício Millennium Park, Av. Vladimir Lenine, n.º 174, Maputo</p>
       </div>
     </aside>
   </div>

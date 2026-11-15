@@ -25,7 +25,7 @@ const C = pres.SchemeColor;
 const ESQ = mm(20), LARG = mm(170);
 
 // contactos oficiais (R35); a morada da África do Sul só aparece no site
-const MORADA = ["Edifício Millenium Park, Av. Vladimir Lenine, n.º 174", "Maputo 1106, Moçambique"];
+const MORADA = ["Edifício Millennium Park, Av. Vladimir Lenine, n.º 174", "Maputo 1106, Moçambique"];
 const CONTACTOS = ["+258 87 664 1836  ·  +258 85 1800 920", "contact@kingdomcompany.co.za", "www.kingdomcompany.co.za"];
 // no esquema (layout) o texto fixo não aceita várias cores num só bloco: uma caixa por linha
 function rodape() {

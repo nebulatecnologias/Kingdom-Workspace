@@ -44,7 +44,7 @@ Bancos e investidores que pedem um plano de negócios, programas de financiament
 
 - RN1 — **Ortografia pré-acordo** («acção», «inspecção», «projecto», «actividade») em todo o site: decisão do cliente nesta sessão, por ser o padrão corrente em Moçambique; sobrepõe-se à regra AO90 da skill.
 - RN2 — Sem números, clientes, certificações ou testemunhos inventados; secções saem até o cliente fornecer dados.
-- RN3 — Contactos: contact@dtcompany.co.za · +258 82 987 8424 · +258 87 664 1836 · Instagram @dt_c.ompany · www.dtcompany.co.za. Morada em Maputo (Edifício Millenium Park), com mapa.
+- RN3 — Contactos: contact@dtcompany.co.za · +258 82 987 8424 · +258 87 664 1836 · Instagram @dt_c.ompany · www.dtcompany.co.za. Morada em Maputo (Edifício Millennium Park), com mapa.
 - RN4 — O site não mostra preços; os caminhos são «Pedir cotação» e «Avaliação inicial».
 - RN5 — Idioma único PT nesta versão; a versão EN (existente no site Next.js anterior) volta como segunda fase se o cliente a pedir.
 - RN6 — Movimento contínuo (trilho de entregáveis, órbita, Gantt) herdado do modelo da skill, sem botão de pausa: lição registada do projecto de origem do modelo. Fica por cumprir o critério WCAG 2.2.2; a confirmar com o cliente DT se quiser um controlo de pausa.
