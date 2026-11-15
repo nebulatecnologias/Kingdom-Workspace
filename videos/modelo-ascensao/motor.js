@@ -7,13 +7,15 @@
    Cada quadro é função pura do tempo: window.__seek(t).
    ===================================================================== */
 (function () {
-  const W = 720, H = 1280, K = 1.5, CX = 360;
+  const CFG = window.MOTOR_CONFIG || {};        // opcional: { canvas, K } (usado pelo editor)
+  const W = 720, H = 1280, CX = 360;
+  let K = CFG.K || 1.5;
   const F = '"Google Sans", sans-serif';
   const BG = '#1a1917';
   const LEG_Y = 958, PILL_Y = 1110;
 
-  const cv = document.createElement('canvas'); cv.width = W * K; cv.height = H * K;
-  cv.style.width = W * K + 'px'; cv.style.height = H * K + 'px'; document.body.appendChild(cv);
+  const cv = CFG.canvas || document.createElement('canvas'); cv.width = W * K; cv.height = H * K;
+  if (!CFG.canvas) { cv.style.width = W * K + 'px'; cv.style.height = H * K + 'px'; document.body.appendChild(cv); }
   const ctx = cv.getContext('2d');
 
   /* ---------- utilitários ---------- */
@@ -580,4 +582,10 @@
   }
   window.__ready = iniciar();
   window.__seek = async t => { await window.__ready; quadro(t); };
+  // API para o editor: desenhar um quadro, mudar a escala e ler a estrutura do roteiro
+  window.MOTOR_ASC = {
+    ready: window.__ready, quadro, canvas: cv,
+    escala(k) { K = k; cv.width = Math.round(W * K); cv.height = Math.round(H * K); },
+    get cenas() { return CENAS; }, get palavras() { return PALAVRAS; }, get frases() { return FRASES; },
+  };
 })();
