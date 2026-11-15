@@ -13,7 +13,7 @@ Pasta da identidade da DT Company (Business Advisory & Development). Fonte de ve
   - o pescoço do d tem uma concordância de raio 0,4t, tangente;
   - arestas: as pontas levam um raio de 0,16t (opção B, escolhida a 11/11/2026 entre 0,08t, 0,16t, 0,24t e 0,32t); os cantos interiores 0,1t, abaixo de metade do canal para as letras não colarem.
 - Coincidência com o original: 97,6% (IoU) com esta regra; 98,1% no ajuste livre.
-- Logótipo: símbolo, ® e o descritor «Business Advisory & Development» em Google Sans Regular, com 1,19 × a largura do símbolo e 0,82t por baixo, como no original. Texto em curvas.
+- Logótipo: símbolo, ® e o descritor «Business Advisory & Development» em Manrope Medium (500) desde 15/11/2026 (antes Google Sans Regular), com 1,19 × a largura do símbolo e 0,82t por baixo, como no original. Texto em curvas.
 - Versões geradas: vertical (a do original), horizontal (proposta: descritor em duas linhas à direita) e símbolo, em índigo #04123F, azul #0A57E7, branco e preto.
 - O logótipo fica como o original: símbolo, ® e descritor, sem as palavras «DT Company» (decisão de 11/11/2026).
 - A versão horizontal (descritor em duas linhas à direita do símbolo) está aprovada.
@@ -35,7 +35,15 @@ Proposta, por aprovar: gradientes Original (o fundo do logótipo, #0068FF → #0
 
 ## Tipografia (opção D, aprovada a 11/11/2026)
 Manrope, uma só família (geométrica e arredondada, combina com as curvas do símbolo), escolhida entre Google Sans, IBM Plex Sans, Inter e Manrope. Proposta de pesos: 400 texto, 600 títulos e números, 700 botões e etiquetas.
-Por decidir: o descritor do logótipo continua em Google Sans (como o original) ou passa a Manrope (400 ou 500). O site da DT usa Google Sans e terá de mudar para Manrope.
+Decidido a 15/11/2026: o descritor do logótipo passa a Manrope Medium (500); o ® usa Manrope Bold. O site da DT ainda usa Google Sans e tem de mudar para Manrope.
+
+## Manual de marca (versão 1.0, 15/11/2026)
+- Gerado por `brandbook_dt.py marca.json --png --html` (adaptado do script da skill identidade-visual, porque o logótipo da DT não tem nome). Saída em `brandbook/`.
+- Secções: a marca, o símbolo (passos, construção, a ponta elíptica), o logótipo (cotas, construção do descritor, versões, ícone e favicon, protecção e mínimos, cores, usos incorrectos), a cor, a tipografia, o padrão, o tom de voz, contactos.
+- Protecção: t livre à volta do logótipo (t = espessura da faixa). Mínimos: vertical 35 mm / 130 px; horizontal 30 mm / 120 px; símbolo com ® 24 mm / 64 px; símbolo sem ® 6 mm / 16 px.
+- Ícones (Índigo DT e Azul Eléctrico) e favicon novos, com o símbolo reconstruído.
+- Propostas por aprovar: manifesto «Confiança que se verifica», personalidade (Rigorosa, Factual, Discreta, Próxima), tom de voz, gradientes (Original, Noite, Céu), padrão (símbolo inteiro em fiadas), frase «Duas letras, um só traço».
+- Por alinhar: o logótipo azul usa #0A57E7 (o azul do original); a paleta aprovada tem o Azul Eléctrico #0066FF. O manual mostra o logótipo azul em #0066FF.
 
 ## Por decidir
-- Tipografia (Google Sans, já usada no site), padrão, papelaria e brandbook.
+- Papelaria (papel timbrado, carta) e aplicações.

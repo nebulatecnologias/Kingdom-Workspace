@@ -132,7 +132,7 @@ RD = .37 * T                                   # raio exterior do ® (diâmetro 
 RC = (.586 * W + DX * 0 - DX, .926 * H - DY)   # centro em coordenadas do símbolo antes de deslocar
 reg_c = (.586 * W, .926 * H)
 anel = Point(reg_c).buffer(RD, quad_segs=64).difference(Point(reg_c).buffer(RD * .80, quad_segs=64))
-fb = TTFont(os.path.join(AQUI, 'fontes', 'google-sans-700.ttf'))
+fb = TTFont(os.path.join(AQUI, 'fontes', 'manrope-700.ttf'))
 gsb = fb.getGlyphSet(); gR = fb.getBestCmap()[ord('R')]
 bp = BoundsPen(gsb); gsb[gR].draw(bp); bx0, by0, bx1, by1 = bp.bounds
 esc = (RD * 1.02) / (by1 - by0)
@@ -159,7 +159,7 @@ def texto_curvas(texto, fonte, tam, tracking=0.0):
     return d, x, tt['OS/2'].sCapHeight * e
 
 
-FONTE_DESC = os.path.join(AQUI, 'fontes', os.environ.get('FONTE_DESC', 'google-sans-400.ttf'))   # letra do descritor
+FONTE_DESC = os.path.join(AQUI, 'fontes', os.environ.get('FONTE_DESC', 'manrope-500.ttf'))   # letra do descritor: Manrope Medium (15/11/2026)
 DESC = 'Business Advisory & Development'
 # na referência, o descritor tem 1,19 × a largura do símbolo e maiúsculas de 0,56t
 tam = .56 * T / .716
@@ -209,3 +209,59 @@ json.dump({**{k: round(v, 4) if isinstance(v, float) else v for k, v in M.items(
            'descritor': {'texto': DESC, 'tamanho': round(tam, 2), 'largura': round(larg, 2), 'espaco_simbolo': GAP}},
           open(os.path.join(SAIDA, 'simbolo', 'medidas.json'), 'w'), indent=1, ensure_ascii=False)
 print(f'símbolo {W:.1f} × {H:.1f} (t = {T:.0f}) · descritor {tam:.1f} · {len(CORES)} cores')
+
+
+# ---------- peças para o manual de marca: construção, pormenor da ponta, ícones e favicon ----------
+def P(x, y): return x + DX, y + DY
+def eixo(xc, y1, y2):
+    (a, b), (c_, d_) = P(xc + K * (y1 - YC), y1), P(xc + K * (y2 - YC), y2)
+    return a, b, c_, d_
+cxp, ymp = 2 * XC - cxd, 2 * YC - ymd                              # centro da ponta do p (o d rodado 180°)
+linhas_y = [0, T, T + C, 2 * T, 2 * T + C, HT]
+g = []
+for y in linhas_y:
+    yy = y + DY
+    g.append(f'<line x1="-24" y1="{yy:.2f}" x2="{W + 24:.2f}" y2="{yy:.2f}" stroke="var(--luz)" stroke-width="1.1" stroke-dasharray="5 4"/>')
+for xc_, larg_ in ((XC, 1.4), (xAr - wA / 2, 1.1)):
+    a, b, c_, d_ = eixo(xc_, -40, HT + 40)
+    g.append(f'<line x1="{a:.2f}" y1="{b:.2f}" x2="{c_:.2f}" y2="{d_:.2f}" stroke="var(--ind)" stroke-width="{larg_}"/>')
+for cx_, cy_ in ((cxd, ymd), (cxp, ymp)):
+    x_, y_ = P(cx_, cy_)
+    g.append(f'<ellipse cx="{x_:.2f}" cy="{y_:.2f}" rx="{AO:.2f}" ry="{BO:.2f}" fill="none" stroke="var(--lar)" stroke-width="1.4"/>'
+             f'<ellipse cx="{x_:.2f}" cy="{y_:.2f}" rx="{AI:.2f}" ry="{BI:.2f}" fill="none" stroke="var(--lar)" stroke-width="1.2"/>'
+             f'<circle cx="{x_:.2f}" cy="{y_:.2f}" r="3" fill="var(--lar)"/>')
+x_, y_ = P(XC, YC)
+g.append(f'<circle cx="{x_:.2f}" cy="{y_:.2f}" r="9" fill="#fff" stroke="var(--ind)" stroke-width="1.6"/><circle cx="{x_:.2f}" cy="{y_:.2f}" r="3" fill="var(--ind)"/>')
+x_, y_ = P(*Cc)
+g.append(f'<circle cx="{x_:.2f}" cy="{y_:.2f}" r="{f:.2f}" fill="none" stroke="var(--lar)" stroke-width="1.1" stroke-dasharray="3 3"/>')
+open(os.path.join(SAIDA, 'simbolo', 'construcao.svg'), 'w').write(
+    f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -46 {W + 60:.2f} {H + 92:.2f}">{"".join(g)}</svg>')
+
+# pormenor: a ponta do d, com as duas elipses e as cotas
+x_, y_ = P(cxd, ymd); fs = 11
+det = [f'<ellipse cx="{x_:.2f}" cy="{y_:.2f}" rx="{AO:.2f}" ry="{BO:.2f}" fill="none" stroke="var(--lav)" stroke-width="1.3"/>',
+       f'<ellipse cx="{x_:.2f}" cy="{y_:.2f}" rx="{AI:.2f}" ry="{BI:.2f}" fill="none" stroke="var(--lav)" stroke-width="1.2"/>',
+       f'<line x1="{x_ - AO:.2f}" y1="{y_:.2f}" x2="{x_:.2f}" y2="{y_:.2f}" stroke="#fff" stroke-width="1.2"/>',
+       f'<line x1="{x_:.2f}" y1="{y_ - BO:.2f}" x2="{x_:.2f}" y2="{y_:.2f}" stroke="#fff" stroke-width="1.2"/>',
+       f'<circle cx="{x_:.2f}" cy="{y_:.2f}" r="3.2" fill="#fff"/>',
+       f'<g font-family="Manrope" font-size="{fs}" font-weight="700" fill="#fff">'
+       f'<text x="{x_ - AO / 2:.2f}" y="{y_ - 6:.2f}" text-anchor="middle">a</text>'
+       f'<text x="{x_ + 7:.2f}" y="{y_ - BO / 2:.2f}">b</text></g>']
+for y in (T, 2 * T, 2 * T + C, HT):
+    yy = y + DY
+    det.append(f'<line x1="{x_ - AO - 20:.2f}" y1="{yy:.2f}" x2="{x_ + 150:.2f}" y2="{yy:.2f}" stroke="var(--lav)" stroke-width=".8" stroke-dasharray="4 4"/>')
+vx0, vy0 = x_ - AO - 26, T + DY - 16
+open(os.path.join(SAIDA, 'simbolo', 'pormenor.svg'), 'w').write(
+    f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vx0:.2f} {vy0:.2f} {AO + 200:.2f} {HB + 32:.2f}">{"".join(det)}</svg>')
+
+# ícones (símbolo branco num quadrado de cantos arredondados) e favicon
+SD = f'<path fill-rule="evenodd" d="{D}"/>'
+def icone(fundo, lado=512, ocupa=.74, raio=.22, tinta='#FFFFFF'):
+    e = lado * ocupa / W; tx = (lado - W * e) / 2; ty = (lado - H * e) / 2
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {lado} {lado}" width="{lado}" height="{lado}">'
+            f'<rect width="{lado}" height="{lado}" rx="{lado * raio:.1f}" fill="{fundo}"/>'
+            f'<g fill="{tinta}" transform="translate({tx:.2f} {ty:.2f}) scale({e:.5f})">{SD}</g></svg>')
+open(os.path.join(SAIDA, 'logotipo', 'dt-company-icone-indigo.svg'), 'w').write(icone('#04123F'))
+open(os.path.join(SAIDA, 'logotipo', 'dt-company-icone-azul.svg'), 'w').write(icone('#0066FF'))
+open(os.path.join(SAIDA, 'logotipo', 'favicon.svg'), 'w').write(icone('#04123F', lado=64, ocupa=.9, raio=.18))
+print('construção, pormenor, ícones e favicon')

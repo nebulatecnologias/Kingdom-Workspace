@@ -1,18 +1,28 @@
 {
  "nome": "DT Company",
  "slug": "dt-company",
- "saida": "marca",
+ "saida": ".",
  "descritor": "Business Advisory & Development",
+ "slogan": [
+  "Confiança para investir,",
+  "operar e crescer em Moçambique."
+ ],
+ "versao": "Versão 1.0 · Novembro de 2026",
  "simbolo": "simbolo/dt-simbolo.svg",
  "fontes": {
   "familia": "Manrope",
-  "logotipo": "fontes/google-sans-400.ttf",
-  "peso_logotipo": 400,
+  "logotipo": "fontes/manrope-500.ttf",
+  "peso_logotipo": 500,
   "pesos": [
    [
     400,
     "Regular",
     "Texto corrido"
+   ],
+   [
+    500,
+    "Medium",
+    "Descritor do logótipo"
    ],
    [
     600,
@@ -24,51 +34,49 @@
     "Bold",
     "Botões e etiquetas"
    ]
-  ]
+  ],
+  "nota": "Uma só família para tudo: títulos, texto, números, botões e documentos. Geométrica e arredondada, acompanha as curvas do símbolo."
  },
  "cores": {
   "principal": {
    "nome": "Índigo DT",
    "hex": "#04123F",
-   "uso": "Logótipo, títulos e blocos escuros"
+   "uso": "Cor do logótipo, títulos e blocos escuros."
   },
   "fundo": {
    "nome": "Gelo",
    "hex": "#F5F8FF",
-   "uso": "Fundo de páginas e documentos"
+   "uso": "Fundo das páginas e documentos."
   },
   "acento": {
    "nome": "Azul Eléctrico",
    "hex": "#0066FF",
-   "uso": "Botões e destaques"
+   "uso": "Botões, ligações e destaques. Pouco e onde importa."
   },
   "acento_texto": {
    "nome": "Azul Fundo",
    "hex": "#0052CC",
-   "uso": "Links e texto azul pequeno"
+   "uso": "Texto azul em tamanho pequeno."
   },
   "texto": {
    "nome": "Tinta",
    "hex": "#0E1B3D",
-   "uso": "Texto principal"
+   "uso": "Texto corrido."
   },
   "texto_secundario": {
    "nome": "Cinza Índigo",
    "hex": "#4A5880",
-   "uso": "Texto secundário"
+   "uso": "Legendas e texto de apoio."
   },
   "linha": {
    "nome": "Linha",
    "hex": "#DCE6F7",
-   "uso": "Divisórias e contornos"
+   "uso": "Filetes, divisórias e tabelas."
   }
  },
- "slogan": [
-  "Confiança para investir,",
-  "operar e crescer em Moçambique."
- ],
  "cores_logo": {
   "indigo": "#04123F",
+  "azul": "#0066FF",
   "branco": "#FFFFFF",
   "preto": "#000000"
  },
@@ -76,11 +84,6 @@
   "indigo": "#04123F",
   "azul": "#0066FF"
  },
- "proporcao": [
-  60,
-  30,
-  10
- ],
  "gradiente_tons": {
   "noite": "#00042D",
   "luz": "#0066FF",
@@ -89,22 +92,318 @@
  "gradientes": [
   {
    "nome": "Original",
-   "css": "linear-gradient(225deg,#0068FF 0%,#0045BA 30%,#000633 75%,#00042D 100%)",
-   "paragens": "#0068FF → #0045BA → #00042D",
-   "uso": "O fundo do logótipo: capas, perfil e vídeo."
+   "css": "linear-gradient(150deg,#0068FF 0%,#0A3BB8 45%,#00042D 100%)",
+   "paragens": "#0068FF → #0A3BB8 → #00042D",
+   "uso": "O fundo do logótipo original. Capas e apresentações."
   },
   {
    "nome": "Noite",
-   "css": "linear-gradient(160deg,#00042D 0%,#04123F 55%,#0B2A80 100%)",
-   "paragens": "#00042D → #04123F → #0B2A80",
-   "uso": "Apresentações e páginas escuras, com texto branco."
+   "css": "linear-gradient(135deg,#00042D 0%,#04123F 55%,#0A2A7A 100%)",
+   "paragens": "#00042D → #04123F → #0A2A7A",
+   "uso": "Relatórios, propostas e páginas escuras."
   },
   {
    "nome": "Céu",
-   "css": "linear-gradient(160deg,#04123F 0%,#0066FF 60%,#9DC0FF 100%)",
+   "css": "radial-gradient(90% 80% at 85% 10%,#9DC0FF 0,transparent 55%),linear-gradient(160deg,#04123F 0%,#0A47C2 55%,#0066FF 100%)",
    "paragens": "#04123F → #0066FF → #9DC0FF",
-   "uso": "Frases e destaques nas redes."
+   "uso": "Frases, redes e digital."
   }
  ],
- "exemplo_preco": "125 000,00 MT"
+ "proporcao": [
+  60,
+  30,
+  10
+ ],
+ "proporcao_texto": "O Gelo domina, o Índigo DT dá peso e o Azul Eléctrico aparece pouco, nos botões e nos destaques.",
+ "manifesto": {
+  "titulo": "Confiança que<br>se verifica",
+  "texto": "A DT Company ajuda as empresas em Moçambique a decidir com estratégia, a organizar as regras que protegem o negócio e a preparar as equipas que o fazem crescer. A identidade diz o mesmo que o trabalho: rigor, factos e entregáveis que ficam na empresa."
+ },
+ "sobre": {
+  "titulo": "Confiança para investir,",
+  "subtitulo": "operar e crescer em Moçambique.",
+  "texto": [
+   "A DT Company — Business Advisory & Development ajuda as empresas em Moçambique a decidir com estratégia, a organizar as regras e os controlos que protegem o negócio e a preparar as equipas que o fazem crescer.",
+   "Cada projecto parte de um desafio concreto e termina em entregáveis que ficam na empresa: planos, políticas, relatórios factuais e equipas formadas.",
+   "Não prestamos serviços jurídicos nem de contabilidade: quando um tema o exige, dizemo-lo por escrito e a empresa contrata directamente o profissional habilitado."
+  ]
+ },
+ "personalidade": {
+  "lead": "Os atributos que guiam cada decisão de design e de texto, e aquilo que a marca não quer parecer.",
+  "atributos": [
+   [
+    "Rigorosa",
+    "Método, fases e prazos em cada projecto."
+   ],
+   [
+    "Factual",
+    "Diz o que foi confirmado e o que não foi."
+   ],
+   [
+    "Discreta",
+    "Trata com reserva a informação de cada cliente."
+   ],
+   [
+    "Próxima",
+    "Um só interlocutor, do pedido à entrega."
+   ]
+  ],
+  "anti": [
+   "Uma consultora genérica, de jargão e promessas.",
+   "Um escritório de advogados ou de contabilidade.",
+   "Uma marca fria, que fala de cima para baixo."
+  ]
+ },
+ "areas": [
+  {
+   "nome": "Pilar 01",
+   "titulo": "Consultoria Estratégica",
+   "texto": "Plano de Negócios, Planeamento Estratégico e Advisory (Aconselhamento Empresarial)."
+  },
+  {
+   "nome": "Pilar 02",
+   "titulo": "Compliance e Governança",
+   "texto": "Programa de Compliance e Integridade, Due Diligence de Terceiros, Apuramento Interno de Denúncias e Desvios, Governança Corporativa e Familiar."
+  },
+  {
+   "nome": "Pilar 03",
+   "titulo": "Treinamento Corporativo",
+   "texto": "Liderança Corporativa, Atendimento ao Cliente, Vendas e Marketing."
+  }
+ ],
+ "metodo": {
+  "titulo": "Como trabalhamos · do diagnóstico à continuidade",
+  "passos": [
+   [
+    "Diagnóstico",
+    "O desafio e o contexto."
+   ],
+   [
+    "Plano de trabalho",
+    "Âmbito, fases e prazos, por escrito."
+   ],
+   [
+    "Execução",
+    "Por fases, dentro dos prazos."
+   ],
+   [
+    "Entregáveis",
+    "O que fica, com relatório factual."
+   ],
+   [
+    "Formação",
+    "A equipa preparada para usar."
+   ],
+   [
+    "Continuidade",
+    "Avença, com a mesma equipa."
+   ]
+  ]
+ },
+ "simbolo_titulo": "O símbolo",
+ "simbolo_passos_lead": "O símbolo «dp» constrói-se com uma só medida, t, a espessura da faixa. As duas letras partilham o mesmo traço central.",
+ "simbolo_passos": [
+  {
+   "pecas": [
+    "simbolo/pecas/traco-central.svg"
+   ],
+   "nome": "Traço central",
+   "nota": "Largura t, a 58° da horizontal"
+  },
+  {
+   "pecas": [
+    "simbolo/pecas/traco-central.svg",
+    "simbolo/pecas/letra-d.svg"
+   ],
+   "nome": "A letra d",
+   "nota": "Barriga com 2t + c de altura"
+  },
+  {
+   "pecas": [
+    "simbolo/pecas/traco-central.svg",
+    "simbolo/pecas/letra-d.svg",
+    "simbolo/pecas/letra-p.svg"
+   ],
+   "nome": "A letra p",
+   "nota": "O d rodado 180° sobre o traço central"
+  },
+  {
+   "pecas": [
+    "simbolo/dt-simbolo.svg"
+   ],
+   "nome": "O símbolo",
+   "nota": "Pontas arredondadas a 0,16t"
+  }
+ ],
+ "simbolo_construcao": {
+  "svg": "simbolo/construcao.svg",
+  "lead": "Todas as medidas derivam de t, a espessura da faixa (60 unidades no desenho).",
+  "legenda": [
+   [
+    "Seis linhas",
+    "As barrigas do d e do p têm 2t + c de altura, com o furo c = 7/8 t. As linhas horizontais das duas coincidem."
+   ],
+   [
+    "Rotação",
+    "O p é o d rodado 180° em torno do centro do traço central, marcado com o círculo."
+   ],
+   [
+    "Traços a 58°",
+    "O traço central mede t, o do d 1,25t e o canal entre eles 5/8 t."
+   ],
+   [
+    "Pontas elípticas",
+    "Elipses concêntricas na proporção 1,2 : 1; o furo é a elipse exterior a 0,3."
+   ],
+   [
+    "Concordância",
+    "O pescoço do d fecha com um arco de raio 0,4t, tangente às duas faces."
+   ]
+  ]
+ },
+ "simbolo_detalhe": {
+  "svg": "simbolo/pormenor.svg",
+  "incluir_simbolo": true,
+  "titulo": "A ponta elíptica",
+  "texto": "As pontas das barrigas não são semicírculos: são meias elipses, mais largas do que altas, que dão ao símbolo o movimento para a frente.",
+  "formula": "a = 1,2 b · furo = 0,3 a",
+  "dados": [
+   [
+    "Altura da barriga",
+    "2t + c = 172,5"
+   ],
+   [
+    "Semieixos exteriores",
+    "a 103,5 · b 86,25"
+   ],
+   [
+    "Semieixos do furo",
+    "31,05 · 26,25"
+   ],
+   [
+    "Coincidência com o original",
+    "97,6%"
+   ]
+  ]
+ },
+ "frase": "Duas letras,<br><em>um só traço</em>.",
+ "padrao": {
+  "peca": "simbolo/dt-simbolo.svg",
+  "densidades": {
+   "densa": [
+    120,
+    0.16
+   ],
+   "ampla": [
+    240,
+    0.1
+   ]
+  },
+  "cores": [
+   [
+    "branco-sobre-principal",
+    "#04123F",
+    "#FFFFFF"
+   ],
+   [
+    "principal-sobre-fundo",
+    "#F5F8FF",
+    "#04123F"
+   ],
+   [
+    "branco-sobre-acento",
+    "#0066FF",
+    "#FFFFFF"
+   ],
+   [
+    "tom-sobre-principal",
+    "#04123F",
+    "#FFFFFF"
+   ]
+  ],
+  "titulo": "O padrão",
+  "texto": "O símbolo inteiro em fiadas desencontradas, como tijolo: cada fiada avança meio módulo."
+ },
+ "hierarquia": [
+  [
+   "Título principal",
+   "600 · 56–76 px · −3%",
+   36,
+   600,
+   "Confiança para investir"
+  ],
+  [
+   "Título de secção",
+   "600 · 36–48 px · −2,5%",
+   24,
+   600,
+   "Três pilares, onze serviços"
+  ],
+  [
+   "Subtítulo",
+   "500 · 20–26 px · −1%",
+   15,
+   500,
+   "Do desafio concreto ao resultado que fica na empresa"
+  ],
+  [
+   "Texto corrido",
+   "400 · 16–18 px · entrelinha 1,6",
+   11,
+   400,
+   "Cada projecto parte de um desafio concreto e termina em entregáveis que ficam na empresa: planos, políticas, relatórios factuais e equipas formadas."
+  ],
+  [
+   "Botões e etiquetas",
+   "700 · 14–17 px",
+   10.5,
+   700,
+   "@botao"
+  ]
+ ],
+ "botao": "Pedir cotação",
+ "tom_lead": "Escrevemos como trabalhamos: com factos, frases curtas e sem prometer o que não depende de nós. Português europeu, na ortografia anterior ao Acordo Ortográfico de 1990.",
+ "tom": [
+  {
+   "nome": "Factuais",
+   "texto": "Dizemos o que foi confirmado e o que não foi.",
+   "dizemos": "Três pontos confirmados, um por confirmar.",
+   "evitamos": "Garantimos o sucesso do seu negócio."
+  },
+  {
+   "nome": "Claros",
+   "texto": "Frases curtas, sem jargão.",
+   "dizemos": "Um plano com fases, prazos e responsáveis.",
+   "evitamos": "Soluções holísticas de alto impacto."
+  },
+  {
+   "nome": "Concretos",
+   "texto": "Partimos de um desafio real.",
+   "dizemos": "Um financiamento por pedir, uma denúncia por tratar.",
+   "evitamos": "Levar a sua empresa ao próximo nível."
+  },
+  {
+   "nome": "Discretos",
+   "texto": "Os clientes não se expõem.",
+   "dizemos": "Um grupo do sector da distribuição.",
+   "evitamos": "Nomes de clientes sem autorização escrita."
+  }
+ ],
+ "tom_modelo": "«Analisámos os 24 fornecedores activos. Vinte estão em ordem, três precisam de documentos actualizados e um tem uma morada sem actividade visível. O relatório diz o que confirmámos e o que fica por confirmar; as cláusulas do contrato são um tema jurídico e indicamo-lo por escrito.»",
+ "contactos": {
+  "email": "contact@dtcompany.co.za",
+  "telefones": [
+   "+258 82 987 8424",
+   "+258 87 664 1836"
+  ],
+  "morada": [
+   "Edifício Millenium Park, Av. Vladimir Lenine, n.º 174",
+   "Maputo 1106, Moçambique"
+  ],
+  "site": "www.dtcompany.co.za",
+  "cidade": "Maputo, Moçambique"
+ },
+ "logotipo": {
+  "tracking": 0
+ }
 }
