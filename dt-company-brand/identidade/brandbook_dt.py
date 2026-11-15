@@ -124,6 +124,7 @@ def construcao_nome():
                    f'<text x="{W + 150 * u}" y="{y + 20 * u}" font-size="{58 * u}" fill="{CIN}" font-family="{FAM}">{nome}</text>')
     for gx in inicios[1:] + [W]:
         lin.append(f'<line x1="{gx:.0f}" y1="{-asc - 120 * u}" x2="{gx:.0f}" y2="{-desc + 120 * u}" stroke="var(--clara2)" stroke-width="{3 * u}"/>')
+    alcas = [q for q in alcas if all(-asc - 40 * u <= y <= -desc + 40 * u for _, y in q)]
     for (ax, ay), (cx, cy), (bx, by) in alcas:
         lin.append(f'<path d="M{ax:.0f} {ay:.0f} L{cx:.0f} {cy:.0f} L{bx:.0f} {by:.0f}" fill="none" stroke="{LUZ}" stroke-width="{3 * u}"/><rect x="{cx - 9 * u:.0f}" y="{cy - 9 * u:.0f}" width="{18 * u}" height="{18 * u}" fill="{LUZ}"/>')
     dots = ''.join(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="{13 * u}" fill="#fff" stroke="{LAR}" stroke-width="{5 * u}"/>' for px, py in pontos)
@@ -180,7 +181,9 @@ if sobre or pers or areas:
     sec = capa_seccao('A marca', itens, '<div class="cs-tres">' + simbolo('#FFFFFF', '34mm', op=.1) * 3 + '</div>')
     if sobre:
         arq = cfg.get('arquitetura')
-        arq_html = ''
+        arq_html = ('<div class="centro" style="align-self:center"><div style="display:grid;grid-template-columns:1fr 1fr;gap:9mm 12mm;text-align:left">'
+                    + ''.join(f'<div style="border-top:.3mm solid {LIN};padding-top:4mm"><b style="display:block;font-size:34pt;font-weight:600;letter-spacing:-.03em;color:{IND};line-height:1">{a}</b><span style="display:block;margin-top:2mm;font-size:9.5pt;color:{CIN}">{b}</span></div>' for a, b in cfg.get('numeros', []))
+                    + '</div></div>') if cfg.get('numeros') else ''
         if arq:
             n = len(arq['marcas']); xs = [55 + i * (290 / max(1, n - 1)) for i in range(n)] if n > 1 else [200]
             ramos = f'M200 70 V118 M{xs[0]} 118 H{xs[-1]} ' + ' '.join(f'M{x} 118 V150' for x in xs)
@@ -236,7 +239,7 @@ def corpo_de(forma, cor):
     return re.sub(r'<g fill="[^"]+"', f'<g fill="{cor}"', g, count=1)
 VV = vb_de('vertical'); HV = vb_de('horizontal')
 sec = capa_seccao('O logótipo', ['Principal', 'Construção do descritor', 'Versões', 'Ícone e favicon', 'Protecção', 'Cores', 'Usos incorrectos'],
-                  f'<div class="cs-k">{logo("horizontal", "#FFFFFF", w="300mm")}</div>')
+                  f'<div class="cs-k" style="top:22mm">{simbolo("#FFFFFF", "105mm")}</div>')
 
 # principal, com cotas
 lw, lh = VV[2], VV[3]; sx = (lw - SW) / 2; base = SH + DS['espaco_simbolo'] + CAPD; dx0 = (lw - DS['largura']) / 2
@@ -245,17 +248,15 @@ cot = f'''<svg viewBox="-90 -70 {lw + 240:.1f} {lh + 150:.1f}" width="168mm"><g>
 <line x1="{sx:.1f}" y1="-26" x2="{sx + SW:.1f}" y2="-26"/><line x1="{sx:.1f}" y1="-36" x2="{sx:.1f}" y2="-16"/><line x1="{sx + SW:.1f}" y1="-36" x2="{sx + SW:.1f}" y2="-16"/>
 <line x1="{dx0:.1f}" y1="{lh + 26:.1f}" x2="{dx0 + DS['largura']:.1f}" y2="{lh + 26:.1f}"/><line x1="{dx0:.1f}" y1="{lh + 16:.1f}" x2="{dx0:.1f}" y2="{lh + 36:.1f}"/><line x1="{dx0 + DS['largura']:.1f}" y1="{lh + 16:.1f}" x2="{dx0 + DS['largura']:.1f}" y2="{lh + 36:.1f}"/>
 <line x1="{lw + 28:.1f}" y1="{SH:.1f}" x2="{lw + 28:.1f}" y2="{SH + DS['espaco_simbolo']:.1f}"/><line x1="{lw + 18:.1f}" y1="{SH:.1f}" x2="{lw + 38:.1f}" y2="{SH:.1f}"/><line x1="{lw + 18:.1f}" y1="{SH + DS['espaco_simbolo']:.1f}" x2="{lw + 38:.1f}" y2="{SH + DS['espaco_simbolo']:.1f}"/>
-<line x1="-40" y1="0" x2="-40" y2="{SH:.1f}"/><line x1="-50" y1="0" x2="-30" y2="0"/><line x1="-50" y1="{SH:.1f}" x2="-30" y2="{SH:.1f}"/>
 <circle cx="{RG['centro'][0] + sx:.1f}" cy="{RG['centro'][1]:.1f}" r="{RG['raio'] + 9:.1f}" stroke-dasharray="4 3"/></g>
 <g stroke="var(--clara2)" stroke-width="1.2" stroke-dasharray="5 4"><line x1="-60" y1="{SH:.1f}" x2="{lw + 60:.1f}" y2="{SH:.1f}"/><line x1="-60" y1="{SH + DS['espaco_simbolo']:.1f}" x2="{lw + 60:.1f}" y2="{SH + DS['espaco_simbolo']:.1f}"/></g>
 <g font-family="{FAM}" font-size="19" fill="{LARF}" font-weight="700">
 <text x="{sx + SW / 2:.1f}" y="-40" text-anchor="middle">W · largura do símbolo</text>
 <text x="{dx0 + DS['largura'] / 2:.1f}" y="{lh + 62:.1f}" text-anchor="middle">1,19 W · largura do descritor</text>
 <text x="{lw + 48:.1f}" y="{SH + DS['espaco_simbolo'] / 2 + 7:.1f}">0,82 t</text>
-<text x="-56" y="{SH / 2 + 7:.1f}" text-anchor="end">G</text>
-<text x="{RG['centro'][0] + sx + RG['raio'] + 18:.1f}" y="{RG['centro'][1] - 20:.1f}">®</text></g></svg>'''
+</g></svg>'''
 pag(f'''{cab(sec, 'O logótipo principal', f'O símbolo «dp», o ® e, por baixo, o descritor «{cfg["descritor"]}» em {FAM} Medium. O logótipo não leva as palavras «{NOME}». O texto está em curvas: o logótipo fica igual em qualquer computador.')}
-<div class="rel">{cot}</div><div class="tres"><div><b>W</b><span>Largura do símbolo. O descritor mede 1,19 W, centrado.</span></div><div><b>0,82 t</b><span>Espaço entre o símbolo e o descritor; t é a espessura da faixa.</span></div><div><b>®</b><span>Diâmetro 0,74 t, por baixo da ponta do traço central.</span></div></div>''', 'branca', 'O logótipo')
+<div class="rel">{cot}</div><div class="tres"><div><b>W</b><span>Largura do símbolo. O descritor mede 1,19 W, centrado.</span></div><div><b>0,82 t</b><span>Espaço entre o símbolo e o descritor; t é a espessura da faixa.</span></div><div><b>0,74 t</b><span>Diâmetro do ®, por baixo da ponta do traço central.</span></div></div>''', 'branca', 'O logótipo')
 
 svg_nome, palavra, xh_pct, peso = construcao_nome()
 pag(f'''{cab(sec, 'Construção do descritor', f'{FAM} Medium ({peso}), sem espaçamento extra entre letras. Os pontos são os pontos das curvas; os quadrados, as alças. As linhas marcam as alturas que a letra respeita.')}
@@ -264,7 +265,7 @@ pag(f'''{cab(sec, 'Construção do descritor', f'{FAM} Medium ({peso}), sem espa
 def simbolo_reg(cor, h):
     vb = vb_de('simbolo'); return f'<svg viewBox="{" ".join(map(str, vb))}" height="{h}" width="{float(h[:-2]) * vb[2] / vb[3]:.1f}mm">{corpo_de("simbolo", cor)}</svg>'
 VS = [(logo('vertical', IND, h='40mm'), 'Vertical', 'A versão principal, a do logótipo original.'),
-      (logo('horizontal', IND, w='112mm'), 'Horizontal', 'Descritor em duas linhas à direita. Cabeçalhos, rodapés e faixas.'),
+      (logo('horizontal', IND, w='92mm'), 'Horizontal', 'Descritor em duas linhas à direita. Cabeçalhos, rodapés e faixas.'),
       (simbolo_reg(IND, '30mm'), 'Símbolo com ®', 'Quando a marca já está presente: capas, redes, peças gráficas.'),
       (simbolo(IND, '22mm'), 'Símbolo sem ®', 'Abaixo de 64 px de largura: ícones, favicon, carimbos pequenos.')]
 pag(f'''{cab(sec, 'Versões')}<div class="vers" style="grid-template-rows:repeat(2,62mm)">{''.join(f'<div>{a}<p><b>{n}</b>{d}</p></div>' for a, n, d in VS)}</div>''', 'branca', 'O logótipo')
@@ -317,7 +318,7 @@ grads = cfg.get('gradientes')
 sec = capa_seccao('A cor', ['A paleta'] + (['Gradientes'] if grads else []) + ['Proporção e contraste'], cls='grad brasa' if LAR != IND else 'grad')
 def valores(h): r, g, b = rgb(h); c, m_, y, k_ = cmyk(h); return f'HEX {h.upper()}<br>RGB {r} {g} {b}<br>CMYK {c} {m_} {y} {k_}'
 PAL = [(C['principal'], 'p-big')] + [(C[x], '') for x in ('fundo', 'acento') if x in C] + [(c, '') for c in C.get('apoio', [])]
-for x in ('texto', 'texto_secundario', 'linha'):
+for x in ('acento_texto', 'texto', 'texto_secundario', 'linha'):
     if x in C and C[x] not in [p for p, _ in PAL]: PAL.append((C[x], ''))
 PAL = PAL[:7]
 pag(f'''{cab(sec, 'A paleta', 'Cores principais e de apoio. CMYK aproximado: confirmar com a gráfica numa prova de cor.')}
@@ -328,10 +329,10 @@ if grads:
 <p class="nota">Tons só para gradientes: {NOITE}, {LUZ} e {LAV}. Não se usam como cores sólidas nem no logótipo.</p>''', 'branca', 'A cor')
 prop = cfg.get('proporcao', [60, 30, 10])
 PARES = [('#FFFFFF', IND, f'Branco sobre {C["principal"]["nome"]}'), (TIN, MAR, f'Texto sobre {C.get("fundo", {}).get("nome", "fundo")}'), (CIN, MAR, 'Texto secundário sobre o fundo')]
-if LAR != IND: PARES += [(LARF, MAR, f'{C["acento"]["nome"]} (texto) sobre o fundo'), ('#FFFFFF', LAR, f'Branco sobre {C["acento"]["nome"]}')]
+if LAR != IND: PARES += [(LARF, MAR, f'{C.get("acento_texto", C["acento"])["nome"]} (texto pequeno) sobre {C.get("fundo", {}).get("nome", "o fundo")}'), ('#FFFFFF', LAR, f'Branco sobre {C["acento"]["nome"]}')]
 par = ''.join(f'<div style="background:{f};color:{t}"><b>Aa</b><div><span>{n}</span><small>{n2(contraste(t, f))}:1 · {"qualquer tamanho" if contraste(t, f) >= 4.5 else ("só texto grande ou a negrito" if contraste(t, f) >= 3 else "não usar para texto")}</small></div></div>' for t, f, n in PARES)
 pag(f'''<div class="cols"><div>{cab(sec, 'Proporção e contraste', cfg.get('proporcao_texto', 'O fundo domina, a cor principal dá peso e o acento aparece pouco, onde importa.'))}
-<div class="prop"><div style="flex:{prop[0]};background:{MAR};color:{TIN}">{prop[0]}%<small>{C.get("fundo", {}).get("nome", "Fundo")}</small></div><div style="flex:{prop[1]};background:{IND}">{prop[1]}%<small>{C["principal"]["nome"]}</small></div>{f'<div style="flex:{prop[2]};background:{LAR}">{prop[2]}%<small>{C["acento"]["nome"]}</small></div>' if LAR != IND and len(prop) > 2 else ""}</div></div>
+<div class="prop"><div style="flex:0 0 {prop[0]}%;box-sizing:border-box;background:{MAR};color:{TIN}">{prop[0]}%<small>{C.get("fundo", {}).get("nome", "Fundo")}</small></div><div style="flex:0 0 {prop[1]}%;box-sizing:border-box;background:{IND}">{prop[1]}%<small>{C["principal"]["nome"]}</small></div>{f'<div style="flex:0 0 {prop[2]}%;box-sizing:border-box;padding-left:2mm;padding-right:1mm;background:{LAR}">{prop[2]}%</div>' if LAR != IND and len(prop) > 2 else ""}</div><p class="nota">{prop[0]}% {C.get("fundo", {}).get("nome", "Fundo")} · {prop[1]}% {C["principal"]["nome"]} · {prop[2] if len(prop) > 2 else 0}% {C["acento"]["nome"]}</p></div>
 <div class="pares">{par}</div></div>''', 'branca', 'A cor')
 
 # ---- A tipografia
@@ -364,8 +365,12 @@ if mods:
               f'{peca.g(Wm / 4 - larg / 2, Hm / 4 - alt / 2, alt, IND)}{peca.g(3 * Wm / 4 - larg / 2, 3 * Hm / 4 - alt / 2, alt, IND)}'
               f'<g stroke="{LAR}"><line x1="{Wm / 4}" y1="{Hm * 1.07}" x2="{3 * Wm / 4}" y2="{Hm * 1.07}"/></g><g font-family="{FAM}" font-size="{Wm / 25}" fill="{LARF}" font-weight="700">'
               f'<text x="{Wm / 2}" y="{-Hm * .06}" text-anchor="middle">Módulo {Wm} × {Hm}</text><text x="{Wm / 2}" y="{Hm * 1.15}" text-anchor="middle">{Wm // 2} · meio módulo de avanço</text></g></svg>')
-    var = [m for m in mods if 'tom' not in m][:3] + [tom]
-    vh = ''.join(f'<div style="background:url({mod(m)}) 0 0/{26 if "ampla" in m else 14}mm auto repeat"><span>{m.split("padrao-")[1].replace("-modulo.svg", "").replace("-", " ")}</span></div>' for m in var)
+    quer = ['ampla-branco-sobre-principal', 'densa-principal-sobre-fundo', 'densa-branco-sobre-acento', 'ampla-tom-sobre-principal']
+    var = [m for q in quer for m in mods if q in m] or ([m for m in mods if 'tom' not in m][:3] + [tom])
+    NOMES_PAD = {'branco-sobre-principal': 'Branco sobre Índigo DT', 'principal-sobre-fundo': 'Índigo DT sobre Gelo', 'branco-sobre-acento': 'Branco sobre Azul Eléctrico', 'tom-sobre-principal': 'Tom sobre Índigo DT'}
+    def nome_pad(m):
+        k = m.split('padrao-')[1].replace('-modulo.svg', ''); d_, c_ = k.split('-', 1); return f'{d_.capitalize()} · {NOMES_PAD.get(c_, c_.replace("-", " "))}'
+    vh = ''.join(f'<div style="background:url({mod(m)}) 0 0/{26 if "ampla" in m else 14}mm auto repeat"><span>{nome_pad(m)}</span></div>' for m in var)
     pag(f'''<div class="pd"><div>{cab(sec, cfg.get('padrao', {}).get('titulo', 'O padrão'), cfg.get('padrao', {}).get('texto', 'Uma peça do símbolo em fiadas desencontradas, como tijolo: cada fiada avança meio módulo.'))}
 <div class="pd-m">{modulo}</div><p class="nota">O módulo repete sem emendas no Figma, Canva ou Illustrator.</p></div><div class="pd-v">{vh}</div></div>''', 'branca', 'O padrão')
     pag(f'''<div class="pd-full" style="background-image:url({mod(tom)})"></div>{efeitos(grelha=False, feixes=2)}
@@ -390,7 +395,7 @@ if apl:
 ct = cfg.get('contactos')
 if ct:
     blocos = [('Email', ct.get('email')), ('Telefones', '<br>'.join(ct.get('telefones', []))), ('Morada', '<br>'.join(ct.get('morada', []))), ('Site', ct.get('site'))]
-    pag(f'''<div class="cols"><div>{cab(f'{capitulo[0]:02d} · Contactos', 'Contactos oficiais', 'Usar sempre estes contactos em documentos, assinaturas, cartões e redes.')}<div class="ct-g">{simbolo(LIN, "34mm")}</div></div>
+    pag(f'''<div class="cols"><div>{cab('Contactos', 'Contactos oficiais', 'Usar sempre estes contactos em documentos, assinaturas, cartões e redes.')}<div class="ct-g">{logo("vertical", IND, w="78mm")}</div></div>
 <div class="cts">{''.join(f'<div><small>{n}</small>{v}</div>' for n, v in blocos if v)}{f'<p class="nota">{ct["nota"]}</p>' if ct.get('nota') else ''}</div></div>''', 'branca', 'Contactos')
 pag(f'''{efeitos(feixes=3)}<div class="fim">{logo('vertical', '#FFFFFF', w='92mm')}<p>{" ".join(slogan)}</p></div><div class="canto">{VERSAO}</div><div class="canto d">{SITE}</div>''', 'grad')
 
@@ -408,7 +413,7 @@ css_base = open(os.path.join(SKILL, 'assets', 'brandbook.css')).read().replace('
 ROOT = (f":root{{--fam:'{FAM}';--ind:{IND};--lar:{LAR};--larf:{LARF};--mar:{MAR};--tin:{TIN};--cin:{CIN};--lin:{LIN};--noite:{NOITE};--luz:{LUZ};--lav:{LAV};--meio:{MEIO};"
         f"--clara:{de_hls(hh, .95, min(1, ss * 1.2 + .1))};--clara2:{de_hls(hh, .88, min(1, ss + .1))};--claro-txt:{de_hls(hh, .85, .25)};--claro-txt2:{de_hls(hh, .72, .2)};"
         f"--eb-escuro:{EB_ESCURO};--lav-rgb:{rgbs(LAV)};--lar-rgb:{rgbs(LAR)};--noite-rgb:{rgbs(NOITE)};--luz-rgb:{rgbs(LUZ)}}}\n")
-EXTRA = '.apl{position:absolute;inset:0;background:center/cover no-repeat} .apl-leg{position:absolute;left:20mm;bottom:11mm;z-index:2;font-size:9pt;color:#fff;background:rgba(0,0,0,.35);padding:1.6mm 4mm;border-radius:10mm}'
+EXTRA = 'h2{font-weight:600;letter-spacing:-.03em} .cs-txt h1{font-weight:600} .apl{position:absolute;inset:0;background:center/cover no-repeat} .apl-leg{position:absolute;left:20mm;bottom:11mm;z-index:2;font-size:9pt;color:#fff;background:rgba(0,0,0,.35);padding:1.6mm 4mm;border-radius:10mm}'
 def rodape(i, cls, sec):
     if 'grad' in cls or 'escura' in cls:
         return '' if 'canto d' in paginas[i - 1][0] or 'apl' in paginas[i - 1][0] else f'<div class="canto d">{i:02d}</div>'

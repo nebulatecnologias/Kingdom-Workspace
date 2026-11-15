@@ -86,14 +86,14 @@
  },
  "gradiente_tons": {
   "noite": "#00042D",
-  "luz": "#0066FF",
+  "luz": "#2D6FF0",
   "lavanda": "#9DC0FF"
  },
  "gradientes": [
   {
    "nome": "Original",
-   "css": "linear-gradient(150deg,#0068FF 0%,#0A3BB8 45%,#00042D 100%)",
-   "paragens": "#0068FF → #0A3BB8 → #00042D",
+   "css": "linear-gradient(150deg,#0066FF 0%,#0A3BB8 45%,#00042D 100%)",
+   "paragens": "#0066FF → #0A3BB8 → #00042D",
    "uso": "O fundo do logótipo original. Capas e apresentações."
   },
   {
@@ -179,7 +179,7 @@
     "O desafio e o contexto."
    ],
    [
-    "Plano de trabalho",
+    "Plano",
     "Âmbito, fases e prazos, por escrito."
    ],
    [
@@ -221,7 +221,6 @@
   {
    "pecas": [
     "simbolo/pecas/traco-central.svg",
-    "simbolo/pecas/letra-d.svg",
     "simbolo/pecas/letra-p.svg"
    ],
    "nome": "A letra p",
@@ -241,7 +240,7 @@
   "legenda": [
    [
     "Seis linhas",
-    "As barrigas do d e do p têm 2t + c de altura, com o furo c = 7/8 t. As linhas horizontais das duas coincidem."
+    "As barrigas têm 2t + c de altura, com o furo c = 7/8 t. O topo do d alinha com o furo do p; a base do p, com o furo do d."
    ],
    [
     "Rotação",
@@ -253,7 +252,7 @@
    ],
    [
     "Pontas elípticas",
-    "Elipses concêntricas na proporção 1,2 : 1; o furo é a elipse exterior a 0,3."
+    "Elipses concêntricas na proporção 1,2 : 1. O furo mede 0,3 a na largura e c/2 na altura."
    ],
    [
     "Concordância",
@@ -266,7 +265,7 @@
   "incluir_simbolo": true,
   "titulo": "A ponta elíptica",
   "texto": "As pontas das barrigas não são semicírculos: são meias elipses, mais largas do que altas, que dão ao símbolo o movimento para a frente.",
-  "formula": "a = 1,2 b · furo = 0,3 a",
+  "formula": "a = 1,2 b · furo 0,3 a × c/2",
   "dados": [
    [
     "Altura da barriga",
@@ -405,5 +404,23 @@
  },
  "logotipo": {
   "tracking": 0
- }
+ },
+ "numeros": [
+  [
+   "3",
+   "Pilares: estratégia, compliance e governança, treinamento"
+  ],
+  [
+   "11",
+   "Serviços, com entregáveis que ficam na empresa"
+  ],
+  [
+   "1",
+   "Interlocutor, do pedido à entrega"
+  ],
+  [
+   "6",
+   "Fases de trabalho, do diagnóstico à continuidade"
+  ]
+ ]
 }

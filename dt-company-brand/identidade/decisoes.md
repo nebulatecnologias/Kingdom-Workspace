@@ -31,7 +31,7 @@ Pasta da identidade da DT Company (Business Advisory & Development). Fonte de ve
 | Texto secundário | Cinza Índigo | #4A5880 | 6,6:1 |
 | Linhas | Linha | #DCE6F7 | — |
 
-Proposta, por aprovar: gradientes Original (o fundo do logótipo, #0068FF → #00042D), Noite e Céu; tons só para gradientes: #00042D, #0066FF e #9DC0FF.
+Proposta, por aprovar: gradientes Original (o fundo do logótipo, #0068FF → #00042D), Noite e Céu; tons só para gradientes: #00042D, #2D6FF0 e #9DC0FF (o #0066FF é o Azul Eléctrico, cor sólida).
 
 ## Tipografia (opção D, aprovada a 11/11/2026)
 Manrope, uma só família (geométrica e arredondada, combina com as curvas do símbolo), escolhida entre Google Sans, IBM Plex Sans, Inter e Manrope. Proposta de pesos: 400 texto, 600 títulos e números, 700 botões e etiquetas.
