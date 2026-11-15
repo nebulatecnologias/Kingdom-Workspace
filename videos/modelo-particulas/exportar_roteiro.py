@@ -10,8 +10,9 @@ fmt = lambda t: f"{int(t//3600):02}:{int(t%3600//60):02}:{int(t%60):02},{int(rou
 blocos, cur = [], []
 for w in words:
     cur.append(w)
-    fim_frase = w['label'][-1] in '.?!:'
-    if fim_frase or (w['label'][-1] == ',' and len(cur) >= 2) or len(cur) >= 7: blocos.append(cur); cur = []
+    lab = w['label'].rstrip('”"’»')
+    fim_frase = lab[-1:] in ('.', '?', '!', ':')
+    if fim_frase or (lab[-1:] == ',' and len(cur) >= 2) or len(cur) >= 7: blocos.append(cur); cur = []
 if cur: blocos.append(cur)
 srt = []
 for i, b in enumerate(blocos):
