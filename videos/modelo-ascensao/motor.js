@@ -578,11 +578,11 @@
   }
 
   /* ---------- sons (deixas para sons.py) ---------- */
-  const ESCALA = [523, 587, 659, 698, 784, 880, 988, 1046, 1175, 1318];
+  const ESCALA = [587, 659, 740, 784, 880, 988, 1109, 1175, 1319, 1480]; // Ré maior, no tom da trilha
   function sons() {
     const S = [];
     if (OUTRO) { const { ida, toque } = outroTempos(), f = T_FIM; S.push([f + 0.02, 'sopro', 0.5], [f + 0.1, 'dissolver', 0.45, ida], [f + ida - 0.05, 'impacto', 0.35], [f + ida + 0.3, 'pop', 0.45], [f + toque, 'tique', 0.6], [f + toque + 0.05, 'ping', 0.45, 0, 1318], [f + toque + 0.12, 'formar', 0.3, 0.8]); }
-    if (INTRO) { const d = INTRO.duracao ?? 2; S.push([0.05, 'formar', 0.55, d * 0.9], [0.15, 'subida', 0.3, d - 0.2], [d - 0.02, 'ping', 0.4, 0, 1046]); }
+    if (INTRO) { const d = INTRO.duracao ?? 2; S.push([0.05, 'formar', 0.55, d * 0.9], [0.15, 'subida', 0.3, d - 0.2], [d - 0.02, 'ping', 0.4, 0, 1175]); }
     CENAS.forEach((cena, i) => {
       const c = cena.c, t0 = cena.t0, w = cena.w;
       if (i > 0) S.push([t0 - 0.1, 'sopro', 0.55]);
@@ -590,7 +590,7 @@
       if (c.tipo === 'item') { S.push([t0 + 0.18, 'ping', 0.42, 0, ESCALA[(c.n - 1) % 10]], [t0 + 0.35, 'formar', 0.35, 0.8]); }
       if (c.tipo === 'item' || c.tipo === 'reflexo' || c.tipo === 'valor') {
         if (c.objeto === 'paz') S.push([t0 + 0.4, 'varredura', 0.25, cena.t1 - t0 - 0.8]);
-        if (c.objeto === 'celebrar') for (let k = 0; k < 8; k++) S.push([t0 + 0.5 + k * 0.12, 'ping', 0.16, 0, 1568 + k * 90]);
+        if (c.objeto === 'celebrar') for (let k = 0; k < 8; k++) S.push([t0 + 0.5 + k * 0.12, 'ping', 0.16, 0, [1175, 1319, 1480, 1760, 1976, 2349, 2637, 2960][k]]);
         if (c.objeto === 'limites') S.push([t0 + 0.85, 'trava', 0.35]);
         if (c.objeto === 'apoiar') S.push([t0 + 0.3, 'pop', 0.4]);
       }
@@ -602,6 +602,23 @@
       if (c.tipo === 'cta') { S.push([t0 + 0.1, 'subida', 0.35, 1.0], [t0 + 1.1, 'impacto', 0.45], [t0 + (w[0] - t0) + 0.05, 'pop', 0.45]); }
     });
     window.__sons = S;
+    // trilha sonora: acordes e intensidade por cena (sons.py sintetiza a música a partir destas marcas)
+    const TR = window.TRILHA;
+    if (TR && CENAS.length) {
+      const P = TR.progressao || [['Bm', 'G'], ['D', 'A'], ['Em', 'G'], ['D', 'A']];
+      const INT = Object.assign({ abertura: .35, itemIni: .45, itemFim: .78, reflexo: .28, valor: .42, final: .88, cta: .62, outro: .55 }, TR.intensidade || {});
+      const ESP = Object.assign({ abertura: ['D', 'D'], reflexo: ['Em', 'G'], valor: ['Bm', 'A'], final: ['G', 'A'], cta: ['D', 'D'] }, TR.especiais || {});
+      const MU = []; let k = 0;
+      if (CENAS[0].t0 > 0.1) MU.push([0, 'D', INT.abertura * .8, CENAS[0].t0]);
+      CENAS.forEach(c => {
+        const d = c.t1 - c.t0, par = ESP[c.c.tipo] || P[k++ % P.length];
+        const it = c.c.tipo === 'item' ? lerp(INT.itemIni, INT.itemFim, ((c.c.n || 1) - 1) / 9) : (INT[c.c.tipo] ?? .5);
+        MU.push([c.t0, par[0], it, d / 2], [c.t0 + d / 2, par[1], it, d / 2]);
+      });
+      if (OUTRO) { const D = OUTRO.duracao ?? 3.6; MU.push([T_FIM, 'G', INT.outro, D * .45], [T_FIM + D * .45, 'D', INT.outro, D * .55]); }
+      window.__musica = MU;
+      MU.forEach(([t, ac, it, d]) => window.__events.push({ t: +t.toFixed(3), frame: Math.round(t * 30), type: 'musica', label: [ac, it.toFixed(2), d.toFixed(3), TR.bpm || 72].join('|') }));
+    }
     S.forEach(([t, som, g, d, tom]) => window.__events.push({ t: +t.toFixed(3), frame: Math.round(t * 30), type: 'sfx', label: [som, g, d || 0, tom || 0].join('|') }));
   }
   function finalChecks(cena) { const d = (cena.t1 - cena.t0); const a = 0.9, b = Math.max(a + 1.5, d - 1.2); return Array.from({ length: 10 }, (_, k) => a + (b - a) * k / 9); }

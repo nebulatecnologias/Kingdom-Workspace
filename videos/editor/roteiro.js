@@ -22,6 +22,10 @@ window.INTRO_LOGO = { duracao: 2.0, inicioConteudo: 1.2, tamanhoInicial: 140, yI
 window.OUTRO_LOGO = { duracao: 3.6, descida: 1.4, yLogo: 470, tamanhoLogo: 130, zoom: 1.15,
   chamada: 'Siga a página', handle: '@kingdomtraining.center', botao: 'Seguir', botaoFeito: 'Seguindo' };
 
+// Trilha sonora reflexiva: piano + pad + baixo em Ré maior, 72 BPM. Cada cena tem 2 acordes; intensidade cresce nos 10 itens,
+// recua no "reflexo" (piano quase só) e fecha com a cadência Sol → Ré no encerramento. Ajustável: progressao, intensidade, especiais.
+window.TRILHA = { estilo: 'reflexiva', bpm: 72, tom: 'Ré maior' };
+
 window.ROTEIRO = [
   { tipo: 'abertura', frases: ['Só um lembrete *amigo,*', ['à luz da *Palavra.*', 0.2]] },
 

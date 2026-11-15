@@ -196,6 +196,76 @@ def ambiencia_luz(n):
     return m / max(1e-9, np.sqrt((m ** 2).mean())) * 0.014
 
 
+# ---------------- trilha sonora (piano + pad + baixo), a partir das marcas 'musica' do motor ----------------
+NOTA = lambda m: 440.0 * 2 ** ((m - 69) / 12)
+ACORDES = {  # baixo, voicing (MIDI)
+    'D': (38, [57, 62, 66, 69]), 'A': (45, [52, 57, 61, 64]), 'Bm': (47, [54, 59, 62, 66]),
+    'G': (43, [50, 55, 59, 62]), 'Em': (40, [52, 55, 59, 64]), 'F#m': (42, [54, 57, 61, 66]),
+}
+
+
+def piano(f, dur, vel):
+    d = min(dur + 1.8, 5.0); n = int(d * SR); tt = np.arange(n) / SR; out = np.zeros(n)
+    for k in range(1, 9):
+        fk = f * k * (1 + 0.00035 * k * k)
+        if fk > 8000: break
+        out += (vel / k ** 1.5) * np.sin(2 * np.pi * fk * tt + k) * np.exp(-tt / (2.6 / (1 + 0.6 * (k - 1))))
+    out *= np.minimum(1, tt / 0.004) * np.where(tt < dur, 1, np.exp(-(tt - dur) / 0.45))
+    out[:int(0.02 * SR)] += rng.standard_normal(int(0.02 * SR)) * np.exp(-np.arange(int(0.02 * SR)) / (0.004 * SR)) * 0.015 * vel
+    return out
+
+
+def pad_acorde(freqs, dur, it):
+    n = int((dur + 1.6) * SR); tt = np.arange(n) / SR
+    env = np.minimum(1, tt / 0.9) * np.where(tt < dur, 1, np.exp(-(tt - dur) / 0.7))
+    L = np.zeros(n); R_ = np.zeros(n)
+    for f in freqs:
+        for k in range(1, 5):
+            for ch, det in ((L, 1 - .002), (R_, 1 + .002)):
+                ch += np.sin(2 * np.pi * f * k * det * tt + 0.3 * np.sin(2 * np.pi * 0.25 * tt)) / k ** 2.0
+    return np.stack([L, R_], 1) * env[:, None] * it
+
+
+def baixo(f, dur, it):
+    n = int((dur + 0.8) * SR); tt = np.arange(n) / SR
+    env = np.minimum(1, tt / 0.06) * (0.7 + 0.3 * np.exp(-tt / 0.5)) * np.where(tt < dur, 1, np.exp(-(tt - dur) / 0.4))
+    return (np.sin(2 * np.pi * f * tt) + .3 * np.sin(4 * np.pi * f * tt)) * env * it
+
+
+def trilha(ev, N):
+    marcas = sorted([e for e in ev if e['type'] == 'musica'], key=lambda e: e['t'])
+    if not marcas: return None
+    out = np.zeros((N + SR * 6, 2)); piano_bus = np.zeros(N + SR * 6)
+    bpm = float(marcas[0]['label'].split('|')[3]); passo = 60 / bpm / 2  # colcheias
+    segs = []
+    for m in marcas:
+        ac, it, d, _ = m['label'].split('|'); segs.append((m['t'], ac, float(it), float(d)))
+    def put(buf, x, t):
+        i = int(t * SR); j = min(len(buf), i + len(x));
+        if j > i: buf[i:j] += x[:j - i]
+    for t0, ac, it, d in segs:
+        b, voz = ACORDES.get(ac, ACORDES['D'])
+        out[int(t0 * SR):int(t0 * SR) + int((d + 1.6) * SR)] += pad_acorde([NOTA(v) for v in voz], d, 0.05 + 0.10 * it)[:max(0, min(len(out) - int(t0 * SR), int((d + 1.6) * SR)))]
+        if it >= 0.4: put(out[:, 0], baixo(NOTA(b), d, 0.18 * it), t0); put(out[:, 1], baixo(NOTA(b), d, 0.18 * it), t0)
+        for j, v in enumerate(voz):  # acorde de piano dedilhado
+            put(piano_bus, piano(NOTA(v + 12), min(d, 2.5), 0.10 + 0.14 * it), t0 + j * 0.035)
+        # arpejo em colcheias na grelha do andamento
+        if it >= 0.42:
+            padrao = [0, 1, 2, 3, 2, 1]; g0 = np.ceil(t0 / passo) * passo; k = 0; g = g0
+            while g < t0 + d - 0.05:
+                nota = voz[padrao[k % 6]] + 12; acento = 1.0 if k % 2 == 0 else 0.7
+                put(piano_bus, piano(NOTA(nota), passo * 1.6, (0.05 + 0.09 * it) * acento), g); k += 1; g += passo
+        if it >= 0.72:  # melodia simples nas notas de cima
+            for q, off in enumerate((0, 2 * passo * 2)):
+                if off < d - 0.3: put(piano_bus, piano(NOTA(voz[-1 - q] + 24), passo * 4, 0.07 * it), t0 + off + passo)
+    out[:, 0] += piano_bus * 0.9; out[:, 1] += np.roll(piano_bus, 240) * 0.9
+    out = out[:N]
+    wet = reverb(out, rt=3.0, tau=0.9)
+    m = out * 0.75 + wet * 0.55
+    tt = np.arange(N) / SR; fade = np.minimum(1, (tt[-1] - tt) / 1.5)[:, None]
+    return m / max(1e-9, np.abs(m).max()) * fade
+
+
 def grava(p, x):
     x = np.clip(x, -1, 1); y = (x * 32767).astype('<i2')
     with wave.open(str(p), 'wb') as w:
@@ -236,10 +306,16 @@ def main():
     sfx *= 10 ** (-3 / 20) / max(1e-9, np.abs(sfx).max())     # pico em -3 dBFS
     base = mp4.with_suffix('')
     grava(f'{base}-sfx.wav', sfx)
-    mix = sfx + ({'escura': ambiencia, 'luz': ambiencia_luz}[amb](N) if amb != 'nenhuma' else 0)
+    musica = trilha(ev, N) if '--sem-trilha' not in sys.argv else None
+    if musica is not None:
+        grava(f'{base}-trilha.wav', musica * 10 ** (-3 / 20))
+        nivel = float(sys.argv[sys.argv.index('--nivel-trilha') + 1]) if '--nivel-trilha' in sys.argv else -8.0
+        mix = sfx + musica * 10 ** (nivel / 20)   # a trilha substitui a ambiência
+    else:
+        mix = sfx + ({'escura': ambiencia, 'luz': ambiencia_luz}[amb](N) if amb != 'nenhuma' else 0)
     mix *= 10 ** (-1.5 / 20) / max(1e-9, np.abs(mix).max()) if np.abs(mix).max() > 10 ** (-1.5 / 20) else 1
     grava(f'{base}-mix.wav', mix)
-    for f in (f'{base}-sfx.wav', f'{base}-mix.wav'): loudnorm(f, -20)
+    for f in [f'{base}-sfx.wav', f'{base}-mix.wav'] + ([f'{base}-trilha.wav'] if musica is not None else []): loudnorm(f, -20)
     print('sons:', ', '.join(f'{k}×{v}' for k, v in sorted(usados.items())))
     print(f'{base}-sfx.wav\n{base}-mix.wav')
 
