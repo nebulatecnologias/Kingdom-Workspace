@@ -1,5 +1,6 @@
 // Painel · recebe os formulários dos sites (chamado pelo recolha.js). Sem JWT: valida a chave e a origem.
 import { createClient } from "jsr:@supabase/supabase-js@2";
+import { emailDeAviso } from "./aviso.ts";
 
 const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, { auth: { persistSession: false } });
 const TIPOS = ["cotacao", "avaliacao", "contacto", "newsletter", "outro"];
@@ -40,7 +41,7 @@ Deno.serve(async (req) => {
   try { d = await req.json(); } catch { return resp(400, { erro: "pedido inválido" }); }
   if (typeof d.chave !== "string") return resp(400, { erro: "sem chave" });
 
-  const { data: site } = await db.from("painel_sites").select("id, nome, origens, email_remetente, nome_remetente").eq("chave", d.chave).maybeSingle();
+  const { data: site } = await db.from("painel_sites").select("id, nome, origens, email_remetente, nome_remetente, email_avisos, remetente_avisos, marca").eq("chave", d.chave).maybeSingle();
   if (!site) return resp(403, { erro: "site desconhecido" });
   if (!origin || !origemAutorizada(origin, site.origens || [])) return resp(403, { erro: "origem não autorizada" });
 
@@ -100,15 +101,32 @@ Deno.serve(async (req) => {
   if (e2) return resp(500, { erro: "não foi possível guardar" });
   await db.from("painel_actividades").insert({ site_id: site.id, contacto_id: contactoId, tipo: "mensagem", texto: assunto, dados: { mensagem_id: msg.id, origem: d.origem || null } });
 
-  // Aviso por email à equipa (quando a Resend está configurada)
-  const RESEND = Deno.env.get("PAINEL_RESEND_API_KEY");
-  if (RESEND && site.email_remetente && tipo !== "newsletter") {
-    const linhas = [assunto, "", `Nome: ${campos.nome || "-"}`, `Empresa: ${campos.empresa || "-"}`, `Email: ${email || "-"}`, `Telefone: ${campos.telefone || "-"}`, "", corta(d.mensagem, 5000) || "", ...Object.entries(dados).map(([k, v]) => `${k}: ${v}`)];
-    fetch("https://api.resend.com/emails", {
-      method: "POST", headers: { Authorization: `Bearer ${RESEND}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ from: `${site.nome_remetente || site.nome} <${site.email_remetente}>`, to: [site.email_remetente], reply_to: email || undefined, subject: `Novo pedido no site: ${assunto}`, text: linhas.join("\n") }),
-    }).catch(() => {});
+  // Aviso por email à equipa: um email desenhado (aviso.ts) para os endereços do site, com resposta directa ao prospect.
+  // Espera-se pelo envio: uma função que já respondeu pode ser parada antes de o pedido à Resend sair.
+  const RESEND = Deno.env.get("PAINEL_RESEND_API_KEY") || Deno.env.get("RESEND_API_KEY");
+  const para: string[] = (site.email_avisos && site.email_avisos.length) ? site.email_avisos : (site.email_remetente ? [site.email_remetente] : []);
+  let aviso: Record<string, unknown> = { enviado: false };
+  if (!RESEND) aviso.erro = "sem chave da Resend";
+  else if (!para.length) aviso.erro = "sem endereço de avisos";
+  else {
+    const e = emailDeAviso({
+      site: site.nome, marca: site.marca || {}, tipo, assunto, ...campos, email, servico,
+      mensagem: corta(d.mensagem, 5000), dados, pagina: corta(d.pagina, 300), origem: corta(d.origem, 80), utm, quando: new Date(),
+    });
+    try {
+      const r = await fetch("https://api.resend.com/emails", {
+        method: "POST", headers: { Authorization: `Bearer ${RESEND}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: site.remetente_avisos || `${site.nome_remetente || site.nome} <${site.email_remetente}>`,
+          to: para, reply_to: email || undefined, subject: e.assunto, html: e.html, text: e.texto,
+          tags: [{ name: "origem", value: "painel-recolher" }, { name: "tipo", value: tipo }],
+        }),
+      });
+      const j = await r.json().catch(() => ({}));
+      aviso = r.ok ? { enviado: true, id: j.id, para, em: new Date().toISOString() } : { enviado: false, erro: String(j.message || r.status).slice(0, 200) };
+    } catch (err) { aviso = { enviado: false, erro: String(err).slice(0, 200) }; }
   }
+  await db.from("painel_mensagens").update({ aviso }).eq("id", msg.id);
 
   return resp(200, { ok: true });
 });
