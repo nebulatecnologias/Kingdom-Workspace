@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><title>Ficha de passagem ao Closer · DT Company e Kingdom Company</title>
+<style>
+@font-face { font-family: 'Google Sans'; src: url(file:///root/.fonts/gs400.ttf); font-weight: 400; }
+@font-face { font-family: 'Google Sans'; src: url(file:///root/.fonts/gs500.ttf); font-weight: 500; }
+@page { size: A4 portrait; margin: 0; }
+:root { --indigo: #2B2850; --tinta: #1C1A30; --cinza: #5E5A75; --escrita: #8C87A6; --laranja: #D63E12; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 210mm; }
+body { font-family: 'Google Sans', sans-serif; color: var(--tinta); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.pagina { position: relative; width: 210mm; height: 297mm; padding: 10mm 20mm 0; overflow: hidden; }
+
+/* topo: as duas marcas ao centro, o título por baixo */
+.marcas { display: flex; justify-content: center; align-items: center; gap: 7mm; }
+.marcas img { display: block; height: 8.5mm; width: auto; }
+.marcas .dt { height: 9.5mm; }
+.marcas i { width: .3mm; height: 9mm; background: #CFCBDB; }
+h1 { margin-top: 2mm; text-align: center; font-size: 20pt; font-weight: 500; letter-spacing: -.02em; line-height: 1.1; }
+.sub { margin-top: 2mm; text-align: center; font-size: 9.5pt; color: var(--cinza); }
+
+/* campos: rótulo por cima, linha para escrever por baixo */
+.g { display: grid; column-gap: 8mm; }
+.g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: 1fr 1fr 1fr; }
+.campo label { display: block; font-size: 8.6pt; color: var(--cinza); }
+.campo .linha { height: 7mm; border-bottom: .35mm solid var(--escrita); }
+.campo .linha + .linha { height: 8.5mm; }
+section > * + * { margin-top: 5mm; }
+
+.meta { margin-top: 7mm; }
+.meta .linha { height: 7mm; }
+
+/* blocos: título e espaço, sem filetes entre perguntas */
+section { margin-top: 8.5mm; }
+h2 { display: flex; align-items: baseline; gap: 2.4mm; margin-bottom: 3mm; font-size: 11.5pt; font-weight: 500; color: var(--indigo); }
+h2 b { font-weight: 500; color: var(--laranja); font-variant-numeric: tabular-nums; }
+.canal { display: flex; align-items: center; gap: 7mm; font-size: 9.5pt; }
+.canal span:first-child { font-size: 8.6pt; color: var(--cinza); margin-right: -2mm; }
+.q { display: inline-block; width: 4mm; height: 4mm; margin-right: 2mm; border: .35mm solid var(--escrita); border-radius: .7mm; vertical-align: -.8mm; }
+
+footer { position: absolute; left: 20mm; right: 20mm; bottom: 7mm; text-align: center; font-size: 8pt; color: var(--cinza); letter-spacing: .01em; }
+</style></head>
+<body><div class="pagina">
+
+<h1>Ficha de passagem ao Closer</h1>
+
+<div class="meta g g3">
+  <div class="campo"><label>SDR</label><div class="linha"></div></div>
+  <div class="campo"><label>Closer</label><div class="linha"></div></div>
+  <div class="campo"><label>Data</label><div class="linha"></div></div>
+</div>
+
+<section>
+  <h2><b>1</b>O contacto</h2>
+  <div class="g g2"><div class="campo"><label>Nome</label><div class="linha"></div></div><div class="campo"><label>Cargo</label><div class="linha"></div></div></div>
+  <div class="g g2"><div class="campo"><label>Telefone</label><div class="linha"></div></div><div class="campo"><label>Email</label><div class="linha"></div></div></div>
+  <div class="canal"><span>Canal preferido</span><span><i class="q"></i>Chamada</span><span><i class="q"></i>WhatsApp</span><span><i class="q"></i>Email</span></div>
+</section>
+
+<section>
+  <h2><b>2</b>A empresa</h2>
+  <div class="g g3"><div class="campo"><label>Empresa</label><div class="linha"></div></div><div class="campo"><label>Setor</label><div class="linha"></div></div><div class="campo"><label>N.º de colaboradores</label><div class="linha"></div></div></div>
+</section>
+
+<section>
+  <h2><b>3</b>A oportunidade</h2>
+  <div class="g g2"><div class="campo"><label>Origem do lead</label><div class="linha"></div></div><div class="campo"><label>Serviço de interesse</label><div class="linha"></div></div></div>
+  <div class="campo"><label>Dor principal, com as palavras do cliente</label><div class="linha"></div><div class="linha"></div><div class="linha"></div></div>
+</section>
+
+<section>
+  <h2><b>4</b>A decisão</h2>
+  <div class="g g2"><div class="campo"><label>Quem decide (nome e cargo)</label><div class="linha"></div></div><div class="campo"><label>Quem mais participa na decisão</label><div class="linha"></div></div></div>
+  <div class="campo"><label>Investimento previsto, se o cliente o disse</label><div class="linha"></div></div>
+  <div class="campo"><label>Objeções que já apareceram</label><div class="linha"></div><div class="linha"></div></div>
+</section>
+
+<section>
+  <h2><b>5</b>A reunião</h2>
+  <div class="g g3"><div class="campo"><label>Data</label><div class="linha"></div></div><div class="campo"><label>Hora</label><div class="linha"></div></div><div class="campo"><label>Canal</label><div class="linha"></div></div></div>
+</section>
+
+<footer>Cooperação Comercial DT Company e Kingdom Company</footer>
+</div></body></html>
