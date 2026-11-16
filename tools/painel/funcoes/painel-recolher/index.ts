@@ -41,7 +41,7 @@ Deno.serve(async (req) => {
   try { d = await req.json(); } catch { return resp(400, { erro: "pedido inválido" }); }
   if (typeof d.chave !== "string") return resp(400, { erro: "sem chave" });
 
-  const { data: site } = await db.from("painel_sites").select("id, nome, origens, email_remetente, nome_remetente, email_avisos, remetente_avisos, marca").eq("chave", d.chave).maybeSingle();
+  const { data: site } = await db.from("painel_sites").select("id, nome, origens, email_remetente, nome_remetente, email_avisos, remetente_avisos, remetente_reserva, marca").eq("chave", d.chave).maybeSingle();
   if (!site) return resp(403, { erro: "site desconhecido" });
   if (!origin || !origemAutorizada(origin, site.origens || [])) return resp(403, { erro: "origem não autorizada" });
 
@@ -113,17 +113,23 @@ Deno.serve(async (req) => {
       site: site.nome, marca: site.marca || {}, tipo, assunto, ...campos, email, servico,
       mensagem: corta(d.mensagem, 5000), dados, pagina: corta(d.pagina, 300), origem: corta(d.origem, 80), utm, quando: new Date(),
     });
+    // Remetente: o do site (noreply@ do domínio do site); se a chave não puder enviar desse domínio, o de reserva.
+    const remetentes = [site.remetente_avisos || `${site.nome_remetente || site.nome} <${site.email_remetente}>`, site.remetente_reserva].filter(Boolean) as string[];
     try {
-      const r = await fetch("https://api.resend.com/emails", {
-        method: "POST", headers: { Authorization: `Bearer ${RESEND}`, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          from: site.remetente_avisos || `${site.nome_remetente || site.nome} <${site.email_remetente}>`,
-          to: para, reply_to: email || undefined, subject: e.assunto, html: e.html, text: e.texto,
-          tags: [{ name: "origem", value: "painel-recolher" }, { name: "tipo", value: tipo }],
-        }),
-      });
-      const j = await r.json().catch(() => ({}));
-      aviso = r.ok ? { enviado: true, id: j.id, para, em: new Date().toISOString() } : { enviado: false, erro: String(j.message || r.status).slice(0, 200) };
+      let erro = "";
+      for (const from of remetentes) {
+        const r = await fetch("https://api.resend.com/emails", {
+          method: "POST", headers: { Authorization: `Bearer ${RESEND}`, "Content-Type": "application/json" },
+          body: JSON.stringify({
+            from, to: para, reply_to: email || undefined, subject: e.assunto, html: e.html, text: e.texto,
+            tags: [{ name: "origem", value: "painel-recolher" }, { name: "tipo", value: tipo }],
+          }),
+        });
+        const j = await r.json().catch(() => ({}));
+        if (r.ok) { aviso = { enviado: true, id: j.id, para, de: from, em: new Date().toISOString() }; erro = ""; break; }
+        erro = String(j.message || r.status).slice(0, 200);
+      }
+      if (erro) aviso = { enviado: false, erro };
     } catch (err) { aviso = { enviado: false, erro: String(err).slice(0, 200) }; }
   }
   await db.from("painel_mensagens").update({ aviso }).eq("id", msg.id);
