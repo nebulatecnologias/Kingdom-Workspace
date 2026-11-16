@@ -5,7 +5,7 @@ const dir = new URL('.', import.meta.url).pathname;
 const n = process.argv[2] || 'ficha-closer';
 const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 794, height: 1123 } });
 await p.goto('file://' + dir + n + '.html', { waitUntil: 'networkidle' }); await p.evaluate(() => document.fonts.ready);
-const folga = await p.evaluate(() => { const f = document.querySelector('footer').getBoundingClientRect().top; let m = 0; document.querySelectorAll('ol *, .topo *').forEach((e) => { m = Math.max(m, e.getBoundingClientRect().bottom); }); return Math.round((f - m) / 3.78); });
+const folga = await p.evaluate(() => { const f = document.querySelector('footer').getBoundingClientRect().top; let m = 0; document.querySelectorAll('section *, .meta *, ol *').forEach((e) => { m = Math.max(m, e.getBoundingClientRect().bottom); }); return Math.round((f - m) / 3.78); });
 console.log(n, 'folga até ao rodapé', folga, 'mm');
 await p.pdf({ path: dir + n + '.pdf', width: '210mm', height: '297mm', printBackground: true, preferCSSPageSize: true });
 await p.screenshot({ path: '/tmp/claude-0/-home-user-Kingdom-Workspace/e9e5cd6c-72ca-5360-967b-48368ca416ce/scratchpad/' + n + '.png' });
