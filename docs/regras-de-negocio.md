@@ -78,6 +78,12 @@ A DT Company (www.dtcompany.co.za) tem três pilares. Consultoria Estratégica: 
 
 *11/11/2026 · Decisão do Shelton*
 
+### R41 · Slogan da DT Company
+
+O slogan da DT Company é «Negócio informado é negócio protegido.» Usa-se no playbook de vendas, no manual de marca, na papelaria e no digital. A frase «Confiança para investir, operar e crescer em Moçambique.» continua como título da página inicial do site e da apresentação da empresa.
+
+*17/11/2026 · Decisão do Shelton*
+
 ### R16 · Tracktion: 3 meses, 6 pessoas, 12.800 MT por mês
 
 Cada turma do Kingdom Tracktion dura 3 meses e tem 6 pessoas, com no máximo 4 turmas por ano. Cada participante paga 12.800 MT por mês (76.800 MT por mês e 230.400 MT por turma). Inclui, por mês, 1 advising individual de 1 hora e 1 encontro coletivo presencial de 4 horas, o Kingdom Experience: 3 encontros por turma. Quando o Shelton convida um especialista para partilhar conhecimento, a Kingdom Class acontece dentro do Experience. Inclui também o treino da equipa da empresa de cada participante, sobre os pontos levantados no início do programa: 2 equipas por mês, ou seja, uma vez por participante ao longo da turma, com cerca de 2 horas por treino. Com o tempo, o treino passa a ser dado pela equipa do Shelton. O treino é apresentado ao valor da tabela da Kingdom Company. Os advisings e os treinos são gravados e viram conteúdo e portefólio da Kingdom Company. Tempo do Shelton: 14 horas por mês, cerca de 5.490 MT por hora (10 horas e 7.680 MT por hora quando a equipa der os treinos).

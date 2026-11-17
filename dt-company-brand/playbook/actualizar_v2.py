@@ -61,7 +61,7 @@ d['como_usar']['fora'] = ('Fica de fora, por não ser essencial para vender: his
 d['capas']['02'][1] = ('Onze serviços em três pilares, cada um com uma ficha. O vendedor usa as dores para reconhecer o cliente '
                        'e as fronteiras para saber até onde vai o nosso trabalho.')
 d['capas']['02'][2] = ['Mapa dos 11 serviços', 'Regra: não vender características', 'As 11 fichas comerciais']
-d['contracapa']['slogan'] = 'Estratégia, integridade e equipas preparadas.'
+d['contracapa']['slogan'] = 'Negócio informado é negócio protegido.'   # slogan da DT (R41, 17/11/2026)
 
 # ---------- 02 · o que vendemos ----------
 PRE90 = [('projeções', 'projecções'), ('Projeções', 'Projecções'), ('projeto', 'projecto'), ('Projeto', 'Projecto'),
