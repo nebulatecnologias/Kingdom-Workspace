@@ -5,11 +5,11 @@
   "logo_claro": "/home/user/Kingdom-Workspace/dt-company-brand/identidade/logotipo/dt-company-vertical-branco.svg",
   "logo_escuro": "/home/user/Kingdom-Workspace/dt-company-brand/identidade/logotipo/dt-company-vertical-azul.svg",
   "simbolo_escuro": "/home/user/Kingdom-Workspace/dt-company-brand/identidade/logotipo/dt-company-simbolo-azul.svg",
-  "fonte": "Google Sans",
+  "fonte": "Manrope",
   "fontes": {
-   "400": "/root/.fonts/gs400.ttf",
-   "500": "/root/.fonts/gs500.ttf",
-   "700": "/root/.fonts/gs700.ttf"
+   "400": "/home/user/Kingdom-Workspace/dt-company-brand/identidade/fontes/manrope-400.ttf",
+   "500": "/home/user/Kingdom-Workspace/dt-company-brand/identidade/fontes/manrope-500.ttf",
+   "700": "/home/user/Kingdom-Workspace/dt-company-brand/identidade/fontes/manrope-700.ttf"
   },
   "fonte_mono": {
    "400": "/home/user/Kingdom-Workspace/.claude/skills/playbook-vendas/assets/exemplo-dt/fontes/ibm-plex-mono-400.ttf",
@@ -17,17 +17,17 @@
   },
   "estilo_capa": "grelha",
   "cores": {
-   "primaria": "#0068FF",
+   "primaria": "#0066FF",
    "primaria_2": "#0046C8",
-   "escura": "#001655",
+   "escura": "#04123F",
    "noite": "#00042D",
    "tinta": "#0A1230",
    "cinza": "#5B6482",
    "cinza_2": "#8890AA",
    "guia": "#E6EBF5",
    "realce": "#E8F0FF",
-   "acento": "#0057E0",
-   "alerta": "#0068FF",
+   "acento": "#0052CC",
+   "alerta": "#0066FF",
    "luz": "#5C9DFF",
    "ok": "#1F7A5A"
   }
@@ -52,7 +52,7 @@
   "titulo": "Playbook<br>de vendas",
   "subtitulo": "Guia de abordagem, qualificação e conversão comercial para o SDR e o Closer.",
   "selo": "Uso interno · Equipa comercial",
-  "versao": "Versão 2.0 · Novembro de 2026"
+  "versao": "Versão 2.1 · Novembro de 2026"
  },
  "como_usar": {
   "lead": "Um só playbook para o SDR e o Closer da DT Company, em oito secções. As três primeiras são a base comum: quem somos, o que vendemos e como qualificamos. A 04 define o processo comercial, a 05 e a 06 são o guia de cada função, e a 07 e a 08 servem de consulta rápida durante uma conversa.",
@@ -194,8 +194,8 @@
     "Cada treinamento tem avaliação antes e depois, registo de presenças, certificados de participação e relatório final."
    ],
    [
-    "Tecnologia e marketing da Kingdom.",
-    "O canal de denúncia e a formação online são montados com a equipa de tecnologia da Kingdom; o marketing pode ser dado com a equipa de marketing e comunicação."
+    "Tecnologia e marketing na mesma casa.",
+    "O canal de denúncia e a formação online são montados pela nossa equipa de tecnologia; a formação em marketing pode ser dada com a nossa equipa de marketing e comunicação."
    ],
    [
     "Continuidade por avença.",
@@ -248,7 +248,7 @@
    "Cada característica liga-se a um problema e a um resultado. Por exemplo: «o relatório classifica o risco em baixo, médio ou alto» (característica) → «sabe, antes de assinar, se deve avançar ou confirmar mais pontos» (resultado)."
   ],
   "notas_pilar": {
-   "Treinamento Corporativo": "Formatos: in-company, à medida na empresa; cursos abertos e seminários, com calendário trimestral; Programa de Desenvolvimento de Lideranças, de três a seis meses, com plano de desenvolvimento individual e mentoria; formação online, com módulos gravados, testes e certificados automáticos (tecnologia da Kingdom); e Plano Anual de Formação, por avença."
+   "Treinamento Corporativo": "Formatos: in-company, à medida na empresa; cursos abertos e seminários, com calendário trimestral; Programa de Desenvolvimento de Lideranças, de três a seis meses, com plano de desenvolvimento individual e mentoria; formação online, com módulos gravados, testes e certificados automáticos (pela nossa equipa de tecnologia); e Plano Anual de Formação, por avença."
   },
   "fichas": [
    {
@@ -368,7 +368,7 @@
      "Código de conduta.",
      "Políticas: anticorrupção, conflitos de interesse, ofertas e brindes, pagamentos e mudança de NIB.",
      "Controlos anti-fraude: caixa, compras, recepção de mercadoria, stock e pagamentos.",
-     "Canal de denúncia, montado com a equipa de tecnologia da Kingdom.",
+     "Canal de denúncia, montado pela nossa equipa de tecnologia.",
      "Formação em ética, anticorrupção e prevenção de fraude, com registo de presenças."
     ],
     "avenca": "Compliance officer externo, com relatório mensal.",
@@ -580,7 +580,7 @@
      "Avaliação antes e depois, registo de presenças e certificados de participação.",
      "Relatório final com resultados e recomendações."
     ],
-    "fronteira": "Pode ser dado com a equipa de marketing e comunicação da Kingdom. Certificados de participação. Para certificação profissional reconhecida, confirmar primeiro o registo junto da ANEP.",
+    "fronteira": "Pode ser dado com a nossa equipa de marketing e comunicação. Certificados de participação. Para certificação profissional reconhecida, confirmar primeiro o registo junto da ANEP.",
     "pitch": "Ensinamos a equipa a fazer marketing com estratégia: conhecer o cliente, posicionar a marca, comunicar e medir. Os exercícios são feitos com a marca da própria empresa e o programa termina com um plano para 90 dias."
    }
   ]
@@ -1005,7 +1005,12 @@
  },
  "contracapa": {
   "slogan": "Estratégia, integridade e equipas preparadas.",
-  "contactos": [],
+  "contactos": [
+   "contact@dtcompany.co.za",
+   "+258 82 987 8424 · +258 87 664 1836",
+   "Edifício Millennium Park, Av. Vladimir Lenine, n.º 174, Maputo",
+   "www.dtcompany.co.za"
+  ],
   "interno": "Documento de uso interno da equipa comercial. Não distribuir fora da DT Company."
  }
 }

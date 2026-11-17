@@ -269,9 +269,33 @@ o[8][3] = 'Mostrar os entregáveis concretos que ficam com a empresa e o relató
 d['followup']['reactivacao'][0][1] = ('Contactar as oportunidades perdidas por «não é o momento» ou «sem orçamento», com um gatilho novo: um concurso, '
                                       'um financiamento, o início do ano, novas chefias ou um serviço novo.')
 
+# ---------- actualização de 17/11/2026 ----------
+# marca: Manrope (aprovada a 11/11 e aplicada ao logótipo e ao site a 15/11) e azul da paleta
+FM = os.path.join(RAIZ, 'dt-company-brand/identidade/fontes')
+d['marca']['fonte'] = 'Manrope'
+d['marca']['fontes'] = {'400': os.path.join(FM, 'manrope-400.ttf'), '500': os.path.join(FM, 'manrope-500.ttf'), '700': os.path.join(FM, 'manrope-700.ttf')}
+d['marca']['cores'].update({'primaria': '#0066FF', 'acento': '#0052CC', 'alerta': '#0066FF', 'escura': '#04123F'})
+d['capa']['versao'] = 'Versão 2.1 · Novembro de 2026'
+# texto neutro em vez da Kingdom, como no site da DT
+def neutro(x):
+    if isinstance(x, str):
+        return (x.replace('Tecnologia e marketing da Kingdom.', 'Tecnologia e marketing na mesma casa.')
+                 .replace('com a equipa de tecnologia da Kingdom', 'pela nossa equipa de tecnologia')
+                 .replace('(tecnologia da Kingdom)', '(pela nossa equipa de tecnologia)')
+                 .replace('o marketing pode ser dado com a equipa de marketing e comunicação', 'a formação em marketing pode ser dada com a nossa equipa de marketing e comunicação')
+                 .replace('com a equipa de marketing e comunicação da Kingdom', 'com a nossa equipa de marketing e comunicação')
+                 .replace('da Kingdom', 'da nossa equipa'))
+    if isinstance(x, list): return [neutro(i) for i in x]
+    if isinstance(x, dict): return {k: (v if k in ('marca',) else neutro(v)) for k, v in x.items()}
+    return x
+d = {k: (v if k == 'marca' else neutro(v)) for k, v in d.items()}
+# contracapa: contactos oficiais da DT
+d['contracapa']['contactos'] = ['contact@dtcompany.co.za', '+258 82 987 8424 · +258 87 664 1836',
+                                'Edifício Millennium Park, Av. Vladimir Lenine, n.º 174, Maputo', 'www.dtcompany.co.za']
+
 # ---------- verificação: palavras a evitar e pilares retirados ----------
 texto = json.dumps(d, ensure_ascii=False)
-for proibida in ['Tax', 'tax', 'Incorporação', 'ESG', 'parceira', 'advogado parceiro', 'contabilista certificada', 'mandato', 'parecer',
+for proibida in ['Kingdom', 'Tax', 'tax', 'Incorporação', 'ESG', 'parceira', 'advogado parceiro', 'contabilista certificada', 'mandato', 'parecer',
                  'auditoria', 'expatriad', 'Autoridade Tributária', 'Banco de Moçambique', 'DUAT']:
     for m in re.finditer(re.escape(proibida), texto):
         contexto = texto[max(0, m.start() - 60):m.end() + 40]

@@ -7038,7 +7038,7 @@
      "h": 0,
      "runs": [
       {
-       "t": "Empresa, setor, n.º de colaboradores, país",
+       "t": "Empresa, setor, n.º de colaboradores",
        "b": false,
        "i": false
       }

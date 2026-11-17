@@ -199,7 +199,7 @@ O SDR usa o método BANT da secção 03. As perguntas da lista B cobrem os quatr
 ### D. Ficha de passagem ao Closer
 O SDR preenche a ficha no CRM antes da reunião, e o Closer lê-a antes de entrar:
 - Nome, cargo, telefone, email e canal preferido
-- Empresa, setor, n.º de colaboradores, país
+- Empresa, setor, n.º de colaboradores
 - Origem do lead
 - Dor principal, com as palavras do cliente
 - Serviço de interesse

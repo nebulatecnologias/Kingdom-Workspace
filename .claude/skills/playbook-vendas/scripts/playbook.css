@@ -189,3 +189,10 @@ strong { font-weight: 500; color: var(--tinta); }
 .marca-c { display: flex; gap: 1.8mm; }
 .marca-c i { display: block; width: 1.4mm; height: 1.4mm; background: rgba(255,255,255,.75); }
 .capa .logo { height: 15mm; }
+
+/* contracapa centrada: o logótipo, a frase e os contactos ao centro da página, o fundo atrás */
+.contracapa .cc-in { left: 0; right: 0; width: auto; align-items: center; text-align: center; }
+.contracapa .slogan { margin-left: auto; margin-right: auto; }
+.contracapa .contactos { justify-items: center; }
+.contracapa .hud { right: auto; left: 50%; top: 50%; transform: translate(-50%, -50%); opacity: .55; }
+.contracapa .globo.grande { right: auto; left: 50%; transform: translate(-50%, -50%) rotate(-14deg); opacity: .22; }

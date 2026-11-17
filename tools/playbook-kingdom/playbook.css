@@ -198,3 +198,11 @@ blockquote { margin: 0; }
 .grade.sem-topo .dores li, .grade.sem-topo .pontos li { font-size: 10pt; margin-bottom: 2.2mm; }
 .tab-obj td { padding: 4mm 3mm; }
 .g4 .gc { padding: 5mm 5mm 5.5mm; }
+
+/* contracapa centrada (pedido de 17/11/2026) */
+.contracapa .cc-in { left: 0; right: 0; width: auto; align-items: center; text-align: center; }
+.contracapa .slogan { margin-left: auto; margin-right: auto; }
+.contracapa .contactos { justify-items: center; }
+.contracapa .globo.grande { right: auto; left: 50%; transform: translate(-50%, -50%) rotate(-14deg); opacity: .22; }
+.contracapa .logo-v { width: 56mm; }
+.contracapa .globo.grande { opacity: .13; }
