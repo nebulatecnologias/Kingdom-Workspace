@@ -3,7 +3,7 @@ name: Kingdom Ops
 description: A pocket operations board on a pale grey-green ground with white cards, Google Sans, and one lime accent for the primary action, selection and the hero card; status reads from 8 px dots.
 colors:
   ground: "#f4f6ef"
-  canvas: "#eceff5"
+  canvas: "#eef1e8"
   card: "#ffffff"
   card-2: "#f3f5ee"
   surface: "#f2f5ec"
@@ -295,7 +295,7 @@ components:
     padding: "12px 14px"
 ---
 
-> **Palette update (19 Nov 2026).** The owner pinned the "spotbank" reference: the system now runs on a pale grey-green ground (`ground`, `panel`), white cards with a soft shadow (`card`, `shadow-card`), and a lime accent (`accent` #c9f243 with `accent-ink` text, `accent-2` hover, `accent-soft` tint, `accent-deep` for icons and dots, and the `hero` gradient). The accent carries the primary button, the "+" FAB, the active tab/nav/chip, the selected day, bar fills, checked toggles and the "A seguir" card. The tab bar stays dark glass; status still reads from the 8 px dots plus text. Where the text below says "grey, black and white" or "black" for a primary action, read "lime accent on dark ink".
+> **Palette update (19 Nov 2026).** The owner pinned the "spotbank" reference: the system now runs on a pale grey-green ground (`ground`, `panel`), white cards with a soft shadow (`card`, `shadow-card`), and a lime accent (`accent` #c9f243 with `accent-ink` text, `accent-2` hover, `accent-soft` tint, `accent-deep` for icons and dots, and the `hero` gradient). The desktop sidebar is white (`card`) on the pale grey-green frame (`canvas`). The accent carries the primary button, the "+" FAB, the active tab/nav/chip, the selected day, bar fills, checked toggles and the "A seguir" card. The tab bar stays dark glass; status still reads from the 8 px dots plus text. Where the text below says "grey, black and white" or "black" for a primary action, read "lime accent on dark ink".
 
 
 # Design System: Kingdom Ops

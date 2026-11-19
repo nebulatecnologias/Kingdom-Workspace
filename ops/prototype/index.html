@@ -19,7 +19,7 @@
   color-scheme: light;
   /* surfaces */
   --ground: #f4f6ef;        /* page ground (phone) */
-  --canvas: #eceff5;        /* desktop frame behind the panel */
+  --canvas: #eef1e8;        /* desktop frame behind the panel (pale grey-green, never blue) */
   --panel: #fafbf7;         /* desktop panel */
   --card: #ffffff;          /* white card on the pale ground */
   --card-2: #f3f5ee;        /* card hover / pressed */
@@ -537,11 +537,11 @@ body.preview .app .app-scroll { border-radius: 36px; }
 @container app (min-width: 1024px) {
   .app-scroll { background: var(--canvas); --tap: 40px; }
   .shell { flex-direction: row; min-height: 100%; }
-  .sidebar { display: flex; flex-direction: column; width: var(--sidebar); flex: none; padding: 18px 12px 16px; position: sticky; top: 0; height: 100cqh; }
+  .sidebar { display: flex; flex-direction: column; width: var(--sidebar); flex: none; padding: 18px 12px 16px; position: sticky; top: 0; height: 100cqh; background: var(--card); }
   .sidebar .logo { padding: 4px 8px 18px; }
   .nav { display: flex; flex-direction: column; gap: 2px; }
   .nav-item { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 14px; border-radius: var(--r-pill); font-size: 14px; font-weight: 500; color: var(--ink-2); transition: background .12s, color .12s; }
-  .nav-item:hover { background: var(--card); color: var(--ink); }
+  .nav-item:hover { background: var(--surface); color: var(--ink); }
   .nav-item.is-active { background: var(--accent); color: var(--accent-ink); }
   .nav-item.is-active svg { stroke-width: 2.1; }
   .nav-item .n { margin-left: auto; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -549,8 +549,8 @@ body.preview .app .app-scroll { border-radius: 36px; }
   .nav-sub { padding-left: 30px; height: 34px; font-size: 13.5px; font-weight: 400; }
   .sidebar .foot { margin-top: auto; display: flex; flex-direction: column; gap: 2px; }
   .sidebar .me { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--r-pill); }
-  .sidebar .me:hover { background: var(--card); }
-  .sidebar .me .avatar { background: var(--card); }
+  .sidebar .me:hover { background: var(--surface); }
+  .sidebar .me .avatar { background: var(--surface); }
   .sidebar .me .name { font-size: 13.5px; font-weight: 500; line-height: 1.2; }
   .sidebar .me .role { font-size: 12px; color: var(--muted); }
   .main { padding: 10px 10px 10px 0; }
