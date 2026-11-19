@@ -1,0 +1,15 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch(); const p = await (await b.newContext({ viewport: { width: 390, height: 844 } })).newPage();
+const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+await p.goto('file:///home/user/Kingdom-Workspace/ops/.impeccable/review/embed/test.html'); await p.waitForTimeout(300);
+await p.screenshot({ path: '/home/user/Kingdom-Workspace/ops/.impeccable/review/embed/home-fixed.png' });
+await p.click('a.tab[href="#/agenda"]'); await p.waitForTimeout(200);
+const t1 = await p.title(); const h1 = await p.evaluate(() => location.hash);
+await p.click('.meeting-card'); await p.waitForTimeout(200);
+await p.screenshot({ path: '/home/user/Kingdom-Workspace/ops/.impeccable/review/embed/card-fixed.png' });
+await p.click('[data-action="move-open"]'); await p.waitForTimeout(150);
+await p.click('[data-action="move-select"][data-stage="s_emcurso"]'); await p.click('[data-action="move-confirm"]'); await p.waitForTimeout(300);
+const pill = await p.textContent("[data-pill]"); const wa = "";
+await p.screenshot({ path: '/home/user/Kingdom-Workspace/ops/.impeccable/review/embed/after-move.png' });
+console.log(JSON.stringify({ title: t1, hash: h1, pill: pill.trim(), waLen: wa && wa.length, errs }));
+await b.close();

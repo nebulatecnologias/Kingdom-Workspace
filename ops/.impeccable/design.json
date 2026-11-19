@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T00:00:00Z",
+  "title": "Design System: Kingdom Ops",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "role": "neutral", "displayName": "Ground White", "canonical": "#ffffff", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "canvas": { "role": "neutral", "displayName": "Desktop Frame", "canonical": "#f3f4f6", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#e5e7eb", "#f3f4f6"] },
+      "card": { "role": "neutral", "displayName": "Soft Grey Card", "canonical": "#f4f4f5", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#ebebed", "#f4f4f5"] },
+      "card-2": { "role": "neutral", "displayName": "Pressed Card", "canonical": "#ebebed", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#ebebed", "#f4f4f5"] },
+      "surface": { "role": "neutral", "displayName": "White Surface", "canonical": "#ffffff", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f4f4f5", "#ffffff"] },
+      "sunken": { "role": "neutral", "displayName": "Sunken", "canonical": "#f9fafb", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f3f4f6", "#f9fafb"] },
+      "line": { "role": "neutral", "displayName": "Rule", "canonical": "#e5e7eb", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#e5e7eb", "#f3f4f6"] },
+      "line-strong": { "role": "neutral", "displayName": "Strong Rule", "canonical": "#d1d5db", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#e5e7eb", "#f3f4f6"] },
+      "ink": { "role": "primary", "displayName": "Ink Black", "canonical": "#111827", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "ink-2": { "role": "neutral", "displayName": "Ink Two", "canonical": "#374151", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "muted": { "role": "neutral", "displayName": "Muted (AA on card)", "canonical": "#5b6370", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "faint": { "role": "neutral", "displayName": "Faint (icons only)", "canonical": "#8b919c", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "inverted": { "role": "primary", "displayName": "Black Surface", "canonical": "#111827", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "inverted-hover": { "role": "primary", "displayName": "Black Hover", "canonical": "#1f2937", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "on-inverted": { "role": "primary", "displayName": "On Black", "canonical": "#ffffff", "tonalRamp": ["#111827", "#374151", "#a1a7b3", "#d1d5db", "#e5e7eb", "#f3f4f6", "#f9fafb", "#ffffff"] },
+      "inverted-muted": { "role": "primary", "displayName": "On Black Muted", "canonical": "#a1a7b3", "tonalRamp": ["#111827", "#374151", "#5b6370", "#8b919c", "#a1a7b3", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "inverted-line": { "role": "primary", "displayName": "On Black Hairline", "canonical": "#374151", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "tone-neutral": { "role": "tertiary", "displayName": "Dot Neutral", "canonical": "#9ca3af", "tonalRamp": ["oklch(20% 0.01 260)", "oklch(31% 0.012 260)", "oklch(42% 0.014 260)", "oklch(53% 0.016 260)", "oklch(64% 0.016 260)", "oklch(72% 0.014 260)", "oklch(85% 0.01 260)", "oklch(95% 0.005 260)"] },
+      "tone-info": { "role": "tertiary", "displayName": "Dot Info", "canonical": "#2f6fcf", "tonalRamp": ["oklch(20% 0.08 262)", "oklch(31% 0.12 262)", "oklch(42% 0.15 262)", "oklch(53% 0.16 262)", "oklch(64% 0.14 262)", "oklch(75% 0.1 262)", "oklch(86% 0.06 262)", "oklch(95% 0.02 262)"] },
+      "tone-warning": { "role": "tertiary", "displayName": "Dot Warning", "canonical": "#b7791f", "tonalRamp": ["oklch(20% 0.05 75)", "oklch(31% 0.08 75)", "oklch(42% 0.11 75)", "oklch(53% 0.13 75)", "oklch(64% 0.13 75)", "oklch(75% 0.11 75)", "oklch(86% 0.07 75)", "oklch(95% 0.03 75)"] },
+      "tone-danger": { "role": "tertiary", "displayName": "Dot Danger", "canonical": "#c0392b", "tonalRamp": ["oklch(20% 0.07 28)", "oklch(31% 0.11 28)", "oklch(42% 0.15 28)", "oklch(53% 0.17 28)", "oklch(64% 0.15 28)", "oklch(75% 0.11 28)", "oklch(86% 0.06 28)", "oklch(95% 0.02 28)"] },
+      "tone-success": { "role": "tertiary", "displayName": "Dot Success", "canonical": "#2f855a", "tonalRamp": ["oklch(20% 0.05 155)", "oklch(31% 0.08 155)", "oklch(42% 0.1 155)", "oklch(53% 0.11 155)", "oklch(64% 0.1 155)", "oklch(75% 0.08 155)", "oklch(86% 0.05 155)", "oklch(95% 0.02 155)"] },
+      "selection": { "role": "neutral", "displayName": "Text Selection", "canonical": "#d1d5db", "tonalRamp": ["#111827", "#1f2937", "#374151", "#5b6370", "#8b919c", "#d1d5db", "#e5e7eb", "#f3f4f6"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page greeting and page titles (26px desktop, 24px phone page head)." },
+      "headline": { "displayName": "Headline", "purpose": "The subject inside the black A seguir card." },
+      "title": { "displayName": "Title", "purpose": "Card and sheet titles; 16px centred in the phone top bar." },
+      "row-title": { "displayName": "Row Title", "purpose": "First line of rows, meeting cards and kanban card items, clamped to two lines." },
+      "numeral": { "displayName": "Numeral", "purpose": "The four counts on the desktop Início card; tabular." },
+      "body": { "displayName": "Body", "purpose": "Running text, 15px with cv11 and ss01." },
+      "body-sm": { "displayName": "Body Small", "purpose": "Table cells, counts rows, key-value pairs, minutes item bodies." },
+      "label": { "displayName": "Label", "purpose": "Field labels, chips (13.5px), tabs, segmented options; buttons are 14px at 500." },
+      "section": { "displayName": "Section", "purpose": "Section heads such as Hoje and Operação; 14px inside a card head." },
+      "caption": { "displayName": "Caption", "purpose": "Hints, dates, deltas, the date line above the greeting, meeting-card who line." },
+      "overline": { "displayName": "Overline", "purpose": "Timeline period labels, table headers, sidebar group labels, day-of-week letters. Data and navigation labels only, never kickers." }
+    },
+    "shadows": [
+      { "name": "shadow-lift", "value": "0 10px 24px -10px rgba(17,24,39,.25)", "purpose": "The black A seguir card and the black + FAB." },
+      { "name": "shadow-bar", "value": "0 6px 20px -8px rgba(17,24,39,.18)", "purpose": "The floating pill tab bar." },
+      { "name": "shadow-sheet", "value": "0 -8px 32px -8px rgba(17,24,39,.22)", "purpose": "The bottom sheet, cast upward." },
+      { "name": "shadow-pop", "value": "0 10px 28px -8px rgba(17,24,39,.24), 0 2px 6px rgba(17,24,39,.08)", "purpose": "Toasts and the desktop dialog." },
+      { "name": "drag-hover", "value": "0 2px 8px -2px rgba(17,24,39,.12)", "purpose": "White kanban card item on desktop while hovered." },
+      { "name": "ring", "value": "0 0 0 2px var(--ground), 0 0 0 4px var(--ink)", "purpose": "Every :focus-visible, with a 12px radius." },
+      { "name": "input-focus", "value": "0 0 0 3px rgba(17,24,39,.10)", "purpose": "Focused input halo, with the border turning ink." },
+      { "name": "overlay", "value": "rgba(17,24,39,.42)", "purpose": "Scrim behind sheets and dialogs." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.22, 1, .36, 1)", "purpose": "The only easing." },
+      { "name": "state", "value": "120ms-180ms", "purpose": "Background, colour and border changes; the tab chip grows in 180ms." },
+      { "name": "rise", "value": "240ms, translateY(24px) from opacity .6", "purpose": "Sheets and toasts." },
+      { "name": "pop", "value": "200ms, scale(.97) from opacity 0", "purpose": "Desktop dialog." },
+      { "name": "fade", "value": "180ms-200ms", "purpose": "Overlay and the stepper's inline fields." },
+      { "name": "pulse", "value": "500ms, scale .9 to 1.06 to 1", "purpose": "The stage pill after a move." },
+      { "name": "shimmer", "value": "1.4s linear infinite", "purpose": "Skeleton loading." },
+      { "name": "reduced-motion", "value": ".01ms", "purpose": "prefers-reduced-motion collapses every animation and transition." }
+    ],
+    "breakpoints": [
+      { "name": "lg", "value": "1024px", "note": "Container query on .app (container-name: app), mirroring Tailwind lg. Below: phone shell with top bar and floating tab bar, 44px targets. At and above: grey frame, 232px sidebar, white 24px panel, 40px targets." }
+    ],
+    "layout": {
+      "sidebar": "232px",
+      "tabbar": "64px",
+      "tap": "44px (40px at lg)",
+      "pageMaxWidth": "1120px",
+      "pagePadding": "0 16px 24px (phone, safe-area aware); 0 32px 40px (desktop)",
+      "homeGrid": "minmax(0,7fr) minmax(0,5fr), gap 24px (desktop)",
+      "kanbanColumns": "minmax(250px,1fr), gap 12px (desktop)",
+      "rhythm": ["2px", "4px", "8px", "12px", "16px", "18px", "22px", "24px"]
+    },
+    "icons": { "set": "lucide", "size": "18px (16px sm, 14px xs)", "stroke": "1.8 (2.1 when active, 2.2 on the FAB)" },
+    "themes": { "published": "light", "note": "A dark token set exists in styles.css (prefers-color-scheme and data-theme=dark) but the artifact pins data-theme=light; the dark set is unreviewed and not part of this system yet." },
+    "locale": { "ui": "pt-PT", "timeZone": "Africa/Maputo" }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one black button per screen: Nova reunião, Criar, Guardar, Mover para, Confirmar.",
+      "html": "<button class=\"ds-btn ds-btn-primary\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg>Nova reunião</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 14px; font: 500 14px/1 Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; white-space: nowrap; border: 1px solid transparent; cursor: pointer; transition: background .15s, color .15s, transform .12s; user-select: none; } .ds-btn:active { transform: scale(.985); } .ds-btn:disabled { opacity: .5; cursor: not-allowed; } .ds-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); } .ds-btn-primary { background: var(--inverted, #111827); color: var(--on-inverted, #fff); } .ds-btn-primary:hover { background: #1f2937; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The standard secondary: grey on white, Cancelar, Agenda, Guardar rascunho.",
+      "html": "<button class=\"ds-btn ds-btn-ghost\">Cancelar</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 14px; font: 500 14px/1 Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; white-space: nowrap; border: 1px solid transparent; cursor: pointer; transition: background .15s, color .15s, transform .12s; } .ds-btn:active { transform: scale(.985); } .ds-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); } .ds-btn-ghost { background: var(--card, #f4f4f5); color: var(--ink, #111827); } .ds-btn-ghost:hover { background: var(--card-2, #ebebed); }"
+    },
+    {
+      "name": "Stage Pill",
+      "kind": "chip",
+      "refersTo": "pill-stage",
+      "description": "White pill with an 8px tone dot and the stage name; the only colour on the page.",
+      "html": "<span class=\"ds-pill\"><span class=\"ds-dot ds-dot-warning\"></span>Adiada</span>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px 0 9px; border-radius: 999px; font: 500 12px/1 Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; color: var(--ink-2, #374151); background: var(--surface, #fff); white-space: nowrap; } .ds-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--tone-neutral, #9ca3af); } .ds-dot-info { background: var(--tone-info, #2f6fcf); } .ds-dot-warning { background: var(--tone-warning, #b7791f); } .ds-dot-danger { background: var(--tone-danger, #c0392b); } .ds-dot-success { background: var(--tone-success, #2f855a); }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Grey pill with an optional avatar; selected is white with a 1.5px ink inset ring, never black.",
+      "html": "<div style=\"display:flex;gap:8px\"><button class=\"ds-chip ds-chip-text is-active\">Todos</button><button class=\"ds-chip\"><span class=\"ds-chip-avatar\">AC</span>Ana</button></div>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px 0 8px; border: 0; border-radius: 999px; background: var(--card, #f4f4f5); font: 500 13.5px/1 Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; color: var(--ink-2, #374151); white-space: nowrap; cursor: pointer; transition: background .15s, color .15s; } .ds-chip-text { padding: 0 16px; } .ds-chip:hover { background: var(--card-2, #ebebed); } .ds-chip:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); } .ds-chip.is-active { background: var(--surface, #fff); color: var(--ink, #111827); box-shadow: inset 0 0 0 1.5px var(--ink, #111827); font-weight: 600; } .ds-chip-avatar { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--surface, #fff); color: var(--ink, #111827); font-size: 11px; font-weight: 600; } .ds-chip.is-active .ds-chip-avatar { background: var(--card, #f4f4f5); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "White field on a grey card, transparent border that darkens on hover and turns ink on focus; error shown by a danger border and a dotted message.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Assunto</span><input class=\"ds-input\" placeholder=\"Ex.: Diagnóstico de processos comerciais\"><span class=\"ds-hint\">Vai na mensagem de WhatsApp.</span></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; } .ds-field-label { font-size: 13px; font-weight: 500; color: var(--ink-2, #374151); } .ds-hint { font-size: 12.5px; color: var(--muted, #5b6370); } .ds-input { width: 100%; min-height: 44px; padding: 0 14px; background: var(--surface, #fff); border: 1px solid transparent; border-radius: 12px; color: var(--ink, #111827); font: 400 15px/1.5 Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; transition: border-color .12s, box-shadow .12s; } .ds-input::placeholder { color: var(--muted, #5b6370); } .ds-input:hover { border-color: var(--line-strong, #d1d5db); } .ds-input:focus { outline: none; border-color: var(--ink, #111827); box-shadow: 0 0 0 3px rgba(17,24,39,.10); } .ds-field.has-error .ds-input { border-color: var(--tone-danger, #c0392b); }"
+    },
+    {
+      "name": "Row Card",
+      "kind": "card",
+      "refersTo": "row",
+      "description": "A grey borderless row with a white 44px circular tile, title, muted sub-line and a faint chevron or stage pill.",
+      "html": "<a class=\"ds-row\" href=\"#\"><span class=\"ds-tile\">CS</span><span class=\"ds-row-main\"><span class=\"ds-row-title\">Apresentação da proposta de ERP</span><span class=\"ds-row-sub\">14:00–15:00 · Maputo Logística, SA</span></span><span class=\"ds-row-end\"><span class=\"ds-pill\"><span class=\"ds-dot\"></span>Agendado</span></span></a>",
+      "css": ".ds-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px 12px 12px; min-height: 68px; width: 100%; background: var(--card, #f4f4f5); border-radius: 20px; color: var(--ink, #111827); text-decoration: none; font-family: Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; transition: background .12s; box-sizing: border-box; } .ds-row:hover { background: var(--card-2, #ebebed); } .ds-row:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); } .ds-tile { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--surface, #fff); color: var(--ink, #111827); font-size: 14px; font-weight: 600; flex: none; } .ds-row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; } .ds-row-title { font-size: 15px; font-weight: 600; line-height: 1.35; } .ds-row-sub { font-size: 13px; color: var(--muted, #5b6370); margin-top: 2px; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-row-end { display: flex; align-items: center; gap: 8px; flex: none; color: var(--faint, #8b919c); } .ds-pill { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px 0 9px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--ink-2, #374151); background: var(--surface, #fff); } .ds-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tone-neutral, #9ca3af); }"
+    },
+    {
+      "name": "A seguir Card",
+      "kind": "card",
+      "refersTo": "next-card",
+      "description": "The one black card, on Início: next meeting with its two actions.",
+      "html": "<div class=\"ds-next\"><div class=\"ds-next-meta\"><span>A seguir · Bruno</span><strong>10:30 · em 45 min</strong></div><h3 class=\"ds-next-title\">Diagnóstico de processos comerciais</h3><div class=\"ds-next-sub\">Agro Sul Moçambique, Lda · Teresa Mondlane, Diretora Geral</div><div class=\"ds-next-where\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/></svg>Escritório Agro Sul, Av. 25 de Setembro, Maputo</div><div class=\"ds-next-actions\"><button class=\"ds-btn ds-btn-dark-ghost\">WhatsApp</button><button class=\"ds-btn ds-btn-dark\">Abrir →</button></div></div>",
+      "css": ".ds-next { background: var(--inverted, #111827); color: var(--on-inverted, #fff); border-radius: 24px; padding: 18px 18px 16px; box-shadow: 0 10px 24px -10px rgba(17,24,39,.25); font-family: Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; max-width: 420px; } .ds-next-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--inverted-muted, #a1a7b3); } .ds-next-meta strong { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; } .ds-next-title { font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -0.015em; margin: 10px 0 0; } .ds-next-sub { margin-top: 4px; font-size: 14px; color: var(--inverted-muted, #a1a7b3); } .ds-next-where { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 13.5px; } .ds-next-where svg { color: var(--inverted-muted, #a1a7b3); flex: none; } .ds-next-actions { display: flex; gap: 8px; margin-top: 16px; } .ds-btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 16px; border-radius: 14px; font: 500 14px/1 inherit; font-family: inherit; border: 1px solid transparent; cursor: pointer; transition: background .15s; } .ds-btn-dark { background: #fff; color: #111827; } .ds-btn-dark:hover { background: #e5e7eb; } .ds-btn-dark-ghost { background: transparent; color: #fff; border-color: var(--inverted-line, #374151); } .ds-btn-dark-ghost:hover { background: rgba(255,255,255,.08); } .ds-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px #111827, 0 0 0 4px #fff; }"
+    },
+    {
+      "name": "Floating Tab Bar",
+      "kind": "nav",
+      "refersTo": "tabbar",
+      "description": "Phone navigation: a grey pill with one white active chip (icon + label) and a separate black + FAB.",
+      "html": "<div class=\"ds-tabwrap\"><nav class=\"ds-tabbar\"><a class=\"ds-tab is-active\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"/><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg><span>Início</span></a><a class=\"ds-tab\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\"/><path d=\"M3 10h18\"/></svg></a><a class=\"ds-tab\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M8 7v7\"/><path d=\"M12 7v4\"/><path d=\"M16 7v9\"/></svg></a><a class=\"ds-tab\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\"/><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"/><path d=\"M10 9H8\"/><path d=\"M16 13H8\"/><path d=\"M16 17H8\"/></svg></a></nav><button class=\"ds-fab\" aria-label=\"Nova reunião\"><svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg></button></div>",
+      "css": ".ds-tabwrap { display: flex; align-items: center; gap: 10px; width: 358px; font-family: Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; } .ds-tabbar { flex: 1; display: flex; align-items: center; gap: 2px; height: 64px; padding: 6px; border-radius: 24px; background: var(--card, #f4f4f5); box-shadow: 0 6px 20px -8px rgba(17,24,39,.18); box-sizing: border-box; } .ds-tab { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 100%; flex: 1; color: var(--muted, #5b6370); font-size: 13.5px; font-weight: 600; border-radius: 18px; text-decoration: none; transition: background .18s cubic-bezier(.22,1,.36,1), color .18s, flex .18s cubic-bezier(.22,1,.36,1); } .ds-tab span { display: none; } .ds-tab.is-active { background: var(--surface, #fff); color: var(--ink, #111827); flex: 2.1; padding: 0 14px; } .ds-tab.is-active span { display: inline; } .ds-tab:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); } .ds-fab { width: 64px; height: 64px; border: 0; border-radius: 999px; background: var(--inverted, #111827); color: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px -10px rgba(17,24,39,.25); cursor: pointer; transition: transform .18s cubic-bezier(.22,1,.36,1); flex: none; } .ds-fab:active { transform: scale(.94); } .ds-fab:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); }"
+    },
+    {
+      "name": "Sidebar Nav Item",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Desktop sidebar on the grey frame: flat items, the active one a white chip; pipeline sub-items carry a stage dot.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item is-active\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"/><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg><span>Início</span></a><a class=\"ds-nav-item\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\"/><path d=\"M3 10h18\"/></svg><span>Agenda</span><span class=\"ds-nav-n\">3</span></a><div class=\"ds-nav-group\">Pipelines</div><a class=\"ds-nav-item ds-nav-sub\" href=\"#\"><span class=\"ds-dot ds-dot-info\"></span><span>Reuniões</span><span class=\"ds-nav-n\">8</span></a></nav>",
+      "css": ".ds-nav { display: flex; flex-direction: column; gap: 2px; width: 208px; padding: 8px; background: var(--canvas, #f3f4f6); border-radius: 16px; font-family: Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; } .ds-nav-item { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 12px; font-size: 14px; font-weight: 500; color: var(--ink-2, #374151); text-decoration: none; transition: background .12s, color .12s; } .ds-nav-item:hover { background: var(--card-2, #ebebed); color: var(--ink, #111827); } .ds-nav-item.is-active { background: var(--ground, #fff); color: var(--ink, #111827); } .ds-nav-item:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); } .ds-nav-n { margin-left: auto; font-size: 12px; color: var(--muted, #5b6370); font-variant-numeric: tabular-nums; } .ds-nav-group { margin: 12px 0 2px; padding: 0 12px; font-size: 11.5px; font-weight: 600; color: var(--muted, #5b6370); text-transform: uppercase; letter-spacing: .05em; } .ds-nav-sub { padding-left: 30px; height: 34px; font-size: 13.5px; font-weight: 400; } .ds-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tone-neutral, #9ca3af); flex: none; } .ds-dot-info { background: var(--tone-info, #2f6fcf); }"
+    },
+    {
+      "name": "Week Strip Day",
+      "kind": "custom",
+      "refersTo": "day-chip",
+      "description": "Circular day chips: today ringed, selected day a black circle, a 5px mark under days with meetings.",
+      "html": "<div class=\"ds-week\"><button class=\"ds-day\"><span class=\"ds-dow\">Qua</span><span class=\"ds-num\">18</span><span class=\"ds-mark has\"></span></button><button class=\"ds-day is-today is-selected\"><span class=\"ds-dow\">Qui</span><span class=\"ds-num\">19</span><span class=\"ds-mark has\"></span></button><button class=\"ds-day\"><span class=\"ds-dow\">Sex</span><span class=\"ds-num\">20</span><span class=\"ds-mark\"></span></button></div>",
+      "css": ".ds-week { display: grid; grid-template-columns: repeat(3, 48px); gap: 4px; padding: 12px; background: var(--card, #f4f4f5); border-radius: 20px; font-family: Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; } .ds-day { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 6px 0 4px; min-height: 44px; border: 0; border-radius: 14px; background: transparent; color: var(--ink-2, #374151); cursor: pointer; transition: background .12s; } .ds-day:hover { background: var(--card-2, #ebebed); } .ds-day:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); } .ds-dow { font-size: 11px; font-weight: 500; color: var(--muted, #5b6370); text-transform: uppercase; letter-spacing: .04em; } .ds-num { width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; transition: background .15s, color .15s; } .ds-day.is-today .ds-num { box-shadow: inset 0 0 0 1.5px var(--line-strong, #d1d5db); } .ds-day.is-selected .ds-num { background: var(--inverted, #111827); color: #fff; font-weight: 600; box-shadow: none; } .ds-mark { width: 5px; height: 5px; border-radius: 50%; background: transparent; } .ds-mark.has { background: var(--ink-2, #374151); } .ds-day.is-selected .ds-mark { background: var(--ink, #111827); }"
+    },
+    {
+      "name": "Mover para Stepper",
+      "kind": "custom",
+      "refersTo": "sheet",
+      "description": "The signature interaction: a vertical stage stepper in a bottom sheet; Adiada expands inline date fields, Cancelada a reason field.",
+      "html": "<div class=\"ds-sheet\"><div class=\"ds-handle\"></div><div class=\"ds-sheet-head\"><div><div class=\"ds-sheet-title\">Mover para</div><div class=\"ds-sheet-sub\">Diagnóstico de processos comerciais</div></div></div><div class=\"ds-stepper\"><button class=\"is-current\"><span class=\"ds-mark\"></span><span class=\"ds-dot\"></span>Agendado<span class=\"ds-rule\">atual</span></button><button><span class=\"ds-mark\"></span><span class=\"ds-dot ds-dot-info\"></span>Em curso</button><button class=\"is-selected\"><span class=\"ds-mark\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-dot ds-dot-warning\"></span>Adiada<span class=\"ds-rule\">pede nova data</span></button><div class=\"ds-inline\"><label class=\"ds-field\"><span class=\"ds-field-label\">Nova data</span><input class=\"ds-input\" type=\"date\"></label></div><button><span class=\"ds-mark\"></span><span class=\"ds-dot ds-dot-danger\"></span>Cancelada<span class=\"ds-rule\">pede motivo</span></button><button><span class=\"ds-mark\"></span><span class=\"ds-dot ds-dot-success\"></span>Concluída</button></div><div class=\"ds-foot\"><button class=\"ds-btn ds-btn-ghost\">Cancelar</button><button class=\"ds-btn ds-btn-primary\">Confirmar</button></div></div>",
+      "css": ".ds-sheet { width: 390px; background: var(--ground, #fff); border-radius: 28px 28px 0 0; box-shadow: 0 -8px 32px -8px rgba(17,24,39,.22); padding: 8px 16px 16px; box-sizing: border-box; font-family: Google Sans, 'Segoe UI', Roboto, system-ui, sans-serif; color: var(--ink, #111827); } .ds-handle { width: 36px; height: 4px; border-radius: 2px; background: var(--line-strong, #d1d5db); margin: 4px auto 12px; } .ds-sheet-head { margin-bottom: 8px; } .ds-sheet-title { font-size: 17px; font-weight: 600; letter-spacing: -0.012em; } .ds-sheet-sub { font-size: 12.5px; color: var(--muted, #5b6370); } .ds-stepper { display: flex; flex-direction: column; } .ds-stepper > button { display: flex; align-items: center; gap: 12px; min-height: 50px; padding: 8px; width: 100%; border: 0; background: transparent; text-align: left; border-radius: 14px; font: 400 15px/1.3 inherit; font-family: inherit; color: inherit; cursor: pointer; } .ds-stepper > button:hover { background: var(--card, #f4f4f5); } .ds-stepper > button:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); } .ds-mark { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--line-strong, #d1d5db); display: inline-flex; align-items: center; justify-content: center; flex: none; color: #fff; box-sizing: border-box; transition: background .15s, border-color .15s; } .ds-stepper > button.is-current { color: var(--muted, #5b6370); } .ds-stepper > button.is-current .ds-mark { background: var(--card-2, #ebebed); } .ds-stepper > button.is-selected .ds-mark { background: var(--inverted, #111827); border-color: var(--inverted, #111827); } .ds-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tone-neutral, #9ca3af); flex: none; } .ds-dot-info { background: var(--tone-info, #2f6fcf); } .ds-dot-warning { background: var(--tone-warning, #b7791f); } .ds-dot-danger { background: var(--tone-danger, #c0392b); } .ds-dot-success { background: var(--tone-success, #2f855a); } .ds-rule { margin-left: auto; font-size: 12px; color: var(--muted, #5b6370); } .ds-inline { padding: 4px 8px 12px 42px; display: flex; flex-direction: column; gap: 8px; } .ds-field { display: flex; flex-direction: column; gap: 6px; } .ds-field-label { font-size: 13px; font-weight: 500; color: var(--ink-2, #374151); } .ds-input { min-height: 44px; padding: 0 14px; background: var(--card, #f4f4f5); border: 1px solid transparent; border-radius: 12px; color: inherit; font: 400 15px/1.5 inherit; font-family: inherit; } .ds-input:focus { outline: none; border-color: var(--ink, #111827); box-shadow: 0 0 0 3px rgba(17,24,39,.10); } .ds-foot { display: flex; gap: 8px; margin-top: 8px; } .ds-btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 16px; border: 1px solid transparent; border-radius: 14px; font: 500 14px/1 inherit; font-family: inherit; cursor: pointer; transition: background .15s; } .ds-btn-ghost { background: var(--card, #f4f4f5); color: var(--ink, #111827); } .ds-btn-ghost:hover { background: var(--card-2, #ebebed); } .ds-btn-primary { background: var(--inverted, #111827); color: #fff; } .ds-btn-primary:hover { background: #1f2937; } .ds-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ground, #fff), 0 0 0 4px var(--ink, #111827); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pocket Ops Board",
+    "overview": "Kingdom Ops is an operations board that fits in a pocket. It opens on what is next, not on a calendar, and it says everything in grey, black and white. The ground is white on the phone and inside the desktop panel; content sits in soft grey cards (`card`) with no borders and no shadows, and inside a grey card the row's icon or initials sit in a white circle. Hierarchy is made by surface tone (white on grey, grey on white), by weight (600 for anything that names something, 400 for the rest) and by space, never by lines or colour. The pinned \"Good morning\" reference supplies the phone language: greeting with a 48 px avatar, circular day chips, a floating grey pill tab bar with one white active chip, a separate black \"+\" button. The desktop keeps the Cal.com shell: a grey frame, a flat sidebar whose active item is a white chip, and the content in a white 24 px rounded panel.\n\nBlack is spent carefully. Per screen, there is at most one black card (the \"A seguir\" card on Início) and one black button (the page's primary action on desktop, the \"+\" FAB on the phone). Everything else is white or grey. Colour exists only as an 8 px dot beside a word: five desaturated tones (neutral, info, warning, danger, success) inside white stage pills, kanban column heads, chart labels and sidebar pipeline items. The dot never carries meaning alone; the text next to it does.\n\nThe world refuses the category defaults it was built against: no hero greeting above a month calendar, no row of same-size metric tiles, no bordered white cards on a grey page, no coloured pills or badges. UI copy is pt-PT throughout (the `T` object in `app.js`); this document is in English.",
+    "keyCharacteristics": [
+      "Grey, black and white only: `ground` white, `card` grey, `inverted` black. Colour is confined to 8 px status dots.",
+      "Soft grey cards with no border and no shadow, 20 px radius; white 44 px circular tiles inside them.",
+      "One black \"A seguir\" card and one black primary button per screen at most; the phone adds one black circular \"+\" FAB.",
+      "Google Sans at 15 px body, 600-weight titles with -0.02 em tracking, tabular numerals for every time, count and amount.",
+      "Floating grey pill tab bar on the phone (active tab is a white chip with icon and label); flat sidebar with a white active chip on desktop.",
+      "Selection is always white with a 1.5 px ink inset ring (chips, radio cards), except the selected day in the week strip, which is a black circle.",
+      "Lucide icons, 18 px, stroke 1.8 (2.1 when active).",
+      "Light theme only in the published artifact. A dark token set exists in `styles.css` but is disabled by `data-theme=\"light\"` and unreviewed."
+    ],
+    "rules": [
+      { "name": "The Dot Is The Only Colour Rule", "body": "Status colour lives in an 8 px dot next to a word, in a white pill or label. No coloured fills, no coloured text, no coloured bars. If a tone needs to be shown, add a dot; if the dot is not enough, change the words.", "section": "colors" },
+      { "name": "The One Black Rule", "body": "A screen carries at most one black card (the \"A seguir\" card) and one black button (desktop primary or the phone \"+\"). A second call to action is a grey ghost button.", "section": "colors" },
+      { "name": "The Tone, Not Line Rule", "body": "Containers separate by surface tone: grey on white, white on grey. Lines appear only inside a grey card to separate repeated rows, never as a card border.", "section": "colors" },
+      { "name": "The Six Hundred Rule", "body": "Anything that names something (a title, a number, a selected option, an active tab) is weight 600. Weight 700 does not exist in this system. Labels and buttons are 500; everything else is 400.", "section": "typography" },
+      { "name": "The Tabular Time Rule", "body": "Every time, date, count, amount and duration is set with `tabular-nums` so columns of values line up (\"10:30 · em 45 min\", \"5 100 000 MZN\").", "section": "typography" },
+      { "name": "The Floating Only Rule", "body": "A shadow means the element floats over the page (black card, FAB, tab bar, sheet, toast). A card that sits in the flow is grey and shadowless; a white item on a grey column gets a shadow only while hovered on desktop.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every surface grey, white or black: `ground` white, `card` grey, `inverted` black. Show status with an 8 px dot in one of the five tones next to a word.",
+      "Do put at most one black card (\"A seguir\") and one black button on a screen; on the phone the black \"+\" FAB is that button.",
+      "Do build cards as borderless, shadowless grey 20 px blocks with a 44 px white circular tile for the row's icon or initials, and separate containers by tone, not by lines.",
+      "Do mark selection as white with a 1.5 px inset ink ring (chips, radio cards) and the selected day as a black circle; make the active tab or nav item a white chip.",
+      "Do set titles at 600 with negative tracking and all times, dates, counts and amounts in tabular numerals; keep Google Sans at 400/500/600 and self-host it in Next.js.",
+      "Do keep 44 px targets on the phone and 40 px on desktop, 16 px card padding, 8 px between cards and 22 px between sections.",
+      "Do use the \"Mover para\" stepper as the stage-change pattern on every pipeline, with the inline date or reason field under the stage that requires it."
+    ],
+    "donts": [
+      "Don't fill a pill, badge, button, bar or background with a status colour, and don't colour text. The dot is the only colour.",
+      "Don't draw borders or shadows on cards in the flow. Shadows belong only to the black card, the FAB, the tab bar, the sheet and toasts.",
+      "Don't select a chip or radio card by turning it black; black means primary action, not selection.",
+      "Don't use weight 700, a second typeface, a monospace or sizes above 26 px.",
+      "Don't use `faint` for readable text; it is for chevrons, grips and separators only. Use `muted` for secondary text.",
+      "Don't open Início on a calendar, a hero greeting or a row of metric tiles; it opens on \"A seguir\", then \"Hoje\", then \"Operação\".",
+      "Don't ship the dark token set as-is; it exists in `styles.css` but is disabled by `data-theme=\"light\"` and has not been reviewed."
+    ]
+  }
+}
