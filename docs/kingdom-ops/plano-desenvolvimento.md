@@ -235,11 +235,33 @@ Ritmo (herdado do Kingdom Library): migração + teste de BD antes do código qu
 ## 12. Prompt de arranque para o Opus 5.5
 
 ```
-Vais construir o Kingdom Ops em 5 horas. Lê, por esta ordem: docs/kingdom-ops/plano-desenvolvimento.md (todo), ops/PRODUCT.md, ops/DESIGN.md, ops/prototype/README.md, ops/prototype/src/ (styles.css, data.js, app.js) e skills/members-platform/references/11-gotchas.md. O protótipo é a especificação visual e de dados: mesmos nomes de classes, campos, textos (objeto T) e ecrãs (funções screen*). Corre `node ops/prototype/tools/screenshots.mjs` e abre ops/.impeccable/review/screens/ para ver cada ecrã em 1440 e 390.
+Vais construir o Kingdom Ops, o app de gestão operacional do escritório (reuniões, pipelines Kanban, atas e dashboard), em 5 horas de relógio. Fala comigo em português; código, commits e comentários em inglês.
 
-Segue os blocos da secção 9 do plano, com os tempos e critérios de aceitação. No fim de cada bloco: typecheck, lint, testes, commit, push, preview. Se um bloco passar 15 minutos do limite, aplica a ordem de corte da secção 1 e diz-me o que cortaste. Não acrescentes funcionalidades fora da secção 1.
+LÊ PRIMEIRO, por esta ordem:
+1. docs/kingdom-ops/plano-desenvolvimento.md (todo: decisões fechadas, âmbito e ordem de corte, arquitetura, modelo de dados, ecrãs, campos da ata, dashboard, blocos de 5 horas).
+2. ops/PRODUCT.md e ops/DESIGN.md (design system final: tokens, componentes, regras).
+3. ops/prototype/README.md e ops/prototype/src/ (styles.css, data.js, app.js). O protótipo é a especificação visual e de dados: mesmos nomes de tokens, classes, campos (colunas SQL), textos (objeto T) e ecrãs (funções screen*). Corre `node ops/prototype/tools/screenshots.mjs` e abre ops/.impeccable/review/screens/ para ver cada ecrã em 1440 e 390.
+4. skills/members-platform/references/11-gotchas.md (armadilhas já conhecidas desta stack).
 
-Começa pelo bloco 0: copia o esqueleto de members/app para ops/app, remove gateway, emails e i18n, aplica os tokens de ops/DESIGN.md e escreve a migração 0001 com o modelo da secção 3 e o seed a partir de ops/prototype/src/data.js. Credenciais do Supabase e Vercel: [colar aqui]. Equipa inicial: [colar aqui].
+DECISÕES FECHADAS (não reabrir):
+- Stack: Next.js 16 App Router + TypeScript + Tailwind v4 + Supabase (Postgres, Auth) na Vercel, a partir do esqueleto de members/app sem gateway, emails nem i18n. Só pt-PT.
+- Fonte: Google Sans em todo o app, via next/font/google (pesos 400/500/600/700).
+- Cor: fundo #f4f6ef, cartões brancos com sombra suave, tinta #141a0f, lima #c9f243 (texto #1b2a0c) como única cor de destaque: botão primário, "+", item ativo do menu, separador/chip/dia selecionados, barras, interruptores e o cartão "A seguir" em gradiente lima. A barra lateral do desktop tem a cor do fundo. Estados em pontos de 8 px + texto.
+- Forma: todos os botões em pílula (raio 100 %; botões de ícone circulares) com sombra suave; cartões com raio 20 px sem bordas; vidro (fundo translúcido + backdrop blur) na barra de separadores escura do telemóvel, na barra superior, no seletor de etapas fixo, na folha "Mover para" e nos avisos.
+- Pipelines: cinco no seed (Reuniões, Vendas, Projetos, Campanhas, Tarefas), cada um com ícone lucide (calendar, target, briefcase, megaphone, check-square) na barra lateral, nos chips e nos modelos; mesmo componente Kanban para todos; o kind decide os campos do formulário.
+- Sem botão de WhatsApp em lado nenhum; o número de WhatsApp é só contacto no perfil.
+- Toda a equipa vê tudo; filtro por pessoa. Perfis admin e member. Contas criadas pelo admin com `npm run user:create`.
 
-Fala comigo em português; código, commits e comentários em inglês.
+COMO TRABALHAR:
+- Segue os blocos da secção 9 do plano com os tempos e critérios de aceitação. No fim de cada bloco: `npm run typecheck`, `npx eslint src`, `npx vitest run`, commit, push, preview na Vercel.
+- Migração e teste de BD antes do código que depende dela. O seed.sql nasce de ops/prototype/src/data.js.
+- Se um bloco passar 15 minutos do limite, aplica a ordem de corte da secção 1 e diz-me o que cortaste. Não acrescentes funcionalidades fora da secção 1.
+- Reporta em português: o que mudou para mim, o que verificaste (testes, capturas 390 e 1440), o que decidiste por mim e o que fica para eu fazer.
+
+CREDENCIAIS E DADOS (colar antes de iniciar):
+- Supabase: URL, anon key, service role key: [colar aqui]
+- Vercel: projeto ligado ao repositório com root ops/app: [confirmar]
+- Equipa inicial (nome, função, email, WhatsApp de contacto): [colar aqui]
+
+Começa pelo bloco 0: copia o esqueleto de members/app para ops/app, remove gateway, emails e i18n, aplica os tokens de ops/DESIGN.md e a Google Sans, escreve a migração 0001 com o modelo da secção 3 (profiles, pipelines, pipeline_stages, cards, card_participants, card_activity, minutes, RLS, triggers, move_card, create_pipeline_from_template) e o seed a partir de data.js.
 ```
