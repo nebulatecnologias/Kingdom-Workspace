@@ -638,3 +638,4 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .segmented .seg-link { flex: 1 0 auto; height: var(--tap); padding: 0 14px; border-radius: var(--r-pill); font-size: 13px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .segmented .seg-link.is-active { background: var(--card); color: var(--ink); box-shadow: var(--shadow-card); }
 .table td a { display: block; }
+.i.rot90 { transform: rotate(90deg); }
