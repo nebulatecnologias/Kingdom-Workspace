@@ -6,7 +6,7 @@ const src = (f) => readFileSync(new URL('./src/' + f, import.meta.url), 'utf8');
 const css = src('styles.css');
 const js = ['data.js', 'app.js'].map(src).join('\n');
 const fonts = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">`;
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">`;
 const description = 'Protótipo clicável do Kingdom Ops: agenda de reuniões, pipelines Kanban, atas e dashboard da operação (dados de exemplo).';
 const body = `<div id="root"></div><div id="proto"></div>`;
 

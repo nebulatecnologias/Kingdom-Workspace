@@ -18,7 +18,7 @@ Referências:
 | # | Decisão | Resultado |
 |---|---|---|
 | 1 | Nome e pasta | **Kingdom Ops**, em `ops/`. |
-| 2 | Fonte | **Inter** via `next/font`. |
+| 2 | Fonte | **Google Sans** em todo o app, via `next/font` (decisão do dono a 19/11; igual aos outros produtos Kingdom). |
 | 3 | Cor | Escala cinza do Cal.com. Estados só com **ponto de 8 px** (cinza / azul / âmbar / vermelho / verde dessaturados) + texto. Mais nada colorido. |
 | 4 | Quem vê o quê | **Toda a equipa vê tudo; a agenda e os pipelines filtram-se por pessoa.** Perfis `admin` e `member`. |
 | 5 | Contas | O admin cria utilizadores com `npm run user:create` no MVP; convites por email na fase 2. Entrar com email + palavra-passe. |
@@ -29,6 +29,7 @@ Referências:
 | 10 | Vários escritórios | Não. Um escritório = uma base de dados. |
 | 11 | Payflow | Ignorado a pedido do dono; referências = Cal.com + imagens enviadas. |
 | 12 | Campos da ata | Os da secção 6, confirmados no protótipo (`blankMinutes` em `app.js`). |
+| 14 | Ícones dos pipelines | Cada pipeline tem um ícone (`pipelines.icon`, nomes lucide): calendário, alvo, pasta, megafone, lista. Aparece na barra lateral, nos chips de pipeline, nas linhas da Operação e nos modelos. |
 | 13 | Início (dashboard) | Direção "painel de bolso": cartão preto **A seguir** (próxima reunião da equipa, com WhatsApp e Abrir), lista **Hoje**, lista **Operação** (uma linha por pipeline com contagens), e no desktop indicadores, barras por etapa e por pessoa, atas em falta. |
 
 ---
@@ -59,7 +60,7 @@ Referências:
 |---|---|---|
 | App | **Next.js 16 (App Router) + TypeScript**, em `ops/app` | Copiar o esqueleto de `members/app` (layout, Supabase SSR, `proxy.ts`, ESLint, Vitest, Playwright) e **apagar** gateway, emails, i18n, leitor, loja. |
 | Estilo | **Tailwind v4** com os tokens do protótipo (`ops/DESIGN.md` → `tailwind-theme.css`) | Classes utilitárias `bg-canvas`, `text-ink`, `border-line`, etc., iguais às do Kingdom UI mas com a escala cinza. |
-| Fonte | **Inter via `next/font/google`** | Pesos 400/500/600; `letter-spacing: -0.02em` nos títulos. |
+| Fonte | **Google Sans via `next/font/google`** | Pesos 400/500/600/700; `letter-spacing: -0.02em` nos títulos. |
 | Base de dados | **Supabase Postgres**, migrações SQL em `ops/supabase/migrations` | RLS em todas as tabelas; triggers para `updated_at`, histórico e para garantir que a ata pertence a uma reunião. |
 | Autenticação | **Supabase Auth** (email + palavra-passe; recuperação por email do próprio Supabase) | Sem Resend no MVP. |
 | Kanban | **@dnd-kit/core + @dnd-kit/sortable** no desktop; folha "Mover para" no telemóvel | Estado otimista + Server Action; se falhar, volta e mostra toast. |
@@ -176,7 +177,7 @@ Uma única consulta SQL (view `dashboard_summary`) para não multiplicar chamada
 
 **Direção:** Operate mode (Impeccable). Cinza, preto e branco; superfícies brancas com borda `gray-200` e raio 12–16 px sobre canvas `gray-50/100`; texto `gray-900` / `gray-600` / `gray-400`; botão primário preto, pill; foco em anel `gray-900`. Hierarquia por peso e espaço, não por cor. Estados: ponto 8 px (verde `#15803d`, âmbar `#b45309`, vermelho `#b91c1c`, azul `#1d4ed8`) + rótulo; nada mais colorido. Modo escuro: `gray-950` canvas, `gray-900` superfícies (barato de incluir nos tokens; ligar se sobrar tempo).
 
-**Tokens iniciais** (a afinar com o Skill UI): `canvas #f3f4f6`, `surface #ffffff`, `sunken #f9fafb`, `line #e5e7eb`, `line-strong #d1d5db`, `ink #111827`, `ink-2 #374151`, `muted #6b7280`, `faint #9ca3af`, `inverted #111827`, `on-inverted #ffffff`. Tipografia Inter: display 28/1.15/-0.02em 600, title 17/1.3 600, body 15/1.5 400, label 13.5 500, caption 12.5 400.
+**Tokens iniciais** (a afinar com o Skill UI): `canvas #f3f4f6`, `surface #ffffff`, `sunken #f9fafb`, `line #e5e7eb`, `line-strong #d1d5db`, `ink #111827`, `ink-2 #374151`, `muted #6b7280`, `faint #9ca3af`, `inverted #111827`, `on-inverted #ffffff`. Tipografia Google Sans: display 26/1.15/-0.02em 600, title 17/1.3 600, body 15/1.5 400, label 13.5 500, caption 12.5 400.
 
 **O que foi feito:**
 1. Skill UI: o proxy da sessão bloqueia o cal.com, por isso não houve extração automática; a paleta é a escala cinza do Cal.com (tokens acima), confirmada contra a captura enviada.

@@ -38,13 +38,13 @@ Not a generic CRM and not a calendar: a lightweight operations board built aroun
 - Screens: login; Início (next meeting, today, operation counts per pipeline; on desktop also KPIs, bars by stage and by person, missing minutes); Agenda (week strip, day list, person filter); new/edit card per pipeline kind; card page (details, stage, history, Ata tab); pipeline Kanban (same component for Reuniões, Vendas, Projetos, Campanhas, Tarefas; stage picker sheet on the phone); Atas list, form and reading/print view; Equipa; pipeline stage settings and templates.
 - Empty, loading and error states for Agenda, Pipeline and Atas.
 - Build budget: 5 hours of development after the prototype, so no custom field builder, invites, notifications, attachments or calendar sync in v1.
-- Decided on 19 Nov 2026: name Kingdom Ops, Inter, grey scale with status dots, pt-PT only, Vercel + Supabase. Undecided: production domain. The WhatsApp notice format is the one the prototype proposes (no existing format).
+- Decided on 19 Nov 2026: name Kingdom Ops, Google Sans, grey scale with status dots, pt-PT only, Vercel + Supabase. Undecided: production domain. The WhatsApp notice format is the one the prototype proposes (no existing format).
 
 ## Brand Commitments
 
 - Name: **Kingdom Ops** (working name).
 - Palette: grey, black and white only, following the Cal.com app (grey-50/100 canvas, white surfaces, grey-200 lines, grey-900 ink, black pill primary button). Status is shown by an 8 px dot (green / amber / red / blue, desaturated) plus a label; nothing else is coloured.
-- Typeface: **Inter** (Cal.com), tight tracking on titles. Alternative kept open: Google Sans, used by other Kingdom products.
+- Typeface: **Google Sans** across the whole app (the owner's decision, 19 Nov 2026; the same face as the other Kingdom products), tight tracking on titles.
 - References pinned by the owner: Cal.com app shell; "Good morning" week-strip home; "Journey" day timeline; team app with avatar row and greeting; the Spotbank dashboard for card structure only (not its green).
 - Voice: direct, warm, short labels in pt-PT ("Bom dia, Ana", "Nenhuma ata ainda").
 

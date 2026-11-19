@@ -27,63 +27,63 @@ colors:
   selection: "#d1d5db"
 typography:
   display:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "26px"
     fontWeight: 600
     lineHeight: 1.15
     letterSpacing: "-0.02em"
   headline:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "19px"
     fontWeight: 600
     lineHeight: 1.3
     letterSpacing: "-0.015em"
   title:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "17px"
     fontWeight: 600
     lineHeight: 1.3
     letterSpacing: "-0.012em"
   row-title:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "15px"
     fontWeight: 600
     lineHeight: 1.35
   numeral:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "20px"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "-0.02em"
     fontFeature: "tnum"
   body:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "15px"
     fontWeight: 400
     lineHeight: 1.5
     fontFeature: "cv11, ss01"
   body-sm:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "14px"
     fontWeight: 400
     lineHeight: 1.5
   label:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "13px"
     fontWeight: 500
     lineHeight: 1.4
   section:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "15px"
     fontWeight: 600
     lineHeight: 1.4
   caption:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "12.5px"
     fontWeight: 400
     lineHeight: 1.4
   overline:
-    fontFamily: "Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif"
+    fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "12px"
     fontWeight: 600
     lineHeight: 1.4
@@ -305,7 +305,7 @@ The world refuses the category defaults it was built against: no hero greeting a
 - Grey, black and white only: `ground` white, `card` grey, `inverted` black. Colour is confined to 8 px status dots.
 - Soft grey cards with no border and no shadow, 20 px radius; white 44 px circular tiles inside them.
 - One black "A seguir" card and one black primary button per screen at most; the phone adds one black circular "+" FAB.
-- Inter at 15 px body, 600-weight titles with -0.02 em tracking, tabular numerals for every time, count and amount.
+- Google Sans at 15 px body, 600-weight titles with -0.02 em tracking, tabular numerals for every time, count and amount.
 - Floating grey pill tab bar on the phone (active tab is a white chip with icon and label); flat sidebar with a white active chip on desktop.
 - Selection is always white with a 1.5 px ink inset ring (chips, radio cards), except the selected day in the week strip, which is a black circle.
 - Lucide icons, 18 px, stroke 1.8 (2.1 when active).
@@ -346,13 +346,13 @@ These five colours are painted only on `.dot` (8 px circle), on alert icons and 
 
 ## Typography
 
-**Display Font:** Inter (with Segoe UI, Roboto, system-ui)
-**Body Font:** Inter (same stack)
-**Label/Mono Font:** none; numbers use Inter with `tabular-nums`.
+**Display Font:** Google Sans (with Segoe UI, Roboto, system-ui)
+**Body Font:** Google Sans (same stack)
+**Label/Mono Font:** none; numbers use Google Sans with `tabular-nums`.
 
 **Character:** One neutral grotesque at three weights (400, 500, 600) with `cv11` and `ss01` on. Authority comes from 600 weight and tight tracking on titles, never from size jumps; the whole ramp sits between 11 px and 26 px.
 
-The prototype loads Inter 400/500/600 from Google Fonts with `display=swap`; the Next.js build should self-host it via `next/font` with the same three weights.
+The prototype loads Google Sans 400/500/600 from Google Fonts with `display=swap`; the Next.js build should self-host it via `next/font` with the same three weights.
 
 ### Hierarchy
 - **Display** (600, 26 px, 1.15, -0.02 em): the page greeting and page titles on desktop; 24 px in the phone page head. Balanced wrapping. The minutes document title uses 22 px with the same tracking.
@@ -476,7 +476,7 @@ One easing, `cubic-bezier(.22, 1, .36, 1)`. Background and colour changes take .
 - **Do** put at most one black card ("A seguir") and one black button on a screen; on the phone the black "+" FAB is that button.
 - **Do** build cards as borderless, shadowless grey 20 px blocks with a 44 px white circular tile for the row's icon or initials, and separate containers by tone, not by lines.
 - **Do** mark selection as white with a 1.5 px inset ink ring (chips, radio cards) and the selected day as a black circle; make the active tab or nav item a white chip.
-- **Do** set titles at 600 with negative tracking and all times, dates, counts and amounts in tabular numerals; keep Inter at 400/500/600 and self-host it in Next.js.
+- **Do** set titles at 600 with negative tracking and all times, dates, counts and amounts in tabular numerals; keep Google Sans at 400/500/600 and self-host it in Next.js.
 - **Do** keep 44 px targets on the phone and 40 px on desktop, 16 px card padding, 8 px between cards and 22 px between sections.
 - **Do** use the "Mover para" stepper as the stage-change pattern on every pipeline, with the inline date or reason field under the stage that requires it.
 

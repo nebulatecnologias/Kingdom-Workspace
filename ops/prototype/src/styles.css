@@ -45,7 +45,7 @@
   --shadow-bar: 0 6px 20px -8px rgba(17, 24, 39, .18);
   --ring: 0 0 0 2px var(--ground), 0 0 0 4px var(--ink);
   /* type */
-  --font: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+  --font: "Google Sans", "Product Sans", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
   --ease: cubic-bezier(.22, 1, .36, 1);
   --sidebar: 232px;
   --tabbar: 64px;
@@ -107,8 +107,7 @@ body {
   font: 400 15px/1.5 var(--font);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "cv11", "ss01";
-  caret-color: var(--ink);
+    caret-color: var(--ink);
   display: flex; flex-direction: column;
 }
 ::selection { background: var(--selection); color: var(--ink); }
@@ -218,6 +217,7 @@ svg.i.xs { width: 14px; height: 14px; }
 .avatar-stack .avatar:first-child { margin-left: 0; }
 .chip { display: inline-flex; align-items: center; gap: 8px; height: var(--tap); padding: 0 14px 0 8px; border-radius: var(--r-pill); background: var(--card); font-size: 13.5px; font-weight: 500; color: var(--ink-2); white-space: nowrap; transition: background .15s, color .15s; }
 .chip.text-only { padding: 0 16px; }
+.chip > svg.i { margin-left: 4px; }
 .chip:hover { background: var(--card-2); }
 .chip.is-active { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); font-weight: 600; }
 .chip .avatar { background: var(--surface); width: 28px; height: 28px; font-size: 11px; }

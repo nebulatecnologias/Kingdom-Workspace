@@ -66,6 +66,7 @@ const ICONS = {
   'calendar-clock': '<path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h5"/><path d="M17.5 17.5 16 16.3V14"/><circle cx="16" cy="16" r="6"/>',
   wallet: '<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>',
 };
+const KIND_ICON = { meetings: 'calendar', sales: 'target', projects: 'briefcase', campaigns: 'megaphone', tasks: 'check-square', custom: 'users' };
 const icon = (name, cls = '') => `<svg class="i ${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ''}</svg>`;
 
 /* ======================================================================
@@ -197,7 +198,7 @@ function Sidebar(active) {
       ${item('/atas', 'file-text', T.nav.minutes, 'minutes', missingMinutes().length || '')}
       ${item('/team', 'users', T.nav.team, 'team')}
       <div class="nav-group">${T.nav.pipelines}</div>
-      ${DB.pipelines.map((p) => `<a class="nav-item nav-sub ${active === 'pipeline:' + p.slug ? 'is-active' : ''}" href="#/pipelines/${p.slug}"><span class="dot ${p.kind === 'meetings' ? 'info' : ''}" style="width:6px;height:6px"></span><span>${esc(p.name)}</span><span class="n num">${cardsOf(p.id).filter((c) => !stage(c.stage_id).is_done && !stage(c.stage_id).is_lost).length}</span></a>`).join('')}
+      ${DB.pipelines.map((p) => `<a class="nav-item nav-sub ${active === 'pipeline:' + p.slug ? 'is-active' : ''}" href="#/pipelines/${p.slug}">${icon(p.icon, 'sm')}<span>${esc(p.name)}</span><span class="n num">${cardsOf(p.id).filter((c) => !stage(c.stage_id).is_done && !stage(c.stage_id).is_lost).length}</span></a>`).join('')}
     </nav>
     <div class="foot">
       <a class="nav-item ${active === 'settings' ? 'is-active' : ''}" href="#/settings/pipelines/reunioes">${icon('settings')}<span>${T.nav.settings}</span></a>
@@ -546,14 +547,14 @@ function screenPipeline(slug, params) {
   const all = cardsOf(pl.id).filter((c) => involves(c, member));
   const openValue = pl.kind === 'sales' ? all.filter((c) => !stage(c.stage_id).is_done && !stage(c.stage_id).is_lost).reduce((s, c) => s + (c.value_cents || 0), 0) : 0;
   const col = (s) => { const items = all.filter((c) => c.stage_id === s.id).sort((a, b) => a.position - b.position); return `<section class="stage-col ${s.id === current ? '' : 'is-hidden'}" data-stage="${s.id}"><div class="stage-head"><span class="dot ${s.tone}"></span>${esc(s.name)}<span class="n num">${items.length}${pl.kind === 'sales' && items.length ? ` · ${fmtMoney(items.reduce((x, c) => x + (c.value_cents || 0), 0))}` : ''}</span></div><div class="stage-body" data-drop="${s.id}">${items.map(CardItem).join('') || `<div class="empty" style="padding:24px 12px"><p style="margin:0">${T.empty.stage}</p></div>`}</div></section>`; };
-  const switcher = `<div class="pipeline-switch">${DB.pipelines.map((p) => `<a class="chip text-only ${p.id === pl.id ? 'is-active' : ''}" href="#/pipelines/${p.slug}">${esc(p.name)}</a>`).join('')}</div>`;
+  const switcher = `<div class="pipeline-switch">${DB.pipelines.map((p) => `<a class="chip ${p.id === pl.id ? 'is-active' : ''}" href="#/pipelines/${p.slug}">${icon(p.icon, 'sm')}${esc(p.name)}</a>`).join('')}</div>`;
   const segmented = `<div class="segmented" role="tablist">${stages.map((s) => `<button role="tab" class="${s.id === current ? 'is-active' : ''}" data-action="nav" data-href="/pipelines/${pl.slug}?stage=${s.id}${member ? '&member=' + member : ''}" aria-selected="${s.id === current}"><span class="dot ${s.tone}"></span>${esc(s.name)}<span class="n">${all.filter((c) => c.stage_id === s.id).length}</span></button>`).join('')}</div>`;
   const memberSel = `<select class="select" style="width:auto;min-height:40px" aria-label="${T.actions.filter}" data-action-change="nav" data-href="/pipelines/${pl.slug}?member="><option value="">${T.all}</option>${DB.profiles.map((p) => `<option value="${p.id}" ${member === p.id ? 'selected' : ''}>${esc(p.full_name.split(' ')[0])}</option>`).join('')}</select>`;
   const sub = pl.kind === 'sales' ? `<span class="num">${fmtMoney(openValue)}</span> em aberto` : `${all.length} ${all.length === 1 ? 'cartão' : 'cartões'}`;
   return { nav: 'pipeline:' + pl.slug, title: pl.name, html: `
     ${Topbar({ title: pl.name, actions: `<a class="btn btn-quiet btn-icon" href="#/cards/new?pipeline=${pl.slug}" aria-label="${T.actions.newCard[pl.kind]}">${icon('plus')}</a>` })}
     <div class="page" style="max-width:none">
-      <div class="page-head only-desktop"><div><div class="caption">${T.nav.pipelines} · ${sub}</div><h1 class="h-display">${esc(pl.name)}</h1></div><div class="page-actions">${memberSel}<a class="btn btn-ghost btn-icon" href="#/settings/pipelines/${pl.slug}" aria-label="${T.nav.settings}">${icon('settings')}</a><a class="btn btn-primary" href="#/cards/new?pipeline=${pl.slug}">${icon('plus')}${T.actions.newCard[pl.kind]}</a></div></div>
+      <div class="page-head only-desktop"><div><div class="caption">${T.nav.pipelines} · ${sub}</div><h1 class="h-display inline" style="gap:10px"><span class="tile" style="width:36px;height:36px;background:var(--card)">${icon(pl.icon)}</span>${esc(pl.name)}</h1></div><div class="page-actions">${memberSel}<a class="btn btn-ghost btn-icon" href="#/settings/pipelines/${pl.slug}" aria-label="${T.nav.settings}">${icon('settings')}</a><a class="btn btn-primary" href="#/cards/new?pipeline=${pl.slug}">${icon('plus')}${T.actions.newCard[pl.kind]}</a></div></div>
       ${switcher}
       <div class="stage-switch">${segmented}</div>
       <div class="kanban">${stages.map(col).join('')}</div>
@@ -695,12 +696,12 @@ function screenPipelineSettings(slug) {
     ${Topbar({ title: T.nav.settings, back: '/team' })}
     <div class="page" style="max-width:760px">
       ${PageHead(`Etapas · ${pl.name}`, '', T.nav.settings).replace('class="page-head"', 'class="page-head only-desktop"')}
-      <div class="pipeline-switch">${DB.pipelines.map((p) => `<a class="chip text-only ${p.id === pl.id ? 'is-active' : ''}" href="#/settings/pipelines/${p.slug}">${esc(p.name)}</a>`).join('')}</div>
+      <div class="pipeline-switch">${DB.pipelines.map((p) => `<a class="chip ${p.id === pl.id ? 'is-active' : ''}" href="#/settings/pipelines/${p.slug}">${icon(p.icon, 'sm')}${esc(p.name)}</a>`).join('')}</div>
       <form class="form" data-form="stages" data-pipeline="${pl.id}" novalidate>
         <div class="card fieldset"><h2 class="h-section">Etapas de ${esc(pl.name)}</h2><p class="caption" style="margin:-6px 0 0">A ordem é a ordem das colunas. As regras decidem o que o app pede ao mover um cartão.</p><div class="repeat-list">${d.stages.map(row).join('')}</div><button type="button" class="btn btn-ghost btn-sm repeat-add" data-action="row-add" data-list="stages">${icon('plus', 'sm')}${T.actions.addStage}</button></div>
         <div class="form-foot"><button class="btn btn-primary" type="submit">${T.actions.save}</button></div>
       </form>
-      <section class="section"><div class="section-head"><h2 class="h-section">${T.actions.newPipeline}</h2></div><div class="card card-pad"><p class="caption" style="margin:0 0 10px">Um modelo traz as etapas e os campos certos. Depois pode mudar tudo.</p><div class="inline" style="flex-wrap:wrap">${DB.pipeline_templates.map((t) => `<button class="chip text-only" data-action="pipeline-from-template" data-kind="${t.kind}" data-name="${esc(t.name)}">${icon('plus', 'xs')}${esc(t.name)}<span class="caption">· ${t.stages.length} etapas</span></button>`).join('')}</div></div></section>
+      <section class="section"><div class="section-head"><h2 class="h-section">${T.actions.newPipeline}</h2></div><div class="card card-pad"><p class="caption" style="margin:0 0 10px">Um modelo traz as etapas e os campos certos. Depois pode mudar tudo.</p><div class="inline" style="flex-wrap:wrap">${DB.pipeline_templates.map((t) => `<button class="chip" data-action="pipeline-from-template" data-kind="${t.kind}" data-name="${esc(t.name)}">${icon(KIND_ICON[t.kind] || 'kanban', 'sm')}${esc(t.name)}<span class="caption">· ${t.stages.length} etapas</span></button>`).join('')}</div></div></section>
     </div>` };
 }
 
@@ -789,7 +790,7 @@ function createPipelineFromTemplate(kind, name) {
   const tpl = DB.pipeline_templates.find((t) => t.kind === kind && t.name === name);
   const base = tpl.name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-');
   let slug = base, n = 2; while (pipelineBySlug(slug)) slug = `${base}-${n++}`;
-  const pl = { id: uid('pl'), slug, name: n > 2 ? `${tpl.name} ${n - 1}` : tpl.name, kind: tpl.kind, icon: 'kanban', position: DB.pipelines.length + 1 };
+  const pl = { id: uid('pl'), slug, name: n > 2 ? `${tpl.name} ${n - 1}` : tpl.name, kind: tpl.kind, icon: KIND_ICON[tpl.kind] || 'kanban', position: DB.pipelines.length + 1 };
   DB.pipelines.push(pl);
   const last = tpl.stages.length - 1;
   tpl.stages.forEach((s, i) => DB.pipeline_stages.push({ id: uid('s'), pipeline_id: pl.id, name: s, position: i + 1, tone: i === last ? (/perdid|recusad|cancel/i.test(s) ? 'danger' : 'success') : i === 0 ? 'neutral' : 'info', is_done: i === last && !/perdid|recusad|cancel/i.test(s), is_lost: /perdid|recusad|cancel/i.test(s), requires_note: /perdid|recusad|cancel|bloquead/i.test(s), requires_reschedule: /adiad/i.test(s) }));
