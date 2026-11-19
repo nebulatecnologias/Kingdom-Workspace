@@ -1,34 +1,35 @@
-# Kingdom Ops — Plano de desenvolvimento (v1, para aprovar)
+# Kingdom Ops — Plano de desenvolvimento (v2, decisões fechadas)
 
-> App de agendamento de reuniões para a equipa, com pipeline Kanban por reunião, atas ligadas a cada reunião, pipelines personalizáveis (reuniões, vendas, tarefas) e um dashboard da operação do escritório. Visual cinza/preto/branco ao estilo do Cal.com; mobile em primeiro lugar.
+> App de agendamento de reuniões para a equipa, com pipeline Kanban por reunião, atas ligadas a cada reunião, pipelines personalizáveis (reuniões, vendas, projetos, campanhas, tarefas) e um dashboard da operação do escritório. Visual cinza/preto/branco ao estilo do Cal.com; mobile em primeiro lugar.
 >
-> **Como vai ser usado:** 1) aprovar as decisões da secção 0; 2) construir o protótipo clicável nesta sessão (Skill UI + Impeccable); 3) entregar protótipo + `DESIGN.md` + este plano ao Opus 5.5 para construir o app em **5 horas** (secção 9).
+> **Estado:** decisões da secção 0 aprovadas pelo dono a 19/11/2026; protótipo clicável construído em `ops/prototype/`; design system em `ops/DESIGN.md`. O passo seguinte é a construção do app pelo Opus 5.5 em **5 horas** (secção 9), com o prompt da secção 12.
 
 Referências:
 - Produto (contexto para o Impeccable): `ops/PRODUCT.md`
-- Protótipo (a criar): `ops/prototype/`
-- Design system (gerado a partir do protótipo): `ops/DESIGN.md` + `ops/prototype/tailwind-theme.css`
+- Protótipo: `ops/prototype/index.html` (fontes em `ops/prototype/src/`; `README.md` explica o mapeamento para o app)
+- Design system: `ops/DESIGN.md` (+ `ops/.impeccable/design.json`)
 - Modelo a reaproveitar: `members/app` (Next.js 16 + Supabase) e `skills/members-platform/references/11-gotchas.md`
 - Referências visuais do utilizador: Cal.com (paleta e shell), ecrã "Good morning" com faixa semanal, app "Journey" (faixa de dias + lista do dia), app de equipa com avatares, dashboard Spotbank (só a estrutura em cartões; **não** o verde)
 
 ---
 
-## 0. Decisões a confirmar (o valor a negrito é o que assumo se não disser nada)
+## 0. Decisões (fechadas)
 
-| # | Decisão | Proposta |
+| # | Decisão | Resultado |
 |---|---|---|
-| 1 | Nome e pasta | **Kingdom Ops**, em `ops/` (como `members/`). Mudar o nome custa 2 minutos; a pasta fica. |
-| 2 | Fonte | **Inter** (é a do Cal.com; livre, via `next/font`). Alternativa: Google Sans, para ficar igual aos outros produtos Kingdom. |
-| 3 | Cor | Cinza, preto e branco (escala `gray` do Cal.com). Estados com **ponto de 8 px em verde / âmbar / vermelho dessaturados** (como o ponto verde do Cal.com). Alternativa: 100 % monocromático, estado só por texto. |
-| 4 | Quem vê o quê | **Toda a equipa vê todas as reuniões e pipelines; a agenda filtra-se por pessoa** (avatares no topo). Perfis: `admin` (gere equipa e pipelines) e `membro`. |
-| 5 | Contas | **O admin cria os utilizadores com um script no MVP** (`npm run user:create`); convites por email ficam para a fase 2. Entrar com email + palavra-passe; "esqueci a palavra-passe" incluído. |
-| 6 | Idioma | **Só português (pt-PT)**. Sem next-intl: poupa ~40 min. |
-| 7 | Hospedagem | **Vercel + novo projeto Supabase** (mesma receita do Kingdom Library). Domínio a indicar (ex.: `ops.kingdomcompany.com`). |
-| 8 | WhatsApp | **Botão "Enviar por WhatsApp"** na reunião e na ata, que abre o WhatsApp com o texto já escrito no formato que a equipa usa hoje. Preciso de **um exemplo da mensagem atual** para copiar o formato e garantir que o formulário tem os mesmos campos. |
-| 9 | Pipelines iniciais | **Reuniões** (Agendado → Em curso → Adiada → Cancelada → Concluída), **Vendas** (Lead → Contactado → Proposta → Negociação → Ganho / Perdido), **Tarefas** (A fazer → Em curso → Bloqueada → Concluída). Os três nascem no seed; a equipa pode renomear/ordenar etapas. |
-| 10 | Vários escritórios | **Não** (um só escritório = uma base de dados). Multi-empresa é fase 2. |
-| 11 | Payflow | Não está neste repositório. **Envie o URL** (ou capturas do mobile) para o Skill UI extrair os padrões; sem isso uso só o Cal.com e as imagens enviadas. |
-| 12 | Campos da ata | Lista na secção 6. Confirmar ou acrescentar. |
+| 1 | Nome e pasta | **Kingdom Ops**, em `ops/`. |
+| 2 | Fonte | **Inter** via `next/font`. |
+| 3 | Cor | Escala cinza do Cal.com. Estados só com **ponto de 8 px** (cinza / azul / âmbar / vermelho / verde dessaturados) + texto. Mais nada colorido. |
+| 4 | Quem vê o quê | **Toda a equipa vê tudo; a agenda e os pipelines filtram-se por pessoa.** Perfis `admin` e `member`. |
+| 5 | Contas | O admin cria utilizadores com `npm run user:create` no MVP; convites por email na fase 2. Entrar com email + palavra-passe. |
+| 6 | Idioma | **Só pt-PT**, sem next-intl. Os textos vêm do objeto `T` em `ops/prototype/src/app.js`. |
+| 7 | Hospedagem | **Vercel + novo projeto Supabase.** Domínio a indicar. |
+| 8 | WhatsApp | Botão "WhatsApp" na reunião e na ata. Não havia formato da equipa; o protótipo propõe um (função `whatsappText` / `whatsappMinutesText`): título, data e hora, local, pessoa, empresa, assunto, responsável, participantes internos. |
+| 9 | Pipelines iniciais | O escritório gere **projetos, vendas, campanhas de marketing, tarefas e agendas**, por isso o seed traz cinco: **Reuniões** (Agendado → Em curso → Adiada → Cancelada → Concluída), **Vendas** (Lead → Contactado → Proposta → Negociação → Ganho / Perdido), **Projetos** (Kickoff → Em curso → Em revisão → Bloqueado → Entregue), **Campanhas** (Ideia → Planeamento → Em produção → No ar → Terminada), **Tarefas** (A fazer → Em curso → Bloqueada → Concluída). Modelo extra "Recrutamento" só como template. |
+| 10 | Vários escritórios | Não. Um escritório = uma base de dados. |
+| 11 | Payflow | Ignorado a pedido do dono; referências = Cal.com + imagens enviadas. |
+| 12 | Campos da ata | Os da secção 6, confirmados no protótipo (`blankMinutes` em `app.js`). |
+| 13 | Início (dashboard) | Direção "painel de bolso": cartão preto **A seguir** (próxima reunião da equipa, com WhatsApp e Abrir), lista **Hoje**, lista **Operação** (uma linha por pipeline com contagens), e no desktop indicadores, barras por etapa e por pessoa, atas em falta. |
 
 ---
 
@@ -41,12 +42,11 @@ Referências:
 - Pipeline Kanban por pipeline, com as 5 etapas das reuniões; mudar de etapa por arrastar (desktop) ou por folha "Mover para" (telemóvel). Adiar pede nova data; cancelar pede motivo. Histórico de etapas no cartão.
 - Atas: separador próprio, lista, formulário estruturado, sempre ligada a **uma** reunião (uma ata por reunião), estado rascunho/final, vista de impressão/PDF do browser, partilha por WhatsApp.
 - Dashboard "Início": reuniões hoje e esta semana, por etapa, por pessoa, atas em falta, adiadas/canceladas nos últimos 30 dias, e (se existir) valor do pipeline de vendas por etapa.
-- Três pipelines no seed; etapas editáveis (nome, ordem, cor) numa página simples de definições.
+- Cinco pipelines no seed (Reuniões, Vendas, Projetos, Campanhas, Tarefas) com o **mesmo** componente Kanban; etapas editáveis (nome, ordem, cor, regras) numa página simples de definições; criar pipeline a partir de modelo (função SQL + um botão, como no protótipo).
 - Deploy em produção (Vercel + Supabase), com dados reais da equipa.
 
 **Fica para a fase 2 (não cabe em 5 h):**
-- Campos personalizados por pipeline ao estilo Pipefy (`pipeline_fields` + formulário dinâmico). No MVP o `kind` do pipeline decide os campos (reuniões / vendas / tarefas).
-- Criar pipeline novo a partir de modelo na interface (no MVP é por seed/SQL).
+- Campos personalizados por pipeline ao estilo Pipefy (`pipeline_fields` + formulário dinâmico). No MVP o `kind` do pipeline decide os campos (reuniões / vendas / projetos / campanhas / tarefas), exatamente como `screenCardForm` no protótipo.
 - Convites por email, notificações/lembretes, anexos nas atas, comentários, pesquisa global, Google Calendar, vários escritórios, exportação.
 
 **Ordem de corte se o tempo apertar** (do primeiro a sair ao último): editor de etapas → vista de impressão da ata → arrastar no Kanban (fica só "Mover para") → dashboard reduzido a 4 números → pipeline de Vendas só em seed, sem campos próprios.
@@ -90,7 +90,7 @@ Um modelo genérico de pipelines desde o primeiro dia, para que "Vendas" e "Tare
 | Tabela | Campos principais | Notas |
 |---|---|---|
 | `profiles` | `id` (= auth.users.id), `full_name`, `role` (`admin`/`member`), `job_title`, `phone_whatsapp`, `avatar_url`, `color` (para o chip), `active`, `created_at` | Criada por trigger ao nascer o utilizador. |
-| `pipelines` | `id`, `slug` (único), `name`, `kind` (`meetings`/`sales`/`tasks`/`custom`), `icon`, `position`, `created_by`, `archived_at` | `kind` decide os campos que o formulário mostra e os KPIs. |
+| `pipelines` | `id`, `slug` (único), `name`, `kind` (`meetings`/`sales`/`projects`/`campaigns`/`tasks`/`custom`), `icon`, `position`, `created_by`, `archived_at` | `kind` decide os campos que o formulário mostra e os KPIs. |
 | `pipeline_stages` | `id`, `pipeline_id`, `name`, `position`, `tone` (`neutral`/`info`/`warning`/`danger`/`success`), `is_done` (bool), `is_lost` (bool), `requires_note` (bool), `requires_reschedule` (bool) | Reuniões: Concluída `is_done`; Cancelada `is_lost` + `requires_note`; Adiada `requires_reschedule`. |
 | `cards` | `id`, `pipeline_id`, `stage_id`, `title` (assunto), `owner_id` (responsável), `starts_at`, `ends_at`, `all_day`, `location_kind` (`in_person`/`online`/`phone`), `location` (morada ou link), `contact_name`, `contact_role`, `contact_phone`, `contact_email`, `company_name`, `company_tax_id`, `company_sector`, `value_cents` (vendas), `due_at` (tarefas), `description`, `fields` jsonb (extras futuros), `position` (ordem na coluna), `stage_changed_at`, `created_by`, `created_at`, `updated_at`, `archived_at` | Índices: (`pipeline_id`, `stage_id`, `position`), (`starts_at`), (`owner_id`, `starts_at`). |
 | `card_participants` | `card_id`, `profile_id` | Membros internos que vão à reunião. Agenda por pessoa = `owner_id` **ou** participante. |
@@ -132,7 +132,7 @@ Shell igual ao Cal.com: barra lateral à esquerda no desktop (≥ 1024 px) com o
 
 ## 5. Pipelines personalizáveis (como no Pipefy, mas em 5 h)
 
-- **Hoje (MVP):** um pipeline = nome + tipo + etapas ordenadas com regras simples (concluída / perdida / exige nota / exige nova data). O tipo decide o formulário: `meetings` mostra data, hora, local, pessoa, empresa, assunto; `sales` mostra empresa, pessoa, valor, data prevista de fecho; `tasks` mostra título, responsável, prazo, descrição. A agenda e as atas só olham para pipelines `meetings`. O dashboard conta por etapa em qualquer pipeline e soma `value_cents` em `sales`.
+- **Hoje (MVP):** um pipeline = nome + tipo + etapas ordenadas com regras simples (concluída / perdida / exige nota / exige nova data). O tipo decide o formulário: `meetings` mostra data, hora, duração, local, pessoa, empresa, assunto, participantes; `sales` mostra empresa, pessoa, valor, data prevista de fecho; `projects` mostra cliente, pessoa de contacto, prazo de entrega; `campaigns` mostra canal, orçamento, lançamento; `tasks` mostra título, responsável, prazo, descrição. A agenda e as atas só olham para pipelines `meetings`. O dashboard conta por etapa em qualquer pipeline e soma `value_cents` em `sales`.
 - **Fase 2:** `pipeline_fields` (`key`, `label`, `type` texto/número/data/escolha/pessoa, `required`, `position`) guardados em `cards.fields`; galeria de modelos ("Reuniões", "Vendas", "Tarefas", "Recrutamento", "Suporte") na interface; automatizações simples (ao entrar na etapa X, criar tarefa Y).
 
 A coluna `fields jsonb` já existe no MVP para não precisar de migração destrutiva depois.
@@ -172,16 +172,16 @@ Uma única consulta SQL (view `dashboard_summary`) para não multiplicar chamada
 
 ---
 
-## 8. Design e protótipo (passo seguinte, nesta sessão)
+## 8. Design e protótipo (feito)
 
 **Direção:** Operate mode (Impeccable). Cinza, preto e branco; superfícies brancas com borda `gray-200` e raio 12–16 px sobre canvas `gray-50/100`; texto `gray-900` / `gray-600` / `gray-400`; botão primário preto, pill; foco em anel `gray-900`. Hierarquia por peso e espaço, não por cor. Estados: ponto 8 px (verde `#15803d`, âmbar `#b45309`, vermelho `#b91c1c`, azul `#1d4ed8`) + rótulo; nada mais colorido. Modo escuro: `gray-950` canvas, `gray-900` superfícies (barato de incluir nos tokens; ligar se sobrar tempo).
 
 **Tokens iniciais** (a afinar com o Skill UI): `canvas #f3f4f6`, `surface #ffffff`, `sunken #f9fafb`, `line #e5e7eb`, `line-strong #d1d5db`, `ink #111827`, `ink-2 #374151`, `muted #6b7280`, `faint #9ca3af`, `inverted #111827`, `on-inverted #ffffff`. Tipografia Inter: display 28/1.15/-0.02em 600, title 17/1.3 600, body 15/1.5 400, label 13.5 500, caption 12.5 400.
 
-**Processo:**
-1. `npx skillui --url https://cal.com` (+ URL do Payflow, se o enviar) → `ops/design-refs/` com tokens e capturas, só como referência (não entra no app).
-2. Impeccable `init` (lê `ops/PRODUCT.md`) → `shape` (plano UX de cada ecrã, mobile primeiro) → construir o protótipo → `critique` + `audit` → `document` (gera `ops/DESIGN.md`) → `extract` (`tailwind-theme.css`).
-3. Protótipo em **um ficheiro** (`ops/prototype/index.html`, gerado por `build.mjs` a partir de `src/`), com mapa de ecrãs e alternância desktop/telemóvel.
+**O que foi feito:**
+1. Skill UI: o proxy da sessão bloqueia o cal.com, por isso não houve extração automática; a paleta é a escala cinza do Cal.com (tokens acima), confirmada contra a captura enviada.
+2. Impeccable: contexto (`ops/PRODUCT.md`), sorteio de estrutura (direção "painel de bolso" registada em `ops/.impeccable/surfaces/prototype.md`), construção, duas rondas de inspeção com capturas em 1440 e 390 (geradas por `node ops/prototype/tools/screenshots.mjs` em `ops/.impeccable/review/`, não versionadas), detector sem achados, revisão final por agente e `document` → `ops/DESIGN.md`.
+3. Protótipo em **um ficheiro** (`ops/prototype/index.html`, gerado por `node ops/prototype/build.mjs` a partir de `src/`), com botão "Protótipo" para alternar desktop/telemóvel e saltar entre 23 ecrãs. Capturas de todos os ecrãs: `node ops/prototype/tools/screenshots.mjs`.
 
 **Para o protótipo ser reaproveitado no front (pedido seu):**
 - `src/styles.css`: tokens como CSS custom properties com os **mesmos nomes** que vão para o Tailwind; uma classe por componente (`.btn`, `.btn-primary`, `.card`, `.pill`, `.field`, `.week-strip`, `.day-chip`, `.kanban`, `.stage-col`, `.card-item`, `.sheet`, `.tabbar`, `.sidebar`, `.kpi`, `.bar`). Cada classe vira um componente React com o mesmo nome.
@@ -193,13 +193,13 @@ Uma única consulta SQL (view `dashboard_summary`) para não multiplicar chamada
 
 ## 9. Plano das 5 horas (Opus 5.5)
 
-Pré-requisitos antes de começar o relógio: protótipo aprovado, `ops/DESIGN.md`, projeto Supabase criado (URL + chaves), projeto Vercel ligado ao repositório com root `ops/app`, lista da equipa (nome, função, email, WhatsApp), exemplo de mensagem WhatsApp.
+Pré-requisitos antes de começar o relógio: protótipo aprovado (feito), `ops/DESIGN.md` (feito), projeto Supabase criado (URL + chaves), projeto Vercel ligado ao repositório com root `ops/app`, lista da equipa (nome, função, email, WhatsApp), exemplo de mensagem WhatsApp.
 
 | Bloco | Tempo | Entrega | Aceita-se quando |
 |---|---|---|---|
-| **0. Fundação** | 0:00–0:40 | `ops/app` a partir do esqueleto de `members/app` sem gateway/emails/i18n; tokens e fonte; `AppShell` (sidebar + tab bar) do protótipo; migração `0001_schema.sql` (secção 3) + RLS + triggers + `move_card`; `seed.sql` (3 pipelines, perfis, 15 cartões, 2 atas); login; script `user:create` | Entro no preview em 390 e 1440 e vejo o shell com a agenda vazia. |
+| **0. Fundação** | 0:00–0:40 | `ops/app` a partir do esqueleto de `members/app` sem gateway/emails/i18n; tokens e fonte de `ops/DESIGN.md`; `AppShell` (sidebar + tab bar) do protótipo; migração `0001_schema.sql` (secção 3) + RLS + triggers + `move_card` + `create_pipeline_from_template`; `seed.sql` gerado de `ops/prototype/src/data.js` (5 pipelines, 4 perfis, 32 cartões, 2 atas); login; script `user:create` | Entro no preview em 390 e 1440 e vejo o shell com a agenda vazia. |
 | **1. Agenda + reunião** | 0:40–1:40 | Faixa semanal, lista do dia, filtro por pessoa; formulário criar/editar (zod + Server Action); página do cartão com dados, etapa e histórico; "Enviar por WhatsApp" | Crio uma reunião no telemóvel, aparece na agenda do dia certo e em "Agendado". |
-| **2. Pipeline** | 1:40–2:30 | Kanban com dnd-kit no desktop; segmentado + "Mover para" no telemóvel; adiar pede data, cancelar pede motivo; histórico atualizado; mesmo componente para Vendas e Tarefas | Movo um cartão nos dois dispositivos; recarregar mantém; o histórico mostra quem e quando. |
+| **2. Pipeline** | 1:40–2:30 | Kanban com dnd-kit no desktop; segmentado + "Mover para" no telemóvel (folha com stepper, campos inline para nova data / motivo, igual ao protótipo); histórico atualizado; mesmo componente para os 5 pipelines; seletor de pipeline em chips | Movo um cartão nos dois dispositivos; recarregar mantém; o histórico mostra quem e quando. |
 | **3. Atas** | 2:30–3:30 | Lista, formulário por secções com listas repetíveis, pré-preenchimento, rascunho/final, separador "Ata" no cartão, vista de impressão, partilha WhatsApp | Crio a ata de uma reunião concluída no telemóvel, abro-a a partir do cartão, imprimo em PDF. |
 | **4. Início + Equipa** | 3:30–4:10 | View `dashboard_summary`; KPIs, barras CSS, atas em falta, próximas reuniões; página da equipa; editor de etapas (se houver margem) | Os números batem certo com o seed. |
 | **5. Produção** | 4:10–5:00 | Migrações e seed real no Supabase de produção; env vars; deploy; E2E smoke + capturas 390/1440; correções; README de 1 página com "como criar utilizador" | O URL de produção responde, a equipa entra e cria a primeira reunião real. |
@@ -224,21 +224,20 @@ Ritmo (herdado do Kingdom Library): migração + teste de BD antes do código qu
 
 ## 11. Próximos passos
 
-1. **Você:** responder à secção 0 (basta "ok" para os defaults), enviar o exemplo de mensagem WhatsApp e, se possível, o URL do Payflow.
-2. **Eu (Fable), nesta sessão:** Skill UI → Impeccable → protótipo clicável em `ops/prototype/`, `ops/DESIGN.md`, atualização da secção 0 com as decisões tomadas.
-3. **Você:** criar o projeto Supabase e o projeto Vercel (ou dar-me acesso para o fazer) e preparar a lista da equipa.
-4. **Opus 5.5:** nova sessão com o prompt da secção 12.
+1. **Você:** abrir `ops/prototype/index.html` (ou o link do artefacto) no telemóvel e no desktop, percorrer os ecrãs pelo botão "Protótipo" e dizer o que muda. Ajustes ao protótipo são rápidos e evitam retrabalho no app.
+2. **Você:** criar o projeto Supabase e o projeto Vercel (ou dar acesso para o fazer) e preparar a lista da equipa (nome, função, email, WhatsApp).
+3. **Opus 5.5:** nova sessão com o prompt da secção 12, com o relógio de 5 horas.
 
 ---
 
 ## 12. Prompt de arranque para o Opus 5.5
 
 ```
-Vais construir o Kingdom Ops em 5 horas. Lê, por esta ordem: docs/kingdom-ops/plano-desenvolvimento.md (todo), ops/PRODUCT.md, ops/DESIGN.md, ops/prototype/src/ (styles.css, data.js, app.js) e skills/members-platform/references/11-gotchas.md. O protótipo é a especificação visual e de dados: mesmos nomes de classes, campos e ecrãs.
+Vais construir o Kingdom Ops em 5 horas. Lê, por esta ordem: docs/kingdom-ops/plano-desenvolvimento.md (todo), ops/PRODUCT.md, ops/DESIGN.md, ops/prototype/README.md, ops/prototype/src/ (styles.css, data.js, app.js) e skills/members-platform/references/11-gotchas.md. O protótipo é a especificação visual e de dados: mesmos nomes de classes, campos, textos (objeto T) e ecrãs (funções screen*). Corre `node ops/prototype/tools/screenshots.mjs` e abre ops/.impeccable/review/screens/ para ver cada ecrã em 1440 e 390.
 
 Segue os blocos da secção 9 do plano, com os tempos e critérios de aceitação. No fim de cada bloco: typecheck, lint, testes, commit, push, preview. Se um bloco passar 15 minutos do limite, aplica a ordem de corte da secção 1 e diz-me o que cortaste. Não acrescentes funcionalidades fora da secção 1.
 
-Começa pelo bloco 0: copia o esqueleto de members/app para ops/app, remove gateway, emails e i18n, aplica os tokens de ops/DESIGN.md e escreve a migração 0001 com o modelo da secção 3. Credenciais do Supabase e Vercel: [colar aqui]. Equipa inicial: [colar aqui]. Exemplo da mensagem WhatsApp: [colar aqui].
+Começa pelo bloco 0: copia o esqueleto de members/app para ops/app, remove gateway, emails e i18n, aplica os tokens de ops/DESIGN.md e escreve a migração 0001 com o modelo da secção 3 e o seed a partir de ops/prototype/src/data.js. Credenciais do Supabase e Vercel: [colar aqui]. Equipa inicial: [colar aqui]. Exemplo da mensagem WhatsApp: [colar aqui].
 
 Fala comigo em português; código, commits e comentários em inglês.
 ```

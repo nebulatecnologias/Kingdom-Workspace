@@ -12,12 +12,12 @@ Prototype: static HTML/CSS/JS (single clickable file built from `ops/prototype/s
 
 ## Users
 
-- **Team members (consultants / sales):** Kingdom's office staff in Mozambique (Portuguese speakers). They book client meetings, today by sending a WhatsApp message with date, time, place, the person, the company and the subject. They mostly use the phone between meetings: they need to see today's agenda in one glance, move a meeting along its pipeline, and write the minutes right after a meeting.
-- **Administrator (the owner):** sets up the team and the pipelines, and watches the whole operation of the office on one dashboard: meetings, sales pipeline, tasks, minutes that are missing.
+- **Team members (consultants / sales / marketing):** staff of Kingdom, a business-development and technology consultancy in Mozambique (Portuguese speakers). They book client meetings, today by sending a WhatsApp message with date, time, place, the person, the company and the subject. They mostly use the phone between meetings: they need to see today's agenda in one glance, move a meeting along its pipeline, and write the minutes right after a meeting.
+- **Administrator (the owner):** sets up the team and the pipelines, and watches the whole operation of the office on one dashboard. The operation is project tracking, the sales process, marketing campaigns, task tracking and the agendas.
 
 ## Product Purpose
 
-Kingdom Ops is the office's single operational tool: a meeting scheduler where every meeting is a card on a Kanban pipeline (Agendado → Em curso → Adiada → Cancelada → Concluída), every meeting can carry one structured ata (minutes) created from a form, and the same pipeline engine runs sales and task boards from templates (like Pipefy). Success = a team member books a meeting from the phone in under a minute, the whole team sees it per person on the agenda, and a concluded meeting has its minutes written and shared the same day.
+Kingdom Ops is the office's single operational tool: a meeting scheduler where every meeting is a card on a Kanban pipeline (Agendado → Em curso → Adiada → Cancelada → Concluída), every meeting can carry one structured ata (minutes) created from a form, and the same pipeline engine runs sales, project, marketing-campaign and task boards from templates (like Pipefy). Success = a team member books a meeting from the phone in under a minute, the whole team sees it per person on the agenda, and a concluded meeting has its minutes written and shared the same day.
 
 ## Positioning
 
@@ -35,10 +35,10 @@ Not a generic CRM and not a calendar: a lightweight operations board built aroun
 
 ## Capabilities and Constraints
 
-- Screens: login; Início (KPIs, bars by stage and by person, missing minutes, next meetings); Agenda (week strip, day list, person filter); new/edit meeting; meeting card (details, stage, history, Ata tab); pipeline Kanban (same component for Reuniões, Vendas, Tarefas; stage picker sheet on the phone); Atas list, form and reading/print view; Equipa; pipeline stage settings.
+- Screens: login; Início (next meeting, today, operation counts per pipeline; on desktop also KPIs, bars by stage and by person, missing minutes); Agenda (week strip, day list, person filter); new/edit card per pipeline kind; card page (details, stage, history, Ata tab); pipeline Kanban (same component for Reuniões, Vendas, Projetos, Campanhas, Tarefas; stage picker sheet on the phone); Atas list, form and reading/print view; Equipa; pipeline stage settings and templates.
 - Empty, loading and error states for Agenda, Pipeline and Atas.
 - Build budget: 5 hours of development after the prototype, so no custom field builder, invites, notifications, attachments or calendar sync in v1.
-- Undecided: product name (default Kingdom Ops), font (default Inter), production domain, the exact WhatsApp message format used today.
+- Decided on 19 Nov 2026: name Kingdom Ops, Inter, grey scale with status dots, pt-PT only, Vercel + Supabase. Undecided: production domain. The WhatsApp notice format is the one the prototype proposes (no existing format).
 
 ## Brand Commitments
 
@@ -50,7 +50,7 @@ Not a generic CRM and not a calendar: a lightweight operations board built aroun
 
 ## Evidence on Hand
 
-- No real meetings, companies, people or minutes yet; all prototype data is synthetic and must mirror the production field names. The current WhatsApp notice format has not been provided yet.
+- No real meetings, companies, people or minutes yet; all prototype data is synthetic and mirrors the production field names. The team has no written WhatsApp notice format; the prototype proposes one.
 
 ## Product Principles
 
