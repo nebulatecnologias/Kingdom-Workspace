@@ -35,3 +35,18 @@ export async function updateProfile(_prev: ProfileState, formData: FormData): Pr
   revalidatePath("/", "layout");
   redirect("/team");
 }
+
+export type PasswordState = { status: "idle" | "error" | "saved"; message?: string };
+
+/** Lets the signed-in person replace their password (e.g. the temporary one an admin gave them). */
+export async function changePassword(_prev: PasswordState, formData: FormData): Promise<PasswordState> {
+  await requireMember();
+  const password = String(formData.get("password") ?? "");
+  const confirm = String(formData.get("confirm") ?? "");
+  if (password.length < 8) return { status: "error", message: "Use pelo menos 8 caracteres." };
+  if (password !== confirm) return { status: "error", message: "As duas palavras-passe não são iguais." };
+  const supabase = await createClient();
+  const { error } = await supabase.auth.updateUser({ password });
+  if (error) return { status: "error", message: "Não foi possível mudar a palavra-passe. Tente outra vez." };
+  return { status: "saved" };
+}

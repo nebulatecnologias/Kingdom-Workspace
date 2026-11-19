@@ -5,6 +5,7 @@ import { PageHead } from "@/components/ui/bits";
 import { requireMember } from "@/lib/auth";
 import { getBase } from "@/lib/data";
 import { T } from "@/lib/texts";
+import { PasswordForm } from "./password-form";
 import { ProfileForm } from "./profile-form";
 
 export const metadata: Metadata = { title: T.nav.team };
@@ -23,6 +24,7 @@ export default async function ProfilePage({ params }: PageProps<"/team/[id]">) {
       <div className="page" style={{ maxWidth: 640 }}>
         <PageHead desktopOnly title={title} sub={T.nav.team} />
         <ProfileForm p={p} adminFields={me.role === "admin" && id !== me.id} />
+        {id === me.id ? <PasswordForm /> : null}
       </div>
     </>
   );

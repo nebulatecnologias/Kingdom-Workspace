@@ -15,7 +15,7 @@ npm run user:create -- --email maria@kingdom.co.mz --name "Maria" --password "um
 
 - Se já existir um perfil com o mesmo `--name` (a equipa vem do seed com emails provisórios), essa conta recebe o email e a palavra-passe reais. Senão, cria uma conta nova.
 - `--role admin` para quem gere a equipa, as etapas e os pipelines.
-- A pessoa entra em `/login`. "Esqueci a palavra-passe" envia o link de recuperação do Supabase.
+- A pessoa entra em `/login` e troca a palavra-passe provisória em Equipa → Editar o meu perfil. "Esqueci a palavra-passe" envia o link de recuperação do Supabase.
 - Contas criadas noutro sítio (por exemplo, registo direto no Supabase) ficam **inativas** e não veem nada até um admin as ativar em Equipa.
 
 ## Desenvolver
