@@ -155,7 +155,9 @@ const ROUTES = [
   [/^\/settings\/pipelines\/([^/]+)$/, (p, m) => screenPipelineSettings(m[1])],
 ];
 const go = (hash) => { if (EMBED) { memHash = hash; state.sheet = null; render(); } else location.hash = hash; };
-const waLink = (text) => 'https://wa.me/?text=' + encodeURIComponent(text);
+const IS_MOBILE = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const waLink = (text) => (IS_MOBILE ? 'whatsapp://send?text=' : 'https://wa.me/?text=') + encodeURIComponent(text);
+const waAttrs = (text) => `href="${waLink(text)}"${IS_MOBILE ? '' : ' target="_blank" rel="noopener"'}`;
 
 function render() {
   const route = parseHash();
@@ -338,7 +340,7 @@ function screenHome() {
       <h2 class="h-title">${esc(next.title)}</h2>
       <div class="meta">${esc(next.company_name)} · ${esc(next.contact_name)}${next.contact_role ? ', ' + esc(next.contact_role) : ''}</div>
       <div class="where">${icon(locationIcon(next.location_kind), 'sm')}<span>${esc(next.location)}</span></div>
-      <div class="actions"><a class="btn btn-on-dark-ghost" href="${waLink(whatsappText(next))}" target="_blank" rel="noopener">${icon('message', 'sm')}${T.actions.whatsapp}</a><a class="btn btn-on-dark" href="#/cards/${next.id}">${T.actions.open}${icon('arrow-right', 'sm')}</a></div>
+      <div class="actions"><a class="btn btn-on-dark-ghost" ${waAttrs(whatsappText(next))}>${icon('message', 'sm')}${T.actions.whatsapp}</a><a class="btn btn-on-dark" href="#/cards/${next.id}">${T.actions.open}${icon('arrow-right', 'sm')}</a></div>
     </section>`;
   })() : `<section class="card card-pad"><div class="h-title">${T.next.none}</div><p class="caption" style="margin:4px 0 0">Bom momento para escrever as atas em falta.</p></section>`;
 
@@ -375,7 +377,7 @@ function screenHome() {
     </section>`;
 
   return { nav: 'home', title: T.nav.home, html: `
-    <header class="topbar" style="align-items:flex-start;padding:14px 16px 4px;min-height:auto"><div style="flex:1"><div class="caption">${fmtDayLong(TODAY)}</div><h1 class="h-display" style="margin-top:2px">${greeting()}, ${esc(me.full_name.split(' ')[0])}</h1></div><a href="#/team" aria-label="${T.nav.team}">${Avatar(me, 'lg')}</a></header>
+    <header class="topbar home"><div style="flex:1"><div class="caption">${fmtDayLong(TODAY)}</div><h1 class="h-display">${greeting()}, ${esc(me.full_name.split(' ')[0])}</h1></div><a href="#/team" aria-label="${T.nav.team}">${Avatar(me, 'lg')}</a></header>
     <div class="page">
       <div class="page-head only-desktop"><div><div class="caption">${fmtDayLong(TODAY)}</div><h1 class="h-display">${greeting()}, ${esc(me.full_name.split(' ')[0])}</h1></div><div class="page-actions"><a class="btn btn-ghost" href="#/agenda">${icon('calendar')}${T.nav.agenda}</a><a class="btn btn-primary" href="#/cards/new?pipeline=reunioes">${icon('plus')}${T.actions.newMeeting}</a></div></div>
       <div class="home-grid"><div>${left}</div><div class="only-desktop">${right}</div></div>
@@ -514,7 +516,7 @@ function screenCard(id, params) {
     : `<div class="card">${Empty('file-text', T.minutes.noMinutes, T.minutes.noMinutesHint, `<a class="btn btn-primary btn-sm" href="#/atas/new?card=${card.id}">${icon('plus', 'sm')}${T.actions.createMinutes}</a>`)}</div>`;
   const history = `<div class="card card-pad"><div class="activity">${acts.map((a) => ActivityItem(a)).join('') || '<span class="caption">Sem histórico.</span>'}</div></div>`;
   const tabs = `<div class="tabs" role="tablist"><button role="tab" class="${tab === 'details' ? 'is-active' : ''}" data-action="tab" data-tab="details">Detalhes</button>${meeting ? `<button role="tab" class="${tab === 'ata' ? 'is-active' : ''}" data-action="tab" data-tab="ata">${T.minutes.one}${m ? `<span class="n">${m.status === 'final' ? 'final' : 'rascunho'}</span>` : ''}</button>` : ''}<button role="tab" class="${tab === 'history' ? 'is-active' : ''}" data-action="tab" data-tab="history">Histórico<span class="n num">${acts.length}</span></button></div>`;
-  const actions = `<button class="btn btn-primary" data-action="move-open" data-card="${card.id}">${icon('arrow-right', 'sm')}${T.actions.move}</button>${meeting ? `<a class="btn btn-ghost" href="${waLink(whatsappText(card))}" target="_blank" rel="noopener">${icon('message', 'sm')}${T.actions.whatsapp}</a>` : ''}<a class="btn btn-ghost btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil', 'sm')}</a>`;
+  const actions = `<button class="btn btn-primary" data-action="move-open" data-card="${card.id}">${icon('arrow-right', 'sm')}${T.actions.move}</button>${meeting ? `<a class="btn btn-ghost" ${waAttrs(whatsappText(card))}>${icon('message', 'sm')}${T.actions.whatsapp}</a>` : ''}<a class="btn btn-ghost btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil', 'sm')}</a>`;
   const back = meeting ? '/agenda' : `/pipelines/${pl.slug}`;
   return { fab: false, nav: meeting ? 'agenda' : 'pipeline:' + pl.slug, title: card.title, html: `
     ${Topbar({ title: kindLabel(card), back, actions: `<a class="btn btn-quiet btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil')}</a>` })}
@@ -549,13 +551,12 @@ function screenPipeline(slug, params) {
   const memberSel = `<select class="select" style="width:auto;min-height:40px" aria-label="${T.actions.filter}" data-action-change="nav" data-href="/pipelines/${pl.slug}?member="><option value="">${T.all}</option>${DB.profiles.map((p) => `<option value="${p.id}" ${member === p.id ? 'selected' : ''}>${esc(p.full_name.split(' ')[0])}</option>`).join('')}</select>`;
   const sub = pl.kind === 'sales' ? `<span class="num">${fmtMoney(openValue)}</span> em aberto` : `${all.length} ${all.length === 1 ? 'cartão' : 'cartões'}`;
   return { nav: 'pipeline:' + pl.slug, title: pl.name, html: `
-    ${Topbar({ title: T.nav.pipelines, actions: `<a class="btn btn-quiet btn-icon" href="#/cards/new?pipeline=${pl.slug}" aria-label="${T.actions.newCard[pl.kind]}">${icon('plus')}</a>` })}
+    ${Topbar({ title: pl.name, actions: `<a class="btn btn-quiet btn-icon" href="#/cards/new?pipeline=${pl.slug}" aria-label="${T.actions.newCard[pl.kind]}">${icon('plus')}</a>` })}
     <div class="page" style="max-width:none">
       <div class="page-head only-desktop"><div><div class="caption">${T.nav.pipelines} · ${sub}</div><h1 class="h-display">${esc(pl.name)}</h1></div><div class="page-actions">${memberSel}<a class="btn btn-ghost btn-icon" href="#/settings/pipelines/${pl.slug}" aria-label="${T.nav.settings}">${icon('settings')}</a><a class="btn btn-primary" href="#/cards/new?pipeline=${pl.slug}">${icon('plus')}${T.actions.newCard[pl.kind]}</a></div></div>
       ${switcher}
-      <div class="only-phone caption" style="margin:0 0 10px">${sub}</div>
-      ${segmented}
-      <div class="kanban" style="margin-top:10px">${stages.map(col).join('')}</div>
+      <div class="stage-switch">${segmented}</div>
+      <div class="kanban">${stages.map(col).join('')}</div>
     </div>` };
 }
 
@@ -658,7 +659,7 @@ function screenMinutes(id) {
     <div class="page" style="max-width:820px">
       <div class="page-actions" style="justify-content:flex-end;padding:8px 0 12px;flex-wrap:wrap">
         ${canConclude ? `<button class="btn btn-ghost" data-action="conclude" data-card="${card.id}">${icon('check', 'sm')}${T.actions.conclude}</button>` : ''}
-        <a class="btn btn-ghost" href="${waLink(whatsappMinutesText(m))}" target="_blank" rel="noopener">${icon('message', 'sm')}${T.actions.whatsapp}</a>
+        <a class="btn btn-ghost" ${waAttrs(whatsappMinutesText(m))}>${icon('message', 'sm')}${T.actions.whatsapp}</a>
         ${EMBED ? '' : `<a class="btn btn-ghost" href="#/atas/${m.id}/print">${icon('printer', 'sm')}${T.actions.print}</a>`}
         ${m.status === 'draft' ? `<a class="btn btn-primary" href="#/atas/${m.id}/edit">${icon('pencil', 'sm')}Continuar a escrever</a>` : `<a class="btn btn-quiet only-desktop" href="#/atas/${m.id}/edit">${T.actions.edit}</a>`}
       </div>

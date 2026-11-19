@@ -165,6 +165,8 @@ svg.i.xs { width: 14px; height: 14px; }
 .topbar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 8px; min-height: 56px; padding: 8px max(12px, env(safe-area-inset-right, 0px)) 6px max(12px, env(safe-area-inset-left, 0px)); background: var(--ground); }
 .topbar .h-title { flex: 1; text-align: center; font-size: 16px; }
 .topbar .spacer { width: 44px; flex: none; }
+.topbar.home { align-items: flex-start; padding: 18px 16px 12px; min-height: auto; }
+.topbar.home .h-display { margin-top: 2px; }
 
 /* floating pill tab bar (phone) */
 .tabbar-wrap { position: sticky; bottom: 0; z-index: 6; margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 18px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: linear-gradient(to top, var(--ground) 55%, transparent); pointer-events: none; }
@@ -229,7 +231,7 @@ svg.i.xs { width: 14px; height: 14px; }
 .chip.is-active { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); font-weight: 600; }
 .chip .avatar { background: var(--surface); width: 28px; height: 28px; font-size: 11px; }
 .chip.is-active .avatar { background: var(--card); color: var(--ink); }
-.chip-row { display: flex; gap: 8px; overflow-x: auto; padding: 2px 16px 10px; margin: 0 -16px; scrollbar-width: none; }
+.chip-row { display: flex; gap: 8px; overflow-x: auto; padding: 2px 16px 12px; margin: 0 -16px; scrollbar-width: none; }
 .chip-row::-webkit-scrollbar { display: none; }
 
 /* ---------- cards and lists ---------- */
@@ -245,8 +247,9 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .row-title { font-weight: 600; font-size: 15px; line-height: 1.35; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .row-sub { display: block; font-size: 13px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px; font-variant-numeric: tabular-nums; }
 .row-end { display: flex; align-items: center; gap: 8px; flex: none; color: var(--faint); }
-.section { margin-top: 22px; }
-.section-head { display: flex; align-items: baseline; justify-content: space-between; margin: 0 0 10px; }
+.section { margin-top: 24px; }
+.section:first-child { margin-top: 0; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; margin: 0 0 12px; }
 .section-head .h-section { color: var(--ink); font-size: 15px; }
 .section-head a, .section-head button { font-size: 13px; color: var(--muted); font-weight: 500; }
 .section-head a:hover, .section-head button:hover { color: var(--ink); }
@@ -266,14 +269,14 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .counts .delta { font-size: 12.5px; color: var(--muted); }
 
 /* "A seguir" black card */
-.next-card { background: var(--inverted); color: var(--on-inverted); border-radius: var(--r-xl); padding: 18px 18px 16px; box-shadow: var(--shadow-lift); }
+.next-card { background: var(--inverted); color: var(--on-inverted); border-radius: var(--r-xl); padding: 20px 18px 18px; box-shadow: var(--shadow-lift); }
 .next-card .eyebrow { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--inverted-muted); }
 .next-card .eyebrow strong { color: var(--on-inverted); font-weight: 600; font-variant-numeric: tabular-nums; }
 .next-card .h-title { font-size: 19px; margin-top: 10px; letter-spacing: -0.015em; }
 .next-card .meta { margin-top: 4px; font-size: 14px; color: var(--inverted-muted); }
 .next-card .where { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 13.5px; color: var(--on-inverted); }
 .next-card .where svg { color: var(--inverted-muted); }
-.next-card .actions { display: flex; gap: 8px; margin-top: 16px; }
+.next-card .actions { display: flex; gap: 8px; margin-top: 18px; }
 .next-card .actions .btn { flex: 1; }
 
 /* operation list */
@@ -319,13 +322,14 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .meeting-card.is-past { opacity: .72; }
 
 /* ---------- kanban ---------- */
-.pipeline-switch { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 2px 0 12px; }
+.pipeline-switch { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 2px 16px 12px; margin: 0 -16px; }
 .pipeline-switch::-webkit-scrollbar { display: none; }
 .segmented { display: flex; gap: 4px; padding: 2px; background: var(--card); border-radius: 14px; overflow-x: auto; scrollbar-width: none; }
 .segmented::-webkit-scrollbar { display: none; }
 .segmented button { flex: 1 0 auto; height: var(--tap); padding: 0 12px; border-radius: 11px; font-size: 13px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; transition: background .15s, color .15s; }
 .segmented button .n { font-variant-numeric: tabular-nums; color: var(--muted); }
 .segmented button.is-active { background: var(--surface); color: var(--ink); }
+.stage-switch { position: sticky; top: 56px; z-index: 4; background: var(--ground); padding: 2px 0 10px; }
 .kanban { display: flex; flex-direction: column; gap: 8px; }
 .stage-col { display: flex; flex-direction: column; min-width: 0; }
 .stage-col > .stage-head { display: none; }
@@ -345,7 +349,7 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .card-item .avatar { background: var(--surface); }
 
 /* ---------- forms ---------- */
-.form { display: flex; flex-direction: column; gap: 12px; }
+.form { display: flex; flex-direction: column; gap: 14px; }
 .fieldset { display: flex; flex-direction: column; gap: 12px; padding: 16px; }
 .fieldset > .h-section { color: var(--ink); font-size: 15px; }
 .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
@@ -368,7 +372,7 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .radio-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .radio-card { display: flex; flex-direction: column; align-items: center; gap: 6px; height: 58px; justify-content: center; border-radius: var(--r-sm); font-size: 12.5px; font-weight: 500; color: var(--ink-2); background: var(--surface); transition: background .12s, color .12s; }
 .radio-card.is-active { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); font-weight: 600; }
-.form-foot { display: flex; gap: 8px; justify-content: flex-end; padding-top: 4px; }
+.form-foot { display: flex; gap: 8px; justify-content: flex-end; padding-top: 6px; }
 .form-foot .btn { flex: 1; }
 /* repeatable rows: flat groups separated by a rule inside the grey card (no nested cards) */
 .repeat-list { display: flex; flex-direction: column; }
@@ -388,7 +392,7 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .check input:checked::after { opacity: 1; }
 
 /* ---------- tabs (segmented, same vocabulary as the stage switch) ---------- */
-.tabs { display: flex; gap: 4px; padding: 2px; background: var(--card); border-radius: 14px; margin-bottom: 14px; }
+.tabs { display: flex; gap: 4px; padding: 2px; background: var(--card); border-radius: 14px; margin-bottom: 16px; }
 .tabs button { flex: 1; height: var(--tap); padding: 0 12px; border-radius: 11px; font-size: 14px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: background .15s, color .15s; }
 .tabs button.is-active { background: var(--surface); color: var(--ink); }
 .tabs .n { font-size: 11.5px; font-weight: 600; background: var(--card); border-radius: var(--r-pill); padding: 1px 7px; color: var(--ink-2); }
@@ -493,7 +497,8 @@ a.row:hover, button.row:hover { background: var(--card-2); }
   /* on a real phone the tools become a thin bar above the app, so they never cover the UI */
   #proto { order: -1; }
   .proto-tools { position: static; justify-content: center; padding: 6px 12px; background: var(--canvas); }
-  .proto-tools .btn { box-shadow: none; height: 32px; font-size: 12.5px; }
+  .proto-tools { padding: 4px 12px; }
+  .proto-tools .btn { box-shadow: none; height: 28px; font-size: 12px; padding: 0 10px; }
   .proto-menu { top: 48px; bottom: auto; right: 12px; left: 12px; width: auto; }
 }
 body.preview { background: var(--canvas); }
@@ -533,7 +538,7 @@ body.preview .app .app-scroll { border-radius: 36px; }
   .chip { height: 38px; }
   .grid-2 { grid-template-columns: 1fr 1fr; gap: 16px; }
   .home-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px; align-items: start; }
-  .chip-row { margin: 0; padding: 2px 0 10px; }
+  .chip-row, .pipeline-switch { margin: 0; padding: 2px 0 12px; }
   .kanban { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(250px, 1fr); gap: 12px; overflow-x: auto; padding-bottom: 8px; align-items: start; }
   .stage-col { background: var(--card); border-radius: var(--r-lg); padding: 8px; }
   .stage-col.is-hidden { display: flex; }
@@ -547,6 +552,7 @@ body.preview .app .app-scroll { border-radius: 36px; }
   .card-item .avatar { background: var(--card); }
   .segmented { display: none; }
   .segmented.always { display: inline-flex; }
+  .stage-switch { display: none; }
   .tabs { display: inline-flex; }
   .field-row-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .field-row-3 > :first-child { grid-column: auto; }
@@ -942,7 +948,9 @@ const ROUTES = [
   [/^\/settings\/pipelines\/([^/]+)$/, (p, m) => screenPipelineSettings(m[1])],
 ];
 const go = (hash) => { if (EMBED) { memHash = hash; state.sheet = null; render(); } else location.hash = hash; };
-const waLink = (text) => 'https://wa.me/?text=' + encodeURIComponent(text);
+const IS_MOBILE = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const waLink = (text) => (IS_MOBILE ? 'whatsapp://send?text=' : 'https://wa.me/?text=') + encodeURIComponent(text);
+const waAttrs = (text) => `href="${waLink(text)}"${IS_MOBILE ? '' : ' target="_blank" rel="noopener"'}`;
 
 function render() {
   const route = parseHash();
@@ -1125,7 +1133,7 @@ function screenHome() {
       <h2 class="h-title">${esc(next.title)}</h2>
       <div class="meta">${esc(next.company_name)} · ${esc(next.contact_name)}${next.contact_role ? ', ' + esc(next.contact_role) : ''}</div>
       <div class="where">${icon(locationIcon(next.location_kind), 'sm')}<span>${esc(next.location)}</span></div>
-      <div class="actions"><a class="btn btn-on-dark-ghost" href="${waLink(whatsappText(next))}" target="_blank" rel="noopener">${icon('message', 'sm')}${T.actions.whatsapp}</a><a class="btn btn-on-dark" href="#/cards/${next.id}">${T.actions.open}${icon('arrow-right', 'sm')}</a></div>
+      <div class="actions"><a class="btn btn-on-dark-ghost" ${waAttrs(whatsappText(next))}>${icon('message', 'sm')}${T.actions.whatsapp}</a><a class="btn btn-on-dark" href="#/cards/${next.id}">${T.actions.open}${icon('arrow-right', 'sm')}</a></div>
     </section>`;
   })() : `<section class="card card-pad"><div class="h-title">${T.next.none}</div><p class="caption" style="margin:4px 0 0">Bom momento para escrever as atas em falta.</p></section>`;
 
@@ -1162,7 +1170,7 @@ function screenHome() {
     </section>`;
 
   return { nav: 'home', title: T.nav.home, html: `
-    <header class="topbar" style="align-items:flex-start;padding:14px 16px 4px;min-height:auto"><div style="flex:1"><div class="caption">${fmtDayLong(TODAY)}</div><h1 class="h-display" style="margin-top:2px">${greeting()}, ${esc(me.full_name.split(' ')[0])}</h1></div><a href="#/team" aria-label="${T.nav.team}">${Avatar(me, 'lg')}</a></header>
+    <header class="topbar home"><div style="flex:1"><div class="caption">${fmtDayLong(TODAY)}</div><h1 class="h-display">${greeting()}, ${esc(me.full_name.split(' ')[0])}</h1></div><a href="#/team" aria-label="${T.nav.team}">${Avatar(me, 'lg')}</a></header>
     <div class="page">
       <div class="page-head only-desktop"><div><div class="caption">${fmtDayLong(TODAY)}</div><h1 class="h-display">${greeting()}, ${esc(me.full_name.split(' ')[0])}</h1></div><div class="page-actions"><a class="btn btn-ghost" href="#/agenda">${icon('calendar')}${T.nav.agenda}</a><a class="btn btn-primary" href="#/cards/new?pipeline=reunioes">${icon('plus')}${T.actions.newMeeting}</a></div></div>
       <div class="home-grid"><div>${left}</div><div class="only-desktop">${right}</div></div>
@@ -1301,7 +1309,7 @@ function screenCard(id, params) {
     : `<div class="card">${Empty('file-text', T.minutes.noMinutes, T.minutes.noMinutesHint, `<a class="btn btn-primary btn-sm" href="#/atas/new?card=${card.id}">${icon('plus', 'sm')}${T.actions.createMinutes}</a>`)}</div>`;
   const history = `<div class="card card-pad"><div class="activity">${acts.map((a) => ActivityItem(a)).join('') || '<span class="caption">Sem histórico.</span>'}</div></div>`;
   const tabs = `<div class="tabs" role="tablist"><button role="tab" class="${tab === 'details' ? 'is-active' : ''}" data-action="tab" data-tab="details">Detalhes</button>${meeting ? `<button role="tab" class="${tab === 'ata' ? 'is-active' : ''}" data-action="tab" data-tab="ata">${T.minutes.one}${m ? `<span class="n">${m.status === 'final' ? 'final' : 'rascunho'}</span>` : ''}</button>` : ''}<button role="tab" class="${tab === 'history' ? 'is-active' : ''}" data-action="tab" data-tab="history">Histórico<span class="n num">${acts.length}</span></button></div>`;
-  const actions = `<button class="btn btn-primary" data-action="move-open" data-card="${card.id}">${icon('arrow-right', 'sm')}${T.actions.move}</button>${meeting ? `<a class="btn btn-ghost" href="${waLink(whatsappText(card))}" target="_blank" rel="noopener">${icon('message', 'sm')}${T.actions.whatsapp}</a>` : ''}<a class="btn btn-ghost btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil', 'sm')}</a>`;
+  const actions = `<button class="btn btn-primary" data-action="move-open" data-card="${card.id}">${icon('arrow-right', 'sm')}${T.actions.move}</button>${meeting ? `<a class="btn btn-ghost" ${waAttrs(whatsappText(card))}>${icon('message', 'sm')}${T.actions.whatsapp}</a>` : ''}<a class="btn btn-ghost btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil', 'sm')}</a>`;
   const back = meeting ? '/agenda' : `/pipelines/${pl.slug}`;
   return { fab: false, nav: meeting ? 'agenda' : 'pipeline:' + pl.slug, title: card.title, html: `
     ${Topbar({ title: kindLabel(card), back, actions: `<a class="btn btn-quiet btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil')}</a>` })}
@@ -1336,13 +1344,12 @@ function screenPipeline(slug, params) {
   const memberSel = `<select class="select" style="width:auto;min-height:40px" aria-label="${T.actions.filter}" data-action-change="nav" data-href="/pipelines/${pl.slug}?member="><option value="">${T.all}</option>${DB.profiles.map((p) => `<option value="${p.id}" ${member === p.id ? 'selected' : ''}>${esc(p.full_name.split(' ')[0])}</option>`).join('')}</select>`;
   const sub = pl.kind === 'sales' ? `<span class="num">${fmtMoney(openValue)}</span> em aberto` : `${all.length} ${all.length === 1 ? 'cartão' : 'cartões'}`;
   return { nav: 'pipeline:' + pl.slug, title: pl.name, html: `
-    ${Topbar({ title: T.nav.pipelines, actions: `<a class="btn btn-quiet btn-icon" href="#/cards/new?pipeline=${pl.slug}" aria-label="${T.actions.newCard[pl.kind]}">${icon('plus')}</a>` })}
+    ${Topbar({ title: pl.name, actions: `<a class="btn btn-quiet btn-icon" href="#/cards/new?pipeline=${pl.slug}" aria-label="${T.actions.newCard[pl.kind]}">${icon('plus')}</a>` })}
     <div class="page" style="max-width:none">
       <div class="page-head only-desktop"><div><div class="caption">${T.nav.pipelines} · ${sub}</div><h1 class="h-display">${esc(pl.name)}</h1></div><div class="page-actions">${memberSel}<a class="btn btn-ghost btn-icon" href="#/settings/pipelines/${pl.slug}" aria-label="${T.nav.settings}">${icon('settings')}</a><a class="btn btn-primary" href="#/cards/new?pipeline=${pl.slug}">${icon('plus')}${T.actions.newCard[pl.kind]}</a></div></div>
       ${switcher}
-      <div class="only-phone caption" style="margin:0 0 10px">${sub}</div>
-      ${segmented}
-      <div class="kanban" style="margin-top:10px">${stages.map(col).join('')}</div>
+      <div class="stage-switch">${segmented}</div>
+      <div class="kanban">${stages.map(col).join('')}</div>
     </div>` };
 }
 
@@ -1445,7 +1452,7 @@ function screenMinutes(id) {
     <div class="page" style="max-width:820px">
       <div class="page-actions" style="justify-content:flex-end;padding:8px 0 12px;flex-wrap:wrap">
         ${canConclude ? `<button class="btn btn-ghost" data-action="conclude" data-card="${card.id}">${icon('check', 'sm')}${T.actions.conclude}</button>` : ''}
-        <a class="btn btn-ghost" href="${waLink(whatsappMinutesText(m))}" target="_blank" rel="noopener">${icon('message', 'sm')}${T.actions.whatsapp}</a>
+        <a class="btn btn-ghost" ${waAttrs(whatsappMinutesText(m))}>${icon('message', 'sm')}${T.actions.whatsapp}</a>
         ${EMBED ? '' : `<a class="btn btn-ghost" href="#/atas/${m.id}/print">${icon('printer', 'sm')}${T.actions.print}</a>`}
         ${m.status === 'draft' ? `<a class="btn btn-primary" href="#/atas/${m.id}/edit">${icon('pencil', 'sm')}Continuar a escrever</a>` : `<a class="btn btn-quiet only-desktop" href="#/atas/${m.id}/edit">${T.actions.edit}</a>`}
       </div>
