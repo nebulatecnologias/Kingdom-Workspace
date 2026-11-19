@@ -1,30 +1,36 @@
 ---
 name: Kingdom Ops
-description: A pocket operations board in grey, black and white, where an 8 px dot is the only colour.
+description: A pocket operations board on a pale grey-green ground with white cards, Google Sans, and one lime accent for the primary action, selection and the hero card; status reads from 8 px dots.
 colors:
-  ground: "#ffffff"
-  canvas: "#f3f4f6"
-  card: "#f4f4f5"
-  card-2: "#ebebed"
-  surface: "#ffffff"
-  sunken: "#f9fafb"
-  line: "#e5e7eb"
-  line-strong: "#d1d5db"
-  ink: "#111827"
-  ink-2: "#374151"
-  muted: "#5b6370"
-  faint: "#8b919c"
-  inverted: "#111827"
-  inverted-hover: "#1f2937"
+  ground: "#f4f6ef"
+  canvas: "#eceff5"
+  card: "#ffffff"
+  card-2: "#f3f5ee"
+  surface: "#f2f5ec"
+  sunken: "#f7f8f3"
+  line: "#e4e8dc"
+  line-strong: "#cfd6c3"
+  ink: "#141a0f"
+  ink-2: "#353d2c"
+  muted: "#5f6a57"
+  faint: "#8d9684"
+  inverted: "#141a0f"
+  inverted-hover: "#26301c"
   on-inverted: "#ffffff"
-  inverted-muted: "#a1a7b3"
-  inverted-line: "#374151"
-  tone-neutral: "#9ca3af"
+  inverted-muted: "#a3ab9a"
+  inverted-line: "#3a4331"
+  tone-neutral: "#a3ab9a"
   tone-info: "#2f6fcf"
-  tone-warning: "#b7791f"
+  tone-warning: "#c0871c"
   tone-danger: "#c0392b"
-  tone-success: "#2f855a"
-  selection: "#d1d5db"
+  tone-success: "#4f9a12"
+  selection: "#dff7a3"
+  panel: "#fafbf7"
+  accent: "#c9f243"
+  accent-2: "#b9e62f"
+  accent-soft: "#edfbcb"
+  accent-ink: "#1b2a0c"
+  accent-deep: "#6f9d12"
 typography:
   display:
     fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
@@ -288,6 +294,9 @@ components:
     rounded: "{rounded.md}"
     padding: "12px 14px"
 ---
+
+> **Palette update (19 Nov 2026).** The owner pinned the "spotbank" reference: the system now runs on a pale grey-green ground (`ground`, `panel`), white cards with a soft shadow (`card`, `shadow-card`), and a lime accent (`accent` #c9f243 with `accent-ink` text, `accent-2` hover, `accent-soft` tint, `accent-deep` for icons and dots, and the `hero` gradient). The accent carries the primary button, the "+" FAB, the active tab/nav/chip, the selected day, bar fills, checked toggles and the "A seguir" card. The tab bar stays dark glass; status still reads from the 8 px dots plus text. Where the text below says "grey, black and white" or "black" for a primary action, read "lime accent on dark ink".
+
 
 # Design System: Kingdom Ops
 

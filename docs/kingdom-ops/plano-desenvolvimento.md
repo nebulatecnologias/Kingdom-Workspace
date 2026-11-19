@@ -19,7 +19,7 @@ Referências:
 |---|---|---|
 | 1 | Nome e pasta | **Kingdom Ops**, em `ops/`. |
 | 2 | Fonte | **Google Sans** em todo o app, via `next/font` (decisão do dono a 19/11; igual aos outros produtos Kingdom). |
-| 3 | Cor | Escala cinza do Cal.com. Estados só com **ponto de 8 px** (cinza / azul / âmbar / vermelho / verde dessaturados) + texto. Mais nada colorido. |
+| 3 | Cor | **Paleta Spotbank (decisão do dono a 19/11):** fundo cinza-esverdeado claro (`#f4f6ef`), cartões brancos com sombra suave, tinta escura (`#141a0f`) e **lima** (`#c9f243`, texto `#1b2a0c`) como única cor de destaque: botão primário, "+", separador/menu/chip ativo, dia selecionado, barras, interruptores e o cartão "A seguir" (gradiente lima). Estados continuam em **pontos de 8 px** + texto. Tokens em `ops/DESIGN.md`. |
 | 4 | Quem vê o quê | **Toda a equipa vê tudo; a agenda e os pipelines filtram-se por pessoa.** Perfis `admin` e `member`. |
 | 5 | Contas | O admin cria utilizadores com `npm run user:create` no MVP; convites por email na fase 2. Entrar com email + palavra-passe. |
 | 6 | Idioma | **Só pt-PT**, sem next-intl. Os textos vêm do objeto `T` em `ops/prototype/src/app.js`. |
@@ -176,9 +176,9 @@ Uma única consulta SQL (view `dashboard_summary`) para não multiplicar chamada
 
 ## 8. Design e protótipo (feito)
 
-**Direção:** Operate mode (Impeccable). Cinza, preto e branco; superfícies brancas com borda `gray-200` e raio 12–16 px sobre canvas `gray-50/100`; texto `gray-900` / `gray-600` / `gray-400`; botão primário preto, pill; foco em anel `gray-900`. Hierarquia por peso e espaço, não por cor. Estados: ponto 8 px (verde `#15803d`, âmbar `#b45309`, vermelho `#b91c1c`, azul `#1d4ed8`) + rótulo; nada mais colorido. Modo escuro: `gray-950` canvas, `gray-900` superfícies (barato de incluir nos tokens; ligar se sobrar tempo).
+**Direção (final):** Operate mode (Impeccable). Fundo cinza-esverdeado claro, cartões brancos sem bordas com sombra suave e raio 20 px, tiles circulares; lima como única cor de destaque (botão primário, "+", seleções, barras, cartão "A seguir"); botões em pílula com sombra suave; vidro (desfoque translúcido) na barra de separadores escura, barra superior, seletor de etapas, folha e avisos; estados em pontos de 8 px + rótulo. Modo escuro existe nos tokens mas não foi revisto (artefacto publicado só em claro).
 
-**Tokens iniciais** (a afinar com o Skill UI): `canvas #f3f4f6`, `surface #ffffff`, `sunken #f9fafb`, `line #e5e7eb`, `line-strong #d1d5db`, `ink #111827`, `ink-2 #374151`, `muted #6b7280`, `faint #9ca3af`, `inverted #111827`, `on-inverted #ffffff`. Tipografia Google Sans: display 26/1.15/-0.02em 600, title 17/1.3 600, body 15/1.5 400, label 13.5 500, caption 12.5 400.
+**Tokens** (versão final em `ops/DESIGN.md`): `ground #f4f6ef`, `panel #fafbf7`, `card #ffffff`, `surface #f2f5ec`, `line #e4e8dc`, `ink #141a0f`, `muted #5f6a57`, `accent #c9f243`, `accent-ink #1b2a0c`, `accent-soft #edfbcb`, `accent-deep #6f9d12`, `hero` (gradiente lima). Tipografia Google Sans: display 26/1.15/-0.02em 600, title 17/1.3 600, body 15/1.5 400, label 13.5 500, caption 12.5 400.
 
 **O que foi feito:**
 1. Skill UI: o proxy da sessão bloqueia o cal.com, por isso não houve extração automática; a paleta é a escala cinza do Cal.com (tokens acima), confirmada contra a captura enviada.

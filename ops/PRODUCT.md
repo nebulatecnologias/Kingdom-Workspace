@@ -43,7 +43,7 @@ Not a generic CRM and not a calendar: a lightweight operations board built aroun
 ## Brand Commitments
 
 - Name: **Kingdom Ops** (working name).
-- Palette: grey, black and white only, following the Cal.com app (grey-50/100 canvas, white surfaces, grey-200 lines, grey-900 ink, black pill primary button). Status is shown by an 8 px dot (green / amber / red / blue, desaturated) plus a label; nothing else is coloured.
+- Palette (owner's decision, 19 Nov 2026, "spotbank" reference): pale grey-green ground, white cards with a soft shadow, dark ink, and a single lime accent (#c9f243 with dark text) for the primary action, the "+" button, selection and the "A seguir" hero card. Status is shown by an 8 px dot (green / amber / red / blue) plus a label.
 - Typeface: **Google Sans** across the whole app (the owner's decision, 19 Nov 2026; the same face as the other Kingdom products), tight tracking on titles.
 - References pinned by the owner: Cal.com app shell; "Good morning" week-strip home; "Journey" day timeline; team app with avatar row and greeting; the Spotbank dashboard for card structure only (not its green).
 - Voice: direct, warm, short labels in pt-PT ("Bom dia, Ana", "Nenhuma ata ainda").
@@ -58,7 +58,7 @@ Not a generic CRM and not a calendar: a lightweight operations board built aroun
 2. A meeting moves with one gesture; the pipeline never asks for more than the stage rule needs.
 3. Minutes are born from a meeting, never orphaned, and are shareable the moment they are final.
 4. One pipeline engine for everything; templates, not new code, add a board.
-5. Grey, black and white: hierarchy by weight and space, not by colour.
+5. One accent: lime marks the action and the selection; everything else is white, pale grey-green and dark ink, with status in dots.
 
 ## Accessibility & Inclusion
 
