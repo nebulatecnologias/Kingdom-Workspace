@@ -10,8 +10,8 @@ import { T } from "@/lib/texts";
 import type { Stage } from "@/lib/types";
 
 /** "Mover para": stage stepper in a glass bottom sheet (dialog on desktop), with inline fields for stage rules. */
-export function MoveSheet({ cardId, current, stages, onClose, onMoved }: { cardId: string; current: string; stages: Stage[]; onClose: () => void; onMoved?: (stageId: string) => void }) {
-  const [chosen, setChosen] = useState<string | null>(null);
+export function MoveSheet({ cardId, current, stages, onClose, onMoved, initial, position }: { cardId: string; current: string; stages: Stage[]; onClose: () => void; onMoved?: (stageId: string) => void; initial?: string; position?: number | null }) {
+  const [chosen, setChosen] = useState<string | null>(initial ?? null);
   const [note, setNote] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -32,7 +32,7 @@ export function MoveSheet({ cardId, current, stages, onClose, onMoved }: { cardI
     if (target.requires_note && !note.trim()) return setErr({ text: "Escreva o motivo.", field: "note" });
     if (target.requires_reschedule && !date) return setErr({ text: "Escolha a nova data.", field: "date" });
     start(async () => {
-      const res = await moveCard({ cardId, stageId: target.id, note, date, time });
+      const res = await moveCard({ cardId, stageId: target.id, position: position ?? null, note, date, time });
       if (!res.ok) return setErr({ text: res.error, field: res.field });
       toast(`${T.toast.moved} ${target.name}`);
       onMoved?.(target.id);

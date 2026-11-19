@@ -55,3 +55,6 @@ export const firstName = (name: string) => name.split(" ")[0];
 export const localTime = (iso: string) => fmtTime(iso);
 /** Maputo wall-clock date + time -> ISO instant. */
 export const toIso = (date: string, time?: string | null) => new Date(`${date}T${time || "00:00"}:00${OFFSET}`).toISOString();
+
+/** Current time, kept out of render code (React purity lint). */
+export const nowMs = () => Date.now();

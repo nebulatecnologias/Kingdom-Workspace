@@ -631,3 +631,7 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .tabs .tab-link { flex: 1; height: var(--tap); padding: 0 14px; border-radius: var(--r-pill); font-size: 14px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: background .15s, color .15s; }
 .tabs .tab-link.is-active { background: var(--card); color: var(--ink); box-shadow: var(--shadow-card); }
 .stepper button:disabled { cursor: default; }
+
+/* The prototype's .inline (flex row) clashes with Tailwind's `inline` utility, which sits in a later layer.
+   Unlayered rules win over every layer, so restate it here. */
+.inline { display: flex; align-items: center; gap: 8px; }
