@@ -6,7 +6,7 @@ import type { Pipeline, Profile, Stage } from "@/lib/types";
 
 export const PROFILE_COLS = "id, full_name, role, job_title, phone_whatsapp, avatar_url, color, active";
 export const CARD_COLS =
-  "id, pipeline_id, stage_id, title, owner_id, starts_at, ends_at, all_day, location_kind, location, contact_name, contact_role, contact_phone, contact_email, company_name, company_tax_id, company_sector, value_cents, due_at, description, position, stage_changed_at, created_at, archived_at";
+  "id, pipeline_id, stage_id, title, owner_id, starts_at, ends_at, all_day, location_kind, location, contact_name, contact_role, contact_phone, contact_email, company_name, company_tax_id, company_sector, value_cents, due_at, description, fields, position, stage_changed_at, created_at, archived_at";
 
 /** Team, pipelines and stages: small, read on almost every page. Cached per request. */
 export const getBase = cache(async () => {

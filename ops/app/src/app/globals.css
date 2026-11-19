@@ -627,3 +627,7 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .row-link { display: contents; }
 .form-error { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--ink); font-weight: 500; }
 .form-error::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--tone-danger); flex: none; }
+/* card page tabs as links (same look as .tabs button) */
+.tabs .tab-link { flex: 1; height: var(--tap); padding: 0 14px; border-radius: var(--r-pill); font-size: 14px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: background .15s, color .15s; }
+.tabs .tab-link.is-active { background: var(--card); color: var(--ink); box-shadow: var(--shadow-card); }
+.stepper button:disabled { cursor: default; }

@@ -50,6 +50,7 @@ export type Card = {
   value_cents: number | null;
   due_at: string | null;
   description: string | null;
+  fields: Record<string, unknown> | null;
   position: number;
   stage_changed_at: string;
   created_at: string;
