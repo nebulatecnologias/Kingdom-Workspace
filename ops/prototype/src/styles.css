@@ -10,7 +10,7 @@
   color-scheme: light;
   /* surfaces */
   --ground: #f4f6ef;        /* page ground (phone) */
-  --canvas: #eef1e8;        /* desktop frame behind the panel (pale grey-green, never blue) */
+  --canvas: #f4f6ef;        /* desktop frame behind the panel: the same colour as the app ground */
   --panel: #fafbf7;         /* desktop panel */
   --card: #ffffff;          /* white card on the pale ground */
   --card-2: #f3f5ee;        /* card hover / pressed */

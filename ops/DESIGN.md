@@ -3,7 +3,7 @@ name: Kingdom Ops
 description: A pocket operations board on a pale grey-green ground with white cards, Google Sans, and one lime accent for the primary action, selection and the hero card; status reads from 8 px dots.
 colors:
   ground: "#f4f6ef"
-  canvas: "#eef1e8"
+  canvas: "#f4f6ef"
   card: "#ffffff"
   card-2: "#f3f5ee"
   surface: "#f2f5ec"
