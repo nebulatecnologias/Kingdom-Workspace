@@ -295,7 +295,7 @@ components:
     padding: "12px 14px"
 ---
 
-> **Palette update (19 Nov 2026).** The owner pinned the "spotbank" reference: the system now runs on a pale grey-green ground (`ground`, `panel`), white cards with a soft shadow (`card`, `shadow-card`), and a lime accent (`accent` #c9f243 with `accent-ink` text, `accent-2` hover, `accent-soft` tint, `accent-deep` for icons and dots, and the `hero` gradient). The desktop sidebar is white (`card`) on the pale grey-green frame (`canvas`). The accent carries the primary button, the "+" FAB, the active tab/nav/chip, the selected day, bar fills, checked toggles and the "A seguir" card. The tab bar stays dark glass; status still reads from the 8 px dots plus text. Where the text below says "grey, black and white" or "black" for a primary action, read "lime accent on dark ink".
+> **Palette update (19 Nov 2026).** The owner pinned the "spotbank" reference: the system now runs on a pale grey-green ground (`ground`, `panel`), white cards with a soft shadow (`card`, `shadow-card`), and a lime accent (`accent` #c9f243 with `accent-ink` text, `accent-2` hover, `accent-soft` tint, `accent-deep` for icons and dots, and the `hero` gradient). The desktop sidebar sits directly on the pale grey-green ground (`ground` #f4f6ef, the same as `canvas`); only the active item (lime pill) and the white panel stand out from it. The accent carries the primary button, the "+" FAB, the active tab/nav/chip, the selected day, bar fills, checked toggles and the "A seguir" card. The tab bar stays dark glass; status still reads from the 8 px dots plus text. Where the text below says "grey, black and white" or "black" for a primary action, read "lime accent on dark ink".
 
 
 # Design System: Kingdom Ops
