@@ -195,10 +195,18 @@ Uma única consulta SQL (view `dashboard_summary`) para não multiplicar chamada
 
 ## 9. Plano das 5 horas (Opus 5.5)
 
-Pré-requisitos antes de começar o relógio: protótipo aprovado (feito), `ops/DESIGN.md` (feito), projeto Supabase criado (URL + chaves), projeto Vercel ligado ao repositório com root `ops/app`, lista da equipa (nome, função, email, WhatsApp de contacto).
+Pré-requisitos antes de começar o relógio: protótipo aprovado (feito), `ops/DESIGN.md` (feito), projeto Supabase criado (feito, ver infraestrutura abaixo) (URL + chaves), projeto Vercel ligado ao repositório com root `ops/app`, lista da equipa (nome, função, email, WhatsApp de contacto).
 
 | Bloco | Tempo | Entrega | Aceita-se quando |
 |---|---|---|---|
+**Infraestrutura criada a 19/11/2026:**
+
+| Serviço | Dados |
+|---|---|
+| Supabase | Projeto **Kingdom Ops**, organização Nebula Tecnologias, ref `swisxnploerhnqymdheb`, URL `https://swisxnploerhnqymdheb.supabase.co`, região `eu-west-1`, Postgres 17. A palavra-passe da base de dados repõe-se em Project Settings → Database. |
+| Vercel | Projeto **kingdom-ops** (equipa Nebula Tecnologias), ligado a `nebulatecnologias/Kingdom-Workspace`, framework Next.js, funções em `cpt1`, previews protegidos por login da Vercel. **Enquanto `ops/app` não existe**, o projeto está com root na raiz do repositório e com o comando de ignorar build `exit 0`, para não falhar em cada commit. **No bloco 0, o Opus define root `ops/app` e remove o comando de ignorar build** (Vercel MCP `update_project` com `rootDirectory: "ops/app"` e `commandForIgnoringBuildStep: null`, ou nas definições do projeto). |
+| Variáveis no Vercel | `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY` definidas em produção, preview e desenvolvimento. **Falta** `SUPABASE_SERVICE_ROLE_KEY` (o dono copia de Supabase → Project Settings → API keys → service_role e adiciona no Vercel; nunca em texto no chat). |
+
 | **0. Fundação** | 0:00–0:40 | `ops/app` a partir do esqueleto de `members/app` sem gateway/emails/i18n; tokens e fonte de `ops/DESIGN.md`; `AppShell` (sidebar + tab bar) do protótipo; migração `0001_schema.sql` (secção 3) + RLS + triggers + `move_card` + `create_pipeline_from_template`; `seed.sql` gerado de `ops/prototype/src/data.js` (5 pipelines, 4 perfis, 32 cartões, 2 atas); login; script `user:create` | Entro no preview em 390 e 1440 e vejo o shell com a agenda vazia. |
 | **1. Agenda + reunião** | 0:40–1:40 | Faixa semanal, lista do dia, filtro por pessoa; formulário criar/editar (zod + Server Action); página do cartão com dados, etapa e histórico | Crio uma reunião no telemóvel, aparece na agenda do dia certo e em "Agendado". |
 | **2. Pipeline** | 1:40–2:30 | Kanban com dnd-kit no desktop; segmentado + "Mover para" no telemóvel (folha com stepper, campos inline para nova data / motivo, igual ao protótipo); histórico atualizado; mesmo componente para os 5 pipelines; seletor de pipeline em chips | Movo um cartão nos dois dispositivos; recarregar mantém; o histórico mostra quem e quando. |
@@ -258,9 +266,9 @@ COMO TRABALHAR:
 - Se um bloco passar 15 minutos do limite, aplica a ordem de corte da secção 1 e diz-me o que cortaste. Não acrescentes funcionalidades fora da secção 1.
 - Reporta em português: o que mudou para mim, o que verificaste (testes, capturas 390 e 1440), o que decidiste por mim e o que fica para eu fazer.
 
-CREDENCIAIS E DADOS (colar antes de iniciar):
-- Supabase: URL, anon key, service role key: [colar aqui]
-- Vercel: projeto ligado ao repositório com root ops/app: [confirmar]
+INFRAESTRUTURA (já criada; ver secção 9 do plano):
+- Supabase: projeto "Kingdom Ops", ref swisxnploerhnqymdheb, URL https://swisxnploerhnqymdheb.supabase.co, região eu-west-1. Usa o MCP do Supabase para aplicar migrações a este projeto.
+- Vercel: projeto kingdom-ops (equipa Nebula Tecnologias), ligado ao repositório, região cpt1. Está temporariamente com root na raiz e com o comando de ignorar build `exit 0`: no bloco 0, assim que ops/app existir no ramo, define rootDirectory "ops/app" e remove o comando de ignorar build (Vercel MCP update_project). NEXT_PUBLIC_SUPABASE_URL e NEXT_PUBLIC_SUPABASE_ANON_KEY já definidos; SUPABASE_SERVICE_ROLE_KEY é adicionada pelo dono nas variáveis do Vercel. Nunca imprimas chaves no chat.
 - Equipa inicial (nome, função, email, WhatsApp de contacto): [colar aqui]
 
 Começa pelo bloco 0: copia o esqueleto de members/app para ops/app, remove gateway, emails e i18n, aplica os tokens de ops/DESIGN.md e a Google Sans, escreve a migração 0001 com o modelo da secção 3 (profiles, pipelines, pipeline_stages, cards, card_participants, card_activity, minutes, RLS, triggers, move_card, create_pipeline_from_template) e o seed a partir de data.js.
