@@ -323,7 +323,7 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .pipeline-switch::-webkit-scrollbar { display: none; }
 .segmented { display: flex; gap: 4px; padding: 2px; background: var(--card); border-radius: 14px; overflow-x: auto; scrollbar-width: none; }
 .segmented::-webkit-scrollbar { display: none; }
-.segmented button { flex: 1 0 auto; height: calc(var(--tap) - 4px); padding: 0 12px; border-radius: 11px; font-size: 13px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; transition: background .15s, color .15s; }
+.segmented button { flex: 1 0 auto; height: var(--tap); padding: 0 12px; border-radius: 11px; font-size: 13px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; transition: background .15s, color .15s; }
 .segmented button .n { font-variant-numeric: tabular-nums; color: var(--muted); }
 .segmented button.is-active { background: var(--surface); color: var(--ink); }
 .kanban { display: flex; flex-direction: column; gap: 8px; }
@@ -389,7 +389,7 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 
 /* ---------- tabs (segmented, same vocabulary as the stage switch) ---------- */
 .tabs { display: flex; gap: 4px; padding: 2px; background: var(--card); border-radius: 14px; margin-bottom: 14px; }
-.tabs button { flex: 1; height: calc(var(--tap) - 4px); padding: 0 12px; border-radius: 11px; font-size: 14px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: background .15s, color .15s; }
+.tabs button { flex: 1; height: var(--tap); padding: 0 12px; border-radius: 11px; font-size: 14px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: background .15s, color .15s; }
 .tabs button.is-active { background: var(--surface); color: var(--ink); }
 .tabs .n { font-size: 11.5px; font-weight: 600; background: var(--card); border-radius: var(--r-pill); padding: 1px 7px; color: var(--ink-2); }
 
@@ -547,7 +547,6 @@ body.preview .app .app-scroll { border-radius: 36px; }
   .card-item .avatar { background: var(--card); }
   .segmented { display: none; }
   .segmented.always { display: inline-flex; }
-  .segmented button { height: 34px; }
   .tabs { display: inline-flex; }
   .field-row-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .field-row-3 > :first-child { grid-column: auto; }
@@ -960,7 +959,7 @@ function render() {
   if (!out) out = screenHome();
   const root = document.getElementById('root');
   root.innerHTML = out.bare ? `<div class="app"><div class="app-scroll">${out.html}</div>${Overlay()}<div class="toasts" id="toasts" aria-live="polite"></div></div>`
-    : `<div class="app"><div class="app-scroll"><div class="shell">${Sidebar(out.nav)}<main class="main"><div class="panel">${out.html}</div></main></div>${Tabbar(out.nav)}</div>${Overlay()}<div class="toasts" id="toasts" aria-live="polite"></div></div>`;
+    : `<div class="app"><div class="app-scroll"><div class="shell">${Sidebar(out.nav)}<main class="main"><div class="panel">${out.html}</div></main></div>${Tabbar(out.nav, out.fab !== false)}</div>${Overlay()}<div class="toasts" id="toasts" aria-live="polite"></div></div>`;
   const s = document.querySelector('.app-scroll');
   if (s) s.scrollTop = scrollTop;
   renderProtoTools();
@@ -991,14 +990,14 @@ function Sidebar(active) {
     </div>
   </aside>`;
 }
-function Tabbar(active) {
+function Tabbar(active, fab = true) {
   const tab = (href, ico, label, key) => `<a class="tab ${active === key || (key === 'pipeline' && String(active).startsWith('pipeline')) ? 'is-active' : ''}" href="#${href}" aria-current="${active === key ? 'page' : 'false'}">${icon(ico)}<span>${label}</span></a>`;
   return `<div class="tabbar-wrap"><nav class="tabbar" aria-label="Principal">
     ${tab('/', 'home', T.nav.home, 'home')}
     ${tab('/agenda', 'calendar', T.nav.agenda, 'agenda')}
     ${tab('/pipelines/reunioes', 'kanban', T.nav.pipeline, 'pipeline')}
     ${tab('/atas', 'file-text', T.nav.minutes, 'minutes')}
-  </nav><a class="fab" href="#/cards/new?pipeline=reunioes" aria-label="${T.actions.newMeeting}">${icon('plus')}</a></div>`;
+  </nav>${fab ? `<a class="fab" href="#/cards/new?pipeline=reunioes" aria-label="${T.actions.newMeeting}">${icon('plus')}</a>` : ''}</div>`;
 }
 function Topbar({ title, back, actions = '' }) {
   return `<header class="topbar">
@@ -1259,7 +1258,7 @@ function screenCardForm(id, params) {
       </div>`;
   }
   const back = existing ? `/cards/${existing.id}` : (pl.kind === 'meetings' ? '/agenda' : `/pipelines/${pl.slug}`);
-  return { nav: pl.kind === 'meetings' ? 'agenda' : 'pipeline:' + pl.slug, title, html: `
+  return { fab: false, nav: pl.kind === 'meetings' ? 'agenda' : 'pipeline:' + pl.slug, title, html: `
     ${Topbar({ title, back })}
     <div class="page" style="max-width:720px">
       ${PageHead(title, `<a class="btn btn-quiet" href="#${back}">${T.actions.cancel}</a>`, pl.name).replace('class="page-head"', 'class="page-head only-desktop"')}
@@ -1304,7 +1303,7 @@ function screenCard(id, params) {
   const tabs = `<div class="tabs" role="tablist"><button role="tab" class="${tab === 'details' ? 'is-active' : ''}" data-action="tab" data-tab="details">Detalhes</button>${meeting ? `<button role="tab" class="${tab === 'ata' ? 'is-active' : ''}" data-action="tab" data-tab="ata">${T.minutes.one}${m ? `<span class="n">${m.status === 'final' ? 'final' : 'rascunho'}</span>` : ''}</button>` : ''}<button role="tab" class="${tab === 'history' ? 'is-active' : ''}" data-action="tab" data-tab="history">Histórico<span class="n num">${acts.length}</span></button></div>`;
   const actions = `<button class="btn btn-primary" data-action="move-open" data-card="${card.id}">${icon('arrow-right', 'sm')}${T.actions.move}</button>${meeting ? `<a class="btn btn-ghost" href="${waLink(whatsappText(card))}" target="_blank" rel="noopener">${icon('message', 'sm')}${T.actions.whatsapp}</a>` : ''}<a class="btn btn-ghost btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil', 'sm')}</a>`;
   const back = meeting ? '/agenda' : `/pipelines/${pl.slug}`;
-  return { nav: meeting ? 'agenda' : 'pipeline:' + pl.slug, title: card.title, html: `
+  return { fab: false, nav: meeting ? 'agenda' : 'pipeline:' + pl.slug, title: card.title, html: `
     ${Topbar({ title: kindLabel(card), back, actions: `<a class="btn btn-quiet btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil')}</a>` })}
     <div class="page" style="max-width:860px">
       <div class="page-head" style="padding-top:8px;align-items:flex-start;flex-direction:column;gap:12px">
@@ -1411,7 +1410,7 @@ function screenMinutesForm(id, params) {
         <div class="form-foot"><button class="btn btn-ghost" type="submit" data-status="draft">${T.actions.saveDraft}</button><button class="btn btn-primary" type="submit" data-status="final">${T.actions.finalize}</button></div>
       </form>
     </div>`;
-  return { nav: 'minutes', title, html };
+  return { fab: false, nav: 'minutes', title, html };
 }
 
 function MinutesDoc(m) {
@@ -1441,7 +1440,7 @@ function screenMinutes(id) {
   if (!m) return { nav: 'minutes', title: '', html: `<div class="page">${Empty('alert', 'Ata não encontrada', '')}</div>` };
   const card = find('cards', m.card_id);
   const canConclude = m.status === 'final' && !stage(card.stage_id).is_done;
-  return { nav: 'minutes', title: m.title, html: `
+  return { fab: false, nav: 'minutes', title: m.title, html: `
     ${Topbar({ title: T.minutes.one, back: '/atas', actions: `<a class="btn btn-quiet btn-icon" href="#/atas/${m.id}/edit" aria-label="${T.actions.edit}">${icon('pencil')}</a>` })}
     <div class="page" style="max-width:820px">
       <div class="page-actions" style="justify-content:flex-end;padding:8px 0 12px;flex-wrap:wrap">
@@ -1478,7 +1477,7 @@ function screenPipelineSettings(slug) {
   const d = state.draft;
   const tones = [['neutral', 'Cinza'], ['info', 'Azul'], ['warning', 'Âmbar'], ['danger', 'Vermelho'], ['success', 'Verde']];
   const row = (s, i) => `<div class="repeat-row" style="grid-template-columns:auto 1fr auto;align-items:center"><span class="muted">${icon('grip', 'sm')}</span><div class="fields cols-2"><div class="inline"><span class="dot ${s.tone}"></span><input class="input" data-bind="stages.${i}.name" value="${esc(s.name)}" aria-label="Nome da etapa"></div><select class="select" data-bind="stages.${i}.tone" aria-label="Cor">${tones.map(([v, l]) => `<option value="${v}" ${s.tone === v ? 'selected' : ''}>${l}</option>`).join('')}</select><div class="inline" style="flex-wrap:wrap;grid-column:1/-1;gap:14px"><label class="check"><input type="checkbox" data-bind="stages.${i}.is_done" ${s.is_done ? 'checked' : ''}>Conta como concluído</label><label class="check"><input type="checkbox" data-bind="stages.${i}.is_lost" ${s.is_lost ? 'checked' : ''}>Conta como perdido</label><label class="check"><input type="checkbox" data-bind="stages.${i}.requires_note" ${s.requires_note ? 'checked' : ''}>Pede motivo</label><label class="check"><input type="checkbox" data-bind="stages.${i}.requires_reschedule" ${s.requires_reschedule ? 'checked' : ''}>Pede nova data</label></div></div><button type="button" class="btn btn-quiet btn-icon btn-sm" data-action="row-remove" data-list="stages" data-index="${i}" aria-label="${T.actions.remove}">${icon('x', 'sm')}</button></div>`;
-  return { nav: 'settings', title: T.nav.settings, html: `
+  return { fab: false, nav: 'settings', title: T.nav.settings, html: `
     ${Topbar({ title: T.nav.settings, back: '/team' })}
     <div class="page" style="max-width:760px">
       ${PageHead(`Etapas · ${pl.name}`, '', T.nav.settings).replace('class="page-head"', 'class="page-head only-desktop"')}
