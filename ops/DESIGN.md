@@ -64,7 +64,7 @@ typography:
     fontFeature: "cv11, ss01"
   body-sm:
     fontFamily: "Google Sans, Product Sans, Segoe UI, Roboto, system-ui, sans-serif"
-    fontSize: "14px"
+    fontSize: "999px"
     fontWeight: 400
     lineHeight: 1.5
   label:
@@ -94,7 +94,7 @@ rounded:
   xl: "24px"
   lg: "20px"
   md: "16px"
-  btn: "14px"
+  btn: "999px"
   sm: "12px"
   inner: "11px"
   check: "7px"
@@ -291,6 +291,10 @@ components:
 
 # Design System: Kingdom Ops
 
+## Glass surfaces
+
+The floating tab bar (dark glass, `--glass-dark` + `--glass-blur`), the phone top bar, the sticky stage switch (`--glass-light`), the sheet, the toasts and the prototype menu use a translucent background with a backdrop blur. Everything else stays opaque: cards, panels and inputs never blur. Buttons are full pills (`--r-btn: 999px`, icon buttons are circles) with the soft `--shadow-btn`.
+
 ## Overview
 
 **Creative North Star: "The Pocket Ops Board"**
@@ -408,7 +412,7 @@ The system is flat. Grey cards have no border and no shadow; depth is tonal (whi
 
 ### Buttons
 Buttons are quiet rectangles with 14 px corners, 14 px 500-weight text and 8 px icon gap. There is one black button per screen; the rest are grey.
-- **Shape:** 14 px radius, 44 px tall on the phone, 40 px on desktop, 16 px side padding. Large is 50 px / 16 px radius / 20 px padding (login). Small is 12 px radius with 12 px padding and 13 px text (36 px tall on desktop). Icon buttons are square at the tap size. Pressed scales to .985; disabled is 50 % opacity.
+- **Shape:** pill (999 px) radius, 44 px tall on the phone, 40 px on desktop, 16 px side padding. Large is 50 px / 16 px radius / 20 px padding (login). Small is 12 px radius with 12 px padding and 13 px text (36 px tall on desktop). Icon buttons are square at the tap size. Pressed scales to .985; disabled is 50 % opacity.
 - **Primary:** `inverted` with white text; hover `inverted-hover`. Used for "Nova reunião", "Criar", "Guardar", "Mover para", "Confirmar" and the login submit. Loading replaces the label with a 16 px white spinner.
 - **Ghost:** `card` grey with `ink` text; hover `card-2`. The standard secondary ("Cancelar", "Agenda", "Guardar rascunho"). On a grey card it may switch to `surface` (week nav, "+ Adicionar").
 - **Quiet:** transparent `ink-2`, hover `card`. Top-bar back and edit, inline links.
@@ -446,14 +450,14 @@ Buttons are quiet rectangles with 14 px corners, 14 px 500-weight text and 8 px 
 - **Phone tab bar:** a sticky 64 px grey pill (24 px radius, 6 px padding, Bar shadow) over a white fade. Four tabs (Início, Agenda, Pipeline, Atas) with 18 px lucide icons; the active tab grows (flex 2.1) into a white 18 px-radius chip showing icon and 13.5 px 600 label; inactive tabs are muted icons only. A separate 64 px black "+" FAB sits to the right. Transition .18 s on the project ease.
 - **Phone top bar:** 56 px, white, 44 px quiet icon buttons at both ends and a centred 16 px title.
 - **Desktop sidebar:** flat on the grey frame, 232 px, with 40 px items (12 px radius, 14 px 500 `ink-2`, 18 px icon, muted tabular count at the right). Hover `card-2`; active is a white chip with `ink` text and 2.1 stroke icons. The "Pipelines" group is an 11.5 px uppercase muted label followed by 34 px sub-items whose icon is a stage dot. The foot holds Definições and the user row (avatar, 13.5 px name, 12 px muted role).
-- **Tabs and segmented switches:** a 2 px-padded grey track (14 px radius) with 44 px options (11 px radius, 13-14 px 500 `muted`); the active option is a white chip with `ink` text. Used for the card page tabs (Detalhes · Ata · Histórico) and the phone's stage switch.
-- **Week strip:** seven columns of day chips (14 px radius, hover `card-2`), each with an 11 px uppercase day letter, a 36 px circle with the 15 px number and a 5 px mark under days with meetings. Today has a 1.5 px `line-strong` inset ring; the selected day is a black circle with white 600 text and a black mark. It sits inside a grey card with a month label, "Hoje" and two 36 px white arrow buttons.
+- **Tabs and segmented switches:** a 2 px-padded grey track (pill (999 px) radius) with 44 px options (11 px radius, 13-14 px 500 `muted`); the active option is a white chip with `ink` text. Used for the card page tabs (Detalhes · Ata · Histórico) and the phone's stage switch.
+- **Week strip:** seven columns of day chips (pill (999 px) radius, hover `card-2`), each with an 11 px uppercase day letter, a 36 px circle with the 15 px number and a 5 px mark under days with meetings. Today has a 1.5 px `line-strong` inset ring; the selected day is a black circle with white 600 text and a black mark. It sits inside a grey card with a month label, "Hoje" and two 36 px white arrow buttons.
 
 ### "A seguir" Card (signature)
 The one black card in the app, on Início. 24 px corners, 18 px padding, Lift shadow. A 13 px meta row ("A seguir · owner" left, "10:30 · em 45 min" right, time in white 600 tabular, the rest `inverted-muted`), the subject at 19 px 600, the "company · person, role" line at 14 px `inverted-muted`, a 13.5 px location line with a 16 px pin icon, and two full-width 44 px actions 8 px apart: ghost "WhatsApp" (white text, hairline border) and white "Abrir" with an arrow.
 
 ### "Mover para" Sheet (signature interaction)
-A bottom sheet (white, 28 px top corners, 36 × 4 px `line-strong` handle, Sheet shadow, rises 24 px in .24 s) over a 42 % ink overlay; on desktop it is a 440 px centred dialog with 24 px corners that pops in. It holds the vertical stage stepper: one 50 px row per stage (14 px radius, hover `card`) with a 22 px circular mark (1.5 px `line-strong` border), an 8 px tone dot, the 15 px stage name and a 12 px muted rule hint at the right ("atual", "pede nova data", "pede motivo"). The current stage is muted with a grey-filled mark; the chosen stage gets a black mark with a white tick. Choosing "Adiada" expands inline "Nova data" and "Hora" fields under the row (indented 42 px, grey inputs, fade in); "Cancelada" expands a reason field. The foot is ghost "Cancelar" and black "Confirmar"; on confirm the card's stage pill pulses to its new tone. Desktop also drags card items between columns, with the target column turning `card-2` behind a 2 px dashed outline.
+A bottom sheet (white, 28 px top corners, 36 × 4 px `line-strong` handle, Sheet shadow, rises 24 px in .24 s) over a 42 % ink overlay; on desktop it is a 440 px centred dialog with 24 px corners that pops in. It holds the vertical stage stepper: one 50 px row per stage (pill (999 px) radius, hover `card`) with a 22 px circular mark (1.5 px `line-strong` border), an 8 px tone dot, the 15 px stage name and a 12 px muted rule hint at the right ("atual", "pede nova data", "pede motivo"). The current stage is muted with a grey-filled mark; the chosen stage gets a black mark with a white tick. Choosing "Adiada" expands inline "Nova data" and "Hora" fields under the row (indented 42 px, grey inputs, fade in); "Cancelada" expands a reason field. The foot is ghost "Cancelar" and black "Confirmar"; on confirm the card's stage pill pulses to its new tone. Desktop also drags card items between columns, with the target column turning `card-2` behind a 2 px dashed outline.
 
 ### Activity (card history)
 28 px white circular icons joined by a 1 px `line-strong` vertical rule, 13.5 px "what" text, 12 px muted time, and an optional note in a 10 px-radius white box.

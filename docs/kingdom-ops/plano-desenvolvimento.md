@@ -29,6 +29,7 @@ Referências:
 | 10 | Vários escritórios | Não. Um escritório = uma base de dados. |
 | 11 | Payflow | Ignorado a pedido do dono; referências = Cal.com + imagens enviadas. |
 | 12 | Campos da ata | Os da secção 6, confirmados no protótipo (`blankMinutes` em `app.js`). |
+| 15 | Botões e vidro | Todos os botões são pílulas (raio 100 %; botões de ícone circulares) com sombra suave. Efeito de vidro (fundo translúcido + desfoque) na barra de separadores escura, na barra superior do telemóvel, no seletor de etapas fixo, na folha "Mover para" e nos avisos (referência do dono a 19/11). |
 | 14 | Ícones dos pipelines | Cada pipeline tem um ícone (`pipelines.icon`, nomes lucide): calendário, alvo, pasta, megafone, lista. Aparece na barra lateral, nos chips de pipeline, nas linhas da Operação e nos modelos. |
 | 13 | Início (dashboard) | Direção "painel de bolso": cartão preto **A seguir** (próxima reunião da equipa, com WhatsApp e Abrir), lista **Hoje**, lista **Operação** (uma linha por pipeline com contagens), e no desktop indicadores, barras por etapa e por pessoa, atas em falta. |
 
