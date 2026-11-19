@@ -24,14 +24,14 @@ Referências:
 | 5 | Contas | O admin cria utilizadores com `npm run user:create` no MVP; convites por email na fase 2. Entrar com email + palavra-passe. |
 | 6 | Idioma | **Só pt-PT**, sem next-intl. Os textos vêm do objeto `T` em `ops/prototype/src/app.js`. |
 | 7 | Hospedagem | **Vercel + novo projeto Supabase.** Domínio a indicar. |
-| 8 | WhatsApp | Botão "WhatsApp" na reunião e na ata. Não havia formato da equipa; o protótipo propõe um (função `whatsappText` / `whatsappMinutesText`): título, data e hora, local, pessoa, empresa, assunto, responsável, participantes internos. |
+| 8 | WhatsApp | **Sem botão de WhatsApp no app** (decisão do dono a 19/11). O número de WhatsApp fica só como contacto no perfil da pessoa e da equipa. |
 | 9 | Pipelines iniciais | O escritório gere **projetos, vendas, campanhas de marketing, tarefas e agendas**, por isso o seed traz cinco: **Reuniões** (Agendado → Em curso → Adiada → Cancelada → Concluída), **Vendas** (Lead → Contactado → Proposta → Negociação → Ganho / Perdido), **Projetos** (Kickoff → Em curso → Em revisão → Bloqueado → Entregue), **Campanhas** (Ideia → Planeamento → Em produção → No ar → Terminada), **Tarefas** (A fazer → Em curso → Bloqueada → Concluída). Modelo extra "Recrutamento" só como template. |
 | 10 | Vários escritórios | Não. Um escritório = uma base de dados. |
 | 11 | Payflow | Ignorado a pedido do dono; referências = Cal.com + imagens enviadas. |
 | 12 | Campos da ata | Os da secção 6, confirmados no protótipo (`blankMinutes` em `app.js`). |
 | 15 | Botões e vidro | Todos os botões são pílulas (raio 100 %; botões de ícone circulares) com sombra suave. Efeito de vidro (fundo translúcido + desfoque) na barra de separadores escura, na barra superior do telemóvel, no seletor de etapas fixo, na folha "Mover para" e nos avisos (referência do dono a 19/11). |
 | 14 | Ícones dos pipelines | Cada pipeline tem um ícone (`pipelines.icon`, nomes lucide): calendário, alvo, pasta, megafone, lista. Aparece na barra lateral, nos chips de pipeline, nas linhas da Operação e nos modelos. |
-| 13 | Início (dashboard) | Direção "painel de bolso": cartão preto **A seguir** (próxima reunião da equipa, com WhatsApp e Abrir), lista **Hoje**, lista **Operação** (uma linha por pipeline com contagens), e no desktop indicadores, barras por etapa e por pessoa, atas em falta. |
+| 13 | Início (dashboard) | Direção "painel de bolso": cartão **A seguir** (próxima reunião da equipa, com o botão Abrir), lista **Hoje**, lista **Operação** (uma linha por pipeline com contagens), e no desktop indicadores, barras por etapa e por pessoa, atas em falta. |
 
 ---
 
@@ -40,9 +40,9 @@ Referências:
 **Entra (MVP):**
 - Entrar / sair; perfis da equipa (nome, função, foto, WhatsApp).
 - Agenda: faixa semanal, lista do dia, filtro por pessoa, "Hoje".
-- Reunião: criar/editar com data, hora, duração, local (presencial/online + morada ou link), pessoa (nome, cargo, telemóvel, email), empresa (nome, NUIT opcional, sector), assunto, responsável, participantes internos, notas. Partilhar por WhatsApp.
+- Reunião: criar/editar com data, hora, duração, local (presencial/online + morada ou link), pessoa (nome, cargo, telemóvel, email), empresa (nome, NUIT opcional, sector), assunto, responsável, participantes internos, notas.
 - Pipeline Kanban por pipeline, com as 5 etapas das reuniões; mudar de etapa por arrastar (desktop) ou por folha "Mover para" (telemóvel). Adiar pede nova data; cancelar pede motivo. Histórico de etapas no cartão.
-- Atas: separador próprio, lista, formulário estruturado, sempre ligada a **uma** reunião (uma ata por reunião), estado rascunho/final, vista de impressão/PDF do browser, partilha por WhatsApp.
+- Atas: separador próprio, lista, formulário estruturado, sempre ligada a **uma** reunião (uma ata por reunião), estado rascunho/final, vista de impressão/PDF do browser.
 - Dashboard "Início": reuniões hoje e esta semana, por etapa, por pessoa, atas em falta, adiadas/canceladas nos últimos 30 dias, e (se existir) valor do pipeline de vendas por etapa.
 - Cinco pipelines no seed (Reuniões, Vendas, Projetos, Campanhas, Tarefas) com o **mesmo** componente Kanban; etapas editáveis (nome, ordem, cor, regras) numa página simples de definições; criar pipeline a partir de modelo (função SQL + um botão, como no protótipo).
 - Deploy em produção (Vercel + Supabase), com dados reais da equipa.
@@ -120,7 +120,7 @@ Shell igual ao Cal.com: barra lateral à esquerda no desktop (≥ 1024 px) com o
 | `/` Início | Grelha de cartões KPI + 2 gráficos de barras (por etapa, por pessoa) + lista "Atas em falta" + "Próximas 5 reuniões" | Saudação "Bom dia, Nome" + KPIs em 2 colunas + listas | Barras em CSS puro (sem biblioteca de gráficos). |
 | `/agenda?date=&member=` | Faixa semanal (dias com ponto se há reunião), lista do dia agrupada por período (manhã/tarde), avatares da equipa como filtro | Igual às refs "Good morning"/"Journey": faixa de dias deslizável, dia selecionado em círculo preto, cartões da reunião com hora, pessoa, empresa, etapa | Também vista "Semana" em lista no desktop. |
 | `/cards/new?pipeline=reunioes` | Folha lateral (drawer) | Página inteira | Campos por `kind`; ao gravar vai para "Agendado". |
-| `/cards/[id]` | Cabeçalho (assunto, etapa em pill, responsável), 2 colunas: dados da pessoa/empresa + histórico; separadores **Detalhes · Ata** | Mesma informação em pilha; botão fixo "Mover para" | Botão "Enviar por WhatsApp". Separador Ata: cria ou abre a ata. |
+| `/cards/[id]` | Cabeçalho (assunto, etapa em pill, responsável), 2 colunas: dados da pessoa/empresa + histórico; separadores **Detalhes · Ata** | Mesma informação em pilha; botão fixo "Mover para" | Separador Ata: cria ou abre a ata. |
 | `/pipelines/[slug]` | Kanban com colunas por etapa, arrastar e largar, contador por coluna, filtro por pessoa | Controlo segmentado de etapas (deslizável) + lista; "Mover para" em folha inferior | Reuniões, Vendas e Tarefas usam o **mesmo** componente. |
 | `/atas` | Tabela: reunião, data, empresa, estado, redigida por | Lista de cartões | Filtro rascunho/final; vazio: "Nenhuma ata. As atas nascem a partir de uma reunião concluída." |
 | `/atas/new?card=` | Formulário por secções com listas repetíveis | Igual, uma secção por vez (acordeão) | Só a partir de um cartão; pré-preenchido. |
@@ -195,14 +195,14 @@ Uma única consulta SQL (view `dashboard_summary`) para não multiplicar chamada
 
 ## 9. Plano das 5 horas (Opus 5.5)
 
-Pré-requisitos antes de começar o relógio: protótipo aprovado (feito), `ops/DESIGN.md` (feito), projeto Supabase criado (URL + chaves), projeto Vercel ligado ao repositório com root `ops/app`, lista da equipa (nome, função, email, WhatsApp), exemplo de mensagem WhatsApp.
+Pré-requisitos antes de começar o relógio: protótipo aprovado (feito), `ops/DESIGN.md` (feito), projeto Supabase criado (URL + chaves), projeto Vercel ligado ao repositório com root `ops/app`, lista da equipa (nome, função, email, WhatsApp de contacto).
 
 | Bloco | Tempo | Entrega | Aceita-se quando |
 |---|---|---|---|
 | **0. Fundação** | 0:00–0:40 | `ops/app` a partir do esqueleto de `members/app` sem gateway/emails/i18n; tokens e fonte de `ops/DESIGN.md`; `AppShell` (sidebar + tab bar) do protótipo; migração `0001_schema.sql` (secção 3) + RLS + triggers + `move_card` + `create_pipeline_from_template`; `seed.sql` gerado de `ops/prototype/src/data.js` (5 pipelines, 4 perfis, 32 cartões, 2 atas); login; script `user:create` | Entro no preview em 390 e 1440 e vejo o shell com a agenda vazia. |
-| **1. Agenda + reunião** | 0:40–1:40 | Faixa semanal, lista do dia, filtro por pessoa; formulário criar/editar (zod + Server Action); página do cartão com dados, etapa e histórico; "Enviar por WhatsApp" | Crio uma reunião no telemóvel, aparece na agenda do dia certo e em "Agendado". |
+| **1. Agenda + reunião** | 0:40–1:40 | Faixa semanal, lista do dia, filtro por pessoa; formulário criar/editar (zod + Server Action); página do cartão com dados, etapa e histórico | Crio uma reunião no telemóvel, aparece na agenda do dia certo e em "Agendado". |
 | **2. Pipeline** | 1:40–2:30 | Kanban com dnd-kit no desktop; segmentado + "Mover para" no telemóvel (folha com stepper, campos inline para nova data / motivo, igual ao protótipo); histórico atualizado; mesmo componente para os 5 pipelines; seletor de pipeline em chips | Movo um cartão nos dois dispositivos; recarregar mantém; o histórico mostra quem e quando. |
-| **3. Atas** | 2:30–3:30 | Lista, formulário por secções com listas repetíveis, pré-preenchimento, rascunho/final, separador "Ata" no cartão, vista de impressão, partilha WhatsApp | Crio a ata de uma reunião concluída no telemóvel, abro-a a partir do cartão, imprimo em PDF. |
+| **3. Atas** | 2:30–3:30 | Lista, formulário por secções com listas repetíveis, pré-preenchimento, rascunho/final, separador "Ata" no cartão, vista de impressão | Crio a ata de uma reunião concluída no telemóvel, abro-a a partir do cartão, imprimo em PDF. |
 | **4. Início + Equipa** | 3:30–4:10 | View `dashboard_summary`; KPIs, barras CSS, atas em falta, próximas reuniões; página da equipa; editor de etapas (se houver margem) | Os números batem certo com o seed. |
 | **5. Produção** | 4:10–5:00 | Migrações e seed real no Supabase de produção; env vars; deploy; E2E smoke + capturas 390/1440; correções; README de 1 página com "como criar utilizador" | O URL de produção responde, a equipa entra e cria a primeira reunião real. |
 
@@ -239,7 +239,7 @@ Vais construir o Kingdom Ops em 5 horas. Lê, por esta ordem: docs/kingdom-ops/p
 
 Segue os blocos da secção 9 do plano, com os tempos e critérios de aceitação. No fim de cada bloco: typecheck, lint, testes, commit, push, preview. Se um bloco passar 15 minutos do limite, aplica a ordem de corte da secção 1 e diz-me o que cortaste. Não acrescentes funcionalidades fora da secção 1.
 
-Começa pelo bloco 0: copia o esqueleto de members/app para ops/app, remove gateway, emails e i18n, aplica os tokens de ops/DESIGN.md e escreve a migração 0001 com o modelo da secção 3 e o seed a partir de ops/prototype/src/data.js. Credenciais do Supabase e Vercel: [colar aqui]. Equipa inicial: [colar aqui]. Exemplo da mensagem WhatsApp: [colar aqui].
+Começa pelo bloco 0: copia o esqueleto de members/app para ops/app, remove gateway, emails e i18n, aplica os tokens de ops/DESIGN.md e escreve a migração 0001 com o modelo da secção 3 e o seed a partir de ops/prototype/src/data.js. Credenciais do Supabase e Vercel: [colar aqui]. Equipa inicial: [colar aqui].
 
 Fala comigo em português; código, commits e comentários em inglês.
 ```

@@ -426,7 +426,7 @@ Buttons are quiet rectangles with 14 px corners, 14 px 500-weight text and 8 px 
 - **Ghost:** `card` grey with `ink` text; hover `card-2`. The standard secondary ("Cancelar", "Agenda", "Guardar rascunho"). On a grey card it may switch to `surface` (week nav, "+ Adicionar").
 - **Quiet:** transparent `ink-2`, hover `card`. Top-bar back and edit, inline links.
 - **Danger:** currently identical to ghost (grey with ink text); the word carries the danger.
-- **On dark:** inside the black card, "Abrir" is a white button with black text (hover `#e5e7eb`) and "WhatsApp" is transparent with a 1 px `inverted-line` border and white text (hover white at 8 %).
+- **On dark:** inside the black card, "Abrir" is a white button with black text (hover `#e5e7eb`).
 - **FAB:** a 64 px black circle with a 26 px "+" at stroke 2.2, Lift shadow, pressed scale .94. Phone only, to the right of the tab bar.
 
 ### Chips

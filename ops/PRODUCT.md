@@ -21,7 +21,7 @@ Kingdom Ops is the office's single operational tool: a meeting scheduler where e
 
 ## Positioning
 
-Not a generic CRM and not a calendar: a lightweight operations board built around how this office already works (WhatsApp-style meeting notices, a short Kanban, formal minutes), with the restraint of Cal.com's grey/black/white interface so the content is the only thing that stands out.
+Not a generic CRM and not a calendar: a lightweight operations board built around how this office already works (short meeting notices, a short Kanban, formal minutes), with the restraint of Cal.com's grey/black/white interface so the content is the only thing that stands out.
 
 ## Operating Context
 
@@ -30,7 +30,7 @@ Not a generic CRM and not a calendar: a lightweight operations board built aroun
 - Desktop: Cal.com-style left sidebar with the content in a white rounded panel over a grey canvas; Kanban with drag and drop.
 - Pipelines have ordered stages with simple rules (done, lost, requires a note, requires a new date). "Adiada" asks for a new date; "Cancelada" asks for a reason. Every stage change is logged and shown on the card.
 - Minutes are always attached to exactly one meeting, pre-filled from it, with sections: participants, agenda topics with discussion, decisions, actions (what, who, due, status), next steps, next meeting, written by, approved by, draft/final.
-- Sharing stays on WhatsApp: a button composes the meeting notice or the minutes summary as text.
+- No WhatsApp sharing inside the app (owner's decision, 19 Nov 2026); WhatsApp numbers are contact data only.
 - Time zone Africa/Maputo; language pt-PT only.
 
 ## Capabilities and Constraints
@@ -38,7 +38,7 @@ Not a generic CRM and not a calendar: a lightweight operations board built aroun
 - Screens: login; Início (next meeting, today, operation counts per pipeline; on desktop also KPIs, bars by stage and by person, missing minutes); Agenda (week strip, day list, person filter); new/edit card per pipeline kind; card page (details, stage, history, Ata tab); pipeline Kanban (same component for Reuniões, Vendas, Projetos, Campanhas, Tarefas; stage picker sheet on the phone); Atas list, form and reading/print view; Equipa; pipeline stage settings and templates.
 - Empty, loading and error states for Agenda, Pipeline and Atas.
 - Build budget: 5 hours of development after the prototype, so no custom field builder, invites, notifications, attachments or calendar sync in v1.
-- Decided on 19 Nov 2026: name Kingdom Ops, Google Sans, grey scale with status dots, pt-PT only, Vercel + Supabase. Undecided: production domain. The WhatsApp notice format is the one the prototype proposes (no existing format).
+- Decided on 19 Nov 2026: name Kingdom Ops, Google Sans, grey scale with status dots, pt-PT only, Vercel + Supabase. Undecided: production domain.
 
 ## Brand Commitments
 
@@ -50,7 +50,7 @@ Not a generic CRM and not a calendar: a lightweight operations board built aroun
 
 ## Evidence on Hand
 
-- No real meetings, companies, people or minutes yet; all prototype data is synthetic and mirrors the production field names. The team has no written WhatsApp notice format; the prototype proposes one.
+- No real meetings, companies, people or minutes yet; all prototype data is synthetic and mirrors the production field names.
 
 ## Product Principles
 

@@ -832,12 +832,12 @@ const T = {
   next: { title: 'A seguir', none: 'Sem mais reuniões hoje', team: 'Próxima da equipa', now: 'a decorrer', in: 'em', tomorrow: 'Amanhã' },
   today: 'Hoje', week: 'Esta semana', restOfWeek: 'Resto da semana', operation: 'Operação', all: 'Todos',
   periods: { morning: 'Manhã', afternoon: 'Tarde', evening: 'Noite' },
-  actions: { newMeeting: 'Nova reunião', newCard: { meetings: 'Nova reunião', sales: 'Nova oportunidade', projects: 'Novo projeto', campaigns: 'Nova campanha', tasks: 'Nova tarefa', custom: 'Novo cartão' }, move: 'Mover para', whatsapp: 'WhatsApp', edit: 'Editar', save: 'Guardar', cancel: 'Cancelar', back: 'Voltar', open: 'Abrir', create: 'Criar', print: 'Imprimir / PDF', confirm: 'Confirmar', add: 'Adicionar', remove: 'Remover', seeAll: 'Ver tudo', today: 'Hoje', filter: 'Filtrar', createMinutes: 'Criar ata', openMinutes: 'Abrir ata', saveDraft: 'Guardar rascunho', finalize: 'Marcar como final', conclude: 'Concluir reunião', login: 'Entrar', forgot: 'Esqueci a palavra-passe', invite: 'Convidar membro', addStage: 'Adicionar etapa', newPipeline: 'Novo pipeline a partir de modelo' },
+  actions: { newMeeting: 'Nova reunião', newCard: { meetings: 'Nova reunião', sales: 'Nova oportunidade', projects: 'Novo projeto', campaigns: 'Nova campanha', tasks: 'Nova tarefa', custom: 'Novo cartão' }, move: 'Mover para', edit: 'Editar', save: 'Guardar', cancel: 'Cancelar', back: 'Voltar', open: 'Abrir', create: 'Criar', print: 'Imprimir / PDF', confirm: 'Confirmar', add: 'Adicionar', remove: 'Remover', seeAll: 'Ver tudo', today: 'Hoje', filter: 'Filtrar', createMinutes: 'Criar ata', openMinutes: 'Abrir ata', saveDraft: 'Guardar rascunho', finalize: 'Marcar como final', conclude: 'Concluir reunião', login: 'Entrar', forgot: 'Esqueci a palavra-passe', invite: 'Convidar membro', addStage: 'Adicionar etapa', newPipeline: 'Novo pipeline a partir de modelo' },
   minutes: { title: 'Atas', one: 'Ata', draft: 'Rascunho', final: 'Final', missing: 'Atas em falta', missingHint: 'Reuniões concluídas sem ata final', none: 'Nenhuma ata ainda', noneHint: 'As atas nascem a partir de uma reunião. Abra a reunião e toque em "Criar ata".', noMinutes: 'Ainda sem ata', noMinutesHint: 'Normalmente escreve-se logo a seguir à reunião. Fica pré-preenchida com os dados desta reunião.', writtenBy: 'Redigida por', approvedBy: 'Aprovada por', sections: { meeting: 'Reunião', attendees: 'Participantes', agenda: 'Ordem de trabalhos', decisions: 'Decisões', actions: 'Ações', next: 'Próximos passos', close: 'Fecho' }, chooseMeeting: 'A que reunião pertence esta ata?', chooseHint: 'Cada ata está ligada a uma reunião. Escolha a reunião para pré-preencher a ata.' },
   stageRules: { note: 'pede motivo', reschedule: 'pede nova data' },
   empty: { agenda: 'Nada marcado', agendaHint: 'Toque em + para marcar uma reunião neste dia.', stage: 'Sem cartões nesta etapa', pipeline: 'Nada aqui ainda', pipelineHint: 'Arraste cartões para esta etapa ou crie um novo.' },
   form: { required: 'Campo obrigatório', saved: 'Guardado', created: 'Criado' },
-  toast: { moved: 'Movido para', whatsapp: 'A abrir o WhatsApp com a mensagem pronta', minutesSaved: 'Rascunho guardado', minutesFinal: 'Ata marcada como final', concludeAsk: 'Concluir a reunião também?', phase2: 'Fica para a fase 2', pipelineCreated: 'Pipeline criado a partir do modelo', stagesSaved: 'Etapas guardadas' },
+  toast: { moved: 'Movido para', minutesSaved: 'Rascunho guardado', minutesFinal: 'Ata marcada como final', concludeAsk: 'Concluir a reunião também?', phase2: 'Fica para a fase 2', pipelineCreated: 'Pipeline criado a partir do modelo', stagesSaved: 'Etapas guardadas' },
   kind: { meetings: 'Reunião', sales: 'Oportunidade', projects: 'Projeto', campaigns: 'Campanha', tasks: 'Tarefa', custom: 'Cartão' },
   location: { in_person: 'Presencial', online: 'Online', phone: 'Chamada' },
   sample: 'Dados de exemplo',
@@ -976,9 +976,6 @@ const ROUTES = [
   [/^\/settings\/pipelines\/([^/]+)$/, (p, m) => screenPipelineSettings(m[1])],
 ];
 const go = (hash) => { if (EMBED) { memHash = hash; state.sheet = null; render(); } else location.hash = hash; };
-const IS_MOBILE = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-const waLink = (text) => (IS_MOBILE ? 'whatsapp://send?text=' : 'https://wa.me/?text=') + encodeURIComponent(text);
-const waAttrs = (text) => `href="${waLink(text)}"${IS_MOBILE ? '' : ' target="_blank" rel="noopener"'}`;
 
 function render() {
   const route = parseHash();
@@ -1102,19 +1099,6 @@ function Bars(rows) {
   const max = Math.max(1, ...rows.map((r) => r.value));
   return `<div class="bars">${rows.map((r) => `<div class="bar"><span class="bar-label">${r.dot ? `<span class="dot ${r.dot}"></span>` : ''}${esc(r.label)}</span><span class="bar-track"><span class="bar-fill ${r.dot || ''}" style="width:${Math.round((r.value / max) * 100)}%"></span></span><span class="bar-value num">${r.text || r.value}</span></div>`).join('')}</div>`;
 }
-function whatsappText(card) {
-  const owner = profile(card.owner_id);
-  const lines = [`*Reunião agendada* · Kingdom`, `📅 ${fmtDayShort(dayKey(card.starts_at))} · ${fmtTime(card.starts_at)}–${fmtTime(card.ends_at)}`, `📍 ${card.location_kind === 'online' ? 'Online: ' + card.location : card.location}`, `👤 ${card.contact_name}${card.contact_role ? ' (' + card.contact_role + ')' : ''}${card.contact_phone ? ' · ' + card.contact_phone : ''}`, `🏢 ${card.company_name}${card.company_sector ? ' · ' + card.company_sector : ''}`, `📝 Assunto: ${card.title}`, `Responsável: ${owner.full_name}`];
-  const parts = participantsOf(card.id); if (parts.length) lines.push(`Com: ${parts.map((p) => p.full_name).join(', ')}`);
-  if (card.description) lines.push(`Notas: ${card.description}`);
-  return lines.join('\n');
-}
-function whatsappMinutesText(m) {
-  const card = find('cards', m.card_id);
-  const lines = [`*Ata · ${m.title}*`, `${card.company_name} · ${fmtDayShort(m.held_at)} ${m.started_at}–${m.ended_at}`, '', '*Decisões*', ...(m.decisions.length ? m.decisions.map((d) => `• ${d.text}`) : ['• (nenhuma)']), '', '*Ações*', ...m.actions.map((a) => `• ${a.what} — ${a.who}${a.due ? ' · até ' + fmtDayShort(a.due) : ''}`)];
-  if (m.next_meeting_at) lines.push('', `Próxima reunião: ${fmtDateTime(m.next_meeting_at)}`);
-  return lines.join('\n');
-}
 
 /* ======================================================================
    Screens
@@ -1161,7 +1145,7 @@ function screenHome() {
       <h2 class="h-title">${esc(next.title)}</h2>
       <div class="meta">${esc(next.company_name)} · ${esc(next.contact_name)}${next.contact_role ? ', ' + esc(next.contact_role) : ''}</div>
       <div class="where">${icon(locationIcon(next.location_kind), 'sm')}<span>${esc(next.location)}</span></div>
-      <div class="actions"><a class="btn btn-on-dark-ghost" ${waAttrs(whatsappText(next))}>${icon('message', 'sm')}${T.actions.whatsapp}</a><a class="btn btn-on-dark" href="#/cards/${next.id}">${T.actions.open}${icon('arrow-right', 'sm')}</a></div>
+      <div class="actions"><a class="btn btn-on-dark" href="#/cards/${next.id}">${T.actions.open}${icon('arrow-right', 'sm')}</a></div>
     </section>`;
   })() : `<section class="card card-pad"><div class="h-title">${T.next.none}</div><p class="caption" style="margin:4px 0 0">Bom momento para escrever as atas em falta.</p></section>`;
 
@@ -1258,7 +1242,7 @@ function screenCardForm(id, params) {
       <div class="card fieldset"><h2 class="h-section">Empresa</h2>
         <div class="field-row">${F('company_name', 'Nome da empresa', inp('company_name'))}${F('company_sector', 'Sector', inp('company_sector', 'text', 'placeholder="Ex.: Logística"'))}</div>
       </div>
-      <div class="card fieldset"><h2 class="h-section">Notas</h2>${F('description', 'Notas internas', `<textarea class="textarea" id="f-description" data-bind="description" placeholder="O que levar, quem decide, contexto…">${esc(d.description)}</textarea>`, 'Não vão na mensagem de WhatsApp a não ser que queira.')}</div>`;
+      <div class="card fieldset"><h2 class="h-section">Notas</h2>${F('description', 'Notas internas', `<textarea class="textarea" id="f-description" data-bind="description" placeholder="O que levar, quem decide, contexto…">${esc(d.description)}</textarea>`, 'Só a equipa vê estas notas.')}</div>`;
   } else if (pl.kind === 'sales') {
     fields = `<div class="card fieldset"><h2 class="h-section">Oportunidade</h2>
         ${F('title', 'Título', inp('title', 'text', 'placeholder="Ex.: ERP com módulo de frota" autofocus'))}
@@ -1337,7 +1321,7 @@ function screenCard(id, params) {
     : `<div class="card">${Empty('file-text', T.minutes.noMinutes, T.minutes.noMinutesHint, `<a class="btn btn-primary btn-sm" href="#/atas/new?card=${card.id}">${icon('plus', 'sm')}${T.actions.createMinutes}</a>`)}</div>`;
   const history = `<div class="card card-pad"><div class="activity">${acts.map((a) => ActivityItem(a)).join('') || '<span class="caption">Sem histórico.</span>'}</div></div>`;
   const tabs = `<div class="tabs" role="tablist"><button role="tab" class="${tab === 'details' ? 'is-active' : ''}" data-action="tab" data-tab="details">Detalhes</button>${meeting ? `<button role="tab" class="${tab === 'ata' ? 'is-active' : ''}" data-action="tab" data-tab="ata">${T.minutes.one}${m ? `<span class="n">${m.status === 'final' ? 'final' : 'rascunho'}</span>` : ''}</button>` : ''}<button role="tab" class="${tab === 'history' ? 'is-active' : ''}" data-action="tab" data-tab="history">Histórico<span class="n num">${acts.length}</span></button></div>`;
-  const actions = `<button class="btn btn-primary" data-action="move-open" data-card="${card.id}">${icon('arrow-right', 'sm')}${T.actions.move}</button>${meeting ? `<a class="btn btn-ghost" ${waAttrs(whatsappText(card))}>${icon('message', 'sm')}${T.actions.whatsapp}</a>` : ''}<a class="btn btn-ghost btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil', 'sm')}</a>`;
+  const actions = `<button class="btn btn-primary" data-action="move-open" data-card="${card.id}">${icon('arrow-right', 'sm')}${T.actions.move}</button><a class="btn btn-ghost btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil', 'sm')}</a>`;
   const back = meeting ? '/agenda' : `/pipelines/${pl.slug}`;
   return { fab: false, nav: meeting ? 'agenda' : 'pipeline:' + pl.slug, title: card.title, html: `
     ${Topbar({ title: kindLabel(card), back, actions: `<a class="btn btn-quiet btn-icon" href="#/cards/${card.id}/edit" aria-label="${T.actions.edit}">${icon('pencil')}</a>` })}
@@ -1480,7 +1464,6 @@ function screenMinutes(id) {
     <div class="page" style="max-width:820px">
       <div class="page-actions" style="justify-content:flex-end;padding:8px 0 12px;flex-wrap:wrap">
         ${canConclude ? `<button class="btn btn-ghost" data-action="conclude" data-card="${card.id}">${icon('check', 'sm')}${T.actions.conclude}</button>` : ''}
-        <a class="btn btn-ghost" ${waAttrs(whatsappMinutesText(m))}>${icon('message', 'sm')}${T.actions.whatsapp}</a>
         ${EMBED ? '' : `<a class="btn btn-ghost" href="#/atas/${m.id}/print">${icon('printer', 'sm')}${T.actions.print}</a>`}
         ${m.status === 'draft' ? `<a class="btn btn-primary" href="#/atas/${m.id}/edit">${icon('pencil', 'sm')}Continuar a escrever</a>` : `<a class="btn btn-quiet only-desktop" href="#/atas/${m.id}/edit">${T.actions.edit}</a>`}
       </div>

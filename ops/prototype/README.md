@@ -17,7 +17,6 @@ Um único ficheiro (`index.html`) com dados de exemplo. É a especificação vis
 | `DB.*` em `data.js` (nomes de colunas SQL) | `supabase/seed.sql` e tipos TypeScript |
 | `screen*()` em `app.js` | Um `page.tsx` por função (`/`, `/agenda`, `/cards/[id]`, `/pipelines/[slug]`, `/atas`, …) |
 | `T` (textos pt-PT) | `messages/pt.json` |
-| `whatsappText()` / `whatsappMinutesText()` | Mesma função no servidor |
 | Arrastar e largar nativo no Kanban | dnd-kit com o mesmo comportamento; a folha "Mover para" é igual nos dois |
 
 Os dados são fictícios (empresas, pessoas e contactos inventados).

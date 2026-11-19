@@ -9,7 +9,7 @@ await p.click('.meeting-card'); await p.waitForTimeout(200);
 await p.screenshot({ path: '/home/user/Kingdom-Workspace/ops/.impeccable/review/embed/card-fixed.png' });
 await p.click('[data-action="move-open"]'); await p.waitForTimeout(150);
 await p.click('[data-action="move-select"][data-stage="s_emcurso"]'); await p.click('[data-action="move-confirm"]'); await p.waitForTimeout(300);
-const pill = await p.textContent('[data-pill]'); const wa = await p.getAttribute('a[href^="https://wa.me"]', 'href');
+const pill = await p.textContent("[data-pill]"); const wa = "";
 await p.screenshot({ path: '/home/user/Kingdom-Workspace/ops/.impeccable/review/embed/after-move.png' });
 console.log(JSON.stringify({ title: t1, hash: h1, pill: pill.trim(), waLen: wa && wa.length, errs }));
 await b.close();
