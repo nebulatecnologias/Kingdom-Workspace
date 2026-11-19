@@ -298,7 +298,7 @@ function whatsappMinutesText(m) {
    ====================================================================== */
 function screenLogin() {
   const err = state.errors.login;
-  return { bare: true, title: T.actions.login, html: `<div class="auth" style="background:var(--ground)"><form class="card on-ground" data-form="login" novalidate>
+  return { bare: true, title: T.actions.login, html: `<div class="auth" style="background:var(--ground)"><form class="card" data-form="login" novalidate>
     <div class="logo" style="margin-bottom:18px"><span class="mark">${icon('crown')}</span>${T.app}</div>
     <h1 class="h-display" style="font-size:22px">Entrar</h1>
     <p class="caption" style="margin:4px 0 18px">A conta é criada pela administração do escritório.</p>
@@ -353,7 +353,7 @@ function screenHome() {
 
   const left = `${nextCard}
     <section class="section"><div class="section-head"><h2 class="h-section">${T.today} · ${fmtDayShort(TODAY)}</h2><a href="#/agenda">${T.actions.seeAll}</a></div>
-      ${rest.length ? `<div class="card list">${rest.map((c) => `<a class="row" href="#/cards/${c.id}">${Avatar(profile(c.owner_id), 'tile')}<span class="row-main"><span class="row-title">${esc(c.title)}</span><span class="row-sub">${fmtTime(c.starts_at)}–${fmtTime(c.ends_at)} · ${esc(c.company_name)}</span></span><span class="row-end">${Pill(stage(c.stage_id), c.id)}</span></a>`).join('')}</div>` : `<div class="card">${Empty('calendar', next ? 'Mais nada hoje' : T.empty.agenda, next ? 'Depois desta reunião, o dia está livre.' : T.empty.agendaHint)}</div>`}
+      ${rest.length ? `<div class="timeline">${rest.map(MeetingCard).join('')}</div>` : `<div class="card">${Empty('calendar', next ? 'Mais nada hoje' : T.empty.agenda, next ? 'Depois desta reunião, o dia está livre.' : T.empty.agendaHint)}</div>`}
     </section>
     <section class="section"><div class="section-head"><h2 class="h-section">${T.operation}</h2></div>${ops}</section>`;
 
