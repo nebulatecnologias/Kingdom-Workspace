@@ -7,8 +7,9 @@ import { PageHead } from "@/components/ui/bits";
 import { Icon } from "@/components/ui/icon";
 import { requireMember } from "@/lib/auth";
 import { getBase, stagesOf } from "@/lib/data";
+import { createClient } from "@/lib/supabase/server";
 import { T } from "@/lib/texts";
-import { StagesForm, Templates } from "./stages-form";
+import { PipelineAdmin, StagesForm, Templates } from "./stages-form";
 
 export const metadata: Metadata = { title: T.nav.settings };
 
@@ -19,6 +20,10 @@ export default async function PipelineSettingsPage({ params }: PageProps<"/setti
   const pl = base.pipelines.find((p) => p.slug === slug);
   if (!pl) notFound();
   const admin = me.role === "admin";
+  const supabase = await createClient();
+  const { data: cards } = await supabase.from("cards").select("stage_id, archived_at").eq("pipeline_id", pl.id);
+  const counts: Record<string, number> = {};
+  for (const c of cards ?? []) counts[c.stage_id as string] = (counts[c.stage_id as string] ?? 0) + 1;
   return (
     <>
       <Topbar title={T.nav.settings} back="/team" />
@@ -32,13 +37,18 @@ export default async function PipelineSettingsPage({ params }: PageProps<"/setti
             </Link>
           ))}
         </div>
-        <StagesForm key={pl.id + stagesOf(base, pl.id).map((s) => s.id + s.position + s.name).join()} pipelineId={pl.id} pipelineName={pl.name} stages={stagesOf(base, pl.id)} canEdit={admin} />
+        {admin ? (
+          <section className="section" style={{ marginTop: 0, marginBottom: 16 }}>
+            <PipelineAdmin key={pl.id + pl.name} id={pl.id} name={pl.name} kind={pl.kind} cardCount={(cards ?? []).length} />
+          </section>
+        ) : null}
+        <StagesForm key={pl.id + stagesOf(base, pl.id).map((s) => s.id + s.position + s.name).join()} pipelineId={pl.id} pipelineName={pl.name} stages={stagesOf(base, pl.id)} counts={counts} canEdit={admin} />
         {admin ? (
           <section className="section">
             <div className="section-head"><h2 className="h-section">{T.actions.newPipeline}</h2></div>
             <div className="card card-pad">
               <p className="caption" style={{ margin: "0 0 10px" }}>Um modelo traz as etapas certas. Depois pode mudar tudo.</p>
-              <Templates />
+              <Templates existing={base.pipelines.map((p) => p.name)} />
             </div>
           </section>
         ) : null}

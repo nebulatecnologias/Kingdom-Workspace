@@ -11,11 +11,11 @@ export function ProfileForm({ p, adminFields }: { p: Profile; adminFields: boole
     <form className="form" action={action}>
       <input type="hidden" name="id" value={p.id} />
       <div className="card fieldset">
-        <div className="field"><label htmlFor="p-name">Nome</label><input className="input" id="p-name" name="full_name" defaultValue={p.full_name} required /></div>
-        <div className="field"><label htmlFor="p-job">Função</label><input className="input" id="p-job" name="job_title" defaultValue={p.job_title ?? ""} /></div>
+        <div className="field"><label htmlFor="p-name">Nome</label><input className="input" id="p-name" name="full_name" defaultValue={p.full_name} required maxLength={120} /></div>
+        <div className="field"><label htmlFor="p-job">Função</label><input className="input" id="p-job" name="job_title" defaultValue={p.job_title ?? ""} maxLength={120} /></div>
         <div className="field">
           <label htmlFor="p-wa">WhatsApp</label>
-          <input className="input" id="p-wa" name="phone_whatsapp" type="tel" defaultValue={p.phone_whatsapp ?? ""} placeholder="+258 8x xxx xxxx" />
+          <input className="input" id="p-wa" name="phone_whatsapp" type="tel" defaultValue={p.phone_whatsapp ?? ""} placeholder="+258 8x xxx xxxx" maxLength={20} inputMode="tel" />
           <span className="hint">Só como contacto; o app não envia mensagens.</span>
         </div>
         {adminFields ? (

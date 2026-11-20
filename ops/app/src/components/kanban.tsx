@@ -25,10 +25,11 @@ const useCanDrag = () => useSyncExternalStore(subscribeDnd, () => window.matchMe
 export type BoardCard = { id: string; stage_id: string; position: number; value_cents: number | null; body: ReactNode };
 
 /** One Kanban for every pipeline: columns on desktop (drag and drop), a stage switch + list on the phone. */
-export function Kanban({ stages, cards: initial, sales }: { stages: Stage[]; cards: BoardCard[]; sales: boolean }) {
+export function Kanban({ stages, cards: initial, sales, meeting = false }: { stages: Stage[]; cards: BoardCard[]; sales: boolean; meeting?: boolean }) {
   const [cards, setCards] = useState(initial);
   const [current, setCurrent] = useState(stages[0]?.id);
   const [pendingMove, setPendingMove] = useState<{ cardId: string; from: string; to: string; position: number } | null>(null);
+  const [dragging, setDragging] = useState(false);
   const [, start] = useTransition();
   const toast = useToast();
   const router = useRouter();
@@ -48,6 +49,7 @@ export function Kanban({ stages, cards: initial, sales }: { stages: Stage[]; car
     return () => window.removeEventListener("click", onClick, true);
   }, []);
   const markDropped = () => {
+    setDragging(false);
     justDropped.current = true;
     setTimeout(() => (justDropped.current = false), 0);
   };
@@ -122,8 +124,8 @@ export function Kanban({ stages, cards: initial, sales }: { stages: Stage[]; car
           ))}
         </div>
       </div>
-      <DndContext sensors={sensors} onDragEnd={onDragEnd} onDragCancel={markDropped}>
-        <div className="kanban">
+      <DndContext sensors={sensors} onDragStart={() => setDragging(true)} onDragEnd={onDragEnd} onDragCancel={markDropped}>
+        <div className={clsx("kanban", dragging && "is-dragging")}>
           {stages.map((s) => {
             const items = inStage(s.id);
             const total = items.reduce((x, c) => x + (c.value_cents ?? 0), 0);
@@ -158,6 +160,7 @@ export function Kanban({ stages, cards: initial, sales }: { stages: Stage[]; car
           stages={stages}
           initial={pendingMove.to}
           position={pendingMove.position}
+          meeting={meeting}
           onClose={() => setPendingMove(null)}
         />
       ) : null}

@@ -7,9 +7,11 @@ import { Empty, PageHead } from "@/components/ui/bits";
 import { Icon } from "@/components/ui/icon";
 import { requireMember } from "@/lib/auth";
 import { getBase, meetingsPipeline, profileOf, stageOf } from "@/lib/data";
-import { firstName, fmtDayShort } from "@/lib/format";
+import { needsMinutes } from "@/lib/cards";
+import { dayKey, firstName, fmtDayShort } from "@/lib/format";
 import { createClient } from "@/lib/supabase/server";
 import { T } from "@/lib/texts";
+import type { ActionItem } from "@/lib/types";
 
 export const metadata: Metadata = { title: T.minutes.title };
 
@@ -21,12 +23,20 @@ export default async function MinutesListPage({ searchParams }: PageProps<"/atas
   const supabase = await createClient();
   const mp = meetingsPipeline(base);
   const [{ data: mins }, { data: done }] = await Promise.all([
-    supabase.from("minutes").select("id, title, held_at, status, written_by, updated_at, card_id, cards(company_name)").order("updated_at", { ascending: false }),
+    supabase.from("minutes").select("id, title, held_at, status, written_by, updated_at, card_id, actions, cards!inner(company_name, archived_at)").is("cards.archived_at", null).order("updated_at", { ascending: false }),
     supabase.from("cards").select("id, title, stage_id, starts_at").eq("pipeline_id", mp?.id ?? "").is("archived_at", null),
   ]);
-  const all = (mins ?? []) as unknown as { id: string; title: string; held_at: string | null; status: "draft" | "final"; written_by: string | null; card_id: string; cards: { company_name: string | null } | null }[];
+  const all = (mins ?? []) as unknown as { id: string; title: string; held_at: string | null; status: "draft" | "final"; written_by: string | null; card_id: string; actions: ActionItem[]; cards: { company_name: string | null } | null }[];
   const withMinutes = new Set(all.map((m) => m.card_id));
-  const missing = (done ?? []).filter((c) => stageOf(base, c.stage_id)?.is_done && !withMinutes.has(c.id));
+  const now = new Date();
+  const today = dayKey(now);
+  // Same rule as Início and the sidebar (#3): done meetings that already happened and have no ata at all.
+  const missing = (done ?? []).filter((c) => needsMinutes(c, stageOf(base, c.stage_id), withMinutes, now.getTime()));
+  // #44 #46 Pending actions of every ata, overdue first.
+  const pending = all
+    .flatMap((m) => (m.actions ?? []).map((a, i) => ({ ...a, i, m })))
+    .filter((a) => a.what && a.status !== "done")
+    .sort((a, b) => (a.due || "9999").localeCompare(b.due || "9999"));
   const items = all.filter((m) => filter === "all" || m.status === filter);
   const count = (k: string) => (k === "all" ? all.length : all.filter((m) => m.status === k).length);
 
@@ -47,6 +57,28 @@ export default async function MinutesListPage({ searchParams }: PageProps<"/atas
               </div>
             </div>
           </div>
+        ) : null}
+        {pending.length ? (
+          <section className="section" style={{ marginTop: 0, marginBottom: 18 }}>
+            <div className="section-head"><h2 className="h-section">Ações pendentes · {pending.length}</h2></div>
+            <div className="card list">
+              {pending.slice(0, 12).map((a) => {
+                const late = !!a.due && a.due < today;
+                return (
+                  <Link key={`${a.m.id}:${a.i}`} className="row" href={`/atas/${a.m.id}`}>
+                    <span className="tile"><Icon name={late ? "alert" : "check-square"} /></span>
+                    <span className="row-main">
+                      <span className="row-title">{a.what}</span>
+                      <span className="row-sub">
+                        {a.who || "Sem responsável"} · <span className={late ? "action-late" : undefined}>{a.due ? `${fmtDayShort(a.due)}${late ? " · atrasada" : ""}` : "sem prazo"}</span> · {a.m.title}
+                      </span>
+                    </span>
+                    <span className="row-end"><Icon name="chevron-right" size="sm" /></span>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
         ) : null}
         <div className="segmented always" style={{ display: "inline-flex", marginBottom: 12 }}>
           {([["all", "Todas"], ["draft", "Rascunhos"], ["final", "Finais"]] as const).map(([k, l]) => (

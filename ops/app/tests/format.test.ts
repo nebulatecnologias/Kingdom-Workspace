@@ -18,3 +18,15 @@ describe("dates in Africa/Maputo", () => {
     expect(fmtDuration(90)).toBe("1 h 30");
   });
 });
+
+describe("money and spans (#17 #28)", async () => {
+  const { fmtMoney, fmtSpan } = await import("@/lib/format");
+  it("groups every amount the same way", () => {
+    expect(fmtMoney(800000)).toBe("8\u00a0000\u00a0MZN");
+    expect(fmtMoney(1500000)).toBe("15\u00a0000\u00a0MZN");
+  });
+  it("says when a meeting ends on another day", () => {
+    expect(fmtSpan("2026-11-20T21:30:00Z", "2026-11-21T00:30:00Z")).toBe("23:30–02:30 (sáb)");
+    expect(fmtSpan("2026-11-20T08:00:00Z", "2026-11-20T09:00:00Z")).toBe("10:00–11:00");
+  });
+});

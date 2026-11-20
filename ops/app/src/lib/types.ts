@@ -53,6 +53,7 @@ export type Card = {
   fields: Record<string, unknown> | null;
   position: number;
   stage_changed_at: string;
+  created_by?: string | null;
   created_at: string;
   archived_at: string | null;
 };
@@ -61,9 +62,14 @@ export type Activity = {
   id: string;
   card_id: string;
   actor_id: string | null;
-  type: "created" | "stage_changed" | "rescheduled" | "updated" | "minutes_created" | "minutes_finalized";
+  type: "created" | "stage_changed" | "rescheduled" | "updated" | "archived" | "restored" | "minutes_created" | "minutes_finalized" | "minutes_reopened";
   from_stage_id: string | null;
   to_stage_id: string | null;
+  /** Stage names as they were when it happened (#49); older rows may only have the ids. */
+  from_stage_name?: string | null;
+  to_stage_name?: string | null;
+  /** What changed, e.g. "Hora: 10:00 → 23:30 · Responsável: Shelton → Maria" (#12). */
+  details?: string | null;
   note: string | null;
   at: string;
 };

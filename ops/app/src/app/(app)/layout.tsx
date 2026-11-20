@@ -19,8 +19,8 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             <div className="panel">{children}</div>
           </main>
         </div>
-        <Tabbar />
         <Suspense fallback={null}>
+          <Tabbar />
           <NavTracker />
         </Suspense>
       </div>

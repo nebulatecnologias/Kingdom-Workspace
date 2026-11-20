@@ -1,6 +1,7 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Pill } from "@/components/ui/bits";
-import { fmtDateTime, fmtDayLong, fmtDayShort } from "@/lib/format";
+import { dayKey, fmtDateTime, fmtDayLong, fmtDayShort } from "@/lib/format";
 import { T } from "@/lib/texts";
 import type { Card, Minutes, Profile } from "@/lib/types";
 
@@ -11,10 +12,11 @@ export function StatusPill({ status }: { status: Minutes["status"] }) {
 }
 
 /** The minutes as a document (reading view and print). */
-export function MinutesDoc({ m, card, writer, approver }: { m: Minutes; card: Pick<Card, "id" | "title" | "company_name">; writer: Profile | null; approver: Profile | null }) {
+export function MinutesDoc({ m, card, writer, approver, actionTools, nextTools }: { m: Minutes; card: Pick<Card, "id" | "title" | "company_name">; writer: Profile | null; approver: Profile | null; actionTools?: (index: number) => ReactNode; nextTools?: ReactNode }) {
   const agenda = m.agenda.filter((a) => a.topic);
   const decisions = m.decisions.filter((x) => x.text);
-  const actions = m.actions.filter((a) => a.what);
+  const actions = m.actions.map((a, i) => ({ ...a, i })).filter((a) => a.what);
+  const today = dayKey(new Date());
   return (
     <article className="minutes-doc">
       <header>
@@ -62,16 +64,20 @@ export function MinutesDoc({ m, card, writer, approver }: { m: Minutes; card: Pi
       <h2>{T.minutes.sections.actions}</h2>
       {actions.length ? (
         <table>
-          <thead><tr><th>Ação</th><th>Responsável</th><th>Prazo</th><th>Estado</th></tr></thead>
+          <thead><tr><th>Ação</th><th>Responsável</th><th>Prazo</th><th>Estado</th>{actionTools ? <th className="no-print"><span className="sr-only">Tarefa</span></th> : null}</tr></thead>
           <tbody>
-            {actions.map((a, i) => (
-              <tr key={i}>
-                <td>{a.what}</td>
-                <td>{a.who}</td>
-                <td className="num">{a.due ? fmtDayShort(a.due) : "—"}</td>
-                <td>{a.status === "done" ? <span className="inline"><span className="dot success" />Feita</span> : <span className="inline"><span className="dot" />Pendente</span>}</td>
-              </tr>
-            ))}
+            {actions.map((a) => {
+              const late = a.status !== "done" && !!a.due && a.due < today;
+              return (
+                <tr key={a.i}>
+                  <td>{a.what}</td>
+                  <td>{a.who || <span className="muted">—</span>}</td>
+                  <td className={late ? "num action-late" : "num"}>{a.due ? fmtDayShort(a.due) : "—"}{late ? " · atrasada" : ""}</td>
+                  <td>{a.status === "done" ? <span className="inline"><span className="dot success" />Feita</span> : <span className="inline"><span className={late ? "dot danger" : "dot"} />Pendente</span>}</td>
+                  {actionTools ? <td className="no-print">{a.status === "done" ? null : actionTools(a.i)}</td> : null}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       ) : <p className="muted">Sem ações.</p>}
@@ -79,7 +85,7 @@ export function MinutesDoc({ m, card, writer, approver }: { m: Minutes; card: Pi
         <>
           <h2>{T.minutes.sections.next}</h2>
           {m.next_steps ? <p style={{ whiteSpace: "pre-wrap" }}>{m.next_steps}</p> : null}
-          {m.next_meeting_at ? <p className="num">Próxima reunião: {fmtDateTime(m.next_meeting_at)}</p> : null}
+          {m.next_meeting_at ? <p className="num">Próxima reunião: {fmtDateTime(m.next_meeting_at)} {nextTools}</p> : null}
         </>
       ) : null}
       <div className="sign">

@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { BackButton } from "@/components/shell/back-button";
-import { startTransition, useActionState, useState, type ReactNode } from "react";
+import { startTransition, useActionState, useEffect, useRef, useState, type ReactNode } from "react";
 import { saveCard, type CardFormState } from "@/app/(app)/cards/actions";
 import { Icon } from "@/components/ui/icon";
 import { locationIcon } from "@/lib/cards";
@@ -37,10 +37,26 @@ type Person = { id: string; full_name: string };
 const DURATIONS: [number, string][] = [[30, "30 min"], [45, "45 min"], [60, "1 h"], [90, "1 h 30"], [120, "2 h"], [180, "3 h"]];
 const CHANNELS = ["LinkedIn", "Instagram", "Email", "Webinar", "Rádio", "Evento"];
 
-export function CardForm({ initial, team, back, submitLabel }: { initial: CardDraft; team: Person[]; back: string; submitLabel: string }) {
+const MAX: Partial<Record<keyof CardDraft, number>> = { title: 200, location: 500, contact_name: 200, contact_role: 200, contact_phone: 40, contact_email: 254, company_name: 200, company_sector: 200, description: 5000 };
+
+export function CardForm({ initial, team, back, submitLabel, companies = [] }: { initial: CardDraft; team: Person[]; back: string; submitLabel: string; companies?: string[] }) {
   const [d, setD] = useState(initial);
   const [state, dispatch, pending] = useActionState<CardFormState, FormData>(saveCard, {});
   const e = state.errors ?? {};
+  const formRef = useRef<HTMLFormElement>(null);
+  const submit = (confirm: boolean) => {
+    if (!formRef.current) return;
+    const fd = new FormData(formRef.current);
+    if (confirm) fd.set("confirm", "1");
+    startTransition(() => dispatch(fd));
+  };
+  // #30 Take the person to the first field with a problem (or to the warnings).
+  useEffect(() => {
+    const el = formRef.current?.querySelector<HTMLElement>(".field.has-error input, .field.has-error select, .field.has-error textarea, .form-warnings");
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (el.matches("input, select, textarea")) el.focus({ preventScroll: true });
+  }, [state]);
   const set = <K extends keyof CardDraft>(k: K, v: CardDraft[K]) => setD((x) => ({ ...x, [k]: v }));
 
   const F = (key: string, label: string, input: ReactNode, hint?: string) => (
@@ -51,7 +67,7 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
     </div>
   );
   const inp = (key: keyof CardDraft, type = "text", extra: Record<string, unknown> = {}) => (
-    <input className="input" id={`f-${key}`} name={key} type={type} value={String(d[key] ?? "")} onChange={(ev) => set(key, ev.target.value as never)} {...extra} />
+    <input className="input" id={`f-${key}`} name={key} type={type} value={String(d[key] ?? "")} onChange={(ev) => set(key, ev.target.value as never)} maxLength={MAX[key]} aria-invalid={e[key] ? true : undefined} {...extra} />
   );
   const owners = (
     <select className="select" id="f-owner_id" name="owner_id" value={d.owner_id} onChange={(ev) => set("owner_id", ev.target.value)}>
@@ -66,7 +82,7 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
     F(
       key,
       label,
-      <textarea className="textarea" id={`f-${key}`} name="description" value={d.description} placeholder={placeholder} onChange={(ev) => set("description", ev.target.value)} />,
+      <textarea className="textarea" id={`f-${key}`} name="description" value={d.description} placeholder={placeholder} maxLength={5000} onChange={(ev) => set("description", ev.target.value)} />,
       hint,
     );
 
@@ -148,14 +164,14 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
             {F("contact_role", "Cargo", inp("contact_role"))}
           </div>
           <div className="field-row">
-            {F("contact_phone", "Telemóvel", inp("contact_phone", "tel", { placeholder: "+258 8x xxx xxxx" }))}
+            {F("contact_phone", "Telemóvel", inp("contact_phone", "tel", { placeholder: "+258 8x xxx xxxx", inputMode: "tel" }))}
             {F("contact_email", "Email", inp("contact_email", "email"))}
           </div>
         </div>
         <div className="card fieldset">
           <h2 className="h-section">Empresa</h2>
           <div className="field-row">
-            {F("company_name", "Nome da empresa", inp("company_name"))}
+            {F("company_name", "Nome da empresa", inp("company_name", "text", { list: "companies", autoComplete: "off" }))}
             {F("company_sector", "Sector", inp("company_sector", "text", { placeholder: "Ex.: Logística" }))}
           </div>
         </div>
@@ -172,7 +188,7 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
           <h2 className="h-section">Oportunidade</h2>
           {F("title", "Título", inp("title", "text", { placeholder: "Ex.: ERP com módulo de frota", autoFocus: !d.id }))}
           <div className="field-row">
-            {F("value", "Valor (MZN)", inp("value", "number", { inputMode: "decimal", placeholder: "0", min: 0 }))}
+            {F("value", "Valor (MZN)", inp("value", "number", { inputMode: "numeric", placeholder: "0", min: 0, step: 1, max: 1000000000 }), "Valor inteiro, sem centavos.")}
             {F("due", "Fecho previsto", inp("due", "date"))}
           </div>
           {F("owner_id", "Responsável", owners)}
@@ -180,7 +196,7 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
         <div className="card fieldset">
           <h2 className="h-section">Empresa e contacto</h2>
           <div className="field-row">
-            {F("company_name", "Empresa", inp("company_name"))}
+            {F("company_name", "Empresa", inp("company_name", "text", { list: "companies", autoComplete: "off" }))}
             {F("company_sector", "Sector", inp("company_sector"))}
           </div>
           <div className="field-row">
@@ -188,7 +204,7 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
             {F("contact_role", "Cargo", inp("contact_role"))}
           </div>
           <div className="field-row">
-            {F("contact_phone", "Telemóvel", inp("contact_phone", "tel"))}
+            {F("contact_phone", "Telemóvel", inp("contact_phone", "tel", { placeholder: "+258 8x xxx xxxx", inputMode: "tel" }))}
             {F("contact_email", "Email", inp("contact_email", "email"))}
           </div>
         </div>
@@ -204,7 +220,7 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
         <h2 className="h-section">Projeto</h2>
         {F("title", "Título", inp("title", "text", { autoFocus: !d.id }))}
         <div className="field-row">
-          {F("company_name", "Cliente", inp("company_name"))}
+          {F("company_name", "Cliente", inp("company_name", "text", { list: "companies", autoComplete: "off" }))}
           {F("contact_name", "Pessoa de contacto", inp("contact_name"))}
         </div>
         <div className="field-row">
@@ -231,7 +247,7 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
               ))}
             </select>,
           )}
-          {F("value", "Orçamento (MZN)", inp("value", "number", { inputMode: "decimal", min: 0 }))}
+          {F("value", "Orçamento (MZN)", inp("value", "number", { inputMode: "numeric", min: 0, step: 1, max: 1000000000 }))}
         </div>
         <div className="field-row">
           {F("due", "Lançamento", inp("due", "date"))}
@@ -249,7 +265,7 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
           {F("owner_id", "Responsável", owners)}
           {F("due", "Prazo", inp("due", "date"))}
         </div>
-        {F("company_name", "Cliente (opcional)", inp("company_name"))}
+        {F("company_name", "Cliente (opcional)", inp("company_name", "text", { list: "companies", autoComplete: "off" }))}
         {notes("description", "Descrição")}
       </div>
     );
@@ -257,19 +273,34 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
 
   return (
     <form
+      ref={formRef}
       className="form"
       noValidate
       onSubmit={(ev) => {
         // Dispatch manually: a plain form action would reset the fields after a validation error.
         ev.preventDefault();
-        const fd = new FormData(ev.currentTarget);
-        startTransition(() => dispatch(fd));
+        submit(false);
       }}
     >
+      <datalist id="companies">{companies.map((c) => <option key={c} value={c} />)}</datalist>
       <input type="hidden" name="id" value={d.id ?? ""} />
       <input type="hidden" name="pipeline_id" value={d.pipeline_id} />
       <input type="hidden" name="kind" value={d.kind} />
       {fields}
+      {state.warnings?.length ? (
+        <div className="alert form-warnings" role="alert" tabIndex={-1}>
+          <Icon name="alert" />
+          <div>
+            <b>Confirme antes de guardar</b>
+            <ul style={{ margin: "6px 0 10px", paddingLeft: 18 }}>
+              {state.warnings.map((w) => <li key={w}>{w}</li>)}
+            </ul>
+            <button type="button" className={clsx("btn btn-primary btn-sm", pending && "is-loading")} disabled={pending} onClick={() => submit(true)}>
+              {d.id ? "Guardar mesmo assim" : "Criar mesmo assim"}
+            </button>
+          </div>
+        </div>
+      ) : null}
       {state.message ? (
         <p className="form-error" role="alert">
           {state.message}

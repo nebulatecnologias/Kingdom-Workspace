@@ -29,7 +29,8 @@ describe("dashboard against the seed", () => {
     expect(d.weekCount).toBe(8); // c1–c5, c8–c10 (Mon 16 – Sun 22), without cancelled c7
   });
   it("finds missing minutes and drafts", () => {
-    expect(d.missing.map((c) => c.id).sort()).toEqual(["c12", "c5"]);
+    // "Em falta" = done, already happened, no ata at all; c5 has a draft and is counted as a draft (#3).
+    expect(d.missing.map((c) => c.id).sort()).toEqual(["c12"]);
     expect(d.drafts).toBe(1);
   });
   it("counts postponed/cancelled in 30 days and the completion rate", () => {
@@ -47,5 +48,26 @@ describe("operation labels", async () => {
   const { stageLabel } = await import("@/lib/dashboard");
   it("reads like the prototype", () => {
     expect(["Em curso", "No ar", "Bloqueado", "Proposta", "Planeamento"].map(stageLabel)).toEqual(["em curso", "no ar", "bloqueado", "em proposta", "em planeamento"]);
+  });
+});
+
+describe("rules from the test report", async () => {
+  const { isLate, needsMinutes, isUpcomingStage } = await import("@/lib/cards");
+  it("a due date is late only from the next day (#4)", () => {
+    expect(isLate("2026-11-20T07:00:00Z", "2026-11-20")).toBe(false);
+    expect(isLate("2026-11-19T22:30:00Z", "2026-11-20")).toBe(false); // 00:30 on the 20th in Maputo
+    expect(isLate("2026-11-19T10:00:00Z", "2026-11-20")).toBe(true);
+    expect(isLate("2026-11-19T10:00:00Z", "2026-11-20", { is_done: true, is_lost: false })).toBe(false);
+  });
+  it("the next meeting skips done, cancelled and postponed ones (#2)", () => {
+    expect(isUpcomingStage({ is_done: true, is_lost: false, requires_reschedule: false })).toBe(false);
+    expect(isUpcomingStage({ is_done: false, is_lost: false, requires_reschedule: true })).toBe(false);
+    expect(isUpcomingStage({ is_done: false, is_lost: false, requires_reschedule: false })).toBe(true);
+  });
+  it("minutes are missing only after a done meeting has happened (#3)", () => {
+    const now = Date.parse("2026-11-20T08:00:00Z");
+    expect(needsMinutes({ id: "a", starts_at: "2026-11-20T10:00:00Z" }, { is_done: true }, new Set(), now)).toBe(false);
+    expect(needsMinutes({ id: "a", starts_at: "2026-11-20T06:00:00Z" }, { is_done: true }, new Set(), now)).toBe(true);
+    expect(needsMinutes({ id: "a", starts_at: "2026-11-20T06:00:00Z" }, { is_done: true }, new Set(["a"]), now)).toBe(false);
   });
 });

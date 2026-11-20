@@ -359,7 +359,7 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .day-chip.is-selected .num { background: var(--accent); color: var(--accent-ink); font-weight: 600; box-shadow: none; }
 .day-chip .mark { width: 5px; height: 5px; border-radius: 50%; background: transparent; }
 .day-chip.has-events .mark { background: var(--accent-deep); }
-.day-chip.is-selected .mark { background: var(--accent-deep); }
+.day-chip.is-selected.has-events .mark { background: var(--accent-deep); }
 .week-nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
 .week-nav .label { color: var(--ink); font-weight: 600; font-size: 14px; }
 .week-nav .btn-ghost { background: var(--surface); box-shadow: none; }
@@ -462,6 +462,7 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .activity-item .what { font-size: 13.5px; line-height: 1.4; }
 .activity-item .when { font-size: 12px; color: var(--muted); }
 .activity-item .note { font-size: 13px; color: var(--muted); margin-top: 4px; padding: 8px 10px; background: var(--surface); border-radius: 10px; }
+.activity-item .details { font-size: 13px; color: var(--ink-2); margin-top: 4px; line-height: 1.45; overflow-wrap: anywhere; }
 
 /* ---------- sheet / dialog / toast ---------- */
 .overlay { position: absolute; inset: 0; z-index: 20; background: rgba(17, 24, 39, .32); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: flex; align-items: flex-end; justify-content: center; animation: fade .18s var(--ease); }
@@ -574,12 +575,14 @@ a.row:hover, button.row:hover { background: var(--card-2); }
   .grid-2 { grid-template-columns: 1fr 1fr; gap: 16px; }
   .home-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px; align-items: start; }
   .chip-row, .pipeline-switch { margin: 0; padding: 2px 0 12px; }
-  .kanban { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(250px, 1fr); gap: 12px; overflow-x: auto; padding-bottom: 8px; align-items: start; }
+  /* #38 Columns share the height of the tallest one, and the whole column body accepts a drop. */
+  .kanban { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(250px, 1fr); gap: 12px; overflow-x: auto; padding-bottom: 8px; align-items: stretch; }
   .stage-col { background: var(--surface); border-radius: var(--r-lg); padding: 8px; }
   .stage-col.is-hidden { display: flex; }
   .stage-col > .stage-head { display: flex; align-items: center; gap: 8px; padding: 8px 8px 10px; font-size: 13px; font-weight: 600; color: var(--ink); }
   .stage-col > .stage-head .n { margin-left: auto; font-weight: 500; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .stage-body { min-height: 120px; }
+  .stage-body { min-height: max(160px, calc(100dvh - 300px)); flex: 1; }
+  .kanban.is-dragging .stage-body:not(.is-over) { outline: 1.5px dashed var(--line-strong); outline-offset: -2px; }
   .card-item { cursor: grab; background: var(--card); }
   .card-item:hover { box-shadow: 0 4px 12px -4px rgba(20,26,15,.18); }
   .card-item:active { cursor: grabbing; }
@@ -640,3 +643,8 @@ a.row:hover, button.row:hover { background: var(--card-2); }
 .segmented .seg-link.is-active { background: var(--card); color: var(--ink); box-shadow: var(--shadow-card); }
 .table td a { display: block; }
 .i.rot90 { transform: rotate(90deg); }
+.late-tag { color: var(--tone-danger); font-weight: 600; }
+.card-item .reason { font-size: 12.5px; color: var(--ink-2); background: var(--surface); border-radius: 8px; padding: 4px 8px; margin-top: 6px; overflow-wrap: anywhere; }
+.when.is-unclosed { color: var(--tone-warning); font-weight: 600; }
+.has-error > .input, .has-error > .textarea, .has-error > .select, .repeat-list.has-error .input { border-color: var(--tone-danger); }
+.action-late { color: var(--tone-danger); font-weight: 600; }

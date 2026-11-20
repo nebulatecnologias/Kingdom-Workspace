@@ -2,8 +2,9 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useSyncExternalStore } from "react";
+import { SignOutButton } from "@/components/shell/sign-out";
 import { Avatar } from "@/components/ui/bits";
 import { Icon } from "@/components/ui/icon";
 import { getVersion, lastMatching, subscribe } from "@/lib/nav-history";
@@ -17,7 +18,7 @@ const isActive = (path: string, href: string) => (href === "/" ? path === "/" : 
 export function Sidebar({ me, pipelines, todayCount, missingCount, signOut }: { me: Me; pipelines: NavPipeline[]; todayCount: number; missingCount: number; signOut: () => Promise<void> }) {
   const path = usePathname();
   const item = (href: string, icon: string, label: string, n?: number, match?: string) => (
-    <Link className={clsx("nav-item", isActive(path, match ?? href) && "is-active")} href={href} aria-current={isActive(path, match ?? href) ? "page" : undefined}>
+    <Link className={clsx("nav-item", isActive(path, match ?? href) && "is-active")} href={href} aria-current={isActive(path, match ?? href) ? "page" : undefined} aria-label={n ? `${label}, ${n}` : label}>
       <Icon name={icon} />
       <span>{label}</span>
       {n ? <span className="n num">{n}</span> : null}
@@ -38,7 +39,7 @@ export function Sidebar({ me, pipelines, todayCount, missingCount, signOut }: { 
         {item("/team", "users", T.nav.team)}
         <div className="nav-group">{T.nav.pipelines}</div>
         {pipelines.map((p) => (
-          <Link key={p.slug} className={clsx("nav-item nav-sub", isActive(path, `/pipelines/${p.slug}`) && "is-active")} href={`/pipelines/${p.slug}`}>
+          <Link key={p.slug} className={clsx("nav-item nav-sub", isActive(path, `/pipelines/${p.slug}`) && "is-active")} href={`/pipelines/${p.slug}`} aria-label={`${p.name}, ${p.open} em aberto`} aria-current={isActive(path, `/pipelines/${p.slug}`) ? "page" : undefined}>
             <Icon name={p.icon} size="sm" />
             <span>{p.name}</span>
             <span className="n num">{p.open}</span>
@@ -47,13 +48,11 @@ export function Sidebar({ me, pipelines, todayCount, missingCount, signOut }: { 
       </nav>
       <div className="foot">
         {item("/settings/pipelines/reunioes", "settings", T.nav.settings, undefined, "/settings")}
-        <form action={signOut}>
-          <button className="nav-item" type="submit" style={{ width: "100%" }}>
-            <Icon name="log-out" />
-            <span>{T.nav.logout}</span>
-          </button>
-        </form>
-        <Link className="me" href="/team">
+        <SignOutButton signOut={signOut} className="nav-item" style={{ width: "100%" }}>
+          <Icon name="log-out" />
+          <span>{T.nav.logout}</span>
+        </SignOutButton>
+        <Link className="me" href="/team" aria-label={`${me.full_name}, Equipa`}>
           <Avatar name={me.full_name} />
           <span>
             <span className="name">{me.full_name}</span>
@@ -79,10 +78,13 @@ const sectionOf = (p: string): Section | null =>
 
 export function Tabbar() {
   const path = usePathname();
+  const sp = useSearchParams();
   // -1 until hydrated, so the server and first client render agree; then follows the history store.
   const v = useSyncExternalStore(subscribe, getVersion, () => -1);
   const ready = v !== -1;
   let section = sectionOf(path);
+  // #23 A new card belongs to its pipeline's tab: a meeting to the Agenda, the rest to Pipeline.
+  if (path === "/cards/new") section = (sp.get("pipeline") ?? "reunioes") === "reunioes" ? "agenda" : "pipeline";
   if (!section && ready) {
     const from = lastMatching(/^\/(?!cards\/|atas\/new)/);
     section = from ? sectionOf(from.split("?")[0]) : null;

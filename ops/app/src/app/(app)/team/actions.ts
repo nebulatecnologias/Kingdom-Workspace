@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect, RedirectType } from "next/navigation";
 import { z } from "zod";
 import { requireMember } from "@/lib/auth";
+import { normalizePhone, PHONE_ERROR } from "@/lib/phone";
 import { createClient } from "@/lib/supabase/server";
 
 export type ProfileState = { error?: string };
@@ -24,7 +25,9 @@ export async function updateProfile(_prev: ProfileState, formData: FormData): Pr
   if (!parsed.success) return { error: "Escreva pelo menos o nome." };
   const d = parsed.data;
   if (d.id !== me.id && me.role !== "admin") return { error: "Só um admin pode editar outras pessoas." };
-  const patch: Record<string, unknown> = { full_name: d.full_name, job_title: d.job_title || null, phone_whatsapp: d.phone_whatsapp || null };
+  const phone = normalizePhone(d.phone_whatsapp);
+  if (!phone.ok) return { error: PHONE_ERROR };
+  const patch: Record<string, unknown> = { full_name: d.full_name, job_title: d.job_title || null, phone_whatsapp: phone.value };
   if (me.role === "admin" && d.id !== me.id) {
     patch.role = d.role ?? "member";
     patch.active = d.active === "on";

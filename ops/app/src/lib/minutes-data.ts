@@ -29,7 +29,8 @@ export function minutesDraft(base: Base, card: Card & { card_participants?: { pr
   return {
     id: null, card_id: card.id, title: card.title,
     held_at: card.starts_at ? dayKey(card.starts_at) : dayKey(new Date()), started_at: card.starts_at ? localTime(card.starts_at) : "", ended_at: card.ends_at ? localTime(card.ends_at) : "",
-    location: card.location_kind === "online" ? "Online" : card.location_kind === "phone" ? "Chamada" : (card.location ?? ""),
+    // #29 An online meeting keeps its link in the ata.
+    location: card.location_kind === "online" ? `Online${card.location ? ` · ${card.location}` : ""}` : card.location_kind === "phone" ? "Chamada" : (card.location ?? ""),
     attendees: [
       ...(card.contact_name ? [{ name: card.contact_name, org: card.company_name ?? "", role: card.contact_role ?? "", present: true }] : []),
       ...(owner ? [{ name: owner.full_name, org: "Kingdom", role: owner.job_title ?? "", present: true }] : []),

@@ -22,15 +22,19 @@ export const isDayKey = (s: unknown): s is string => typeof s === "string" && /^
 export const fmtTime = (iso: string) => new Intl.DateTimeFormat("pt-PT", { timeZone: TZ, hour: "2-digit", minute: "2-digit" }).format(new Date(iso));
 export const fmtDay = (key: string, opts: Intl.DateTimeFormatOptions) =>
   cap(new Intl.DateTimeFormat("pt-PT", { timeZone: "UTC", ...opts }).format(new Date(key + "T00:00:00Z")));
-export const fmtDayLong = (key: string) => fmtDay(key, { weekday: "long", day: "numeric", month: "long" });
-export const fmtDayShort = (key: string) => fmtDay(key, { weekday: "short", day: "numeric", month: "short" }).replace(/\./g, "");
-export const fmtDate = (iso: string) => fmtDay(dayKey(iso), { day: "numeric", month: "short" }).replace(/\./g, "");
+// The year is shown only when it is not the current one (#16).
+const thisYear = () => new Date().getUTCFullYear();
+const withYear = (key: string): Intl.DateTimeFormatOptions => (Number(key.slice(0, 4)) !== thisYear() ? { year: "numeric" } : {});
+export const fmtDayLong = (key: string) => fmtDay(key, { weekday: "long", day: "numeric", month: "long", ...withYear(key) });
+export const fmtDayShort = (key: string) => fmtDay(key, { weekday: "short", day: "numeric", month: "short", ...withYear(key) }).replace(/\./g, "");
+export const fmtDate = (iso: string) => fmtDay(dayKey(iso), { day: "numeric", month: "short", ...withYear(dayKey(iso)) }).replace(/\./g, "");
 export const fmtDateFull = (key: string) => fmtDay(key, { day: "numeric", month: "long", year: "numeric" });
 export const fmtDateTime = (iso: string) => `${fmtDayShort(dayKey(iso))} · ${fmtTime(iso)}`;
 export const fmtMonth = (key: string) => fmtDay(key, { month: "long", year: "numeric" });
 export const fmtWeekday = (key: string) => fmtDay(key, { weekday: "short" }).replace(".", "").slice(0, 3);
-export const fmtMoney = (cents: number) =>
-  new Intl.NumberFormat("pt-PT", { style: "currency", currency: "MZN", maximumFractionDigits: 0 }).format(cents / 100);
+/** Whole meticais with a space every three digits, also for 4-digit amounts (#17): "8 000 MZN". */
+export const fmtNumber = (n: number) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0");
+export const fmtMoney = (cents: number) => `${fmtNumber(cents / 100)}\u00a0MZN`;
 export const fmtDuration = (m: number) => (m < 60 ? `${m} min` : m % 60 === 0 ? `${m / 60} h` : `${Math.floor(m / 60)} h ${m % 60}`);
 export const minutesDiff = (a: string | Date, b: string | Date) => Math.round((new Date(a).getTime() - new Date(b).getTime()) / 60000);
 export const relFromNow = (iso: string, now: Date) => {
@@ -55,6 +59,13 @@ export const firstName = (name: string) => name.split(" ")[0];
 export const localTime = (iso: string) => fmtTime(iso);
 /** Maputo wall-clock date + time -> ISO instant. */
 export const toIso = (date: string, time?: string | null) => new Date(`${date}T${time || "00:00"}:00${OFFSET}`).toISOString();
+
+/** "23:30–02:30 (sáb)" when a meeting ends on another day (#28). */
+export const fmtSpan = (start: string, end: string | null) => {
+  if (!end) return fmtTime(start);
+  const other = dayKey(end) !== dayKey(start) ? ` (${fmtWeekday(dayKey(end)).toLowerCase()})` : "";
+  return `${fmtTime(start)}–${fmtTime(end)}${other}`;
+};
 
 /** Current time, kept out of render code (React purity lint). */
 export const nowMs = () => Date.now();

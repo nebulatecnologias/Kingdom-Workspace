@@ -1,15 +1,18 @@
-import clsx from "clsx";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ActivityItem } from "@/components/activity";
+import { ArchiveButton } from "@/components/archive-button";
+import { CardTabs } from "@/components/card-tabs";
+import { Flash } from "@/components/shell/flash";
 import { MoveButton } from "@/components/move-sheet";
 import { Topbar } from "@/components/shell/topbar";
 import { Avatar, Empty, Pill } from "@/components/ui/bits";
 import { Icon } from "@/components/ui/icon";
 import { requireMember } from "@/lib/auth";
 import { getBase, pipelineOf, profileOf, stageOf, stagesOf } from "@/lib/data";
-import { dayKey, firstName, fmtDayLong, fmtDayShort, fmtMoney, fmtTime } from "@/lib/format";
+import { isLate, isUnclosed } from "@/lib/cards";
+import { dayKey, firstName, fmtDayLong, fmtDayShort, fmtMoney, fmtSpan, nowMs } from "@/lib/format";
 import { createClient } from "@/lib/supabase/server";
 import { T } from "@/lib/texts";
 import type { Activity, Minutes } from "@/lib/types";
@@ -19,7 +22,7 @@ export const metadata: Metadata = { title: "Cartão" };
 
 export default async function CardPage({ params, searchParams }: PageProps<"/cards/[id]">) {
   const [{ id }, sp] = await Promise.all([params, searchParams]);
-  await requireMember(`/cards/${id}`);
+  const me = await requireMember(`/cards/${id}`);
   const supabase = await createClient();
   const [base, card, acts, mins] = await Promise.all([
     getBase(),
@@ -37,10 +40,16 @@ export default async function CardPage({ params, searchParams }: PageProps<"/car
   const meeting = pl.kind === "meetings";
   const tab = sp.tab === "ata" && meeting ? "ata" : sp.tab === "history" ? "history" : "details";
   const back = meeting ? "/agenda" : `/pipelines/${pl.slug}`;
+  const now = nowMs();
+  // #47 While a card sits in a stage that asked for a reason, show that reason up front.
+  const reason = st.requires_note ? activity.find((a) => a.to_stage_id === st.id && a.note)?.note ?? null : null;
+  const late = !meeting && isLate(card.due_at, dayKey(new Date(now)), st);
+  const unclosed = meeting && isUnclosed(card, st, now);
+  const canArchive = me.role === "admin" || card.owner_id === me.id || card.created_by === me.id;
 
   const rows: [string, React.ReactNode][] = meeting
     ? [
-        ["Quando", card.starts_at ? <span className="num">{fmtDayLong(dayKey(card.starts_at))}, {fmtTime(card.starts_at)}{card.ends_at ? `–${fmtTime(card.ends_at)}` : ""}</span> : "—"],
+        ["Quando", card.starts_at ? <span className="num">{fmtDayLong(dayKey(card.starts_at))}, {fmtSpan(card.starts_at, card.ends_at)}</span> : "—"],
         [
           "Onde",
           <>
@@ -74,7 +83,7 @@ export default async function CardPage({ params, searchParams }: PageProps<"/car
       ]
     : [
         ...(card.value_cents ? [[pl.kind === "campaigns" ? "Orçamento" : "Valor", <span key="v" className="num strong">{fmtMoney(card.value_cents)}</span>] as [string, React.ReactNode]] : []),
-        ...(card.due_at ? [[pl.kind === "sales" ? "Fecho previsto" : pl.kind === "campaigns" ? "Lançamento" : "Prazo", <span key="d" className="num">{fmtDayLong(dayKey(card.due_at))}</span>] as [string, React.ReactNode]] : []),
+        ...(card.due_at ? [[pl.kind === "sales" ? "Fecho previsto" : pl.kind === "campaigns" ? "Lançamento" : "Prazo", <span key="d" className="num">{fmtDayLong(dayKey(card.due_at))}{late ? <span className="late-tag"> · atrasado</span> : null}</span>] as [string, React.ReactNode]] : []),
         ...(typeof card.fields?.channel === "string" ? [["Canal", card.fields.channel] as [string, React.ReactNode]] : []),
         ...(card.company_name ? [["Empresa", `${card.company_name}${card.company_sector ? ` · ${card.company_sector}` : ""}`] as [string, React.ReactNode]] : []),
         ...(card.contact_name ? [["Pessoa", <>{card.contact_name}{card.contact_role ? `, ${card.contact_role}` : ""}{card.contact_phone ? <><br /><span className="muted">{card.contact_phone}</span></> : null}</>] as [string, React.ReactNode]] : []),
@@ -82,7 +91,6 @@ export default async function CardPage({ params, searchParams }: PageProps<"/car
         ["Descrição", card.description ? <span style={{ whiteSpace: "pre-wrap" }}>{card.description}</span> : <span className="muted">—</span>],
       ];
 
-  const tabHref = (t: string) => `/cards/${card.id}${t === "details" ? "" : `?tab=${t}`}`;
   return (
     <>
       <Topbar
@@ -101,7 +109,7 @@ export default async function CardPage({ params, searchParams }: PageProps<"/car
             <div className="inline" style={{ marginTop: 10, flexWrap: "wrap" }}>
               <Pill stage={st} changed={sp.moved === "1"} />
               {meeting && card.starts_at ? (
-                <span className="caption num">{fmtDayShort(dayKey(card.starts_at))} · {fmtTime(card.starts_at)}</span>
+                <span className="caption num">{fmtDayShort(dayKey(card.starts_at))} · {fmtSpan(card.starts_at, card.ends_at)}</span>
               ) : card.due_at ? (
                 <span className="caption num">{fmtDayShort(dayKey(card.due_at))}</span>
               ) : null}
@@ -109,71 +117,90 @@ export default async function CardPage({ params, searchParams }: PageProps<"/car
             </div>
           </div>
           <div className="page-actions" style={{ width: "100%", flexWrap: "wrap" }}>
-            <MoveButton cardId={card.id} current={card.stage_id} stages={stagesOf(base, pl.id)} />
+            <MoveButton cardId={card.id} current={card.stage_id} stages={stagesOf(base, pl.id)} meeting={meeting} />
             <Link className="btn btn-ghost btn-icon" href={`/cards/${card.id}/edit`} aria-label={T.actions.edit}><Icon name="pencil" size="sm" /></Link>
+            {canArchive ? <ArchiveButton cardId={card.id} kindLabel={T.kind[pl.kind]} /> : null}
           </div>
         </div>
-        {sp.created === "1" || sp.saved === "1" ? (
-          <div className="alert info" role="status" style={{ marginBottom: 12 }}>
-            <Icon name="check" />
-            <span>{sp.created === "1" ? `${T.form.created}: ${st.name}.` : T.form.saved}</span>
+        <Flash messages={{ created: `${T.form.created} em ${st.name}.`, saved: T.form.saved }} />
+        {reason ? (
+          <div className="alert" role="note" style={{ marginBottom: 12 }}>
+            <Icon name="alert" />
+            <span><b>{st.name}:</b> {reason}</span>
           </div>
         ) : null}
-        <nav className="tabs" aria-label="Separadores">
-          <Link className={clsx("tab-link", tab === "details" && "is-active")} href={tabHref("details")} replace scroll={false} aria-current={tab === "details" ? "page" : undefined}>Detalhes</Link>
-          {meeting ? (
-            <Link className={clsx("tab-link", tab === "ata" && "is-active")} href={tabHref("ata")} replace scroll={false} aria-current={tab === "ata" ? "page" : undefined}>
-              {T.minutes.one}
-              {m ? <span className="n">{m.status === "final" ? "final" : "rascunho"}</span> : null}
-            </Link>
-          ) : null}
-          <Link className={clsx("tab-link", tab === "history" && "is-active")} href={tabHref("history")} replace scroll={false} aria-current={tab === "history" ? "page" : undefined}>
-            Histórico<span className="n num">{activity.length}</span>
-          </Link>
-        </nav>
-        {tab === "details" ? (
-          <div className="card card-pad">
-            <dl className="kv">
-              {rows.map(([k, v]) => (
-                <div key={k} style={{ display: "contents" }}>
-                  <dt>{k}</dt>
-                  <dd>{v}</dd>
+        {unclosed ? (
+          <div className="alert" role="note" style={{ marginBottom: 12 }}>
+            <Icon name="alert" />
+            <span>Esta reunião já passou e continua em <b>{st.name}</b>. Atualize o estado com “{T.actions.move}”.</span>
+          </div>
+        ) : null}
+        <CardTabs
+          initial={tab}
+          tabs={[
+            {
+              key: "details",
+              label: "Detalhes",
+              panel: (
+                <div className="card card-pad">
+                  <dl className="kv">
+                    {rows.map(([k, v]) => (
+                      <div key={k} style={{ display: "contents" }}>
+                        <dt>{k}</dt>
+                        <dd>{v}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 </div>
-              ))}
-            </dl>
-          </div>
-        ) : tab === "history" ? (
-          <div className="card card-pad">
-            <div className="activity">
-              {activity.length ? activity.map((a) => (
-                <ActivityItem key={a.id} a={a} actor={profileOf(base, a.actor_id)} to={a.to_stage_id ? base.stages.find((s) => s.id === a.to_stage_id) ?? null : null} />
-              )) : <span className="caption">Sem histórico.</span>}
-            </div>
-          </div>
-        ) : m ? (
-          <div className="card">
-            <Link className="row" href={`/atas/${m.id}`} style={{ minHeight: 64 }}>
-              <span className="tile"><Icon name="file-text" /></span>
-              <span className="row-main">
-                <span className="row-title">{m.title}</span>
-                <span className="row-sub">
-                  {T.minutes.writtenBy} {profileOf(base, m.written_by)?.full_name ?? "—"}
-                  {m.held_at ? ` · ${fmtDayShort(m.held_at)}` : ""}
-                </span>
-              </span>
-              <span className="row-end">
-                {m.status === "final" ? <Pill stage={{ tone: "success", name: T.minutes.final }} /> : <Pill stage={{ tone: "warning", name: T.minutes.draft }} />}
-                <Icon name="chevron-right" size="sm" />
-              </span>
-            </Link>
-          </div>
-        ) : (
-          <div className="card">
-            <Empty icon="file-text" title={T.minutes.noMinutes} hint={T.minutes.noMinutesHint}>
-              <Link className="btn btn-primary btn-sm" href={`/atas/new?card=${card.id}`}><Icon name="plus" size="sm" />{T.actions.createMinutes}</Link>
-            </Empty>
-          </div>
-        )}
+              ),
+            },
+            ...(meeting
+              ? [
+                  {
+                    key: "ata",
+                    label: <>{T.minutes.one}{m ? <span className="n">{m.status === "final" ? "final" : "rascunho"}</span> : null}</>,
+                    panel: m ? (
+                      <div className="card">
+                        <Link className="row" href={`/atas/${m.id}`} style={{ minHeight: 64 }}>
+                          <span className="tile"><Icon name="file-text" /></span>
+                          <span className="row-main">
+                            <span className="row-title">{m.title}</span>
+                            <span className="row-sub">
+                              {T.minutes.writtenBy} {profileOf(base, m.written_by)?.full_name ?? "—"}
+                              {m.held_at ? ` · ${fmtDayShort(m.held_at)}` : ""}
+                            </span>
+                          </span>
+                          <span className="row-end">
+                            {m.status === "final" ? <Pill stage={{ tone: "success", name: T.minutes.final }} /> : <Pill stage={{ tone: "warning", name: T.minutes.draft }} />}
+                            <Icon name="chevron-right" size="sm" />
+                          </span>
+                        </Link>
+                      </div>
+                    ) : (
+                      <div className="card">
+                        <Empty icon="file-text" title={T.minutes.noMinutes} hint={T.minutes.noMinutesHint}>
+                          <Link className="btn btn-primary btn-sm" href={`/atas/new?card=${card.id}`}><Icon name="plus" size="sm" />{T.actions.createMinutes}</Link>
+                        </Empty>
+                      </div>
+                    ),
+                  },
+                ]
+              : []),
+            {
+              key: "history",
+              label: <>Histórico<span className="n num">{activity.length}</span></>,
+              panel: (
+                <div className="card card-pad">
+                  <div className="activity">
+                    {activity.length ? activity.map((a) => (
+                      <ActivityItem key={a.id} a={a} actor={profileOf(base, a.actor_id)} to={a.to_stage_id ? base.stages.find((s) => s.id === a.to_stage_id) ?? null : null} />
+                    )) : <span className="caption">Sem histórico.</span>}
+                  </div>
+                </div>
+              ),
+            },
+          ]}
+        />
       </div>
     </>
   );

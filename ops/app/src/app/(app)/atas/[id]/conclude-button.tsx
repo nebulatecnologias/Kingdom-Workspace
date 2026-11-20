@@ -18,7 +18,7 @@ export function ConcludeButton({ cardId }: { cardId: string }) {
       onClick={() =>
         start(async () => {
           const r = await concludeMeeting(cardId);
-          toast(r.ok ? `${T.toast.moved} Concluída` : "Não foi possível concluir.");
+          toast(r.ok ? `${T.toast.moved} Concluída` : (r.error ?? "Não foi possível concluir."));
           router.refresh();
         })
       }

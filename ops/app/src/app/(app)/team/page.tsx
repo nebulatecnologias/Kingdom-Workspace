@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SignOutButton } from "@/components/shell/sign-out";
 import { Topbar } from "@/components/shell/topbar";
 import { Avatar, PageHead, Pill } from "@/components/ui/bits";
 import { Icon } from "@/components/ui/icon";
@@ -75,17 +76,13 @@ export default async function TeamPage() {
               <span className="row-main"><span className="row-title">{T.nav.settings}</span><span className="row-sub">Etapas dos pipelines, modelos</span></span>
               <span className="row-end"><Icon name="chevron-right" size="sm" /></span>
             </Link>
-            <form action={signOut}>
-              <button className="row" type="submit">
-                <span className="row-main"><span className="row-title">{T.nav.logout}</span></span>
-                <span className="row-end"><Icon name="log-out" size="sm" /></span>
-              </button>
-            </form>
+            <SignOutButton signOut={signOut} className="row">
+              <span className="row-main"><span className="row-title">{T.nav.logout}</span></span>
+              <span className="row-end"><Icon name="log-out" size="sm" /></span>
+            </SignOutButton>
           </div>
         </section>
-        {me.role === "admin" ? (
-          <p className="caption" style={{ marginTop: 16 }}>Novas contas: <code>npm run user:create</code> (convites por email ficam para a fase 2).</p>
-        ) : null}
+        <p className="caption" style={{ marginTop: 16 }}>Para adicionar um membro à equipa, fale com o administrador.</p>
       </div>
     </>
   );

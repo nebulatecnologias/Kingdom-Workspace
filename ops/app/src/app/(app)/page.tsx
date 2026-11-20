@@ -1,16 +1,17 @@
 import Link from "next/link";
 import { Bars } from "@/components/bars";
 import { MeetingCard } from "@/components/cards";
+import { Countdown } from "@/components/countdown";
 import { Avatar, Empty, PageHead } from "@/components/ui/bits";
 import { Icon } from "@/components/ui/icon";
 import { requireMember } from "@/lib/auth";
 import { locationIcon, type Participation } from "@/lib/cards";
 import { computeDashboard } from "@/lib/dashboard";
 import { CARD_COLS, getBase, profileOf, stageOf } from "@/lib/data";
-import { addDays, dayKey, firstName, fmtDayLong, fmtDayShort, fmtMoney, fmtTime, greeting, relFromNow } from "@/lib/format";
+import { dayKey, firstName, fmtDayLong, fmtDayShort, fmtMoney, fmtTime, greeting } from "@/lib/format";
 import { createClient } from "@/lib/supabase/server";
 import { T } from "@/lib/texts";
-import type { Activity, Card } from "@/lib/types";
+import type { ActionItem, Activity, Card } from "@/lib/types";
 
 export default async function HomePage() {
   const me = await requireMember();
@@ -20,17 +21,18 @@ export default async function HomePage() {
   const [base, cardsRes, minRes, actRes] = await Promise.all([
     getBase(),
     supabase.from("cards").select(`${CARD_COLS}, card_participants(card_id, profile_id)`).is("archived_at", null),
-    supabase.from("minutes").select("card_id, status"),
+    supabase.from("minutes").select("card_id, status, actions, cards!inner(archived_at)").is("cards.archived_at", null),
     supabase.from("card_activity").select("type, to_stage_id, at").gte("at", since).in("type", ["stage_changed", "rescheduled"]),
   ]);
   const rows = (cardsRes.data ?? []) as (Card & { card_participants: Participation[] })[];
   const d = computeDashboard({
     now, me: me.id, team: base.team, pipelines: base.pipelines, stages: base.stages, cards: rows,
     parts: rows.flatMap((r) => r.card_participants),
-    minutes: (minRes.data ?? []) as { card_id: string; status: "draft" | "final" }[],
+    minutes: (minRes.data ?? []) as unknown as { card_id: string; status: "draft" | "final" }[],
     activity: (actRes.data ?? []) as Pick<Activity, "type" | "to_stage_id" | "at">[],
   });
   const hello = `${greeting(now)}, ${firstName(me.full_name)}`;
+  const pendingActions = ((minRes.data ?? []) as unknown as { actions: ActionItem[] }[]).flatMap((m) => m.actions ?? []).filter((a) => a.what && a.status !== "done").length;
   const next = d.next;
 
   let nextCard;
@@ -38,14 +40,11 @@ export default async function HomePage() {
     const owner = profileOf(base, next.owner_id);
     const involved = next.owner_id === me.id || rows.find((r) => r.id === next.id)?.card_participants.some((p) => p.profile_id === me.id);
     const label = involved || !owner ? T.next.title : `${T.next.title} · ${firstName(owner.full_name)}`;
-    const inProgress = new Date(next.starts_at!) <= now && new Date(next.ends_at ?? next.starts_at!) > now;
-    const k = dayKey(next.starts_at!);
-    const when = inProgress ? T.next.now : k === d.today ? relFromNow(next.starts_at!, now) : k === addDays(d.today, 1) ? T.next.tomorrow : fmtDayShort(k);
     nextCard = (
       <section className="next-card" aria-label={label}>
         <div className="eyebrow">
           <span>{label}</span>
-          <strong className="num">{fmtTime(next.starts_at!)} · {when}</strong>
+          <strong className="num">{fmtTime(next.starts_at!)} · <Countdown start={next.starts_at!} end={next.ends_at} initialNow={now.getTime()} /></strong>
         </div>
         <h2 className="h-title">{next.title}</h2>
         <div className="meta">
@@ -110,7 +109,7 @@ export default async function HomePage() {
             <span className="ops-icon"><Icon name="file-text" /></span>
             <span className="row-main">
               <span className="row-title">{T.minutes.title}</span>
-              <span className="count-line"><b>{d.missing.length}</b> em falta <span>·</span> <b>{d.drafts}</b> rascunho</span>
+              <span className="count-line"><b>{d.missing.length}</b> em falta <span>·</span> <b>{d.drafts}</b> {d.drafts === 1 ? "rascunho" : "rascunhos"}{pendingActions ? <> <span>·</span> <b>{pendingActions}</b> {pendingActions === 1 ? "ação pendente" : "ações pendentes"}</> : null}</span>
             </span>
             <span className="row-end"><Icon name="chevron-right" size="sm" /></span>
           </Link>
@@ -123,8 +122,8 @@ export default async function HomePage() {
     <>
       <div className="card card-pad counts">
         <div><span>Reuniões hoje <span className="delta">· {d.mine.length} {d.mine.length === 1 ? "sua" : "suas"}</span></span><span className="value">{d.todayAll.length}</span></div>
-        <div><span>Esta semana <span className="delta">· {d.next7Count} nos próximos 7 dias</span></span><span className="value">{d.weekCount}</span></div>
-        <div><span>Atas em falta <span className="delta">· {d.drafts} em rascunho</span></span><span className="value">{d.missing.length}</span></div>
+        <div><span>Reuniões esta semana <span className="delta">· seg a dom · {d.weekAhead} por fazer</span></span><span className="value">{d.weekCount}</span></div>
+        <div><span>Atas em falta <span className="delta">· sem ata · {d.drafts} {d.drafts === 1 ? "rascunho" : "rascunhos"} à parte</span></span><span className="value">{d.missing.length}</span></div>
         <div><span>Tarefas atrasadas <span className="delta">· de {d.openTasks} abertas</span></span><span className="value">{d.lateTasks}</span></div>
         <div><span>Adiadas / canceladas <span className="delta">· 30 dias{d.completion !== null ? ` · ${d.completion}% concluídas` : ""}</span></span><span className="value">{d.postponed} / {d.cancelled}</span></div>
       </div>
@@ -133,7 +132,7 @@ export default async function HomePage() {
         <div className="card card-pad"><Bars rows={d.byStage} /></div>
       </section>
       <section className="section">
-        <div className="section-head"><h2 className="h-section">Reuniões por pessoa · 7 dias</h2></div>
+        <div className="section-head"><h2 className="h-section">Reuniões por pessoa · esta semana</h2></div>
         <div className="card card-pad"><Bars rows={d.byPerson} /></div>
       </section>
       {d.sales.some((s) => s.value) ? (
@@ -151,14 +150,14 @@ export default async function HomePage() {
                 <span className="tile"><Icon name="file-text" /></span>
                 <span className="row-main">
                   <span className="row-title">{c.title}</span>
-                  <span className="row-sub">{c.company_name} · {fmtDayShort(dayKey(c.starts_at!))}{d.hasMinutes.has(c.id) ? " · rascunho" : ""}</span>
+                  <span className="row-sub">{[c.company_name, fmtDayShort(dayKey(c.starts_at!))].filter(Boolean).join(" · ")}</span>
                 </span>
-                <span className="row-end"><span className="btn btn-ghost btn-sm">{d.hasMinutes.has(c.id) ? "Continuar" : T.actions.createMinutes}</span></span>
+                <span className="row-end"><span className="btn btn-ghost btn-sm">{T.actions.createMinutes}</span></span>
               </Link>
             ))}
           </div>
         ) : (
-          <div className="card"><Empty icon="check" title="Tudo em dia" hint="Todas as reuniões concluídas têm ata final." /></div>
+          <div className="card"><Empty icon="check" title="Tudo em dia" hint="Todas as reuniões concluídas têm ata." /></div>
         )}
       </section>
     </>
