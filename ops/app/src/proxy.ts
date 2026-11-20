@@ -24,6 +24,8 @@ function contentSecurityPolicy(nonce: string) {
 /**
  * Refreshes the Supabase session cookie on every page request and sends signed-out visitors to /login.
  * Pages and actions still check the user themselves (requireMember / requireAdmin).
+ * Runs on prefetches too: otherwise an expired access token is refreshed inside a server component,
+ * which cannot save cookies, so the rotated refresh token is lost and the next tap signs the person out.
  */
 export async function proxy(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
@@ -67,10 +69,6 @@ export const config = {
   matcher: [
     {
       source: "/((?!_next/static|_next/image|favicon.ico|icon.svg|api/health|.*\\.(?:png|jpg|jpeg|svg|webp|ico|css|js|woff2?)$).*)",
-      missing: [
-        { type: "header", key: "next-router-prefetch" },
-        { type: "header", key: "purpose", value: "prefetch" },
-      ],
     },
   ],
 };

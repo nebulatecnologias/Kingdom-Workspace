@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import Link from "next/link";
+import { BackButton } from "@/components/shell/back-button";
 import { startTransition, useActionState, useState, type ReactNode } from "react";
 import { saveCard, type CardFormState } from "@/app/(app)/cards/actions";
 import { Icon } from "@/components/ui/icon";
@@ -280,9 +280,9 @@ export function CardForm({ initial, team, back, submitLabel }: { initial: CardDr
         </p>
       ) : null}
       <div className="form-foot">
-        <Link className="btn btn-ghost only-phone" href={back}>
+        <BackButton className="btn btn-ghost only-phone" href={back}>
           {T.actions.cancel}
-        </Link>
+        </BackButton>
         <button className={clsx("btn btn-primary", pending && "is-loading")} type="submit" disabled={pending}>
           {submitLabel}
         </button>

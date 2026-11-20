@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import { Sidebar, Tabbar } from "@/components/shell/nav";
+import { NavTracker } from "@/components/shell/nav-tracker";
 import { Toaster } from "@/components/shell/toaster";
 import { requireMember } from "@/lib/auth";
 import { getBase, getShellCounts } from "@/lib/data";
@@ -18,6 +20,9 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           </main>
         </div>
         <Tabbar />
+        <Suspense fallback={null}>
+          <NavTracker />
+        </Suspense>
       </div>
     </Toaster>
   );

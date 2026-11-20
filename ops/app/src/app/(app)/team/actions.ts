@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 import { z } from "zod";
 import { requireMember } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
@@ -33,7 +33,7 @@ export async function updateProfile(_prev: ProfileState, formData: FormData): Pr
   const { error } = await supabase.from("profiles").update(patch).eq("id", d.id);
   if (error) return { error: "Não foi possível guardar." };
   revalidatePath("/", "layout");
-  redirect("/team");
+  redirect("/team", RedirectType.replace);
 }
 
 export type PasswordState = { status: "idle" | "error" | "saved"; message?: string };

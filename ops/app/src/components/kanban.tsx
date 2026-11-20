@@ -4,13 +4,23 @@ import { DndContext, PointerSensor, useDraggable, useDroppable, useSensor, useSe
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState, useTransition, type ReactNode } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, useTransition, type ReactNode } from "react";
 import { moveCard } from "@/app/(app)/cards/actions";
 import { MoveSheet } from "@/components/move-sheet";
 import { useToast } from "@/components/shell/toaster";
 import { fmtMoney } from "@/lib/format";
 import { T } from "@/lib/texts";
 import type { Stage } from "@/lib/types";
+
+// Drag and drop only with a mouse/trackpad on a wide screen. On touch, a finger scrolling the list
+// used to pick up cards and reorder them, and taps were swallowed; there the move sheet is used instead.
+const DND_QUERY = "(pointer: fine) and (min-width: 1024px)";
+const subscribeDnd = (cb: () => void) => {
+  const mq = window.matchMedia(DND_QUERY);
+  mq.addEventListener("change", cb);
+  return () => mq.removeEventListener("change", cb);
+};
+const useCanDrag = () => useSyncExternalStore(subscribeDnd, () => window.matchMedia(DND_QUERY).matches, () => false);
 
 export type BoardCard = { id: string; stage_id: string; position: number; value_cents: number | null; body: ReactNode };
 
@@ -23,6 +33,24 @@ export function Kanban({ stages, cards: initial, sales }: { stages: Stage[]; car
   const toast = useToast();
   const router = useRouter();
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }));
+  const canDrag = useCanDrag();
+
+  // After a drop the browser still fires a click on the card's link; dnd-kit only stops its propagation,
+  // so the native link would open the card. Cancel that one click.
+  const justDropped = useRef(false);
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (!justDropped.current) return;
+      e.preventDefault();
+      e.stopPropagation();
+    };
+    window.addEventListener("click", onClick, true);
+    return () => window.removeEventListener("click", onClick, true);
+  }, []);
+  const markDropped = () => {
+    justDropped.current = true;
+    setTimeout(() => (justDropped.current = false), 0);
+  };
 
   // Keep in sync when the server sends fresh data (router.refresh after a move).
   const [seen, setSeen] = useState(initial);
@@ -44,6 +72,7 @@ export function Kanban({ stages, cards: initial, sales }: { stages: Stage[]; car
     });
 
   const onDragEnd = (e: DragEndEvent) => {
+    markDropped();
     const cardId = String(e.active.id);
     const over = e.over?.id ? String(e.over.id) : null;
     if (!over) return;
@@ -93,7 +122,7 @@ export function Kanban({ stages, cards: initial, sales }: { stages: Stage[]; car
           ))}
         </div>
       </div>
-      <DndContext sensors={sensors} onDragEnd={onDragEnd}>
+      <DndContext sensors={sensors} onDragEnd={onDragEnd} onDragCancel={markDropped}>
         <div className="kanban">
           {stages.map((s) => {
             const items = inStage(s.id);
@@ -110,7 +139,7 @@ export function Kanban({ stages, cards: initial, sales }: { stages: Stage[]; car
                 </div>
                 <DropBody id={s.id}>
                   {items.length ? (
-                    items.map((c) => <Item key={c.id} card={c} />)
+                    items.map((c) => <Item key={c.id} card={c} canDrag={canDrag} />)
                   ) : (
                     <div className="empty" style={{ padding: "24px 12px" }}>
                       <p style={{ margin: 0 }}>{T.empty.stage}</p>
@@ -153,9 +182,9 @@ function DropBody({ id, children }: { id: string; children: ReactNode }) {
   );
 }
 
-function Item({ card }: { card: BoardCard }) {
-  const drag = useDraggable({ id: card.id });
-  const drop = useDroppable({ id: card.id });
+function Item({ card, canDrag }: { card: BoardCard; canDrag: boolean }) {
+  const drag = useDraggable({ id: card.id, disabled: !canDrag });
+  const drop = useDroppable({ id: card.id, disabled: !canDrag });
   const style = drag.transform ? { transform: `translate3d(${drag.transform.x}px, ${drag.transform.y}px, 0)`, zIndex: 10, position: "relative" as const } : undefined;
   return (
     <Link
@@ -166,10 +195,9 @@ function Item({ card }: { card: BoardCard }) {
       href={`/cards/${card.id}`}
       className={clsx("card-item", drag.isDragging && "is-dragging")}
       style={style}
-      {...drag.listeners}
-      {...drag.attributes}
+      {...(canDrag ? drag.listeners : {})}
+      {...(canDrag ? drag.attributes : {})}
       role="link"
-      onClick={(e) => drag.isDragging && e.preventDefault()}
     >
       {card.body}
     </Link>

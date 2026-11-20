@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { useState, useTransition, type ReactNode } from "react";
 import { concludeMeeting, saveMinutes, type MinutesInput } from "@/app/(app)/atas/actions";
+import { BackButton } from "@/components/shell/back-button";
 import { useToast } from "@/components/shell/toaster";
 import { Icon } from "@/components/ui/icon";
 import { T } from "@/lib/texts";
@@ -41,7 +42,7 @@ export function MinutesForm({ initial, meeting, writer, team, back }: { initial:
       setD((x) => ({ ...x, id: res.id }));
       toast(status === "final" ? T.toast.minutesFinal : T.toast.minutesSaved);
       if (res.askConclude) setAsk({ id: res.id });
-      else router.push(`/atas/${res.id}`);
+      else router.replace(`/atas/${res.id}`);
     });
   };
 
@@ -201,19 +202,19 @@ export function MinutesForm({ initial, meeting, writer, team, back }: { initial:
                 onClick={() =>
                   start(async () => {
                     await concludeMeeting(d.card_id);
-                    router.push(`/atas/${ask.id}`);
+                    router.replace(`/atas/${ask.id}`);
                   })
                 }
               >
                 {T.actions.conclude}
               </button>
-              <button type="button" className="btn btn-ghost btn-sm" onClick={() => router.push(`/atas/${ask.id}`)}>Agora não</button>
+              <button type="button" className="btn btn-ghost btn-sm" onClick={() => router.replace(`/atas/${ask.id}`)}>Agora não</button>
             </div>
           </div>
         </div>
       ) : (
         <div className="form-foot">
-          <a className="btn btn-quiet only-desktop" href={back}>{T.actions.cancel}</a>
+          <BackButton className="btn btn-quiet only-desktop" href={back}>{T.actions.cancel}</BackButton>
           <button className={clsx("btn btn-ghost", pending && which === "draft" && "is-loading")} type="button" disabled={pending} onClick={() => submit("draft")}>{T.actions.saveDraft}</button>
           <button className={clsx("btn btn-primary", pending && which === "final" && "is-loading")} type="button" disabled={pending} onClick={() => submit("final")}>{T.actions.finalize}</button>
         </div>

@@ -37,7 +37,8 @@ export default async function TeamPage() {
             const n = wk.filter((c) => involves(c, p.id, parts)).length;
             const o = (open ?? []).filter((c) => c.owner_id === p.id && isOpen(stageOf(base, c.stage_id))).length;
             return (
-              <Link key={p.id} className="card member" href={me.role === "admin" || p.id === me.id ? `/team/${p.id}` : `/agenda?member=${p.id}`}>
+              <div key={p.id} className="card member">
+                <Link className="member-main" href={`/agenda?member=${p.id}`} aria-label={`Agenda de ${p.full_name}`}>
                 <Avatar name={p.full_name} className="lg" />
                 <div className="row-main">
                   <div className="inline">
@@ -51,8 +52,15 @@ export default async function TeamPage() {
                   </div>
                   <div className="load num">{n} {n === 1 ? "reunião" : "reuniões"} esta semana · {o} cartões abertos</div>
                 </div>
-                <Icon name="chevron-right" size="sm" />
-              </Link>
+                </Link>
+                {me.role === "admin" || p.id === me.id ? (
+                  <Link className="btn btn-quiet btn-icon btn-sm" href={`/team/${p.id}`} aria-label={`Editar ${p.full_name}`}>
+                    <Icon name="pencil" size="sm" />
+                  </Link>
+                ) : (
+                  <Icon name="chevron-right" size="sm" />
+                )}
+              </div>
             );
           })}
         </div>

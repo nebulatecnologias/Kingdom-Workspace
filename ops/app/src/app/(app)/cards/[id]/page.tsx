@@ -120,14 +120,14 @@ export default async function CardPage({ params, searchParams }: PageProps<"/car
           </div>
         ) : null}
         <nav className="tabs" aria-label="Separadores">
-          <Link className={clsx("tab-link", tab === "details" && "is-active")} href={tabHref("details")} aria-current={tab === "details" ? "page" : undefined}>Detalhes</Link>
+          <Link className={clsx("tab-link", tab === "details" && "is-active")} href={tabHref("details")} replace scroll={false} aria-current={tab === "details" ? "page" : undefined}>Detalhes</Link>
           {meeting ? (
-            <Link className={clsx("tab-link", tab === "ata" && "is-active")} href={tabHref("ata")} aria-current={tab === "ata" ? "page" : undefined}>
+            <Link className={clsx("tab-link", tab === "ata" && "is-active")} href={tabHref("ata")} replace scroll={false} aria-current={tab === "ata" ? "page" : undefined}>
               {T.minutes.one}
               {m ? <span className="n">{m.status === "final" ? "final" : "rascunho"}</span> : null}
             </Link>
           ) : null}
-          <Link className={clsx("tab-link", tab === "history" && "is-active")} href={tabHref("history")} aria-current={tab === "history" ? "page" : undefined}>
+          <Link className={clsx("tab-link", tab === "history" && "is-active")} href={tabHref("history")} replace scroll={false} aria-current={tab === "history" ? "page" : undefined}>
             Histórico<span className="n num">{activity.length}</span>
           </Link>
         </nav>

@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 import { z } from "zod";
 import { requireMember } from "@/lib/auth";
 import { toIso } from "@/lib/format";
@@ -105,7 +105,7 @@ export async function saveCard(_prev: CardFormState, formData: FormData): Promis
   }
 
   revalidatePath("/", "layout");
-  redirect(`/cards/${id}${d.id ? "?saved=1" : "?created=1"}`);
+  redirect(`/cards/${id}${d.id ? "?saved=1" : "?created=1"}`, RedirectType.replace);
 }
 
 export type MoveResult = { ok: true } | { ok: false; error: string; field?: "note" | "date" };
