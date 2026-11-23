@@ -47,13 +47,13 @@ FASES = [
 SUBTOTAL = sum(f[5] for f in FASES)
 DESCONTO = 20000
 TOTAL = SUBTOTAL - DESCONTO
-PARCELAS = [
-    ('1.ª parcela', 40, 'Na adjudicação, antes de começar'),
-    ('2.ª parcela', 20, 'Com o protótipo aprovado (semana 2)'),
-    ('3.ª parcela', 20, 'Com a entrega do piloto (semana 4)'),
+PARCELAS = [  # 30/20/30/20, decidido pelo Shelton a 23/11/2026
+    ('1.ª parcela', 30, 'Na adjudicação, antes de começar'),
+    ('2.ª parcela', 20, 'Com a entrega do piloto (semana 4)'),
+    ('3.ª parcela', 30, 'Com o desenvolvimento completo (semana 6)'),
     ('4.ª parcela', 20, 'No lançamento (semana 8)'),
 ]
-assert SUBTOTAL == 269000 and TOTAL == 249000
+assert SUBTOTAL == 269000 and TOTAL == 249000 and sum(p[1] for p in PARCELAS) == 100
 
 pags = []
 
@@ -185,7 +185,7 @@ pags.append(f'''<section class="pag">
 </section>''')
 
 # 8 · Condições, próximos passos e aceitação
-cond = ['Valores em meticais, sem IVA.', 'Pagamento em 4 parcelas: 40%, 20%, 20% e 20%.',
+cond = ['Valores em meticais, sem IVA.', 'Pagamento em 4 parcelas, ligadas às entregas: 30%, 20%, 30% e 20%.',
         'Inclui os honorários da equipa e o alojamento e o domínio no 1.º ano.',
         'Não inclui tablets, telemóveis, impressoras, rede Wi-Fi nem faturação fiscal.',
         'Funcionalidades novas, fora deste âmbito, são orçamentadas à parte; paga-se apenas a diferença.',
