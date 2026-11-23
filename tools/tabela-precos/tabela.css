@@ -1,0 +1,69 @@
+
+/* ===== tabela de preços (estende portfolio.css e proposta.css) ===== */
+.chip { display: inline-block; padding: .5mm 2mm .6mm; border-radius: 4mm; font-size: 6.6pt; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; vertical-align: middle; }
+.ch-projeto { background: #E9EAF2; color: var(--tinta); }
+.ch-pacote { background: #E5EFFF; color: #0047B3; }
+.ch-pontual { background: #FFEDE5; color: #B83A0E; }
+.lead-c { margin-top: 3mm; font-size: 9.4pt; }
+
+/* como ler */
+.modelos { list-style: none; margin-top: 4mm; display: grid; gap: 3mm; }
+.modelos li { display: grid; grid-template-columns: 34mm 1fr; align-items: baseline; padding: 3mm 0; border-top: .25mm solid var(--linha); font-size: 9.6pt; color: #2C2E4A; }
+.modelos li:last-child { border-bottom: .25mm solid var(--linha); }
+.planos-exp { list-style: none; margin-top: 4mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 7mm; }
+.planos-exp li { padding-top: 3mm; border-top: .3mm solid var(--tinta); }
+.planos-exp b { display: block; font-size: 10pt; font-weight: 600; }
+.planos-exp span { display: block; margin-top: 1mm; font-size: 8.8pt; color: var(--cinza); line-height: 1.45; }
+
+/* resumo */
+.resumo { width: 100%; margin-top: 5mm; border-collapse: collapse; font-size: 8.2pt; }
+.resumo th { text-align: left; padding: 0 1.6mm 1.6mm 0; font-size: 6.4pt; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); border-bottom: .3mm solid var(--tinta); }
+.resumo td { padding: 1.45mm 1.6mm 1.45mm 0; border-bottom: .2mm solid var(--linha); vertical-align: middle; }
+.resumo tr.r-ini td { border-top: .3mm solid #B9BBCC; }
+.resumo tbody tr:first-child td { border-top: 0; }
+.resumo .r-area { width: 30mm; vertical-align: top; padding-top: 1.8mm; font-weight: 600; font-size: 8pt; line-height: 1.3; }
+.resumo .r-area em { display: block; font-style: normal; font-size: 7pt; color: var(--laranja); }
+.resumo .r-serv b { display: block; font-weight: 600; font-size: 8.3pt; line-height: 1.25; }
+.resumo .r-serv span { display: block; font-size: 7pt; color: var(--suave); }
+.resumo .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; width: 19mm; }
+.resumo th.num { text-align: right; }
+
+/* páginas de área */
+.ar-cab h1 { margin-top: 1.4mm; }
+.pss { margin-top: 5mm; }
+.ps { padding: 5mm 0 4.6mm; border-top: .25mm solid var(--linha); }
+.ps:first-child { border-top: 0; padding-top: 2mm; }
+.ps-cab { display: flex; align-items: center; gap: 3mm; flex-wrap: wrap; }
+.ps-cab h3 { font-size: 12pt; font-weight: 600; letter-spacing: -.01em; margin-right: 1mm; }
+.uni { font-size: 8pt; color: var(--suave); }
+.pls { margin-top: 3mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+.pl { padding-top: 2.4mm; border-top: .3mm solid var(--tinta); }
+.pl:nth-child(2) { border-top-color: var(--azul); }
+.pl:nth-child(3) { border-top-color: var(--laranja); }
+.pl > small { display: block; margin-top: 1.2mm; font-size: 6.8pt; color: var(--suave); }
+.pl .lbl + .preco { margin-top: 1.2mm; }
+.preco { font-size: 15pt; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.preco i, .preco-g i { font-style: normal; font-size: 8pt; font-weight: 500; color: var(--cinza); letter-spacing: 0; }
+.rot { display: block; margin-top: .6mm; font-size: 7.6pt; color: var(--cinza); }
+.pl ul { list-style: none; margin-top: 1.6mm; }
+.pl li { position: relative; padding-left: 3mm; font-size: 8pt; line-height: 1.36; color: #2C2E4A; }
+.pl li + li { margin-top: .5mm; }
+.pl li::before { content: ''; position: absolute; left: 0; top: 1.4mm; width: 1.1mm; height: 1.1mm; border-radius: 50%; background: var(--suave); }
+.sobe { margin-top: 2.6mm; font-size: 7.9pt; color: var(--cinza); }
+.sobe b { font-weight: 600; color: var(--tinta); }
+.densa .ps { padding: 3.6mm 0 3.4mm; }
+.densa .pls { margin-top: 2.2mm; }
+.densa .preco { font-size: 13.5pt; }
+
+/* hora e extras */
+.hora { margin-top: 7mm; padding: 6mm; background: var(--noite); color: #fff; border-radius: 2mm; }
+.hora .lbl { color: rgba(255,255,255,.6); }
+.preco-g { margin-top: 1.6mm; font-size: 30pt; font-weight: 700; letter-spacing: -.03em; }
+.hora .preco-g i { color: rgba(255,255,255,.7); font-size: 10pt; }
+.hora p:last-child { margin-top: 2.4mm; max-width: 150mm; font-size: 9.4pt; line-height: 1.5; color: rgba(255,255,255,.82); }
+.extras { margin-top: 8mm; }
+.extras td:first-child { width: 46mm; }
+.extras td.num { width: 46mm; white-space: nowrap; font-weight: 600; color: var(--tinta); }
+.extras th.num { text-align: left; }
+.extras td.num { text-align: left; }
+.resumo td { padding-top: 1.15mm; padding-bottom: 1.15mm; } .resumo { margin-top: 4mm; }
