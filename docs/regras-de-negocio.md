@@ -162,9 +162,9 @@ Na Kingdom Company, o desenvolvimento de websites custa de 15.000 MT a 65.000 MT
 
 ### R29 · Preços da Kingdom Company
 
-Perfis Corporativos: 9.500 MT. Modelos de Propostas Técnicas (antes Propostas Comerciais e de Concursos): 18.500 MT. Plano de Negócios (antes Business Plan, Consultoria Estratégica): 32.500 MT; passa a 45.000 MT se levar mais de 11 horas do Shelton. Websites e Aplicativos seguem a R27 e têm manutenção mensal obrigatória a partir de 1.500 MT por mês; sistemas, a partir de 5.000 MT por mês. Preço por definir: Identidade Visual, Planeamento Estratégico, Advisory, Produção Audiovisual, Gestão de Redes Sociais, Produção de Campanhas Publicitárias, Dashboards de Gestão e CRM e Sistemas de Vendas (os sistemas seguem a R27: 95.000 a 350.000 MT). MediaTrack, Expert Led Growth, Brand 121 e Gestão Comercial e Marketing deixaram de existir a 08/11/2026 (R04). A Consultoria Estratégica existe nas duas empresas desde 13/11/2026 (R04); na DT, os preços são sob consulta e personalizados para cada cliente (R40).
+Perfis Corporativos: 9.500 MT. Modelos de Propostas Técnicas (antes Propostas Comerciais e de Concursos): 18.500 MT. Plano de Negócios (antes Business Plan, Consultoria Estratégica): 32.500 MT; passa a 45.000 MT se levar mais de 11 horas do Shelton. Websites e Aplicativos seguem a R27 e têm manutenção mensal obrigatória a partir de 1.500 MT por mês; sistemas, a partir de 5.000 MT por mês. Preço por definir: Identidade Visual, Planeamento Estratégico, Advisory, Produção Audiovisual, Gestão de Redes Sociais, Produção de Campanhas Publicitárias, Dashboards de Gestão e CRM e Sistemas de Vendas (os sistemas seguem a R27: 95.000 a 350.000 MT). MediaTrack, Expert Led Growth, Brand 121 e Gestão Comercial e Marketing deixaram de existir a 08/11/2026 (R04). A Consultoria Estratégica existe nas duas empresas desde 13/11/2026 (R04); na DT, os preços são sob consulta e personalizados para cada cliente (R40). Exceção aprovada pelo Shelton a 23/11/2026: na proposta do Dashboard de Gestão para o restaurante do Sr. John, a manutenção não é obrigatória; o cliente escolhe entre a gestão própria e a manutenção pela nossa equipa, com o valor mensal definido pelo número de utilizadores.
 
-*10/10/2026 · Decisão do Shelton; revista a 08/11/2026, a 11/11/2026 e a 13/11/2026*
+*10/10/2026 · Decisão do Shelton; revista a 08/11/2026, a 11/11/2026 e a 13/11/2026; exceção a 23/11/2026*
 
 ### R30 · One pager: âmbito fechado por 15.000 MT
 
@@ -232,9 +232,9 @@ Os serviços da Kingdom Company pagam-se por marcos do projeto: o primeiro marco
 
 ### R39 · Kingdom Company: sem descontos
 
-Na Kingdom Company não há descontos, nem por pagamento antecipado nem por pacote. O preço de um plano nunca desce caso a caso: para baixar o valor, o Closer propõe um plano abaixo ou retira âmbito.
+Na Kingdom Company não há descontos, nem por pagamento antecipado nem por pacote. O preço de um plano nunca desce caso a caso: para baixar o valor, o Closer propõe um plano abaixo ou retira âmbito. Exceção aprovada pelo Shelton a 23/11/2026: a proposta do Dashboard de Gestão para o restaurante do Sr. John mantém um desconto de 20.000 MT (269.000 MT → 249.000 MT + IVA).
 
-*09/11/2026 · Decisão do Shelton*
+*09/11/2026 · Decisão do Shelton; exceção a 23/11/2026*
 
 ## Tráfego e conteúdo
 

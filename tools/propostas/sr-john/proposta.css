@@ -1,0 +1,100 @@
+
+/* ===== proposta (estende portfolio.css) ===== */
+.capa-h-prop { margin-top: 4mm; max-width: 160mm; font-size: 36pt; font-weight: 600; line-height: 1.06; letter-spacing: -.032em; }
+.txt { margin-top: 3mm; max-width: 160mm; font-size: 9.8pt; line-height: 1.55; color: #2C2E4A; }
+.h2-1 { margin-top: 8mm !important; }
+.nota-f { margin-top: 6mm; padding: 3.6mm 4.6mm; background: var(--nevoa); border-radius: 1.6mm; font-size: 8.6pt; line-height: 1.5; color: #2C2E4A; }
+
+/* resumo: factos-chave */
+.factos { margin-top: 9mm; display: grid; grid-template-columns: repeat(5, 1fr); border-top: .3mm solid var(--tinta); border-bottom: .25mm solid var(--linha); }
+.factos div { padding: 3.4mm 3mm 3.6mm 0; }
+.factos div + div { padding-left: 3.4mm; border-left: .25mm solid var(--linha); }
+.factos dt { font-size: 6.9pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--suave); }
+.factos dd { margin-top: 1.4mm; font-size: 9.6pt; font-weight: 600; line-height: 1.3; }
+
+/* o que o sistema faz */
+.grupos { margin-top: 9mm; display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; }
+.itens { list-style: none; margin-top: 2.6mm; }
+.itens li { padding: 3.4mm 0; border-top: .25mm solid var(--linha); }
+.itens li:first-child { border-top: .3mm solid var(--tinta); }
+.itens b { display: block; font-size: 10pt; font-weight: 600; }
+.itens span { display: block; margin-top: 1mm; font-size: 9pt; color: var(--cinza); line-height: 1.45; }
+.fluxo { list-style: none; margin-top: 5mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8mm; }
+.fluxo li { position: relative; padding-top: 3mm; border-top: .3mm solid var(--tinta); }
+.fluxo em { font-style: normal; font-size: 8.4pt; font-weight: 600; color: var(--laranja); }
+.fluxo li:nth-child(2) em { color: var(--azul); }
+.fluxo b { display: block; margin-top: 1.2mm; font-size: 10pt; font-weight: 600; }
+.fluxo span { display: block; margin-top: 1mm; font-size: 8.9pt; color: var(--cinza); line-height: 1.45; }
+
+/* tabelas simples */
+.tab { width: 100%; margin-top: 3.4mm; border-collapse: collapse; font-size: 9.2pt; }
+.tab th { text-align: left; padding: 0 0 1.8mm; font-size: 6.9pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--suave); border-bottom: .3mm solid var(--tinta); }
+.tab td { padding: 2.6mm 0; border-bottom: .25mm solid var(--linha); vertical-align: top; color: #2C2E4A; }
+.tab td:first-child { width: 52mm; font-weight: 600; color: var(--tinta); }
+.seg { list-style: none; margin-top: 4mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm 7mm; }
+.seg li { padding-top: 2.6mm; border-top: .25mm solid var(--linha); }
+.seg b { display: block; font-size: 9.4pt; font-weight: 600; }
+.seg span { display: block; margin-top: .8mm; font-size: 8.5pt; color: var(--cinza); line-height: 1.42; }
+
+/* calendário */
+.gantt { width: 100%; margin-top: 8mm; border-collapse: collapse; table-layout: fixed; }
+.gantt col { width: auto; }
+.gantt th { font-size: 6.9pt; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); text-align: left; padding: 0 0 1.4mm; }
+.gantt thead tr:first-child th:nth-child(n+3) { text-align: center; border-bottom: .25mm solid var(--linha); }
+.gantt .sem th { text-align: center; letter-spacing: 0; padding-top: 1.4mm; border-bottom: .3mm solid var(--tinta); }
+.gantt .sem th:nth-child(-n+2) { border-bottom: .3mm solid var(--tinta); }
+.gantt th:first-child, .gantt .f-cod { width: 10mm; }
+.gantt th:nth-child(2), .gantt .f-nome { width: 86mm; }
+.gantt td { border-bottom: .25mm solid var(--linha); padding: 3mm 0; vertical-align: middle; }
+.gantt .f-cod { font-size: 8.6pt; font-weight: 600; color: var(--laranja); vertical-align: top; padding-top: 3.2mm; }
+.gantt tbody tr:nth-child(even) .f-cod { color: var(--azul); }
+.gantt .f-nome { padding-right: 5mm; }
+.gantt .f-nome b { display: block; font-size: 9.6pt; font-weight: 600; }
+.gantt .f-nome span { display: block; margin-top: .8mm; font-size: 8.4pt; color: var(--cinza); line-height: 1.4; }
+.gantt td:nth-child(n+3) { border-left: .25mm dashed var(--linha); position: relative; }
+.gantt td.on::after { content: ''; position: absolute; left: .8mm; right: .8mm; top: 50%; height: 3.4mm; margin-top: -1.7mm; border-radius: .8mm; background: var(--tinta); }
+
+/* investimento */
+.inv { width: 100%; margin-top: 7mm; border-collapse: collapse; font-size: 9.4pt; }
+.inv th { text-align: left; padding: 0 0 1.8mm; font-size: 6.9pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--suave); border-bottom: .3mm solid var(--tinta); }
+.inv td { padding: 2.5mm 0; border-bottom: .25mm solid var(--linha); }
+.inv .f-cod { width: 11mm; font-weight: 600; color: var(--laranja); }
+.inv tbody tr:nth-child(even) .f-cod { color: var(--azul); }
+.inv .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.inv th.num { text-align: right; }
+.inv td:nth-child(3) { width: 26mm; color: var(--cinza); }
+.inv td:nth-child(4) { width: 34mm; }
+.inv tfoot td { border-bottom: 0; padding: 2mm 0; color: var(--cinza); }
+.inv tfoot tr:first-child td { padding-top: 3.4mm; }
+.inv tfoot .tot td { padding-top: 3.4mm; border-top: .3mm solid var(--tinta); font-size: 12pt; font-weight: 700; color: var(--tinta); }
+.inv tfoot .tot small { font-size: 8.4pt; font-weight: 500; color: var(--cinza); }
+.inc { margin-top: 9mm; display: grid; grid-template-columns: 1.6fr 1fr; gap: 10mm; }
+.check { list-style: none; margin-top: 2.4mm; }
+.check li { position: relative; padding: 1.3mm 0 1.3mm 5mm; font-size: 9pt; line-height: 1.4; color: #2C2E4A; }
+.check li::before { content: ''; position: absolute; left: .3mm; top: 2.5mm; width: 2.2mm; height: 1.1mm; border-left: .35mm solid var(--tinta); border-bottom: .35mm solid var(--tinta); transform: rotate(-45deg); }
+.check.nao li::before { width: 2.2mm; height: 0; top: 3.1mm; border-left: 0; border-bottom: .35mm solid var(--suave); transform: none; }
+
+/* pagamento */
+.parcelas { list-style: none; margin-top: 8mm; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
+.parcelas li { padding: 3.4mm 0 0; border-top: .3mm solid var(--tinta); }
+.parcelas b { display: block; margin-top: 2mm; font-size: 14pt; font-weight: 700; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.parcelas span { display: block; margin-top: 1.4mm; font-size: 8.6pt; color: var(--cinza); line-height: 1.4; }
+.opcoes { margin-top: 6mm; display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+.opcoes > div { padding: 5mm; border: .25mm solid var(--linha); border-radius: 1.8mm; }
+.opcoes b { display: block; margin-top: 1.4mm; font-size: 11pt; font-weight: 600; }
+
+/* condições e aceitação */
+.cond { list-style: none; margin-top: 6mm; }
+.cond li { position: relative; padding: 2.4mm 0 2.4mm 6mm; border-top: .25mm solid var(--linha); font-size: 9.6pt; line-height: 1.45; }
+.cond li:last-child { border-bottom: .25mm solid var(--linha); }
+.cond li::before { content: ''; position: absolute; left: 0; top: 4.3mm; width: 1.4mm; height: 1.4mm; border-radius: 50%; background: var(--tinta); }
+.passos li { grid-template-columns: 1fr; padding-top: 3mm; padding-bottom: 3mm; }
+.passos li::before { top: 2.4mm; }
+.ass { margin-top: 12mm; display: grid; grid-template-columns: 1.3fr 1.3fr 1fr; gap: 9mm; }
+.ass .lin { height: 10mm; border-bottom: .3mm solid var(--tinta); }
+.ass small { display: block; margin-top: 1.6mm; font-size: 8pt; color: var(--cinza); }
+.gantt td.on::after { left: 0; right: 0; border-radius: 0; }
+.gantt td.on.ini::after { left: .8mm; border-top-left-radius: .8mm; border-bottom-left-radius: .8mm; }
+.gantt td.on.fim::after { right: .8mm; border-top-right-radius: .8mm; border-bottom-right-radius: .8mm; }
+.capa .fios-capa { top: 34mm; height: 150mm; }
+.gantt td.on:not(.ini)::after { left: -.4mm; z-index: 1; }
