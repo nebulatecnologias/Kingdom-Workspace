@@ -4,9 +4,38 @@ const instantaneo = require('./_instantaneo.json');
 
 // A equipa não mostra os nomes provisórios "Pessoa 1, 2, 3…" (mantém nomes reais e "Sem responsável").
 const provisorio = (nome) => /^pessoa\s*\d+$/i.test(String(nome || '').trim());
+// Junta nomes curtos ao nome completo da mesma pessoa ("Mayra" → "Mayra Capitine"),
+// quando há um só nome completo que começa por esse nome. Soma todos os números.
+function mapaNomes(nomes) {
+  const destino = {};
+  nomes.forEach((n) => {
+    if (!n || n.includes(' ')) return;
+    const completos = [...new Set(nomes.filter((m) => m.toLowerCase().startsWith(n.toLowerCase() + ' ')))];
+    if (completos.length === 1) destino[n] = completos[0];
+  });
+  return destino;
+}
+
+function juntarNomes(lista, destino) {
+  const porNome = {};
+  const saida = [];
+  lista.forEach((p) => {
+    const nome = destino[String(p.nome || '').trim()] || p.nome;
+    if (!porNome[nome]) { porNome[nome] = { ...p, nome }; saida.push(porNome[nome]); return; }
+    const alvo = porNome[nome];
+    Object.keys(p).forEach((k) => { if (typeof p[k] === 'number') alvo[k] = (alvo[k] || 0) + p[k]; });
+  });
+  return saida;
+}
+
 function soNomesReais(d) {
-  if (Array.isArray(d.equipa)) d.equipa = d.equipa.filter((p) => !provisorio(p.nome));
-  (d.dias || []).forEach((dia) => { if (Array.isArray(dia.equipa)) dia.equipa = dia.equipa.filter((p) => !provisorio(p.nome)); });
+  const todos = [];
+  (d.equipa || []).forEach((p) => todos.push(String(p.nome || '').trim()));
+  (d.dias || []).forEach((dia) => (dia.equipa || []).forEach((p) => todos.push(String(p.nome || '').trim())));
+  const destino = mapaNomes(todos);
+  const limpar = (l) => juntarNomes(l.filter((p) => !provisorio(p.nome)), destino);
+  if (Array.isArray(d.equipa)) d.equipa = limpar(d.equipa);
+  (d.dias || []).forEach((dia) => { if (Array.isArray(dia.equipa)) dia.equipa = limpar(dia.equipa); });
   return d;
 }
 
