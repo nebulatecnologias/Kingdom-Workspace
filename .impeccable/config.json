@@ -93,11 +93,11 @@
       {
         "rule": "overused-font",
         "value": "inter",
-        "createdAt": "2026-11-28T15:32:21.107Z",
-        "reason": "Claude: Inter is the body face for dense tabular dashboard figures; the display face (Bricolage Grotesque) carries the identity",
         "files": [
           "projetos/o-despertar/dashboard/index.html"
-        ]
+        ],
+        "createdAt": "2026-11-28T15:32:21.107Z",
+        "reason": "Claude: Inter is the body face for dense tabular dashboard figures; the display face (Bricolage Grotesque) carries the identity"
       },
       {
         "rule": "pulsing-dot",
@@ -107,6 +107,15 @@
         ],
         "createdAt": "2026-11-28T15:32:21.120Z",
         "reason": "Claude: the dot pulses only while the page is receiving live sheet data; snapshot and offline states render it static"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "projetos/o-despertar/dashboard/index.html"
+        ],
+        "createdAt": "2026-11-28T16:01:54.707Z",
+        "reason": "Claude: the only uppercase text is the two short event lines on the poster card (country/date and time/venue), matching the event poster the user asked the dashboard to follow"
       }
     ]
   }
