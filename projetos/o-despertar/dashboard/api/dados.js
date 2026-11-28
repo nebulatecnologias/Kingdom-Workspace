@@ -26,7 +26,8 @@ module.exports = async function handler(req, res) {
       throw new Error('A planilha respondeu com algo que não é JSON (o script está publicado como app da Web com acesso "Qualquer pessoa"?)');
     }
     if (dados.erro) throw new Error(dados.erro);
-    res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=300');
+    // ?fresco=... vem do botão "Atualizar": resposta direta da planilha, sem cache na Vercel
+    res.setHeader('Cache-Control', req.query && req.query.fresco ? 'no-store' : 'public, s-maxage=30, stale-while-revalidate=300');
     return res.status(200).send(JSON.stringify({ ...dados, fonte: 'planilha' }));
   } catch (err) {
     res.setHeader('Cache-Control', 'no-store');

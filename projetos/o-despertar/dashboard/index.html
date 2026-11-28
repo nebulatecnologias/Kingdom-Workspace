@@ -72,6 +72,14 @@ a { color: inherit; }
 .live i { width: 8px; height: 8px; border-radius: 50%; background: #22a55a; flex-shrink: 0; }
 .live.snap i { background: #9aa6b8; }
 .live.off i { background: #e59b13; }
+.refresh { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; border: 0; cursor: pointer; font: 600 14px/1 var(--f-body); color: #fff; background: linear-gradient(180deg, var(--blue-500), var(--blue-600)); box-shadow: 0 4px 10px rgba(16, 33, 63, .16); transition: filter .15s, transform .15s; white-space: nowrap; }
+.refresh:hover { filter: brightness(1.06); }
+.refresh:active { transform: translateY(1px); }
+.refresh:disabled { cursor: progress; filter: saturate(.6) brightness(1.05); }
+.refresh svg { width: 16px; height: 16px; }
+.refresh.loading svg { animation: girar .9s linear infinite; }
+@keyframes girar { to { transform: rotate(360deg); } }
+@media (max-width: 560px) { .refresh span { display: none; } .refresh { width: 40px; padding: 0; justify-content: center; } }
 
 /* Saudação */
 .greet { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 32px; margin: 26px 6px 22px; }
@@ -408,6 +416,7 @@ section[id] { scroll-margin-top: 16px; }
     </nav>
     <div class="top-right">
       <span class="live snap" id="live" role="status"><i aria-hidden="true"></i><span id="live-txt">A carregar…</span></span>
+      <button type="button" class="refresh" id="btn-refresh" aria-label="Atualizar agora com os dados da planilha"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.3-4.9M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9M20 20v-4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Atualizar</span></button>
     </div>
   </header>
 
@@ -924,13 +933,23 @@ section[id] { scroll-margin-top: 16px; }
     $('foot-upd').textContent = 'Última leitura da planilha: ' + g.toLocaleString('pt-PT') + ' · atualiza a cada minuto';
   }
 
-  function carregar() {
-    fetch('/api/dados', { cache: 'no-store' })
+  var aCarregar = false;
+  function carregar(agora) {
+    if (aCarregar) return Promise.resolve();
+    aCarregar = true;
+    var btn = $('btn-refresh');
+    if (agora) { btn.disabled = true; btn.classList.add('loading'); btn.querySelector('span').textContent = 'A atualizar…'; }
+    // "agora": pede à função que vá à planilha sem usar a cache
+    return fetch('/api/dados' + (agora ? '?fresco=' + Date.now() : ''), { cache: 'no-store' })
       .then(function (r) { return r.json().then(function (j) { if (!r.ok || j.erro) throw new Error(j.erro || ('Erro ' + r.status)); return j; }); })
-      .then(function (j) { D = j; erro = null; render(); })
+      .then(function (j) { D = j; erro = null; render(); if (agora) $('live-txt').textContent = 'Atualizado agora'; })
       .catch(function (e) { erro = e.message || String(e); estado(); })
-      .then(function () { proxima = Date.now() + REFRESH_MS; });
+      .then(function () {
+        aCarregar = false; proxima = Date.now() + REFRESH_MS;
+        btn.disabled = false; btn.classList.remove('loading'); btn.querySelector('span').textContent = 'Atualizar';
+      });
   }
+  $('btn-refresh').addEventListener('click', function () { carregar(true); });
   var rt;
   window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { if (D) { renderFunil(); renderRelatorio(); } }, 200); });
   carregar();
