@@ -555,7 +555,6 @@ section[id] { scroll-margin-top: 16px; }
       chips.push('<span class="chip count-chip">' + ico('star', 'star') + (falta > 1 ? '<b class="num">' + falta + '</b> dias para o evento' : falta === 1 ? 'Amanhã é o evento' : falta === 0 ? 'É hoje' : 'Evento realizado') + '</span>');
     }
     if (ev.local) chips.push('<span class="chip">' + ico('pin') + esc(ev.local.replace('Centro Internacional de Conferências', 'CIC')) + (ev.cidade ? ', ' + esc(ev.cidade.split('·')[0].trim()) : '') + '</span>');
-    if (ev.inscricoes) chips.push('<a class="chip" href="https://' + esc(ev.inscricoes.replace(/^https?:\/\//, '')) + '" target="_blank" rel="noopener">' + ico('globe') + esc(ev.inscricoes.replace(/^https?:\/\/(www\.)?/, '')) + '</a>');
     $('chips').innerHTML = chips.join('');
   }
 
