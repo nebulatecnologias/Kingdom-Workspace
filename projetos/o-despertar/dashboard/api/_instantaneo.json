@@ -1,0 +1,269 @@
+{
+  "versao": 1,
+  "geradoEm": "2026-11-28T15:24:57.129180+00:00",
+  "hoje": "2026-11-28",
+  "evento": {
+    "nome": "O Despertar",
+    "data": "",
+    "inicioCampanha": "2026-11-27",
+    "producao": "Laços Eternos & Deive Leonardo",
+    "equipaVendas": "Kingdom Company",
+    "moeda": "MT",
+    "meta": null,
+    "temPrecos": false
+  },
+  "kpis": {
+    "base": 8395,
+    "porContactar": 8214,
+    "contactados": 181,
+    "tentativas": 181,
+    "atenderam": 64,
+    "interessados": 44,
+    "compraramEquipa": 2,
+    "ingressosEquipa": 3,
+    "receitaEquipa": 0,
+    "pessoasOutros": 219,
+    "ingressosOutros": 219,
+    "receitaOutros": 0,
+    "ingressosTotal": 222,
+    "receitaTotal": 0,
+    "progressoMeta": null,
+    "taxaContacto": 0.021560452650387134,
+    "taxaAtendimento": 0.35359116022099446,
+    "conversao": 0.03125,
+    "followHoje": 1,
+    "followAtraso": 3
+  },
+  "funil": [
+    {
+      "etapa": "Por contactar",
+      "n": 8214
+    },
+    {
+      "etapa": "Sem resposta",
+      "n": 117
+    },
+    {
+      "etapa": "Em conversa",
+      "n": 0
+    },
+    {
+      "etapa": "Vai comprar",
+      "n": 44
+    },
+    {
+      "etapa": "Comprou",
+      "n": 2
+    },
+    {
+      "etapa": "Não vai participar",
+      "n": 18
+    },
+    {
+      "etapa": "Contacto inválido",
+      "n": 0
+    }
+  ],
+  "equipa": [
+    {
+      "leads": 81,
+      "contactados": 80,
+      "tentativas": 80,
+      "atenderam": 27,
+      "interessados": 18,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 2,
+      "nome": "Mayra"
+    },
+    {
+      "leads": 77,
+      "contactados": 72,
+      "tentativas": 72,
+      "atenderam": 26,
+      "interessados": 18,
+      "compraram": 2,
+      "ingressos": 3,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 0,
+      "nome": "Maria"
+    },
+    {
+      "leads": 2746,
+      "contactados": 10,
+      "tentativas": 10,
+      "atenderam": 5,
+      "interessados": 3,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 1,
+      "nome": "Pessoa 1"
+    },
+    {
+      "leads": 2745,
+      "contactados": 10,
+      "tentativas": 10,
+      "atenderam": 4,
+      "interessados": 3,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 1,
+      "followAtraso": 0,
+      "nome": "Pessoa 2"
+    },
+    {
+      "leads": 2746,
+      "contactados": 9,
+      "tentativas": 9,
+      "atenderam": 2,
+      "interessados": 2,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 0,
+      "nome": "Pessoa 3"
+    }
+  ],
+  "faixas": [
+    {
+      "leads": 103,
+      "contactados": 102,
+      "tentativas": 102,
+      "atenderam": 37,
+      "interessados": 24,
+      "compraram": 1,
+      "ingressos": 1,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 1,
+      "faixa": "A"
+    },
+    {
+      "leads": 850,
+      "contactados": 79,
+      "tentativas": 79,
+      "atenderam": 27,
+      "interessados": 20,
+      "compraram": 1,
+      "ingressos": 2,
+      "receita": 0,
+      "followHoje": 1,
+      "followAtraso": 2,
+      "faixa": "B"
+    },
+    {
+      "leads": 4787,
+      "contactados": 0,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 0,
+      "faixa": "C"
+    },
+    {
+      "leads": 2655,
+      "contactados": 0,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 0,
+      "faixa": "D"
+    }
+  ],
+  "canais": [
+    {
+      "canal": "Chamada",
+      "n": 179
+    },
+    {
+      "canal": "WhatsApp",
+      "n": 2
+    },
+    {
+      "canal": "SMS",
+      "n": 0
+    },
+    {
+      "canal": "Email",
+      "n": 0
+    },
+    {
+      "canal": "Presencial",
+      "n": 0
+    }
+  ],
+  "motivos": [
+    {
+      "motivo": "Falta de tempo / agenda",
+      "n": 11
+    },
+    {
+      "motivo": "Financeiro",
+      "n": 1
+    },
+    {
+      "motivo": "Viagem / trabalho",
+      "n": 1
+    },
+    {
+      "motivo": "Sem interesse",
+      "n": 0
+    },
+    {
+      "motivo": "Já tem outro compromisso",
+      "n": 0
+    },
+    {
+      "motivo": "Outro",
+      "n": 0
+    },
+    {
+      "motivo": "Não indicado",
+      "n": 5
+    }
+  ],
+  "origensOutros": [
+    {
+      "origem": "Lista do cliente",
+      "ingressos": 219
+    }
+  ],
+  "sectores": [
+    {
+      "sector": "Sem sector",
+      "ingressos": 222,
+      "receita": 0
+    }
+  ],
+  "diario": [
+    {
+      "dia": "2026-11-27",
+      "tentativas": 181,
+      "atenderam": 64,
+      "vendas": 2,
+      "ingressos": 3
+    },
+    {
+      "dia": "2026-11-28",
+      "tentativas": 0,
+      "atenderam": 0,
+      "vendas": 0,
+      "ingressos": 0
+    }
+  ]
+}

@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>O Despertar · Vendas</title>
+<meta name="description" content="Acompanhamento em tempo real das vendas de ingressos de O Despertar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: faixa de cabeçalho "madrugada" → número principal → indicadores → funil + atividade → equipa → base */
+:root {
+  --bg: #f6f6f9;
+  --surface: #ffffff;
+  --ink: #17182b;
+  --ink-2: #5d6075;
+  --ink-3: #6a6d82;
+  --line: #e6e7ee;
+  --axis: #c4c6d2;
+  --dawn-1: #1d1b3a;          /* noite */
+  --dawn-2: #3b2a5c;
+  --dawn-3: #c2603a;          /* nascer do sol */
+  --dawn-ink: #fdf6ee;
+  --accent: #d9692e;
+  --s1: #257de0;              /* série 1 */
+  --s2: #f47230;              /* série 2 */
+  --o1: #84b9f3; --o2: #519ced; --o3: #2370cd; --o4: #0f4a96;  /* rampa ordinal */
+  --good: #0aac23; --good-ink: #006c10; --good-bg: #e7f6ea;
+  --warn: #fbb315; --warn-ink: #8a5a00; --warn-bg: #fff4d9;
+  --crit: #dc3c3d; --crit-ink: #b3261e; --crit-bg: #fdeaea;
+  --font-d: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --font-t: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e0f19; --surface: #171827; --ink: #eeeef5; --ink-2: #a3a5b8; --ink-3: #8f92a7;
+    --line: #2a2c3e; --axis: #44475c;
+    --dawn-1: #14132a; --dawn-2: #2c2048; --dawn-3: #a44f2e; --dawn-ink: #fdf6ee;
+    --accent: #ef8a4e;
+    --s1: #338ced; --s2: #e76624;
+    --o1: #1757ac; --o2: #2370cd; --o3: #338ced; --o4: #6aabf1;
+    --good: #0aac23; --good-ink: #53c556; --good-bg: #13301b;
+    --warn: #fbb315; --warn-ink: #fbc94f; --warn-bg: #3a2e10;
+    --crit: #dc3c3d; --crit-ink: #f08a8a; --crit-bg: #3d1a1c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e0f19; --surface: #171827; --ink: #eeeef5; --ink-2: #a3a5b8; --ink-3: #8f92a7;
+  --line: #2a2c3e; --axis: #44475c;
+  --dawn-1: #14132a; --dawn-2: #2c2048; --dawn-3: #a44f2e; --dawn-ink: #fdf6ee;
+  --accent: #ef8a4e;
+  --s1: #338ced; --s2: #e76624;
+  --o1: #1757ac; --o2: #2370cd; --o3: #338ced; --o4: #6aabf1;
+  --good: #0aac23; --good-ink: #53c556; --good-bg: #13301b;
+  --warn: #fbb315; --warn-ink: #fbc94f; --warn-bg: #3a2e10;
+  --crit: #dc3c3d; --crit-ink: #f08a8a; --crit-bg: #3d1a1c;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.45 var(--font-t); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Cabeçalho */
+.top { background: linear-gradient(160deg, var(--dawn-1) 0%, var(--dawn-2) 58%, var(--dawn-3) 130%); color: var(--dawn-ink); padding-block: calc(env(safe-area-inset-top, 0px) + 28px) 30px; position: relative; overflow: hidden; }
+.top::after { content: ""; position: absolute; left: 50%; bottom: -260px; width: 620px; height: 320px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(255,170,110,.38), rgba(255,170,110,0)); pointer-events: none; }
+.top .wrap { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 18px 32px; align-items: flex-end; justify-content: space-between; }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .72; margin: 0 0 6px; }
+h1 { font-family: var(--font-d); font-weight: 700; font-size: clamp(34px, 6vw, 54px); line-height: 1; letter-spacing: -.02em; margin: 0; }
+.credits { margin: 10px 0 0; font-size: 13px; opacity: .8; }
+.status { display: grid; gap: 8px; justify-items: end; text-align: right; }
+.live { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); padding: 6px 12px; border-radius: 999px; }
+.live i { width: 8px; height: 8px; border-radius: 50%; background: #5ee07a; box-shadow: 0 0 0 0 rgba(94,224,122,.6); animation: pulse 2s infinite; }
+.live.off i { background: #fbb315; animation: none; }
+.live.snap i { background: #b9bccb; animation: none; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(94,224,122,.55); } 70% { box-shadow: 0 0 0 8px rgba(94,224,122,0); } 100% { box-shadow: 0 0 0 0 rgba(94,224,122,0); } }
+.countdown { font-size: 13px; opacity: .85; }
+.countdown b { font-family: var(--font-d); font-size: 22px; font-weight: 700; margin-right: 4px; }
+
+main { padding-block: 22px 40px; display: grid; gap: 18px; }
+.notice { border-radius: 10px; padding: 10px 14px; font-size: 13px; background: var(--warn-bg); color: var(--warn-ink); }
+.notice[data-kind="snap"] { background: var(--surface); color: var(--ink-2); border: 1px dashed var(--axis); }
+
+.card { background: var(--surface); border-radius: var(--r); padding: 20px; border: 1px solid var(--line); min-width: 0; }
+.card h2 { font-size: 15px; font-weight: 600; margin: 0; }
+.card .sub { color: var(--ink-2); font-size: 13px; margin: 2px 0 0; }
+.card header { margin-bottom: 16px; }
+
+/* Número principal */
+.hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 18px; }
+.big { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 6px 0 14px; }
+.big .v { font-family: var(--font-d); font-weight: 700; font-size: clamp(56px, 9vw, 88px); line-height: .95; letter-spacing: -.03em; }
+.big .u { color: var(--ink-2); font-size: 15px; }
+.meter { height: 12px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 16%, var(--surface)); overflow: hidden; }
+.meter > span { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+.split { display: flex; gap: 2px; height: 12px; border-radius: 999px; overflow: hidden; background: var(--line); }
+.split span { display: block; height: 100%; min-width: 3px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.legend b { color: var(--ink); font-weight: 600; }
+.money .v { font-family: var(--font-d); font-weight: 700; font-size: clamp(32px, 5vw, 44px); letter-spacing: -.02em; margin: 8px 0 4px; line-height: 1.05; }
+.money dl { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; margin: 14px 0 0; font-size: 13px; }
+.money dt { color: var(--ink-2); }
+.money dd { margin: 0; font-weight: 600; text-align: right; }
+.muted { color: var(--ink-3); }
+
+/* Indicadores */
+.tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; min-width: 0; }
+.tile .l { font-size: 12.5px; color: var(--ink-2); }
+.tile .v { font-size: 28px; font-weight: 600; letter-spacing: -.01em; margin: 4px 0 2px; }
+.tile .d { font-size: 12.5px; color: var(--ink-2); }
+.pill { display: inline-flex; align-items: center; gap: 5px; border-radius: 999px; padding: 2px 9px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.pill.good { background: var(--good-bg); color: var(--good-ink); }
+.pill.warn { background: var(--warn-bg); color: var(--warn-ink); }
+.pill.crit { background: var(--crit-bg); color: var(--crit-ink); }
+.pill svg { width: 12px; height: 12px; }
+
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 18px; }
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+
+/* Barras horizontais */
+.hbars { display: grid; gap: 12px; }
+.hb { display: grid; grid-template-columns: minmax(96px, 34%) minmax(0, 1fr); gap: 4px 12px; align-items: center; outline: none; }
+.hb .n { font-size: 13px; color: var(--ink); overflow-wrap: anywhere; }
+.hb .track { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.hb .bar { height: 20px; border-radius: 0 4px 4px 0; min-width: 2px; }
+.hb .val { font-size: 13px; font-weight: 600; white-space: nowrap; }
+.hb .val small { font-weight: 400; color: var(--ink-2); margin-left: 4px; }
+.hb:hover .bar, .hb:focus-visible .bar { filter: brightness(1.08); }
+.hb:focus-visible { box-shadow: 0 0 0 2px var(--s1); border-radius: 4px; }
+.step { grid-column: 2; font-size: 12px; color: var(--ink-3); }
+.base-note { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.base-note b { color: var(--ink); }
+
+/* Atividade diária */
+.chart { width: 100%; overflow-x: auto; }
+.chart svg { display: block; width: 100%; height: auto; }
+.today { margin: 0; font-size: 13px; color: var(--ink-2); }
+.today b { color: var(--ink); }
+.chart text { fill: var(--ink-2); font: 11px var(--font-t); font-variant-numeric: tabular-nums; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .base { stroke: var(--axis); stroke-width: 1; }
+.chart .hit { fill: transparent; cursor: default; }
+.chart .hit:hover + .col, .chart .hit:focus + .col { filter: brightness(1.12); }
+.chart .lbl { fill: var(--ink); font-weight: 600; }
+.chart-title { font-size: 13px; color: var(--ink-2); margin: 14px 0 4px; display: flex; align-items: center; gap: 6px; }
+.chart-title i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+details { margin-top: 12px; font-size: 13px; }
+summary { cursor: pointer; color: var(--ink-2); }
+
+/* Tabelas */
+.tbl { width: 100%; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: right; font-weight: 500; color: var(--ink-2); padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { text-align: right; padding: 10px; border-bottom: 1px solid var(--line); white-space: nowrap; font-variant-numeric: tabular-nums; }
+th:first-child, td:first-child { text-align: left; }
+tbody tr:last-child td { border-bottom: 0; }
+tfoot td { font-weight: 600; border-top: 1px solid var(--axis); border-bottom: 0; }
+.who { font-weight: 600; }
+.prog { display: inline-flex; align-items: center; gap: 8px; justify-content: flex-end; }
+.prog .m { width: 70px; height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--s1) 18%, var(--surface)); overflow: hidden; }
+.prog .m span { display: block; height: 100%; background: var(--s1); }
+.prog .m.sm { width: 40px; }
+#faixas th, #faixas td { padding-inline: 6px; }
+
+.empty { color: var(--ink-3); font-size: 13px; padding: 8px 0; }
+footer { color: var(--ink-3); font-size: 12px; padding-block: 0 32px; }
+footer p { margin: 4px 0; }
+
+#tip { position: fixed; z-index: 20; pointer-events: none; background: var(--ink); color: var(--surface); border-radius: 8px; padding: 8px 10px; font-size: 12px; line-height: 1.5; max-width: 240px; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+#tip b { font-weight: 600; }
+
+.skeleton .v, .skeleton .big .v { color: transparent; background: var(--line); border-radius: 8px; }
+
+@media (max-width: 960px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tiles .tile:last-child { grid-column: 1 / -1; }
+  .hero, .two, .three { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .status { justify-items: start; text-align: left; }
+  .card { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .live i { animation: none; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Acompanhamento de vendas de ingressos</p>
+      <h1 id="ev-nome">O Despertar</h1>
+      <p class="credits" id="ev-cred">Laços Eternos &amp; Deive Leonardo · Vendas: Kingdom Company</p>
+    </div>
+    <div class="status">
+      <span class="live snap" id="live" role="status"><i aria-hidden="true"></i><span id="live-txt">A carregar…</span></span>
+      <span class="countdown" id="countdown" hidden></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <main id="app" class="skeleton">
+    <div class="notice" id="notice" hidden></div>
+
+    <section class="hero">
+      <article class="card">
+        <header><h2>Ingressos vendidos</h2><p class="sub" id="hero-sub">Equipa de vendas e outros canais</p></header>
+        <div class="big"><span class="v num" id="hero-v">000</span><span class="u" id="hero-u"></span></div>
+        <div id="hero-bar"></div>
+        <div class="legend" id="hero-legend"></div>
+      </article>
+      <article class="card money">
+        <header><h2 id="money-h">Receita</h2><p class="sub" id="money-sub"></p></header>
+        <div id="money-body"></div>
+      </article>
+    </section>
+
+    <section class="tiles" id="tiles" aria-label="Indicadores de prospecção"></section>
+
+    <section class="two">
+      <article class="card">
+        <header><h2>Funil de prospecção</h2><p class="sub">De quem já foi contactado até quem comprou</p></header>
+        <div id="funil"></div>
+      </article>
+      <article class="card">
+        <header><h2>Atividade por dia</h2><p class="sub">Mudanças registadas pela equipa na planilha</p></header>
+        <div id="diario"></div>
+      </article>
+    </section>
+
+    <section class="card">
+      <header><h2>Equipa</h2><p class="sub">Desempenho por pessoa responsável pela lista</p></header>
+      <div class="tbl" id="equipa"></div>
+    </section>
+
+    <section class="three">
+      <article class="card">
+        <header><h2>Base de contactos por faixa</h2><p class="sub">A = contactos com maior probabilidade de compra</p></header>
+        <div class="tbl" id="faixas"></div>
+      </article>
+      <article class="card">
+        <header><h2>Motivos de recusa</h2><p class="sub">Quem disse que não vai participar</p></header>
+        <div id="motivos"></div>
+      </article>
+      <article class="card">
+        <header><h2>Canais de contacto</h2><p class="sub">Canal da última tentativa com cada pessoa</p></header>
+        <div id="canais"></div>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <p>Números agregados a partir da planilha de vendas. Esta página não mostra nomes, telefones nem emails de contactos.</p>
+    <p id="foot-upd"></p>
+  </footer>
+</div>
+<div id="tip" role="tooltip" hidden></div>
+
+<script>
+(function () {
+  'use strict';
+  var REFRESH_MS = 60000;
+  var dados = null, ultimaOk = null, erroAtual = null, proxima = 0;
+
+  // ---------- formatação ----------
+  var nf = new Intl.NumberFormat('pt-PT', { useGrouping: 'always' });
+  var pf = new Intl.NumberFormat('pt-PT', { style: 'percent', maximumFractionDigits: 1 });
+  var pf0 = new Intl.NumberFormat('pt-PT', { style: 'percent', maximumFractionDigits: 0 });
+  var N = function (x) { return nf.format(Math.round(Number(x) || 0)); };
+  var P = function (x) { x = Number(x) || 0; return (x > 0 && x < 0.1 ? pf : pf0).format(x); };
+  var M = function (x) { return N(x) + ' ' + ((dados && dados.evento && dados.evento.moeda) || 'MT'); };
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+  var $ = function (id) { return document.getElementById(id); };
+  var diaCurto = function (iso) {
+    var d = new Date(iso + 'T12:00:00Z');
+    return d.toLocaleDateString('pt-PT', { day: '2-digit', month: '2-digit', timeZone: 'UTC' });
+  };
+  var diaLongo = function (iso) {
+    var d = new Date(iso + 'T12:00:00Z');
+    return d.toLocaleDateString('pt-PT', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
+  };
+  var hora = function (d) { return d.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }); };
+
+  var ICON = {
+    ok: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.2 2.2 4.8-4.9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    alerta: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 2.2v4.6M6 9.4v.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>',
+    relogio: '<svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 3.6V6l1.6 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>'
+  };
+
+  // ---------- tooltip ----------
+  var tip = $('tip');
+  function mostrarTip(el, x, y) {
+    var t = el.getAttribute('data-tip');
+    if (!t) return;
+    tip.innerHTML = t;
+    tip.hidden = false;
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var px = Math.min(window.innerWidth - w - 8, Math.max(8, x + 14));
+    var py = y - h - 12 < 8 ? y + 16 : y - h - 12;
+    tip.style.left = px + 'px'; tip.style.top = py + 'px';
+  }
+  document.addEventListener('pointermove', function (e) {
+    var el = e.target.closest && e.target.closest('[data-tip]');
+    if (el) mostrarTip(el, e.clientX, e.clientY); else tip.hidden = true;
+  });
+  document.addEventListener('focusin', function (e) {
+    var el = e.target.closest && e.target.closest('[data-tip]');
+    if (!el) { tip.hidden = true; return; }
+    var r = el.getBoundingClientRect();
+    mostrarTip(el, r.left + r.width / 2, r.top);
+  });
+  document.addEventListener('focusout', function () { tip.hidden = true; });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+
+  // ---------- secções ----------
+  function renderCabecalho(d) {
+    var ev = d.evento || {};
+    $('ev-nome').textContent = ev.nome || 'O Despertar';
+    var cred = [ev.producao, ev.equipaVendas ? 'Vendas: ' + ev.equipaVendas : ''].filter(Boolean).join(' · ');
+    if (cred) $('ev-cred').textContent = cred;
+    var cd = $('countdown');
+    if (ev.data) {
+      var dias = Math.round((new Date(ev.data + 'T12:00:00Z') - new Date(d.hoje + 'T12:00:00Z')) / 864e5);
+      cd.hidden = false;
+      if (dias > 1) cd.innerHTML = '<b class="num">' + dias + '</b> dias para o evento · ' + esc(diaLongo(ev.data));
+      else if (dias === 1) cd.innerHTML = '<b>Amanhã</b> · ' + esc(diaLongo(ev.data));
+      else if (dias === 0) cd.innerHTML = '<b>É hoje</b>';
+      else cd.innerHTML = 'Evento realizado a ' + esc(diaLongo(ev.data));
+    } else cd.hidden = true;
+  }
+
+  function renderHero(d) {
+    var k = d.kpis, ev = d.evento;
+    $('hero-v').textContent = N(k.ingressosTotal);
+    var bar = $('hero-bar'), leg = $('hero-legend');
+    var total = Math.max(1, k.ingressosTotal);
+    if (ev.meta) {
+      var pct = Math.min(1, k.ingressosTotal / ev.meta);
+      $('hero-u').textContent = 'de ' + N(ev.meta) + ' · ' + P(k.progressoMeta) + ' da meta';
+      bar.innerHTML = '<div class="meter" role="img" aria-label="' + esc(P(k.progressoMeta) + ' da meta') + '"><span style="width:' + (pct * 100).toFixed(2) + '%"></span></div>';
+    } else {
+      $('hero-u').textContent = 'ingressos';
+      bar.innerHTML = '';
+    }
+    bar.innerHTML += '<div class="split" style="margin-top:' + (ev.meta ? '12px' : '0') + '" role="img" aria-label="Divisão entre equipa e outros canais">' +
+      '<span style="flex:' + Math.max(k.ingressosEquipa, 0.0001) + ';background:var(--s1)" data-tip="<b>Equipa de vendas</b><br>' + N(k.ingressosEquipa) + ' ingressos · ' + N(k.compraramEquipa) + ' pessoas"></span>' +
+      '<span style="flex:' + Math.max(k.ingressosOutros, 0.0001) + ';background:var(--s2)" data-tip="<b>Outros canais</b><br>' + N(k.ingressosOutros) + ' ingressos"></span></div>';
+    leg.innerHTML =
+      '<span><i style="background:var(--s1)"></i>Equipa de vendas <b class="num">' + N(k.ingressosEquipa) + '</b> <span class="muted">(' + P(k.ingressosEquipa / total) + ')</span></span>' +
+      '<span><i style="background:var(--s2)"></i>Outros canais <b class="num">' + N(k.ingressosOutros) + '</b> <span class="muted">(' + P(k.ingressosOutros / total) + ')</span></span>';
+    $('hero-sub').textContent = ev.meta ? 'Progresso da meta e origem das vendas' : 'Equipa de vendas e outros canais';
+  }
+
+  function renderDinheiro(d) {
+    var k = d.kpis, ev = d.evento, body = $('money-body');
+    if (ev.temPrecos) {
+      $('money-h').textContent = 'Receita em ingressos';
+      $('money-sub').textContent = 'Calculada com os preços por sector';
+      body.innerHTML = '<div class="v num">' + esc(M(k.receitaTotal)) + '</div>' +
+        '<dl><dt>Pela equipa de vendas</dt><dd class="num">' + esc(M(k.receitaEquipa)) + '</dd>' +
+        '<dt>Por outros canais</dt><dd class="num">' + esc(M(k.receitaOutros)) + '</dd>' +
+        '<dt>Compromissos por fechar</dt><dd class="num">' + N(k.interessados) + ' pessoas</dd></dl>';
+    } else {
+      $('money-h').textContent = 'Compromissos por fechar';
+      $('money-sub').textContent = 'Pessoas que disseram que vão comprar';
+      body.innerHTML = '<div class="v num">' + N(k.interessados) + '</div>' +
+        '<dl><dt>Compraram pela equipa</dt><dd class="num">' + N(k.compraramEquipa) + ' pessoas</dd>' +
+        '<dt>Ingressos da equipa</dt><dd class="num">' + N(k.ingressosEquipa) + '</dd>' +
+        '</dl><p class="sub" style="margin-top:12px">A receita aparece aqui quando os preços dos ingressos estiverem na planilha.</p>';
+    }
+  }
+
+  function tile(l, v, dHtml) {
+    return '<div class="tile"><div class="l">' + esc(l) + '</div><div class="v num">' + v + '</div><div class="d">' + dHtml + '</div></div>';
+  }
+
+  function renderTiles(d) {
+    var k = d.kpis;
+    var fu;
+    if (k.followAtraso > 0) fu = '<span class="pill crit">' + ICON.alerta + N(k.followAtraso) + ' em atraso</span>';
+    else fu = '<span class="pill good">' + ICON.ok + 'Nenhum em atraso</span>';
+    $('tiles').innerHTML =
+      tile('Pessoas contactadas', N(k.contactados), P(k.taxaContacto) + ' da base de ' + N(k.base)) +
+      tile('Atenderam', N(k.atenderam), P(k.taxaAtendimento) + ' de quem foi contactado') +
+      tile('Vão comprar', N(k.interessados), 'compromissos a acompanhar') +
+      tile('Compraram pela equipa', N(k.compraramEquipa), N(k.ingressosEquipa) + ' ingressos · ' + P(k.conversao) + ' de quem atendeu') +
+      tile('Follow-ups para hoje', N(k.followHoje), fu);
+  }
+
+  function hbars(items, cor, opts) {
+    opts = opts || {};
+    var max = Math.max.apply(null, items.map(function (i) { return i.n; }).concat([1]));
+    return '<div class="hbars">' + items.map(function (it, idx) {
+      var w = Math.max(0.6, it.n / max * 100);
+      var c = typeof cor === 'function' ? cor(idx) : cor;
+      var h = '<div class="hb" tabindex="0" data-tip="' + esc(it.tip || ('<b>' + esc(it.nome) + '</b><br>' + N(it.n))) + '">' +
+        '<span class="n">' + esc(it.nome) + '</span>' +
+        '<span class="track"><span class="bar" style="width:calc(' + w.toFixed(2) + '% - 64px);background:' + c + '"></span>' +
+        '<span class="val num">' + N(it.n) + (it.extra ? '<small>' + esc(it.extra) + '</small>' : '') + '</span></span>' +
+        (it.step ? '<span class="step">' + esc(it.step) + '</span>' : '') + '</div>';
+      return h;
+    }).join('') + '</div>';
+  }
+
+  function renderFunil(d) {
+    var k = d.kpis;
+    var interessados = k.interessados + k.compraramEquipa;
+    var etapas = [
+      { nome: 'Contactados', n: k.contactados },
+      { nome: 'Atenderam', n: k.atenderam },
+      { nome: 'Interessados', n: interessados },
+      { nome: 'Compraram', n: k.compraramEquipa }
+    ];
+    etapas.forEach(function (e, i) {
+      var prev = i ? etapas[i - 1].n : 0;
+      e.tip = '<b>' + e.nome + '</b><br>' + N(e.n) + ' pessoas' + (i ? '<br>' + P(prev ? e.n / prev : 0) + ' da etapa anterior' : '');
+      if (i < etapas.length - 1) {
+        var nx = etapas[i + 1].n;
+        e.step = '↓ ' + P(e.n ? nx / e.n : 0) + ' passam à etapa seguinte';
+      }
+    });
+    var ramp = ['var(--o1)', 'var(--o2)', 'var(--o3)', 'var(--o4)'];
+    $('funil').innerHTML =
+      '<div class="base-note"><span>Base: <b class="num">' + N(k.base) + '</b> contactos</span>' +
+      '<span>Por contactar: <b class="num">' + N(k.porContactar) + '</b> (' + P(k.base ? k.porContactar / k.base : 0) + ')</span></div>' +
+      hbars(etapas, function (i) { return ramp[i]; }) +
+      '<p class="sub" style="margin-top:14px">Interessados inclui quem já comprou. Tentativas registadas no total: <b class="num">' + N(k.tentativas) + '</b>.</p>';
+  }
+
+  function colunas(serie, campo, cor, titulo, rotulo, W) {
+    var H = 150, pl = 34, pr = 8, pt = 18, pb = 24;
+    var n = serie.length, iw = W - pl - pr, ih = H - pt - pb;
+    var max = Math.max(1, Math.max.apply(null, serie.map(function (x) { return x[campo]; })));
+    var passo = niceStep(max), topo = Math.ceil(max / passo) * passo;
+    var bw = Math.min(24, iw / n * 0.62), band = iw / n;
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(titulo) + '">';
+    for (var t = 0; t <= topo; t += passo) {
+      var y = pt + ih - t / topo * ih;
+      s += '<line class="' + (t === 0 ? 'base' : 'grid') + '" x1="' + pl + '" x2="' + (W - pr) + '" y1="' + y + '" y2="' + y + '"/>';
+      s += '<text x="' + (pl - 6) + '" y="' + (y + 3.5) + '" text-anchor="end">' + N(t) + '</text>';
+    }
+    var cada = Math.ceil(n / Math.max(3, Math.floor(iw / 56)));
+    var imax = 0;
+    serie.forEach(function (x, i) { if (x[campo] >= serie[imax][campo]) imax = i; });
+    serie.forEach(function (x, i) {
+      var v = x[campo], cx = pl + band * i + band / 2, h = v / topo * ih, y = pt + ih - h;
+      var tipTxt = '<b>' + esc(diaLongo(x.dia)) + '</b><br>Tentativas: ' + N(x.tentativas) + '<br>Atenderam: ' + N(x.atenderam) +
+        '<br>Vendas: ' + N(x.vendas) + ' pessoas · ' + N(x.ingressos) + ' ingressos';
+      s += '<rect class="hit" tabindex="0" x="' + (pl + band * i) + '" y="' + pt + '" width="' + band + '" height="' + ih + '" data-tip="' + esc(tipTxt) + '"/>';
+      if (h > 0) {
+        var r = Math.min(4, h, bw / 2);
+        s += '<path class="col" fill="' + cor + '" d="M' + (cx - bw / 2) + ',' + (pt + ih) + 'V' + (y + r) + 'q0,-' + r + ' ' + r + ',-' + r + 'H' + (cx + bw / 2 - r) + 'q' + r + ',0 ' + r + ',' + r + 'V' + (pt + ih) + 'Z" pointer-events="none"/>';
+      }
+      if ((i === n - 1 || i === imax) && v > 0) s += '<text class="lbl" x="' + cx + '" y="' + (y - 5) + '" text-anchor="middle">' + N(v) + '</text>';
+      if (i % cada === 0 || i === n - 1) s += '<text x="' + cx + '" y="' + (H - 6) + '" text-anchor="middle">' + esc(diaCurto(x.dia)) + '</text>';
+    });
+    s += '</svg>';
+    return '<div class="chart-title"><i style="background:' + cor + '"></i>' + esc(rotulo) + '</div><div class="chart">' + s + '</div>';
+  }
+
+  function niceStep(max) {
+    var raw = max / 4, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    var f = raw / mag;
+    var nice = f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10;
+    return Math.max(1, nice * mag);
+  }
+
+  function renderDiario(d) {
+    var serie = (d.diario || []).slice(-21);
+    if (!serie.length) { $('diario').innerHTML = '<p class="empty">Ainda não há atividade registada.</p>'; return; }
+    var hoje = serie[serie.length - 1];
+    var html = '<p class="today">Hoje: <b class="num">' + N(hoje.tentativas) + '</b> tentativas · <b class="num">' + N(hoje.atenderam) + '</b> atenderam · <b class="num">' + N(hoje.ingressos) + '</b> ingressos vendidos</p>';
+    var W = Math.max(300, Math.min(900, $('diario').clientWidth || 640));
+    html += colunas(serie, 'tentativas', 'var(--s1)', 'Tentativas de contacto por dia', 'Tentativas de contacto', W);
+    html += colunas(serie, 'ingressos', 'var(--s2)', 'Ingressos vendidos pela equipa por dia', 'Ingressos vendidos pela equipa', W);
+    html += '<details><summary>Ver em tabela</summary><div class="tbl"><table><thead><tr><th>Dia</th><th>Tentativas</th><th>Atenderam</th><th>Vendas</th><th>Ingressos</th></tr></thead><tbody>' +
+      serie.slice().reverse().map(function (x) {
+        return '<tr><td>' + esc(diaCurto(x.dia)) + '</td><td>' + N(x.tentativas) + '</td><td>' + N(x.atenderam) + '</td><td>' + N(x.vendas) + '</td><td>' + N(x.ingressos) + '</td></tr>';
+      }).join('') + '</tbody></table></div></details>';
+    $('diario').innerHTML = html;
+  }
+
+  function renderEquipa(d) {
+    var eq = d.equipa || [], temPrecos = d.evento.temPrecos;
+    if (!eq.length) { $('equipa').innerHTML = '<p class="empty">Sem responsáveis atribuídos.</p>'; return; }
+    var cab = ['Responsável', 'Lista', 'Contactados', 'Atenderam', 'Vão comprar', 'Compraram', 'Ingressos'];
+    if (temPrecos) cab.push('Receita');
+    cab.push('Follow-ups');
+    var linha = function (p, total) {
+      var pct = p.leads ? p.contactados / p.leads : 0;
+      var fu = p.followAtraso > 0
+        ? '<span class="pill crit">' + ICON.alerta + N(p.followAtraso) + ' em atraso</span>'
+        : (p.followHoje > 0 ? '<span class="pill warn">' + ICON.relogio + N(p.followHoje) + ' hoje</span>' : '<span class="pill good">' + ICON.ok + 'Em dia</span>');
+      return '<tr><td class="who">' + esc(p.nome) + '</td><td>' + N(p.leads) + '</td>' +
+        '<td><span class="prog"><span class="num">' + N(p.contactados) + '</span>' + (total ? '' : '<span class="m" aria-hidden="true"><span style="width:' + (pct * 100).toFixed(1) + '%"></span></span><span class="muted" style="width:3.2em;text-align:right">' + P(pct) + '</span>') + '</span></td>' +
+        '<td>' + N(p.atenderam) + '</td><td>' + N(p.interessados) + '</td><td>' + N(p.compraram) + '</td><td>' + N(p.ingressos) + '</td>' +
+        (temPrecos ? '<td>' + esc(M(p.receita)) + '</td>' : '') + '<td>' + (total ? N(p.followAtraso) + ' em atraso' : fu) + '</td></tr>';
+    };
+    var tot = eq.reduce(function (a, p) {
+      ['leads', 'contactados', 'atenderam', 'interessados', 'compraram', 'ingressos', 'receita', 'followAtraso'].forEach(function (c) { a[c] = (a[c] || 0) + (p[c] || 0); });
+      return a;
+    }, { nome: 'Total' });
+    $('equipa').innerHTML = '<table><thead><tr>' + cab.map(function (c) { return '<th>' + c + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      eq.map(function (p) { return linha(p, false); }).join('') + '</tbody><tfoot>' + linha(tot, true) + '</tfoot></table>';
+  }
+
+  function renderFaixas(d) {
+    var f = d.faixas || [];
+    $('faixas').innerHTML = '<table><thead><tr><th>Faixa</th><th>Base</th><th>Trabalhada</th><th>Vendas</th></tr></thead><tbody>' +
+      f.map(function (x) {
+        var pct = x.leads ? x.contactados / x.leads : 0;
+        return '<tr><td class="who">' + esc(x.faixa) + '</td><td>' + N(x.leads) + '</td><td><span class="prog"><span class="m sm" aria-hidden="true"><span style="width:' + (pct * 100).toFixed(1) + '%"></span></span><span>' + P(pct) + '</span></span></td><td>' + N(x.compraram) + '</td></tr>';
+      }).join('') + '</tbody></table>';
+  }
+
+  function renderLista(id, itens, chave, vazio) {
+    var v = (itens || []).filter(function (x) { return x.n > 0; }).sort(function (a, b) { return b.n - a.n; });
+    if (!v.length) { $(id).innerHTML = '<p class="empty">' + esc(vazio) + '</p>'; return; }
+    var tot = v.reduce(function (a, x) { return a + x.n; }, 0);
+    $(id).innerHTML = hbars(v.map(function (x) {
+      return { nome: x[chave], n: x.n, extra: P(x.n / tot), tip: '<b>' + esc(x[chave]) + '</b><br>' + N(x.n) + ' pessoas · ' + P(x.n / tot) };
+    }), 'var(--s1)');
+  }
+
+  function render() {
+    if (!dados) return;
+    $('app').classList.remove('skeleton');
+    renderCabecalho(dados);
+    renderHero(dados);
+    renderDinheiro(dados);
+    renderTiles(dados);
+    renderFunil(dados);
+    renderDiario(dados);
+    renderEquipa(dados);
+    renderFaixas(dados);
+    renderLista('motivos', dados.motivos, 'motivo', 'Ainda ninguém recusou.');
+    renderLista('canais', dados.canais, 'canal', 'Ainda sem contactos registados.');
+    renderEstado();
+  }
+
+  // ---------- estado da ligação ----------
+  function renderEstado() {
+    var live = $('live'), txt = $('live-txt'), note = $('notice');
+    live.classList.remove('off', 'snap');
+    note.hidden = true;
+    if (!dados) {
+      live.classList.add('off');
+      txt.textContent = erroAtual ? 'Sem ligação à planilha' : 'A carregar…';
+      if (erroAtual) { note.hidden = false; note.removeAttribute('data-kind'); note.textContent = 'Não foi possível ler a planilha: ' + erroAtual; }
+      return;
+    }
+    var gerado = new Date(dados.geradoEm);
+    if (dados.fonte === 'instantaneo') {
+      live.classList.add('snap');
+      txt.textContent = 'Instantâneo de ' + gerado.toLocaleDateString('pt-PT') + ' ' + hora(gerado);
+      note.hidden = false; note.setAttribute('data-kind', 'snap');
+      note.textContent = 'Estes números são uma fotografia da planilha. A atualização ao minuto começa assim que a planilha for ligada ao painel.';
+    } else if (erroAtual) {
+      live.classList.add('off');
+      txt.textContent = 'Sem ligação · dados das ' + hora(gerado);
+      note.hidden = false; note.removeAttribute('data-kind');
+      note.textContent = 'A última leitura falhou. Os números são das ' + hora(gerado) + ' e o painel volta a tentar dentro de um minuto.';
+    } else {
+      var seg = Math.max(0, Math.round((Date.now() - gerado.getTime()) / 1000));
+      txt.textContent = 'Ao vivo · atualizado ' + (seg < 60 ? 'há ' + seg + ' s' : 'às ' + hora(gerado));
+    }
+    $('foot-upd').textContent = 'Última leitura da planilha: ' + gerado.toLocaleString('pt-PT') + '. O painel atualiza sozinho a cada minuto.';
+  }
+
+  function carregar() {
+    fetch('/api/dados', { cache: 'no-store' })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok || j.erro) throw new Error(j.erro || ('Erro ' + r.status)); return j; }); })
+      .then(function (j) { dados = j; erroAtual = null; ultimaOk = Date.now(); render(); })
+      .catch(function (e) { erroAtual = e.message || String(e); renderEstado(); })
+      .then(function () { proxima = Date.now() + REFRESH_MS; });
+  }
+
+  var rt;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { if (dados) renderDiario(dados); }, 200); });
+
+  carregar();
+  setInterval(function () {
+    if (document.visibilityState === 'visible' && Date.now() >= proxima) carregar();
+    else if (dados) renderEstado();
+  }, 5000);
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible' && Date.now() >= proxima) carregar();
+  });
+})();
+</script>
+</body>
+</html>
