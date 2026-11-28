@@ -1,0 +1,521 @@
+{
+  "versao": 2,
+  "geradoEm": "2026-11-28T15:51:35.995072+00:00",
+  "hoje": "2026-11-28",
+  "evento": {
+    "nome": "O Despertar",
+    "subtitulo": "Tour Mundial",
+    "artista": "Deive Leonardo",
+    "data": "2026-12-05",
+    "hora": "16h00",
+    "local": "Centro Internacional de Conferências Joaquim Chissano",
+    "cidade": "Maputo · Moçambique",
+    "inscricoes": "www.tabater.co.mz",
+    "inicioCampanha": "2026-11-27",
+    "producao": "Laços Eternos",
+    "equipaVendas": "Kingdom Company",
+    "moeda": "MT",
+    "meta": null
+  },
+  "precos": [
+    {
+      "sector": "Sector A",
+      "preco": 4761,
+      "descricao": "Mais próximo do palco"
+    },
+    {
+      "sector": "Sector B",
+      "preco": 3174,
+      "descricao": "Área central da sala"
+    }
+  ],
+  "cupoes": [
+    {
+      "cupao": "Sem cupão",
+      "fator": 1,
+      "validade": "Preço normal"
+    },
+    {
+      "cupao": "BLACKFRIDAY (50%)",
+      "fator": 0.5,
+      "validade": "27/11/2026, das 18h às 24h"
+    },
+    {
+      "cupao": "DEIVE15 (15%)",
+      "fator": 0.85,
+      "validade": "Até ao dia do evento"
+    }
+  ],
+  "kpis": {
+    "base": 8395,
+    "porContactar": 8214,
+    "contactados": 181,
+    "tentativas": 181,
+    "atenderam": 64,
+    "interessados": 44,
+    "compraram": 2,
+    "ingressos": 3,
+    "receita": 0,
+    "receitaBruta": 0,
+    "descontos": 0,
+    "ticketMedio": 0,
+    "progressoMeta": null,
+    "taxaContacto": 0.021560452650387134,
+    "taxaAtendimento": 0.35359116022099446,
+    "conversao": 0.03125,
+    "followHoje": 1,
+    "followAtraso": 3
+  },
+  "funil": [
+    {
+      "status": "Por contactar",
+      "n": 8214
+    },
+    {
+      "status": "Sem resposta",
+      "n": 117
+    },
+    {
+      "status": "Em conversa",
+      "n": 0
+    },
+    {
+      "status": "Vai comprar",
+      "n": 44
+    },
+    {
+      "status": "Comprou",
+      "n": 2
+    },
+    {
+      "status": "Não vai participar",
+      "n": 18
+    },
+    {
+      "status": "Contacto inválido",
+      "n": 0
+    }
+  ],
+  "equipa": [
+    {
+      "leads": 81,
+      "contactados": 80,
+      "tentativas": 80,
+      "atenderam": 27,
+      "interessados": 18,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 2,
+      "nome": "Mayra"
+    },
+    {
+      "leads": 77,
+      "contactados": 72,
+      "tentativas": 72,
+      "atenderam": 26,
+      "interessados": 18,
+      "compraram": 2,
+      "ingressos": 3,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 0,
+      "nome": "Maria"
+    },
+    {
+      "leads": 2746,
+      "contactados": 10,
+      "tentativas": 10,
+      "atenderam": 5,
+      "interessados": 3,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 1,
+      "nome": "Pessoa 1"
+    },
+    {
+      "leads": 2745,
+      "contactados": 10,
+      "tentativas": 10,
+      "atenderam": 4,
+      "interessados": 3,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 1,
+      "followAtraso": 0,
+      "nome": "Pessoa 2"
+    },
+    {
+      "leads": 2746,
+      "contactados": 9,
+      "tentativas": 9,
+      "atenderam": 2,
+      "interessados": 2,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 0,
+      "nome": "Pessoa 3"
+    }
+  ],
+  "faixas": [
+    {
+      "leads": 103,
+      "contactados": 102,
+      "tentativas": 102,
+      "atenderam": 37,
+      "interessados": 24,
+      "compraram": 1,
+      "ingressos": 1,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 1,
+      "faixa": "A"
+    },
+    {
+      "leads": 850,
+      "contactados": 79,
+      "tentativas": 79,
+      "atenderam": 27,
+      "interessados": 20,
+      "compraram": 1,
+      "ingressos": 2,
+      "receita": 0,
+      "followHoje": 1,
+      "followAtraso": 2,
+      "faixa": "B"
+    },
+    {
+      "leads": 4787,
+      "contactados": 0,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 0,
+      "faixa": "C"
+    },
+    {
+      "leads": 2655,
+      "contactados": 0,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "compraram": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "followHoje": 0,
+      "followAtraso": 0,
+      "faixa": "D"
+    }
+  ],
+  "canais": [
+    {
+      "canal": "Chamada",
+      "n": 179
+    },
+    {
+      "canal": "WhatsApp",
+      "n": 2
+    },
+    {
+      "canal": "SMS",
+      "n": 0
+    },
+    {
+      "canal": "Email",
+      "n": 0
+    },
+    {
+      "canal": "Presencial",
+      "n": 0
+    }
+  ],
+  "motivos": [
+    {
+      "motivo": "Falta de tempo / agenda",
+      "n": 11
+    },
+    {
+      "motivo": "Financeiro",
+      "n": 1
+    },
+    {
+      "motivo": "Viagem / trabalho",
+      "n": 1
+    },
+    {
+      "motivo": "Sem interesse",
+      "n": 0
+    },
+    {
+      "motivo": "Já tem outro compromisso",
+      "n": 0
+    },
+    {
+      "motivo": "Outro",
+      "n": 0
+    },
+    {
+      "motivo": "Não indicado",
+      "n": 5
+    }
+  ],
+  "sectores": [
+    {
+      "sector": "Sector A",
+      "preco": 4761,
+      "descricao": "Mais próximo do palco",
+      "ingressos": 0,
+      "receita": 0,
+      "pessoas": 0
+    },
+    {
+      "sector": "Sector B",
+      "preco": 3174,
+      "descricao": "Área central da sala",
+      "ingressos": 0,
+      "receita": 0,
+      "pessoas": 0
+    },
+    {
+      "sector": "Sector por indicar",
+      "preco": null,
+      "descricao": "",
+      "ingressos": 3,
+      "receita": 0,
+      "pessoas": 2
+    }
+  ],
+  "cupoesVendas": [
+    {
+      "cupao": "Sem cupão",
+      "validade": "Preço normal",
+      "fator": 1,
+      "ingressos": 3,
+      "receita": 0,
+      "desconto": 0
+    },
+    {
+      "cupao": "BLACKFRIDAY (50%)",
+      "validade": "27/11/2026, das 18h às 24h",
+      "fator": 0.5,
+      "ingressos": 0,
+      "receita": 0,
+      "desconto": 0
+    },
+    {
+      "cupao": "DEIVE15 (15%)",
+      "validade": "Até ao dia do evento",
+      "fator": 0.85,
+      "ingressos": 0,
+      "receita": 0,
+      "desconto": 0
+    }
+  ],
+  "dias": [
+    {
+      "dia": "2026-11-27",
+      "futuro": false,
+      "evento": false,
+      "tentativas": 181,
+      "atenderam": 64,
+      "interessados": 44,
+      "recusas": 18,
+      "vendas": 2,
+      "ingressos": 3,
+      "receita": 0,
+      "equipa": [
+        {
+          "nome": "Mayra",
+          "tentativas": 80,
+          "atenderam": 27,
+          "vendas": 0,
+          "ingressos": 0,
+          "receita": 0
+        },
+        {
+          "nome": "Maria",
+          "tentativas": 72,
+          "atenderam": 26,
+          "vendas": 2,
+          "ingressos": 3,
+          "receita": 0
+        },
+        {
+          "nome": "Pessoa 1",
+          "tentativas": 10,
+          "atenderam": 5,
+          "vendas": 0,
+          "ingressos": 0,
+          "receita": 0
+        },
+        {
+          "nome": "Pessoa 2",
+          "tentativas": 10,
+          "atenderam": 4,
+          "vendas": 0,
+          "ingressos": 0,
+          "receita": 0
+        },
+        {
+          "nome": "Pessoa 3",
+          "tentativas": 9,
+          "atenderam": 2,
+          "vendas": 0,
+          "ingressos": 0,
+          "receita": 0
+        }
+      ],
+      "sectores": [
+        {
+          "sector": "Sector por indicar",
+          "ingressos": 3
+        }
+      ],
+      "cupoes": [
+        {
+          "cupao": "Sem cupão",
+          "ingressos": 3
+        }
+      ],
+      "relatorio": null
+    },
+    {
+      "dia": "2026-11-28",
+      "futuro": false,
+      "evento": false,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "recusas": 0,
+      "vendas": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "equipa": [],
+      "sectores": [],
+      "cupoes": [],
+      "relatorio": null
+    },
+    {
+      "dia": "2026-11-29",
+      "futuro": true,
+      "evento": false,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "recusas": 0,
+      "vendas": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "equipa": [],
+      "sectores": [],
+      "cupoes": [],
+      "relatorio": null
+    },
+    {
+      "dia": "2026-11-30",
+      "futuro": true,
+      "evento": false,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "recusas": 0,
+      "vendas": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "equipa": [],
+      "sectores": [],
+      "cupoes": [],
+      "relatorio": null
+    },
+    {
+      "dia": "2026-12-01",
+      "futuro": true,
+      "evento": false,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "recusas": 0,
+      "vendas": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "equipa": [],
+      "sectores": [],
+      "cupoes": [],
+      "relatorio": null
+    },
+    {
+      "dia": "2026-12-02",
+      "futuro": true,
+      "evento": false,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "recusas": 0,
+      "vendas": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "equipa": [],
+      "sectores": [],
+      "cupoes": [],
+      "relatorio": null
+    },
+    {
+      "dia": "2026-12-03",
+      "futuro": true,
+      "evento": false,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "recusas": 0,
+      "vendas": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "equipa": [],
+      "sectores": [],
+      "cupoes": [],
+      "relatorio": null
+    },
+    {
+      "dia": "2026-12-04",
+      "futuro": true,
+      "evento": false,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "recusas": 0,
+      "vendas": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "equipa": [],
+      "sectores": [],
+      "cupoes": [],
+      "relatorio": null
+    },
+    {
+      "dia": "2026-12-05",
+      "futuro": true,
+      "evento": true,
+      "tentativas": 0,
+      "atenderam": 0,
+      "interessados": 0,
+      "recusas": 0,
+      "vendas": 0,
+      "ingressos": 0,
+      "receita": 0,
+      "equipa": [],
+      "sectores": [],
+      "cupoes": [],
+      "relatorio": null
+    }
+  ]
+}
