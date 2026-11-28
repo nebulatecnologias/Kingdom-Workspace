@@ -1,16 +1,17 @@
 /**
  * O Despertar · Pipeline de vendas
  *
- * 1. onEdit: quando alguém muda a Etapa na aba Leads, preenche Último contacto,
+ * 1. onEdit: quando alguém muda o Status da ligação na aba Leads, preenche Último contacto,
  *    Tentativas e Data da compra, e regista a mudança na aba Histórico.
  * 2. doGet: devolve ao dashboard os números agregados (sem nomes, telefones
  *    nem emails de leads), calculados a partir das abas Leads, Histórico,
- *    Compradores e Config.
+ *    Relatório diário e Config.
  *
  * Instalação: ver projetos/o-despertar/GUIA.md.
  */
 
-var ABA = { LEADS: 'Leads', HIST: 'Histórico', COMPR: 'Compradores', CONFIG: 'Config' };
+var ABA = { LEADS: 'Leads', HIST: 'Histórico', RELATORIO: 'Relatório diário', CONFIG: 'Config' };
+var COL_STATUS = 'Status da ligação';
 var ORDEM_ETAPAS = ['Por contactar', 'Sem resposta', 'Em conversa', 'Vai comprar', 'Comprou',
   'Não vai participar', 'Contacto inválido'];
 var ATENDERAM = ['Em conversa', 'Vai comprar', 'Comprou', 'Não vai participar'];
@@ -78,7 +79,7 @@ function tratarEdicao_(e) {
   if (r0 + nr - 1 < 2 || nr > 300) return;           // cabeçalho ou colagem muito grande
   var C = colunas_(sh);
   var tocou = function (nome) { return C[nome] && C[nome] >= c0 && C[nome] < c0 + nc; };
-  var mudouEtapa = tocou('Etapa');
+  var mudouEtapa = tocou(COL_STATUS);
   var mudouDados = tocou('Telefone') || tocou('Nome') || tocou('Qtd ingressos') || tocou('Sector');
   if (!mudouEtapa && !mudouDados) return;
 
@@ -114,10 +115,10 @@ function tratarEdicao_(e) {
     }
     if (!mudouEtapa) continue;
 
-    var etapa = String(v('Etapa') || '').trim();
+    var etapa = String(v(COL_STATUS) || '').trim();
     if (!etapa) continue;
     var anterior = (n === 1 && nr === 1 && e.oldValue !== undefined) ? e.oldValue : '';
-    var qtd = v('Qtd ingressos'), cond = v('Condição');
+    var qtd = v('Qtd ingressos'), cond = v('Cupão');
     if (etapa !== 'Por contactar') {
       escrever('Último contacto', hoje, 'dd/mm/yyyy');
       escrever('Tentativas', (Number(v('Tentativas')) || 0) + 1);
@@ -125,7 +126,7 @@ function tratarEdicao_(e) {
     if (etapa === 'Comprou') {
       if (v('Data da compra') === '') escrever('Data da compra', hoje, 'dd/mm/yyyy');
       if (qtd === '') { qtd = 1; escrever('Qtd ingressos', 1); }
-      if (cond === '') { cond = 'Preço normal'; escrever('Condição', cond); }
+      if (cond === '') { cond = 'Sem cupão'; escrever('Cupão', cond); }
     }
     hist.push([agora, hoje, v('ID'), v('Responsável'), anterior, etapa, v('Canal'), v('Faixa'),
       v('Sector'), qtd, cond, 'Automático']);
@@ -148,9 +149,9 @@ function formulaWhatsApp_(C, linha) {
 }
 
 function formulaValor_(C, linha) {
-  var p = letra_(C['Qtd ingressos']) + linha, s = letra_(C['Sector']) + linha, q = letra_(C['Condição']) + linha;
-  return '=IF(OR(' + p + '="",' + s + '=""),"",' + p + '*IFERROR(VLOOKUP(' + s +
-    ',Config!$E$3:$F$12,2,FALSE),0)*IFERROR(VLOOKUP(' + q + ',Config!$H$3:$I$8,2,FALSE),1))';
+  var p = letra_(C['Qtd ingressos']) + linha, s = letra_(C['Sector']) + linha, q = letra_(C['Cupão']) + linha;
+  return '=IF(OR(' + p + '="",' + s + '=""),"",ROUND(' + p + '*IFERROR(VLOOKUP(' + s +
+    ',Config!$F$3:$G$8,2,FALSE),0)*IFERROR(VLOOKUP(' + q + ',Config!$J$3:$K$8,2,FALSE),1),0))';
 }
 
 // ---------------------------------------------------------------------------
@@ -179,6 +180,7 @@ function calcularDados_() {
   };
   var ler = function (nome) {
     var sh = ss.getSheetByName(nome);
+    if (!sh) return [];
     var lr = sh.getLastRow(), lc = sh.getLastColumn();
     if (lr < 2) return [];
     var vals = sh.getRange(1, 1, lr, lc).getValues();
@@ -195,29 +197,29 @@ function calcularDados_() {
   var leads = ler(ABA.LEADS).filter(function (l) { return l['ID'] !== '' || l['Nome'] !== ''; })
     .map(function (l) {
       return {
-        faixa: l['Faixa'], resp: l['Responsável'], etapa: l['Etapa'], canal: l['Canal'],
+        faixa: l['Faixa'], resp: l['Responsável'], status: l[COL_STATUS], canal: l['Canal'],
         tentativas: l['Tentativas'], followup: dia(l['Próximo follow-up']), sector: l['Sector'],
-        qtd: l['Qtd ingressos'], cond: l['Condição'], motivo: l['Motivo (se não vai)'],
+        qtd: l['Qtd ingressos'], cupao: l['Cupão'], motivo: l['Motivo (se não vai)'],
         dataCompra: dia(l['Data da compra'])
       };
     });
   var hist = ler(ABA.HIST).map(function (h) {
-    return { dia: dia(h['Data']) || dia(h['Data e hora']), nova: h['Nova etapa'], resp: h['Responsável'],
-      qtd: h['Qtd ingressos'], sector: h['Sector'], cond: h['Condição'] };
+    return { dia: dia(h['Data']) || dia(h['Data e hora']), novo: h['Novo status'], resp: h['Responsável'] };
   });
-  var compradores = ler(ABA.COMPR).filter(function (c) { return c['Nome'] !== '' || c['Telefone'] !== ''; })
-    .map(function (c) {
-      return { origem: c['Origem'], qtd: c['Qtd ingressos'], sector: c['Sector'], dia: dia(c['Data da compra']) };
-    });
+  var relatorios = ler(ABA.RELATORIO).map(function (r) {
+    return { dia: dia(r['Data']), autor: r['Autor da análise'], analise: r['Análise do dia'], proximos: r['Próximos passos'] };
+  });
   var config = {
-    evento: nome('evento_nome'), dataEvento: dia(nome('evento_data')), inicio: dia(nome('campanha_inicio')),
+    evento: nome('evento_nome'), subtitulo: nome('evento_subtitulo'), artista: nome('evento_artista'),
+    dataEvento: dia(nome('evento_data')), hora: nome('evento_hora'), local: nome('evento_local'),
+    cidade: nome('evento_cidade'), inscricoes: nome('evento_inscricoes'), inicio: dia(nome('campanha_inicio')),
     meta: nome('meta_ingressos'), moeda: nome('moeda'), producao: nome('producao'), equipa: nome('equipa_vendas'),
     responsaveis: tabela('lista_responsaveis').map(function (r) { return r[0]; }),
-    sectores: tabela('tabela_sectores'), condicoes: tabela('tabela_condicoes'),
+    sectores: tabela('tabela_sectores'), cupoes: tabela('tabela_cupoes'),
     canais: tabela('lista_canais').map(function (r) { return r[0]; }),
     motivos: tabela('lista_motivos').map(function (r) { return r[0]; })
   };
-  return agregar_({ leads: leads, hist: hist, compradores: compradores, config: config,
+  return agregar_({ leads: leads, hist: hist, relatorios: relatorios, config: config,
     hoje: Utilities.formatDate(new Date(), tz, 'yyyy-MM-dd'), agora: new Date().toISOString() });
 }
 
@@ -229,147 +231,175 @@ function agregar_(d) {
   var cfg = d.config, hoje = d.hoje;
   var num = function (x) { var n = Number(x); return isFinite(n) ? n : 0; };
   var txt = function (x) { return x === null || x === undefined ? '' : String(x).trim(); };
-  var preco = {}, fator = {};
-  (cfg.sectores || []).forEach(function (r) { if (txt(r[0])) preco[txt(r[0])] = num(r[1]); });
-  (cfg.condicoes || []).forEach(function (r) { if (txt(r[0])) fator[txt(r[0])] = r[1] === '' ? 1 : num(r[1]); });
-  var valor = function (qtd, sector, cond) {
-    var q = num(qtd);
-    if (!q || !txt(sector)) return 0;
-    var f = fator.hasOwnProperty(txt(cond)) ? fator[txt(cond)] : 1;
-    return q * (preco[txt(sector)] || 0) * f;
+  var lista = function (a) { return (a || []).map(txt).filter(Boolean); };
+
+  var precos = [], preco = {};
+  (cfg.sectores || []).forEach(function (r) {
+    if (!txt(r[0])) return;
+    preco[txt(r[0])] = num(r[1]);
+    precos.push({ sector: txt(r[0]), preco: num(r[1]), descricao: txt(r[2]) });
+  });
+  var cupoes = [], fator = {};
+  (cfg.cupoes || []).forEach(function (r) {
+    if (!txt(r[0])) return;
+    fator[txt(r[0])] = r[1] === '' ? 1 : num(r[1]);
+    cupoes.push({ cupao: txt(r[0]), fator: fator[txt(r[0])], validade: txt(r[2]) });
+  });
+  var valores = function (l) {
+    var q = num(l.qtd) || 1, p = preco[txt(l.sector)] || 0;
+    var f = fator.hasOwnProperty(txt(l.cupao)) ? fator[txt(l.cupao)] : 1;
+    var bruto = q * p;
+    return { q: q, bruto: bruto, liquido: Math.round(bruto * f) };
   };
-  var temPrecos = Object.keys(preco).some(function (k) { return preco[k] > 0; });
-  var contar = function (lista, chave) {
-    var m = {};
-    lista.forEach(function (x) { var k = txt(x[chave]); if (k) m[k] = (m[k] || 0) + 1; });
-    return m;
-  };
+  var status = function (l) { return txt(l.status) || 'Por contactar'; };
+
   var vazio = function () {
     return { leads: 0, contactados: 0, tentativas: 0, atenderam: 0, interessados: 0, compraram: 0,
       ingressos: 0, receita: 0, followHoje: 0, followAtraso: 0 };
   };
   var somar = function (acc, l) {
-    var etapa = txt(l.etapa) || 'Por contactar';
+    var s = status(l);
     acc.leads++;
     acc.tentativas += num(l.tentativas);
-    if (etapa !== 'Por contactar') acc.contactados++;
-    if (ATENDERAM.indexOf(etapa) >= 0) acc.atenderam++;
-    if (etapa === 'Vai comprar') acc.interessados++;
-    if (etapa === 'Comprou') {
-      acc.compraram++;
-      acc.ingressos += num(l.qtd) || 1;
-      acc.receita += valor(l.qtd || 1, l.sector, l.cond);
-    }
-    if (l.followup && ABERTAS.indexOf(etapa) >= 0) {
+    if (s !== 'Por contactar') acc.contactados++;
+    if (ATENDERAM.indexOf(s) >= 0) acc.atenderam++;
+    if (s === 'Vai comprar') acc.interessados++;
+    if (s === 'Comprou') { var v = valores(l); acc.compraram++; acc.ingressos += v.q; acc.receita += v.liquido; }
+    if (l.followup && ABERTAS.indexOf(s) >= 0) {
       if (l.followup === hoje) acc.followHoje++;
       else if (l.followup < hoje) acc.followAtraso++;
     }
     return acc;
   };
-
+  var compras = d.leads.filter(function (l) { return status(l) === 'Comprou'; });
   var total = d.leads.reduce(somar, vazio());
+  var bruto = compras.reduce(function (a, l) { return a + valores(l).bruto; }, 0);
 
-  // Equipa: ordem da Config, depois quem não está na Config
+  // Equipa
   var porResp = {};
-  d.leads.forEach(function (l) {
-    var r = txt(l.resp) || 'Sem responsável';
-    porResp[r] = somar(porResp[r] || vazio(), l);
-  });
-  var nomesEquipa = (cfg.responsaveis || []).map(txt).filter(Boolean);
+  d.leads.forEach(function (l) { var r = txt(l.resp) || 'Sem responsável'; porResp[r] = somar(porResp[r] || vazio(), l); });
+  var nomesEquipa = lista(cfg.responsaveis);
   Object.keys(porResp).forEach(function (r) { if (nomesEquipa.indexOf(r) < 0) nomesEquipa.push(r); });
-  var equipa = nomesEquipa.filter(function (r) { return porResp[r]; }).map(function (r) {
-    var o = porResp[r]; o.nome = r; return o;
-  });
+  var equipa = nomesEquipa.filter(function (r) { return porResp[r]; })
+    .map(function (r) { var o = porResp[r]; o.nome = r; return o; });
 
   var faixas = ['A', 'B', 'C', 'D'].map(function (f) {
     var o = d.leads.filter(function (l) { return txt(l.faixa) === f; }).reduce(somar, vazio());
     o.faixa = f; return o;
   });
 
-  var porEtapa = contar(d.leads.map(function (l) { return { e: txt(l.etapa) || 'Por contactar' }; }), 'e');
-  var funil = ORDEM_ETAPAS.map(function (e) { return { etapa: e, n: porEtapa[e] || 0 }; });
+  var contar = function (arr, fn) { var m = {}; arr.forEach(function (x) { var k = fn(x); if (k) m[k] = (m[k] || 0) + 1; }); return m; };
+  var porStatus = contar(d.leads, status);
+  var funil = ORDEM_ETAPAS.map(function (e) { return { status: e, n: porStatus[e] || 0 }; });
+  var porCanal = contar(d.leads.filter(function (l) { return status(l) !== 'Por contactar'; }), function (l) { return txt(l.canal); });
+  var canais = lista(cfg.canais).map(function (c) { return { canal: c, n: porCanal[c] || 0 }; });
+  var recusas = d.leads.filter(function (l) { return status(l) === 'Não vai participar'; });
+  var porMotivo = contar(recusas, function (l) { return txt(l.motivo) || 'Não indicado'; });
+  var motivos = lista(cfg.motivos).concat(['Não indicado']).map(function (m) { return { motivo: m, n: porMotivo[m] || 0 }; });
 
-  var contactados = d.leads.filter(function (l) { return txt(l.etapa) && txt(l.etapa) !== 'Por contactar'; });
-  var porCanal = contar(contactados, 'canal');
-  var canais = (cfg.canais || []).map(txt).filter(Boolean).map(function (c) { return { canal: c, n: porCanal[c] || 0 }; });
-  var recusas = d.leads.filter(function (l) { return txt(l.etapa) === 'Não vai participar'; });
-  var porMotivo = contar(recusas, 'motivo');
-  var motivos = (cfg.motivos || []).map(txt).filter(Boolean).map(function (m) { return { motivo: m, n: porMotivo[m] || 0 }; });
-  var semMotivo = recusas.filter(function (l) { return !txt(l.motivo); }).length;
-  if (semMotivo) motivos.push({ motivo: 'Não indicado', n: semMotivo });
-
-  // Outros canais (aba Compradores)
-  var outros = { pessoas: d.compradores.length, ingressos: 0, receita: 0, porOrigem: {} };
-  d.compradores.forEach(function (c) {
-    var q = num(c.qtd) || 1;
-    outros.ingressos += q;
-    outros.receita += valor(q, c.sector, '');
-    var o = txt(c.origem) || 'Não indicado';
-    outros.porOrigem[o] = (outros.porOrigem[o] || 0) + q;
-  });
-
-  // Ingressos por sector (equipa + outros)
-  var sectores = {};
-  var addSector = function (s, q, v) {
-    s = txt(s) || 'Sem sector';
-    sectores[s] = sectores[s] || { sector: s, ingressos: 0, receita: 0 };
-    sectores[s].ingressos += q; sectores[s].receita += v;
+  // Vendas por sector e por cupão
+  var agrupar = function (arr, chave, base) {
+    var m = {};
+    base.forEach(function (b) { m[b] = { ingressos: 0, receita: 0, pessoas: 0, desconto: 0 }; });
+    arr.forEach(function (l) {
+      var k = chave(l), v = valores(l);
+      m[k] = m[k] || { ingressos: 0, receita: 0, pessoas: 0, desconto: 0 };
+      m[k].ingressos += v.q; m[k].receita += v.liquido; m[k].pessoas++; m[k].desconto += v.bruto - v.liquido;
+    });
+    return m;
   };
-  d.leads.forEach(function (l) {
-    if (txt(l.etapa) === 'Comprou') addSector(l.sector, num(l.qtd) || 1, valor(l.qtd || 1, l.sector, l.cond));
+  var porSector = agrupar(compras, function (l) { return txt(l.sector) || 'Sector por indicar'; }, precos.map(function (p) { return p.sector; }));
+  var sectores = Object.keys(porSector).map(function (k) {
+    var p = precos.filter(function (x) { return x.sector === k; })[0] || {};
+    var o = porSector[k];
+    return { sector: k, preco: p.preco || null, descricao: p.descricao || '', ingressos: o.ingressos, receita: o.receita, pessoas: o.pessoas };
   });
-  d.compradores.forEach(function (c) { addSector(c.sector, num(c.qtd) || 1, valor(num(c.qtd) || 1, c.sector, '')); });
+  var porCupao = agrupar(compras, function (l) { return txt(l.cupao) || 'Sem cupão'; }, cupoes.map(function (c) { return c.cupao; }));
+  var cupoesVendas = Object.keys(porCupao).map(function (k) {
+    var c = cupoes.filter(function (x) { return x.cupao === k; })[0] || {};
+    var o = porCupao[k];
+    return { cupao: k, validade: c.validade || '', fator: c.fator || 1, ingressos: o.ingressos, receita: o.receita, desconto: o.desconto };
+  });
 
-  // Atividade diária (aba Histórico)
+  // Dias: atividade (Histórico), vendas (Data da compra), relatório do responsável
   var dias = {};
+  var novoDia = function (k) {
+    return dias[k] = dias[k] || { dia: k, tentativas: 0, atenderam: 0, interessados: 0, recusas: 0, vendas: 0,
+      ingressos: 0, receita: 0, _eq: {}, _sec: {}, _cup: {}, relatorio: null };
+  };
+  var eqDia = function (o, r) {
+    r = txt(r) || 'Sem responsável';
+    return o._eq[r] = o._eq[r] || { nome: r, tentativas: 0, atenderam: 0, vendas: 0, ingressos: 0, receita: 0 };
+  };
   d.hist.forEach(function (h) {
     if (!h.dia) return;
-    var o = dias[h.dia] = dias[h.dia] || { dia: h.dia, tentativas: 0, atenderam: 0, vendas: 0, ingressos: 0 };
-    var e = txt(h.nova);
-    if (e && e !== 'Por contactar') o.tentativas++;
-    if (ATENDERAM.indexOf(e) >= 0) o.atenderam++;
-    if (e === 'Comprou') { o.vendas++; o.ingressos += num(h.qtd) || 1; }
+    var o = novoDia(h.dia), e = txt(h.novo), p = eqDia(o, h.resp);
+    if (e && e !== 'Por contactar') { o.tentativas++; p.tentativas++; }
+    if (ATENDERAM.indexOf(e) >= 0) { o.atenderam++; p.atenderam++; }
+    if (e === 'Vai comprar') o.interessados++;
+    if (e === 'Não vai participar') o.recusas++;
+  });
+  compras.forEach(function (l) {
+    if (!l.dataCompra) return;
+    var o = novoDia(l.dataCompra), v = valores(l), p = eqDia(o, l.resp);
+    o.vendas++; o.ingressos += v.q; o.receita += v.liquido;
+    p.vendas++; p.ingressos += v.q; p.receita += v.liquido;
+    var s = txt(l.sector) || 'Sector por indicar', c = txt(l.cupao) || 'Sem cupão';
+    o._sec[s] = (o._sec[s] || 0) + v.q; o._cup[c] = (o._cup[c] || 0) + v.q;
+  });
+  (d.relatorios || []).forEach(function (r) {
+    if (!r.dia || !(txt(r.analise) || txt(r.proximos))) return;
+    novoDia(r.dia).relatorio = { autor: txt(r.autor), analise: txt(r.analise), proximos: txt(r.proximos) };
   });
   var chaves = Object.keys(dias).sort();
-  var inicio = cfg.inicio && (!chaves.length || cfg.inicio < chaves[0]) ? cfg.inicio : chaves[0];
-  var diario = [];
-  if (inicio) {
-    var cur = new Date(inicio + 'T12:00:00Z'), fim = new Date(hoje + 'T12:00:00Z');
-    var limite = 120;
-    while (cur <= fim && limite-- > 0) {
-      var k = cur.toISOString().slice(0, 10);
-      diario.push(dias[k] || { dia: k, tentativas: 0, atenderam: 0, vendas: 0, ingressos: 0 });
-      cur.setUTCDate(cur.getUTCDate() + 1);
-    }
+  var inicio = cfg.inicio || chaves[0] || hoje;
+  if (chaves.length && chaves[0] < inicio) inicio = chaves[0];
+  var fim = cfg.dataEvento && cfg.dataEvento > hoje ? cfg.dataEvento : hoje;
+  var serie = [];
+  var cur = new Date(inicio + 'T12:00:00Z'), ate = new Date(fim + 'T12:00:00Z'), limite = 120;
+  while (cur <= ate && limite-- > 0) {
+    var k = cur.toISOString().slice(0, 10);
+    var o = dias[k] || novoDia(k);
+    var ordem = nomesEquipa.concat(Object.keys(o._eq).filter(function (n) { return nomesEquipa.indexOf(n) < 0; }));
+    serie.push({
+      dia: k, futuro: k > hoje, evento: k === cfg.dataEvento,
+      tentativas: o.tentativas, atenderam: o.atenderam, interessados: o.interessados, recusas: o.recusas,
+      vendas: o.vendas, ingressos: o.ingressos, receita: o.receita,
+      equipa: ordem.filter(function (n) { return o._eq[n]; }).map(function (n) { return o._eq[n]; }),
+      sectores: Object.keys(o._sec).map(function (s) { return { sector: s, ingressos: o._sec[s] }; }),
+      cupoes: Object.keys(o._cup).map(function (c) { return { cupao: c, ingressos: o._cup[c] }; }),
+      relatorio: o.relatorio
+    });
+    cur.setUTCDate(cur.getUTCDate() + 1);
   }
 
   var meta = num(cfg.meta);
-  var ingressosTotal = total.ingressos + outros.ingressos;
   return {
-    versao: 1,
+    versao: 2,
     geradoEm: d.agora,
     hoje: hoje,
     evento: {
-      nome: txt(cfg.evento) || 'O Despertar', data: cfg.dataEvento || '', inicioCampanha: cfg.inicio || '',
-      producao: txt(cfg.producao), equipaVendas: txt(cfg.equipa), moeda: txt(cfg.moeda) || 'MT',
-      meta: meta || null, temPrecos: temPrecos
+      nome: txt(cfg.evento) || 'O Despertar', subtitulo: txt(cfg.subtitulo), artista: txt(cfg.artista),
+      data: cfg.dataEvento || '', hora: txt(cfg.hora), local: txt(cfg.local), cidade: txt(cfg.cidade),
+      inscricoes: txt(cfg.inscricoes), inicioCampanha: cfg.inicio || '', producao: txt(cfg.producao),
+      equipaVendas: txt(cfg.equipa), moeda: txt(cfg.moeda) || 'MT', meta: meta || null
     },
+    precos: precos,
+    cupoes: cupoes,
     kpis: {
       base: total.leads,
-      porContactar: porEtapa['Por contactar'] || 0,
+      porContactar: porStatus['Por contactar'] || 0,
       contactados: total.contactados,
       tentativas: total.tentativas,
       atenderam: total.atenderam,
       interessados: total.interessados,
-      compraramEquipa: total.compraram,
-      ingressosEquipa: total.ingressos,
-      receitaEquipa: total.receita,
-      pessoasOutros: outros.pessoas,
-      ingressosOutros: outros.ingressos,
-      receitaOutros: outros.receita,
-      ingressosTotal: ingressosTotal,
-      receitaTotal: total.receita + outros.receita,
-      progressoMeta: meta ? ingressosTotal / meta : null,
+      compraram: total.compraram,
+      ingressos: total.ingressos,
+      receita: total.receita,
+      receitaBruta: bruto,
+      descontos: bruto - total.receita,
+      ticketMedio: total.ingressos ? total.receita / total.ingressos : 0,
+      progressoMeta: meta ? total.ingressos / meta : null,
       taxaContacto: total.leads ? total.contactados / total.leads : 0,
       taxaAtendimento: total.contactados ? total.atenderam / total.contactados : 0,
       conversao: total.atenderam ? total.compraram / total.atenderam : 0,
@@ -381,9 +411,9 @@ function agregar_(d) {
     faixas: faixas,
     canais: canais,
     motivos: motivos,
-    origensOutros: Object.keys(outros.porOrigem).map(function (k) { return { origem: k, ingressos: outros.porOrigem[k] }; }),
-    sectores: Object.keys(sectores).map(function (k) { return sectores[k]; }),
-    diario: diario
+    sectores: sectores,
+    cupoesVendas: cupoesVendas,
+    dias: serie
   };
 }
 
