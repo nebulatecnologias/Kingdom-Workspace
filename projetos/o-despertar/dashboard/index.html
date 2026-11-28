@@ -194,6 +194,11 @@ a.chip:hover { color: var(--blue-700); }
 .note .k { font: 600 11px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 14px 0 6px; }
 .note .blank { display: grid; place-items: center; text-align: center; gap: 6px; color: var(--ink-3); padding: 18px 8px; font-size: 14px; }
 .note .blank svg { width: 28px; height: 28px; color: var(--blue-300); }
+.note .mais { display: inline-flex; align-items: center; gap: 6px; margin-top: 2px; padding: 7px 14px; border: 1px solid var(--line-2); border-radius: 999px; background: var(--card); color: var(--blue-600); font: 500 13.5px/1 var(--f-body); cursor: pointer; transition: background .15s, border-color .15s; }
+.note .mais:hover { background: var(--blue-50); border-color: var(--blue-300); }
+.note .mais:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
+.note .mais svg { width: 14px; height: 14px; transition: transform .2s; }
+.note .mais[aria-expanded="true"] svg { transform: rotate(180deg); }
 .mix { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 
 /* Funil, equipa, cupões */
@@ -707,12 +712,38 @@ section[id] { scroll-margin-top: 16px; }
     var r = d.relatorio, note = $('r-note');
     if (r) {
       note.innerHTML = '<h3>Análise do responsável</h3><div class="who"><span class="avatar" aria-hidden="true">' + esc(iniciais(r.autor || 'K')) + '</span><div><b>' + esc(r.autor || 'Equipa de vendas') + '</b><span>' + esc((D.evento.equipaVendas || 'Equipa de vendas')) + '</span></div></div>' +
-        (r.analise ? '<p>' + esc(r.analise) + '</p>' : '') +
+        '<div id="r-texto"></div>';
+      var resumo = resumir(r.analise || r.proximos || '', 160);
+      var completo = (r.analise ? '<p>' + esc(r.analise) + '</p>' : '') +
         (r.proximos ? '<div class="k">Próximos passos</div><p>' + esc(r.proximos) + '</p>' : '');
+      var curto = '<p>' + esc(resumo) + '</p>';
+      var temMais = resumo !== (r.analise || r.proximos || '') || (r.analise && r.proximos);
+      $('r-texto').innerHTML = temMais ? curto : completo;
+      if (temMais) {
+        var bt = document.createElement('button');
+        bt.type = 'button'; bt.className = 'mais'; bt.setAttribute('aria-expanded', 'false'); bt.setAttribute('aria-controls', 'r-texto');
+        var rot = function (aberto) { bt.innerHTML = (aberto ? 'Ver menos' : 'Ver mais') + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>'; };
+        rot(false);
+        bt.addEventListener('click', function () {
+          var aberto = bt.getAttribute('aria-expanded') !== 'true';
+          bt.setAttribute('aria-expanded', String(aberto)); rot(aberto);
+          $('r-texto').innerHTML = aberto ? completo : curto;
+        });
+        note.appendChild(bt);
+      }
     } else {
       note.innerHTML = '<h3>Análise do responsável</h3><div class="blank">' + ico('note') +
         (d.futuro ? 'A análise deste dia aparece aqui no fim do dia.' : 'Ainda sem análise para este dia. O responsável da equipa escreve-a na aba Relatório diário da planilha.') + '</div>';
     }
+  }
+
+  // Resumo da análise: primeiro parágrafo, cortado numa palavra até ~160 caracteres.
+  function resumir(t, max) {
+    t = String(t || '').trim();
+    var par = t.split(/\n\s*\n|\n/)[0].trim();
+    if (par.length <= max) return par;
+    var corte = par.slice(0, max), fim = corte.lastIndexOf(' ');
+    return corte.slice(0, fim > max * 0.6 ? fim : max).replace(/[\s,;:.\-–—]+$/, '') + '…';
   }
 
   function hbars(id, itens, chave, vazio) {
